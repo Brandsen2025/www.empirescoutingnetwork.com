@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guillermo Barros Schelotto - Empire FGA Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #eab308 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .player-photo {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #eab308;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .player-info h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .nickname {
+            font-size: 1.8em;
+            color: #fbbf24;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .fga-rating {
+            background: rgba(234, 179, 8, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid #fbbf24;
+        }
+        
+        .fga-rating .score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #fbbf24;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f3f4f6;
+            padding: 10px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            background: #dbeafe;
+        }
+        
+        .tab.active {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #1e40af;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #eab308;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #3b82f6;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #eab308;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -44px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: #eab308;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+        
+        .timeline-year {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .metric-bar {
+            margin: 15px 0;
+        }
+        
+        .metric-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bar-container {
+            background: #e5e7eb;
+            height: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease;
+        }
+        
+        .bar-fill.elite {
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+        }
+        
+        .bar-fill.excellent {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+        }
+        
+        .bar-fill.good {
+            background: linear-gradient(90deg, #eab308, #fbbf24);
+        }
+        
+        .achievement-list {
+            list-style: none;
+        }
+        
+        .achievement-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+        }
+        
+        .achievement-list li::before {
+            content: '🏆 ';
+            margin-right: 10px;
+        }
+        
+        .key-moment {
+            background: linear-gradient(135deg, #eff6ff, #fef3c7);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 6px solid #2563eb;
+        }
+        
+        .moment-date {
+            font-weight: bold;
+            color: #1e40af;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .moment-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .moment-description {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: #fefce8;
+            border: 2px solid #eab308;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .highlight-box strong {
+            color: #1e40af;
+        }
+        
+        .relationship-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+        
+        .relationship-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .relationship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .relationship-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .relationship-type {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .type-positive {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .type-brotherhood {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .type-complex {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .type-rival {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .relationship-description {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #eab308;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9mJ3Iwehs7ybZC5jZeUgHy4AoP6yeSapazg&s" alt="Guillermo Barros Schelotto" class="player-photo">
+            
+            <div class="player-info">
+                <h1>Guillermo Barros Schelotto</h1>
+                <div class="nickname">"El Mellizo" (The Twin)</div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Position</div>
+                        <div class="info-value">Second Striker / Forward</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Born</div>
+                        <div class="info-value">May 4, 1973</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Birthplace</div>
+                        <div class="info-value">La Plata, Argentina</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Height</div>
+                        <div class="info-value">1.71 m</div>
+                    </div>
+                </div>
+                
+                <div class="fga-rating">
+                    <div class="info-label">EMPIRE FGA RATING</div>
+                    <div class="score">89.6</div>
+                    <div class="info-label">Most Decorated Player - 18 Titles (including coaching)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">Overview</button>
+            <button class="tab" onclick="showTab('metrics')">Metrics</button>
+            <button class="tab" onclick="showTab('achievements')">Achievements</button>
+            <button class="tab" onclick="showTab('moments')">Key Moments</button>
+            <button class="tab" onclick="showTab('relationships')">Relationships</button>
+            <button class="tab" onclick="showTab('philosophy')">Philosophy</button>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2 class="section-title">Career Overview</h2>
+                
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Guillermo "El Mellizo" Barros Schelotto stands as one of Boca Juniors' most beloved figures - both as a player and coach. 
+                    The twin brother of Gustavo, Guillermo formed one of the deadliest attacking partnerships in Argentine football history 
+                    alongside Martín Palermo, helping define Boca's golden era under Carlos Bianchi.
+                </p>
+                
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    A clinical second striker with exceptional vision and goal-scoring instinct, Barros Schelotto won <strong style="color: #1e40af;">17 titles as a player</strong> 
+                    (16 with Boca, 1 with Gimnasia). His legacy extended beyond his playing career - as Boca's coach (2016-2018), he added <strong style="color: #1e40af;">2 more league titles</strong>, 
+                    making him the <strong style="color: #1e40af;">most decorated figure in club history with 18 total titles</strong> when combining playing and coaching honors.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">302</div>
+                        <div class="stat-label">Matches for Boca</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">87</div>
+                        <div class="stat-label">Goals for Boca</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">25</div>
+                        <div class="stat-label">International Goals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Total Titles (Player + Coach)</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" style="font-size: 1.5em; margin-top: 40px;">Career Timeline</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991-1997</div>
+                        <p><strong>Gimnasia La Plata:</strong> Started career with hometown club where father was president. 45 goals in 181 matches. Won 1993 AFA Centenario Cup.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">September 14, 1997</div>
+                        <p><strong>Boca Debut:</strong> Signed with twin brother Gustavo on Diego Maradona's recommendation. Scored on debut vs Newell's (2-1 win) as substitute for Claudio Caniggia.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1998-2007</div>
+                        <p><strong>Golden Decade:</strong> Became Boca's #7 and formed legendary partnership with Palermo. Won 16 titles including 4 Copa Libertadores (2000, 2001, 2003, 2007).</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2003</div>
+                        <p><strong>Peak Performance:</strong> Hat-trick vs Paysandú in Copa Libertadores Round of 16, assisted Delgado's goal. Key to 2003 Libertadores triumph.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2007-2010</div>
+                        <p><strong>MLS Success:</strong> First Designated Player for Columbus Crew. 2008 MLS MVP, MLS Cup MVP, led Crew to Supporters' Shield-MLS Cup double (assisted all 3 goals in final).</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2011</div>
+                        <p><strong>Return Home:</strong> Final season at Gimnasia playing "ad honorem" (unpaid). 110th and final Primera División goal came vs Boca.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016-2018</div>
+                        <p><strong>Boca Coach:</strong> Won back-to-back league titles (2016-17, 2017-18). Reached 2018 Copa Libertadores final (lost to River in Madrid). Left after painful defeat.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Metrics Tab -->
+            <div id="metrics" class="tab-content">
+                <h2 class="section-title">Empire FGA Forward/Second Striker Metrics</h2>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 30px;">Tier 1: Offensive Attributes</h3>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>GOL - Goals</span>
+                        <span>8.7</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill excellent" style="width: 87%">Excellent</div>
+                    </div>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>AST - Assists</span>
+                        <span>8.9</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill excellent" style="width: 89%">Excellent</div>
+                    </div>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>KEY - Key Passes</span>
+                        <span>9.1</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill elite" style="width: 91%">Elite</div>
+                    </div>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>STK - Shot Technique</span>
+                        <span>8.8</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill excellent" style="width: 88%">Excellent</div>
+                    </div>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>FIN - Finishing</span>
+                        <span>9.0</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill elite" style="width: 90%">Elite</div>
+                    </div>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span>VIS - Vision</span>
+                        <span>9.3</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill elite" style="width: 93%">Elite</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">Tier 2: Composite Indices</h3>
+                
+                <div class="stats-grid" style="margin-top: 20px;">
+                    <div class="stat-card">
+                        <div class="stat-value">9.2</div>
+                        <div class="stat-label">CPI - Creative Player Index</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8.9</div>
+                        <div class="stat-label">POI - Position Intelligence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">9.4</div>
+                        <div class="stat-label">MTI - Match Impact Index</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8.7</div>
+                        <div class="stat-label">CPX - Composure</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">Tier 3: Mental Attributes</h3>
+                
+                <div class="stats-grid" style="margin-top: 20px;">
+                    <div class="stat-card" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+                        <div class="stat-value" style="color: #065f46;">9.3</div>
+                        <div class="stat-label">DMA - Decision Making</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+                        <div class="stat-value" style="color: #065f46;">9.0</div>
+                        <div class="stat-label">CHR - Character</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+                        <div class="stat-value" style="color: #065f46;">8.8</div>
+                        <div class="stat-label">CLM - Calmness</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+                        <div class="stat-value" style="color: #065f46;">9.1</div>
+                        <div class="stat-label">CRK - Creative Risk Taking</div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <strong>Partnership Excellence:</strong> Barros Schelotto's greatest strength was his chemistry with Palermo. 
+                    They played 143 matches together (80 wins, 37 draws, 26 losses), with Palermo scoring 103 goals. 
+                    Guillermo provided 16 assists to Palermo, ranking 3rd among all Palermo assist providers (Riquelme 19, Palacio 17).
+                </div>
+            </div>
+            
+            <!-- Achievements Tab -->
+            <div id="achievements" class="tab-content">
+                <h2 class="section-title">Achievements & Honors</h2>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 30px;">As Player - Boca Juniors (16 Titles)</h3>
+                
+                <h4 style="color: #2563eb; margin-top: 20px;">Primera División (6)</h4>
+                <ul class="achievement-list">
+                    <li>Apertura 1998, Clausura 1999, Apertura 2000, Apertura 2003, Apertura 2005, Clausura 2006</li>
+                </ul>
+                
+                <h4 style="color: #2563eb; margin-top: 20px;">International (10)</h4>
+                <ul class="achievement-list">
+                    <li><strong>Copa Libertadores:</strong> 2000, 2001, 2003, 2007 (4 titles)</li>
+                    <li><strong>Copa Intercontinental:</strong> 2000, 2003 (2 titles)</li>
+                    <li><strong>Copa Sudamericana:</strong> 2004, 2005 (2 titles)</li>
+                    <li><strong>Recopa Sudamericana:</strong> 2005, 2006 (2 titles)</li>
+                </ul>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">As Player - Other Clubs</h3>
+                <ul class="achievement-list">
+                    <li><strong>Gimnasia La Plata:</strong> 1993 AFA Centenario Cup</li>
+                    <li><strong>Columbus Crew:</strong> 2008 MLS Cup, 2008 & 2009 Supporters' Shield</li>
+                </ul>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">As Coach</h3>
+                <ul class="achievement-list">
+                    <li><strong>Lanús:</strong> 2013 Copa Sudamericana</li>
+                    <li><strong>Boca Juniors:</strong> 2016-17 Primera División, 2017-18 Primera División</li>
+                    <li><strong>2018 Copa Libertadores Finalist</strong> (lost to River Plate)</li>
+                </ul>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">Individual Honors</h3>
+                <ul class="achievement-list" style="background: #fef3c7; border-left-color: #eab308;">
+                    <li style="background: transparent;"><strong>2008 MLS Most Valuable Player</strong></li>
+                    <li style="background: transparent;"><strong>2008 MLS Cup MVP</strong></li>
+                    <li style="background: transparent;"><strong>2008 SI Latino Sportsman of the Year</strong></li>
+                    <li style="background: transparent;"><strong>2007 & 2008 MLS Best XI</strong></li>
+                    <li style="background: transparent;"><strong>MLS Single-Season Assist Record:</strong> 19 assists (2008)</li>
+                    <li style="background: transparent;"><strong>Immortalized with Statue:</strong> Museo de la Pasión Boquense (2013) alongside Maradona, Riquelme, Palermo</li>
+                    <li style="background: transparent;"><strong>Argentina National Team:</strong> 10 caps (1995-1999), 1995 Pan American Games Gold Medal</li>
+                </ul>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4 style="color: #1e40af; margin-bottom: 10px;">Historic Achievement</h4>
+                    <p><strong>Most Decorated Figure in Boca History:</strong> With 17 titles as a player and 2 as coach (19 total), 
+                    Barros Schelotto surpassed Sebastián Battaglia's record (17 titles as player). When including titles won as both 
+                    player and coach, Guillermo holds the all-time record.</p>
+                </div>
+            </div>
+            
+            <!-- Key Moments Tab -->
+            <div id="moments" class="tab-content">
+                <h2 class="section-title">Defining Moments</h2>
+                
+                <div class="key-moment">
+                    <div class="moment-date">September 14, 1997</div>
+                    <div class="moment-title">Boca Juniors Debut vs Newell's Old Boys</div>
+                    <div class="moment-description">
+                        Came on as substitute for Claudio Caniggia and scored in a 2-1 victory. This debut goal announced the arrival 
+                        of one of Boca's greatest ever players. Maradona's recommendation proved golden as the twins (Guillermo and Gustavo) 
+                        joined forces with former rival Martín Palermo to begin an era of unprecedented success.
+                    </div>
+                </div>
+                
+                <div class="key-moment">
+                    <div class="moment-date">1998-1999 Season</div>
+                    <div class="moment-title">The Birth of a Legendary Partnership</div>
+                    <div class="moment-description">
+                        Under Carlos Bianchi, Barros Schelotto (#7) and Palermo formed one of Argentine football's deadliest attacking duos. 
+                        Together they drove Boca to the 1998 Apertura and 1999 Clausura titles, establishing the foundation for the golden era. 
+                        Their understanding was telepathic - former schoolmates turned championship partners.
+                    </div>
+                    <div class="highlight-box">
+                        <strong>From Rivals to Brothers:</strong> Barros Schelotto (Gimnasia) and Palermo (Estudiantes) were childhood rivals 
+                        from La Plata. They attended the same school (Sagrado Corazón) and their junior matches caused fights between fans. 
+                        At Boca, they became inseparable - the perfect attacking combination.
+                    </div>
+                </div>
+                
+                <div class="key-moment">
+                    <div class="moment-date">2003 Copa Libertadores</div>
+                    <div class="moment-title">Hat-trick vs Paysandú - Round of 16</div>
+                    <div class="moment-description">
+                        Peak performance in Boca's victorious 2003 Libertadores campaign. Barros Schelotto scored three goals and assisted 
+                        Marcelo Delgado in a dominant display against Brazilian side Paysandú. This match showcased his complete attacking 
+                        game - finishing, movement, and vision. Despite missing the 2001 and 2003 finals due to injuries, he was instrumental 
+                        in getting Boca there.
+                    </div>
+                </div>
+                
+                <div class="key-moment">
+                    <div class="moment-date">November 25, 2008</div>
+                    <div class="moment-title">MLS Cup Final - Columbus Crew vs New York Red Bulls</div>
+                    <div class="moment-description">
+                        The defining moment of his MLS career. In the final, Barros Schelotto assisted on ALL THREE goals as Columbus Crew 
+                        defeated New York Red Bulls 3-1 to win the MLS Cup. His vision and passing were sublime, earning him MLS Cup MVP honors. 
+                        Combined with the 2008 Supporters' Shield and his league MVP award, this performance cemented his status as one of MLS's 
+                        greatest ever imports. He set the MLS single-season assist record with 19 that year.
+                    </div>
+                </div>
+                
+                <div class="key-moment">
+                    <div class="moment-date">2016-2018</div>
+                    <div class="moment-title">Back-to-Back Championships as Boca Coach</div>
+                    <div class="moment-description">
+                        Returned to Boca as head coach and immediately delivered success. Won consecutive league titles (2016-17, 2017-18) 
+                        despite challenges including Carlos Tevez's departure to China. His attacking philosophy and understanding of Boca's 
+                        DNA made him a natural fit. Managed to handle big personalities and deliver championships in the high-pressure 
+                        environment of La Bombonera.
+                    </div>
+                </div>
+                
+                <div class="key-moment">
+                    <div class="moment-date">December 9, 2018</div>
+                    <div class="moment-title">Copa Libertadores Final - The Madrid Heartbreak</div>
+                    <div class="moment-description">
+                        Boca faced arch-rivals River Plate in the Copa Libertadores final, postponed and moved to Madrid after fan violence. 
+                        Lost 3-1 after extra time in one of the most painful defeats in Boca history. Despite reaching the final and winning 
+                        two league titles, Barros Schelotto left the club after this heartbreaking loss. The emotional toll was too great. 
+                        He departed saying "Me voy en paz con el hincha" (I leave in peace with the fans).
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4 style="color: #1e40af; margin-bottom: 10px;">Career Statistics Highlights</h4>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">87</div>
+                            <div class="stat-label">Goals in 302 Boca Matches</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">25</div>
+                            <div class="stat-label">International Goals (1 behind Palermo)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">110</div>
+                            <div class="stat-label">Total Primera División Goals</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Relationships Tab -->
+            <div id="relationships" class="tab-content">
+                <h2 class="section-title">Key Relationships</h2>
+                
+                <h3 style="color: #16a34a; font-size: 1.5em; margin-top: 30px;">✅ Positive Relationships</h3>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Gustavo Barros Schelotto (Twin Brother)</div>
+                        <span class="relationship-type type-brotherhood">Inseparable Bond</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://www.playmakerstats.com/img/treinadores/345/56345_med_gustavo_barros_schelotto.jpg" 
+                                 alt="Gustavo Barros Schelotto" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #1e40af;">
+                            <div>
+                                <strong>The Eternal Twins:</strong> Born together, played together, coached together. Gustavo and Guillermo's bond 
+                                transcends football. Started at Gimnasia where their father was president, moved to Boca together on Maradona's 
+                                recommendation. After retirement, Guillermo became head coach with Gustavo as his assistant at every club: Lanús (2012), 
+                                Palermo (2016), Boca (2016-2018), LA Galaxy (2019-2020), Paraguay National Team (2021-2023), Vélez Sarsfield (2025).
+                            </div>
+                        </div>
+                        <p>
+                            Their telepathic understanding on the pitch mirrors their lifelong partnership off it. Gustavo was a hard-working 
+                            midfielder who complemented Guillermo's attacking flair perfectly.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Martín Palermo</div>
+                        <span class="relationship-type type-positive">From Rivals to Legendary Partners</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://martinpalermo.wordpress.com/files/2007/07/4824.jpg" 
+                                 alt="Martín Palermo" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #22c55e;">
+                            <div>
+                                <strong>The Greatest Transformation:</strong> They were childhood enemies - Guillermo at Gimnasia, Palermo at Estudiantes 
+                                (La Plata's fiercest rivals). They studied together at Colegio Sagrado Corazón (Guillermo one grade ahead), sharing only 
+                                recess time. Their junior matches caused massive fights between fans and parents.
+                            </div>
+                        </div>
+                        <p>
+                            At Boca (1997), they became brothers. <strong>143 matches together: 80 wins, 37 draws, 26 losses.</strong> Palermo scored 103 goals 
+                            in those matches; Guillermo provided 16 assists to Palermo (3rd most after Riquelme 19, Palacio 17). Palermo preferred playing 
+                            with Guillermo over anyone else. Together they won 9 titles including 4 Copa Libertadores. Their partnership defined an era.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Carlos Bianchi</div>
+                        <span class="relationship-type type-positive">Coach-Player Trust</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://www.futebolportenho.com.br/wp-content/uploads/2011/05/Carlos-Bianchi.jpg" 
+                                 alt="Carlos Bianchi" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #22c55e;">
+                            <div>
+                                <strong>The Man Who Made Him #7:</strong> Bianchi gave Barros Schelotto the iconic #7 shirt and built Boca's attack 
+                                around him and Palermo. The coach trusted Guillermo completely, making him a guaranteed starter. Under Bianchi, 
+                                Barros Schelotto won the majority of his 16 Boca titles.
+                            </div>
+                        </div>
+                        <p>
+                            The tactical system maximized his creativity and finishing ability. Bianchi's faith in the Palermo-Barros Schelotto 
+                            partnership created one of South America's most feared attacking duos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Diego Maradona</div>
+                        <span class="relationship-type type-positive">Mentor & Recommender</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQspnoyohxA9iby-oi1Uhse59C954wg1UkBg&s" 
+                                 alt="Diego Maradona" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #22c55e;">
+                            <div>
+                                <strong>The Recommendation That Changed Everything:</strong> Maradona, in his final Boca season (1997), repeatedly 
+                                recommended the Barros Schelotto twins to the club. After witnessing Guillermo's hat-trick in Gimnasia's 6-0 victory 
+                                at La Bombonera, Maradona knew he had special talent.
+                            </div>
+                        </div>
+                        <p>
+                            The legend's endorsement opened Boca's doors for the twins and Palermo. Guillermo debuted as substitute for Claudio Caniggia, 
+                            another Maradona connection. Diego retired in October 1997, having passed the torch to the next generation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Roberto Abbondanzieri</div>
+                        <span class="relationship-type type-positive">Golden Generation</span>
+                    </div>
+                    <div class="relationship-description">
+                        <strong>Attack-Defense Balance:</strong> While Barros Schelotto orchestrated attacks, Abbondanzieri provided defensive 
+                        security. Both were integral to Boca's golden era (2000-2007). Their complementary roles created championship-winning 
+                        balance. Abbondanzieri's penalty heroics and Barros Schelotto's goals formed the perfect combination for Boca's 
+                        international success.
+                    </div>
+                </div>
+                
+                <h3 style="color: #eab308; font-size: 1.5em; margin-top: 40px;">⚠️ Complex/Challenging Relationships</h3>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Juan Román Riquelme</div>
+                        <span class="relationship-type type-complex">Historic Rivalry Within Same Team</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIvsZxE69M0rOqry6JfCt09x-8Pmlt7bj5sA&s" 
+                                 alt="Juan Román Riquelme" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #eab308;">
+                            <div>
+                                <strong>The Famous 2000 Intercontinental Cup Conflict:</strong> Before the final vs Real Madrid in Tokyo, Bianchi had 
+                                to choose who would partner Palermo. <strong>Palermo wanted Guillermo (his best partner).</strong> <strong>Riquelme wanted 
+                                Marcelo Delgado.</strong> The tension was palpable.
+                            </div>
+                        </div>
+                        <p>
+                            Riquelme and Barros Schelotto never became friends - they represented different groups within the squad. Years later (2011), 
+                            when both returned to their original clubs (Riquelme to Boca, Guillermo to Gimnasia), the rivalry reignited. In the relegation 
+                            battle, Riquelme said <strong>"Los quiero mandar al descenso"</strong> (I want to send them to relegation). Guillermo responded: 
+                            <strong>"Yo le voy a romper la rodilla"</strong> (I'll break his knee). Despite this animosity, both are Boca legends. As of 
+                            2020-2023, their relationship appears to have softened - Riquelme (now Boca VP/President) considered Barros Schelotto for a 
+                            coaching return, showing professional respect despite personal differences.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Enzo Francescoli (River Plate)</div>
+                        <span class="relationship-type type-rival">Career-Defining Rejection</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://cdn.resfu.com/img_data/players/medium/382510.jpg?size=340x&lossy=1" 
+                                 alt="Enzo Francescoli" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #dc2626;">
+                            <div>
+                                <strong>The Rejection That Led to Glory:</strong> In 1996, River Plate wanted to sign both Barros Schelotto twins from 
+                                Gimnasia. The deal was ready. But River legend Enzo Francescoli vetoed the signing due to a personal dispute with 
+                                Guillermo.
+                            </div>
+                        </div>
+                        <p>
+                            River's loss became Boca's gain. This rejection changed football history - instead of playing for River, 
+                            Guillermo became a Boca icon and won 17 titles. The twins never forgot this snub.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Alfio Basile (Boca Coach)</div>
+                        <span class="relationship-type type-complex">Declining Role</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://i1.sndcdn.com/artworks-WROYPUvCh6fXiqXR-REfqsA-t500x500.jpg" 
+                                 alt="Alfio Basile" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #eab308;">
+                            <div>
+                                <strong>The Difficult Transition:</strong> When Basile replaced Bianchi as Boca coach, Barros Schelotto's role diminished. 
+                                His first-team participation gradually decreased. He was even dropped to the reserve team to maintain fitness.
+                            </div>
+                        </div>
+                        <p>
+                            After being a guaranteed starter under Bianchi, this demotion was difficult. It contributed to his 2007 decision to leave 
+                            for MLS, seeking regular playing time at age 34.
+                        </p>
+                    </div>
+                </div>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">💭 Notable Dynamics</h3>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Carlos Tevez</div>
+                        <span class="relationship-type type-complex">Player-Coach Challenge</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://game-assets.fut.gg/cdn-cgi/image/quality=100,format=auto,width=500/2026/player-item/26-274966.9677d3d75ac32c252dc621ed90b73f864bfd2b0c06bc7a4dd61b5f09e3ad13f9.webp" 
+                                 alt="Carlos Tevez" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #eab308;">
+                            <div>
+                                <strong>Managing a Legend:</strong> As Boca coach (2016-2018), Barros Schelotto had to manage Tevez, an absolute icon. 
+                                Despite Tevez's departure to China in 2017 (multi-million dollar deal), Guillermo won the league title.
+                            </div>
+                        </div>
+                        <p>
+                            When Tevez returned for a third Boca spell, there was an incident during Copa Libertadores - Tevez was caught smoking in the 
+                            halftime locker room during a match vs Nacional. Barros Schelotto took it as a grave disciplinary breach. Despite 
+                            tensions, Guillermo successfully managed the superstar and achieved results.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <div class="relationship-header">
+                        <div class="relationship-name">Sebastián Battaglia</div>
+                        <span class="relationship-type type-positive">Title Record Rivalry (Friendly)</span>
+                    </div>
+                    <div class="relationship-description">
+                        <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 15px;">
+                            <img src="https://images.fotmob.com/image_resources/playerimages/30533.png" 
+                                 alt="Sebastián Battaglia" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 3px solid #22c55e;">
+                            <div>
+                                <strong>The Trophy Race:</strong> Battaglia held the Boca player record with 17 titles. Barros Schelotto matched him 
+                                with 17 (16 at Boca + 1 at Gimnasia). As coach, Guillermo added 2 more Boca titles, giving him 19 total.
+                            </div>
+                        </div>
+                        <p>
+                            This friendly rivalry for most decorated Boca figure shows mutual respect between golden era legends.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4 style="color: #1e40af; margin-bottom: 10px;">Relationship Philosophy</h4>
+                    <p>Barros Schelotto was known for his intensity and competitive spirit. He formed deep bonds with those he trusted 
+                    (Gustavo, Palermo, Bianchi) but could be confrontational with rivals (Riquelme, Francescoli). His nickname "El Mellizo" 
+                    reflected his inseparable bond with his twin. <strong>His loyalty to teammates and fierce competitiveness defined his 
+                    relationships - he was either your greatest ally or your toughest opponent.</strong></p>
+                </div>
+            </div>
+            
+            <!-- Philosophy Tab -->
+            <div id="philosophy" class="tab-content">
+                <h2 class="section-title">60-Philosophy Framework Alignment</h2>
+                
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    Barros Schelotto's attacking intelligence and partnership play align perfectly with offensive philosophies that emphasize 
+                    combination play, movement, and clinical finishing. His ability to both score and create made him ideal for systems that 
+                    prioritize attacking football.
+                </p>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 30px;">Top Philosophy Alignments</h3>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span><strong>Bianchi Era (South American School)</strong> - Attacking efficiency and trophy winning</span>
+                        <span style="color: #16a34a; font-size: 1.3em;">9.4</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill elite" style="width: 94%">Perfect Match</div>
+                    </div>
+                    <p style="margin-top: 10px; color: #64748b;">
+                        Barros Schelotto was the creative force in Bianchi's attack. His partnership with Palermo was central to 
+                        winning 4 Copa Libertadores and multiple league titles.
+                    </p>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span><strong>Menotti School (South American)</strong> - Beautiful attacking football</span>
+                        <span style="color: #16a34a; font-size: 1.3em;">9.2</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill elite" style="width: 92%">Elite Match</div>
+                    </div>
+                    <p style="margin-top: 10px; color: #64748b;">
+                        His creative play and vision aligned with Menotti's philosophy of joyful, attacking football with technical excellence.
+                    </p>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span><strong>Cruyff Intelligence (Dutch School)</strong> - Positional play and movement</span>
+                        <span style="color: #16a34a; font-size: 1.3em;">8.9</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill excellent" style="width: 89%">Excellent Match</div>
+                    </div>
+                    <p style="margin-top: 10px; color: #64748b;">
+                        Exceptional spatial awareness and ability to find pockets of space matched Cruyffian principles.
+                    </p>
+                </div>
+                
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <span><strong>Ancelotti System (Modern Masters)</strong> - Flexible attacking partnerships</span>
+                        <span style="color: #16a34a; font-size: 1.3em;">8.8</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill excellent" style="width: 88%">Excellent Match</div>
+                    </div>
+                    <p style="margin-top: 10px; color: #64748b;">
+                        Like Ancelotti's best attacking midfielders, combined goals with assists in fluid systems.
+                    </p>
+                </div>
+                
+                <h3 style="color: #1e40af; font-size: 1.5em; margin-top: 40px;">Playing Style Analysis</h3>
+                
+                <div class="stats-grid" style="margin-top: 20px;">
+                    <div class="stat-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">⚽</div>
+                        <div class="stat-label"><strong>Second Striker</strong></div>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Clinical finishing and movement</p>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🎯</div>
+                        <div class="stat-label"><strong>Partnership Play</strong></div>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Telepathic with Palermo</p>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">👁️</div>
+                        <div class="stat-label"><strong>Vision</strong></div>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Exceptional passing and assists</p>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🏃</div>
+                        <div class="stat-label"><strong>Movement</strong></div>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Intelligent off-ball runs</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-color: #eab308;">
+                    <h4 style="color: #92400e; margin-bottom: 15px; font-size: 1.5em;">🏆 Trophy Magnet Factor: 9.3</h4>
+                    <p style="color: #78350f; line-height: 1.8;">
+                        <strong>Analysis:</strong> Barros Schelotto's elite trophy magnet score of 9.3 reflects his championship DNA. 
+                        17 titles as a player, 3 as a coach (20 total) validate this rating. He was a difference-maker in crucial moments, 
+                        combining goals, assists, and leadership. His partnership with Palermo created one of South America's most successful 
+                        attacking duos. Whether as player or coach, Guillermo understood what it takes to win at the highest level. 
+                        His ability to perform in finals and decisive matches made him indispensable to every trophy-winning campaign.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div>
+                    <div class="logo-text">⚽ EMPIRE FGA SCOUTING NETWORK</div>
+                    <p style="font-size: 0.9em; margin-top: 5px; opacity: 0.8;">779 Metrics | 60 Philosophies | Infinite Insight</p>
+                </div>
+                <div style="text-align: right;">
+                    <p>Profile Generated: October 2025</p>
+                    <p style="opacity: 0.8; font-size: 0.9em;">Confidence Level: Premium (95%+)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alfredo Di Stéfano — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226;
+      --card:#0b1220;
+      --accent:#c8102e;
+      --accent2:#ffd166;
+      --muted:#9fb0c8;
+      --glass: rgba(255,255,255,0.03);
+      --gold:#ffc857;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    html,body{height:100%; margin:0; background:
+      radial-gradient(900px 500px at 8% 12%, rgba(200,16,46,0.06), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,209,102,0.03), transparent 8%),
+      var(--bg); color:#e6eef8; -webkit-font-smoothing:antialiased;}
+    .container{max-width:1320px; margin:32px auto; padding:22px; display:grid; grid-template-columns:360px 1fr; gap:28px;}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.04); border-radius:14px; padding:18px;}
+    .photo{width:100%; border-radius:12px; display:block; object-fit:cover; border:4px solid rgba(255,255,255,0.04); height:520px;}
+    .bigname{font-size:44px; font-weight:900; margin:16px 0 8px; color:#fff; line-height:1;}
+    .nickname{color:var(--gold); font-weight:900; margin-bottom:8px; font-size:14px;}
+    .sub{color:var(--muted); font-size:15px; line-height:1.4;}
+    .quickfacts{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;}
+    .pill{background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:999px; color:var(--muted); font-weight:700; font-size:13px;}
+    .tabs{display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+    .tab {background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;}
+    .tab.active{background:linear-gradient(90deg,var(--accent2),var(--accent)); color:#071226; font-weight:900; border:none;}
+    .tab-content{background:transparent; margin-top:12px;}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+    table{width:100%; border-collapse:collapse; margin-top:10px;}
+    th,td{padding:12px 14px; border-bottom:1px dashed rgba(255,255,255,0.03); font-size:15px; text-align:left;}
+    th{color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:0.6px;}
+    .kpi{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
+    .metric{background:rgba(255,255,255,0.02); padding:12px; border-radius:10px; min-width:150px;}
+    .metric .m-title{color:var(--muted); font-size:13px;}
+    .metric .m-value{font-size:20px; font-weight:900; margin-top:6px; color:#fff;}
+    .graph-placeholder{height:180px; border-radius:10px; background:linear-gradient(90deg, rgba(200,16,46,0.06), rgba(255,209,102,0.03)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:15px;}
+    .fga-box{display:flex; gap:18px; align-items:center; background:linear-gradient(90deg, rgba(255,209,102,0.06), rgba(200,16,46,0.03)); padding:14px; border-radius:12px;}
+    .fga-score{font-size:52px; font-weight:900; color:#071226; background:#ffc857; padding:6px 12px; border-radius:10px;}
+    .logo-below {display:block; margin-top:12px; width:140px; height:72px; object-fit:contain; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.5); background:#ffffff06; border:1px solid rgba(255,255,255,0.03);}
+    .json-snippet{background:#051028; padding:12px; border-radius:8px; color:#9fd7ff; font-family:monospace; font-size:13px;}
+    footer{margin-top:18px; color:var(--muted); font-size:14px; text-align:center;}
+    @media (max-width:1100px){
+      .container{grid-template-columns:1fr;}
+      .photo{height:420px;}
+      .bigname{font-size:36px;}
+      .fga-score{font-size:40px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="card">
+      <img class="photo" src="https://assets.realmadrid.com/is/image/realmadrid/1330186262231?$Mobile$&fit=wrap&wid=312" alt="Alfredo Di Stéfano photo" />
+      <div class="bigname">Alfredo Stéfano Di Stéfano Laulhé</div>
+      <div class="nickname">Nickname: La Saeta Rubia</div>
+      <div class="sub">Forward / Inside-forward · Argentina / Spain · Born: 4 Jul 1926 · Died: 7 Jul 2014 · Height: 1.78 m</div>
+
+      <div class="quickfacts" style="margin-top:14px;">
+        <div class="pill">Madrid Merengues — All-time roster</div>
+        <div class="pill">Real Madrid icon</div>
+        <div class="pill">Five-time European Cup winner</div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <div style="font-weight:900; font-size:15px; margin-bottom:8px;">Bio & quick facts</div>
+        <div class="sub">Argentine-born attacker celebrated for versatility, goal-scoring and tactical intelligence; starred for Millonarios and Real Madrid and scored in five consecutive European Cup finals.</div>
+      </div>
+    </aside>
+
+    <main class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:18px;">
+        <div>
+          <div style="font-weight:900; font-size:20px;">Empire FGA — Player Profile</div>
+          <div style="color:var(--muted); margin-top:6px; font-size:14px;">Madrid Merengues (Real Madrid All-time roster)</div>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button style="background:var(--gold); border:0; color:#071226; padding:10px 14px; border-radius:10px; font-weight:900; cursor:pointer;">Export One-pager</button>
+          <button style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:10px 14px; border-radius:10px; font-weight:800; cursor:pointer;">Add to Hall of Fame</button>
+        </div>
+      </div>
+
+      <div style="height:28px;"></div>
+
+      <div class="tabs" role="tablist" aria-label="Profile tabs">
+        <button class="tab active" data-tab="overview">Career overview</button>
+        <button class="tab" data-tab="seasons">Season performance</button>
+        <button class="tab" data-tab="milestones">Career milestones</button>
+        <button class="tab" data-tab="metrics">Metrics</button>
+        <button class="tab" data-tab="philosophy">Tactical philosophy</button>
+        <button class="tab" data-tab="comparison">Players comparison</button>
+      </div>
+
+      <div id="overview" class="tab-content">
+        <h3 style="margin:6px 0 10px 0;">Career overview</h3>
+
+        <div class="fga-box" style="margin-bottom:16px;">
+          <div>
+            <div style="color:var(--muted); font-weight:800;">Empire FGA Rating</div>
+            <div class="fga-score">97</div>
+            <div style="color:var(--muted); margin-top:6px; font-weight:800;">Tier: Iconic</div>
+            <div style="color:var(--muted); margin-top:4px;">Position percentile: Top 0.2%</div>
+            <img class="logo-below" src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA logo" />
+          </div>
+
+          <div style="flex:1;">
+            <div style="font-weight:900; margin-bottom:6px;">Pillar breakdown (contributors)</div>
+            <table style="width:100%; margin-top:6px;">
+              <thead><tr><th style="width:55%;">Pillar</th><th style="width:15%;">Score</th><th style="width:30%;">Weight</th></tr></thead>
+              <tbody>
+                <tr><td>Goal Threat</td><td>98</td><td>30%</td></tr>
+                <tr><td>All-round Playmaking</td><td>97</td><td>25%</td></tr>
+                <tr><td>Movement & Space Creation</td><td>96</td><td>20%</td></tr>
+                <tr><td>Finishing Efficiency</td><td>95</td><td>10%</td></tr>
+                <tr><td>Mental (leadership & intelligence)</td><td>96</td><td>10%</td></tr>
+                <tr><td>Durability / Career Impact</td><td>99</td><td>5%</td></tr>
+              </tbody>
+            </table>
+
+            <div style="color:var(--muted); margin-top:10px; font-size:13px;">Calculation: weighted pillars + Era & Legacy bonus (accounts for continental dominance and five European Cup finals goals) → Final FGA 97 / 100.</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <table aria-label="Club career summary">
+              <thead><tr><th>Years</th><th>Club</th><th>Apps</th><th>Goals</th></tr></thead>
+              <tbody>
+                <tr><td>1945–1949</td><td>River Plate</td><td>66</td><td>49</td></tr>
+                <tr><td>1949–1953</td><td>Millonarios</td><td>101</td><td>90</td></tr>
+                <tr><td>1953–1964</td><td>Real Madrid</td><td>282</td><td>216</td></tr>
+                <tr><td>1964–1966</td><td>Espanyol</td><td>47</td><td>11</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>Senior</strong></td><td><strong>~496</strong></td><td><strong>~366</strong></td></tr>
+              </tbody>
+            </table>
+
+            <div style="color:var(--muted); margin-top:10px;">International: represented Argentina, Colombia and Spain across his international career; won Copa América with Argentina in 1947 and later became a Spanish international.</div>
+          </div>
+
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Core attributes (Empire FGA)</div>
+            <div class="kpi">
+              <div class="metric"><div class="m-title">Goal Threat</div><div class="m-value">98</div></div>
+              <div class="metric"><div class="m-title">Playmaking</div><div class="m-value">97</div></div>
+              <div class="metric"><div class="m-title">Movement</div><div class="m-value">96</div></div>
+              <div class="metric"><div class="m-title">Career Impact</div><div class="m-value">99</div></div>
+            </div>
+
+            <div style="margin-top:18px;">
+              <div style="font-weight:900; margin-bottom:8px;">Legacy notes</div>
+              <div class="sub">Di Stéfano redefined forward play with off-ball intelligence and total involvement across phases, his five consecutive European Cup final goals remain a unique legacy and justify a top-tier FGA placement.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="seasons" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Season performance (selected highlights)</h3>
+        <table aria-label="Season highlights">
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1956</td><td>Real Madrid</td><td>30</td><td>24</td><td>European Cup winner</td></tr>
+            <tr><td>1957</td><td>Real Madrid</td><td>30</td><td>31</td><td>Ballon d'Or winner</td></tr>
+            <tr><td>1959</td><td>Real Madrid</td><td>30</td><td>23</td><td>Ballon d'Or winner</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:16px;" class="graph-placeholder">Season timeline / peak years graphic placeholder (peak years: 1955–1960)</div>
+      </div>
+
+      <div id="milestones" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Career milestones (graphic)</h3>
+        <div class="graph-placeholder">Milestones: five European Cups; multiple La Liga titles; two Ballon d'Ors; Copa América winner; scored in five consecutive European Cup finals.</div>
+
+        <ul style="color:var(--muted); margin-top:12px; padding-left:18px;">
+          <li>Five consecutive European Cups (1956–1960) with Real Madrid; scored in each final.</li>
+          <li>Twice European Footballer of the Year (Ballon d'Or 1957, 1959).</li>
+          <li>Key figure of the Millonarios and Real Madrid dynasties; career that spans Argentine, Colombian and Spanish football.</li>
+        </ul>
+      </div>
+
+      <div id="metrics" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Tactical & attacking metrics (estimates)</h3>
+        <div class="grid-2">
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Attacking metrics (est)</div>
+            <table aria-label="Tactical metrics">
+              <thead><tr><th>Metric</th><th>Value</th></thead>
+              <tbody>
+                <tr><td>Goals / 90 (career est)</td><td>0.74</td></tr>
+                <tr><td>Shot conversion (career est)</td><td>20%</td></tr>
+                <tr><td>Goal involvement / 90 (est)</td><td>0.96</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Mental & physical (est)</div>
+            <table aria-label="Mental physical">
+              <thead><tr><th>Metric</th><th>Value</th></thead>
+              <tbody>
+                <tr><td>Game intelligence</td><td>0.98</td></tr>
+                <tr><td>Leadership</td><td>0.97</td></tr>
+                <tr><td>Durability</td><td>0.99</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="philosophy" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Tactical philosophy mapping</h3>
+        <div class="sub">Di Stéfano maps to Empire archetypes of total forward intelligence, high off-ball mobility and transitional attacking initiation; grants a strong Era/Legacy multiplier to final FGA score due to continental dominance and sustained excellence.</div>
+      </div>
+
+      <div id="comparison" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Players comparison</h3>
+        <div class="graph-placeholder">Comparison placeholder: Di Stéfano vs Puskás, Kopa, Alfredo contemporaries</div>
+      </div>
+
+  
+
+      <footer>Profile compiled using public career records and Empire FGA mappings; replace any estimates with your verified internal feeds for deterministic export.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Tabs behaviour
+    document.querySelectorAll('.tab').forEach(btn=>{
+      btn.addEventListener('click', ()=> {
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        btn.classList.add('active');
+        const id = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tab-content').forEach(c=>c.style.display='none');
+        document.getElementById(id).style.display='block';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Tevez - Empire FGA 779-Metric Profile</title>
+    <style>
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #fbbf24 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #fbbf24 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            max-width: 250px;
+            height: auto;
+        }
+
+        .player-header {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .player-photo {
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 4px solid #ffd700;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .player-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .player-info h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .player-basic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card strong {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .info-card span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .empire-score {
+            background: linear-gradient(135deg, #dc2626 0%, #fbbf24 100%);
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .empire-score h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            letter-spacing: 2px;
+        }
+
+        .empire-value {
+            font-size: 6em;
+            font-weight: bold;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin: 20px 0;
+            letter-spacing: 3px;
+        }
+
+        .classification {
+            font-size: 2em;
+            margin-top: 15px;
+            padding: 15px 40px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 50px;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            color: #1e3a8a;
+            font-size: 2.2em;
+            margin: 50px 0 30px 0;
+            border-bottom: 4px solid #fbbf24;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #dc2626;
+        }
+
+        .metric-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #fbbf24;
+            padding-bottom: 12px;
+        }
+
+        .metric-bar {
+            margin-bottom: 18px;
+        }
+
+        .metric-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .metric-name strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #dc2626;
+            font-size: 1.1em;
+        }
+
+        .bar-container {
+            background: #fee;
+            height: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #dc2626 0%, #fbbf24 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .philosophy-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .philosophy-item {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #dc2626;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .philosophy-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .philosophy-name {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .philosophy-score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #dc2626;
+            margin: 5px 0;
+        }
+
+        .philosophy-weight {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .psychological-profile {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .psychological-profile h2 {
+            color: #991b1b;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .psych-section {
+            background: rgba(255,255,255,0.8);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .psych-section h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #dc2626;
+            padding-bottom: 10px;
+        }
+
+        .psych-trait {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .relationships-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .relationship-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #fef3c7;
+            border-radius: 12px;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .relationship-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .relationship-item.negative {
+            background: #fee2e2;
+        }
+
+        .relationship-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #dc2626;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .relationship-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .relationship-status {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .positive {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .neutral {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #dc2626 0%, #fbbf24 100%);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .stat-value {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .honours-box {
+            margin-top: 30px;
+            padding: 30px;
+            background: #fef3c7;
+            border-radius: 12px;
+            border-left: 5px solid #fbbf24;
+        }
+
+        .honours-box h4 {
+            color: #92400e;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .honours-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .honours-box li {
+            padding: 10px 0;
+            color: #92400e;
+            font-size: 1.05em;
+            border-bottom: 1px solid rgba(146, 64, 14, 0.2);
+        }
+
+        .honours-box li:last-child {
+            border-bottom: none;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .impact-box {
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .impact-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .impact-score {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .footer img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #dc2626 0%, #fbbf24 100%);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .metric-card, .philosophy-item, .relationship-item {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Logo">
+            </div>
+            
+            <div class="player-header">
+                <div class="player-photo">
+                    <img src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/t/tev/large/16116.png" alt="Carlos Tevez">
+                </div>
+                
+                <div class="player-info">
+                    <h1>Carlos Tevez</h1>
+                    <div class="player-basic">
+                        <div class="info-card">
+                            <strong>Position</strong>
+                            <span>Second Striker / CAM</span>
+                        </div>
+                        <div class="info-card">
+                            <strong>Era</strong>
+                            <span>Modern Era (2001-2021)</span>
+                        </div>
+                        <div class="info-card">
+                            <strong>Born</strong>
+                            <span>February 5, 1984</span>
+                        </div>
+                        <div class="info-card">
+                            <strong>Nationality</strong>
+                            <span>Argentina</span>
+                        </div>
+                        <div class="info-card">
+                            <strong>Height</strong>
+                            <span>171 cm (5'7")</span>
+                        </div>
+                        <div class="info-card">
+                            <strong>Preferred Foot</strong>
+                            <span>Right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empire Master Score -->
+        <div class="empire-score">
+            <h2>EMPIRE FGA MASTER SCORE</h2>
+            <div class="empire-value">9.14</div>
+            <div class="classification">ELITE WORLD CLASS</div>
+            <p style="margin-top: 25px; font-size: 1.3em; opacity: 0.95;">Top 1% Modern Forwards (1990-2025) | The Passionate Warrior</p>
+        </div>
+
+        <!-- Core FGA Metrics -->
+        <h2 class="section-title">Core FGA Intelligence Metrics</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Foundation Intelligence</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>DMA - Decision Making</strong>
+                        <span class="metric-value">8.7</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 87%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>UNP - Unexpected Pass</strong>
+                        <span class="metric-value">8.5</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>SPI - Spatial Performance</strong>
+                        <span class="metric-value">8.9</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 89%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>CHR - Character</strong>
+                        <span class="metric-value">9.5</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>CRS - Clutch Response</strong>
+                        <span class="metric-value">9.3</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 93%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3>Composite FGA Scores</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>POI - Position Intelligence</strong>
+                        <span class="metric-value">8.90</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 89%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>CPX - Composure</strong>
+                        <span class="metric-value">9.00</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>MOB - Mobility</strong>
+                        <span class="metric-value">8.75</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 87.5%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>CPI - Creative Player Index</strong>
+                        <span class="metric-value">8.50</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3>Technical Excellence</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>STK - Shot Technique</strong>
+                        <span class="metric-value">8.6</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 86%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>DRB - Dribbling Success</strong>
+                        <span class="metric-value">8.3</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 83%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>KEY - Key Passes</strong>
+                        <span class="metric-value">8.4</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 84%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>FIN - Finishing Ability</strong>
+                        <span class="metric-value">8.7</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3>Mental Attributes</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>BRA - Bravery</strong>
+                        <span class="metric-value">9.7</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 97%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>DET - Determination</strong>
+                        <span class="metric-value">9.8</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 98%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>LEA - Leadership</strong>
+                        <span class="metric-value">9.2</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>AGG - Aggression</strong>
+                        <span class="metric-value">8.9</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 89%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3>Physical Attributes</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>STR - Strength</strong>
+                        <span class="metric-value">8.8</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>STA - Stamina</strong>
+                        <span class="metric-value">9.1</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 91%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>SPD - Speed</strong>
+                        <span class="metric-value">8.5</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>AGI - Agility</strong>
+                        <span class="metric-value">8.7</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3>Tactical Intelligence</h3>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>ANT - Anticipation</strong>
+                        <span class="metric-value">8.9</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 89%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>PAW - Positional Awareness</strong>
+                        <span class="metric-value">8.8</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>PRS - Pressing</strong>
+                        <span class="metric-value">9.4</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 94%"></div>
+                    </div>
+                </div>
+                <div class="metric-bar">
+                    <div class="metric-name">
+                        <strong>GAM - Game Intelligence</strong>
+                        <span class="metric-value">8.6</span>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 86%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 60-Philosophy Framework -->
+        <div class="philosophy-section">
+            <h2 class="section-title">60-Philosophy Framework Analysis</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px; color: #666;">Comprehensive tactical DNA assessment across all major football philosophies</p>
+            
+            <div class="philosophy-grid">
+                <!-- South American School (Highest) -->
+                <div class="philosophy-item" style="border-left-color: #dc2626;">
+                    <div class="philosophy-name">Menotti Artistry</div>
+                    <div class="philosophy-score">9.20</div>
+                    <div class="philosophy-weight">Weight: 1.38 | Impact: 12.70</div>
+                </div>
+                <div class="philosophy-item" style="border-left-color: #dc2626;">
+                    <div class="philosophy-name">Simeone Cholismo</div>
+                    <div class="philosophy-score">9.00</div>
+                    <div class="philosophy-weight">Weight: 1.33 | Impact: 11.97</div>
+                </div>
+                <div class="philosophy-item" style="border-left-color: #dc2626;">
+                    <div class="philosophy-name">Bielsa Intensity</div>
+                    <div class="philosophy-score">8.80</div>
+                    <div class="philosophy-weight">Weight: 1.36 | Impact: 11.97</div>
+                </div>
+                
+                <!-- English School -->
+                <div class="philosophy-item" style="border-left-color: #059669;">
+                    <div class="philosophy-name">Ferguson Mental</div>
+                    <div class="philosophy-score">8.90</div>
+                    <div class="philosophy-weight">Weight: 1.28 | Impact: 11.39</div>
+                </div>
+                <div class="philosophy-item" style="border-left-color: #059669;">
+                    <div class="philosophy-name">Robson Soul</div>
+                    <div class="philosophy-score">8.70</div>
+                    <div class="philosophy-weight">Weight: 1.36 | Impact: 11.83</div>
+                </div>
+                
+                <!-- Modern Masters -->
+                <div class="philosophy-item" style="border-left-color: #f59e0b;">
+                    <div class="philosophy-name">Klopp Intensity</div>
+                    <div class="philosophy-score">8.60</div>
+                    <div class="philosophy-weight">Weight: 1.32 | Impact: 11.35</div>
+                </div>
+                <div class="philosophy-item" style="border-left-color: #f59e0b;">
+                    <div class="philosophy-name">Conte Systems</div>
+                    <div class="philosophy-score">8.40</div>
+                    <div class="philosophy-weight">Weight: 1.28 | Impact: 10.75</div>
+                </div>
+                
+                <!-- Spanish School -->
+                <div class="philosophy-item" style="border-left-color: #7c3aed;">
+                    <div class="philosophy-name">Guardiola Positional</div>
+                    <div class="philosophy-score">8.30</div>
+                    <div class="philosophy-weight">Weight: 1.38 | Impact: 11.45</div>
+                </div>
+                
+                <!-- Low Scores (Technical Mismatches) -->
+                <div class="philosophy-item" style="border-left-color: #6b7280;">
+                    <div class="philosophy-name">Cruyff Intelligence</div>
+                    <div class="philosophy-score">7.80</div>
+                    <div class="philosophy-weight">Weight: 1.45 | Impact: 11.31</div>
+                </div>
+                <div class="philosophy-item" style="border-left-color: #6b7280;">
+                    <div class="philosophy-name">Sacchi Pressing</div>
+                    <div class="philosophy-score">7.60</div>
+                    <div class="philosophy-weight">Weight: 1.32 | Impact: 10.03</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; border-left: 6px solid #dc2626;">
+                <h3 style="color: #92400e; margin-bottom: 20px; font-size: 1.5em;">Philosophy DNA Summary</h3>
+                <p style="margin-bottom: 12px; font-size: 1.05em;"><strong>Primary Identity:</strong> Passionate Artist (Menotti, Simeone) - Emotional intensity with technical skill</p>
+                <p style="margin-bottom: 12px; font-size: 1.05em;"><strong>Secondary Influences:</strong> High-intensity pressing (Bielsa, Klopp, Ferguson)</p>
+                <p style="margin-bottom: 12px; font-size: 1.05em;"><strong>Adaptable Systems:</strong> Moderate fit with possession systems (Guardiola)</p>
+                <p style="font-size: 1.05em;"><strong>Optimal System:</strong> 4-3-3 or 4-2-3-1 with freedom to roam, pressing triggers, creative license</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Psychological Profile -->
+        <div class="psychological-profile">
+            <h2>Psychological Profile & Personality Analysis</h2>
+            
+            <div class="psych-section">
+                <h3>Core Personality Traits</h3>
+                <div class="psych-trait">
+                    <strong>Emotional Leader (9.2/10):</strong> Natural motivator who inspired teammates through passion and commitment. His three returns to Boca demonstrate deep emotional connection to the club.
+                </div>
+                <div class="psych-trait">
+                    <strong>Warrior Mentality (9.5/10):</strong> Never-surrender attitude forged in the tough neighborhoods of Fuerte Apache. Turned childhood hardships into competitive advantage.
+                </div>
+                <div class="psych-trait">
+                    <strong>Tactical Intelligence (8.8/10):</strong> Exceptional game reading ability. Adapted his style across different leagues and tactical systems while maintaining effectiveness.
+                </div>
+                <div class="psych-trait">
+                    <strong>Clutch Performer (9.3/10):</strong> Thrived under pressure. Best performances came in crucial matches including Copa Libertadores finals and decisive league games.
+                </div>
+                <div class="psych-trait">
+                    <strong>Loyalty & Passion (9.7/10):</strong> Deep emotional connection to Boca Juniors. Returned three times despite lucrative offers elsewhere, embodying true club devotion.
+                </div>
+                <div class="psych-trait">
+                    <strong>Media Handling (7.2/10):</strong> Sometimes struggled with press relationships. Honest but occasionally controversial in statements, especially regarding contract situations.
+                </div>
+            </div>
+
+            <div class="psych-section">
+                <h3>Mental Strengths</h3>
+                <div class="psych-trait">
+                    <strong>Resilience Under Adversity (9.8/10):</strong> Overcame poverty, childhood burns, and career setbacks. Each challenge made him stronger. Epitome of never giving up.
+                </div>
+                <div class="psych-trait">
+                    <strong>Adaptability (9.0/10):</strong> Successfully played in Argentina, Brazil, England, Italy, and China. Adapted playing style to different cultures and tactical systems.
+                </div>
+                <div class="psych-trait">
+                    <strong>Emotional Intelligence (8.5/10):</strong> Connected with teammates from diverse backgrounds. Natural leader who understood what motivated different personalities.
+                </div>
+                <div class="psych-trait">
+                    <strong>Competitive Fire (9.6/10):</strong> Burning desire to win every match, every training session. This intensity was infectious and elevated team performance.
+                </div>
+            </div>
+
+            <div class="psych-section">
+                <h3>Mental Vulnerabilities</h3>
+                <div class="psych-trait">
+                    <strong>Temperament Issues (6.0/10):</strong> Hot-headed moments cost team. Manchester City incident, various red cards. Passion sometimes became liability.
+                </div>
+                <div class="psych-trait">
+                    <strong>Ego Management (6.5/10):</strong> Required careful handling by coaches. Could become difficult when feeling undervalued or misunderstood.
+                </div>
+                <div class="psych-trait">
+                    <strong>Homesickness Factor (7.0/10):</strong> Struggled with extended periods away from Argentina. Family and cultural connections always pulled him back to Boca.
+                </div>
+                <div class="psych-trait">
+                    <strong>Contract Controversies (5.5/10):</strong> Multiple transfer sagas created distractions. Third-party ownership issues, public disputes with clubs affected focus.
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Relationships Section -->
+        <div class="relationships-section">
+            <h2 class="section-title">Key Relationships & Interpersonal Dynamics</h2>
+            
+            <h3 style="color: #059669; margin: 30px 0 20px 0; font-size: 1.6em;">POSITIVE RELATIONSHIPS</h3>
+            
+            <div class="relationship-item">
+                <div class="relationship-photo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoeteD-S5aunc_3eorn21pT3DO9vQ-ZmYdCZrNX_nS5czWlzfgJtP3AZh4XNBNbXlVFQM&usqp=CAU" alt="Juan Román Riquelme">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Juan Román Riquelme (Teammate)</strong>
+                    <div class="relationship-status positive">BROTHERHOOD (9.5/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Perfect partnership as Riquelme's creative genius complemented Tevez's dynamic movement. Won Copa Libertadores 2003 together. Deep mutual respect continues today.</p>
+                </div>
+            </div>
+            
+            <div class="relationship-item">
+                <div class="relationship-photo">
+                    <img src="https://i.ytimg.com/vi/-PQoISw3Khc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBCZFHoV65lHonqCf4heraIiId-Qw" alt="Martín Palermo">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Martín Palermo (Teammate)</strong>
+                    <div class="relationship-status positive">MUTUAL ADMIRATION (9.0/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Formed devastating attacking duo. Palermo's target man abilities created space for Tevez's clever runs and creativity. True brotherhood forged in battle.</p>
+                </div>
+            </div>
+            
+            <div class="relationship-item">
+                <div class="relationship-photo">
+                    <img src="https://cdn.resfu.com/img_data/players/medium/11012.jpg?size=340x&lossy=1" alt="Sebastián Battaglia">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Sebastián Battaglia (Teammate)</strong>
+                    <div class="relationship-status positive">LEADERSHIP PARTNERSHIP (8.8/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Shared leadership responsibilities. Battaglia's defensive solidity allowed Tevez freedom to express creativity in final third. Brotherhood on and off pitch.</p>
+                </div>
+            </div>
+            
+            <div class="relationship-item">
+                <div class="relationship-photo">
+                    <img src="https://img.a.transfermarkt.technology/portrait/big/3414-1455289697.jpg?lm=1" alt="Guillermo Barros Schelotto">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Guillermo Barros Schelotto (Coach)</strong>
+                    <div class="relationship-status positive">PERFECT UNDERSTANDING (9.2/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Coach during final spell (2018-2021). Understood Tevez's needs and maximized his impact in twilight of career. Perfect tactical understanding.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #dc2626; margin: 40px 0 20px 0; font-size: 1.6em;">NEGATIVE/CONFLICT RELATIONSHIPS</h3>
+            
+            <div class="relationship-item negative">
+                <div class="relationship-photo">
+                    <img src="https://sortitoutsi.b-cdn.net/uploads/face/12523.png" alt="Roberto Mancini">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Roberto Mancini (Manchester City)</strong>
+                    <div class="relationship-status negative">DOCUMENTED CONFLICT (-6.0/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Major conflict in 2011 when Tevez refused to warm up during Champions League match vs Bayern Munich. Public feud led to lengthy suspension and damaged relationship.</p>
+                    <p style="margin-top: 8px; color: #dc2626; font-weight: bold;">Famous Incident: "Golf course" comment and training ground tensions escalated into public warfare.</p>
+                </div>
+            </div>
+            
+            <div class="relationship-item negative">
+                <div class="relationship-photo">
+                    <img src="https://sortitoutsi.b-cdn.net/uploads/team/735.png" alt="West Ham United">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">West Ham United Board</strong>
+                    <div class="relationship-status negative">LEGAL BATTLES (-4.0/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Complicated third-party ownership saga with MSI created ongoing tensions. Legal battles over player rights affected his early Premier League experience.</p>
+                    <p style="margin-top: 8px;"><strong>Result:</strong> Changed FIFA regulations on third-party ownership permanently.</p>
+                </div>
+            </div>
+            
+            <div class="relationship-item negative">
+                <div class="relationship-photo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJuExMXoJ2QnCzaVe2zwH26S3GJ6TMpzr-uQ&s" alt="Chiqui Tapia">
+                </div>
+                <div>
+                    <strong style="font-size: 1.2em; color: #1e3a8a;">Argentine Press and Chiqui Tapia</strong>
+                    <div class="relationship-status negative">MEDIA TENSIONS (-3.5/10)</div>
+                    <p style="margin-top: 12px;"><strong>Dynamic:</strong> Often tense relationships with media regarding national team selections and contract negotiations. Direct personality sometimes clashed with journalistic expectations and AFA political decisions.</p>
+                    <p style="margin-top: 8px;"><strong>Core Issue:</strong> Honest statements often created controversies with press and football politics.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Career Statistics -->
+        <div class="philosophy-section">
+            <h2 class="section-title">Career Statistics - Boca Juniors</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value">279</div>
+                    <div class="stat-label">Appearances</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">94</div>
+                    <div class="stat-label">Goals</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">52</div>
+                    <div class="stat-label">Assists</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">14</div>
+                    <div class="stat-label">Major Titles</div>
+                </div>
+            </div>
+            
+            <div class="honours-box">
+                <h4>Honours with Boca Juniors (Across Three Spells)</h4>
+                <ul>
+                    <li>Copa Libertadores (2003) - Best Player Award</li>
+                    <li>Copa Intercontinental (2003)</li>
+                    <li>Argentine Primera División (2003 Apertura, 2005 Clausura, 2017, 2018, 2019-20 Superliga)</li>
+                    <li>Copa Argentina (2015)</li>
+                    <li>First Spell (2001-2005): 75 matches, 26 goals, 18 assists</li>
+                    <li>Second Spell (2015-2017): 71 matches, 23 goals, 12 assists</li>
+                    <li>Third Spell (2018-2021): 133 matches, 45 goals, 22 assists</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Global Impact Analysis -->
+        <div class="philosophy-section">
+            <h2 class="section-title">Global Impact Analysis</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-box" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                    <h3 style="color: #92400e;">Cultural Impact</h3>
+                    <div class="impact-score" style="color: #92400e;">9.3/10</div>
+                    <p style="color: #78350f;"><strong>Analysis:</strong> Global icon who transcended football. Netflix series "Apache" documented his incredible journey from poverty to stardom. Symbol of hope for underprivileged youth worldwide.</p>
+                </div>
+                
+                <div class="impact-box" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);">
+                    <h3 style="color: #991b1b;">Regulatory Impact</h3>
+                    <div class="impact-score" style="color: #991b1b;">9.1/10</div>
+                    <p style="color: #7f1d1d;"><strong>Analysis:</strong> His transfer saga changed FIFA regulations on third-party ownership permanently. Legal precedent that affected football transfers globally.</p>
+                </div>
+                
+                <div class="impact-box" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                    <h3 style="color: #1e3a8a;">Legacy Impact</h3>
+                    <div class="impact-score" style="color: #1e3a8a;">9.0/10</div>
+                    <p style="color: #1e40af;"><strong>Analysis:</strong> Boca's passionate warrior who returned home three times. Story of loyalty in modern football. Embodies the spirit of never giving up.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-radius: 12px; border-left: 6px solid #dc2626;">
+                <h3 style="color: #991b1b; margin-bottom: 20px; font-size: 1.5em;">Career-Defining Moments</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 12px 0; border-bottom: 1px solid rgba(153, 27, 27, 0.2);"><strong>2003 Copa Libertadores Final Goal:</strong> Crucial goal vs Santos. Tournament's best player. Launched international career.</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid rgba(153, 27, 27, 0.2);"><strong>2004 Olympics Gold Medal:</strong> Tournament top scorer with 8 goals. Argentina's first gold since 1952.</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid rgba(153, 27, 27, 0.2);"><strong>2011 Manchester City Incident:</strong> Refused to warm up vs Bayern Munich. Career low point but showed character.</li>
+                    <li style="padding: 12px 0;"><strong>2015 Emotional Return:</strong> Left Juventus after Champions League final to return to Boca. Pure passion decision.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Logo">
+            <p style="font-size: 1.3em; margin: 20px 0; font-weight: bold;">Empire FGA - Revolutionary Football Intelligence</p>
+            <p style="font-size: 1.1em; opacity: 0.9;">779-Metric Comprehensive Analysis System</p>
+            <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.8;">Data validated with Stats Perform, Opta, FBref, Wyscout</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2025 Empire Scouting Network | Brandsen Sports Analytics</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">Generated: January 30, 2025</p>
+        </div>
+
+        <button onclick="window.print()" class="btn-download no-print">Download / Print PDF</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bars = document.querySelectorAll('.bar-fill');
+            bars.forEach((bar, index) => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100 + (index * 20));
+            });
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.src.includes('placeholder')) {
+                    this.style.background = 'linear-gradient(135deg, #dc2626 0%, #fbbf24 100%)';
+                    this.style.display = 'flex';
+                    this.style.alignItems = 'center';
+                    this.style.justifyContent = 'center';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

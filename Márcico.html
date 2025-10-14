@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alberto Márcico — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226;
+      --card:#0b1220;
+      --accent:#7c3aed;
+      --accent2:#00d1ff;
+      --muted:#9fb0c8;
+      --glass: rgba(255,255,255,0.03);
+      --gold:#ffc857;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    html,body{height:100%; margin:0; background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.06), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.03), transparent 8%),
+      var(--bg); color:#e6eef8; -webkit-font-smoothing:antialiased;}
+    .container{max-width:1320px; margin:32px auto; padding:22px; display:grid; grid-template-columns:360px 1fr; gap:28px;}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.04); border-radius:14px; padding:18px;}
+    aside .photo{width:100%; border-radius:12px; display:block; object-fit:cover; border:4px solid rgba(255,255,255,0.04); height:520px;}
+    .bigname{font-size:44px; font-weight:900; margin:16px 0 8px; color:#fff; line-height:1;}
+    .sub{color:var(--muted); font-size:15px; line-height:1.4;}
+    .quickfacts{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;}
+    .pill{background:rgba(255,255,255,0.02); padding:8px 12px; border-radius:999px; color:var(--muted); font-weight:700; font-size:13px;}
+    .tabs{display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+    .tab {background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;}
+    .tab.active{background:linear-gradient(90deg,var(--accent2),var(--accent)); color:#071226; font-weight:900; border:none;}
+    .tab-content{background:transparent; margin-top:12px;}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+    table{width:100%; border-collapse:collapse; margin-top:10px;}
+    th,td{padding:12px 14px; border-bottom:1px dashed rgba(255,255,255,0.03); font-size:15px; text-align:left;}
+    th{color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:0.6px;}
+    .kpi{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
+    .kpi .metric{background:rgba(255,255,255,0.02); padding:12px; border-radius:10px; min-width:150px;}
+    .metric .m-title{color:var(--muted); font-size:13px;}
+    .metric .m-value{font-size:20px; font-weight:900; margin-top:6px; color:#fff;}
+    .graph-placeholder{height:180px; border-radius:10px; background:linear-gradient(90deg, rgba(124,58,237,0.06), rgba(0,209,255,0.03)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:15px;}
+    .fga-box{display:flex; gap:18px; align-items:center; background:linear-gradient(90deg, rgba(124,58,237,0.06), rgba(0,209,255,0.03)); padding:14px; border-radius:12px;}
+    .fga-score{font-size:52px; font-weight:900; color:#fff; line-height:1;}
+    .logo-below {display:block; margin-top:12px; width:140px; height:72px; object-fit:contain; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.5); background:#ffffff06; border:1px solid rgba(255,255,255,0.03);}
+    .pill-small{background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:13px;}
+    .json-snippet{background:#051028; padding:12px; border-radius:8px; color:#9fd7ff; font-family:monospace; font-size:13px;}
+    footer{margin-top:18px; color:var(--muted); font-size:14px; text-align:center;}
+    .tabs-spacer{height:26px;} /* extra space between subtitle and tabs as requested */
+    @media (max-width:1100px){
+      .container{grid-template-columns:1fr;}
+      aside .photo{height:420px;}
+      .bigname{font-size:36px;}
+      .fga-score{font-size:40px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="card">
+      <img class="photo" src="https://cdn.resfu.com/img_data/players/medium/434686.jpg?size=340x&lossy=1" alt="Alberto Márcico photo" />
+      <div class="bigname">Alberto José Márcico</div>
+      <div class="sub">Attacking midfielder · Argentina · Born: 13 May 1960</div>
+
+      <div class="quickfacts" style="margin-top:14px;">
+        <div class="pill">Ferrocarril Verdolaga — All-time roster</div>
+        <div class="pill">Creative playmaker</div>
+        <div class="pill">Ferro legend</div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <div style="font-weight:900; font-size:15px; margin-bottom:8px;">Honours & quick bio</div>
+        <div class="sub">Argentine Primera titles; 1984 Footballer of the Year of Argentina; influential spells at Ferro, Toulouse and Boca; known for vision, range and scoring from midfield.</div>
+      </div>
+    </aside>
+
+    <main class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:18px;">
+        <div>
+          <div style="font-weight:900; font-size:20px;">Empire FGA — Player Profile</div>
+          <div style="color:var(--muted); margin-top:6px; font-size:14px;">Legend profile</div>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button style="background:var(--gold); border:0; color:#071226; padding:10px 14px; border-radius:10px; font-weight:900; cursor:pointer;">Export One-pager</button>
+          <button style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:10px 14px; border-radius:10px; font-weight:800; cursor:pointer;">Add to Hall of Fame</button>
+        </div>
+      </div>
+
+      <div class="tabs-spacer"></div> <!-- increased space between subtitle and tabs -->
+
+      <div class="tabs" role="tablist" aria-label="Profile tabs">
+        <button class="tab active" data-tab="overview">Career overview</button>
+        <button class="tab" data-tab="seasons">Season performance</button>
+        <button class="tab" data-tab="milestones">Career milestones</button>
+        <button class="tab" data-tab="metrics">Metrics</button>
+        <button class="tab" data-tab="philosophy">Tactical philosophy</button>
+        <button class="tab" data-tab="comparison">Players comparison</button>
+      </div>
+
+      <div id="overview" class="tab-content">
+        <h3 style="margin:6px 0 10px 0;">Career overview</h3>
+
+        <div class="fga-box" style="margin-bottom:16px;">
+          <div>
+            <div style="color:var(--muted); font-weight:800;">Empire FGA Rating</div>
+            <div class="fga-score">91</div>
+            <div style="color:var(--muted); margin-top:6px; font-weight:800;">Tier: Legendary</div>
+            <div style="color:var(--muted); margin-top:4px;">Position percentile: Top 1%</div>
+            <!-- logo visible below FGA Rating as requested -->
+            <img class="logo-below" src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA logo" />
+          </div>
+
+          <div style="flex:1;">
+            <div style="font-weight:900; margin-bottom:6px;">Pillar breakdown (contributors)</div>
+            <table style="width:100%; margin-top:6px;">
+              <thead><tr><th style="width:55%;">Pillar</th><th style="width:15%;">Score</th><th style="width:30%;">Weight</th></tr></thead>
+              <tbody>
+                <tr><td>Creativity</td><td>92</td><td>30%</td></tr>
+                <tr><td>Progressive Passing</td><td>88</td><td>25%</td></tr>
+                <tr><td>Chance Creation</td><td>90</td><td>20%</td></tr>
+                <tr><td>Goal Threat</td><td>78</td><td>10%</td></tr>
+                <tr><td>Mental (composure/clutch)</td><td>88</td><td>10%</td></tr>
+                <tr><td>Durability / Impact</td><td>82</td><td>5%</td></tr>
+              </tbody>
+            </table>
+
+            <div style="color:var(--muted); margin-top:10px; font-size:13px;">Calculation: weighted average of pillar scores + Philosophy Bonus (+3.5) → Final FGA 91 / 100.</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <table aria-label="Club career summary">
+              <thead><tr><th>Years</th><th>Club</th><th>Apps</th><th>Goals</th></tr></thead>
+              <tbody>
+                <tr><td>1980–1985</td><td>Ferro Carril Oeste</td><td>210</td><td>44</td></tr>
+                <tr><td>1985–1992</td><td>Toulouse FC</td><td>227</td><td>62</td></tr>
+                <tr><td>1992–1995</td><td>Boca Juniors</td><td>126</td><td>13</td></tr>
+                <tr><td>1996–1998</td><td>Gimnasia y Esgrima LP</td><td>31</td><td>10</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>Senior league</strong></td><td><strong>594</strong></td><td><strong>129</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Core attributes (Empire FGA)</div>
+            <div class="kpi">
+              <div class="metric"><div class="m-title">Creativity</div><div class="m-value">92</div></div>
+              <div class="metric"><div class="m-title">Progressive passing</div><div class="m-value">88</div></div>
+              <div class="metric"><div class="m-title">Chance creation</div><div class="m-value">90</div></div>
+              <div class="metric"><div class="m-title">Goal threat</div><div class="m-value">78</div></div>
+            </div>
+
+            <div style="margin-top:18px;">
+              <div style="font-weight:900; margin-bottom:8px;">Legacy notes</div>
+              <div class="sub">Márcico is a cultural and tactical reference for Argentine attacking midfielders of the 1980s and early 1990s, blending creative freedom with measurable output.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="seasons" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Season performance (selected highlights)</h3>
+        <table aria-label="Season highlights">
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1982</td><td>Ferro Carril Oeste</td><td>50</td><td>5</td><td>Nacional champion (undefeated)</td></tr>
+            <tr><td>1984</td><td>Ferro Carril Oeste</td><td>47</td><td>22</td><td>Argentine Footballer of the Year</td></tr>
+            <tr><td>1986–87</td><td>Toulouse</td><td>25</td><td>14</td><td>Key scoring season in France</td></tr>
+            <tr><td>1992</td><td>Boca Juniors</td><td>13</td><td>3</td><td>Apertura winning squad</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:16px;" class="graph-placeholder">Season performance sparkline / timeline placeholder</div>
+      </div>
+
+      <div id="milestones" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Career milestones</h3>
+        <div class="graph-placeholder">Milestones timeline placeholder: 1982 title · 1984 POTY · 1985 transfer · 1992 Boca title</div>
+        <ul style="color:var(--muted); margin-top:14px; padding-left:18px;">
+          <li>1982 — Nacional title with Ferro (undefeated).</li>
+          <li>1984 — Footballer of the Year in Argentina.</li>
+          <li>1985 — Transfer to Toulouse (France).</li>
+          <li>1992 — Return to Argentina; Boca Juniors Apertura champion.</li>
+        </ul>
+      </div>
+
+      <div id="metrics" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Advanced metrics</h3>
+        <div class="grid-2">
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Attacking / Tactical metrics</div>
+            <table aria-label="Tactical metrics">
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Key passes / 90 (est)</td><td>2.8</td></tr>
+                <tr><td>Progressive passes / 90 (est)</td><td>3.1</td></tr>
+                <tr><td>Shot-creating actions / 90 (est)</td><td>1.9</td></tr>
+                <tr><td>Goals / 90 (career)</td><td>0.22</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <div style="font-weight:900; margin-bottom:8px;">Mental & Physical</div>
+            <table aria-label="Mental physical metrics">
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Composure (norm)</td><td>0.88</td></tr>
+                <tr><td>Work-rate / Stamina (norm)</td><td>0.80</td></tr>
+                <tr><td>Injury proneness</td><td>Moderate (late career)</td></tr>
+                <tr><td>Peak years</td><td>1982–1988</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="philosophy" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Tactical philosophy mapping</h3>
+        <div class="sub">Dominant philosophies: Menotti (Artistic Expression) and Cruyff (Positional Intelligence), mapped from the Empire 40-philosophy framework.</div>
+        <div style="margin-top:12px;">
+          <div style="font-weight:900; margin-bottom:8px;">Dominant philosophy detection</div>
+          <div class="metric"><div class="m-title">Primary</div><div class="m-value">Menotti — Artistic Expression (Weight 1.35)</div></div>
+          <div style="height:12px;"></div>
+          <div class="metric"><div class="m-title">Secondary</div><div class="m-value">Cruyff — Total Intelligence (Weight 1.45)</div></div>
+          <div style="margin-top:16px;" class="sub">Philosophy Bonus applied: +3.5 to final FGA rating due to strong alignment with creative and positional components.</div>
+        </div>
+      </div>
+
+      <div id="comparison" class="tab-content" style="display:none;">
+        <h3 style="margin:6px 0 10px 0;">Players comparison</h3>
+        <div class="graph-placeholder">Radar / comparison placeholder: Márcico vs Maradona vs Riquelme</div>
+        <div style="margin-top:14px;" class="sub">Suggested comparators: Diego Maradona (creativity), Juan Román Riquelme (positional), Enzo Francescoli (elegance).</div>
+      </div>
+
+
+      <footer>Profile compiled from public career records and Empire FGA mappings. Replace any estimates with your verified internal feeds for production export.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Tabs behaviour
+    document.querySelectorAll('.tab').forEach(btn=>{
+      btn.addEventListener('click', ()=> {
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        btn.classList.add('active');
+        const id = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tab-content').forEach(c=>c.style.display='none');
+        document.getElementById(id).style.display='block';
+      });
+    });
+  </script>
+</body>
+</html>
