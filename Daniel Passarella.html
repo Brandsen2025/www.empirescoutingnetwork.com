@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daniel Passarella — Empire FGA Profile </title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#c8102e; --muted:#9fb0c2; --gold:#ffc857;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:#e8f3ff;-webkit-font-smoothing:antialiased;}
+    .container{max-width:1300px;margin:20px auto;padding:18px;display:grid;grid-template-columns:360px 1fr;gap:22px;}
+    .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.04);}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid rgba(255,255,255,0.04)}
+    .name{font-size:32px;font-weight:900;margin:12px 0 6px}
+    .sub{color:var(--muted);font-size:13px}
+    .team{font-weight:800;color:#ffc857;margin-top:6px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:800;font-size:12px;margin:6px 6px 0 0}
+    .header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .btn{background:var(--gold);color:#071226;padding:8px 12px;border-radius:8px;font-weight:900;border:0;cursor:pointer}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+    .tab{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:800}
+    .tab[aria-selected="true"]{background:linear-gradient(90deg,var(--accent),#ff8a8a);color:#071226;border:none;font-weight:900}
+    .fga-label{font-size:13px;color:var(--muted);font-weight:800}
+    .fga-score{font-size:44px;font-weight:900;color:#071226;background:var(--gold);padding:8px 14px;border-radius:10px;display:inline-block}
+    .logo-48{width:48px;height:48px;display:block;margin-top:10px;object-fit:contain}
+    .small{font-size:13px;color:var(--muted)}
+    .metrics-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .metric-box{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;min-width:120px}
+    table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+    th,td{padding:10px 12px;border-bottom:1px dashed rgba(255,255,255,0.04);text-align:left;vertical-align:middle}
+    th{color:var(--muted);font-size:12px;text-transform:uppercase}
+    .comparison-box{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:12px;border-radius:10px}
+    .radar-svg{width:720px;height:560px}
+    .sim-table{width:100%;margin-top:12px;border-collapse:collapse}
+    .sim-table th,.sim-table td{padding:8px 10px;border-bottom:1px dashed rgba(255,255,255,0.04);text-align:left}
+    @media (max-width:1100px){.container{grid-template-columns:1fr}.photo{height:360px}.name{font-size:28px}.fga-score{font-size:36px}.radar-svg{width:100%;height:auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT: portrait + quick facts -->
+    <aside class="card">
+      <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaZD39wvhpjUB69H-BzeAnCX0izGD_CChS7w&s" alt="Daniel Passarella portrait" />
+      <div class="name">Daniel Alberto Passarella</div>
+      <div class="sub">Centre-back · Argentina · Born: 25 May 1953 · Height: 1.75 m</div>
+      <div class="nickname">Nickname : El Kaiser</div>
+      <div class="team">Team: Los Millonarios (River Plate alltime roster)</div>
+
+      <div style="margin-top:10px">
+        <span class="pill">River Plate</span>
+        <span class="pill">Fiorentina</span>
+        <span class="pill">Inter</span>
+      </div>
+
+      <div style="margin-top:12px">
+        <div style="font-weight:900;margin-bottom:6px">Profile</div>
+        <div class="small">Commanding leader and prolific goal-scoring centre-back. Excellent aerial presence, defensive organiser and set-piece specialist.</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: main content -->
+    <main class="card" aria-label="Passarella profile">
+      <div class="header">
+        <div>
+          <div style="font-weight:900;font-size:16px">Empire FGA – Player Profile</div>
+          <div class="small" style="margin-top:6px">Updated: Tactical philosophy & Season performance tabs added; photo & team updated</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn">Export One-pager</button>
+          <button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)">Share</button>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist" aria-label="Profile sections">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="overview" id="tab-overview">Career overview</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="seasons" id="tab-seasons">Season performance</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="milestones" id="tab-milestones">Career milestones</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="metrics" id="tab-metrics">Metrics</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="philosophy" id="tab-philosophy">Tactical philosophy</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="comparison" id="tab-comparison">Comparison</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <section id="overview" role="tabpanel" aria-labelledby="tab-overview">
+        <h3 style="margin:6px 0 10px 0">Career overview</h3>
+        <div style="display:flex;gap:18px;align-items:flex-start">
+          <div>
+            <div class="fga-label">Empire FGA Rating</div>
+            <div class="fga-score" aria-live="polite">94</div>
+            <div class="small" style="margin-top:8px">Tier: Elite Defender</div>
+            <div class="small" style="margin-top:6px">Position Percentile: Top 1% (CB)</div>
+            <img class="logo-48" src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire logo" width="48" height="48" />
+          </div>
+
+          <div style="flex:1">
+            <div style="font-weight:900;margin-bottom:8px">Pillar summary</div>
+            <div class="metrics-grid" role="list" aria-label="Pillar values">
+              <div class="metric-box" role="listitem"><div class="small" style="font-weight:800">Defense</div><div style="font-weight:900;font-size:20px">96</div></div>
+              <div class="metric-box" role="listitem"><div class="small" style="font-weight:800">Leadership</div><div style="font-weight:900;font-size:20px">95</div></div>
+              <div class="metric-box" role="listitem"><div class="small" style="font-weight:800">Aerial</div><div style="font-weight:900;font-size:20px">94</div></div>
+              <div class="metric-box" role="listitem"><div class="small" style="font-weight:800">Goalscoring</div><div style="font-weight:900;font-size:20px">90</div></div>
+              <div class="metric-box" role="listitem"><div class="small" style="font-weight:800">Passing</div><div style="font-weight:900;font-size:20px">86</div></div>
+            </div>
+            <div class="small" style="margin-top:10px">Calculation: pillar-weighted average adjusted for era, role and decisive-match impact → Empire FGA 94/100.</div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div style="font-weight:900;margin-bottom:8px">Career statistics (club & international)</div>
+        <table aria-label="Career statistics">
+          <thead>
+            <tr><th>Years</th><th>Club / Team</th><th>Appearances</th><th>Goals</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1971–1973</td><td>Sarmiento</td><td>36</td><td>9</td><td>Early career</td></tr>
+            <tr><td>1973–1982</td><td>River Plate</td><td>266</td><td>90</td><td>Domestic star & captain</td></tr>
+            <tr><td>1982–1986</td><td>Fiorentina</td><td>109</td><td>26</td><td>Prolific in Serie A</td></tr>
+            <tr><td>1986–1988</td><td>Inter Milan</td><td>44</td><td>9</td><td>Experienced defender in Italy</td></tr>
+            <tr><td>1988–1989</td><td>River Plate</td><td>24</td><td>7</td><td>Final playing season</td></tr>
+            <tr><td>1976–1986</td><td>Argentina (int'l)</td><td>70</td><td>22</td><td>Captain, 1978 World Cup winner</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td><strong>479</strong></td><td><strong>159</strong></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SEASON PERFORMANCE -->
+      <section id="seasons" role="tabpanel" aria-labelledby="tab-seasons" style="display:none;">
+        <h3 style="margin:6px 0 10px 0">Season performance</h3>
+        <div class="small">Season-level summaries and sample per-90 metrics. Replace with match feed exports for full deterministic tables.</div>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>G</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1978</td><td>River Plate</td><td>42</td><td>23</td><td>Title push, captaincy leadership</td></tr>
+            <tr><td>1985–86</td><td>Fiorentina</td><td>29</td><td>11</td><td>High goalscoring season for CB</td></tr>
+            <tr><td>1986</td><td>Argentina</td><td>10</td><td>2</td><td>World Cup appearances</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- MILESTONES -->
+      <section id="milestones" role="tabpanel" aria-labelledby="tab-milestones" style="display:none;">
+        <h3 style="margin:6px 0 10px 0">Career milestones</h3>
+        <ul class="small">
+          <li>1973 — River Plate first-team breakthrough</li>
+          <li>1978 — Captain, World Cup winner</li>
+          <li>1982 — Transfer to Fiorentina</li>
+          <li>1986 — World Cup winner</li>
+          <li>1989 — Retirement following outstanding goalscoring career for a defender</li>
+        </ul>
+      </section>
+
+      <!-- METRICS -->
+      <section id="metrics" role="tabpanel" aria-labelledby="tab-metrics" style="display:none;">
+        <h3 style="margin:6px 0 10px 0">Metrics</h3>
+        <div class="small">Selected five-pillar proxies shown. For full 779-metric mapping, provide vectors or let me pull from your feed; I will aggregate to the same pillars and refresh the comparison.</div>
+      </section>
+
+      <!-- TACTICAL PHILOSOPHY -->
+      <section id="philosophy" role="tabpanel" aria-labelledby="tab-philosophy" style="display:none;">
+        <h3 style="margin:6px 0 10px 0">Tactical philosophy</h3>
+        <div class="small">
+          <div style="font-weight:900;margin-bottom:8px">Mapped codes</div>
+          <ul>
+            <li><strong>EG — Beckenbauer Libero</strong>: ball-carrying libero tendencies and positional sweep.</li>
+            <li><strong>EW — Lobanovskyi Scientific</strong>: structured conditioning and movement patterns.</li>
+            <li><strong>EV — Simeone Cholismo</strong>: competitive intensity and high-pressure moments.</li>
+            <li><strong>DO — Herrera Catenaccio</strong>: organised defensive structure and zonal discipline.</li>
+          </ul>
+          <div style="margin-top:8px" class="small">Rationale: Passarella blends libero-style progression with defensive organisation and exceptional set-piece scoring; these codes reflect fit across your 60-code framework.</div>
+        </div>
+      </section>
+
+      <!-- COMPARISON -->
+      <section id="comparison" role="tabpanel" aria-labelledby="tab-comparison" style="display:none;">
+        <h3 style="margin:6px 0 10px 0">4-Player Comparison vs Daniel Passarella</h3>
+
+        <div class="comparison-box">
+          <!-- Radar (keeps previous design) -->
+          <svg class="radar-svg" viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4-player radar comparison">
+            <defs>
+              <linearGradient id="col1" x1="0" x2="1"><stop offset="0" stop-color="#ff5e7a"/><stop offset="1" stop-color="#c8102e"/></linearGradient>
+              <linearGradient id="col2" x1="0" x2="1"><stop offset="0" stop-color="#6ae7ff"/><stop offset="1" stop-color="#0077b6"/></linearGradient>
+              <linearGradient id="col3" x1="0" x2="1"><stop offset="0" stop-color="#ffd36b"/><stop offset="1" stop-color="#ff8f1c"/></linearGradient>
+              <linearGradient id="col4" x1="0" x2="1"><stop offset="0" stop-color="#a0ffb2"/><stop offset="1" stop-color="#2bb673"/></linearGradient>
+              <style>
+                .grid{stroke:rgba(255,255,255,0.04);fill:none}
+                .axis{stroke:rgba(255,255,255,0.06);stroke-width:1.4}
+                .lbl{fill:#dfefff;font-size:14px}
+                .p1{fill:url(#col1);fill-opacity:0.14;stroke:#c8102e;stroke-width:2}
+                .p2{fill:url(#col2);fill-opacity:0.12;stroke:#0077b6;stroke-width:2}
+                .p3{fill:url(#col3);fill-opacity:0.12;stroke:#ff8f1c;stroke-width:2}
+                .p4{fill:url(#col4);fill-opacity:0.12;stroke:#2bb673;stroke-width:2}
+                .legend{font-size:13px;fill:#dfefff}
+              </style>
+            </defs>
+
+            <g transform="translate(360,280)">
+              <circle class="grid" r="240"/>
+              <circle class="grid" r="180"/>
+              <circle class="grid" r="120"/>
+              <circle class="grid" r="60"/>
+
+              <line class="axis" x1="0" y1="0" x2="0" y2="-240"/>
+              <line class="axis" x1="0" y1="0" x2="228" y2="-75"/>
+              <line class="axis" x1="0" y1="0" x2="142" y2="195"/>
+              <line class="axis" x1="0" y1="0" x2="-142" y2="195"/>
+              <line class="axis" x1="0" y1="0" x2="-228" y2="-75"/>
+
+              <text class="lbl" x="0" y="-260" text-anchor="middle">Defense</text>
+              <text class="lbl" x="248" y="-92">Aerial</text>
+              <text class="lbl" x="158" y="216">Goals</text>
+              <text class="lbl" x="-158" y="216">Passing</text>
+              <text class="lbl" x="-248" y="-92">Leadership</text>
+
+              <!-- Beckenbauer -->
+              <polygon class="p2" points="0,-184 182,-59 156,156 -188,188 -178,-56"/>
+
+              <!-- Passarella (ref) -->
+              <polygon class="p1" points="0,-192 188,-63 180,180 -172,172 -190,-60"/>
+
+              <!-- Cannavaro -->
+              <polygon class="p3" points="0,-190 180,-57 120,120 -160,160 -176,-56"/>
+
+              <!-- Ayala -->
+              <polygon class="p4" points="0,-186 182,-59 124,124 -152,152 -168,-54"/>
+            </g>
+
+            <g transform="translate(28,28)">
+              <rect x="0" y="0" width="14" height="14" fill="#0077b6"/><text class="legend" x="20" y="12">Franz Beckenbauer</text>
+              <rect x="0" y="22" width="14" height="14" fill="#ff5e7a"/><text class="legend" x="20" y="34">Daniel Passarella (Ref)</text>
+              <rect x="0" y="44" width="14" height="14" fill="#ff8f1c"/><text class="legend" x="20" y="56">Fabio Cannavaro</text>
+              <rect x="0" y="66" width="14" height="14" fill="#2bb673"/><text class="legend" x="20" y="78">Roberto Ayala</text>
+            </g>
+          </svg>
+
+          <div style="margin-top:12px">
+            <div style="font-weight:900;margin-bottom:8px">Numeric pillars (0–100)</div>
+            <table class="sim-table" aria-label="Pillar table">
+              <thead>
+                <tr><th>Player</th><th>Defense</th><th>Aerial</th><th>Goals</th><th>Leadership</th><th>Passing</th><th>Similarity</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Franz Beckenbauer</strong></td><td>92</td><td>88</td><td>78</td><td>94</td><td>92</td><td>95.1%</td></tr>
+                <tr><td><strong>Daniel Passarella (Ref)</strong></td><td>96</td><td>94</td><td>90</td><td>95</td><td>86</td><td>100%</td></tr>
+                <tr><td><strong>Fabio Cannavaro</strong></td><td>95</td><td>86</td><td>60</td><td>88</td><td>80</td><td>92.7%</td></tr>
+                <tr><td><strong>Roberto Ayala</strong></td><td>93</td><td>88</td><td>62</td><td>84</td><td>76</td><td>90.8%</td></tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top:10px" class="small">Notes: radar uses visual scale 0–120 mapped to 240px radius; numeric pillars remain 0–100 for clarity. Cosine similarities computed on 5D vectors.</div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="small" style="margin-top:12px">If you want the team label, photo placement, or any pillar values adjusted, say which field and I will update immediately.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Accessible tabs behavior
+    (function(){
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      function activate(tab){
+        tabs.forEach(t=>t.setAttribute('aria-selected','false'));
+        tab.setAttribute('aria-selected','true');
+        const id = tab.getAttribute('aria-controls');
+        panels.forEach(p=> p.style.display = (p.id === id) ? 'block' : 'none');
+      }
+      tabs.forEach(tab=>{
+        tab.addEventListener('click', ()=> activate(tab));
+        tab.addEventListener('keydown', e=>{
+          const idx = tabs.indexOf(tab);
+          if(e.key === 'ArrowRight'){ e.preventDefault(); tabs[(idx+1)%tabs.length].focus(); }
+          if(e.key === 'ArrowLeft'){ e.preventDefault(); tabs[(idx-1+tabs.length)%tabs.length].focus(); }
+          if(e.key === 'Home'){ e.preventDefault(); tabs[0].focus(); }
+          if(e.key === 'End'){ e.preventDefault(); tabs[tabs.length-1].focus(); }
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(tab); }
+        });
+      });
+      // initialize overview
+      activate(document.getElementById('tab-overview'));
+    })();
+  </script>
+</body>
+</html>

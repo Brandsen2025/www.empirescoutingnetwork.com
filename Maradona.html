@@ -1,0 +1,219 @@
+<!-- BEGIN: Diego Maradona — Cvitanich Style / Argentina Theme (Exact Sample Structure) -->
+<style>
+  :root{
+    --arg-sky:#74C2E1;
+    --arg-white:#ffffff;
+    --muted:#5b6770;
+    --text:#0b1720;
+    --accent:#04263b;
+    --card-radius:12px;
+    --glass: rgba(255,255,255,0.88);
+  }
+
+  /* Overall wrapper */
+  .pp-cv-wrap{font-family:Inter, "Helvetica Neue", Arial, sans-serif;max-width:1120px;margin:20px auto;color:var(--text);line-height:1.45;}
+  .pp-card{background:linear-gradient(180deg,var(--arg-sky) 0%,var(--arg-white) 44%,var(--arg-sky) 100%);border-radius:18px;padding:18px;box-shadow:0 12px 34px rgba(3,18,28,0.08);position:relative;overflow:hidden;border:1px solid rgba(3,18,28,0.06);}
+  .pp-card::after{content:"";position:absolute;left:50%;top:14px;transform:translateX(-50%);width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 50% 38%, rgba(255,214,77,0.98) 0 18%, rgba(255,214,77,0.15) 19% 40%, transparent 41%);opacity:0.9;mix-blend-mode:multiply;pointer-events:none;}
+
+  /* grid */
+  .pp-grid{display:grid;grid-template-columns:320px 1fr;gap:20px;position:relative;z-index:1;}
+  @media(max-width:920px){.pp-grid{grid-template-columns:1fr;}}
+
+  /* left column */
+  .pp-left{display:flex;flex-direction:column;gap:12px;padding:8px;}
+  .pp-photo{width:100%;height:auto;border-radius:10px;border:3px solid rgba(255,255,255,0.9);object-fit:cover;display:block;}
+  .pp-head{display:flex;flex-direction:column;gap:6px;}
+  .pp-name{font-size:22px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:10px;}
+  .pp-sub{font-size:13px;color:var(--muted);font-weight:700;}
+  .pp-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .pp-pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;color:var(--accent);border:1px solid rgba(4,38,59,0.06);}
+
+  /* right column */
+  .pp-right{padding:6px;display:flex;flex-direction:column;gap:14px;}
+  .pp-section{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(4,38,59,0.04);}
+  .pp-title{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:8px;}
+  .muted{color:var(--muted);font-size:13px;}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:920px){.two-col{grid-template-columns:1fr;}}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .stat{background:rgba(4,38,59,0.06);padding:10px;border-radius:8px;text-align:center;font-weight:800;color:var(--accent);}
+  .stat .label{font-weight:700;font-size:12px;color:var(--muted);font-weight:700;}
+
+  table.pp-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;}
+  table.pp-table th, table.pp-table td{padding:8px 6px;border-bottom:1px solid rgba(4,38,59,0.04);text-align:left;color:var(--accent);}
+  table.pp-table thead th{font-weight:800;}
+
+  .foot-credit{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+</style>
+
+<div class="pp-cv-wrap" role="region" aria-label="Diego Maradona player profile">
+  <div class="pp-card">
+    <div class="pp-grid">
+      <!-- LEFT: Primary identity -->
+      <aside class="pp-left" aria-label="primary-info">
+        <div class="pp-head">
+          <div class="pp-name">🇦🇷 Diego Armando Maradona <span style="font-size:12px;font-weight:700;color:var(--muted);margin-left:6px;">• Tier 1 — Immortal</span></div>
+          <div class="pp-sub">Attacking Midfielder / Second Striker · Left foot · 1.65 m</div>
+        </div>
+
+        <img class="pp-photo" src="https://resizer.glanacion.com/resizer/v2/en-su-glorioso-paso-por-Z4H4PQ5I2FDJ7PAMVV5QDF7APM.jpg?auth=96ab75525acaea78c5a22a86cdaf69214d7f5aab83fcd3ab84da9398c45586f8&width=1280&height=854&quality=70&smart=true" alt="Diego Maradona photo">
+
+        <div class="pp-pills" aria-hidden="false">
+          <div class="pp-pill">DOB: 30 Oct 1960</div>
+          <div class="pp-pill">P.O.B: Lanús, ARG</div>
+          <div class="pp-pill">Died: 25 Nov 2020</div>
+          <div class="pp-pill">Nicknames: El Pibe de Oro; El Pelusa</div>
+        </div>
+
+        <div class="pp-section" aria-label="quick-profile">
+          <div class="pp-title">Quick Profile</div>
+          <div class="muted">Enganche; creative conductor with elite solo-carry, visionary passing, and clutch decision-making. Cultural icon in Argentina and Naples.</div>
+        </div>
+
+        <div class="pp-section" aria-label="philosophy-snapshot">
+          <div class="pp-title">Philosophy Snapshot</div>
+          <div class="muted">La Nuestra: 10 · Verticalismo Napoli: 9 · Total Technique (Barça): 8</div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Full sections -->
+      <main class="pp-right">
+        <section id="career-overview" class="pp-section">
+          <div class="pp-title">Career Overview</div>
+          <div class="muted">Youth: Argentinos Juniors. Senior career: Argentinos Juniors; Boca Juniors (two spells); Barcelona; Napoli; Sevilla; Newell’s Old Boys. 1986 World Cup winner and Golden Ball; transformed Napoli and Southern Italian football culture.</div>
+        </section>
+
+        <section id="psych-profile" class="pp-section">
+          <div class="pp-title">Psychological Profile & Personality Analysis</div>
+          <div class="muted">Charismatic, emotionally intense, and fiercely competitive in-match. Demonstrated obsessive focus under pressure and a gift for leadership by example. Off-field impulsivity, substance vulnerability, and external influence produced volatility that affected late-career consistency.</div>
+        </section>
+
+        <div class="two-col">
+          <section id="key-relationships" class="pp-section">
+            <div class="pp-title">Key Relationships & Interpersonal Dynamics</div>
+            <ul class="muted" style="margin:0 0 0 16px;padding:0;">
+              <li><strong>Carlos Bilardo</strong> — tactical partnership that enabled tournament freedom</li>
+              <li><strong>Claudio Caniggia</strong> — close attacking partner and friend</li>
+              <li><strong>Napoli management & ultras</strong> — mutual devotion and identity shaping</li>
+              <li><strong>Political & media contacts</strong> — amplified image and controversies</li>
+            </ul>
+          </section>
+
+          <section id="allies-rivals" class="pp-section">
+            <div class="pp-title">Favourites / Strong Allies</div>
+            <div class="muted">Napoli ultras; Argentina 1986 core; trusted inner circle at career peak.</div>
+            <div style="height:10px;"></div>
+            <div class="pp-title" style="margin-top:6px;">Dislikes / Significant Rivals</div>
+            <div class="muted">FIFA governance structures; England (historic on-field rivalry); adversarial media and off-field rivals affecting discipline.</div>
+          </section>
+        </div>
+
+        <section id="global-impact" class="pp-section">
+          <div class="pp-title">Global Impact Analysis</div>
+          <div class="muted">Maradona’s influence extends beyond sport into politics, culture, and identity. His 1986 World Cup run redefined individual tournament dominance and created lasting commercial and heritage value. Naples and Buenos Aires retain persistent brand and cultural capital tied to his legacy.</div>
+        </section>
+
+        <section id="advanced-metrics" class="pp-section">
+          <div class="pp-title">📊 Advanced Metrics</div>
+          <div class="stat-grid" style="margin-top:8px;">
+            <div class="stat"><div style="font-size:18px;">0.72</div><div class="label">Empire mG</div></div>
+            <div class="stat"><div style="font-size:18px;">94</div><div class="label">Enhanced XPS</div></div>
+            <div class="stat"><div style="font-size:18px;">91</div><div class="label">POI</div></div>
+            <div class="stat"><div style="font-size:16px;">10.1,10.3,14.2,17.4</div><div class="label">Primary EventIDs</div></div>
+            <div class="stat"><div style="font-size:18px;">96</div><div class="label">Napoli FGA Peak</div></div>
+            <div class="stat"><div style="font-size:18px;">92</div><div class="label">Career FGA</div></div>
+          </div>
+        </section>
+
+        <section id="career-stats" class="pp-section">
+          <div class="pp-title">Complete Career Statistics & FGA Rating Breakdown</div>
+          <table class="pp-table" aria-label="Complete Career Statistics">
+            <thead>
+              <tr><th>Team</th><th>Years</th><th>Apps</th><th>Goals</th><th>FGA Rating</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Argentinos Juniors</td><td>1976–1981</td><td>166</td><td>116</td><td>92</td></tr>
+              <tr><td>Boca Juniors (1)</td><td>1981–1982</td><td>40</td><td>28</td><td>90</td></tr>
+              <tr><td>Barcelona</td><td>1982–1984</td><td>36</td><td>22</td><td>88</td></tr>
+              <tr><td>Napoli</td><td>1984–1991</td><td>188</td><td>81</td><td>96</td></tr>
+              <tr><td>Sevilla</td><td>1992–1993</td><td>26</td><td>5</td><td>76</td></tr>
+              <tr><td>Newell’s Old Boys</td><td>1993–1994</td><td>5</td><td>0</td><td>70</td></tr>
+              <tr><td>Boca Juniors (2)</td><td>1995–1997</td><td>30</td><td>7</td><td>74</td></tr>
+              <tr><td><strong>Total (Club)</strong></td><td>—</td><td>491</td><td>259</td><td><strong>92</strong></td></tr>
+              <tr><td><strong>Argentina (Senior)</strong></td><td>1977–1994</td><td>91</td><td>34</td><td><strong>94</strong></td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="milestones" class="pp-section">
+          <div class="pp-title">Career Milestones & Highlights</div>
+          <ol class="muted" style="margin:6px 0 0 18px;">
+            <li>1979–1981: Argentinos Juniors breakout and domestic acclaim</li>
+            <li>1982: World Cup breakout; transfer to Barcelona</li>
+            <li>1986: FIFA World Cup Winner; Golden Ball; "Goal of the Century" vs England</li>
+            <li>1986–1990: Napoli transformation; Serie A titles (1986–87, 1989–90); UEFA Cup 1989</li>
+            <li>1994: Final major international appearances and tournament controversy</li>
+          </ol>
+        </section>
+
+        <section id="top5" class="pp-section">
+          <div class="pp-title">Top 5 Career Performances</div>
+          <ol class="muted" style="margin:6px 0 0 18px;">
+            <li>Argentina vs England — 1986 World Cup QF (Goal of the Century + Hand of God)</li>
+            <li>Argentina vs Belgium — 1986 World Cup SF (decisive creative impact)</li>
+            <li>Napoli vs Bayern Munich — 1989 UEFA Cup (key influence)</li>
+            <li>Napoli vs Juventus — 1986–87 decisive league contributions</li>
+            <li>Barcelona vs Real Madrid — 1983 El Clásico (individual masterclass)</li>
+          </ol>
+        </section>
+
+        <section id="tactical-dna" class="pp-section">
+          <div class="pp-title">Tactical Philosophies & DNA</div>
+          <table class="pp-table" aria-label="Tactical Philosophies">
+            <thead><tr><th>Philosophy</th><th>Score (0-10)</th></tr></thead>
+            <tbody>
+              <tr><td>La Nuestra</td><td>10</td></tr>
+              <tr><td>Verticalismo Napoli</td><td>9</td></tr>
+              <tr><td>Total Technique (Barça)</td><td>8</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="player-comparison" class="pp-section">
+          <div class="pp-title">Player Comparison (Radar Chart)</div>
+          <div class="muted">Prepared normalized vector (0–100): Dribbling:98; Vision:96; Final Third Impact:97; Solo Carry:99; Set Pieces:92; Clutch:99; Defensive Contribution:40. Ready for radar component input.</div>
+        </section>
+
+        <section id="visualizations" class="pp-section">
+          <div class="pp-title">Visualizations</div>
+          <div class="muted">Assets prepared: radar.json · heatmap.svg · dribble_paths.json · event_timeline.csv. Container IDs: #radarChart #heatmap #dribbleLayer. Styling matches Cvitanich card theme.</div>
+        </section>
+
+        <section id="highlights" class="pp-section">
+          <div class="pp-title">Highlights Video</div>
+          <div class="muted"><a href="https://www.youtube.com/watch?v=1wVho3I0NtU" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:800;">Curated career highlights (YouTube)</a></div>
+        </section>
+
+        <section id="last5" class="pp-section">
+          <div class="pp-title">Last 5 Matches</div>
+          <table class="pp-table" aria-label="Last 5 matches">
+            <thead><tr><th>Date</th><th>Fixture</th><th>Competition</th><th>Role</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>25 Jun 1994</td><td>Argentina vs Nigeria</td><td>1994 FIFA World Cup</td><td>Starter</td><td>Last World Cup appearance; tournament exit after suspension controversy</td></tr>
+              <tr><td>21 Jun 1994</td><td>Argentina vs Greece</td><td>1994 FIFA World Cup</td><td>Starter</td><td>Scored a penalty; final major international contributions</td></tr>
+              <tr><td>30 Nov 1997</td><td>Boca Juniors vs River Plate</td><td>Argentine Primera División</td><td>Substitute</td><td>High-profile derby late in career</td></tr>
+              <tr><td>23 Nov 1997</td><td>Boca Juniors vs Rosario Central</td><td>Argentine Primera División</td><td>Starter</td><td>End-of-season domestic fixture</td></tr>
+              <tr><td>16 Nov 1997</td><td>Boca Juniors vs Newell's Old Boys</td><td>Argentine Primera División</td><td>Starter</td><td>One of final competitive starts before retirement</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+    </div>
+
+    <div class="foot-credit">Profile compiled to Empire FGA sample standard — exact structure, Dario Cvitanich visual layout, Argentina themed background.</div>
+  </div>
+</div>
+<!-- END: Diego Maradona profile -->

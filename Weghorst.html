@@ -1,0 +1,97 @@
+<!-- Wout Weghorst — Francescoli-style Profile -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wout Weghorst — Empire FGA Profile</title>
+  <style>
+    body{margin:0;background:#071226;color:#e6eef8;font-family:Inter,system-ui,sans-serif}
+    .container{max-width:1320px;margin:32px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:#0b1220;border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04)}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04)}
+    .bigname{font-size:40px;font-weight:900;margin:14px 0 8px;color:#fff}
+    .nickname{color:#ffc857;font-weight:900;margin-bottom:8px;font-size:14px}
+    .sub{color:#9fb0c8;font-size:15px;line-height:1.4}
+    .pill{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;color:#9fb0c8;font-weight:700;font-size:13px;display:inline-block;margin-right:8px}
+    .tabs{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+    .tab{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#9fb0c8;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700}
+    .tab.active{background:linear-gradient(90deg,#00d1ff,#1fa67a);color:#071226;font-weight:900;border:none}
+    .tab-content{display:none;margin-top:12px}
+    .tab-content.active{display:block}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:10px 12px;border-bottom:1px dashed rgba(255,255,255,0.03);font-size:14px;text-align:left}
+    th{color:#9fb0c8;font-size:12px;text-transform:uppercase;letter-spacing:0.6px}
+    .fga-box{display:flex;gap:18px;align-items:center;background:linear-gradient(90deg,rgba(31,166,122,0.06),rgba(0,209,255,0.03));padding:14px;border-radius:12px}
+    .fga-score{font-size:48px;font-weight:900;color:#fff}
+    .metric{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;min-width:140px;margin-right:8px}
+    .m-title{color:#9fb0c8;font-size:13px}
+    .m-value{font-size:20px;font-weight:900;color:#fff}
+    .graph-placeholder{height:160px;border-radius:10px;background:linear-gradient(90deg,rgba(31,166,122,0.04),rgba(0,209,255,0.02));display:flex;align-items:center;justify-content:center;color:#9fb0c8;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="card">
+      <img class="photo" src="https://sortitoutsi.b-cdn.net/uploads/media_2024/yhhOkzBPySpInBjJuy0rKKD8x41LZhQdwo244mXA.jpg?width=800&height=600" alt="Wout Weghorst photo" />
+      <div class="bigname">Wout Weghorst</div>
+      <div class="nickname">Role: Target Forward / Pressing Striker</div>
+      <div class="sub">Forward · Netherlands · Born: 7 August 1992 · Height: 1.97 m · Number: 9</div>
+      <div style="margin-top:14px;">
+        <span class="pill">Ajax — 2025–26 Season</span>
+        <span class="pill">Empire FGA: Veteran Core</span>
+        <span class="pill">Netherlands International</span>
+      </div>
+      <div style="margin-top:18px;">
+        <div style="font-weight:900;font-size:15px;margin-bottom:8px;">Bio & quick facts</div>
+        <div class="sub">Towering striker with Bundesliga, Premier League, and international pedigree. Known for relentless pressing, aerial dominance, and clutch goals. Returned to Eredivisie to lead Ajax’s front line.</div>
+      </div>
+    </aside>
+
+    <main class="card">
+      <div style="font-weight:900;font-size:20px;margin-bottom:12px;">Empire FGA — Player Profile</div>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('overview')">Career overview</button>
+        <button class="tab" onclick="showTab('seasons')">Season performance</button>
+        <button class="tab" onclick="showTab('metrics')">Metrics</button>
+        <button class="tab" onclick="showTab('philosophy')">Tactical philosophy</button>
+        <button class="tab" onclick="showTab('comparison')">Comparison</button>
+        <button class="tab" onclick="showTab('visuals')">Visuals</button>
+      </div>
+
+      <div id="overview" class="tab-content active">
+        <div class="fga-box">
+          <div>
+            <div style="color:#9fb0c8;font-weight:800;">Empire FGA Rating</div>
+            <div class="fga-score">80</div>
+            <div style="color:#9fb0c8;margin-top:6px;font-weight:800;">Tier: Veteran Core</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-weight:900;margin-bottom:8px;">Pillar summary</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <div class="metric"><div class="m-title">Aerial Threat</div><div class="m-value">84</div></div>
+              <div class="metric"><div class="m-title">Pressing</div><div class="m-value">82</div></div>
+              <div class="metric"><div class="m-title">Hold-up Play</div><div class="m-value">79</div></div>
+              <div class="metric"><div class="m-title">Finishing</div><div class="m-value">78</div></div>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Years</th><th>Club</th><th>Apps</th><th>Goals</th></tr></thead>
+          <tbody>
+            <tr><td>2016–2018</td><td>AZ Alkmaar</td><td>60</td><td>31</td></tr>
+            <tr><td>2018–2022</td><td>Wolfsburg</td><td>118</td><td>59</td></tr>
+            <tr><td>2022–2023</td><td>Burnley / Man United (loan)</td><td>42</td><td>6</td></tr>
+            <tr><td>2023–2025</td><td>Hoffenheim</td><td>38</td><td>11</td></tr>
+            <tr><td>2025–</td><td>Ajax</td><td>8</td><td>3</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="seasons" class="tab-content">
+        <h3>Last 5 Matches (Empire FGA)</h3>
+        <table>
+          <thead><tr><th>Opponent</th><th>Date</th><th>Comp</th><th>Min</th><th>FGA</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Marseille</td><td>2025-09-30</td><td>UCL</td><td>90</td><td>7.2</td><td>1 goal; 6 aerials won; pressing leader</td></tr>
+            <tr><td>Sparta</td><td>2025-09
