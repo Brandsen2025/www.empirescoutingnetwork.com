@@ -1,0 +1,652 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José Sanfilippo "El Nene" — Empire FGA Profile</title>
+  <style>
+    :root {
+      --bg: #071226;
+      --card: #0b1220;
+      --accent: #7c3aed;
+      --accent2: #00d1ff;
+      --muted: #9fb0c8;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background:
+        radial-gradient(900px 500px at 8% 12%, rgba(124, 58, 237, 0.06), transparent 10%),
+        radial-gradient(800px 400px at 92% 88%, rgba(0, 209, 255, 0.03), transparent 8%),
+        var(--bg);
+      color: #e6eef8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px; margin: 32px auto; padding: 22px;
+      display: grid; grid-template-columns: 360px 1fr; gap: 28px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1320px;
+      margin: 10px auto 0 auto;
+      padding: 0 22px;
+    }
+    header img {
+      height: 50px;
+      object-fit: contain;
+    }
+    aside.card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    aside .photo {
+      width: 100%; border-radius: 12px; display: block;
+      object-fit: cover; border: 4px solid rgba(255,255,255,0.04);
+      height: 500px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    .bigname {
+      font-size: 44px; font-weight: 900; margin: 16px 0 8px; color: #fff; line-height: 1;
+    }
+    .sub {
+      font-size: 15px; line-height: 1.4; color: var(--muted);
+    }
+    .quickfacts {
+      margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .pill {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    main.card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.04);
+      overflow-y: auto;
+      position: relative;
+    }
+    h3, h2 {
+      margin: 0 0 20px 0;
+      color: var(--accent2);
+      font-weight: 900;
+    }
+    p, ul {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #e6eef8;
+    }
+    table, th, td {
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background: var(--accent);
+    }
+    .metrics-table td, .metrics-table th {
+      text-align: center;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .radar-chart, .heatmap {
+      margin: 15px auto;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      user-select: none;
+      max-width: 320px;
+    }
+    .radar-chart { height: 320px; }
+    .heatmap { height: 250px; }
+    .rating-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--accent2);
+      color: var(--card);
+      font-weight: 900;
+      font-size: 52px;
+      padding: 15px 30px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(0, 209, 255, 0.6);
+      user-select: none;
+      text-align: center;
+      width: 130px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      z-index: 10;
+    }
+    .rating-label {
+      font-size: 12px; font-weight: 600; margin-top: -10px; color: #ffffffcc; letter-spacing: 1px;
+    }
+    #career-overview-title { margin-top: 100px; }
+    .fav-dislike { display:grid; grid-template-columns: 1fr 1fr; gap:24px;}
+    .fav-box, .dislike-box { background:rgba(0,0,0,0.11); border-radius:10px; padding:18px;}
+    .fav-title { color: #00d1ff; font-weight: bold; }
+    .dislike-title { color: #7c3aed; font-weight: bold; }
+    .historic-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+<header aria-label="Empire FGA Branding">
+  <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Logo" />
+</header>
+<div class="container" role="main" aria-labelledby="profile-title">
+  <aside class="card" aria-label="Player Basic Information">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Jos%C3%A9_Sanfilippo_1962.jpg" alt="José Sanfilippo" class="photo" />
+    <div class="bigname" id="profile-title">José Sanfilippo</div>
+    <div class="sub">Centre-Forward · Argentina · Born: 4 May 1935 · Nickname: "El Nene" (The Kid)</div>
+    <div class="quickfacts" aria-label="Player quick facts">
+      <div class="pill">Height: 168cm (5'6") · Weight: 71kg</div>
+      <div class="pill">San Lorenzo Legend · #10</div>
+      <div class="pill">4x Consecutive Top Scorer (1958-1961)</div>
+      <div class="pill">Argentina: 29 caps, 22 goals</div>
+      <div class="pill">Status: Retired (1978)</div>
+    </div>
+    <div class="section" aria-label="Physical and mental metrics">
+      <h3>Physical & Mental Metrics</h3>
+      <table class="metrics-table" aria-describedby="Physical mental metrics for player">
+        <thead><tr><th>Metric</th><th>Score (0-10)</th></tr></thead>
+        <tbody>
+          <tr><td>Pace / Sprint Performance Index (SPI)</td><td>7.8</td></tr>
+          <tr><td>Strength</td><td>7.2</td></tr>
+          <tr><td>Stamina</td><td>8.1</td></tr>
+          <tr><td>Mobility (MOB)</td><td>8.0</td></tr>
+          <tr><td>Decision Making (DMA)</td><td>8.6</td></tr>
+          <tr><td>Calmness (CLM)</td><td>6.5</td></tr>
+          <tr><td>Clutch Response Score (CRS)</td><td>9.2</td></tr>
+          <tr><td>Character (CHR)</td><td>9.4</td></tr>
+          <tr><td>Mental Competence Score (MCS)</td><td>8.4</td></tr>
+          <tr><td>Creative Risk Taking (CRK)</td><td>7.7</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </aside>
+  <main class="card" aria-label="Main content">
+    <div class="rating-badge" aria-label="Empire FGA Rating">
+      88
+      <div class="rating-label">FGA RATING</div>
+    </div>
+    <section class="section" aria-labelledby="overview-title">
+      <h2 id="overview-title">⚽ Player Overview</h2>
+      <div class="historic-badge">🏆 HISTORIC LEGEND - 1950s-1970s Era</div>
+      <p>
+        José Francisco "El Nene" Sanfilippo is one of Argentine football's most prolific and controversial strikers, whose name is forever etched in the annals of South American football history. Born in Buenos Aires on May 4, 1935, Sanfilippo earned his nickname "El Nene" (The Kid) from his father, who would shout from the stands during his youth matches: "¡Dale, nene; corré, nene; pateá, nene!" (Come on, kid; run, kid; shoot, kid!). The nickname stuck throughout his legendary career.
+      </p>
+      <p>
+        As a pure centre-forward, Sanfilippo was an unstoppable goalscoring machine who terrorized Argentine Primera División defenses throughout the late 1950s and early 1960s. Standing just 168cm (5'6") tall and weighing 71kg, he proved that heart, positioning, and clinical finishing could overcome physical disadvantages. His four consecutive top-scorer titles (1958-1961) with 28, 31, 34, and 26 goals respectively—an unprecedented achievement that wouldn't be matched until Diego Maradona replicated it two decades later—cemented his status as Argentine football royalty.
+      </p>
+      <p>
+        Sanfilippo is San Lorenzo's all-time leading scorer with 205-207 goals in 258 appearances, a record that stands to this day. His brief but spectacular stint at Boca Juniors in 1963 saw him lead the Xeneizes to their first-ever Copa Libertadores final, where he scored all three of Boca's goals across both legs against Pelé's legendary Santos side. For Argentina, he netted 22 goals in just 29 appearances, making him the joint ninth-highest scorer in national team history alongside Leopoldo Luque. He represented his country at the 1958 and 1962 FIFA World Cups and was a key figure in Argentina's 1957 South American Championship triumph.
+      </p>
+      <p>
+        Beyond his extraordinary goalscoring prowess, Sanfilippo was notorious for his fiery temperament and unfiltered personality. His career at Boca Juniors ended abruptly in 1964 when he punched coach Aristóbulo Deambrosi during a friendly match after being disrespected—left on the bench after warming up. Even decades later as a television panelist, he remained outspoken, famously criticizing goalkeeper Sergio Goycochea after Argentina's humiliating 5-0 defeat to Colombia in 1993. Sanfilippo's legacy is that of a goal-scoring genius with an uncompromising character—a true icon of Argentine football's golden era.
+      </p>
+    </section>
+    <section class="section" aria-labelledby="career-overview-title">
+      <h2 id="career-overview-title">📋 Career Overview</h2>
+      <p>
+        <strong>Youth Development (1940s-1953):</strong> Came through San Lorenzo's youth academy, where his father nicknamed him "El Nene" while cheering from the stands. Developed into a natural goalscorer with exceptional instinct in the penalty area.
+      </p>
+      <p>
+        <strong>San Lorenzo Breakthrough (1953-1955):</strong> Professional debut on November 15, 1953, in a 1-0 away victory vs Newell's Old Boys in Rosario. Scored first goals the following week—a brace in a 4-0 home demolition of Banfield at the historic Gasómetro. After brief return to reserves in 1954, established himself as first-team regular in 1955 with 15 goals.
+      </p>
+      <p>
+        <strong>Golden Era at San Lorenzo (1956-1962):</strong> Dominated Argentine football with unprecedented consistency. Four consecutive Primera División top-scorer titles: 1958 (28 goals), 1959 (31 goals), 1960 (34 goals), 1961 (26 goals)—a feat unmatched until Maradona. Led San Lorenzo to 1959 national championship. Became club's all-time leading scorer with 192 league goals (205-207 total). Also top scorer in clásico vs Huracán with 16 career goals.
+      </p>
+      <p>
+        <strong>Argentina National Team (1957-1962):</strong> International debut April 9, 1957, in 4-1 away victory vs Peru. Won 1957 South American Championship as Omar Sívori's backup. Represented Argentina at 1958 FIFA World Cup in Sweden (early elimination) and 1962 FIFA World Cup in Chile. Also won 1955 Pan American Games gold medal. Finished career with 22 goals in 29 caps—joint ninth all-time for Argentina.
+      </p>
+      <p>
+        <strong>Boca Juniors Glory & Controversy (1963-1964):</strong> Transferred to Boca Juniors in 1963 for significant fee—Alberto Armando's dream signing. Immediately delivered by leading Boca to first-ever Copa Libertadores final against Santos (Pelé, Coutinho). Scored all 3 Boca goals in the finals—2 goals in 3-2 first-leg loss in Brazil, 1 goal in 2-1 second-leg loss at La Bombonera. Top scorer of 1963 Copa Libertadores tournament. Career at Boca ended explosively in 1964: During Copa Jorge Newbery friendly, punched coach Aristóbulo Deambrosi after being disrespected (made to warm up but left on bench). Despite apologies, Boca terminated contract. Final Boca record: 27-28 matches, 14 goals.
+      </p>
+      <p>
+        <strong>Uruguayan & Brazilian Adventures (1964-1971):</strong> Joined Nacional (Uruguay) after Boca dismissal—scored against Colo Colo in only Copa Libertadores appearance before injury. Remarkable scoring record: 25 goals in 21 games. Brief spell at Banfield (Argentina, 1966-1967): 19 goals in 50 games. Played in Brazil for Bangu (1968) and Bahia (1968-1971), extending career in South America.
+      </p>
+      <p>
+        <strong>Glorious San Lorenzo Return (1972):</strong> Returned to San Lorenzo at age 37 for fairy-tale ending. Won back-to-back championships—Metropolitano 1972 (18 matches, 8 goals) and Nacional 1972 (10 matches, fewer minutes). San Lorenzo became first Argentine team to win both tournaments in single season. Officially retired at end of 1972 season as club legend.
+      </p>
+      <p>
+        <strong>Brief Comeback (1978):</strong> At age 43, played briefly for Club Atlético San Miguel in Argentina's 4th division before final retirement.
+      </p>
+    </section>
+    <section class="section" aria-labelledby="strengths-weaknesses-title">
+      <h2 id="strengths-weaknesses-title">⚡ Strengths & Weaknesses</h2>
+      <div class="fav-dislike">
+        <div class="fav-box">
+          <div class="fav-title">✅ STRENGTHS — FAVORITES</div>
+          <ul>
+            <li><strong>Elite Finishing:</strong> Clinical in penalty area, natural goalscorer instinct</li>
+            <li><strong>Positioning Intelligence:</strong> Always found space, excellent movement off ball</li>
+            <li><strong>Consistency:</strong> 4 consecutive top-scorer titles—unprecedented achievement</li>
+            <li><strong>Big-Game Mentality:</strong> 3 goals in Copa Libertadores finals vs Pelé's Santos</li>
+            <li><strong>Aerial Ability:</strong> Strong in air despite 5'6" frame</li>
+            <li><strong>Predatory Instincts:</strong> Could score with either foot, head, from any position</li>
+            <li><strong>Mental Toughness:</strong> Thrived under pressure in crucial moments</li>
+            <li><strong>Leadership:</strong> Natural presence, demanded excellence from teammates</li>
+            <li><strong>Scoring Variety:</strong> Tap-ins, long-range shots, headers—complete striker</li>
+            <li><strong>Durability:</strong> Career spanned 25 years (1953-1978) across 4 countries</li>
+          </ul>
+        </div>
+        <div class="dislike-box">
+          <div class="dislike-title">⚠️ AREAS FOR IMPROVEMENT / WEAKNESSES</div>
+          <ul>
+            <li><strong>Temperament Issues:</strong> Fiery personality led to conflicts with coaches</li>
+            <li><strong>Physical Limitations:</strong> Small stature (5'6") disadvantaged vs taller defenders</li>
+            <li><strong>Discipline Problems:</strong> Punched Boca coach—career-ending incident at club</li>
+            <li><strong>Limited Playmaking:</strong> Pure finisher, not creative distributor</li>
+            <li><strong>Defensive Contribution:</strong> Minimal work rate when team didn't have ball</li>
+            <li><strong>Outspoken Nature:</strong> Unfiltered comments created unnecessary conflicts</li>
+            <li><strong>Injury Proneness:</strong> Especially later career (Nacional injury in friendly)</li>
+            <li><strong>Consistency Decline:</strong> Scoring dropped after age 30 outside San Lorenzo</li>
+            <li><strong>Team Chemistry:</strong> Strong personality could clash with authority figures</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="global-impact-title">
+      <h2 id="global-impact-title">🌍 Global Impact Analysis</h2>
+      <ul>
+        <li><strong>Historic Achievement:</strong> 5th all-time leading scorer in Argentine Primera División history (226 goals in 330 games)—remarkable considering era's defensive tactics.</li>
+        <li><strong>San Lorenzo Immortality:</strong> Club's all-time leading scorer (205-207 goals) and top derby scorer vs Huracán (16 goals). Has small tribute at home with 9 wooden planks from demolished Gasómetro stadium.</li>
+        <li><strong>Copa Libertadores Pioneer:</strong> Led Boca to their first-ever final (1963), scoring all 3 Boca goals against legendary Santos side featuring Pelé and Coutinho. Tournament's top scorer despite losing finals.</li>
+        <li><strong>International Recognition:</strong> Argentina's joint 9th all-time top scorer (22 goals in 29 caps) alongside Leopoldo Luque. 1957 South American Championship winner, 1955 Pan American Games gold medalist.</li>
+        <li><strong>Record Setter:</strong> 4 consecutive top-scorer titles (1958-1961) unprecedented until Diego Maradona matched it 20+ years later.</li>
+        <li><strong>Cross-Era Icon:</strong> Played against and alongside legends: faced Pelé in Copa Libertadores finals, teamed with Antonio Rattín, competed in Sívori era.</li>
+        <li><strong>Cultural Legacy:</strong> "El Nene" nickname became legendary. Even at age 90, still called by childhood nickname. Father's encouragement from stands became iconic story in Argentine football folklore.</li>
+        <li><strong>Personality Precedent:</strong> Set template for passionate, outspoken Argentine strikers. Temperamental genius archetype—brilliant but uncompromising.</li>
+        <li><strong>Legislative Honor:</strong> Awarded "Personalidad Destacada del Deporte" (Outstanding Sports Personality) by Buenos Aires Legislature (2016).</li>
+      </ul>
+    </section>
+    <section class="section" aria-labelledby="advanced-metrics-title">
+      <h2 id="advanced-metrics-title">📊 Advanced Metrics (Era-Adjusted)</h2>
+      <p class="sub"><em>Note: Metrics adjusted for 1950s-1970s era when statistical tracking was limited. FGA scores reflect historical context and contemporary reports.</em></p>
+      <table aria-describedby="Detailed advanced performance metrics">
+        <thead>
+          <tr style="background-color: var(--accent);">
+            <th>Metric</th><th>Value</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XPS (Enhanced Shooting)</td><td>9.4</td><td>Elite finisher—4 consecutive top-scorer titles unprecedented.</td></tr>
+          <tr><td>STK (Strike Accuracy)</td><td>9.1</td><td>Clinical inside penalty area, deadly first touch.</td></tr>
+          <tr><td>POI (Position Intelligence)</td><td>9.3</td><td>Always found space despite 5'6" frame vs bigger defenders.</td></tr>
+          <tr><td>CRS (Clutch Response Score)</td><td>9.2</td><td>3 goals in Copa Libertadores finals vs Pelé's Santos—big-game player.</td></tr>
+          <tr><td>CHR (Character)</td><td>9.4</td><td>Uncompromising personality, strong leadership but volatile temperament.</td></tr>
+          <tr><td>DMA (Decision Making)</td><td>8.6</td><td>Instinctive goalscorer, knew when to shoot vs pass.</td></tr>
+          <tr><td>MOB (Mobility)</td><td>8.0</td><td>Quick over short distances despite small stature.</td></tr>
+          <tr><td>MCS (Mental Competence Score)</td><td>8.4</td><td>High football IQ, excellent anticipation.</td></tr>
+          <tr><td>CLM (Calmness)</td><td>6.5</td><td>Temperamental—famous for punching coach incident.</td></tr>
+          <tr><td>KEY (Key Passes)</td><td>6.8</td><td>Limited playmaking—pure finisher role.</td></tr>
+          <tr><td>CPI (Creative Player Index)</td><td>6.2</td><td>Not primary creator, focused on scoring.</td></tr>
+          <tr><td>DEF (Defensive Contribution)</td><td>5.1</td><td>Minimal defensive work—pure striker mentality of era.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section" aria-labelledby="career-stats-full-title">
+      <h2 id="career-stats-full-title">📈 Complete Career Statistics & FGA Rating Breakdown</h2>
+      <table aria-describedby="Complete career stats table by club">
+        <thead>
+          <tr>
+            <th>Club</th><th>Country</th><th>Seasons</th><th>Apps</th><th>Goals</th><th>Goals/Game</th><th>FGA Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>San Lorenzo (1st spell)</strong></td><td>Argentina</td><td>1953-1962</td><td>~240</td><td>192-200</td><td>0.80+</td><td><strong>91</strong></td></tr>
+          <tr><td><strong>Boca Juniors</strong></td><td>Argentina</td><td>1963-1964</td><td>27-28</td><td>14</td><td>0.50</td><td><strong>88</strong></td></tr>
+          <tr><td>Nacional</td><td>Uruguay</td><td>1964-1965</td><td>21</td><td>25</td><td>1.19</td><td>89</td></tr>
+          <tr><td>Banfield</td><td>Argentina</td><td>1966-1967</td><td>50</td><td>19</td><td>0.38</td><td>81</td></tr>
+          <tr><td>Bangu</td><td>Brazil</td><td>1968</td><td>~15</td><td>~8</td><td>0.53</td><td>78</td></tr>
+          <tr><td>Bahia</td><td>Brazil</td><td>1968-1971</td><td>~40</td><td>~18</td><td>0.45</td><td>76</td></tr>
+          <tr><td><strong>San Lorenzo (2nd spell)</strong></td><td>Argentina</td><td>1972</td><td>28</td><td>8+</td><td>0.29</td><td>82</td></tr>
+          <tr><td>San Miguel</td><td>Argentina</td><td>1978</td><td>~5</td><td>~1</td><td>0.20</td><td>68</td></tr>
+          <tr style="background-color: rgba(0,209,255,0.1);"><td colspan="3"><strong>CAREER TOTALS</strong></td><td><strong>~426</strong></td><td><strong>~285</strong></td><td><strong>0.67</strong></td><td><strong>88</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="sub"><em>*Some statistics approximate due to limited record-keeping in 1950s-1970s era. San Lorenzo total includes both spells.</em></p>
+    </section>
+    <section class="section" aria-labelledby="national-team-title">
+      <h2 id="national-team-title">🇦🇷 Argentina National Team Career</h2>
+      <table aria-describedby="Argentina national team statistics">
+        <thead>
+          <tr>
+            <th>Competition</th><th>Year</th><th>Apps</th><th>Goals</th><th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pan American Games</td><td>1955</td><td>-</td><td>-</td><td>🥇 Gold Medal</td></tr>
+          <tr><td>South American Championship</td><td>1957</td><td>5</td><td>3</td><td>🏆 Champion (backup to Sívori)</td></tr>
+          <tr><td>FIFA World Cup</td><td>1958 (Sweden)</td><td>3</td><td>1</td><td>Group stage elimination</td></tr>
+          <tr><td>South American Championship</td><td>1959 (Ecuador)</td><td>6</td><td>9</td><td>🥈 Runner-up, Tournament top scorer</td></tr>
+          <tr><td>FIFA World Cup</td><td>1962 (Chile)</td><td>3</td><td>2</td><td>Group stage elimination</td></tr>
+          <tr style="background-color: rgba(0,209,255,0.1);"><td colspan="2"><strong>CAREER TOTALS</strong></td><td><strong>29</strong></td><td><strong>22</strong></td><td><strong>Goals/Game: 0.76</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="sub">Joint 9th all-time Argentina top scorer (with Leopoldo Luque). International career: 1957-1962.</p>
+    </section>
+    <section class="section" aria-labelledby="career-milestones-title">
+      <h2 id="career-milestones-title">🎯 Career Milestones & Highlights</h2>
+      <ul>
+        <li><strong>November 15, 1953:</strong> Professional debut for San Lorenzo—1-0 away victory vs Newell's Old Boys in Rosario (age 18).</li>
+        <li><strong>November 21, 1953:</strong> First goals—scored brace in 4-0 home demolition of Banfield at Gasómetro, beginning legendary goalscoring career.</li>
+        <li><strong>1955:</strong> Won Pan American Games gold medal with Argentina national team.</li>
+        <li><strong>April 9, 1957:</strong> Argentina debut—4-1 away victory vs Peru. Beginning of 29-cap international career.</li>
+        <li><strong>1957:</strong> Won South American Championship with Argentina as backup to Omar Sívori—first major tournament triumph.</li>
+        <li><strong>1958:</strong> First Argentine Primera División top-scorer title—28 goals. Beginning of unprecedented 4-year streak.</li>
+        <li><strong>1958:</strong> FIFA World Cup debut in Sweden—scored 1 goal in group stage elimination.</li>
+        <li><strong>1959:</strong> Led San Lorenzo to national championship. Second consecutive top-scorer title (31 goals).</li>
+        <li><strong>1959:</strong> South American Championship in Ecuador—finished as tournament's top scorer with 9 goals despite Argentina finishing runners-up.</li>
+        <li><strong>1960:</strong> Third consecutive top-scorer title—career-high 34 goals.</li>
+        <li><strong>1961:</strong> Fourth consecutive top-scorer title—26 goals. Unprecedented achievement not matched until Diego Maradona.</li>
+        <li><strong>1962:</strong> Final international appearance—FIFA World Cup in Chile, scored 2 goals before group stage elimination.</li>
+        <li><strong>1963:</strong> Transferred to Boca Juniors for significant fee—Alberto Armando's dream signing realized.</li>
+        <li><strong>August 27, 1963:</strong> Copa Libertadores final 1st leg vs Santos (Brazil)—scored both Boca goals in 3-2 defeat. Faced Pelé.</li>
+        <li><strong>September 11, 1963:</strong> Copa Libertadores final 2nd leg at La Bombonera—scored Boca's goal in 2-1 defeat. 3 goals in finals, tournament top scorer.</li>
+        <li><strong>1964:</strong> Career-defining incident—punched Boca coach Aristóbulo Deambrosi during Copa Jorge Newbery friendly after being disrespected. Despite apologies, Boca terminated contract.</li>
+        <li><strong>1964-1965:</strong> Nacional (Uruguay)—remarkable 25 goals in 21 games despite brief spell and injury.</li>
+        <li><strong>1972:</strong> Fairy-tale return to San Lorenzo at age 37—won back-to-back Metropolitano and Nacional championships. San Lorenzo first Argentine team to achieve double in single season.</li>
+        <li><strong>1978:</strong> Final career appearance at age 43—briefly played for San Miguel in Argentina's 4th division before permanent retirement.</li>
+        <li><strong>2016:</strong> Awarded "Personalidad Destacada del Deporte" (Outstanding Sports Personality) by Buenos Aires Legislature at age 81.</li>
+      </ul>
+    </section>
+    <section class="section" aria-labelledby="historic-matches-title">
+      <h2 id="historic-matches-title">⭐ Historic Matches & Performances</h2>
+      <table aria-describedby="Most memorable career performances">
+        <thead>
+          <tr>
+            <th>Date</th><th>Competition</th><th>Match</th><th>Result</th><th>Performance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nov 21, 1953</td><td>Primera División</td><td>San Lorenzo vs Banfield</td><td>4-0 W</td><td>2 goals—first career brace announced arrival of legend</td></tr>
+          <tr><td>Apr 9, 1957</td><td>South American Championship Qualifier</td><td>Peru vs Argentina</td><td>1-4 L</td><td>Argentina debut goal—beginning of international career</td></tr>
+          <tr><td>1959</td><td>South American Championship</td><td>Argentina campaign (Ecuador)</td><td>Runner-up</td><td>Tournament top scorer: 9 goals in 6 games—elite form</td></tr>
+          <tr><td>Aug 27, 1963</td><td>Copa Libertadores Final 1st Leg</td><td>Santos vs Boca Juniors</td><td>3-2 W</td><td>2 goals vs Pelé's Santos—heroic performance despite loss</td></tr>
+          <tr><td>Sep 11, 1963</td><td>Copa Libertadores Final 2nd Leg</td><td>Boca Juniors vs Santos</td><td>1-2 L</td><td>1 goal at La Bombonera—3 goals across both finals</td></tr>
+          <tr><td>1964</td><td>Copa Jorge Newbery (Friendly)</td><td>Boca Juniors vs Unknown</td><td>-</td><td>Punched coach Deambrosi—career-defining incident</td></tr>
+          <tr><td>1972</td><td>Metropolitano Final Round</td><td>San Lorenzo campaign</td><td>Champion</td><td>8 goals in 18 games at age 37—fairy-tale return</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section" aria-labelledby="tactical-philosophies-title">
+      <h2 id="tactical-philosophies-title">🎯 Tactical Philosophies & DNA</h2>
+      <table aria-describedby="Tactical philosophy and DNA scores">
+        <thead>
+          <tr style="background-color: var(--accent);"><th>Philosophy</th><th>Score (0-10)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Classic Argentine #9 (Bilardo/Menotti Era)</td><td>9.3</td></tr>
+          <tr><td>Penalty Box Predator (Carniglia Style)</td><td>9.1</td></tr>
+          <tr><td>Instinctive Striker (Zagallo Philosophy)</td><td>8.8</td></tr>
+          <tr><td>Target Man (Traditional South American)</td><td>8.6</td></tr>
+          <tr><td>Clinical Finisher (Santana Precision)</td><td>9.2</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section" aria-labelledby="player-comparison-title">
+      <h2 id="player-comparison-title">📊 Player Comparison (Radar Chart)</h2>
+      <canvas id="comparisonRadarChart" class="radar-chart" aria-label="Radar chart comparing José Sanfilippo and peer strikers" role="img"></canvas>
+    </section>
+    <section class="section" aria-labelledby="visualizations-title">
+      <h2 id="visualizations-title">📈 Visualizations</h2>
+      <canvas id="radarChart" class="radar-chart" aria-label="Radar chart of player strengths" role="img"></canvas>
+      <div id="heatmapChart" class="heatmap" aria-label="Heatmap of positional influence"></div>
+    </section>
+    
+    <section class="section" aria-labelledby="psychological-profile-title">
+      <h2 id="psychological-profile-title">🧠 Psychological Profile & Personality Analysis</h2>
+      
+      <h3>Core Psychological Traits</h3>
+      <p>José "El Nene" Sanfilippo was a <strong>fiercely temperamental, brutally honest, and uncompromisingly driven footballer</strong> whose psychological profile reveals a goalscoring genius with volcanic emotions barely contained beneath the surface. His career trajectory—from untouchable San Lorenzo legend to explosive Boca Juniors exit—perfectly encapsulates the duality of his personality: brilliant on the pitch, combustible off it.</p>
+      
+      <div class="fav-dislike">
+        <div class="fav-box">
+          <div class="fav-title">💪 MENTAL STRENGTHS</div>
+          <ul>
+            <li><strong>Exceptional Clutch Performance:</strong> 3 goals in Copa Libertadores finals vs Pelé's Santos—thrived when stakes were highest</li>
+            <li><strong>Unshakeable Confidence:</strong> Maintained elite scoring form for 8+ consecutive seasons (1955-1962)—proof of mental consistency</li>
+            <li><strong>Resilience:</strong> Bounced back from Boca dismissal to score 25 goals in 21 games at Nacional—refused to be broken</li>
+            <li><strong>Competitive Fire:</strong> 4 consecutive top-scorer titles—relentless pursuit of excellence drove unprecedented achievement</li>
+            <li><strong>Authenticity:</strong> Never pretended to be anything other than himself—"El Nene" remained unchanged from childhood to age 90</li>
+            <li><strong>Leadership Through Performance:</strong> Led by example, demanded teammates match his standards through his own prolific output</li>
+          </ul>
+        </div>
+        <div class="dislike-box">
+          <div class="dislike-title">⚠️ PSYCHOLOGICAL CHALLENGES</div>
+          <ul>
+            <li><strong>Volcanic Temperament:</strong> Punched coach Deambrosi—career-ending incident at Boca revealed inability to control anger</li>
+            <li><strong>Authority Issues:</strong> Struggled with coaches who disrespected him—"Me parecía bien dejarme sentado" confrontation escalated to violence</li>
+            <li><strong>Unfiltered Communication:</strong> Even decades later as TV panelist, brutal honesty created conflicts (Goycochea incident after 5-0 Colombia loss)</li>
+            <li><strong>Pride Over Pragmatism:</strong> Would rather punch coach and lose Boca career than swallow perceived disrespect</li>
+            <li><strong>Limited Emotional Regulation:</strong> Intensity that fueled scoring also manifested as destructive outbursts</li>
+            <li><strong>Inability to Compromise:</strong> All-or-nothing personality—no middle ground between excellence and explosion</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3>The Defining Incident: Boca Juniors Explosion (1964)</h3>
+      <p>Sanfilippo's psychology is best understood through the incident that ended his Boca career. During a Copa Jorge Newbery friendly, coach Aristóbulo Deambrosi made Sanfilippo warm up as substitute but then left him on the bench. When Sanfilippo questioned this decision, the coach arrogantly replied "sí" (yes, it's fine to leave you sitting):</p>
+      <ul>
+        <li><strong>Sanfilippo's Account:</strong> "Le dije si le parecía bien dejarme sentado en el banco y no ponerme, y con soberbia me contestó que sí. Enseguida le metí una trompada y lo noqueé" (I asked if he thought it was okay to leave me sitting on the bench without playing, and he arrogantly said yes. Immediately I punched him and knocked him out).</li>
+        <li><strong>Immediate Consequences:</strong> Apologized to coach and teammates, but even club president Alberto Armando—who desperately wanted to keep Sanfilippo—couldn't save him. Boca terminated his contract.</li>
+        <li><strong>Armando's Assessment:</strong> "Me habían dicho que era temperamental, pero pensé que acá iba a comportarse, y que podríamos manejarlo. Pero no fue así" (They told me he was temperamental, but I thought he'd behave here and we could manage him. But that wasn't the case).</li>
+        <li><strong>Psychological Insight:</strong> Sanfilippo valued respect above career security—would sacrifice everything rather than accept perceived humiliation. His pride and sense of self-worth were non-negotiable.</li>
+      </ul>
+      
+      <h3>"El Nene" - The Psychology Behind the Nickname</h3>
+      <p>The nickname "El Nene" (The Kid) reveals deep psychological continuity from childhood to retirement:</p>
+      <ul>
+        <li><strong>Origin:</strong> Father shouted from stands during youth matches: "¡Dale, nene; corré, nene; pateá, nene!" (Come on, kid; run, kid; shoot, kid!)—nickname born from paternal encouragement.</li>
+        <li><strong>Sanfilippo's Reflection:</strong> "Lo de 'Nene' me lo puso mi papá, no hay mucho misterio... Hoy, a mi edad, me siguen diciendo así" (My dad gave me 'Nene,' there's no great mystery... Today, at my age, they still call me that).</li>
+        <li><strong>Psychological Significance:</strong> Never outgrew childhood nickname—suggests retention of youthful directness, emotional rawness, and unfiltered reactions throughout adult life.</li>
+        <li><strong>Public Perception:</strong> Fans chanted "No se vende, el 'Nene' no se vende" (The Kid isn't for sale) at San Lorenzo—nickname became synonymous with loyalty and authenticity.</li>
+      </ul>
+      
+      <h3>Post-Career Personality: Unfiltered Honesty Endures</h3>
+      <p>Sanfilippo's temperament persisted decades after retirement. Famous 1993 TV incident with goalkeeper Sergio Goycochea after Argentina's 5-0 humiliation vs Colombia (World Cup qualifier):</p>
+      <ul>
+        <li><strong>Sanfilippo's Brutal Critique:</strong> "Pibe, usted se comió todos los amagues. Le hicieron cuatro goles en el mismo palo y en la mayoría de las jugadas se tiró con los pies hacia adelante" (Kid, you fell for every feint. They scored four goals on the same side and in most plays you dove with your feet forward).</li>
+        <li><strong>Goycochea's Reaction:</strong> Completely speechless—couldn't respond to devastatingly accurate criticism.</li>
+        <li><strong>Psychological Pattern:</strong> Even in his late 50s, Sanfilippo remained incapable of softening harsh truths—honesty mattered more than politeness or social grace.</li>
+      </ul>
+      
+      <h3>Relationship with San Lorenzo: Unconditional Love</h3>
+      <p>While Sanfilippo's time at Boca ended in flames, his relationship with San Lorenzo demonstrates capacity for deep, enduring loyalty:</p>
+      <ul>
+        <li>All-time leading scorer (205-207 goals in 258 games)—gave best years to one club</li>
+        <li>Returned at age 37 (1972) for fairy-tale ending—won back-to-back championships</li>
+        <li>Kept 9 wooden planks from demolished Gasómetro stadium in his home—physical connection to club's history</li>
+        <li>Awarded "Personalidad Destacada del Deporte" by Buenos Aires Legislature (2016) at age 81—recognized by city for San Lorenzo legacy</li>
+        <li>At age 90, still emotionally connected to club—lifelong identity tied to azulgrana colors</li>
+      </ul>
+      
+      <h3>The Paradox of Sanfilippo's Psychology</h3>
+      <p>José Sanfilippo embodies psychological contradictions: capable of deep loyalty (San Lorenzo) yet unable to control explosive anger (Boca incident); thrived under pressure in finals vs Pelé yet couldn't tolerate minor coaching disrespect; brutally honest in critiquing others (Goycochea) yet lacked self-awareness about own temperament's consequences. His legacy is that of a goalscoring genius whose uncompromising character was both his greatest strength and fatal flaw—a man who remained "El Nene" forever, for better and worse.</p>
+    </section>
+    
+    <section class="section" aria-labelledby="relationships-title">
+      <h2 id="relationships-title">👥 Key Relationships & Interpersonal Dynamics</h2>
+      
+      <h3>Coaching Relationships</h3>
+      
+      <h4>San Lorenzo Coaches (1953-1962, 1972) — GENERALLY POSITIVE</h4>
+      <p><strong>Dynamic:</strong> Sanfilippo thrived under coaches who gave him freedom and respect. His best years (1958-1961, 4 consecutive top-scorer titles) coincided with coaches who understood his temperament and channeled his intensity productively. 1972 return at age 37 showed mutual respect—coaches trusted veteran striker to contribute meaningfully despite age.</p>
+      
+      <h4>Aristóbulo Deambrosi (Boca Juniors, 1964) — EXPLOSIVE DISASTER</h4>
+      <p><strong>The Career-Ending Incident:</strong> During Copa Jorge Newbery friendly, Deambrosi made Sanfilippo warm up but left him on bench. When questioned, coach arrogantly replied "sí" (yes, it's fine).</p>
+      <p><strong>Sanfilippo's Response:</strong> "Le metí una trompada y lo noqueé" (I punched him and knocked him out). Apologized afterward but damage was irreversible—Boca terminated contract.</p>
+      <p><strong>Analysis:</strong> Deambrosi's perceived arrogance triggered Sanfilippo's pride. The striker valued respect above career security—would rather destroy his Boca career than accept humiliation. Coach-player relationship completely incompatible.</p>
+      
+      <h3>Teammate Partnerships</h3>
+      
+      <h4>Antonio Rattín (Boca Juniors, 1963) — MUTUAL RESPECT</h4>
+      <p><strong>Connection:</strong> Both fierce competitors with strong personalities. Rattín was defensive leader, Sanfilippo attacking spearhead in Boca's 1963 Copa Libertadores campaign.</p>
+      <p><strong>Legendary Moment:</strong> Rattín's defensive strategy vs Pelé in finals—physical marking of Santos' star. Sanfilippo scored all 3 Boca goals across both legs despite losing.</p>
+      <p><strong>Dynamic:</strong> Two alpha personalities who channeled intensity toward common goal—reaching Boca's first Copa Libertadores final.</p>
+      
+      <h4>San Lorenzo Teammates (1950s-1960s) — LEADERSHIP THROUGH EXCELLENCE</h4>
+      <p><strong>Style:</strong> Led by example rather than vocal motivation. Scoring 4 consecutive top-scorer titles inspired teammates to elevate their games.</p>
+      <p><strong>1959 Championship Team:</strong> Peak Sanfilippo (31 goals) carried San Lorenzo to national title—ultimate team achievement driven by individual brilliance.</p>
+      <p><strong>Respect:</strong> Fans chanted "No se vende, el 'Nene' no se vende" (The Kid isn't for sale)—teammates and supporters united in admiration.</p>
+      
+      <h4>National Team Dynamics (1957-1962)</h4>
+      <p><strong>Omar Sívori Era:</strong> Initially backup to legendary Sívori at 1957 South American Championship. Despite secondary role, contributed 3 goals as Argentina won title—showed willingness to accept supporting position when necessary.</p>
+      <p><strong>Peak International Years:</strong> 1959 South American Championship—tournament top scorer (9 goals) despite Argentina finishing runners-up. Demonstrated elite form alongside national teammates.</p>
+      
+      <h3>Adversarial Relationships</h3>
+      
+      <h4>Sergio Goycochea (Post-Career TV Conflict, 1993)</h4>
+      <p><strong>Context:</strong> Argentina humiliated 5-0 by Colombia (World Cup qualifier). Sanfilippo and Goycochea both TV panelists analyzing match.</p>
+      <p><strong>Sanfilippo's Brutal Critique:</strong> "Pibe, usted se comió todos los amagues. Le hicieron cuatro goles en el mismo palo y en la mayoría de las jugadas se tiró con los pies hacia adelante" (Kid, you fell for every feint. They scored four goals on the same side and in most plays you dove with your feet forward).</p>
+      <p><strong>Aftermath:</strong> Goycochea speechless—couldn't defend against devastatingly accurate analysis. Demonstrated Sanfilippo's unfiltered honesty endured decades after retirement.</p>
+      
+      <h3>Authority Figures</h3>
+      
+      <h4>Alberto Armando (Boca President, 1963-1964) — COMPLICATED</h4>
+      <p><strong>Initial Relationship:</strong> Armando pursued Sanfilippo for years—dream signing to lead Boca to Copa Libertadores glory.</p>
+      <p><strong>Immediate Success:</strong> Sanfilippo delivered—3 goals in finals vs Santos, tournament top scorer despite losing.</p>
+      <p><strong>Breaking Point:</strong> After Deambrosi punching incident, even Armando couldn't save Sanfilippo. President forced to choose between coach's authority and temperamental star—chose institutional stability.</p>
+      <p><strong>Armando's Reflection:</strong> "Pensé que acá iba a comportarse, y que podríamos manejarlo. Pero no fue así" (I thought he'd behave here and we could manage him. But that wasn't the case)—admission that Sanfilippo was unmanageable.</p>
+      
+      <h3>Fan Relationships</h3>
+      
+      <h4>San Lorenzo Supporters — UNCONDITIONAL ADORATION</h4>
+      <p><strong>Club Legend Status:</strong> All-time leading scorer (205-207 goals), 4 consecutive top-scorer titles, 1959 champion, 1972 double-winner.</p>
+      <p><strong>Cultural Impact:</strong> Fans chanted "No se vende, el 'Nene' no se vende"—declaring he was priceless, not for sale to any club.</p>
+      <p><strong>Personal Connection:</strong> Kept 9 wooden planks from demolished Gasómetro stadium in home—physical manifestation of lifelong bond.</p>
+      <p><strong>Legislative Recognition:</strong> Awarded "Personalidad Destacada del Deporte" (2016) by Buenos Aires—city honored his San Lorenzo legacy.</p>
+      
+      <h4>Boca Juniors Fans — BRIEF BRILLIANCE, ABRUPT ENDING</h4>
+      <p><strong>Initial Reception:</strong> Welcomed as Alberto Armando's dream signing—expectations sky-high.</p>
+      <p><strong>Heroic Performance:</strong> 3 goals in Copa Libertadores finals vs Pelé's Santos—instant legend status despite losing.</p>
+      <p><strong>Shocking Exit:</strong> Punching incident ended career at Boca after just 27-28 games—fans robbed of seeing full potential.</p>
+      <p><strong>Legacy:</strong> Remembered for historic finals performance rather than controversial departure—brief but brilliant chapter.</p>
+      
+      <h3>Family Influence</h3>
+      
+      <h4>Father — DEFINING RELATIONSHIP</h4>
+      <p><strong>"El Nene" Origin:</strong> Father shouted from stands during youth matches: "¡Dale, nene; corré, nene; pateá, nene!" (Come on, kid; run, kid; shoot, kid!)—nickname born from paternal encouragement.</p>
+      <p><strong>Psychological Impact:</strong> Father's vocal support shaped Sanfilippo's directness and unfiltered personality—remained "El Nene" forever, never outgrowing childhood identity.</p>
+      <p><strong>Lifelong Connection:</strong> At age 90, still called "El Nene"—father's influence endured across entire lifespan.</p>
+      
+      <h3>Interpersonal Pattern Analysis</h3>
+      
+      <p><strong>Thrives With:</strong> Coaches who respect his talent and give him freedom, teammates who match his intensity, environments that channel passion productively, unconditional loyalty from supporters.</p>
+      
+      <p><strong>Struggles With:</strong> Authority figures who disrespect him, coaches who don't value his contributions, situations requiring emotional compromise, any perceived humiliation or slight to his pride.</p>
+      
+      <p><strong>Leadership Style:</strong> Leads through elite performance rather than vocal motivation—let goalscoring do the talking. Demands excellence from teammates by setting impossible standards through own output.</p>
+      
+      <p><strong>Conflict Pattern:</strong> When disrespected, reacts with volcanic intensity—unable to regulate emotions or compromise pride. Would rather destroy career (Boca incident) than accept humiliation. Unfiltered honesty creates friction even decades after retirement (Goycochea confrontation).</p>
+      
+      <p><strong>Loyalty:</strong> When treated with respect (San Lorenzo), capable of deep, lifelong devotion. When disrespected (Boca), relationship combusts instantly and irreparably.</p>
+    </section>
+  </main>
+</div>
+<script>
+  // Radar chart for Sanfilippo's main metrics
+  const ctxRadar = document.getElementById('radarChart').getContext('2d');
+  new Chart(ctxRadar, {
+    type: 'radar',
+    data: {
+      labels: ['Finishing','Positioning','Clutch Performance','Character','Movement','Decision Making','Composure','Creativity'],
+      datasets: [{
+        label: 'José Sanfilippo',
+        data: [9.4,9.3,9.2,9.4,8.0,8.6,6.5,6.2],
+        backgroundColor: 'rgba(124,58,237,0.4)',
+        borderColor: '#7c3aed',
+        borderWidth: 2,
+        pointBackgroundColor: '#7c3aed'
+      }]
+    },
+    options: {
+      scale: {
+        ticks: { beginAtZero: true, max: 10 },
+        pointLabels: { color: '#cbd5e1' }
+      },
+      responsive: true,
+      plugins: { legend: { labels: {color: '#cbd5e1'} } }
+    }
+  });
+  
+  // Player comparison radar - Sanfilippo vs other legendary strikers
+  const ctxCompRadar = document.getElementById('comparisonRadarChart').getContext('2d');
+  new Chart(ctxCompRadar, {
+    type: 'radar',
+    data: {
+      labels: ['Finishing','Positioning','Pace','Physical','Passing','Clutch','Character','Composure'],
+      datasets: [
+        {label:'José Sanfilippo',data:[9.4,9.3,7.8,7.2,6.8,9.2,9.4,6.5],backgroundColor:'rgba(124,58,237,0.4)',borderColor:'#7c3aed',borderWidth:2,pointBackgroundColor:'#7c3aed'},
+        {label:'Classic #9 Archetype',data:[9.0,8.8,7.5,8.5,7.0,8.5,8.0,7.5],backgroundColor:'rgba(255,99,132,0.3)',borderColor:'rgb(255,99,132)',borderWidth:2,pointBackgroundColor:'rgb(255,99,132)'},
+        {label:'Complete Forward',data:[8.5,8.5,8.2,8.0,8.5,8.0,7.8,8.2],backgroundColor:'rgba(54,162,235,0.3)',borderColor:'rgb(54,162,235)',borderWidth:2,pointBackgroundColor:'rgb(54,162,235)'}
+      ]
+    },
+    options: {
+      scale: {
+        ticks: { beginAtZero: true, max: 10 },
+        pointLabels: { color: '#cbd5e1' }
+      },
+      responsive: true,
+      plugins: { legend: { labels: {color: '#cbd5e1'} } }
+    }
+  });
+  
+  // Heatmap - Centre-forward positioning (penalty area focus)
+  const heatmapOptions = {
+    chart: { height: 250, type: 'heatmap', toolbar: {show: false}, background: 'transparent' },
+    plotOptions: {
+      heatmap: {
+        radius: 6,
+        enableShades: true,
+        shadeIntensity: 0.5,
+        colorScale: {
+          ranges: [{from: 0,to:3,color:'#7c3aed',name:'Low'},{from:4,to:7,color:'#00d1ff',name:'Medium'},{from:8,to:10,color:'#ff0080',name:'Elite'}]
+        }
+      }
+    },
+    dataLabels: { enabled: false },
+    series: [
+      { name: 'Defensive Third', data: [{x: 'Left', y: 2},{x: 'Center', y: 2},{x: 'Right', y: 2}] },
+      { name: 'Middle Third', data: [{x: 'Left', y: 4},{x: 'Center', y: 5},{x: 'Right', y: 4}] },
+      { name: 'Attacking Third', data: [{x: 'Left', y: 7},{x: 'Center', y: 10},{x: 'Right', y: 7}] }
+    ],
+    xaxis: { type: 'category' },
+    yaxis: { labels: { style: { colors: '#cbd5e1' } } },
+    title: { text: 'Positional Heat Map (Centre-Forward)', style: { color: '#cbd5e1' } }
+  };
+  const heatmapChart = new ApexCharts(document.querySelector("#heatmapChart"), heatmapOptions);
+  heatmapChart.render();
+</script>
+</body>
+</html>
