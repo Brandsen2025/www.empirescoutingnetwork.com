@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Scouting Network - Oferta Exclusiva para Jorge Rubio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .urgency-banner {
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .urgency-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .countdown-timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd93d;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .offer-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #4d96ff, #6bcf7f, #ffd93d);
+            background-size: 400% 100%;
+            animation: borderShift 3s ease infinite;
+        }
+
+        @keyframes borderShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 400% 0%; }
+        }
+
+        .offer-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+            border-color: #4d96ff;
+        }
+
+        .offer-card.premium {
+            background: linear-gradient(145deg, #4d96ff, #6c5ce7);
+            color: white;
+            transform: scale(1.05);
+            border: 5px solid #ffd93d;
+        }
+
+        .offer-card.premium:hover {
+            transform: scale(1.08) translateY(-15px);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff4757, #ff6348);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .offer-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .offer-card.premium .offer-title {
+            color: white;
+        }
+
+        .offer-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .offer-card.premium .offer-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .price-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(77, 150, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .offer-card.premium .price-section {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #4d96ff;
+            margin-bottom: 10px;
+        }
+
+        .offer-card.premium .offer-price {
+            color: #ffd93d;
+        }
+
+        .price-period {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        .offer-card.premium .price-period {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .savings-highlight {
+            background: #e8f8f5;
+            color: #00b894;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .offer-card.premium .savings-highlight {
+            background: rgba(255,255,255,0.2);
+            color: #ffd93d;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(77, 150, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(77, 150, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .offer-card.premium .feature-item {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .offer-card.premium .feature-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #00b894;
+        }
+
+        .offer-card.premium .feature-icon {
+            color: #ffd93d;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .offer-card.premium .feature-text {
+            color: white;
+        }
+
+        .exclusive-benefits {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .exclusive-benefits h4 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #4d96ff, #6c5ce7);
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(77, 150, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(77, 150, 255, 0.4);
+            background: linear-gradient(45deg, #74b9ff, #a29bfe);
+        }
+
+        .offer-card.premium .cta-button {
+            background: linear-gradient(45deg, #ffd93d, #fdcb6e);
+            color: #2c3e50;
+        }
+
+        .offer-card.premium .cta-button:hover {
+            background: linear-gradient(45deg, #ffeaa7, #fdcb6e);
+        }
+
+        .testimonials-section {
+            background: white;
+            padding: 60px;
+            border-radius: 25px;
+            margin: 60px 0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid #4d96ff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #4d96ff;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #495057;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-company {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .guarantee-section {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-section::before {
+            content: '🛡️';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .guarantee-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .guarantee-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #4d96ff;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            animation: finalPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes finalPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .final-cta h3 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .offer-card.premium {
+                transform: none;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">🏆 EMPIRE SCOUTING NETWORK</h1>
+                <h2 class="hero-subtitle">OFERTA EXCLUSIVA PARA JORGE RUBIO</h2>
+                <p class="hero-tagline">El Sistema de Inteligencia Futbolística Más Sofisticado del Mundo</p>
+            </div>
+        </section>
+
+        <!-- Urgency Banner -->
+        <section class="urgency-banner">
+            <h3>⏰ OFERTA LIMITADA - SOLO HASTA EL 31 DE ENERO 2025</h3>
+            <p>Esta oportunidad única para tu network no se repetirá</p>
+            <div class="countdown-timer" id="countdown">¡El tiempo se agota!</div>
+        </section>
+
+        <!-- Offers Grid -->
+        <section class="offer-grid">
+            <!-- Agent Elite Package -->
+            <div class="offer-card premium">
+                <div class="offer-badge">🎯 MÁS POPULAR</div>
+                <h3 class="offer-title">PAQUETE AGENTE ELITE</h3>
+                <p class="offer-subtitle">Para Representantes de Jugadores & Intermediarios</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Precio Regular: €4,999</div>
+                    <div class="offer-price">€1,499</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €3,500 (70% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text"><strong>Análisis FGA completo</strong> de hasta 50 jugadores</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text"><strong>364 métricas avanzadas</strong> por jugador</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <span class="feature-text"><strong>60 filosofías tácticas</strong> mapeadas</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text"><strong>Comparaciones cross-era</strong> (vs Messi, CR7)</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔮</span>
+                        <span class="feature-text"><strong>Predicción desarrollo</strong> 3-5 años</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📜</span>
+                        <span class="feature-text"><strong>Certificados profesionales</strong> para clubes</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎁</span>
+                        <span class="feature-text"><strong>5 análisis gratuitos</strong> antes de firmar</span>
+                    </li>
+                </ul>
+
+                <div class="exclusive-benefits">
+                    <h4>🎁 BONUS EXCLUSIVO JORGE RUBIO</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <strong>Webinar Privado</strong><br>
+                            Con Jim Totime para tu network
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Acceso Beta</strong><br>
+                            Nuevas funcionalidades primero
+                        </div>
+                        <div class="benefit-item">
+                            <strong>€500 por Referido</strong><br>
+                            Cada cliente exitoso te paga
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Descuento Vitalicio</strong><br>
+                            En todas las renovaciones
+                        </div>
+                    </div>
+                </div>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=OFERTA%20AGENTE%20ELITE%20-%20Jorge%20Rubio&body=Hola%20Jim,%0A%0AEstoy%20interesado%20en%20la%20oferta%20exclusiva%20del%20Paquete%20Agente%20Elite%20por%20€1,499.%0A%0AQuiero%20agendar%20una%20demo%20personalizada.%0A%0ASaludos,%0AJorge%20Rubio" class="cta-button">
+                    🚀 CLAIM YOUR ELITE ACCESS - €1,499
+                </a>
+            </div>
+
+            <!-- Club Professional Package -->
+            <div class="offer-card">
+                <div class="offer-badge">⚽ CLUBES</div>
+                <h3 class="offer-title">PAQUETE CLUB PROFESIONAL</h3>
+                <p class="offer-subtitle">Para Clubes de Primera y Segunda División</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Primera División: €15,999</div>
+                    <div class="offer-price">€7,999</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €8,000 (50% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">∞</span>
+                        <span class="feature-text"><strong>Análisis ilimitado</strong> de jugadores objetivo</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text"><strong>Sistema FGA completo</strong> 364 métricas</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span class="feature-text"><strong>Intelligence de oposición</strong> táctica</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">💎</span>
+                        <span class="feature-text"><strong>Optimización fichajes</strong> predicción éxito</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🏫</span>
+                        <span class="feature-text"><strong>Análisis canteras</strong> futuras estrellas</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔧</span>
+                        <span class="feature-text"><strong>Integración API</strong> sistemas existentes</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎓</span>
+                        <span class="feature-text"><strong>Formación staff</strong> técnico incluida</span>
+                    </li>
+                </ul>
+
+                <div class="savings-highlight">
+                    💰 Segunda División: Solo €4,499 (era €8,999)
+                </div>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=OFERTA%20CLUB%20PROFESIONAL%20-%20Jorge%20Rubio&body=Hola%20Jim,%0A%0AEstoy%20interesado%20en%20la%20oferta%20del%20Paquete%20Club%20Profesional.%0A%0AClub:%20[Nombre%20del%20Club]%0ADivisión:%20[Primera/Segunda]%0A%0AQuiero%20agendar%20una%20demo.%0A%0ASaludos,%0AJorge%20Rubio" class="cta-button">
+                    ⚽ SECURE CLUB ACCESS - €7,999
+                </a>
+            </div>
+
+            <!-- Academy Package -->
+            <div class="offer-card">
+                <div class="offer-badge">🏫 ACADEMIAS</div>
+                <h3 class="offer-title">PAQUETE ACADEMIA & CANTERA</h3>
+                <p class="offer-subtitle">Para Centros de Formación y Academias</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Precio Regular: €7,999</div>
+                    <div class="offer-price">€2,499</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €5,500 (69% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">👶</span>
+                        <span class="feature-text"><strong>Identificación talento</strong> juvenil 14-20 años</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔮</span>
+                        <span class="feature-text"><strong>Predicción potencial</strong> 85% precisión</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text"><strong>200 jugadores/año</strong> análisis incluidos</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <span class="feature-text"><strong>Informes para padres</strong> y representantes</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span class="feature-text"><strong>Seguimiento trimestral</strong> de progreso</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">⭐</span>
+                        <span class="feature-text"><strong>Comparación con grandes</strong> a misma edad</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=OFERTA%20ACADEMIA%20-%20Jorge%20Rubio&body=Hola%20Jim,%0A%0AEstoy%20interesado%20en%20la%20oferta%20del%20Paquete%20Academia%20por%20€2,499.%0A%0AAcademia:%20[Nombre]%0AUbicación:%20[Ciudad]%0A%0AQuiero%20más%20información.%0A%0ASaludos,%0AJorge%20Rubio" class="cta-button">
+                    🏫 TRANSFORM YOUR ACADEMY - €2,499
+                </a>
+            </div>
+
+            <!-- Federation Package -->
+            <div class="offer-card">
+                <div class="offer-badge">🌍 FEDERACIONES</div>
+                <h3 class="offer-title">PAQUETE FEDERACIÓN</h3>
+                <p class="offer-subtitle">Para Federaciones Autonómicas y RFEF</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Precio Regular: €40,999</div>
+                    <div class="offer-price">€12,999</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €28,000 (68% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">🇪🇸</span>
+                        <span class="feature-text"><strong>Análisis selección completa</strong> todas categorías</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🌍</span>
+                        <span class="feature-text"><strong>Intelligence internacional</strong> rivales UEFA/FIFA</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span class="feature-text"><strong>Identificación temprana</strong> jugadores elegibles</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📚</span>
+                        <span class="feature-text"><strong>Análisis histórico</strong> completo fútbol español</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">👥</span>
+                        <span class="feature-text"><strong>Acceso completo</strong> equipo analistas</span>
+                    

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jens Schraven - Empire FGA Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: auto;
+        }
+        
+        .player-card {
+            width: 1800px;
+            height: auto;
+            min-height: 950px;
+            background: linear-gradient(145deg, #1e1e1e 0%, #2a2a3e 50%, #1a1a2e 100%);
+            border-radius: 25px;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            animation: borderPulse 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes borderPulse {
+            0% { border-color: rgba(255, 215, 0, 0.3); }
+            100% { border-color: rgba(255, 215, 0, 0.8); }
+        }
+        
+        /* HEADER */
+        .card-header {
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-radius: 22px 22px 0 0;
+            position: relative;
+        }
+        
+        .left-logo {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            overflow: hidden;
+            color: #FFD700;
+            font-weight: 900;
+            font-size: 14px;
+        }
+        
+        .center-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 20px;
+        }
+        
+        .empire-logo {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 24px;
+            color: #000;
+            margin-bottom: 4px;
+        }
+        
+        .empire-subtitle {
+            font-size: 12px;
+            color: #000;
+        }
+        
+        .fga-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .fga-rating {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 48px;
+            color: #000;
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .fga-subtitle {
+            font-size: 14px;
+            color: #000;
+            margin-top: 4px;
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+            min-height: 870px;
+        }
+        
+        /* LEFT COLUMN */
+        .left-column {
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .player-photo-section {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .player-photo {
+            width: 280px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #2a2a3e, #1a1a2e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFD700;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .player-photo:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+        
+        .position-badge {
+            background: rgba(255, 215, 0, 0.9);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 15px;
+            display: inline-block;
+            font-weight: 800;
+        }
+        
+        .personal-info {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            flex: 1;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            color: #FFD700;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .info-label {
+            color: #B0B0B0;
+            font-size: 12px;
+        }
+        
+        .info-value {
+            color: #FFD700;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .flag {
+            width: 16px;
+            height: 12px;
+            background: linear-gradient(to bottom, #D90012 33%, #0033A0 33%, #0033A0 66%, #F2A800 66%);
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        
+        /* CENTER COLUMN */
+        .center-column {
+            width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .player-name-section {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .player-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            color: #FFD700;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .player-subtitle {
+            color: #B0B0B0;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .tier-badge {
+            background: linear-gradient(90deg, #4CAF50, #2E7D32);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        .core-stats {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            flex: 1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-item:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            font-weight: 900;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #B0B0B0;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        /* RIGHT COLUMN */
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .performance-matrix {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .performance-category {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .category-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        .category-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 2px 0;
+        }
+        
+        .category-stat-label {
+            color: #B0B0B0;
+            font-size: 10px;
+        }
+        
+        .category-stat-value {
+            color: #FFD700;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .tactical-dna {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .philosophy-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 8px;
+        }
+        
+        .philosophy-name {
+            color: #B0B0B0;
+            font-size: 12px;
+        }
+        
+        .philosophy-score {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .scouting-notes {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .notes-text {
+            color: #B0B0B0;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        
+        .highlight {
+            color: #FFD700;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-card">
+        <!-- HEADER -->
+        <div class="card-header">
+            <div class="left-logo">
+                HHC
+            </div>
+            
+            <div class="center-text">
+                <div class="empire-logo">🌟 EMPIRE SCOUTING NETWORK</div>
+                <div class="empire-subtitle">THE ULTIMATE FOOTBALL INTELLIGENCE SYSTEM</div>
+            </div>
+            
+            <div class="fga-section">
+                <div class="fga-rating">6.8</div>
+                <div class="fga-subtitle">FGA RATING</div>
+            </div>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+                <div class="player-photo-section">
+                    <div class="player-photo">
+                        Professional Photo<br>
+                        Not Available<br><br>
+                        📸
+                    </div>
+                    <div class="position-badge">RIGHT WINGER</div>
+                </div>
+                
+                <div class="personal-info">
+                    <div class="section-title">Personal Information</div>
+                    <div class="info-item">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value">Jens Niels Schraven</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Date of Birth</span>
+                        <span class="info-value">March 23, 2003</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Age</span>
+                        <span class="info-value">22 years</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Nationality</span>
+                        <span class="info-value"><span class="flag"></span>Netherlands</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Place of Birth</span>
+                        <span class="info-value">Groningen</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Height</span>
+                        <span class="info-value">~178 cm (Est.)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Preferred Foot</span>
+                        <span class="info-value">Right (Est.)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Current Club</span>
+                        <span class="info-value">HHC Hardenberg</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Joined</span>
+                        <span class="info-value">July 1, 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Contract Until</span>
+                        <span class="info-value">June 30, 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Agent</span>
+                        <span class="info-value">St. Juste Management</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Competition</span>
+                        <span class="info-value">Tweede Divisie (Level 3)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CENTER COLUMN -->
+            <div class="center-column">
+                <div class="player-name-section">
+                    <div class="player-name">JENS SCHRAVEN</div>
+                    <div class="player-subtitle">Technical Right Winger • HHC Hardenberg</div>
+                    <div class="tier-badge">✅ GOOD - Professional Level</div>
+                </div>
+                
+                <div class="core-stats">
+                    <div class="section-title">Core FGA Metrics</div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">7.2</span>
+                            <span class="stat-label">Technical Excellence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6.8</span>
+                            <span class="stat-label">Physical Performance</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6.5</span>
+                            <span class="stat-label">Mental Intelligence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6.9</span>
+                            <span class="stat-label">Creative Expression</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">7.0</span>
+                            <span class="stat-label">Position Intelligence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6.4</span>
+                            <span class="stat-label">Match Impact Index</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RIGHT COLUMN -->
+            <div class="right-column">
+                <div class="performance-matrix">
+                    <div class="section-title">Performance Matrix</div>
+                    <div class="matrix-grid">
+                        <div class="performance-category">
+                            <div class="category-title">Technical Mastery</div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Ball Control</span>
+                                <span class="category-stat-value">7.4</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">First Touch</span>
+                                <span class="category-stat-value">7.2</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Dribbling</span>
+                                <span class="category-stat-value">7.0</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Crossing</span>
+                                <span class="category-stat-value">6.8</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Finishing</span>
+                                <span class="category-stat-value">6.5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-category">
+                            <div class="category-title">Physical Attributes</div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Acceleration</span>
+                                <span class="category-stat-value">7.3</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Top Speed</span>
+                                <span class="category-stat-value">7.1</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Agility</span>
+                                <span class="category-stat-value">6.9</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Stamina</span>
+                                <span class="category-stat-value">6.6</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Strength</span>
+                                <span class="category-stat-value">6.2</span>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-category">
+                            <div class="category-title">Mental Intelligence</div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Tactical Awareness</span>
+                                <span class="category-stat-value">6.7</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Decision Making</span>
+                                <span class="category-stat-value">6.4</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Game Intelligence</span>
+                                <span class="category-stat-value">6.5</span>
+                            </div>
+                            <div class="category-stat">
+                                <span class="category-stat-label">Composure</span>
+                                <span class="category-stat-value">6.3</span>
+                            </div>
+                            

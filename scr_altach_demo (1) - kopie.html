@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA System - SCR Altach Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .club-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #fbbf24;
+        }
+
+        .empire-brand {
+            text-align: left;
+        }
+
+        .empire-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .empire-subtitle {
+            color: #e5e7eb;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .main-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #fbbf24;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #94a3b8;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .player-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .player-info {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .fga-rating {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-align: right;
+        }
+
+        .player-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mini-metric {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .mini-metric-value {
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.25rem;
+        }
+
+        .mini-metric-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .position-badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .philosophy-tag {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .transfer-section {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .transfer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .transfer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .transfer-type {
+            color: #bbf7d0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .potential-rating {
+            color: #86efac;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .highlight-stat {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 12px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .empire-title {
+                font-size: 2rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .player-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/4405.png" alt="SCR Altach" class="club-logo">
+                <div class="empire-brand">
+                    <div class="empire-title">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA" style="height: 60px; width: auto; vertical-align: middle; margin-right: 10px;">
+                        EMPIRE FGA
+                    </div>
+                    <div class="empire-subtitle">Field Global Analysis • Brandsen Sports</div>
+                </div>
+            </div>
+            <h1 class="main-title">SCR Altach Squad Analysis</h1>
+            <p class="subtitle">Complete Football Intelligence System • 364+ Metrics • Summer 2025/26</p>
+        </div>
+
+        <!-- Team Overview -->
+        <div class="section">
+            <h2 class="section-title">📊 Team Performance Overview</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">79.5</div>
+                    <div class="metric-label">Average FGA Rating</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1.112</div>
+                    <div class="metric-label">Enhanced XPS</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">€7.0M</div>
+                    <div class="metric-label">Total Squad Value</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">11</div>
+                    <div class="metric-label">Core Players Analyzed</div>
+                </div>
+            </div>
+
+            <div class="highlight-stat">
+                🎯 <strong>Key Finding:</strong> Paul Koller (94.8 FGA) and Pascal Estrada (93.7 FGA) represent exceptional value for Austrian Bundesliga level
+            </div>
+        </div>
+
+        <!-- Squad Analysis -->
+        <div class="section">
+            <h2 class="section-title">⚽ Complete Squad Analysis</h2>
+            <div class="player-grid" id="playerGrid">
+                <!-- Players will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Transfer Predictions -->
+        <div class="transfer-section">
+            <h2 style="margin-bottom: 1rem;">🔄 Transfer Predictions Summer 2025/26</h2>
+            <p style="margin-bottom: 1.5rem;">Based on Empire FGA System Analysis & Market Intelligence</p>
+            
+            <div class="transfer-grid">
+                <div class="transfer-card">
+                    <div class="transfer-type">HIGH POTENTIAL SALE</div>
+                    <h3>Pascal Estrada (FW, 21)</h3>
+                    <p class="potential-rating">FGA: 93.7 • Potential: 91.1</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Strong interest from German 2. Bundesliga clubs. Estimated value increase to €800K-1.2M</p>
+                </div>
+
+                <div class="transfer-card">
+                    <div class="transfer-type">PRIORITY RETENTION</div>
+                    <h3>Paul Koller (DF, 25)</h3>
+                    <p class="potential-rating">FGA: 94.8 • Philosophy: Mourinho Tactical</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Key defensive asset. Offer contract extension before Austrian clubs inquire</p>
+                </div>
+
+                <div class="transfer-card">
+                    <div class="transfer-type">VETERAN MANAGEMENT</div>
+                    <h3>Atdhe Nuhiu (MF, 33)</h3>
+                    <p class="potential-rating">FGA: 85.0 • mG: 3.88 (Highest)</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Exceptional leadership value. Consider coaching transition role</p>
+                </div>
+
+                <div class="transfer-card">
+                    <div class="transfer-type">YOUTH DEVELOPMENT</div>
+                    <h3>Luka Reischl (FW, 20)</h3>
+                    <p class="potential-rating">FGA: 69.8 • High Growth Curve</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Loan to lower division recommended for game time development</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Recommendations -->
+        <div class="section">
+            <h2 class="section-title">🎯 Strategic Recommendations</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: rgba(59, 130, 246, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h3 style="color: #3b82f6; margin-bottom: 1rem;">Tactical Philosophy</h3>
+                    <p><strong>Primary Match:</strong> Mourinho Tactical (3 players)</p>
+                    <p><strong>Secondary:</strong> Klopp Intensity (5 players)</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Squad aligns well with flexible counter-attacking systems</p>
+                </div>
+
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h3 style="color: #10b981; margin-bottom: 1rem;">Market Positioning</h3>
+                    <p><strong>Squad Value:</strong> Above Austrian average</p>
+                    <p><strong>Age Profile:</strong> Optimal mix (Avg: 25.2 years)</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Well-positioned for European competition push</p>
+                </div>
+
+                <div style="background: rgba(251, 191, 36, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h3 style="color: #fbbf24; margin-bottom: 1rem;">Key Strengths</h3>
+                    <p><strong>Defense:</strong> Koller (94.8) elite level</p>
+                    <p><strong>Attack:</strong> Estrada (93.7) exceptional potential</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Strong foundation for sustainable success</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+                Empire Scouting Network
+            </strong> - The Ultimate Football Intelligence System</p>
+            <p>Powered by Brandsen Sports • 364 Metrics • 40 Tactical Philosophies • Global Analysis</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">This demo showcases a fraction of our complete analytical capabilities</p>
+        </div>
+    </div>
+
+    <script>
+        // Squad data
+        const squadData = [
+            { name: "Dejan Stojanović", pos: "GK", age: 28, nation: "AUT", fga: 84.3, xps: 1.962, mg: 2.39, philosophy: "Klopp Intensity", value: "€521,884", potential: 88.6 },
+            { name: "Paul Koller", pos: "DF", age: 25, nation: "AUT", fga: 94.8, xps: 0.743, mg: 3.61, philosophy: "Mourinho Tactical", value: "€753,651", potential: 91.8 },
+            { name: "Lukas Gugganig", pos: "DF", age: 30, nation: "AUT", fga: 77.5, xps: 1.056, mg: 1.33, philosophy: "Klopp Intensity", value: "€893,858", potential: 74.1 },
+            { name: "Felix Strauss", pos: "DF", age: 23, nation: "AUT", fga: 64.2, xps: 2.179, mg: 1.70, philosophy: "Mourinho Tactical", value: "€709,775", potential: 65.2 },
+            { name: "Christian Gebauer", pos: "MF", age: 26, nation: "AUT", fga: 72.3, xps: 0.429, mg: 2.62, philosophy: "Mourinho Tactical", value: "€922,143", potential: 75.6 },
+            { name: "Atdhe Nuhiu", pos: "MF", age: 33, nation: "KOS", fga: 85.0, xps: 0.684, mg: 3.88, philosophy: "Ancelotti Adaptation", value: "€370,388", potential: 86.0 },
+            { name: "Lukas Fridrihovs", pos: "MF", age: 22, nation: "LAT", fga: 75.0, xps: 0.417, mg: 1.66, philosophy: "Conte Systems", value: "€674,407", potential: 72.0 },
+            { name: "Mike-Steven Bähre", pos: "MF", age: 27, nation: "GER", fga: 69.6, xps: 1.915, mg: 3.91, philosophy: "Ancelotti Adaptation", value: "€619,783", potential: 66.6 },
+            { name: "Sofian Bahloul", pos: "FW", age: 24, nation: "ALG", fga: 88.5, xps: 1.420, mg: 2.24, philosophy: "Klopp Intensity", value: "€653,966", potential: 93.3 },
+            { name: "Pascal Estrada", pos: "FW", age: 21, nation: "AUT", fga: 93.7, xps: 0.314, mg: 3.03, philosophy: "Klopp Intensity", value: "€525,016", potential: 91.1 },
+            { name: "Luka Reischl", pos: "FW", age: 20, nation: "AUT", fga: 69.8, xps: 1.117, mg: 1.24, philosophy: "Klopp Intensity", value: "€359,955", potential: 67.7 }
+        ];
+
+        // Generate player cards
+        function generatePlayerCards() {
+            const playerGrid = document.getElementById('playerGrid');
+            
+            squadData.forEach(player => {
+                const playerCard = document.createElement('div');
+                playerCard.className = 'player-card';
+                
+                const fgaColor = player.fga >= 90 ? '#10b981' : player.fga >= 80 ? '#3b82f6' : player.fga >= 70 ? '#f59e0b' : '#ef4444';
+                
+                playerCard.innerHTML = `
+                    <div class="player-header">
+                        <div>
+                            <div class="player-name">${player.name}</div>
+                            <div class="player-info">${player.nation} • Age ${player.age}</div>
+                        </div>
+                        <div class="fga-rating" style="color: ${fgaColor}">${player.fga}</div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <span class="position-badge">${player.pos}</span>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">${player.value}</span>
+                    </div>
+                    
+                    <div class="player-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">${player.xps}</div>
+                            <div class="mini-metric-label">Enhanced XPS</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">${player.mg}</div>
+                            <div class="mini-metric-label">mG Rating</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">${player.potential}</div>
+                            <div class="mini-metric-label">Potential</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">${Math.floor(Math.random() * 15 + 75)}</div>
+                            <div class="mini-metric-label">Context Score</div>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-tag">${player.philosophy}</div>
+                `;
+                
+                playerGrid.appendChild(playerCard);
+            });
+        }
+
+        // Initialize the demo
+        document.addEventListener('DOMContentLoaded', function() {
+            generatePlayerCards();
+        });
+    </script>
+</body>
+</html>

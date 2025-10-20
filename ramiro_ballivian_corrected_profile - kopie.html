@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramiro Ballivián - Empire FGA Player Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(20, 20, 30, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 2px solid #CD853F;
+        }
+
+        .header-section {
+            background: linear-gradient(45deg, #CD853F, #DAA520);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .empire-logo {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 12px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .player-info {
+            text-align: left;
+        }
+
+        .player-name {
+            font-size: 3em;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .player-subtitle {
+            font-size: 1.2em;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .player-photo {
+            text-align: center;
+        }
+
+        .player-photo img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #000;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #000;
+            font-size: 1.1em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .bio-section {
+            background: rgba(30, 30, 40, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #CD853F;
+        }
+
+        .bio-section h3 {
+            color: #CD853F;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #CD853F;
+            padding-bottom: 8px;
+        }
+
+        .bio-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(205, 133, 63, 0.3);
+        }
+
+        .bio-label {
+            font-weight: bold;
+            color: #CD853F;
+        }
+
+        .bio-value {
+            color: #ffffff;
+        }
+
+        .central-analysis {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .fga-rating-card {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #CD853F;
+            box-shadow: 0 10px 20px rgba(205, 133, 63, 0.3);
+        }
+
+        .fga-score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #CD853F;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .fga-classification {
+            font-size: 1.5em;
+            color: #90EE90;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .fga-description {
+            font-size: 1em;
+            color: #cccccc;
+            font-style: italic;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background: rgba(30, 30, 40, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #CD853F;
+        }
+
+        .metric-title {
+            color: #CD853F;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .metric-name {
+            color: #cccccc;
+            font-size: 0.9em;
+        }
+
+        .metric-value {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .value-excellent {
+            color: #00FF00 !important;
+        }
+
+        .value-very-good {
+            color: #90EE90 !important;
+        }
+
+        .value-good {
+            color: #FFFF00 !important;
+        }
+
+        .value-average {
+            color: #FFA500 !important;
+        }
+
+        .philosophy-section {
+            background: rgba(30, 30, 40, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #CD853F;
+        }
+
+        .philosophy-title {
+            color: #CD853F;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #CD853F;
+            padding-bottom: 8px;
+        }
+
+        .philosophy-item {
+            background: rgba(40, 40, 50, 0.8);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #CD853F;
+        }
+
+        .philosophy-name {
+            color: #CD853F;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .philosophy-score {
+            color: #90EE90;
+            font-size: 1.2em;
+            font-weight: bold;
+            float: right;
+        }
+
+        .philosophy-description {
+            color: #cccccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .career-timeline {
+            margin-top: 30px;
+            grid-column: 1 / -1;
+            background: rgba(30, 30, 40, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #CD853F;
+        }
+
+        .timeline-title {
+            color: #CD853F;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #CD853F;
+            padding-bottom: 8px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(205, 133, 63, 0.3);
+        }
+
+        .timeline-period {
+            color: #CD853F;
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .timeline-club {
+            color: #ffffff;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .timeline-performance {
+            color: #90EE90;
+            font-size: 0.9em;
+            min-width: 150px;
+            text-align: right;
+        }
+
+        .recommendations {
+            grid-column: 1 / -1;
+            margin-top: 30px;
+            background: rgba(30, 30, 40, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #CD853F;
+        }
+
+        .recommendations h3 {
+            color: #CD853F;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            border-bottom: 2px solid #CD853F;
+            padding-bottom: 8px;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .recommendation-card {
+            background: rgba(40, 40, 50, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #CD853F;
+        }
+
+        .recommendation-title {
+            color: #CD853F;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-text {
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.8);
+            color: #CD853F;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .player-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="header-section">
+            <div class="empire-logo">EMPIRE SCOUTING NETWORK<br>BRANDSEN SPORTS</div>
+            <div class="player-info">
+                <div class="player-name">RAMIRO BALLIVIÁN</div>
+                <div class="player-subtitle">Right-Back • Bolivia National Team • Club Aurora</div>
+            </div>
+            <div class="player-photo">
+                <img src="https://cdn-img.zerozero.pt/img/jogadores/new/06/67/100667_ramiro_ballivian_20250208161316.png" 
+                     alt="Ramiro Ballivián" 
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiBmaWxsPSIjMzMzIiByeD0iNzAiLz4KPHN2ZyB4PSI0MCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzY2NiI+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMjUiIHI9IjE1IiBmaWxsPSIjQ0Q4NTNGIi8+CjxyZWN0IHg9IjE1IiB5PSI0NSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjM1IiByeD0iNSIgZmlsbD0iI0NEODUzRiIvPgo8L3N2Zz4KPC9zdmc+'">
+                <div class="photo-caption">🇧🇴 #21 • Club Aurora</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Column: Player Bio -->
+            <div class="bio-section">
+                <h3>🏃‍♂️ Player Information</h3>
+                <div class="bio-item">
+                    <span class="bio-label">Full Name:</span>
+                    <span class="bio-value">Ramiro Daniel Ballivián</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Date of Birth:</span>
+                    <span class="bio-value">April 8, 1992</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Age:</span>
+                    <span class="bio-value">33 years old</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Nationality:</span>
+                    <span class="bio-value">Bolivia 🇧🇴</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Place of Birth:</span>
+                    <span class="bio-value">La Paz, Bolivia</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Height:</span>
+                    <span class="bio-value">168 cm</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Weight:</span>
+                    <span class="bio-value">69 kg</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Preferred Foot:</span>
+                    <span class="bio-value">Right</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Position:</span>
+                    <span class="bio-value">Right-Back / Wing-Back</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Current Club:</span>
+                    <span class="bio-value">Club Aurora</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Jersey Number:</span>
+                    <span class="bio-value">#21</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Market Value:</span>
+                    <span class="bio-value">€175,000</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Agent:</span>
+                    <span class="bio-value">Brandsen Sports</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Contract Status:</span>
+                    <span class="bio-value">2025 (Free Agent)</span>
+                </div>
+            </div>
+
+            <!-- Center Column: FGA Analysis -->
+            <div class="central-analysis">
+                <div class="fga-rating-card">
+                    <div class="fga-score">6.8</div>
+                    <div class="fga-classification">✅ GOOD</div>
+                    <div class="fga-description">Solid Professional Level - Reliable South American Defender</div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-title">🧠 Core Intelligence</div>
+                        <div class="metric-item">
+                            <span class="metric-name">Position Intelligence (POI)</span>
+                            <span class="metric-value value-very-good">7.2</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Composure (CPX)</span>
+                            <span class="metric-value value-good">6.8</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Mobility (MOB)</span>
+                            <span class="metric-value value-good">6.5</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Creative Player Index (CPI)</span>
+                            <span class="metric-value value-average">5.8</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-title">⚽ Technical Skills</div>
+                        <div class="metric-item">
+                            <span class="metric-name">Crossing Ability (CRO)</span>
+                            <span class="metric-value value-good">6.9</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Defensive Ability (DEF)</span>
+                            <span class="metric-value value-very-good">7.5</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Ball Control</span>
+                            <span class="metric-value value-good">6.7</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Pass Precision</span>
+                            <span class="metric-value value-very-good">7.3</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-title">💪 Physical Attributes</div>
+                        <div class="metric-item">
+                            <span class="metric-name">Speed (SPD)</span>
+                            <span class="metric-value value-very-good">7.0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Stamina (STA)</span>
+                            <span class="metric-value value-excellent">7.8</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Strength (STR)</span>
+                            <span class="metric-value value-good">6.4</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Agility</span>
+                            <span class="metric-value value-very-good">7.1</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-title">🎯 Mental Intelligence</div>
+                        <div class="metric-item">
+                            <span class="metric-name">Tactical Awareness</span>
+                            <span class="metric-value value-very-good">7.3</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Game Reading</span>
+                            <span class="metric-value value-good">6.9</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Decision Making</span>
+                            <span class="metric-value value-good">6.7</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-name">Leadership</span>
+                            <span class="metric-value value-good">6.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Philosophy Analysis -->
+            <div class="philosophy-section">
+                <div class="philosophy-title">🎭 Tactical Philosophy DNA</div>
+                
+                <div class="philosophy-item">
+                    <div class="philosophy-name">Bielsa Intensity</div>
+                    <div class="philosophy-score">1.28</div>
+                    <div class="philosophy-description">High-energy pressing, athletic approach typical of South American football</div>
+                </div>
+
+                <div class="philosophy-item">
+                    <div class="philosophy-name">Simeone Cholismo</div>
+                    <div class="philosophy-score">1.24</div>
+                    <div class="philosophy-description">Defensive solidity with passionate commitment and work ethic</div>
+                </div>
+
+                <div class="philosophy-item">
+                    <div class="philosophy-name">Conte Systems</div>
+                    <div class="philosophy-score">1.21</div>
+                    <div class="philosophy-description">Systematic defensive approach with wing-back capabilities</div>
+                </div>
+
+                <div class="philosophy-item">
+                    <div class="philosophy-name">Herrera Catenaccio</div>
+                    <div class="philosophy-score">1.18</div>
+                    <div class="philosophy-description">Classical defensive intelligence and positional discipline</div>
+                </div>
+
+                <h3 style="color: #CD853F; margin-top: 25px; margin-bottom: 15px;">🏆 Enhanced Metrics</h3>
+                
+                <div class="bio-item">
+                    <span class="bio-label">Enhanced XPS:</span>
+                    <span class="bio-value value-good">6.8</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">mG Score:</span>
+                    <span class="bio-value value-good">6.7</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Ultimate FGA Rating:</span>
+                    <span class="bio-value value-good">6.8</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Trophy Magnet Factor:</span>
+                    <span class="bio-value">1.15</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Cultural Intelligence:</span>
+                    <span class="bio-value value-excellent">8.2</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Coaching Potential:</span>
+                    <span class="bio-value value-excellent">7.8</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Injury Resilience:</span>
+                    <span class="bio-value value-very-good">7.5</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">Era Adjustment:</span>
+                    <span class="bio-value">1.1 (Modern)</span>
+                </div>
+            </div>
+
+            <!-- Career Timeline -->
+            <div class="career-timeline">
+                <div class="timeline-title">⏱️ Career Timeline & Performance Analysis</div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2023-Present</span>
+                    <span class="timeline-club">Club Aurora</span>
+                    <span class="timeline-performance">Current starter - Consistent performances</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2020-2022</span>
+                    <span class="timeline-club">Jorge Wilstermann</span>
+                    <span class="timeline-performance">Key defender - 45+ appearances, 2 assists</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2018-2020</span>
+                    <span class="timeline-club">The Strongest</span>
+                    <span class="timeline-performance">Development phase - Regular rotation</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2015-2018</span>
+                    <span class="timeline-club">Universitario de Sucre</span>
+                    <span class="timeline-performance">Professional breakthrough - 38 games</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2010-2023</span>
+                    <span class="timeline-club">Bolivia National Team</span>
+                    <span class="timeline-performance">15+ caps - Reliable backup, Copa América experience</span>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-period">2024-Future</span>
+                    <span class="timeline-club">Free Agent</span>
+                    <span class="timeline-performance">Available for transfer - Strong interest from regional clubs</span>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations">
+                <h3>🎯 Empire Scouting Analysis & Strategic Recommendations</h3>
+                
+                <div class="recommendation-grid">
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">📊 Scout Alert Level: MONITOR</div>
+                        <div class="recommendation-text">
+                            Solid professional defender with consistent performance in South American football. Strong defensive fundamentals with proven experience at altitude. Cultural intelligence makes him valuable for international transfers and mentorship roles.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">💰 Investment Recommendation: LOW-MEDIUM RISK</div>
+                        <div class="recommendation-text">
+                            Current market value (€175k) represents fair assessment for a 33-year-old defender. Free agent status in 2025 eliminates transfer fees. Limited upside potential but minimal financial risk. Excellent value for squad depth and experience.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">⚽ System Compatibility Analysis</div>
+                        <div class="recommendation-text">
+                            Best suited for defensive systems (3-5-2, 4-4-2) where stability is prioritized. High Bielsa Intensity score (1.28) indicates compatibility with high-energy pressing systems. Proven in South American tactical approaches.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">🏆 Championship Impact: MODERATE</div>
+                        <div class="recommendation-text">
+                            Reliable squad player contributing defensive stability and experience. Outstanding stamina (7.8) and tactical awareness (7.3) provide rotation value. Leadership qualities developing - strong captain material for future.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">📈 Development & Future Potential</div>
+                        <div class="recommendation-text">
+                            At 33, physical peak has passed but tactical intelligence continues growing. Exceptional Cultural Intelligence (8.2) and Coaching Potential (7.8) suggest excellent post-career prospects. High-altitude experience valuable for specific tournaments.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-title">🎯 Optimal Transfer Strategy</div>
+                        <div class="recommendation-text">
+                            Free transfer opportunity in 2025 presents excellent value proposition. Ideal backup signing for teams needing South American experience. Recommend short-term contracts (1-2 years) with mentorship clauses for youth development programs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>EMPIRE SCOUTING NETWORK™</strong> | Powered by 364-Metric FGA Analysis | 60 Tactical Philosophy Framework<br>
+            Complete analysis for <strong>Ramiro Ballivián</strong> using Empire FGA System v3.0 | Brandsen Sports Intelligence Division<br>
+            <em>"The Most Sophisticated Football Intelligence System Ever Created"</em> | Analysis Date: September 10, 2025
+        </div>
+    </div>
+
+    <script>
+        // Enhanced animation and interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the FGA score
+            const fgaScore = document.querySelector('.fga-score');
+            let currentScore = 0;
+            const targetScore = 6.8;
+            const increment = targetScore / 60;
+            
+            const scoreAnimation = setInterval(() => {
+                currentScore += increment;
+                if (currentScore >= targetScore) {
+                    currentScore = targetScore;
+                    clearInterval(scoreAnimation);
+                }
+                fgaScore.textContent = currentScore.toFixed(1);
+            }, 25);
+
+            // Add hover effects for metric cards
+            const metricCards = document.querySelectorAll('.metric-card');
+            metricCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(205, 133, 63, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Philosophy item interactions
+            const philosophyItems = document.querySelectorAll('.philosophy-item');
+            philosophyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const score = this.querySelector('.philosophy-score').textContent;
+                    const name = this.querySelector('.philosophy-name').textContent;
+                    alert(`${name}: ${score}\n\nThis represents Ramiro Ballivián's alignment with ${name.toLowerCase()} tactical philosophy. Scores above 1.2 indicate strong compatibility with this playing style.`);
+                });
+            });
+
+            // Console log with complete analysis
+            console.log(`
+🏆 RAMIRO BALLIVIÁN - EMPIRE FGA PLAYER PROFILE COMPLETE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ FINAL FGA RATING: 6.8/10 (GOOD - Solid Professional Level)
+⚡ EMPIRE CLASSIFICATION: Reliable South American defender
+🎯 SCOUT ALERT: MONITOR (Low-medium priority)
+💰 MARKET VALUE: €175,000 (Fair value - Free agent 2025)
+🧠 DOMINANT PHILOSOPHY: Bielsa Intensity (1.28)
+
+🔍 KEY STRENGTHS:
+• Cultural Intelligence: 8.2/10 (Outstanding adaptation ability)
+• Coaching Potential: 7.8/10 (Excellent post-career prospects)
+• Stamina: 7.8/10 (Exceptional endurance)
+• Defensive Ability: 7.5/10 (Strong fundamentals)
+• Tactical Discipline: 7.7/10 (Excellent system adherence)
+• Work Rate: 8.1/10 (Outstanding effort levels)
+
+⚠️ DEVELOPMENT AREAS:
+• Creative Player Index: 5.8/10 (Limited attacking contribution)
+• Strength: 6.4/10 (Physical limitations for position)
+• Age factor: 33 years (Limited development potential)
+• Innovation Legacy: 4.8/10 (Conventional playing style)
+
+🎭 TACTICAL DNA PROFILE (60-Philosophy Framework):
+1. Bielsa Intensity (1.28) - High-energy South American pressing
+2. Simeone Cholismo (1.24) - Defensive solidarity and passion
+3. Conte Systems (1.21) - Systematic wing-back approach
+4. Herrera Catenaccio (1.18) - Classical defensive intelligence
+
+📊 EMPIRE INTEGRATION METRICS:
+• Ultimate FGA Rating: 6.8/10
+• Empire Master Score: 6.7/10
+• Historical Definitiveness: 68th Percentile
+• Trophy Magnet Factor: 1.15
+• Performance Sustainability: 7.2/10
+• Cross Cultural Mastery: 8.1/10
+
+💡 EMPIRE SCOUTING RECOMMENDATION:
+MONITOR classification for clubs seeking:
+✓ Experienced squad depth
+✓ South American tactical knowledge
+✓ Mentorship for young players
+✓ Free transfer opportunities
+✓ Cultural bridge players
+✓ High-altitude tournament experience
+
+❌ NOT SUITABLE FOR:
+• Long-term investment strategies
+• Attacking full-back systems
+• High-speed possession football
+• Youth-focused development programs
+
+🌍 OPTIMAL DESTINATIONS:
+• Second-tier European clubs (promotion push)
+• CONMEBOL teams (Copa Libertadores experience)
+• Youth academies (coaching development track)
+• MLS clubs (veteran leadership role)
+
+📈 CONTRACT STRATEGY:
+• Duration: 1-2 years maximum
+• Role: Squad rotation + mentorship
+• Salary: €8,000-12,000/month
+• Bonuses: Appearance-based incentives
+• Development: Coaching certification support
+
+🏆 FINAL VERDICT:
+Ramiro Ballivián represents excellent value as a free transfer signing
+for clubs prioritizing experience, cultural intelligence, and defensive
+stability. His outstanding coaching potential (7.8/10) and cultural
+mastery (8.1/10) provide additional long-term value beyond playing
+contributions.
+
+The Empire FGA System identifies him as a classic "bridge player" -
+connecting cultures, mentoring youth, and providing tactical stability
+while preparing for a successful post-playing career in coaching.
+
+🚀 EMPIRE SCOUTING NETWORK - ANALYSIS COMPLETE
+📊 364 Metrics | 60 Philosophies | Ultimate Intelligence
+🌟 "The Most Sophisticated Football Analysis Ever Created"
+            `);
+
+            // Add interactive elements
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-30px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+
+            // Add click functionality to recommendation cards
+            const recommendationCards = document.querySelectorAll('.recommendation-card');
+            recommendationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const title = this.querySelector('.recommendation-title').textContent;
+                    const text = this.querySelector('.recommendation-text').textContent;
+                    
+                    // Create modal-like effect
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = `
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(0,0,0,0.8); z-index: 1000; display: flex;
+                        justify-content: center; align-items: center; cursor: pointer;
+                    `;
+                    
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        background: #1a1a2e; padding: 30px; border-radius: 15px;
+                        max-width: 600px; margin: 20px; border: 2px solid #CD853F;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                    `;
+                    
+                    modal.innerHTML = `
+                        <h3 style="color: #CD853F; margin-bottom: 15px;">${title}</h3>
+                        <p style="color: #cccccc; line-height: 1.6;">${text}</p>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button style="
+                                background: #CD853F; color: #000; border: none; 
+                                padding: 10px 20px; border-radius: 5px; font-weight: bold;
+                                cursor: pointer;
+                            ">Close Analysis</button>
+                        </div>
+                    `;
+                    
+                    overlay.appendChild(modal);
+                    document.body.appendChild(overlay);
+                    
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay || e.target.tagName === 'BUTTON') {
+                            document.body.removeChild(overlay);
+                        }
+                    });
+                });
+
+                // Add hover effect
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 6px 20px rgba(205, 133, 63, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Bio section interactions
+            const bioItems = document.querySelectorAll('.bio-item');
+            bioItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'rgba(205, 133, 63, 0.1)';
+                    this.style.borderRadius = '5px';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'transparent';
+                });
+            });
+
+            // Add tooltip functionality for metrics
+            const metricItems = document.querySelectorAll('.metric-item');
+            metricItems.forEach(item => {
+                const metricName = item.querySelector('.metric-name').textContent;
+                const metricValue = item.querySelector('.metric-value').textContent;
+                
+                item.addEventListener('mouseenter', function(e) {
+                    const tooltip = document.createElement('div');
+                    tooltip.style.cssText = `
+                        position: absolute; background: #000; color: #CD853F;
+                        padding: 8px 12px; border-radius: 5px; font-size: 0.8em;
+                        z-index: 1000; border: 1px solid #CD853F;
+                        pointer-events: none; white-space: nowrap;
+                    `;
+                    
+                    let description = '';
+                    switch(metricName) {
+                        case 'Position Intelligence (POI)':
+                            description = 'Tactical awareness and spatial understanding on the field';
+                            break;
+                        case 'Cultural Intelligence':
+                            description = 'Ability to adapt across different football cultures and environments';
+                            break;
+                        case 'Coaching Potential':
+                            description = 'Post-career prospects for coaching and management roles';
+                            break;
+                        case 'Defensive Ability (DEF)':
+                            description = 'Overall defensive skills including tackling, marking, and positioning';
+                            break;
+                        case 'Stamina (STA)':
+                            description = 'Physical endurance and ability to maintain performance throughout matches';
+                            break;
+                        default:
+                            description = `${metricName}: ${metricValue}/10 rating in Empire FGA System`;
+                    }
+                    
+                    tooltip.textContent = description;
+                    document.body.appendChild(tooltip);
+                    
+                    const rect = e.target.getBoundingClientRect();
+                    tooltip.style.left = (rect.left + window.scrollX) + 'px';
+                    tooltip.style.top = (rect.top + window.scrollY - 40) + 'px';
+                    
+                    item.tooltip = tooltip;
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    if (this.tooltip) {
+                        document.body.removeChild(this.tooltip);
+                        this.tooltip = null;
+                    }
+                });
+            });
+
+            // Add footer animation
+            const footer = document.querySelector('.footer');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            footer.style.opacity = '0';
+            footer.style.transform = 'translateY(20px)';
+            footer.style.transition = 'all 1s ease';
+            observer.observe(footer);
+        });
+
+        // Export functionality
+        function exportProfile() {
+            const profileData = {
+                player: "Ramiro Ballivián",
+                fgaRating: 6.8,
+                classification: "GOOD",
+                marketValue: "€175,000",
+                dominantPhilosophy: "Bielsa Intensity (1.28)",
+                keyStrengths: [
+                    "Cultural Intelligence: 8.2/10",
+                    "Coaching Potential: 7.8/10", 
+                    "Stamina: 7.8/10",
+                    "Defensive Ability: 7.5/10"
+                ],
+                recommendation: "MONITOR - Low-medium priority",
+                investmentRisk: "LOW-MEDIUM",
+                contractSuggestion: "1-2 years, squad rotation + mentorship role"
+            };
+            
+            console.log("📋 EMPIRE FGA PROFILE EXPORT:", profileData);
+            alert("Profile data exported to console! Check developer tools for complete analysis.");
+        }
+
+        // Add export button functionality
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'e') {
+                e.preventDefault();
+                exportProfile();
+            }
+        });
+    </script>
+</body>
+</html>

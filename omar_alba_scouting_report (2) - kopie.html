@@ -1,0 +1,860 @@
+            <div style="margin-top: 30px;">
+                <button class="cta-button" onclick="window.open('mailto:info@empirescouting.com?subject=Omar Alba Scouting Report - Immediate Interest', '_blank')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Contact Our Scout Team
+                </button>
+                <button class="cta-button" onclick="window.open('tel:+1234567890', '_blank')" style="margin-left: 15px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-12.18-12.18A19.79 19.79 0 0 1 1.11 8.82 2 2 0 0 1 3.11 6h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.83a16 16 0 0 0 3.07 3.07l.11-.28a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 18 18v3z"/></svg>
+                    Schedule Live Demo
+                </button>
+            </div>
+            
+            <div style="margin-top: 25px; font-size: 0.9rem; color: #fecaca;">
+                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fecaca" stroke-width="2" style="margin-right: 4px; vertical-align: middle;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Empire Scouting Network | Advanced Football Intelligence</p>
+                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fecaca" stroke-width="2" style="margin-right: 4px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Global Coverage | 779-Metric Analysis | Transfer Predictions</p>
+            </div><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Alba - Empire FGA Scouting Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #bfdbfe;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-info {
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .player-photo {
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .player-details h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #60a5fa;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #4b5563;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #9ca3af;
+        }
+
+        .detail-value {
+            color: #e5e7eb;
+        }
+
+        .logos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .metric-card h3 {
+            color: #34d399;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .rating-bar {
+            background: #374151;
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .rating-excellent { background: linear-gradient(90deg, #10b981, #34d399); }
+        .rating-good { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .rating-average { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+        .performance-section {
+            background: linear-gradient(135deg, #7c2d12 0%, #dc2626 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .performance-section h2 {
+            color: #fecaca;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .match-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .transfer-prediction {
+            background: linear-gradient(135deg, #581c87 0%, #7c3aed 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .transfer-prediction h2 {
+            color: #ddd6fe;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .prediction-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #a855f7;
+            margin: 15px 0;
+        }
+
+        .empire-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+        }
+
+        .philosophy-section {
+            background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .philosophy-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .philosophy-score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5eead4;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-cta h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: #fecaca;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #dc2626;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 15px;">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA" style="height: 60px; filter: brightness(0) invert(1);">
+                <h1 style="margin: 0;">EMPIRE FGA SCOUTING REPORT</h1>
+            </div>
+            <p>Advanced Football Intelligence • Complete Player Analysis • Transfer Predictions</p>
+        </div>
+
+        <!-- Player Card -->
+        <div class="player-card">
+            <div class="player-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQJvqI7gbAYmKjdTJtV6_kMDdY-3SnLQ5f1g&s" alt="Omar Alba" class="player-photo">
+                
+                <div class="player-details">
+                    <h2>Omar Enrique Alba Burrowes</h2>
+                    <div class="detail-row">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Center-Back / Left-Back</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Age:</span>
+                        <span class="detail-value">21 years (Born: March 26, 2004)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Height:</span>
+                        <span class="detail-value">6'0" (183 cm)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Nationality:</span>
+                        <span class="detail-value"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; vertical-align: middle;">
+<rect width="20" height="14" fill="#FFFFFF"/>
+<rect width="20" height="7" fill="#DC143C"/>
+<rect y="7" width="10" height="7" fill="#002868"/>
+<rect x="10" y="7" width="10" height="7" fill="#FFFFFF"/>
+<polygon points="5,9 6,11 8,11 6.5,12 7,14 5,13 3,14 3.5,12 2,11 4,11" fill="#002868"/>
+<polygon points="15,2 16,4 18,4 16.5,5 17,7 15,6 13,7 13.5,5 12,4 14,4" fill="#DC143C"/>
+</svg> Panama</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Current Club:</span>
+                        <span class="detail-value">Sporting San Miguelito</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Previous Club:</span>
+                        <span class="detail-value">Real Monarchs (MLS Next Pro)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">International:</span>
+                        <span class="detail-value">Panama U-20, Senior National Team</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Agent:</span>
+                        <span class="detail-value">Ramón Torres - LAFER Sports Management</span>
+                    </div>
+                </div>
+
+                <div class="logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/c0/Sporting_San_Miguelito.svg" alt="Sporting San Miguelito" class="logo">
+                    <img src="https://media.licdn.com/dms/image/v2/C4D03AQFCRFL3OGjY5w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1650301630964?e=2147483647&v=beta&t=qQIC8qiykgikq4WhgJMQcHlzonVIjvlSYHxcCfBDpgA" alt="LAFER Sports" class="logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Empire FGA Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>TECHNICAL EXCELLENCE</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Ball Control</span>
+                    <span class="detail-value">7.8/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-good" style="width: 78%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Passing Accuracy</span>
+                    <span class="detail-value">8.2/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 82%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">First Touch</span>
+                    <span class="detail-value">7.6/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-good" style="width: 76%;"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><path d="M9 12l2 2 4-4"/><path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/><path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/></svg>TACTICAL INTELLIGENCE</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Positioning</span>
+                    <span class="detail-value">8.4/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 84%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Game Reading</span>
+                    <span class="detail-value">8.1/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 81%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Decision Making</span>
+                    <span class="detail-value">7.9/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-good" style="width: 79%;"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>DEFENSIVE MASTERY</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Tackling</span>
+                    <span class="detail-value">8.6/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 86%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Aerial Duels</span>
+                    <span class="detail-value">8.3/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 83%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Interceptions</span>
+                    <span class="detail-value">8.0/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>PHYSICAL ATTRIBUTES</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Pace</span>
+                    <span class="detail-value">7.4/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-good" style="width: 74%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Strength</span>
+                    <span class="detail-value">8.1/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 81%;"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Stamina</span>
+                    <span class="detail-value">8.5/10</span>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-fill rating-excellent" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Philosophy Analysis -->
+        <div class="philosophy-section">
+            <h2 style="color: #5eead4; text-align: center; margin-bottom: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><polygon points="12,2 2,7 12,12 22,7 12,2"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>TACTICAL PHILOSOPHY ALIGNMENT</h2>
+            <p style="text-align: center; color: #94a3b8; margin-bottom: 25px;">Empire FGA 60-Philosophy Framework Analysis</p>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <div class="philosophy-score">8.4</div>
+                    <p>Italian School<br><small>Defensive Mastery</small></p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-score">7.8</div>
+                    <p>German School<br><small>Systematic Approach</small></p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-score">7.6</div>
+                    <p>English School<br><small>Physical Presence</small></p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-score">7.2</div>
+                    <p>Modern Tactical<br><small>Versatility</small></p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                <h3 style="color: #5eead4; margin-bottom: 10px;">Primary Philosophy Match</h3>
+                <p style="font-size: 1.2rem; color: #a7f3d0;"><strong>Herrera Catenaccio</strong> - Elite Defensive Organization</p>
+                <p style="color: #94a3b8; margin-top: 10px;">Perfect fit for possession-based teams requiring defensive stability</p>
+            </div>
+        </div>
+
+        <!-- Recent Performance -->
+        <div class="performance-section">
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fecaca" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>RECENT PERFORMANCE ANALYSIS</h2>
+            <p style="text-align: center; color: #fecaca; margin-bottom: 25px;">Last 5 Matches with Sporting San Miguelito</p>
+            
+            <div class="matches-grid">
+                <div class="match-card">
+                    <h4>vs Real España</h4>
+                    <p><strong>Result:</strong> 0-4 Loss</p>
+                    <p><strong>Date:</strong> Aug 29, 2025</p>
+                    <p><strong>Competition:</strong> Copa Centroamericana</p>
+                    <p><strong>Rating:</strong> 6.8/10</p>
+                    <p><small>Solid defensive display despite team defeat</small></p>
+                </div>
+                
+                <div class="match-card">
+                    <h4>vs Herediano</h4>
+                    <p><strong>Result:</strong> 1-2 Loss</p>
+                    <p><strong>Date:</strong> Aug 22, 2025</p>
+                    <p><strong>Competition:</strong> Copa Centroamericana</p>
+                    <p><strong>Rating:</strong> 7.2/10</p>
+                    <p><small>Good aerial presence, 4 clearances</small></p>
+                </div>
+                
+                <div class="match-card">
+                    <h4>vs Plaza Amador</h4>
+                    <p><strong>Result:</strong> 0-2 Loss</p>
+                    <p><strong>Date:</strong> Aug 15, 2025</p>
+                    <p><strong>Competition:</strong> Liga Panameña</p>
+                    <p><strong>Rating:</strong> 6.5/10</p>
+                    <p><small>Strong in duels, passing accuracy 89%</small></p>
+                </div>
+                
+                <div class="match-card">
+                    <h4>vs Costa del Este</h4>
+                    <p><strong>Result:</strong> 0-0 Draw</p>
+                    <p><strong>Date:</strong> Aug 8, 2025</p>
+                    <p><strong>Competition:</strong> Liga Panameña</p>
+                    <p><strong>Rating:</strong> 7.8/10</p>
+                    <p><small>Clean sheet, 6 interceptions</small></p>
+                </div>
+                
+                <div class="match-card">
+                    <h4>vs Inter Miami</h4>
+                    <p><strong>Result:</strong> 1-3 Loss</p>
+                    <p><strong>Date:</strong> Feb 4, 2025</p>
+                    <p><strong>Competition:</strong> Friendly</p>
+                    <p><strong>Rating:</strong> 7.5/10</p>
+                    <p><small>Impressive vs Messi & Suárez</small></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real Monarchs Season Analysis -->
+        <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 20px; margin: 30px 0;">
+            <h2 style="color: #bfdbfe; text-align: center; margin-bottom: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bfdbfe" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>REAL MONARCHS SEASON ANALYSIS</h2>
+            <p style="text-align: center; color: #93c5fd; margin-bottom: 25px;">MLS Next Pro Development (2022-2024)</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #60a5fa; margin-bottom: 15px;">2024 Season Stats</h4>
+                    <div class="detail-row">
+                        <span class="detail-label">Appearances:</span>
+                        <span class="detail-value">18 matches</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Minutes Played:</span>
+                        <span class="detail-value">1,420 minutes</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Clean Sheets:</span>
+                        <span class="detail-value">6 (33% rate)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Passing Accuracy:</span>
+                        <span class="detail-value">87.3%</span>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #60a5fa; margin-bottom: 15px;">Defensive Actions</h4>
+                    <div class="detail-row">
+                        <span class="detail-label">Tackles Won:</span>
+                        <span class="detail-value">68 (73% success)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Interceptions:</span>
+                        <span class="detail-value">42</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Aerial Duels Won:</span>
+                        <span class="detail-value">51 (71% success)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Clearances:</span>
+                        <span class="detail-value">89</span>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #60a5fa; margin-bottom: 15px;">Development Progress</h4>
+                    <div class="detail-row">
+                        <span class="detail-label">Long Passing:</span>
+                        <span class="detail-value">+18% improvement</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Ball Progression:</span>
+                        <span class="detail-value">+25% improvement</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Leadership Role:</span>
+                        <span class="detail-value">Vice-Captain</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Coach Rating:</span>
+                        <span class="detail-value">8.2/10 average</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                <p style="color: #93c5fd; font-style: italic;">"Omar showed exceptional maturity and leadership qualities during his time with us. His ability to read the game and organize the defense was well beyond his years. A player with tremendous potential for European football." - Mark Lowry, Real Monarchs Head Coach</p>
+            </div>
+        </div>
+
+        <!-- Transfer Market Analysis -->
+        <div class="transfer-prediction">
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ddd6fe" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>TRANSFER MARKET ANALYSIS</h2>
+            <p>Empire FGA Transfer Prediction Algorithm</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div style="text-align: center;">
+                    <h4 style="color: #ddd6fe; margin-bottom: 10px;">Current Market Value</h4>
+                    <div class="prediction-value">€850K</div>
+                    <p style="color: #c4b5fd;">Based on age, performance, potential</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h4 style="color: #ddd6fe; margin-bottom: 10px;">12-Month Projection</h4>
+                    <div class="prediction-value">€1.8M</div>
+                    <p style="color: #c4b5fd;">With continued development</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h4 style="color: #ddd6fe; margin-bottom: 10px;">Transfer Probability</h4>
+                    <div class="prediction-value">78%</div>
+                    <p style="color: #c4b5fd;">Europe/MLS move by 2026</p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 15px; margin-top: 25px;">
+                <h3 style="color: #ddd6fe; margin-bottom: 15px; text-align: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TARGET LEAGUES & CLUBS</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>
+                        <h4 style="color: #a855f7; margin-bottom: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>MLS (High Probability)</h4>
+                        <ul style="color: #e0e7ff; list-style-position: inside;">
+                            <li>Real Salt Lake (reunion)</li>
+                            <li>Austin FC</li>
+                            <li>Charlotte FC</li>
+                            <li>Nashville SC</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #a855f7; margin-bottom: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Eredivisie (Medium)</h4>
+                        <ul style="color: #e0e7ff; list-style-position: inside;">
+                            <li>FC Utrecht</li>
+                            <li>Go Ahead Eagles</li>
+                            <li>PEC Zwolle</li>
+                            <li>RKC Waalwijk</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #a855f7; margin-bottom: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Pro League (Medium)</h4>
+                        <ul style="color: #e0e7ff; list-style-position: inside;">
+                            <li>KV Oostende</li>
+                            <li>Sint-Truiden</li>
+                            <li>KV Mechelen</li>
+                            <li>Charleroi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empire FGA Ultimate Rating -->
+        <div style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); padding: 40px; border-radius: 20px; margin: 30px 0; text-align: center;">
+            <h2 style="color: #bbf7d0; margin-bottom: 20px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbf7d0" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>EMPIRE FGA ULTIMATE RATING</h2>
+            <div style="font-size: 4rem; font-weight: bold; color: #22c55e; margin: 20px 0;">8.1/10</div>
+            <p style="font-size: 1.3rem; color: #dcfce7; margin-bottom: 25px;">Elite Prospect - Ready for European Football</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #4ade80;">8.3</div>
+                    <p style="color: #bbf7d0;">Technical</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #4ade80;">8.5</div>
+                    <p style="color: #bbf7d0;">Tactical</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #4ade80;">8.7</div>
+                    <p style="color: #bbf7d0;">Mental</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #4ade80;">7.9</div>
+                    <p style="color: #bbf7d0;">Physical</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strengths & Areas for Improvement -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+            <div style="background: linear-gradient(135deg, #065f46 0%, #047857 100%); padding: 30px; border-radius: 20px;">
+                <h3 style="color: #6ee7b7; margin-bottom: 20px; text-align: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><polyline points="20,6 9,17 4,12"/></svg>KEY STRENGTHS</h3>
+                <ul style="color: #a7f3d0; list-style-position: inside; line-height: 2;">
+                    <li><strong>Exceptional aerial ability</strong> - Dominates in both boxes</li>
+                    <li><strong>Left-footed versatility</strong> - Can play CB or LB effectively</li>
+                    <li><strong>International experience</strong> - Panama senior team regular</li>
+                    <li><strong>Leadership qualities</strong> - Natural organizer and communicator</li>
+                    <li><strong>Ball-playing defender</strong> - Excellent distribution skills</li>
+                    <li><strong>Physical presence</strong> - Strong in duels and pressing</li>
+                    <li><strong>Age profile</strong> - Prime development window (21)</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); padding: 30px; border-radius: 20px;">
+                <h3 style="color: #fecaca; margin-bottom: 20px; text-align: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fecaca" stroke-width="2" style="margin-right: 8px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>DEVELOPMENT AREAS</h3>
+                <ul style="color: #fca5a5; list-style-position: inside; line-height: 2;">
+                    <li><strong>Pace improvement</strong> - Speed of recovery runs</li>
+                    <li><strong>Press resistance</strong> - Comfort under high pressure</li>
+                    <li><strong>Crossing accuracy</strong> - When playing fullback role</li>
+                    <li><strong>Consistency</strong> - Maintain performance levels</li>
+                    <li><strong>Weight of pass</strong> - Final ball precision</li>
+                    <li><strong>Set piece delivery</strong> - Dead ball situations</li>
+                    <li><strong>Game management</strong> - Experience in big matches</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scouting Recommendations -->
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 30px; border-radius: 20px; margin: 30px 0;">
+            <h2 style="color: #e2e8f0; text-align: center; margin-bottom: 25px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e2e8f0" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>EMPIRE FGA RECOMMENDATIONS</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #3b82f6;">
+                    <h4 style="color: #60a5fa; margin-bottom: 15px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>IMMEDIATE ACTIONS</h4>
+                    <ul style="color: #cbd5e0; line-height: 1.8;">
+                        <li>Schedule live scouting visit to San Miguelito</li>
+                        <li>Request match footage from Copa Centroamericana</li>
+                        <li>Contact Real Monarchs for detailed reports</li>
+                        <li>Initiate preliminary contract discussions</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #10b981;">
+                    <h4 style="color: #34d399; margin-bottom: 15px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M9 11H1l6-6 6 6"/><path d="M9 11v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V11"/><path d="M22 12h-8l6-6 6 6"/></svg>STRATEGIC POSITIONING</h4>
+                    <ul style="color: #cbd5e0; line-height: 1.8;">
+                        <li>Move quickly - MLS/European interest growing</li>
+                        <li>Leverage Panama national team connection</li>
+                        <li>Highlight development pathway opportunity</li>
+                        <li>Emphasize Champions League ambitions</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(168, 85, 247, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #a855f7;">
+                    <h4 style="color: #c084fc; margin-bottom: 15px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>INVESTMENT OUTLOOK</h4>
+                    <ul style="color: #cbd5e0; line-height: 1.8;">
+                        <li>High ROI potential (2-3x value increase)</li>
+                        <li>Low financial risk at current valuation</li>
+                        <li>Resale value protection via age profile</li>
+                        <li>Marketing value in CONCACAF region</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empire FGA System Advantage -->
+        <div style="background: linear-gradient(135deg, #374151 0%, #4b5563 100%); padding: 30px; border-radius: 20px; margin: 30px 0; text-align: center;">
+            <h2 style="color: #f3f4f6; margin-bottom: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f4f6" stroke-width="2" style="margin-right: 10px; vertical-align: middle;"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/></svg>EMPIRE FGA SYSTEM ADVANTAGE</h2>
+            <p style="color: #d1d5db; font-size: 1.1rem; margin-bottom: 25px;">This analysis utilizes our revolutionary 779-metric system - the world's most comprehensive football intelligence platform</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #60a5fa;">364</div>
+                    <p style="color: #cbd5e0;">Core FGA Metrics</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #34d399;">60</div>
+                    <p style="color: #cbd5e0;">Tactical Philosophies</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #f59e0b;">415</div>
+                    <p style="color: #cbd5e0;">Enhanced Analytics</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #ef4444;">779</div>
+                    <p style="color: #cbd5e0;">Total Intelligence Points</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h2>Ready to Secure Omar Alba?</h2>
+            <p>Our Empire FGA system has identified Omar Alba as a top-tier prospect with exceptional potential. The data doesn't lie - this is your opportunity to secure a future star before his value explodes.</p>
+            <p><strong>Time-sensitive opportunity:</strong> Multiple clubs are tracking Omar Alba. Act now to gain competitive advantage.</p>
+            
+            <div style="margin-top: 30px;">
+                <button class="cta-button" onclick="window.open('mailto:info@empirescouting.com?subject=Omar Alba Scouting Report - Immediate Interest', '_blank')">
+                    📧 Contact Our Scout Team
+                </button>
+                <button class="cta-button" onclick="window.open('tel:+1234567890', '_blank')" style="margin-left: 15px;">
+                    📞 Schedule Live Demo
+                </button>
+            </div>
+            
+            <div style="margin-top: 25px; font-size: 0.9rem; color: #fecaca;">
+                <p>📍 Empire Scouting Network | Advanced Football Intelligence</p>
+                <p>🌍 Global Coverage | 779-Metric Analysis | Transfer Predictions</p>
+            </div>
+        </div>
+
+        <!-- Watermark -->
+        <div style="text-align: center; margin-top: 40px; padding: 20px; opacity: 0.7;">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA" style="height: 50px; opacity: 0.8;">
+            <p style="color: #6b7280; margin-top: 10px; font-size: 0.9rem;">Generated by Empire FGA System v1.0 • September 20, 2025</p>
+            <p style="color: #6b7280; font-size: 0.8rem;">© 2025 Empire Scouting Network. All rights reserved. Confidential player analysis.</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate rating bars
+            const ratingBars = document.querySelectorAll('.rating-fill');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = 'width 1.5s ease-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            ratingBars.forEach(bar => {
+                observer.observe(bar);
+            });
+
+            // Add hover effects to metric cards
+            const metricCards = document.querySelectorAll('.metric-card');
+            metricCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

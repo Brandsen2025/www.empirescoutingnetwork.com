@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Scouting Network - Oferta Exclusiva para Agentes Españoles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .urgency-banner {
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .urgency-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .countdown-timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd93d;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .offer-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #4d96ff, #6bcf7f, #ffd93d);
+            background-size: 400% 100%;
+            animation: borderShift 3s ease infinite;
+        }
+
+        @keyframes borderShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 400% 0%; }
+        }
+
+        .offer-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+            border-color: #4d96ff;
+        }
+
+        .offer-card.premium {
+            background: linear-gradient(145deg, #4d96ff, #6c5ce7);
+            color: white;
+            transform: scale(1.05);
+            border: 5px solid #ffd93d;
+        }
+
+        .offer-card.premium:hover {
+            transform: scale(1.08) translateY(-15px);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff4757, #ff6348);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .offer-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .offer-card.premium .offer-title {
+            color: white;
+        }
+
+        .offer-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .offer-card.premium .offer-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .price-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(77, 150, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .offer-card.premium .price-section {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #4d96ff;
+            margin-bottom: 10px;
+        }
+
+        .offer-card.premium .offer-price {
+            color: #ffd93d;
+        }
+
+        .price-period {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        .offer-card.premium .price-period {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .savings-highlight {
+            background: #e8f8f5;
+            color: #00b894;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .offer-card.premium .savings-highlight {
+            background: rgba(255,255,255,0.2);
+            color: #ffd93d;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(77, 150, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(77, 150, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .offer-card.premium .feature-item {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .offer-card.premium .feature-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #00b894;
+        }
+
+        .offer-card.premium .feature-icon {
+            color: #ffd93d;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .offer-card.premium .feature-text {
+            color: white;
+        }
+
+        .exclusive-benefits {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .exclusive-benefits h4 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #4d96ff, #6c5ce7);
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(77, 150, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(77, 150, 255, 0.4);
+            background: linear-gradient(45deg, #74b9ff, #a29bfe);
+        }
+
+        .offer-card.premium .cta-button {
+            background: linear-gradient(45deg, #ffd93d, #fdcb6e);
+            color: #2c3e50;
+        }
+
+        .offer-card.premium .cta-button:hover {
+            background: linear-gradient(45deg, #ffeaa7, #fdcb6e);
+        }
+
+        .testimonials-section {
+            background: white;
+            padding: 60px;
+            border-radius: 25px;
+            margin: 60px 0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid #4d96ff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #495057;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-company {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .guarantee-section {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-section::before {
+            content: '🛡️';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .guarantee-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .guarantee-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #4d96ff;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            animation: finalPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes finalPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .final-cta h3 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .strikethrough {
+            color: #ff6b6b;
+            text-decoration: line-through;
+        }
+
+        .special-offers {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .special-offers h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .offer-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .offer-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .offer-item h4 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffd93d;
+        }
+
+        .offer-item p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero-section, .urgency-banner, .final-cta {
+                background: #f8f9fa !important;
+                color: #2c3e50 !important;
+            }
+            
+            .offer-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .cta-button {
+                background: #4d96ff !important;
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .offer-card.premium {
+                transform: none;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">🏆 EMPIRE SCOUTING NETWORK</h1>
+                <h2 class="hero-subtitle">OFERTA EXCLUSIVA PARA AGENTES</h2>
+                <p class="hero-tagline">El Sistema de Inteligencia Futbolística Más Sofisticado del Mundo</p>
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin-top: 20px;">
+                    <strong>364 MÉTRICAS AVANZADAS + 60 FILOSOFÍAS TÁCTICAS</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Urgency Banner -->
+        <section class="urgency-banner">
+            <h3>⏰ OFERTA LIMITADA - SOLO HASTA EL 31 DE ENERO 2025</h3>
+            <p>Esta oportunidad única para agentes españoles no se repetirá</p>
+            <div class="countdown-timer" id="countdown">¡El tiempo se agota!</div>
+        </section>
+
+        <!-- Offers Grid -->
+        <section class="offer-grid">
+            <!-- Agent Elite Package -->
+            <div class="offer-card premium">
+                <div class="offer-badge">🎯 MÁS POPULAR</div>
+                <h3 class="offer-title">PAQUETE AGENTE ELITE</h3>
+                <p class="offer-subtitle">Para Representantes de Jugadores & Intermediarios</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Precio Regular: €4,999</div>
+                    <div class="offer-price">€1,499</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €3,500 (70% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text"><strong>Análisis FGA completo</strong> de hasta 50 jugadores</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text"><strong>364 métricas avanzadas</strong> por jugador</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <span class="feature-text"><strong>60 filosofías tácticas</strong> mapeadas científicamente</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text"><strong>Comparaciones cross-era</strong> (vs Messi, CR7, Pelé)</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔮</span>
+                        <span class="feature-text"><strong>Predicción desarrollo</strong> 3-5 años futuro</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📜</span>
+                        <span class="feature-text"><strong>Certificados profesionales</strong> para presentar a clubes</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎁</span>
+                        <span class="feature-text"><strong>5 análisis GRATUITOS</strong> antes de decidir</span>
+                    </li>
+                </ul>
+
+                <div class="exclusive-benefits">
+                    <h4>🎁 BONUS EXCLUSIVO AGENTES ESPAÑA</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <strong>Webinar Privado</strong><br>
+                            Con Jim Totime para tu red de contactos
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Acceso Beta</strong><br>
+                            Nuevas funcionalidades antes que nadie
+                        </div>
+                        <div class="benefit-item">
+                            <strong>€500 por Referido</strong><br>
+                            Cada cliente exitoso te paga comisión
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Descuento Vitalicio</strong><br>
+                            En todas tus renovaciones futuras
+                        </div>
+                    </div>
+                </div>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=OFERTA%20AGENTE%20ELITE%20-%20España&body=Hola%20Jim,%0A%0AEstoy%20muy%20interesado%20en%20la%20oferta%20exclusiva%20del%20Paquete%20Agente%20Elite%20por%20€1,499.%0A%0ARepresento%20jugadores%20en%20España%20y%20quiero%20agendar%20una%20demo%20personalizada.%0A%0AMi%20disponibilidad:%20[Indicar%20días/horas]%0A%0ASaludos%20cordiales" class="cta-button">
+                    🚀 SOLICITAR ACCESO ELITE - €1,499
+                </a>
+            </div>
+
+            <!-- Video Highlights Package -->
+            <div class="offer-card">
+                <div class="offer-badge">🎬 VIDEO + FGA</div>
+                <h3 class="offer-title">ANÁLISIS + VIDEO HIGHLIGHTS</h3>
+                <p class="offer-subtitle">FGA System + Compilaciones Profesionales</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Valor Separado: €199</div>
+                    <div class="offer-price">€99</div>
+                    <div class="price-period">por jugador - paquete completo</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎥 AHORRÁS €100 + Videos Profesionales
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text"><strong>Análisis FGA completo</strong> 364 métricas</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎬</span>
+                        <span class="feature-text"><strong>Video highlight reel</strong> profesional 3-5 minutos</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text"><strong>Mejores acciones</strong> + métricas en tiempo real</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text"><strong>Análisis táctico visual</strong> con gráficos avanzados</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span class="feature-text"><strong>Comparaciones visuales</strong> vs grandes jugadores</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎨</span>
+                        <span class="feature-text"><strong>Branding personalizado</strong> con tu logo de agente</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📱</span>
+                        <span class="feature-text"><strong>Formatos optimizados</strong> para todas las redes sociales</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=VIDEO%20ELITE%20PACKAGE%20-%20España&body=Hola%20Jim,%0A%0AEstoy%20muy%20interesado%20en%20el%20paquete%20VIDEO%20ELITE%20por%20€99.%0A%0AJugador:%20[Nombre]%0APosición:%20[Posición]%0AClub%20Actual:%20[Club]%0A%0AQuiero%20ver%20una%20muestra%20de%20video%20highlight%20antes%20de%20decidir.%0A%0ASaludos%20cordiales" class="cta-button">
+                    🎬 SOLICITAR VIDEO + ANÁLISIS - €99
+                </a>
+            </div>
+
+            <!-- Academy Package -->
+            <div class="offer-card">
+                <div class="offer-badge">🏫 ACADEMIAS</div>
+                <h3 class="offer-title">PAQUETE ACADEMIA & CANTERA</h3>
+                <p class="offer-subtitle">Para Centros de Formación y Academias</p>
+                
+                <div class="price-section">
+                    <div class="original-price">Precio Regular: €7,999</div>
+                    <div class="offer-price">€2,499</div>
+                    <div class="price-period">primer año</div>
+                </div>
+                
+                <div class="savings-highlight">
+                    🎉 AHORRÁS €5,500 (69% DESCUENTO)
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">👶</span>
+                        <span class="feature-text"><strong>Identificación talento</strong> juvenil 14-20 años</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔮</span>
+                        <span class="feature-text"><strong>Predicción potencial</strong> con 85% de precisión</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span class="feature-text"><strong>200 jugadores/año</strong> análisis incluidos</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <span class="feature-text"><strong>Informes para padres</strong> y representantes</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span class="feature-text"><strong>Seguimiento trimestral</strong> del progreso</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">⭐</span>
+                        <span class="feature-text"><strong>Comparación con grandes</strong> a la misma edad</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:jim.totime@brandsensports.com?subject=OFERTA%20ACADEMIA%20-%20España&body=Hola%20Jim,%0A%0AEstoy%20interesado%20en%20la%20oferta%20del%20Paquete%20Academia%20por%20€2,499.%0A%0AAcademia:%20[Nombre%20de%20la%20Academia]%0AUbicación:%20[Ciudad]%0AJugadores%20en%20formación:%20[Número%20aproximado]%0A%0AQuiero%20más%20información%20y%20agendar%20una%20demo.%0A%0ASaludos%20cordiales" class="cta-button">
+                    🏫 SOLICITAR PAQUETE ACADEMIA - €2,499
+                </a>
+            </div>
+        </section>
+
+        <!-- Video Highlights Special Section -->
+        <section class="hero-section" style="background: linear-gradient(135deg, #e74c3c, #c0392b); margin: 60px 0;">
+            <div class="hero-content">
+                <h2 class="hero-subtitle">🎬 BRANDSEN SPORTS VIDEO HIGHLIGHTS</h2>
+                <h1 class="hero-title" style="font-size: 3rem;">VIDEO HIGHLIGHTS + FGA SYSTEM</h1>
+                <p class="hero-tagline">La Combinación Perfecta: Análisis Científico + Videos Profesionales</p>
+            </div>
+        </section>
+
+        <!-- Volume Discounts for Videos -->
+        <section class="special-offers">
+            <h3>📈 DESCUENTOS POR VOLUMEN - VIDEOS + FGA</h3>
+            <p>Perfecto para agentes con múltiples jugadores</p>
+            <div class="offer-grid" style="margin-top: 30px;">
+                <div class="offer-item">
+                    <h4>🎬 5 JUGADORES</h4>
+                    <p><strong>€395</strong> <span class="strikethrough">€495</span></p>
+                    <p>€79 por jugador - Ahorro €100</p>
+                    <p>Incluye: Video portfolio grupal GRATIS</p>
+                </div>
+                <div class="offer-item">
+                    <h4>🎬 10 JUGADORES</h4>
+                    <p><strong>€690</strong> <span class="strikethrough">€990</span></p>
+                    <p>€69 por jugador - Ahorro €300</p>
+                    <p>Incluye: Campaña marketing digital</p>
+                </div>
+                <div class="offer-item">
+                    <h4>🎬 SUSCRIPCIÓN ANUAL</h4>
+                    <p><strong>€1,999</strong> <span class="strikethrough">€2,999</span></p>
+                    <p>Videos ilimitados + FGA completo</p>
+                    <p>Incluye: Soporte dedicado 24/7</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h3 class="testimonials-title">🗣️ LO QUE DICEN NUESTROS CLIENTES</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Estamos muy satisfechos con el trabajo de Brandsen Sports. Prolijidad en la elaboración de los videos, dinamismo en la estructura de las secuencias, y puntualidad en la entrega del trabajo. Siempre con total seriedad y profesionalismo."
+                    </div>
+                    <div class="testimonial-author">Diego Garate</div>
+                    <div class="testimonial-company">Insua Group - Buenos Aires & Madrid</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Utilizamos los servicios de Brandsen Sports desde hace muchos años y estamos muy satisfechos con el resultado, la precisión y el conocimiento profundo que tiene la empresa. Su análisis de video combinado con datos crea la presentación perfecta del jugador."
+                    </div>
+                    <div class="testimonial-author">Youssif El Hamzaoui</div>
+                    <div class="testimonial-company">YSI Football Developers - Países Bajos</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Brandsen Sports es un especialista global líder en datos y análisis de video de fútbol. Su calidad de servicio es excepcional, ofreciendo soluciones innovadoras para clubes y entrenadores. Gracias a su experiencia en análisis de video, pueden proporcionar una evaluación profunda del rendimiento del jugador y del equipo."
+                    </div>
+                    <div class="testimonial-author">Wally Dieng</div>
+                    <div class="testimonial-company">Football Scout Events - París & Málaga</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guarantee Section -->
+        <section class="guarantee-section">
+            <h3 class="guarantee-title">🛡️ GARANTÍA TOTAL SATISFACCIÓN</h3>
+            <div class="guarantee-text">
+                <p><strong>Si no estás 100% satisfecho con nuestros análisis FGA o videos, te devolvemos todo tu dinero.</strong></p>
+                <p>Tienes 30 días para evaluar nuestro trabajo. Si nuestro sistema FGA no supera tus expectativas o los videos no te convencen, reembolso completo sin preguntas.</p>
+                <p><em>Confiamos tanto en la calidad de nuestro trabajo que asumimos todo el riesgo.</em></p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h3 class="contact-title">📞 CONTACTO DIRECTO</h3>
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">¿Listo para revolucionar cómo representas a tus jugadores?</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h4>🎯 FGA SYSTEM DEMO</h4>
+                    <p><strong>Jim Totime</strong> - CEO & Founder</p>
+                    <p>📧 jim.totime@brandsensports.com</p>
+                    <p>📱 WhatsApp: +31 6 3560 2203</p>
+                    <p>🔗 LinkedIn: /in/jimtotime</p>
+                    <br>
+                    <p><em>Solicita una demo completa del sistema FGA con cualquier jugador de tu elección</em></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>⚡ RESPUESTA GARANTIZADA</h4>
+                    <p>✅ <strong>Respuesta en máximo 2 horas</strong></p>
+                    <p>✅ <strong>Demo personalizada en 24h</strong></p>
+                    <p>✅ <strong>Análisis de muestra real</strong></p>
+                    <p>✅ <strong>Propuesta a medida</strong></p>
+                    <br>
+                    <p><em>Entendemos que el tiempo en el fútbol es crucial</em></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="mailto:jim.totime@brandsensports.com?subject=DEMO%20URGENTE%20-%20Agente%20España&body=Hola%20Jim,%0A%0AQuiero%20solicitar%20una%20demo%20urgente%20del%20sistema%20FGA.%0A%0AMi%20situación:%0A-%20Represento%20jugadores%20en%20España%0A-%20Necesito%20análisis%20profesionales%20para%20presentar%20a%20clubes%0A-%20Busco%20ventaja%20competitiva%20sobre%20otros%20agentes%0A%0AJugador%20para%20demo:%20[Nombre%20conocido%20para%20referencia]%0A%0ADisponibilidad:%20[Cuándo%20podemos%20hablar]%0A%0AUrgencia:%20ALTA%0A%0ASaludos%20cordiales%0A%0AP.S.%20-%20Mis%20jugadores%20merecen%20la%20mejor%20representación%20posible." class="cta-button" style="font-size: 1.5rem; padding: 25px;">
+                    🎯 SOLICITAR DEMO FGA AHORA
+                </a>
+                <a href="https://calendly.com/brandsensports/demo-espana" class="cta-button" style="background: linear-gradient(45deg, #ff6b6b, #ff5252); margin-top: 15px;">
+                    📅 AGENDAR VIDEOLLAMADA - 30 MIN
+                </a>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <h3>🚀 EL FUTURO DE LA REPRESENTACIÓN DE JUGADORES ESTÁ AQUÍ</h3>
+            <p><strong>En el fútbol moderno, los datos no mienten. Los análisis subjetivos fallan. El sistema FGA revela la verdad.</strong></p>
+            <p>Tus jugadores merecen ser representados con la sofisticación científica que refleje su verdadero valor de mercado.</p>
+            <p>Mientras otros agentes presentan estadísticas básicas, tú tendrás análisis de 364 métricas que convencen a cualquier director deportivo.</p>
+            <h4>¿Estás listo para ser el agente más avanzado de España?</h4>
+            <div style="margin-top: 40px;">
+                <p><em>Empire Scouting Network - Brandsen Sports</em></p>
+                <p><strong>"Where Science Meets Football"</strong></p>
+                <p>🎯 364 Métricas Avanzadas | 🧠 60 Filosofías Tácticas | ⚡ Potencial Ilimitado</p>
+            </div>
+        </section>
+
+        <!-- Print Instructions -->
+        <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center; color: #2c3e50;">
+            <h4>📄 INSTRUCCIONES PARA IMPRIMIR/PDF</h4>
+            <p>Para convertir esta página a PDF: <strong>Ctrl+P</strong> (Windows) o <strong>Cmd+P</strong> (Mac)</p>
+            <p>Selecciona "Guardar como PDF" en el diálogo de impresión</p>
+            <p>Recomendamos orientación vertical y márgenes mínimos para mejor resultado</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple countdown timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-01-31T23:59:59');
+            const now = new Date();
+            const timeLeft = targetDate - now;
+            
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('countdown').innerHTML = 
+                    `⏰ Quedan: ${days} días, ${hours} horas, ${minutes} minutos`;
+            } else {
+                document.getElementById('countdown').innerHTML = '⏰ ¡OFERTA EXPIRADA!';
+            }
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Update every minute
+
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            document.body.style.background = 'white';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.style.background = 'linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%)';
+        });
+    </script>
+</body>
+</html>

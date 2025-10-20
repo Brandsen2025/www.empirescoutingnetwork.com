@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA Demo - Deportivo Pereira</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .empire-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .empire-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .empire-subtitle {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .club-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .club-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .club-details h1 {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+
+        .player-rating {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric-item {
+            background: rgba(51, 65, 85, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+        }
+
+        .chart-container {
+            height: 400px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .transfer-predictions {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+        }
+
+        .prediction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .prediction-player {
+            flex: 1;
+        }
+
+        .prediction-details {
+            text-align: right;
+        }
+
+        .prediction-value {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .league-position {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .position-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffd700;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+            color: #1e293b;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .empire-title {
+                font-size: 2.5rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="empire-brand">
+                <div class="empire-title">⚽ EMPIRE FGA</div>
+            </div>
+            <div class="empire-subtitle">Field Global Analysis • Brandsen Sports Intelligence</div>
+            <div class="club-info">
+                <img src="https://logos-world.net/wp-content/uploads/2020/06/Deportivo-Pereira-Logo.png" alt="Deportivo Pereira" class="club-logo">
+                <div class="club-details">
+                    <h1>DEPORTIVO PEREIRA</h1>
+                    <p style="font-size: 1.2rem; color: #e2e8f0;">Complete Squad Analysis • Winter 2025/26</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current League Position -->
+        <div class="league-position">
+            <h2 style="margin-bottom: 1rem; color: white;">Current Liga BetPlay Position</h2>
+            <div class="position-number">12th</div>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">Mid-table with potential for improvement</p>
+            <p style="color: #e2e8f0; margin-top: 0.5rem;">Empire FGA identifies 3 key areas for immediate enhancement</p>
+        </div>
+
+        <!-- Main Demo Grid -->
+        <div class="demo-grid">
+            <!-- Squad Analysis -->
+            <div class="section">
+                <h2>🎯 FGA Squad Analysis</h2>
+                
+                <div class="player-card">
+                    <div class="player-header">
+                        <span class="player-name">Faber Gil (ST)</span>
+                        <span class="player-rating">FGA: 7.4</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-value">82</div>
+                            <div class="metric-label">Finishing</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">75</div>
+                            <div class="metric-label">Movement</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">1.32</div>
+                            <div class="metric-label">Enhanced XPS</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">2.1</div>
+                            <div class="metric-label">mG Rating</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #cbd5e0; font-size: 0.9rem;">
+                        <strong>Philosophy Alignment:</strong> Bielsa Intensity (1.28) • Strong pressing triggers
+                    </p>
+                </div>
+
+                <div class="player-card">
+                    <div class="player-header">
+                        <span class="player-name">Darwin Quintero (AM)</span>
+                        <span class="player-rating">FGA: 8.1</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-value">88</div>
+                            <div class="metric-label">Vision</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">91</div>
+                            <div class="metric-label">Passing</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">0.97</div>
+                            <div class="metric-label">Enhanced XPS</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">3.4</div>
+                            <div class="metric-label">mG Rating</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #cbd5e0; font-size: 0.9rem;">
+                        <strong>Philosophy Alignment:</strong> Cruyff Intelligence (1.42) • Elite tactical awareness
+                    </p>
+                </div>
+
+                <div class="player-card">
+                    <div class="player-header">
+                        <span class="player-name">Gonzalo Lencina (ST)</span>
+                        <span class="player-rating">FGA: 6.8</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-value">79</div>
+                            <div class="metric-label">Physicality</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">71</div>
+                            <div class="metric-label">Aerial</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">1.15</div>
+                            <div class="metric-label">Enhanced XPS</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">1.8</div>
+                            <div class="metric-label">mG Rating</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #cbd5e0; font-size: 0.9rem;">
+                        <strong>Philosophy Alignment:</strong> Simeone Cholismo (1.31) • Strong defensive contribution
+                    </p>
+                </div>
+            </div>
+
+            <!-- Performance Radar -->
+            <div class="section">
+                <h2>📊 Team Performance Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="teamRadar"></canvas>
+                </div>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <p style="color: #94a3b8;">Based on 364 FGA metrics • Updated real-time</p>
+                </div>
+            </div>
+
+            <!-- Transfer Predictions -->
+            <div class="section transfer-predictions">
+                <h2>🔄 Winter Transfer Predictions</h2>
+                
+                <div class="prediction-item">
+                    <div class="prediction-player">
+                        <strong>Faber Gil</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">High FGA rating attracting attention</p>
+                    </div>
+                    <div class="prediction-details">
+                        <div class="prediction-value">85% Risk</div>
+                        <p style="font-size: 0.9rem;">Liga MX Interest</p>
+                    </div>
+                </div>
+
+                <div class="prediction-item">
+                    <div class="prediction-player">
+                        <strong>Juan Pablo Zuluaga</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Defensive stability - retention priority</p>
+                    </div>
+                    <div class="prediction-details">
+                        <div class="prediction-value">92% Stay</div>
+                        <p style="font-size: 0.9rem;">Core Player</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: white;">Incoming Targets</h3>
+
+                <div class="prediction-item">
+                    <div class="prediction-player">
+                        <strong>Andrés Rentería (CF)</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Available • Strong FGA metrics</p>
+                    </div>
+                    <div class="prediction-details">
+                        <div class="prediction-value">FGA: 7.8</div>
+                        <p style="font-size: 0.9rem;">Perfect Fit</p>
+                    </div>
+                </div>
+
+                <div class="prediction-item">
+                    <div class="prediction-player">
+                        <strong>Kevin Londoño (MF)</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Young talent • High potential</p>
+                    </div>
+                    <div class="prediction-details">
+                        <div class="prediction-value">FGA: 6.9</div>
+                        <p style="font-size: 0.9rem;">Investment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tactical Analysis -->
+            <div class="section">
+                <h2>⚡ Tactical Intelligence</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #60a5fa; margin-bottom: 1rem;">Current System Analysis</h3>
+                    <div style="background: rgba(51, 65, 85, 0.6); padding: 1.5rem; border-radius: 8px;">
+                        <p style="margin-bottom: 1rem;"><strong>Formation:</strong> 4-2-3-1 (Primary)</p>
+                        <p style="margin-bottom: 1rem;"><strong>Philosophy Match:</strong> 72% Alignment</p>
+                        <p style="margin-bottom: 1rem;"><strong>Key Strength:</strong> Creative midfield play</p>
+                        <p><strong>Improvement Area:</strong> Defensive transitions</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #60a5fa; margin-bottom: 1rem;">Empire Recommendations</h3>
+                <div style="background: rgba(34, 197, 94, 0.2); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #22c55e;">
+                    <p style="margin-bottom: 0.5rem;">🎯 <strong>Switch to 4-3-3:</strong> Better midfield balance</p>
+                    <p style="margin-bottom: 0.5rem;">📈 <strong>Expected improvement:</strong> +12% possession</p>
+                    <p>⚡ <strong>Key benefit:</strong> Enhanced pressing intensity</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Width Chart -->
+        <div class="section full-width">
+            <h2>📈 FGA Performance Timeline</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 style="margin-bottom: 1rem;">Ready to Transform Deportivo Pereira?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Empire FGA provides the complete intelligence system your club needs to compete at the highest level.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px;">
+                    <h3 style="color: #ffd700; margin-bottom: 1rem;">364+ Metrics</h3>
+                    <p>Complete player evaluation system</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px;">
+                    <h3 style="color: #ffd700; margin-bottom: 1rem;">40 Philosophies</h3>
+                    <p>Tactical DNA analysis framework</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px;">
+                    <h3 style="color: #ffd700; margin-bottom: 1rem;">Real-time Updates</h3>
+                    <p>Live match analysis and insights</p>
+                </div>
+            </div>
+            <button class="cta-button" onclick="scheduleDemo()">
+                📅 Schedule Demo with President Álvaro López
+            </button>
+            <p style="margin-top: 1rem; color: #e2e8f0;">
+                <strong>Contact:</strong> Jim Totime • Brandsen Sports • Empire Scouting Network
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Team Radar Chart
+        const teamCtx = document.getElementById('teamRadar').getContext('2d');
+        new Chart(teamCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Attack', 'Midfield', 'Defense', 'Physicality', 'Mental', 'Technical'],
+                datasets: [{
+                    label: 'Current Squad',
+                    data: [73, 81, 68, 75, 79, 77],
+                    fill: true,
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(255, 215, 0, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                }, {
+                    label: 'Liga BetPlay Average',
+                    data: [70, 72, 71, 69, 73, 74],
+                    fill: true,
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    borderColor: 'rgba(239, 68, 68, 1)',
+                    pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                    pointBorderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        pointLabels: {
+                            color: 'white',
+                            font: {
+                                size: 12
+                            }
+                        },
+                        ticks: {
+                            color: 'white',
+                            backdropColor: 'transparent'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Performance Timeline Chart
+        const perfCtx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(perfCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                datasets: [{
+                    label: 'Team FGA Rating',
+                    data: [6.8, 7.1, 7.3, 7.0, 7.4, 7.6, 7.8, 7.5, 7.7],
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Expected Performance',
+                    data: [6.8, 7.0, 7.2, 7.4, 7.6, 7.8, 8.0, 8.2, 8.4],
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    fill: false,
+                    borderDash: [5, 5],
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        function scheduleDemo() {
+            alert(`📅 DEMO SCHEDULING\n\nDear President Álvaro López,\n\nJim Totime from Brandsen Sports would like to schedule a comprehensive demonstration of Empire FGA for Deportivo Pereira.\n\n🎯 Demo Includes:\n• Complete squad analysis (364+ metrics)\n• Transfer market intelligence\n• Tactical optimization recommendations\n• Real-time performance tracking\n• Custom Colombian league insights\n\n📧 Contact: jim.totime@brandsensports.com\n📱 WhatsApp: Available for immediate consultation\n\nEmpire FGA - The future of football intelligence is here.`);
+        }
+    </script>
+</body>
+</html>

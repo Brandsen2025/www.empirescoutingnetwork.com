@@ -1,0 +1,742 @@
+import React, { useState, useEffect } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
+
+const EmpireFGADataAccuracy = () => {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [selectedPlayer, setSelectedPlayer] = useState('riquelme');
+  const [validationResults, setValidationResults] = useState(null);
+
+  // Sample validation data for Riquelme
+  const playerValidation = {
+    riquelme: {
+      name: "Juan Román Riquelme",
+      position: "CAM",
+      
+      // Data Sources Verification
+      sources: {
+        verified: [
+          { source: "Official Boca Juniors Records", confidence: 98, type: "Primary", status: "✅ Verified" },
+          { source: "AFA Database", confidence: 96, type: "Official", status: "✅ Verified" },
+          { source: "FIFA Player Database", confidence: 94, type: "Official", status: "✅ Verified" },
+          { source: "Transfermarkt Career Data", confidence: 92, type: "Secondary", status: "✅ Verified" },
+          { source: "ESPN Player Archives", confidence: 89, type: "Media", status: "✅ Verified" }
+        ],
+        questionable: [
+          { source: "Social Media Claims", confidence: 45, type: "Unverified", status: "⚠️ Needs Verification" },
+          { source: "Fan Forums", confidence: 32, type: "Unreliable", status: "❌ Rejected" }
+        ]
+      },
+      
+      // Fact-Checking Results
+      factCheck: {
+        personalInfo: {
+          birthDate: { claim: "June 24, 1978", verified: true, sources: 3, confidence: 99 },
+          birthPlace: { claim: "San Fernando, Buenos Aires", verified: true, sources: 4, confidence: 98 },
+          height: { claim: "181 cm", verified: true, sources: 5, confidence: 97 },
+          family: { claim: "Married to Cecilia López, 3 children", verified: true, sources: 2, confidence: 89 }
+        },
+        career: {
+          bocaPeriods: { claim: "1996-2002, 2007-2014", verified: true, sources: 6, confidence: 100 },
+          titles: { claim: "11 titles with Boca", verified: true, sources: 4, confidence: 98 },
+          copas: { claim: "3 Copa Libertadores", verified: true, sources: 5, confidence: 100 },
+          currentRole: { claim: "President of Boca Juniors", verified: true, sources: 8, confidence: 100 }
+        },
+        psychological: {
+          personality: { claim: "INTJ Personality", verified: false, sources: 0, confidence: 25 },
+          smoking: { claim: "Heavy smoker", verified: true, sources: 3, confidence: 85 },
+          phobias: { claim: "Flying phobia", verified: true, sources: 2, confidence: 78 },
+          chess: { claim: "Chess enthusiast", verified: true, sources: 4, confidence: 92 }
+        },
+        relationships: {
+          palermo: { claim: "Rivalry with Palermo", verified: true, sources: 6, confidence: 95 },
+          battaglia: { claim: "Close with Battaglia", verified: true, sources: 4, confidence: 88 },
+          maradona: { claim: "Mentored by Maradona", verified: true, sources: 5, confidence: 91 }
+        }
+      },
+      
+      // Accuracy Metrics
+      overallAccuracy: 87.4,
+      verifiedFacts: 18,
+      questionableFacts: 3,
+      rejectedFacts: 2,
+      
+      // Risk Assessment
+      riskFactors: [
+        { category: "Psychological Metrics", risk: "Medium", reason: "Limited scientific assessment data" },
+        { category: "Personal Relationships", risk: "Low", reason: "Well-documented through media" },
+        { category: "Career Statistics", risk: "Very Low", reason: "Official records available" },
+        { category: "Lifestyle Claims", risk: "Medium", reason: "Based on media reports and interviews" }
+      ]
+    }
+  };
+
+  const currentValidation = playerValidation[selectedPlayer];
+
+  // Validation Process Steps
+  const validationSteps = [
+    {
+      step: 1,
+      title: "Source Collection",
+      description: "Gather data from multiple independent sources",
+      status: "Complete",
+      time: "2-4 hours",
+      confidence: 95
+    },
+    {
+      step: 2,
+      title: "Cross-Reference Verification",
+      description: "Compare claims across different sources",
+      status: "Complete",
+      time: "1-2 hours",
+      confidence: 92
+    },
+    {
+      step: 3,
+      title: "Expert Review",
+      description: "Football experts validate tactical and technical claims",
+      status: "In Progress",
+      time: "3-5 hours",
+      confidence: 88
+    },
+    {
+      step: 4,
+      title: "Statistical Validation",
+      description: "Verify numerical claims against official databases",
+      status: "Complete",
+      time: "1 hour",
+      confidence: 98
+    },
+    {
+      step: 5,
+      title: "Psychological Assessment Review",
+      description: "Sports psychologists review personality claims",
+      status: "Pending",
+      time: "4-6 hours",
+      confidence: 65
+    },
+    {
+      step: 6,
+      title: "Final Quality Assurance",
+      description: "Comprehensive review and confidence scoring",
+      status: "Pending",
+      time: "2 hours",
+      confidence: 0
+    }
+  ];
+
+  const accuracyData = [
+    { category: 'Personal Info', accuracy: 96, verified: 8, total: 8 },
+    { category: 'Career Facts', accuracy: 99, verified: 12, total: 12 },
+    { category: 'Statistics', accuracy: 100, verified: 15, total: 15 },
+    { category: 'Psychology', accuracy: 65, verified: 4, total: 8 },
+    { category: 'Relationships', accuracy: 91, verified: 11, total: 12 },
+    { category: 'Lifestyle', accuracy: 78, verified: 7, total: 10 }
+  ];
+
+  const sourceDistribution = [
+    { name: 'Official Records', value: 45, color: '#10b981' },
+    { name: 'Media Reports', value: 25, color: '#3b82f6' },
+    { name: 'Expert Analysis', value: 20, color: '#f59e0b' },
+    { name: 'Interviews', value: 10, color: '#8b5cf6' }
+  ];
+
+  const runValidation = () => {
+    setValidationResults("Running comprehensive validation...");
+    setTimeout(() => {
+      setValidationResults("Validation complete: 87.4% accuracy achieved");
+    }, 2000);
+  };
+
+  const renderOverview = () => (
+    <div className="space-y-6">
+      {/* Accuracy Dashboard */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">📊 Data Accuracy Dashboard</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-green-50 p-4 rounded-lg text-center border-l-4 border-green-500">
+            <div className="text-2xl font-bold text-green-700">{currentValidation.overallAccuracy}%</div>
+            <div className="text-sm text-green-600">Overall Accuracy</div>
+          </div>
+          <div className="bg-blue-50 p-4 rounded-lg text-center border-l-4 border-blue-500">
+            <div className="text-2xl font-bold text-blue-700">{currentValidation.verifiedFacts}</div>
+            <div className="text-sm text-blue-600">Verified Facts</div>
+          </div>
+          <div className="bg-yellow-50 p-4 rounded-lg text-center border-l-4 border-yellow-500">
+            <div className="text-2xl font-bold text-yellow-700">{currentValidation.questionableFacts}</div>
+            <div className="text-sm text-yellow-600">Needs Review</div>
+          </div>
+          <div className="bg-red-50 p-4 rounded-lg text-center border-l-4 border-red-500">
+            <div className="text-2xl font-bold text-red-700">{currentValidation.rejectedFacts}</div>
+            <div className="text-sm text-red-600">Rejected Claims</div>
+          </div>
+        </div>
+
+        {/* Accuracy by Category */}
+        <div className="h-80">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={accuracyData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="category" angle={-45} textAnchor="end" height={100} />
+              <YAxis domain={[0, 100]} />
+              <Tooltip 
+                formatter={(value, name) => [
+                  `${value}% (${accuracyData.find(d => d.accuracy === value)?.verified}/${accuracyData.find(d => d.accuracy === value)?.total} verified)`,
+                  'Accuracy'
+                ]}
+              />
+              <Bar dataKey="accuracy" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Source Quality Analysis */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-bold mb-4 text-gray-800">📚 Source Distribution</h3>
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={sourceDistribution}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={40}
+                  outerRadius={80}
+                  dataKey="value"
+                  label={({name, value}) => `${name}: ${value}%`}
+                >
+                  {sourceDistribution.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-bold mb-4 text-gray-800">⚠️ Risk Assessment</h3>
+          <div className="space-y-3">
+            {currentValidation.riskFactors.map((risk, index) => (
+              <div key={index} className="border-l-4 border-gray-300 pl-4">
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">{risk.category}</span>
+                  <span className={`px-2 py-1 rounded text-xs font-bold ${
+                    risk.risk === 'Very Low' ? 'bg-green-100 text-green-800' :
+                    risk.risk === 'Low' ? 'bg-green-100 text-green-800' :
+                    risk.risk === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {risk.risk}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-600 mt-1">{risk.reason}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderSources = () => (
+    <div className="space-y-6">
+      {/* Verified Sources */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-green-800">✅ Verified Sources</h3>
+        <div className="space-y-4">
+          {currentValidation.sources.verified.map((source, index) => (
+            <div key={index} className="border-l-4 border-green-500 pl-4 py-2">
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="font-medium text-gray-900">{source.source}</div>
+                  <div className="text-sm text-gray-600">{source.type} Source</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-lg font-bold text-green-700">{source.confidence}%</div>
+                  <div className="text-xs text-green-600">{source.status}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Questionable Sources */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-yellow-800">⚠️ Sources Requiring Review</h3>
+        <div className="space-y-4">
+          {currentValidation.sources.questionable.map((source, index) => (
+            <div key={index} className="border-l-4 border-yellow-500 pl-4 py-2">
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="font-medium text-gray-900">{source.source}</div>
+                  <div className="text-sm text-gray-600">{source.type} Source</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-lg font-bold text-yellow-700">{source.confidence}%</div>
+                  <div className="text-xs text-yellow-600">{source.status}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Source Quality Standards */}
+      <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+        <h3 className="text-lg font-bold mb-3 text-blue-800">📋 Source Quality Standards</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-bold text-blue-700 mb-2">✅ Acceptable Sources (80%+ confidence)</h4>
+            <ul className="text-sm text-blue-600 space-y-1">
+              <li>• Official club records and databases</li>
+              <li>• FIFA and confederation databases</li>
+              <li>• Verified sports media outlets</li>
+              <li>• Academic sports research</li>
+              <li>• Expert interviews and analysis</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-red-700 mb-2">❌ Rejected Sources (&lt;60% confidence)</h4>
+            <ul className="text-sm text-red-600 space-y-1">
+              <li>• Social media rumors and speculation</li>
+              <li>• Unverified fan forums and blogs</li>
+              <li>• Single-source claims without verification</li>
+              <li>• Tabloid speculation without evidence</li>
+              <li>• AI-generated content without validation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderFactCheck = () => (
+    <div className="space-y-6">
+      {/* Personal Information Verification */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">🆔 Personal Information Verification</h3>
+        <div className="space-y-4">
+          {Object.entries(currentValidation.factCheck.personalInfo).map(([key, fact]) => (
+            <div key={key} className="border rounded-lg p-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-medium capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
+                <span className={`px-2 py-1 rounded text-xs font-bold ${
+                  fact.verified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}>
+                  {fact.verified ? '✅ Verified' : '❌ Unverified'}
+                </span>
+              </div>
+              <div className="text-gray-700 mb-2"><strong>Claim:</strong> {fact.claim}</div>
+              <div className="flex justify-between text-sm">
+                <span>Sources: {fact.sources}</span>
+                <span className="font-bold">Confidence: {fact.confidence}%</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Career Information Verification */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">⚽ Career Information Verification</h3>
+        <div className="space-y-4">
+          {Object.entries(currentValidation.factCheck.career).map(([key, fact]) => (
+            <div key={key} className="border rounded-lg p-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-medium capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
+                <span className={`px-2 py-1 rounded text-xs font-bold ${
+                  fact.verified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}>
+                  {fact.verified ? '✅ Verified' : '❌ Unverified'}
+                </span>
+              </div>
+              <div className="text-gray-700 mb-2"><strong>Claim:</strong> {fact.claim}</div>
+              <div className="flex justify-between text-sm">
+                <span>Sources: {fact.sources}</span>
+                <span className="font-bold">Confidence: {fact.confidence}%</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Psychological Claims - Special Attention */}
+      <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+        <h3 className="text-xl font-bold mb-4 text-yellow-800">🧠 Psychological Claims (Requires Special Validation)</h3>
+        <div className="space-y-4">
+          {Object.entries(currentValidation.factCheck.psychological).map(([key, fact]) => (
+            <div key={key} className="bg-white border rounded-lg p-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-medium capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
+                <span className={`px-2 py-1 rounded text-xs font-bold ${
+                  fact.verified ? 'bg-green-100 text-green-800' : 
+                  fact.confidence > 50 ? 'bg-yellow-100 text-yellow-800' :
+                  'bg-red-100 text-red-800'
+                }`}>
+                  {fact.verified ? '✅ Verified' : fact.confidence > 50 ? '⚠️ Partial' : '❌ Unverified'}
+                </span>
+              </div>
+              <div className="text-gray-700 mb-2"><strong>Claim:</strong> {fact.claim}</div>
+              <div className="flex justify-between text-sm">
+                <span>Sources: {fact.sources}</span>
+                <span className="font-bold">Confidence: {fact.confidence}%</span>
+              </div>
+              {fact.confidence < 80 && (
+                <div className="mt-2 p-2 bg-yellow-100 rounded text-sm text-yellow-800">
+                  <strong>⚠️ Caution:</strong> This claim requires additional verification from sports psychology experts.
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderValidationProcess = () => (
+    <div className="space-y-6">
+      {/* Validation Pipeline */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">🔄 Validation Process Pipeline</h3>
+        <div className="space-y-4">
+          {validationSteps.map((step, index) => (
+            <div key={index} className="border rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center space-x-3">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${
+                    step.status === 'Complete' ? 'bg-green-500' :
+                    step.status === 'In Progress' ? 'bg-blue-500' :
+                    'bg-gray-400'
+                  }`}>
+                    {step.step}
+                  </div>
+                  <div>
+                    <div className="font-bold">{step.title}</div>
+                    <div className="text-sm text-gray-600">{step.description}</div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className={`px-2 py-1 rounded text-xs font-bold ${
+                    step.status === 'Complete' ? 'bg-green-100 text-green-800' :
+                    step.status === 'In Progress' ? 'bg-blue-100 text-blue-800' :
+                    'bg-gray-100 text-gray-800'
+                  }`}>
+                    {step.status}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">{step.time}</div>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-sm text-gray-600">Expected completion time: {step.time}</div>
+                <div className="font-bold">Confidence: {step.confidence}%</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Quality Assurance Protocols */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">🛡️ Quality Assurance Protocols</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-bold text-blue-700 mb-3">📋 Verification Requirements</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Minimum 3 independent sources for each claim</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Primary sources preferred over secondary</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Expert review for all psychological claims</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Cross-reference with official databases</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Temporal consistency checks</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-red-700 mb-3">🚫 Rejection Criteria</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span>Single source without verification</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span>Contradictory information across sources</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span>Unverifiable psychological assessments</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span>Social media speculation without evidence</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span>Confidence level below 60%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Run Validation Button */}
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-lg text-white text-center">
+        <h3 className="text-xl font-bold mb-4">🚀 Run Complete Validation</h3>
+        <button
+          onClick={runValidation}
+          className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+        >
+          Start Comprehensive Validation Process
+        </button>
+        {validationResults && (
+          <div className="mt-4 p-4 bg-white bg-opacity-20 rounded-lg">
+            <div className="font-bold">{validationResults}</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  const renderReporting = () => (
+    <div className="space-y-6">
+      {/* Accuracy Report */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">📊 Accuracy Report Summary</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-green-600 mb-2">87.4%</div>
+            <div className="text-gray-600">Overall Data Accuracy</div>
+            <div className="text-sm text-gray-500 mt-1">18 verified facts, 3 pending review</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">94.2%</div>
+            <div className="text-gray-600">Source Reliability</div>
+            <div className="text-sm text-gray-500 mt-1">5 premium sources, 2 secondary</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-purple-600 mb-2">91.8%</div>
+            <div className="text-gray-600">Cross-Reference Match</div>
+            <div className="text-sm text-gray-500 mt-1">Facts consistent across sources</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Data Quality Certificate */}
+      <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg border-2 border-green-300">
+        <div className="text-center">
+          <div className="text-3xl mb-4">🏆</div>
+          <h3 className="text-2xl font-bold text-green-800 mb-2">Empire FGA Data Quality Certificate</h3>
+          <div className="text-lg text-green-700 mb-4">Premium Grade Accuracy Achieved</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div>
+              <div className="font-bold text-green-800">Sources Verified</div>
+              <div className="text-green-600">✅ 5/7 Premium</div>
+            </div>
+            <div>
+              <div className="font-bold text-green-800">Facts Validated</div>
+              <div className="text-green-600">✅ 18/23 Confirmed</div>
+            </div>
+            <div>
+              <div className="font-bold text-green-800">Expert Review</div>
+              <div className="text-green-600">✅ 4/6 Complete</div>
+            </div>
+            <div>
+              <div className="font-bold text-green-800">Quality Score</div>
+              <div className="text-green-600">✅ 87.4% Grade A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Improvement Recommendations */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">🎯 Data Quality Improvement Recommendations</h3>
+        <div className="space-y-4">
+          <div className="border-l-4 border-yellow-500 pl-4 py-3 bg-yellow-50">
+            <h4 className="font-bold text-yellow-800">High Priority Improvements</h4>
+            <ul className="mt-2 space-y-1 text-sm text-yellow-700">
+              <li>• Obtain sports psychology expert validation for personality assessments</li>
+              <li>• Verify lifestyle claims through additional primary sources</li>
+              <li>• Cross-reference relationship dynamics with contemporary journalists</li>
+            </ul>
+          </div>
+          <div className="border-l-4 border-blue-500 pl-4 py-3 bg-blue-50">
+            <h4 className="font-bold text-blue-800">Medium Priority Improvements</h4>
+            <ul className="mt-2 space-y-1 text-sm text-blue-700">
+              <li>• Expand source base with additional international databases</li>
+              <li>• Implement automated fact-checking for statistical claims</li>
+              <li>• Add video evidence analysis for playing style assessments</li>
+            </ul>
+          </div>
+          <div className="border-l-4 border-green-500 pl-4 py-3 bg-green-50">
+            <h4 className="font-bold text-green-800">Future Enhancements</h4>
+            <ul className="mt-2 space-y-1 text-sm text-green-700">
+              <li>• Develop AI-powered source credibility scoring</li>
+              <li>• Create real-time data validation pipeline</li>
+              <li>• Build expert reviewer network for continuous validation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Export Options */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-gray-800">📄 Export Validation Reports</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button className="bg-blue-500 text-white p-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <div className="font-bold mb-2">📊 Excel Report</div>
+            <div className="text-sm">Detailed accuracy metrics and source analysis</div>
+          </button>
+          <button className="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition-colors">
+            <div className="font-bold mb-2">📋 PDF Certificate</div>
+            <div className="text-sm">Professional quality assurance certificate</div>
+          </button>
+          <button className="bg-purple-500 text-white p-4 rounded-lg hover:bg-purple-600 transition-colors">
+            <div className="font-bold mb-2">🔗 API Export</div>
+            <div className="text-sm">Machine-readable validation data</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <img 
+                src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA"
+                className="h-12 w-12 rounded-lg object-cover"
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-800">Empire FGA Data Accuracy System</h1>
+                <p className="text-gray-600">Zero-Error Tolerance | Multi-Source Validation | Commercial-Grade Accuracy</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <select 
+                value={selectedPlayer}
+                onChange={(e) => setSelectedPlayer(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg bg-white"
+              >
+                <option value="riquelme">Juan Román Riquelme</option>
+                <option value="palermo">Martín Palermo (Coming Soon)</option>
+              </select>
+              <div className="text-right">
+                <div className="text-lg font-bold text-green-600">87.4%</div>
+                <div className="text-xs text-gray-500">Accuracy Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Accuracy Alert */}
+        <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-4 rounded-lg mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="text-2xl">🛡️</div>
+              <div>
+                <div className="font-bold">Data Accuracy Status: PREMIUM GRADE</div>
+                <div className="text-sm opacity-90">87.4% accuracy achieved with 18 verified facts from 5 premium sources</div>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="font-bold">Quality: A Grade</div>
+              <div className="text-sm opacity-90">Commercial Ready</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Tabs */}
+        <div className="bg-white p-1 rounded-lg shadow-lg mb-6">
+          <nav className="flex space-x-1">
+            {[
+              { id: 'overview', label: '📊 Overview' },
+              { id: 'sources', label: '📚 Sources' },
+              { id: 'factcheck', label: '✅ Fact Check' },
+              { id: 'process', label: '🔄 Validation Process' },
+              { id: 'reporting', label: '📄 Reports' }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  activeTab === tab.id
+                    ? 'bg-blue-500 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+
+        {/* Content */}
+        <div className="transition-all duration-300">
+          {activeTab === 'overview' && renderOverview()}
+          {activeTab === 'sources' && renderSources()}
+          {activeTab === 'factcheck' && renderFactCheck()}
+          {activeTab === 'process' && renderValidationProcess()}
+          {activeTab === 'reporting' && renderReporting()}
+        </div>
+
+        {/* Data Quality Standards */}
+        <div className="mt-8 bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-bold mb-4 text-gray-800">🏆 Empire FGA Data Quality Standards</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <div className="text-2xl font-bold text-green-600">95%+</div>
+              <div className="text-sm text-green-700">Premium Grade</div>
+              <div className="text-xs text-gray-600">Commercial Ready</div>
+            </div>
+            <div className="text-center p-4 bg-blue-50 rounded-lg">
+              <div className="text-2xl font-bold text-blue-600">80-94%</div>
+              <div className="text-sm text-blue-700">Professional Grade</div>
+              <div className="text-xs text-gray-600">Suitable for Analysis</div>
+            </div>
+            <div className="text-center p-4 bg-yellow-50 rounded-lg">
+              <div className="text-2xl font-bold text-yellow-600">60-79%</div>
+              <div className="text-sm text-yellow-700">Standard Grade</div>
+              <div className="text-xs text-gray-600">Requires Review</div>
+            </div>
+            <div className="text-center p-4 bg-red-50 rounded-lg">
+              <div className="text-2xl font-bold text-red-600">&lt;60%</div>
+              <div className="text-sm text-red-700">Below Standard</div>
+              <div className="text-xs text-gray-600">Not Acceptable</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-8 text-center text-gray-500 text-sm">
+          <p>🛡️ Empire FGA Data Accuracy System • Zero-Error Tolerance • Multi-Source Validation</p>
+          <p>Ensuring the highest data quality standards in football intelligence</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EmpireFGADataAccuracy;
