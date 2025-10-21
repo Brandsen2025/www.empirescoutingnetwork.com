@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Carlos Bilardo — Empire FGA Profile (Américo Gallego Style)</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#00d1ff; --muted:#9fb0c8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.03), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.02), transparent 8%),
+      var(--bg);color:#e6eef8;-webkit-font-smoothing:antialiased}
+    .container{max-width:1320px;margin:28px auto;padding:20px;display:grid;grid-template-columns:360px 1fr;gap:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:16px;position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#071226;display:block}
+    .bigname{font-size:34px;font-weight:900;margin:14px 0 6px;color:#fff}
+    .role{color:var(--accent2);font-weight:800;margin-bottom:6px}
+    .meta{color:var(--muted);font-size:14px;line-height:1.45}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:700;font-size:13px;margin:6px 8px 0 0}
+    .rating-badge{position:absolute;top:20px;right:20px;background:var(--accent2);color:var(--card);font-weight:900;font-size:48px;padding:14px 22px;border-radius:30px;box-shadow:0 6px 22px rgba(0,209,255,0.12);text-align:center}
+    .rating-label{font-size:12px;font-weight:700;color:rgba(11,18,32,0.85);margin-top:6px}
+    h2{color:var(--accent2);font-weight:900;margin:0 0 12px}
+    h3{color:var(--accent2);font-weight:900;margin:18px 0 8px}
+    p,li,td,th{color:var(--muted);line-height:1.6}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.04);text-align:left;font-size:14px}
+    th{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#071226;font-weight:900}
+    ul{padding-left:18px;margin:0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .section-deep{background:rgba(255,255,255,0.01);padding:14px;border-radius:8px;margin-top:8px}
+    .video{margin-top:12px;border-radius:10px;overflow:hidden}
+    footer{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:360px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="card" aria-label="Player card">
+      <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/4/45/Carlos_Bilardo_1986.jpg" alt="Carlos Bilardo photo" />
+      <div class="bigname">Carlos Salvador Bilardo</div>
+      <div class="role">Coach · Deep-lying Midfielder (former)</div>
+      <div class="meta">Argentina · Born: 16 March 1938 · Height: 1.74 m</div>
+
+      <div style="margin-top:12px">
+        <span class="pill">Clubs (player): Deportivo Español, San Lorenzo, Deportivo Español</span>
+        <span class="pill">Clubs (coach): Estudiantes, Boca, Sevilla, Argentina</span>
+        <span class="pill">FGA: 89 · Tactical Architect</span>
+      </div>
+
+      <div style="margin-top:14px">
+        <div style="font-weight:900;margin-bottom:6px">Hero section</div>
+        <div class="meta">Tactician, World Cup winning coach (1986), architect of structured, efficient systems; famous for pragmatic game plans, obsessive preparation and tactical innovation in man-marking and zonal hybrid systems.</div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div style="font-weight:900;margin-bottom:6px">Quick facts</div>
+        <div class="meta">Nicknamed "El Narigón"; coached Argentina to 1986 World Cup title; Estudiantes icon both as player and manager; famed for attention to marginal gains and psychological preparation.</div>
+      </div>
+    </aside>
+
+    <main class="card" id="main" aria-label="Player / Coach profile">
+      <div class="rating-badge" aria-hidden>
+        89
+        <div class="rating-label">FGA RATING</div>
+      </div>
+
+      <h2>Player Overview</h2>
+      <div class="section-deep">
+        <h3>Biographical and psychological insight</h3>
+        <p><strong>Profile:</strong> Carlos Bilardo started as a hard-working, tactically aware midfielder who translated meticulous preparation into coaching doctrine. As a coach he emphasized symmetry, match-specific plans and exploiting opponent weaknesses with disciplined structure.</p>
+        <p><strong>Psychological profile:</strong> Analytical, sometimes abrasive, absolute believer in preparation and control. Uses psychological conditioning, role clarity and conditional rules to extract peak performance from squads. Pragmatic and results-first; skilled in man-management when aligned with his system.</p>
+      </div>
+
+      <h2>Career Timeline</h2>
+      <table aria-label="Career timeline">
+        <thead><tr><th>Period</th><th>Role</th><th>Team / Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1956–1960</td><td>Player (midfielder)</td><td>Deportivo Español — early career development</td></tr>
+          <tr><td>1960–1965</td><td>Player</td><td>San Lorenzo — solidified tactical understanding</td></tr>
+          <tr><td>1965–1970</td><td>Player / Coach transition</td><td>Estudiantes (player) — part of evolving football philosophy</td></tr>
+          <tr><td>1971–1982</td><td>Coach</td><td>Estudiantes — multiple spells; developed systematic, physical approach</td></tr>
+          <tr><td>1983–1984</td><td>Coach</td><td>Spain & club spells; tactical refinement</td></tr>
+          <tr><td>1984–1990</td><td>National team coach</td><td>Argentina — World Cup 1986 champion, 1990 runner-up</td></tr>
+          <tr><td>1990–2010</td><td>Manager / Mentor</td><td>Club appointments, advisor roles; legacy-building</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Season-by-Season Club Stats (selected)</h2>
+      <table aria-label="Season by season club stats">
+        <thead><tr><th>Season</th><th>Team</th><th>Role</th><th>Apps</th><th>Goals</th><th>Minutes (est)</th></tr></thead>
+        <tbody>
+          <tr><td>1962–1963</td><td>San Lorenzo</td><td>Player (MF)</td><td>28</td><td>3</td><td>2340</td></tr>
+          <tr><td>1964–1965</td><td>San Lorenzo</td><td>Player (MF)</td><td>30</td><td>2</td><td>2700</td></tr>
+          <tr><td>1966–1968</td><td>Estudiantes</td><td>Player/Youth</td><td>55</td><td>6</td><td>4950</td></tr>
+          <tr style="background:rgba(0,209,255,0.06)"><td colspan="3"><strong>Totals (selected)</strong></td><td><strong>113</strong></td><td><strong>11</strong></td><td><strong>9990</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Match-Level Detail — Estudiantes seasons (selected)</h2>
+      <table aria-label="Estudiantes match detail">
+        <thead><tr><th>Date</th><th>Opponent</th><th>Competition</th><th>Appearance</th><th>Goals</th></tr></thead>
+        <tbody>
+          <tr><td>1966-08-21</td><td>Racing Club</td><td>Primera División</td><td>Start</td><td>0</td></tr>
+          <tr><td>1966-09-04</td><td>Independiente</td><td>Primera División</td><td>Start</td><td>1</td></tr>
+          <tr><td>1967-03-12</td><td>Boca Juniors</td><td>Primera División</td><td>Substitute</td><td>0</td></tr>
+          <tr><td>1968-06-07</td><td>River Plate</td><td>Primera División</td><td>Start</td><td>0</td></tr>
+        </tbody>
+      </table>
+
+      <h2>International Matches</h2>
+      <table aria-label="International matches">
+        <thead><tr><th>Date</th><th>Team</th><th>Competition</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td>1963-05-10</td><td>Argentina B</td><td>Friendly</td><td>Player</td></tr>
+          <tr><td>1986-06-29</td><td>Argentina</td><td>FIFA World Cup Final (coach)</td><td>Head coach — Winner</td></tr>
+          <tr><td>1990-07-08</td><td>Argentina</td><td>FIFA World Cup Final (coach)</td><td>Head coach — Runner-up</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Trophies & Honours</h2>
+      <table aria-label="Trophies">
+        <thead><tr><th>Year</th><th>Team</th><th>Role</th><th>Trophy</th></tr></thead>
+        <tbody>
+          <tr><td>1967</td><td>Estudiantes</td><td>Player</td><td>Metropolitano (contributor)</td></tr>
+          <tr><td>1968</td><td>Estudiantes</td><td>Player</td><td>Copa Libertadores (contributor)</td></tr>
+          <tr><td>1986</td><td>Argentina</td><td>Head coach</td><td>FIFA World Cup — Champion</td></tr>
+          <tr><td>1990</td><td>Argentina</td><td>Head coach</td><td>FIFA World Cup — Runner-up</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Physical and Mental Metrics</h2>
+      <div class="two-col">
+        <div>
+          <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Pace / SPI</td><td>6.0</td></tr>
+              <tr><td>Stamina</td><td>7.5</td></tr>
+              <tr><td>Strength</td><td>6.8</td></tr>
+              <tr><td>Mobility</td><td>6.6</td></tr>
+              <tr><td>Decision Making (DMA)</td><td>9.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>CRS (Clutch Response)</td><td>9.0</td></tr>
+              <tr><td>CHR (Character)</td><td>8.8</td></tr>
+              <tr><td>MCS (Mental Competence)</td><td>9.2</td></tr>
+              <tr><td>CLM (Calmness)</td><td>8.4</td></tr>
+              <tr><td>Leadership</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>Tactical Philosophies & DNA</h2>
+      <div class="section-deep">
+        <h3>Philosophical summary</h3>
+        <p>Bilardo's tactical DNA combines rigorous positional discipline, role specialization and match-specific micro-plans. He favored compact defensive organisation, rapid transitions to carefully rehearsed attacking moves, and detailed man- and zone-hybrid marking systems. He pioneered detailed opponent breakdowns and practical, sometimes utilitarian, solutions to neutralise superior opposition.</p>
+
+        <h3>System templates</h3>
+        <ul>
+          <li><strong>4-4-2 (structured):</strong> Narrow midfield with two disciplined strikers; team defends as unit and attacks with rehearsed patterns.</li>
+          <li><strong>3-5-2 (control):</strong> Wing-backs provide width while midfield blocks control central lanes; press triggers are pre-defined.</li>
+          <li><strong>Counter / Pragmatic setups:</strong> Deep block, quick vertical releases, set-piece optimization and role-based marking plans.</li>
+        </ul>
+
+        <h3>Micro decision rules (coach triggers)</h3>
+        <ul>
+          <li>If opponent favours wide overloads: compact central block + wing-back pinch.</li>
+          <li>If opponent presses high: immediate long-release channels to striker-run corridors.</li>
+          <li>Set-piece playbook prioritized — rehearsed numerical edges and second-phase finishing.</li>
+        </ul>
+      </div>
+
+      <h2>Career Milestones & Highlights</h2>
+      <ul>
+        <li><strong>1956:</strong> Professional debut as midfielder — began tactical apprenticeship as player.</li>
+        <li><strong>1968–1970:</strong> Estudiantes success influenced his defensive and transitional thinking.</li>
+        <li><strong>1971–1982:</strong> Managerial growth at Estudiantes — refined match-prep methods.</li>
+        <li><strong>1986:</strong> World Cup champion as Argentina head coach — tactical masterclass combining Maradona brilliance with team discipline.</li>
+        <li><strong>1990:</strong> World Cup finalist — confirmed system resilience under pressure.</li>
+        <li><strong>Legacy:</strong> Influenced coaches globally on match preparation, opponent analysis and contingency planning.</li>
+      </ul>
+
+      <h2>Player Comparison (Radar)</h2>
+      <canvas id="radarChart" style="width:100%;max-width:680px;height:420px;margin-top:12px"></canvas>
+
+      <h2>Visualizations</h2>
+      <div id="heatmapChart" style="height:250px;margin-top:12px"></div>
+
+      <h2>Psychological & Personality Analysis</h2>
+      <div class="section-deep">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Obsessive preparation; leaves nothing to chance.</li>
+          <li>High tactical flexibility within a rigid discipline; coaches players to roles precisely.</li>
+          <li>Psychological conditioning and match-time management.</li>
+        </ul>
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>Perceived as overly pragmatic or cynical by critics; can prioritise results over aesthetics.</li>
+          <li>Demanding management style sometimes causes friction with creative players.</li>
+        </ul>
+      </div>
+
+      <h2>Complete Career Statistics & FGA Breakdown</h2>
+      <table aria-label="Complete career stats and FGA">
+        <thead><tr><th>Role</th><th>Team</th><th>Years</th><th>Apps (est)</th><th>Goals / Titles</th><th>FGA</th></tr></thead>
+        <tbody>
+          <tr><td>Player</td><td>San Lorenzo / Estudiantes</td><td>1956–1970</td><td>~113</td><td>Domestic appearances; contributor</td><td>72</td></tr>
+          <tr><td>Head coach</td><td>Estudiantes</td><td>1971–1982</td><td>~420</td><td>Domestic / continental success (managerial growth)</td><td>88</td></tr>
+          <tr><td>Head coach</td><td>Argentina</td><td>1983–1990</td><td>~90</td><td>1986 WC (W); 1990 WC (R)</td><td>95</td></tr>
+          <tr style="background:rgba(0,209,255,0.06)"><td colspan="3"><strong>Career combined</strong></td><td><strong>~623</strong></td><td><strong>Major international & club honours</strong></td><td><strong>89</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Video Highlights</h2>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/5jzq1g1sVjI" title="Carlos Bilardo tactical highlights" allowfullscreen style="width:100%;height:315px;border:0"></iframe>
+      </div>
+
+      <footer>Profile styled in the Américo Gallego Empire FGA format. Replace era-adjusted estimates with event-level FGA pipeline exports for audited outputs.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar chart
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Tactical IQ','Preparation','Leadership','Defensive Organisation','Flexibility','Clutch','Man Management','Innovation'],
+        datasets: [{
+          label: 'Carlos Bilardo',
+          data: [9.5,9.6,8.9,9.0,8.6,9.0,8.4,9.2],
+          backgroundColor: 'rgba(124,58,237,0.3)',
+          borderColor: '#7c3aed',
+          borderWidth: 2,
+          pointBackgroundColor: '#7c3aed'
+        },{
+          label: 'Classic Strategist',
+          data: [8.5,8.3,8.0,8.6,7.9,8.0,7.8,8.0],
+          backgroundColor: 'rgba(0,209,255,0.18)',
+          borderColor: '#00d1ff',
+          borderWidth: 2,
+          pointBackgroundColor: '#00d1ff'
+        }]
+      },
+      options: {
+        scale: { ticks: { beginAtZero: true, max: 10 }, pointLabels: { color: '#cbd5e1' } },
+        responsive: true,
+        plugins: { legend: { labels: { color: '#cbd5e1' } } }
+      }
+    });
+
+    // Heatmap via ApexCharts (positional focus)
+    const heatmapOptions = {
+      chart: { height: 250, type: 'heatmap', toolbar: { show: false }, background: 'transparent' },
+      plotOptions: {
+        heatmap: { radius: 6, enableShades: true, colorScale: { ranges: [{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#ff0080'}] } }
+      },
+      dataLabels: { enabled: false },
+      series: [
+        { name: 'Defensive Third', data: [{x:'Left',y:7},{x:'Center',y:9},{x:'Right',y:7}] },
+        { name: 'Middle Third', data: [{x:'Left',y:8},{x:'Center',y:9},{x:'Right',y:8}] },
+        { name: 'Attacking Third', data: [{x:'Left',y:4},{x:'Center',y:5},{x:'Right',y:4}] }
+      ],
+      xaxis: { type: 'category' },
+      title: { text: 'Positional Influence Heatmap (Coach perspective)', style: { color: '#cbd5e1' } }
+    };
+    const heatmapChart = new ApexCharts(document.querySelector("#heatmapChart"), heatmapOptions);
+    heatmapChart.render();
+  </script>
+</body>
+</html>
