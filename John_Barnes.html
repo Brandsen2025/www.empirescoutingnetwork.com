@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>John Barnes — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#3b82f6;--accent2:#93c5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(59,130,246,0.03),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(147,197,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(147,197,253,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.theanfieldwrap.com/uploads/2015/03/PA-5783708-e1473761136269.jpg" alt="John Barnes photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">John Charles Bryan Barnes MBE</div>
+        <div class="sub">Left Winger / Attacking Midfielder · England · Born: 7 November 1963 · Height: 1.81 m · Nickname: Digger</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Watford; Liverpool; Newcastle United; Charlton Athletic</span>
+          <span class="pill"><strong>International</strong> England (79 caps, 11 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.0</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Dribbling & Ball Carry</td><td>9.4</td></tr>
+            <tr><td>Left-Foot Delivery</td><td>9.3</td></tr>
+            <tr><td>Pace & Transition Impact</td><td>9.0</td></tr>
+            <tr><td>Chance Creation</td><td>9.1</td></tr>
+            <tr><td>Versatility (wing to central)</td><td>8.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Career appearance and goal totals consolidated from club databases; season-by-season splits require archive verification for event-level export.</li>
+          <li>ERA normalization applied for 1980s–1990s English football; document ERA multiplier for modern comparisons.</li>
+          <li>Assist attribution in earlier seasons may need broadcast frame verification for pre-assist chains.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">John Barnes combined explosive dribbling, composure and creative vision to become one of England and Liverpool's defining attackers; a left-foot virtuoso who transitioned into central midfield intelligence later in his career while maintaining high creative output and leadership presence.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1981–1987</td><td>Watford</td><td>Breakthrough under Graham Taylor; rapid rise and promotion to top flight.</td></tr>
+            <tr><td>1987–1997</td><td>Liverpool</td><td>Club icon; two First Division titles; multiple domestic cups; FWA Player of the Year honours.</td></tr>
+            <tr><td>1997–1999</td><td>Newcastle United; Charlton Athletic</td><td>Late career moves; creative influence and mentorship roles.</td></tr>
+            <tr><td>1983–1995</td><td>England</td><td>79 caps; major tournament appearances across 1986, 1988, 1990 and 1992 cycles.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>1987–88 — Pivotal season at Liverpool; Player of the Year recognition and title success.</li>
+            <li>1984 — Memorable solo goal vs Brazil at Maracanã (career-defining moment).</li>
+            <li>1989 — FA Cup winner with Liverpool; sustained top-level creative output.</li>
+            <li>Inducted into English Football Hall of Fame; continued ambassador and media roles post-career.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Creative & Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Dribble Success vs Elite Defenders</td><td>9.4</td></tr>
+                <tr><td>Key Passes / Chance Creation</td><td>9.2</td></tr>
+                <tr><td>Left-Foot Set-Piece Quality</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Mental</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Pace & Recovery Runs</td><td>9.0</td></tr>
+                <tr><td>Big-Game Influence</td><td>9.1</td></tr>
+                <tr><td>Adaptability (wing to central)</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA applied for cross-era comparators; event-level extraction requires broadcast and club match logs for pre-assist and pressing-state validation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Barnes' DNA suits systems that value wide penetration, overload creation and fluid interchanges between wing and central zones; maps to high-possession transitional templates and creative counter-attack roles where 1v1 dominance opens channels for teammates.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>English Creative Wing (Box-to-Box Support)</td><td>9.3</td><td>Wide carry into final third; cutback creation</td></tr>
+            <tr><td>Spanish Positional Integration</td><td>9.0</td><td>Interplay and short-pass combinations</td></tr>
+            <tr><td>Brazilian Flair Integration</td><td>8.8</td><td>Technical improvisation under pressure</td></tr>
+            <tr><td>Total Football Fluidity</td><td>8.6</td><td>Positional rotation and central insertion</td></tr>
+            <tr><td>Pragmatic Attack Efficiency</td><td>8.5</td><td>End-product focus when required</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: creativity under pressure; leadership; resilience; cultural influence. Scores below feed Transfer Risk and Team Cohesion indices.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Barnes Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Creativity Under Pressure</td><td>9.4</td><td>Produces decisive actions in tight spaces</td></tr>
+            <tr><td>Leadership by Example</td><td>8.7</td><td>Influences younger attackers through technique</td></tr>
+            <tr><td>Resilience</td><td>8.8</td><td>Maintained high output across transitions</td></tr>
+            <tr><td>Cultural Impact</td><td>9.2</td><td>Trailblazer for inclusion and visibility</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Useful relationships for scouting, recruitment and heritage content packaging.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Cohorts</td><td>Watford (Graham Taylor); Liverpool attacking trios</td><td>Passing networks and role pairing templates</td></tr>
+            <tr><td>International Cohorts</td><td>England 1980s–90s squads</td><td>Big-game creative outputs and tournament roles</td></tr>
+            <tr><td>Legacy Channels</td><td>Liverpool FC archives; Premier League records</td><td>Content and ambassador packaging</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: broadcast; club logs; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1984</td><td>England vs Brazil (Maracanã)</td><td>Solo-goal high-skill sequence</td><td>Dribble sequence; shot frame; pressure state</td></tr>
+            <tr><td>1987–88</td><td>Liverpool title campaign</td><td>Creative consistency across season</td><td>Key passes per 90; chance creation trends</td></tr>
+            <tr><td>1989 FA Cup Final</td><td>Liverpool vs Everton</td><td>Big-match creative influence</td><td>Final-third sequences; crossing under duress</td></tr>
+            <tr><td>Selected seasons</td><td>Watford promotion seasons</td><td>Developmental breakthrough</td><td>Progression metrics; dribble-to-goal ratios</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Priority sources: Watford and Liverpool archives, FIFA/UEFA tournament reels, Premier League highlight reels.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; ERA tag; triple-source confirmation for assists and pre-assists.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: elite left-foot wide creators and transition-influencers. Recommended comparators: Ryan Giggs (ERA‑adjusted), Robert Pires (ERA‑adjusted) and modern wide creators after ERA normalization.</p>
+
+        <div class="visual-canvas">
+          <canvas id="barnesRadar" aria-label="Radar comparing Barnes and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items consolidated from club records, league archives and major performance databases; all match-level event rows must be triple-verified before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — John Barnes scouting profile. Numeric fields are ERA‑adjusted estimates; event rows and honours must be triple‑verified before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('barnesRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Dribbling','Crossing','Pace','Chance Creation','Big-Game Index','Adaptability','Composure'],
+        datasets: [
+          { label: 'John Barnes', data: [9.4,9.3,9.0,9.1,9.1,8.8,8.9], backgroundColor:'rgba(59,130,246,0.12)', borderColor:'#93c5fd', pointBackgroundColor:'#93c5fd', borderWidth:2 },
+          { label: 'Ryan Giggs (ERA adj)', data: [9.1,8.9,8.8,8.7,8.6,8.9,8.7], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
+          { label: 'Robert Pires (ERA adj)', data: [9.0,9.0,8.6,8.8,8.5,8.7,8.6], backgroundColor:'rgba(245,158,11,0.10)', borderColor:'#f59e0b', pointBackgroundColor:'#f59e0b', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

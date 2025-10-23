@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Eusébio — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#00d1ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.06), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.03), transparent 8%), var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased;}
+    header{display:flex;align-items:center;justify-content:space-between;max-width:1320px;margin:12px auto;padding:0 22px;}
+    header img{height:50px;width:auto;object-fit:contain;}
+    .container{max-width:1320px;margin:22px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px;}
+    .card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative;}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);}
+    .bigname{font-size:40px;font-weight:900;margin:16px 0;color:#fff;line-height:1;}
+    .sub{font-size:14px;color:var(--muted);margin-bottom:10px;}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 0 0;}
+    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;color:var(--white)}
+    th,td{padding:12px;border:1px solid rgba(255,255,255,0.08);text-align:left;vertical-align:top}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:22px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(0,209,255,0.12)}
+    .section{margin-top:26px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .visuals{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .visual{background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;min-width:260px;flex:1}
+    .small{color:var(--muted);font-size:13px}
+    @media (max-width:1000px){.container{grid-template-columns:1fr}.photo{height:300px}}
+  </style>
+</head>
+<body>
+  <header aria-label="Empire FGA header">
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network Logo">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-title">
+    <aside class="card" aria-label="Player summary">
+      <img class="photo" src="https://futboltriangle.wordpress.com/wp-content/uploads/2014/01/6-eusebio.jpg" alt="Eusébio photo">
+      <div class="bigname" id="profile-title">Eusébio da Silva Ferreira</div>
+      <div class="sub">Striker · Benfica · Portugal · Born: 25 January 1942 · Height: 1.75 m</div>
+
+      <div style="margin-top:12px">
+        <span class="pill"><strong>Primary</strong> Centre-Forward / Poacher</span>
+        <span class="pill"><strong>Nickname</strong> The Black Panther / O Rei</span>
+        <span class="pill"><strong>Ballon d'Or</strong> 1965</span>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Physical & Mental Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical snapshot">
+          <thead><tr><th>Metric</th><th>Score (0-10)</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing / Power Shot</td><td>9.8</td></tr>
+            <tr><td>Acceleration / Burst</td><td>9.4</td></tr>
+            <tr><td>Off-the-ball Movement</td><td>9.5</td></tr>
+            <tr><td>Dribbling / Turn of Pace</td><td>9.2</td></tr>
+            <tr><td>Heading / Aerial</td><td>8.9</td></tr>
+            <tr><td>Composure / Penalty</td><td>9.3</td></tr>
+            <tr><td>Tournament Clutch Index</td><td>9.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li>Club goal totals differ slightly across pre-digital records; final ingest requires Benfica club ledger + European Cup match sheets for season-level verification.</li>
+          <li>International caps and goals use official FPF and RSSSF lists; reconcile any discrepancy in friendly match counts with federation match logs.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="Main profile">
+      <div class="rating-badge">96.4</div>
+
+      <section class="section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Player Overview</h2>
+        <p class="small">Eusébio combined explosive pace, clinical finishing and exceptional athleticism to define the prototype of the modern centre‑forward. He delivered consistent high-volume goal output for Benfica and Portugal across domestic, European and World Cup stages, known for long-distance strikes, powerful volleys and decisive tournament performances.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline-title">
+        <h2 id="career-timeline-title">Career Timeline</h2>
+        <p class="small">Early years in Mozambique; transferred to Benfica in 1960 and immediately integrated into first team; peak period 1962–1968 with consecutive top-scorer seasons and European Cup success; later career includes North American and Mexican spells; long-term ambassadorial role after retirement.</p>
+      </section>
+
+      <section class="section" aria-labelledby="season-stats-title">
+        <h2 id="season-stats-title">Select Club & International Stats (summary)</h2>
+        <table aria-describedby="season stats">
+          <thead><tr><th>Years</th><th>Team</th><th>Competition</th><th>Apps</th><th>Goals</th></tr></thead>
+          <tbody>
+            <tr><td>1961–1975</td><td>Benfica</td><td>Primeira Liga / European Cup</td><td>301 (league)</td><td>317 (league) / 473 competitive goals (club aggregate)</td></tr>
+            <tr><td>1961–1973</td><td>Portugal</td><td>International</td><td>64</td><td>41</td></tr>
+            <tr><td>1964–1968</td><td>European Cup</td><td>Continental</td><td>64</td><td>47</td></tr>
+            <tr><td>Total (career)</td><td>All clubs</td><td>All competitions</td><td>700+ (approx)</td><td>700+ goals reported (source variants)</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:8px">Figures drawn from Benfica records, federations and historical compendia; season-by-season event coding flagged for match sheet confirmation before per‑90 and xG calibration.</p>
+      </section>
+
+      <section class="section" aria-labelledby="international-title">
+        <h2 id="international-title">International Career</h2>
+        <p class="small">Eusébio's 1966 World Cup campaign defines his international legacy: top scorer with nine goals, including four in the comeback vs North Korea and two vs Brazil, taking Portugal to third place. Strong tournament clutch metrics boost his mG (Moment of Genius) weighting for match-critical situations.</p>
+      </section>
+
+      <section class="section" aria-labelledby="honours-title">
+        <h2 id="honours-title">Honours & Trophies</h2>
+        <table aria-describedby="trophies">
+          <thead><tr><th>Year</th><th>Team / Category</th><th>Honour</th></tr></thead>
+          <tbody>
+            <tr><td>1962–1973</td><td>Benfica</td><td>11× Primeira Liga; 1962–63 European Cup winner</td></tr>
+            <tr><td>1965</td><td>Individual</td><td>Ballon d'Or</td></tr>
+            <tr><td>1966</td><td>International</td><td>World Cup Golden Boot (9 goals)</td></tr>
+            <tr><td>1968, 1973</td><td>Individual</td><td>European Golden Shoe (top European scorer)</td></tr>
+            <tr><td>Multiple</td><td>Individual</td><td>Bola de Prata (Primeira Liga top scorer) — record seasons</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="match-highlights-title">
+        <h2 id="match-highlights-title">Representative Match Highlights</h2>
+        <table aria-describedby="match highlights">
+          <thead><tr><th>Date</th><th>Fixture</th><th>Competition</th><th>Highlight</th></tr></thead>
+          <tbody>
+            <tr><td>25 July 1966</td><td>Portugal vs North Korea</td><td>FIFA World Cup Quarter-final</td><td>Scored four goals in a historic 5–3 comeback; archetypal clutch performance for mG coding</td></tr>
+            <tr><td>19 July 1966</td><td>Portugal vs Brazil</td><td>FIFA World Cup</td><td>Two decisive strikes that eliminated Brazil; high Context_multiplier events</td></tr>
+            <tr><td>22 May 1963</td><td>Benfica vs Milan</td><td>European Cup Final</td><td>Instrumental goal and movement in continental final victory</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics-title">
+        <h2 id="advanced-metrics-title">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Attacking / Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Power / Conversion</td><td>9.7</td></tr>
+                <tr><td>Goal Frequency (era adj.)</td><td>9.8</td></tr>
+                <tr><td>Clinical Volleys</td><td>9.5</td></tr>
+                <tr><td>Progressive Runs / Penetration</td><td>9.3</td></tr>
+                <tr><td>Big-Game Output</td><td>9.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Mental / Scout Metrics</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Clutch Performance Index</td><td>9.6</td></tr>
+                <tr><td>Work Ethic / Press Resistance</td><td>8.8</td></tr>
+                <tr><td>Consistency (peak window)</td><td>9.5</td></tr>
+                <tr><td>Leadership (tournament influence)</td><td>9.1</td></tr>
+                <tr><td>Era-Adjusted xG Efficiency</td><td>9.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small" style="margin-top:10px">Advanced values are era‑adjusted estimates using match reports, archived footage and competition logs; all fields flagged for Triple Source verification and event-level xG calibration.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-title">
+        <h2 id="tactical-title">Tactical Philosophies & DNA</h2>
+        <p class="small">Eusébio's DNA maps to high‑impact, direct attacking philosophies that prioritise vertical penetration, counter-attacking efficiency and individual finishing. He fits systems that supply rapid transitional support and central overloads, eminently suited to a classic No.9 role with license to roam into wide pockets.</p>
+
+        <table aria-describedby="tactical mapping" style="margin-top:12px">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Direct Vertical Attack</td><td>9.7</td><td>Explosive runs and finishing perfect for direct, transition-led systems</td></tr>
+            <tr><td>Counter-attack Centric</td><td>9.6</td><td>Speed + shot power ideal for quick outlet and long-distance finishes</td></tr>
+            <tr><td>Possession-Driven False 9</td><td>8.2</td><td>Could adapt but his highest value realised in penetrative central striker role</td></tr>
+            <tr><td>High-Pressing Systems</td><td>8.6</td><td>Effective when paired with team pressing to create turnovers for direct shots</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">Player Comparison & Visuals</h2>
+        <p class="small">Suggested comparison axes: Era-Adjusted Goals/90; Measured Shot Power; Big-Match Goal Share; Progressive Penetrations; Conversion over xG; Long-range Finishing Index.</p>
+        <div class="visuals">
+          <div class="visual" id="radarPlaceholder">[Radar chart placeholder — Chart.js config ready]</div>
+          <div class="visual" id="shotsPlaceholder">[Shot map & goal zone placeholder — injection-ready]</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights-title">
+        <h2 id="video-highlights-title">Video — Recommended Clips for Event Coding</h2>
+        <ul class="small">
+          <li>1966 World Cup full matches (Portugal vs North Korea; vs Brazil; vs England) for high-pressure finishing episodes and penalty sequences.</li>
+          <li>Benfica 1962–66 European Cup campaigns for consecutive-season continental scoring patterns and movement networks.</li>
+          <li>Selected domestic seasons 1964–1968 for per‑match shot location and finishing mechanics extraction.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources & Audit Notes</h2>
+        <p class="small">Profile synthesised from Benfica club records, national federation match lists, archived match footage, tournament reports and historical statistical compendia. All numeric fields are provisional and must pass Empire FGA Triple Source verification (club ledgers, federation match lists, video evidence) prior to final dataset lock and CSV export.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Eusébio scouting profile. Numeric fields provisional; mark rows for final event coding, ERA adjustments and dataset signing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Placeholder configs for post-audit chart injection
+    window.fga_eusebio_placeholders = {
+      radar: { labels:['Finishing','Pace','Movement','Volleys','Shot Power','Clutch','Consistency','Aerial'], data:[9.8,9.4,9.5,9.5,9.7,9.6,9.5,8.9] },
+      shotMap: { zones:['Inner Box','Outer Box','Long Range'], values:[60,25,15] }
+    };
+  </script>
+</body>
+</html>

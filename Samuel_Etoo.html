@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samuel Eto'o — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0f6fbf; --accent2:#63b3ed; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(15,111,191,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(99,179,237,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(99,179,237,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.fcbarcelona.com/fcbarcelona/photo/2020/03/09/6cfb910a-1edd-4a1b-b854-498d32bc97d1/eto-o-fcb-at.madrid-8-.jpg" alt="Samuel Eto'o photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Samuel Eto'o</div>
+        <div class="sub">Striker · Cameroon · Born: 10 March 1981 · Height: 1.80 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Real Madrid; Mallorca; Barcelona; Inter; Anzhi; Chelsea; Everton; Antalyaspor</span>
+          <span class="pill"><strong>International</strong> Cameroon (118 caps, 56 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing & Composure</td><td>9.6</td></tr>
+            <tr><td>Movement & Penetration</td><td>9.5</td></tr>
+            <tr><td>Acceleration / First Step</td><td>9.2</td></tr>
+            <tr><td>Link‑Up & Hold‑Up</td><td>8.7</td></tr>
+            <tr><td>Big‑Game Output</td><td>9.7</td></tr>
+            <tr><td>Workrate & Pressing</td><td>8.9</td></tr>
+            <tr><td>Leadership</td><td>8.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals differ by source for early Real Madrid loans; reconcile with Transfermarkt, FBref and club archives.</li>
+          <li>Event‑level assist chains in Champions League finals require frame extraction for exact secondary assist attribution.</li>
+          <li>International cap list contains friendly vs official discrepancies in older CAF records; triple‑source verify before publishing.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Samuel Eto'o is a generational centre‑forward whose blend of explosive acceleration, surgical finishing and tactical intelligence made him one of the most effective strikers of his era. A decisive presence in Champions League finals and continental tournaments, Eto'o combined elite movement, clinical instinct and relentless competitive drive across Spain, Italy and international football.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1997–2000</td><td>Real Madrid (youth & senior loans)</td><td>Early development; loan spells for first senior minutes</td></tr>
+            <tr><td>2000–2004</td><td>RCD Mallorca</td><td>Breakthrough; Copa del Rey winner; club record scorer</td></tr>
+            <tr><td>2004–2009</td><td>FC Barcelona</td><td>144 apps; 108 goals; two UCL finals with goals; multiple La Liga titles</td></tr>
+            <tr><td>2009–2011</td><td>Inter Milan</td><td>Key piece in Mourinho's treble; tactical versatility and clutch finals output</td></tr>
+            <tr><td>2011–2019</td><td>Anzhi / Chelsea / Everton / Sampdoria / Antalyaspor / Konyaspor / Qatar SC</td><td>Late‑career scoring resurgence in Turkey; global impact</td></tr>
+            <tr><td>1997–2014</td><td>Cameroon</td><td>118 caps, 56 goals; Olympic gold 2000; Africa Cup of Nations 2000 & 2002</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2006 UEFA Champions League Final — Barcelona 2–1 Arsenal</strong> — Eto'o scored the opening goal; priority clip for final‑stage scoring and movement vs low block.</li>
+            <li><strong>2009 UEFA Champions League Final — Barcelona 2–0 Manchester United</strong> — Eto'o opened the scoring in a treble‑winning campaign; extract assist sequences and pressing triggers for transition finish modeling.</li>
+            <li><strong>2010 UEFA Champions League Final — Inter 2–0 Bayern Munich</strong> — Part of Mourinho’s treble; include semi‑finals against Barcelona for matchup tactical analysis and role adaptation.</li>
+            <li><strong>2005–2006 La Liga seasons (Barcelona)</strong> — Peak conversion and shot selection patterns; extract per‑90 shot maps and positioning heatmaps for striker template.</li>
+            <li><strong>2003 Copa del Rey (Mallorca)</strong> — Tournament scoring sequences that accelerated Eto'o's European reputation; include cup final and knockout legs for big‑game index.</li>
+            <li><strong>2000 Sydney Olympics Final — Cameroon 2–1 Spain</strong> — Vital for clutch and pressure modeling; extract comeback sequences and penalty‑state responses.</li>
+            <li><strong>2002 Africa Cup of Nations & 2000 edition</strong> — Tournament goal clusters for international clutch propensity and cross‑competition ERA adjustments.</li>
+            <li><strong>2010–2011 Inter season (Serie A & UCL)</strong> — Tactical redeployment under Mourinho; extract off‑ball runs, decoy movement and link‑up involvement with midfield supply.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Conversion (box)</td><td>9.7</td></tr>
+                <tr><td>Expected Goals overperformance (era adj.)</td><td>9.3</td></tr>
+                <tr><td>Movement / Penetration Index</td><td>9.6</td></tr>
+                <tr><td>Chance Creation (secondary)</td><td>8.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Transition</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Pressing Impact / Counter pressure</td><td>9.0</td></tr>
+                <tr><td>Role Versatility (central / wide)</td><td>8.9</td></tr>
+                <tr><td>Clutch Performance Index</td><td>9.8</td></tr>
+                <tr><td>Adaptation Across Leagues</td><td>9.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across La Liga, Serie A and international tournaments; all event‑level shot coordinates and assist chains flagged for frame‑accurate extraction before final per‑90 publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Eto'o’s DNA matches high‑tempo possession systems that utilise quick vertical transitions and incisive inside‑channel runs, as well as pragmatic counter‑attacking setups where timing and finishing are priority. He maps strongly to goal‑first striker archetypes in both possession and transition philosophies.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Possession with Verticality</td><td>9.4</td><td>Fast interplay and finish in tight channels</td></tr>
+            <tr><td>Counter‑Attack / Transition</td><td>9.6</td><td>Explosive first step and lethal finishing on counters</td></tr>
+            <tr><td>Press‑Led Systems</td><td>9.0</td><td>High pressing workrate and turnover conversions</td></tr>
+            <tr><td>Big‑Game Finisher</td><td>9.8</td><td>Proven finals goals and tournament deliveries</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Samuel Eto'o, Didier Drogba (power & clutch), Fernando Torres (pace + timing)</p>
+        <canvas id="etooRadar" width="720" height="420" aria-label="Radar comparing Samuel Eto'o with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority sources: Barcelona 2005–2009 season reels, Inter 2009–2011 tactical clips, Mallorca Copa del Rey 2003, Olympic 2000 final, AFCON tournaments 2000/2002. Extraction checklist: match ID; mm:ss; event type (goal; assist; off‑ball run; turnover); x/y if available; context (final/knockout/league); ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Cold finishing under pressure:</strong> consistent finals execution and decisive strikes.</li>
+          <li><strong>Competitive hunger:</strong> persistent pursuit of goal opportunities and workrate in pressing systems.</li>
+          <li><strong>Professional resilience:</strong> adapted across leagues and tactical roles while maintaining output.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Role shifts late career:</strong> reduced central minutes and mobility in later years require era/context weighting when matching younger templates.</li>
+          <li><strong>Event extraction dependency:</strong> accurate per‑90 and xG recalibration requires full match frame extraction for Champions League finals and cup knockouts.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Eto'o blends elite movement, finishing and competitive temperament; he is a high‑value historical template for any model searching for a compact, high‑conversion centre‑forward who delivers in the biggest moments.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Highest priority clips: 2006 UCL final (goal); 2009 UCL final (goal); 2010 UCL final (Inter treble); 2000 Olympics final; 2003 Copa del Rey (Mallorca); Barcelona 2005–06 peak season sequences. Extraction checklist: match ID; mm:ss; event type (goal; assist; run; press); frame reference; x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Ronaldinho / Messi (Barcelona partnership)</h3>
+        <p class="small"><strong>Dynamic:</strong> Supplied and benefited from elite creative support; Eto'o’s runs exploited the space created by Ronaldinho and later Messi.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">José Mourinho (Inter)</h3>
+        <p class="small"><strong>Dynamic:</strong> Tactical repurposing under Mourinho enhanced Eto'o's team‑first movement and clutch finishing within a pragmatically structured system.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Mallorca Catalysts</h3>
+        <p class="small"><strong>Dynamic:</strong> Early career creators and system allowed Eto'o to develop timing and finishing instincts indispensable to later success.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Samuel Eto'o scouting profile. Numeric fields are ERA‑adjusted estimates; validate all event rows with frame‑accurate extraction and triple‑source verification (FBref; Transfermarkt; club archives) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Eto'o vs peers (Eto'o, Drogba, Torres)
+    const ctx = document.getElementById('etooRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Movement','Pace','Pressing','Link-up','Clutch','Adaptability'],
+        datasets: [
+          { label: 'Samuel Eto\'o', data: [9.6,9.5,9.2,8.9,8.7,9.8,9.2], backgroundColor:'rgba(99,179,237,0.10)', borderColor:'#63b3ed', pointBackgroundColor:'#63b3ed' },
+          { label: 'Didier Drogba', data: [9.4,8.8,8.7,9.1,9.0,9.6,8.5], backgroundColor:'rgba(11,191,107,0.08)', borderColor:'#0bbf6b', pointBackgroundColor:'#0bbf6b' },
+          { label: 'Fernando Torres', data: [9.2,9.3,9.4,8.3,8.1,9.0,8.8], backgroundColor:'rgba(226,75,59,0.08)', borderColor:'#e24b3b', pointBackgroundColor:'#e24b3b' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

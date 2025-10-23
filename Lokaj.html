@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Florind Lokaj — Empire FGA Profile</title>
+
+
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#8b5cf6;--accent2:#c4b5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(139,92,246,0.03),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(196,181,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(196,181,253,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.footballdatabase.eu/images/photos/players/a_459/459149.jpg" alt="Florian Lokaj photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Florind Lokaj</div>
+        <div class="sub">Central Midfielder · Kosovo · Born: 8 June 2002 · Height: 1.89 m · Preferred foot: Right</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Kvik Halden; Skeid; Oppsal; (current club to verify)</span>
+          <span class="pill"><strong>International</strong> Kosovo youth caps (U17)</span>
+          <span class="pill"><strong>Peak FGA</strong> 73.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Central Midfield Presence</td><td>7.2</td></tr>
+            <tr><td>Aerial & Physical Competence</td><td>7.5</td></tr>
+            <tr><td>Passing Reliability</td><td>7.0</td></tr>
+            <tr><td>Defensive Contribution</td><td>6.8</td></tr>
+            <tr><td>Progressive Involvement</td><td>7.1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club and minutes totals compiled from public databases; confirm current club and contract for publication.</li>
+          <li>Lower-division competition data can be sparse; event-level extraction requires club logs and broadcast where available.</li>
+          <li>Peak FGA and numeric scores are ERA‑adjusted model outputs; mark as provisional until triple-source verification.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">73.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Florian Lokaj is a tall, combative central midfielder with a physical profile suited to box-to-box and vertical transition roles; shows dependable passing range for his competition level and aerial presence that adds defensive stability and set-piece value.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Youth</td><td>Local academies</td><td>Early development; technical base</td></tr>
+            <tr><td>2019–2023</td><td>Kvik Halden / Skeid</td><td>Senior breakthrough; league appearances across Norwegian tiers</td></tr>
+            <tr><td>2024–</td><td>Oppsal / current club</td><td>Regular minutes in Norway's lower divisions; continued development</td></tr>
+            <tr><td>2018</td><td>Kosovo U17</td><td>Youth international exposure; 5 caps recorded</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>Consistent senior minutes across Norwegian divisions; strong physical minutes accumulation in 2024–25 season.</li>
+            <li>International youth appearances for Kosovo U17; developmental pathway to senior consideration.</li>
+            <li>Priority match pack: recent Oppsal full matches and Kvik Halden appearances for event‑level extraction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive & Positional</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Interceptions / 90 (est)</td><td>7.0</td></tr>
+                <tr><td>Tackling Reliability</td><td>6.9</td></tr>
+                <tr><td>Defensive Positioning</td><td>7.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Passing & Transition</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passes / 90 (est)</td><td>7.2</td></tr>
+                <tr><td>Pass Accuracy</td><td>7.0</td></tr>
+                <tr><td>Carry to Progression</td><td>6.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA applied where appropriate; lower-league data interpolation used for per-90 estimates. Event-level extraction required for definitive metric publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Lokaj fits pragmatic, direct systems that value physical presence and vertical progression from midfield; suits mid-table teams seeking reliable aerial support, box-to-box contribution and transitional link play between defence and attack.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Pragmatic Midfield (Box-to-Box)</td><td>7.4</td><td>Physical progression; second-phase entries</td></tr>
+            <tr><td>Vertical Transition</td><td>7.2</td><td>Direct passing into attackers; quick recovery</td></tr>
+            <tr><td>Set-Piece Utility</td><td>7.5</td><td>Threat in aerial duels</td></tr>
+            <tr><td>Defensive Screening</td><td>7.0</td><td>Simple passing + positional discipline</td></tr>
+            <tr><td>Development Projection</td><td>7.1</td><td>Growth potential in higher-intensity leagues</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessed dimensions: work-rate, adaptability, resilience and squad integration. Scores inform Transfer Risk and Development Path indices for youth-to-pro transitions.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Lokaj Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Work-Rate / Effort</td><td>7.6</td><td>Consistent physical output across full matches</td></tr>
+            <tr><td>Adaptability</td><td>7.0</td><td>Comfortable in several midfield roles</td></tr>
+            <tr><td>Composure</td><td>6.8</td><td>Improving under pressure with experience</td></tr>
+            <tr><td>Coachability</td><td>7.3</td><td>Positive developmental trajectory recorded</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Useful contacts and archives for extraction and verification: club performance analysts, league statisticians and youth national team coordinators.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Networks</td><td>Kvik Halden; Skeid; Oppsal</td><td>Match logs and training footage access</td></tr>
+            <tr><td>National Youth Federation</td><td>Kosovo U17 records</td><td>Youth progression data & international performance</td></tr>
+            <tr><td>Video Sources</td><td>Club reels; YouTube highlight packs</td><td>Event extraction and positional mapping</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: club logs; match footage; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Season / Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>2024–25</td><td>Oppsal league fixtures</td><td>Consistent minutes; central midfield role</td><td>Pass networks; defensive actions; aerial duels</td></tr>
+            <tr><td>2023</td><td>Kvik Halden appearances</td><td>Adaptation to senior football; physical outputs</td><td>Minutes, recoveries, progressive passes</td></tr>
+            <tr><td>2018</td><td>Kosovo U17 matches</td><td>Youth international performance</td><td>Development indicators; positional heatmaps</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Primary video sample provided: https://www.youtube.com/watch?v=Futmoa-jp6Y — use for initial event extraction and movement mapping.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; ERA tag; triple-source confirmation for critical events.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: tall central midfielders who combine aerial strength and progressive passing at lower senior-league levels. Use ERA-normalised radars to benchmark Lokaj against league medians and development peers.</p>
+
+        <div class="visual-canvas">
+          <canvas id="lokajRadar" aria-label="Radar comparing Lokaj to comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Profile data consolidated from public club pages, Transfermarkt and Sofascore entries; all event-level rows and contract details must be verified with primary club records before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Florian Lokaj scouting profile. Numeric fields are ERA‑adjusted estimates; event rows, honours and contractual details require triple verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('lokajRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Aerial','Passing','Defence','Progression','Work-Rate','Composure','Versatility'],
+        datasets: [
+          { label: 'Florian Lokaj', data: [7.5,7.0,6.9,7.1,7.6,6.8,7.0], backgroundColor:'rgba(139,92,246,0.12)', borderColor:'#c4b5fd', pointBackgroundColor:'#c4b5fd', borderWidth:2 },
+          { label: 'League Median (ERA adj)', data: [6.8,6.9,6.7,6.5,6.9,6.5,6.6], backgroundColor:'rgba(59,130,246,0.10)', borderColor:'#3b82f6', pointBackgroundColor:'#3b82f6', borderWidth:2 },
+          { label: 'Development Peer', data: [7.2,7.1,6.8,7.0,7.3,6.7,6.9], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

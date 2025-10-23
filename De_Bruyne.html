@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kevin De Bruyne — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#2b6cb0; --accent2:#63b3ed; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(43,108,176,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(99,179,237,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(99,179,237,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/a8/e0/14/a8e014a329ec51efac64edc9f3c7d933.jpg" alt="Kevin De Bruyne photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Kevin De Bruyne</div>
+        <div class="sub">Attacking Midfielder · Belgium · Born: 28 June 1991 · Height: 1.81 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Genk; Chelsea; Werder Bremen (loan); VfL Wolfsburg; Manchester City; Napoli</span>
+          <span class="pill"><strong>International</strong> Belgium (110+ caps)</span>
+          <span class="pill"><strong>Peak FGA</strong> 96.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Vision & Passing Range</td><td>9.8</td></tr>
+            <tr><td>Final Third Decisioning</td><td>9.6</td></tr>
+            <tr><td>Shot Craft</td><td>8.9</td></tr>
+            <tr><td>Chance Creation (xA impact)</td><td>9.7</td></tr>
+            <tr><td>Set-piece Delivery</td><td>9.0</td></tr>
+            <tr><td>Workrate & Pressing</td><td>8.6</td></tr>
+            <tr><td>Leadership</td><td>8.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals differ across live sources for 2025 transfer window; confirm with club registers and league feeds prior to export.</li>
+          <li>Assist attribution across competitions requires cross-checking Opta match logs where available for final client deliverables.</li>
+          <li>Minute-by-minute chance creation requires event-level sources (FBref / Wyscout / in-house coding) for exact xA replication.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">96.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Kevin De Bruyne is widely regarded as one of the defining playmakers of his generation, combining elite vision, tempo control and finishing to dominate the final third for club and country.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1997–1999</td><td>KVV Drongen (youth)</td><td>Local youth breakthrough</td></tr>
+            <tr><td>1999–2005</td><td>Gent (youth)</td><td>Technical foundations and individual coaching focus</td></tr>
+            <tr><td>2005–2008</td><td>Genk (youth → senior)</td><td>Promoted to first team; development as advanced creator</td></tr>
+            <tr><td>2008–2012</td><td>Genk</td><td>Belgian Pro League title contributor (2010–11)</td></tr>
+            <tr><td>2012–2014</td><td>Chelsea / Werder Bremen (loan)</td><td>Loan to Bremen catalysed Bundesliga move</td></tr>
+            <tr><td>2014–2015</td><td>VfL Wolfsburg</td><td>Bundesliga breakout; DFB-Pokal winner and Player of the Year recognition</td></tr>
+            <tr><td>2015–2025</td><td>Manchester City</td><td>Core playmaker during multiple Premier League titles and continental treble success</td></tr>
+            <tr><td>2025–</td><td>Napoli</td><td>New tactical chapter under Antonio Conte (2025 transfer)</td></tr>
+            <tr><td>2010–</td><td>Belgium</td><td>110+ caps; central to Belgium's Golden Generation and World Cup 2018 third place</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Milestones & Historical Matches</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2010–11 Genk title season</strong> — breakthrough season: 5 goals and 16 assists; formative ERA multiplier for early-career creativity.</li>
+            <li><strong>2014–15 Wolfsburg</strong> — Bundesliga influence and DFB-Pokal victory; VDV Player of the Season and German Player of the Year honours mark major career inflection.</li>
+            <li><strong>2017–18 Manchester City (100-point season)</strong> — pivotal architect in Guardiola’s record-breaking title run; high-frequency key passes and progressive actions across season datasets.</li>
+            <li><strong>2018 FIFA World Cup</strong> — tournament third place with Belgium; decisive quarter-final goal vs Brazil is high-priority event for clutch-index coding.</li>
+            <li><strong>2019–20 Premier League</strong> — equalled record for most assists in a single PL season; PFA recognition and Player of the Season awards illustrate elite end-product metrics.</li>
+            <li><strong>2022–23 Continental Treble (Man City)</strong> — Champions League, Premier League and domestic cup success; multiple UCL high-impact events flagged for event-level extraction.</li>
+            <li><strong>2025 Transfer to Napoli</strong> — tactical shift and adaptation under Conte; use season-on-season role-weight adjustments to model positional changes in the FGA DNA.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Playmaking Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passes / Key Passes</td><td>9.8</td></tr>
+                <tr><td>Expected Assists Impact (xA influence)</td><td>9.7</td></tr>
+                <tr><td>Through Ball Precision</td><td>9.6</td></tr>
+                <tr><td>Final Third Penetration</td><td>9.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Shooting & Transition</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Efficiency</td><td>8.9</td></tr>
+                <tr><td>Late-Box Runs / Finishing</td><td>8.7</td></tr>
+                <tr><td>Press-Resistance Ball Retention</td><td>8.8</td></tr>
+                <tr><td>Set-piece Value</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Belgian, German and English league contexts; event-level validation recommended for assist chains and UCL clutch sequences before final publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">De Bruyne’s intelligence, scanning frequency and executive decision-making make him a textbook high-level playmaker in possession-led systems while also adaptable to more structured, mentality-driven coaches — a versatility supported by recent tactical analysis of his game intelligence.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Guardiola / Positional Possession</td><td>9.7</td><td>Tempo control, positional rotations and overload creation</td></tr>
+            <tr><td>Conte / Structured Transition</td><td>9.2</td><td>Adaptable spatial discipline and high mental clarity</td></tr>
+            <tr><td>Press-Resistant Creator</td><td>9.5</td><td>High scanning frequency and quick executive decisions</td></tr>
+            <tr><td>Tactical Playmaker Hybrid</td><td>9.6</td><td>Combines long-range passing and finishing with defensive workrate</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Kevin De Bruyne, David Silva (positional manipulation), Andrea Pirlo (vision & tempo)</p>
+        <canvas id="deBruyneRadar" width="720" height="420" aria-label="Radar comparing Kevin De Bruyne with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Official Premier League video library and club highlight reels provide priority clips for event coding and assist-chain tracing.</p>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="De Bruyne strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (central / right half influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Football intelligence:</strong> high scanning frequency, anticipatory decision-making and executive control on the ball.</li>
+          <li><strong>Mental routines:</strong> documented mindfulness and pre-match focus practices supporting consistency under pressure.</li>
+          <li><strong>Composure in big moments:</strong> repeated high-impact assists and goal involvements in finals and knockout UCL ties.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Age-role shift:</strong> post-30 career phase requires modeling of minutes, positional drift and recovery in ERA curves.</li>
+          <li><strong>Data harmonisation:</strong> assist counting methods vary; use unified event definitions when aggregating cross-source xA metrics.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">De Bruyne combines rare cognitive attributes with elite technique; his profile is a gold standard for FGA playmaker archetypes and a prime candidate for DNA twin matching and developmental pathway modeling.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: Genk 2010–11 decisive matches, Wolfsburg DFB-Pokal 2014–15 knockout legs, Manchester City 2017–18 100-point season games, 2018 WC quarter-final vs Brazil, 2022–23 UCL knockout and final sequences, early Napoli matches under Conte. Extraction checklist: match ID; mm:ss; event type (assist chain, through ball, shot, progressive pass, set-piece); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Pep Guardiola</h3>
+        <p class="small"><strong>Dynamic:</strong> Tactical alignment in positional play and overloads; Guardiola amplified De Bruyne’s centrality to City’s chance-creation models.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Belgium Golden Generation</h3>
+        <p class="small"><strong>Dynamic:</strong> Longstanding on-field chemistry with Hazard, Lukaku and others created high-value international assist pathways and clutch moments.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Kevin De Bruyne scouting profile. Numeric fields are ERA‑adjusted estimates; validate assist chains and UCL event logs with official match feeds and triple-source verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: De Bruyne vs peers (De Bruyne, David Silva, Andrea Pirlo)
+    const ctx = document.getElementById('deBruyneRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Vision','Passing','Creativity','Shooting','Set-piece','Workrate','Leadership'],
+        datasets: [
+          { label: 'Kevin De Bruyne', data: [9.8,9.8,9.7,8.9,9.0,8.6,8.8], backgroundColor:'rgba(99,179,237,0.12)', borderColor:'#63b3ed', pointBackgroundColor:'#63b3ed' },
+          { label: 'David Silva', data: [9.4,9.5,9.3,7.8,8.0,8.2,8.1], backgroundColor:'rgba(43,108,176,0.08)', borderColor:'#2b6cb0', pointBackgroundColor:'#2b6cb0' },
+          { label: 'Andrea Pirlo', data: [9.7,9.6,9.2,7.5,8.5,7.8,7.9], backgroundColor:'rgba(124,58,237,0.08)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Vision','Passing','Creativity','Shooting','Set-piece','Workrate','Leadership'],
+        datasets:[{ label:'De Bruyne', data:[9.8,9.8,9.7,8.9,9.0,8.6,8.8], backgroundColor:'rgba(43,108,176,0.12)', borderColor:'#2b6cb0', pointBackgroundColor:'#2b6cb0' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (central influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#63b3ed'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Central',y:7},{x:'Central',y:8},{x:'Right Central',y:7}] },
+        { name:'Middle Third', data:[{x:'Left Central',y:9},{x:'Central',y:10},{x:'Right Central',y:9}] },
+        { name:'Attacking Third', data:[{x:'Left Central',y:8},{x:'Central',y:9},{x:'Right Central',y:8}] }
+      ],
+      title:{ text:'Central Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lasse Bransdal — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#f59e0b;--accent2:#ffd8a8;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(245,158,11,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,216,168,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,216,168,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://baerumsk.no/nyheter/bransdal-vi-skal-ha-med-oss-poeng-hjem/_/image/ae662189-a8f6-4172-a968-3c93bf09a2f8:be1cf4402ece69c3bab55950a910fabc26709f53/wide-1600-900/DSC_0048.jpeg.jpg" alt="Lasse Bransdal photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Lasse Bransdal</div>
+        <div class="sub">Centre-Forward · Norway · Born: 18 February 1995 · Height: 1.79 m · Preferred foot: Right</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Sandefjord; Runar; Fram Larvik; Ørn Horten; Oppsal; Strømmen; Stjørdals-Blink; Bærum SK</span>
+          <span class="pill"><strong>Domestic Level</strong> Norwegian lower divisions / OBOS & PostNord tiers</span>
+          <span class="pill"><strong>Peak FGA</strong> 85.2</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Goal Threat / Penalty Box</td><td>8.6</td></tr>
+            <tr><td>Finishing & Composure</td><td>8.2</td></tr>
+            <tr><td>Movement & Off-ball</td><td>7.9</td></tr>
+            <tr><td>Aerial Ability</td><td>8.0</td></tr>
+            <tr><td>Minutes Availability</td><td>8.4</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club-level stats consolidated from Transfermarkt, Sofascore and club pages; confirm latest contract and squad number before publication.</li>
+          <li>Lower-tier competition event feeds can be incomplete; match footage and club logs required for event-level extraction.</li>
+          <li>Per-90 metrics ERA‑adjusted; highlight interpolation methods in audit trail.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">85.2</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Lasse Bransdal is a dependable centre-forward with strong finishing instincts in Norway's lower professional tiers; combines penalty-box presence, reliable penalty conversion and consistent minutes output, producing high per-minute goal rates across multiple seasons.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2011–2012</td><td>Sandefjord (youth / senior)</td><td>Early development; senior debut appearances.</td></tr>
+            <tr><td>2013–2017</td><td>Runar / Fram Larvik / Ørn Horten</td><td>Lower-division progression and breakout scoring seasons.</td></tr>
+            <tr><td>2018–2019</td><td>Oppsal / Strømmen</td><td>Consistent goal returns; adaptable across forward roles.</td></tr>
+            <tr><td>2020–2021</td><td>Stjørdals-Blink</td><td>OBOS-ligaen exposure; mixed scoring output.</td></tr>
+            <tr><td>2022–</td><td>Bærum SK</td><td>Top scorer seasons in PostNord / Norsk-Tipping leagues; multiple match-winning contributions.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>Notable multi-goal and hat-trick performances in Bærum SK fixtures; long-range highlight goal widely circulated by club media.</li>
+            <li>Consistent double-digit scoring seasons in Norway's 2nd/3rd tiers; reliable penalty conversion (career 100% on recorded penalties).</li>
+            <li>Regular starter and key attacking outlet during promotion pushes and cup fixtures.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Finishing & Efficiency</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goals per 90 (recent peak)</td><td>8.5</td></tr>
+                <tr><td>Shot Conversion (open play)</td><td>8.3</td></tr>
+                <tr><td>Penalty Conversion</td><td>9.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Box Occupancy</td><td>8.4</td></tr>
+                <tr><td>Pressing / Defensive Work</td><td>7.2</td></tr>
+                <tr><td>Link-up Play</td><td>7.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied to reconcile league defensive strength and match tempo; per-90 normalisation recommended for cross-season comparison.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Bransdal suits direct, vertical teams that supply consistent penalty-area service and value final-third runners; fits target-man and poacher roles in systems that emphasise crosses, second-phase finishes and quick transitional attack.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Box Predator</td><td>9.0</td><td>High conversion in confined penalty area</td></tr>
+            <tr><td>Direct Verticality</td><td>8.6</td><td>Effective on quick service and counters</td></tr>
+            <tr><td>Set-Piece Threat</td><td>8.4</td><td>Aerial presence on dead-ball situations</td></tr>
+            <tr><td>Pragmatic Efficiency</td><td>8.2</td><td>End-product focused finishing</td></tr>
+            <tr><td>Development Resilience</td><td>7.8</td><td>Consistent output across tiers</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessed dimensions: consistency, goal-focus, response to pressure and squad influence. Scores feed Transfer Risk and Utilisation indices for recruitment modelling.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Bransdal Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Goal Drive</td><td>8.8</td><td>Demonstrated by clutch finishes and hat-tricks</td></tr>
+            <tr><td>Resilience</td><td>8.1</td><td>Maintains scoring across seasons and clubs</td></tr>
+            <tr><td>Team Impact</td><td>8.0</td><td>Primary focal point in offensive schemes</td></tr>
+            <tr><td>Temperament</td><td>7.6</td><td>Professional, low disciplinary record</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Club analysts, league statisticians and match footage sources recommended for event verification and extraction.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club</td><td>Bærum SK media & analysts</td><td>Match logs and training footage</td></tr>
+            <tr><td>Data</td><td>Transfermarkt; Sofascore; FootballDatabase</td><td>Season tallies and minute-level stats</td></tr>
+            <tr><td>Video</td><td>Club YouTube / BærumTV / provided highlight packs</td><td>Event extraction and action labelling</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: broadcast; club logs; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Season / Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>2024</td><td>Bærum vs Brattvåg (hat-trick match)</td><td>High output finishing; long-range and set-piece involvement</td><td>Shot types; penalty events; off-ball positioning</td></tr>
+            <tr><td>2023</td><td>Multiple PostNord campaigns</td><td>Consistency across league fixtures</td><td>Per-90 normalised goals; minutes; xG calibration</td></tr>
+            <tr><td>Various</td><td>Domestic cup appearances</td><td>Big-match finishing and clutch performance</td><td>Goal frames; high-pressure event mapping</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Primary video sources: club uploads and highlight reels; example match reel provided by club (BærumTV) and public uploads.</li>
+          <li>Provided sample highlight pack for event extraction: video link included in the profile metadata; use for initial labelling and off-ball mapping.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; ERA tag; triple-source confirmation for goals and penalties.</li>
+        </ul>
+        <div style="font-weight:900;color:var(--muted);margin-bottom:8px">Video highlights</div>
+        <video controls style="width:100%;border-radius:10px;background:#000">
+          <source src="https://www.dropbox.com/scl/fi/eg78xgfew5yu4h7aqn3xi/Lasse-Bransdal.mp4?rlkey=0f0il7phqto7pobbe7dftn902&st=6ppm1ih0&raw=1" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: reliable lower-tier centre-forwards with strong penalty-area instincts. Use ERA-normalised radars to compare Bransdal with league medians and promotion-chasing strikers.</p>
+
+        <div class="visual-canvas">
+          <canvas id="bransdalRadar" aria-label="Radar comparing Bransdal and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core facts consolidated from Transfermarkt, Sofascore, club pages and FootballDatabase; event-level extraction and contract details must be triple‑verified (club logs; match footage; federation records) prior to publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Lasse Bransdal scouting profile. Numeric fields are ERA‑adjusted estimates; match-level events, honours and contractual details require triple verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('bransdalRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Aerial','Box Occupancy','Minutes Consistency','Penalty Proficiency','Link-Up','Pressing'],
+        datasets: [
+          { label: 'Lasse Bransdal', data: [8.6,8.0,8.4,8.4,9.5,7.6,7.2], backgroundColor:'rgba(245,158,11,0.12)', borderColor:'#ffd8a8', pointBackgroundColor:'#ffd8a8', borderWidth:2 },
+          { label: 'League Median (ERA adj)', data: [6.8,6.5,6.9,7.0,6.2,6.6,6.5], backgroundColor:'rgba(59,130,246,0.10)', borderColor:'#3b82f6', pointBackgroundColor:'#3b82f6', borderWidth:2 },
+          { label: 'Top Promotion Striker', data: [9.0,8.4,9.1,8.7,8.8,8.0,7.8], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

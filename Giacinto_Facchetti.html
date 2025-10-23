@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Giacinto Facchetti — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#1f9aef; --accent2:#00e0a3; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(31,154,239,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,224,163,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(0,224,163,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/79/e6/0a/79e60ae8d6ed3501dae1149e53cd85e2.jpg" alt="Giacinto Facchetti photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Giacinto Facchetti</div>
+        <div class="sub">Left-Back · Italy · Born: 18 July 1942 · Height: 1.91 m</div>
+
+        <div>
+          <span class="pill"><strong>Club</strong> Inter Milan (one-club man)</span>
+          <span class="pill"><strong>International</strong> Italy (94 caps)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Pace & Stamina</td><td>9.2</td></tr>
+            <tr><td>Offensive Overlap</td><td>9.0</td></tr>
+            <tr><td>Defensive Positioning</td><td>9.4</td></tr>
+            <tr><td>Aerial Presence</td><td>8.8</td></tr>
+            <tr><td>Goal Threat</td><td>8.6</td></tr>
+            <tr><td>Leadership</td><td>9.5</td></tr>
+            <tr><td>Durability</td><td>9.1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li>Historic match minutes and assist attribution vary by source; require FBref / club archives / FIGC cross-check for event-level exports.</li>
+          <li>Shot and goal coordinates for 1960s seasons are broadcast-limited; mark crossing/xT estimates as provisional.</li>
+          <li>Leadership and captaincy tenure confirmed in club records but date ranges should be triple-sourced for publication.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Giacinto Facchetti redefined the full-back position, pioneering the attacking left-back role during Inter's "Grande Inter" era. Tall, athletic and technically gifted, he combined dominant defending with forward surges and a rare goal threat for a defender. European Cup winner, Euro 1968 champion and 1970 World Cup runner-up, Facchetti's blend of intelligence, pace and leadership sets a cross-era standard for the position.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1960–1978</td><td>Inter Milan</td><td>One-club career; 634 official appearances; 75 goals; central figure of "Grande Inter"</td></tr>
+            <tr><td>1963–1977</td><td>Italy</td><td>94 caps; Euro 1968 winner; World Cup 1970 runner-up; 1970 World Cup All-Star team</td></tr>
+            <tr><td>2004–2006</td><td>Inter Director / Chairman</td><td>Club director then chairman until his passing; continued club stewardship</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Career Milestones & Highlights</h2>
+        <p class="small"><strong>1964–65:</strong> European Cup winner (Inter) — core of a team that dominated domestically and internationally.</p>
+        <p class="small"><strong>1968:</strong> UEFA European Championship winner with Italy; elected to tournament team.</p>
+        <p class="small"><strong>1970:</strong> World Cup runner-up and part of the tournament All-Star XI; cemented global reputation.</p>
+        <p class="small"><strong>1965 Ballon d'Or:</strong> Runner-up — exceptional recognition for a defender in the era.</p>
+        <p class="small"><strong>Legacy:</strong> Widely regarded as one of the first truly great attacking full-backs; influential across defensive and possession philosophies.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>1v1 Defending</td><td>9.3</td></tr>
+                <tr><td>Interceptions / Reading</td><td>9.4</td></tr>
+                <tr><td>Recovery Speed</td><td>9.1</td></tr>
+                <tr><td>Aerial Duels</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Impact</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Runs</td><td>9.0</td></tr>
+                <tr><td>Shot Contribution (goals for a defender)</td><td>8.6</td></tr>
+                <tr><td>Key Passes / Crossing</td><td>8.7</td></tr>
+                <tr><td>Set-piece Threat</td><td>8.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">Scores are ERA‑adjusted using competition level and period context; event-level verification recommended for crossing/xG calibrations from archived footage.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Facchetti's DNA bridges Italian defensive organisation and proactive attacking full-back philosophies. He maps strongly to managers who demand defensive discipline but expect full-backs to provide width and late attacking arrivals.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Herrera / Catenaccio (counter organization)</td><td>9.4</td><td>Perfect balance of defence and counter-attacking forward runs</td></tr>
+            <tr><td>Cruyff / Positional Posession</td><td>8.8</td><td>Overlapping instincts and technical control suit possession phases</td></tr>
+            <tr><td>Modern Attacking Full-Back (overlap/invert)</td><td>9.0</td><td>High work-rate, crossing and finishing make him viable in advanced roles</td></tr>
+            <tr><td>Press-Intensive Systems</td><td>8.6</td><td>Stamina and intelligence support high pressing and recovery</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Peers: Giacinto Facchetti, Giacinto Facchetti archetype vs Paolo Maldini and Giacinto's generation peers.</p>
+        <canvas id="facchettiRadar" width="720" height="420" aria-label="Radar comparing Giacinto Facchetti with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Facchetti strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (left channel influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Leadership:</strong> long-serving captain for club and country; respected voice and example on the pitch.</li>
+          <li><strong>Discipline and professionalism:</strong> lauded for conduct, work ethic and tactical commitment.</li>
+          <li><strong>Fearless intelligence:</strong> balances risk-taking forward runs with defensive responsibility.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Era context:</strong> modern inverted full-back technical load differs from 60s/70s patterns; some distribution metrics require era calibration.</li>
+          <li><strong>Event-level gaps:</strong> assist and secondary assist logging in the 1960s is incomplete; cross-source validation required for exact counts.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Facchetti was a towering presence who combined physical gifts with refined technique and tactical intelligence. His legacy is both positional innovation and exemplary leadership, later extending into executive roles at Inter.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: Inter European Cup finals (1964, 1965), Serie A peak seasons (1962–1971), Euro 1968 matches, 1970 World Cup fixtures (notably Italy vs West Germany semi). Extraction checklist: match ID; mm:ss; event type (overlap, cross, goal, interception, tackle); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Helenio Herrera (Manager)</h3>
+        <p class="small"><strong>Dynamic:</strong> Herrera converted Facchetti from forward to attacking left-back and structured "Grande Inter" around disciplined defensive shape with Facchetti given license to surge forward; mentor-player tactical fit that unlocked his positional innovation.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Tarcisio Burgnich (Defensive Partner)</h3>
+        <p class="small"><strong>Dynamic:</strong> Burgnich provided complementary defensive solidity on the right, enabling Facchetti's forward runs; their partnership underpinned Inter's balance between defence and counter-attack.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Sandro Mazzola & Gianni Rivera (Team Creators)</h3>
+        <p class="small"><strong>Dynamic:</strong> Creative teammates who benefited from Facchetti's width and late arrivals; Facchetti's goals and crosses supplied additional tactical angles.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Dino Zoff / Italy Captaincy Cohort</h3>
+        <p class="small"><strong>Dynamic:</strong> Shared national leadership with seasoned internationals; mutual trust allowed Facchetti to balance club-led attacking instincts with national team defensive responsibilities.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Club Stewardship: Inter Leadership</h3>
+        <p class="small">Post-retirement Facchetti transitioned to executive roles, maintaining deep institutional influence; interpersonal style was steady, authoritative and club-first, enhancing long-term organisational continuity.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Giacinto Facchetti scouting profile. Numeric fields are ERA‑adjusted estimates; mark rows for final event coding and triple-source verification before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Facchetti vs peers (Facchetti, Maldini, Facchetti archetype)
+    const ctx = document.getElementById('facchettiRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Positioning','Pace','Offensive Impact','Defense','Aerial','Leadership','Durability'],
+        datasets: [
+          { label: 'Giacinto Facchetti', data: [9.4,9.2,9.0,9.3,8.8,9.5,9.1], backgroundColor:'rgba(0,224,163,0.12)', borderColor:'#00e0a3', pointBackgroundColor:'#00e0a3' },
+          { label: 'Paolo Maldini', data: [9.5,8.0,8.2,9.6,8.7,9.4,9.3], backgroundColor:'rgba(31,154,239,0.12)', borderColor:'#1f9aef', pointBackgroundColor:'#1f9aef' },
+          { label: 'Giacinto Archetype', data: [9.0,8.8,8.7,9.0,8.5,9.0,8.9], backgroundColor:'rgba(124,58,237,0.12)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Positioning','Pace','Offensive Impact','Defense','Aerial','Leadership','Durability'],
+        datasets:[{ label:'Facchetti', data:[9.4,9.2,9.0,9.3,8.8,9.5,9.1], backgroundColor:'rgba(31,154,239,0.12)', borderColor:'#1f9aef', pointBackgroundColor:'#1f9aef' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (left channel influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#ff7a59'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Wing',y:9},{x:'Left Inside',y:8},{x:'Centre',y:7}] },
+        { name:'Middle Third', data:[{x:'Left Wing',y:9},{x:'Left Inside',y:9},{x:'Centre',y:8}] },
+        { name:'Attacking Third', data:[{x:'Left Wing',y:9},{x:'Left Inside',y:8},{x:'Backpost',y:8}] }
+      ],
+      title:{ text:'Left Channel Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

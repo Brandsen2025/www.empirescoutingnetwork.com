@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Diego Godín — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#2ea8d2;--accent2:#7fd7ff;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(46,168,210,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(127,215,255,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(127,215,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://e0.365dm.com/18/08/2048x1152/skysports-diego-godin-atletico-madrid_4384608.jpg?20180809110656" alt="Diego Godín photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Diego Godín</div>
+        <div class="sub">Centre-Back / Sweeper · Uruguay · Born: 16 February 1986 · Height: 1.87 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Cerro; Nacional; Villarreal; Atlético Madrid; Inter; Cagliari; Vélez; Atlético Mineiro</span>
+          <span class="pill"><strong>International</strong> Uruguay (161 caps, 8 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 91.5</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Reading of Play / Positioning</td><td>9.6</td></tr>
+            <tr><td>Aerial Dominance</td><td>9.4</td></tr>
+            <tr><td>Tactical Discipline</td><td>9.5</td></tr>
+            <tr><td>Leadership / Organisation</td><td>9.3</td></tr>
+            <tr><td>Ball Progression / Passing</td><td>8.9</td></tr>
+            <tr><td>1v1 Defending</td><td>9.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club minutes and disciplinary records across Spain/Italy/Brazil must be consolidated; Transfermarkt/FBref cross-check recommended.</li>
+          <li>Key defensive event extraction requires Champions League and LaLiga broadcast sources for accurate interception timing.</li>
+          <li>International cap counts updated to 161; verify match-level event rows for Copa América 2011 and World Cups for clutch-index calibration.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">91.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Diego Godín is a prototypical modern captain-centre back: exceptional positional intelligence, aerial authority and tactical discipline combined with leadership and consistent big-game influence, particularly under Diego Simeone's defensive system. He blends classic Uruguayan defensive grit with reliable ball progression for counter-based setups.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2003–2006</td><td>Cerro</td><td>Professional breakthrough; early defensive maturity.</td></tr>
+            <tr><td>2006–2007</td><td>Nacional</td><td>Domestic leadership; continental exposure.</td></tr>
+            <tr><td>2007–2010</td><td>Villarreal</td><td>LaLiga consolidation; defensive partnership foundations.</td></tr>
+            <tr><td>2010–2019</td><td>Atlético Madrid</td><td>Peak tenure; LaLiga title 2013–14; multiple UEFA finals; captaincy and icon status.</td></tr>
+            <tr><td>2019–2020</td><td>Inter Milan</td><td>Experienced Serie A season, Europa League final goal (2020).</td></tr>
+            <tr><td>2020–2022</td><td>Cagliari</td><td>Veteran presence in Serie A.</td></tr>
+            <tr><td>2022–2023</td><td>Atlético Mineiro / Vélez</td><td>Short spells; leadership roles.</td></tr>
+            <tr><td>2005–2022</td><td>Uruguay</td><td>161 caps; Copa América winner 2011; country's all-time most-capped player.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Milestones & High‑Value Matches</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2013–14 LaLiga decisive header vs Barcelona</strong> — title-clinching moment; high clutch-index event.</li>
+            <li><strong>2014 & 2016 UCL finals</strong> — defensive leadership and aerial control in high-pressure environments.</li>
+            <li><strong>2011 Copa América</strong> — international trophy with critical defensive sequences for Uruguay.</li>
+            <li><strong>2019 Champions League round-of-16 vs Juventus</strong> — headed goal, example of set-piece offensive value from CB.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Interception Timing</td><td>9.6</td></tr>
+                <tr><td>Clearance Efficiency</td><td>9.3</td></tr>
+                <tr><td>Aerial Win Rate (era adj.)</td><td>9.4</td></tr>
+                <tr><td>Tackling Precision</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical Influence</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Leadership / Captaincy Impact</td><td>9.5</td></tr>
+                <tr><td>Role Adaptability (system fit)</td><td>9.1</td></tr>
+                <tr><td>Ball Progression / Passing Range</td><td>8.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied across Uruguayan, Spanish and Italian competition contexts; final publication requires match-level extraction for interception timing, aerial duel vectors and set-piece contribution tagging.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Godín maps to defensive pragmatism and organised counter-focused philosophies (Simeone / Bilardo lineage). Ideal fits: low-block transitional systems, disciplined zonal structures and teams valuing set-piece scoring from defenders.</p>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Defender radar comparing Diego Godín with Franz Beckenbauer, Ruud Krol and Daniel Passarella across: Reading of Play; Ball Distribution; Aerial Presence; Composure; Leadership; Interception Timing; Passing Range.</p>
+
+        <div class="visual-canvas">
+          <canvas id="defenderRadar" aria-label="Radar comparing Godín, Beckenbauer, Krol and Passarella" width="720" height="420"></canvas>
+        </div>
+
+        <p class="small" style="margin-top:10px"><strong>Legend:</strong> Godín (cyan); Beckenbauer (gold); Krol (purple); Passarella (red).</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <ul class="small">
+          <li><strong>Strengths:</strong> relentless professionalism, tactical calm, resilience, and clear motivational leadership.</li>
+          <li><strong>Caveats:</strong> sustained high minutes at elite level produced late-career physical degradation; ERA normalization recommended for post-2018 seasons.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority packs: Atlético Madrid 2013–2016 (LaLiga, UCL knockouts); 2010 World Cup; Copa América 2011; Villarreal 2009–10. Extraction checklist: match ID; mm:ss; event type; start/end frames; aerial duel vectors; interception frame; set-piece involvement; ERA tag; triple‑source confirmation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+        <p class="small">Core relationships: Diego Simeone's Atlético defensive nucleus; Uruguay's generation of disciplined defenders; international captaincy role establishing cultural leadership and defensive identity.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Diego Godín scouting profile. Numeric fields are ERA‑adjusted estimates; event rows must be triple‑verified (broadcast; club logs; federation reports) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('defenderRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Reading of Play','Ball Distribution','Aerial Presence','Composure','Leadership','Interception Timing','Passing Range'],
+        datasets: [
+          {
+            label: 'Diego Godín',
+            data: [9.6, 8.9, 9.4, 9.4, 9.5, 9.6, 8.9],
+            backgroundColor: 'rgba(31,209,230,0.12)',
+            borderColor: '#7fd7ff',
+            pointBackgroundColor: '#7fd7ff',
+            borderWidth: 2
+          },
+          {
+            label: 'Franz Beckenbauer',
+            data: [9.7, 9.6, 9.0, 9.3, 9.6, 9.2, 9.5],
+            backgroundColor: 'rgba(255,205,86,0.10)',
+            borderColor: '#ffd34d',
+            pointBackgroundColor: '#ffd34d',
+            borderWidth: 2
+          },
+          {
+            label: 'Ruud Krol',
+            data: [9.3, 9.1, 8.8, 9.0, 8.9, 9.0, 9.2],
+            backgroundColor: 'rgba(124,58,237,0.10)',
+            borderColor: '#7c3aed',
+            pointBackgroundColor: '#7c3aed',
+            borderWidth: 2
+          },
+          {
+            label: 'Daniel Passarella',
+            data: [9.0, 8.4, 9.5, 9.1, 9.2, 8.8, 8.3],
+            backgroundColor: 'rgba(255,99,102,0.10)',
+            borderColor: '#ff4f5a',
+            pointBackgroundColor: '#ff4f5a',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } },
+        plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } }
+      }
+    });
+  </script>
+</body>
+</html>

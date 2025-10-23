@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zico — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#1fbf4a; --accent2:#6ef09a; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(31,191,74,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(110,240,154,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(110,240,154,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://static.wikia.nocookie.net/wikifla/images/1/13/Zico.jpg/revision/latest?cb=20170916233142&path-prefix=pt-br" alt="Zico photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Zico (Arthur Antunes Coimbra)</div>
+        <div class="sub">Attacking Midfielder · Brazil · Born: 3 March 1953 · Height: 1.72 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Flamengo; Udinese; Kashima Antlers</span>
+          <span class="pill"><strong>International</strong> Brazil (71 caps, 48 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.1</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Playmaking Vision</td><td>9.8</td></tr>
+            <tr><td>Free‑kick Mastery</td><td>9.9</td></tr>
+            <tr><td>Finishing & Long‑range</td><td>9.4</td></tr>
+            <tr><td>Ball Control / Futsal Influence</td><td>9.6</td></tr>
+            <tr><td>Creativity / Flair</td><td>9.7</td></tr>
+            <tr><td>Durability</td><td>8.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Free‑kick counts often include friendlies; separate friendlies vs official matches in final export.</li>
+          <li>Early Flamengo seasonal logs require archive verification for match‑level minutes and competitions.</li>
+          <li>Set‑piece event coordinates may be absent from public feeds; plan for frame extraction from broadcast sources.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.1</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Zico is a classical Brazilian number 10: an elite technician, creator and set‑piece specialist who produced exceptional chance creation and goal output from midfield. He pairs advanced dead‑ball technique with finishing instincts and high football IQ, making him an ideal fit for possession systems that allow a roaming 10 with licence to arrive late into the box.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1971–1983</td><td>Flamengo</td><td>Club icon; domestic dominance; Copa Libertadores & Intercontinental Cup success.</td></tr>
+            <tr><td>1983–1985</td><td>Udinese</td><td>European adaptation; tactical role shift to AM in Serie A.</td></tr>
+            <tr><td>1985–1989</td><td>Flamengo</td><td>Return and veteran leadership.</td></tr>
+            <tr><td>1991–1994</td><td>Kashima Antlers</td><td>Late‑career impact in Japan; technical adviser later.</td></tr>
+            <tr><td>1976–1986</td><td>Brazil</td><td>World Cups 1978, 1982, 1986; 71 caps, 48 goals.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1981 Copa Libertadores final series (Flamengo)</strong> — full event extraction: final third pass chains, set‑piece sequences, late‑arrival finishing; required sources: CONMEBOL archives, club footage, broadcast multiview.</li>
+            <li><strong>1981 Intercontinental Cup vs Liverpool (Tokyo)</strong> — high‑value finishing and transitional sequences for clutch index and aerial/free‑kick interaction modelling.</li>
+            <li><strong>1982 Brazil (World Cup) match packs</strong> — possession dominance and positional overload sequences; extract pass networks, pocket occupation, press resistance frames to calibrate creative influence under elite opposition.</li>
+            <li><strong>Udinese 1983–1985 seasons</strong> — role evolution samples: defensive pressure state, space usage and off‑ball movement metrics for ERA adjustment.</li>
+            <li><strong>Kashima Antlers (1991–1994)</strong> — late‑career leadership and technical adviser influence on team structure.</li>
+            <li><strong>Historic free‑kick corpus</strong> — collect and label all competitive free‑kick events and tag run‑up, wall geometry and goalkeeper reaction for set‑piece model training.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Playmaking & Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Chance Creation (final 3rd)</td><td>9.7</td></tr>
+                <tr><td>Set‑piece Expected Value</td><td>9.9</td></tr>
+                <tr><td>Non‑penalty xG conversion</td><td>9.3</td></tr>
+                <tr><td>Through‑ball Accuracy (era adj.)</td><td>9.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Movement & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Spatial Intelligence / Pocket use</td><td>9.5</td></tr>
+                <tr><td>Press Resistance</td><td>8.8</td></tr>
+                <tr><td>Transition Influence</td><td>9.0</td></tr>
+                <tr><td>Role Evolution Flexibility</td><td>9.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA normalization applied between Brazilian domestic competitions and European seasons; final publication requires event coordinates, frame tagging, and triple‑source verification (broadcast; club logs; federation records).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Zico aligns strongly with the expressive South American creative lineage (Menotti / Telê), featuring roaming creative freedom, high set‑piece responsibility and late arrival finishing. He demonstrates fit with positional play models using a technical fulcrum to control tempo, though he is less aligned with ultra‑structured pressing systems that restrict roaming license.</p>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparison vs Maradona, Laudrup and Pelé across core FGA attributes: Vision, Finishing, Creativity, Set‑piece Impact, Press Resistance, Clutch Performance, Positional Flexibility.</p>
+
+        <div class="visual-canvas">
+          <canvas id="comparisonRadar" aria-label="Radar comparing Zico, Maradona, Laudrup and Pelé" width="720" height="480"></canvas>
+        </div>
+
+        <p class="small" style="margin-top:10px"><strong>Legend:</strong> Zico (green); Maradona (purple); Laudrup (blue); Pelé (gold).</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Composure under pressure:</strong> consistently decisive in finals and high‑value matches.</li>
+          <li><strong>Leadership by example:</strong> cultural icon at Flamengo with high availability and professional discipline.</li>
+          <li><strong>Creative confidence:</strong> flair combined with repeatable technical execution, especially on set‑pieces.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Era variance:</strong> physical conditioning and opponent structures differ between 1970s Brazil and modern elite contexts; use ERA to normalize.</li>
+          <li><strong>Friendlies inflation:</strong> free‑kick totals often include non‑competitive matches; separate for model accuracy.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li><strong>Packs:</strong> Flamengo 1981 Libertadores series; 1981 Intercontinental Cup; Brazil 1982 World Cup; Udinese 1983–85; Kashima Antlers 1991–94.</li>
+          <li><strong>Per clip checklist:</strong> match ID; mm:ss; event type; start/end frames; x/y coordinates; pre‑pass chain; pressure state; ERA tag; triple‑source confirmation.</li>
+          <li><strong>Labeling:</strong> set‑piece run‑up vectors, wall geometry, goalkeeper reaction frames, late‑arrival shots as distinct event classes.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+        <p class="small">Core relationships: Flamengo attacking nucleus (Leandro, Júnior, Nunes); Tele Santana's national system; influence on J‑League development as technical adviser.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Zico scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (broadcast; club logs; federation reports) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar comparing Zico, Maradona, Laudrup, Pelé
+    const ctx = document.getElementById('comparisonRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Vision','Finishing','Creativity','Set‑piece Impact','Press Resistance','Clutch Performance','Positional Flexibility'],
+        datasets: [
+          {
+            label: 'Zico',
+            data: [9.8, 9.4, 9.7, 9.9, 8.8, 9.5, 9.1],
+            backgroundColor: 'rgba(31,191,74,0.12)',
+            borderColor: '#6ef09a',
+            pointBackgroundColor: '#6ef09a',
+            borderWidth: 2
+          },
+          {
+            label: 'Maradona',
+            data: [9.7, 9.6, 9.9, 7.5, 8.9, 10.0, 8.9],
+            backgroundColor: 'rgba(124,58,237,0.10)',
+            borderColor: '#7c3aed',
+            pointBackgroundColor: '#7c3aed',
+            borderWidth: 2
+          },
+          {
+            label: 'Laudrup',
+            data: [9.5, 8.2, 9.3, 7.6, 8.4, 8.7, 9.6],
+            backgroundColor: 'rgba(34,130,255,0.10)',
+            borderColor: '#1f6fff',
+            pointBackgroundColor: '#1f6fff',
+            borderWidth: 2
+          },
+          {
+            label: 'Pelé',
+            data: [9.4, 9.8, 9.1, 8.5, 8.6, 9.8, 9.2],
+            backgroundColor: 'rgba(255,205,86,0.10)',
+            borderColor: '#ffd34d',
+            pointBackgroundColor: '#ffd34d',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            beginAtZero: true,
+            max: 10,
+            ticks: { color: '#cbd5e1', stepSize: 2 },
+            pointLabels: { color: '#cbd5e1', font: { size: 12 } },
+            grid: { color: 'rgba(255,255,255,0.04)' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#cbd5e1' } },
+          tooltip: { enabled: true, backgroundColor: '#0b1220', titleColor: '#fff', bodyColor: '#cbd5e1' }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

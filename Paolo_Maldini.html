@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paolo Maldini — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0b9a6f; --accent2:#34d1ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,154,111,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(52,209,255,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(52,209,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/c0/96/82/c096821b396a4ba7fbdb8ad1161ba683.jpg" alt="Paolo Maldini photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Paolo Maldini</div>
+        <div class="sub">Left-Back / Centre-Back · Italy · Born: 26 June 1968 · Nickname: "Il Capitano"</div>
+
+        <div>
+          <span class="pill"><strong>Club</strong> AC Milan (one-club man)</span>
+          <span class="pill"><strong>International</strong> Italy (126 caps, 7 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 94.7</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Positional Intelligence</td><td>9.6</td></tr>
+            <tr><td>Tackling & Timing</td><td>9.4</td></tr>
+            <tr><td>Versatility (LB ↔ CB)</td><td>9.5</td></tr>
+            <tr><td>Leadership & Influence</td><td>9.7</td></tr>
+            <tr><td>Distribution & Composure</td><td>9.1</td></tr>
+            <tr><td>Durability</td><td>9.3</td></tr>
+            <tr><td>Aerial Competence</td><td>8.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li>Appearance totals validated across FBref, Transfermarkt and club archives; preserve triple-source tag for per-competition minute splits.</li>
+          <li>Heatmap and per-90 distribution for 1985–1995 rely on broadcast frame sampling; event-level extraction recommended for full ERA calibration.</li>
+          <li>Captaincy start/tenure dates and armband records verified but mark for official club doc snapshot when publishing leadership timeline.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.7</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Paolo Maldini is a generational defender whose career at AC Milan and Italy set the modern defensive standard. Equally effective as an attacking left-back in his early years and as a composed centre-back later, Maldini combined exceptional reading of the game, technical elegance and sustained leadership across 25 seasons. Five-time European champion and long-time captain, his reliability, versatility and elite positioning define a near-perfect defensive profile.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1978–1984</td><td>AC Milan Youth</td><td>Academy progression; converted from winger to full-back</td></tr>
+            <tr><td>1984–2009</td><td>AC Milan</td><td>One-club career; 902 official appearances; 26 major trophies; club captaincy from 1997</td></tr>
+            <tr><td>1988–2002</td><td>Italy</td><td>126 caps; 7 goals; World Cup runner‑up 1994; Euro runner‑up 2000</td></tr>
+            <tr><td>2018–2023</td><td>AC Milan Sporting Director</td><td>Executive role supporting recruitment and club strategy</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Career Milestones & Highlights</h2>
+        <p class="small"><strong>1989–1990:</strong> Back-to-back European Cup victories with Milan; established as elite European defender.</p>
+        <p class="small"><strong>1994:</strong> World Cup runner-up and tournament all-star; finalist against Brazil.</p>
+        <p class="small"><strong>2007:</strong> Champions League winner at 38, illustrating longevity and elite performance in late career.</p>
+        <p class="small"><strong>Records & Awards:</strong> Over 900 club appearances; multiple Defender of the Year honours; included in FIFA 100 and Ballon d'Or Dream Team.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Anticipation & Reading</td><td>9.8</td></tr>
+                <tr><td>Tackling Efficiency</td><td>9.4</td></tr>
+                <tr><td>Clearance Decisioning</td><td>9.2</td></tr>
+                <tr><td>Duels Won (era adj.)</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive / Distribution</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passing</td><td>9.1</td></tr>
+                <tr><td>Ball Carry & Build</td><td>8.9</td></tr>
+                <tr><td>Ball Retention under Pressure</td><td>9.3</td></tr>
+                <tr><td>Set-piece Contribution</td><td>8.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied for league strength and tactical context across 1985–2009; event-level verification recommended for per-90 conversion and passing networks.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Maldini's DNA maps to disciplined Italian defensive schools while also aligning with possession-first and high-structure philosophies. His adaptability allows deployment as a left-back in possession systems or as the central defensive anchor in organised backlines.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Sacchi / High-Structure Press</td><td>9.4</td><td>Positional discipline and coordinated pressing fit the model</td></tr>
+            <tr><td>Trapattoni / Italian Organization</td><td>9.6</td><td>Defensive intelligence and role clarity excel</td></tr>
+            <tr><td>Cruyff / Positional Possession</td><td>9.0</td><td>Ball progression, composure and passing support possession phases</td></tr>
+            <tr><td>Modern Ball-Playing Centre-Back</td><td>9.5</td><td>Distribution, calmness and decision-making transfer seamlessly</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Paolo Maldini (self), Franco Baresi (peer), Alessandro Nesta (later-generation comparison).</p>
+        <canvas id="maldiniRadar" width="720" height="420" aria-label="Radar comparing Paolo Maldini with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Maldini strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (left/central influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Leadership by example:</strong> calm, consistent captaincy and influence in dressing room and on pitch.</li>
+          <li><strong>Professionalism:</strong> exceptional preparation, longevity and adaptability across tactical eras.</li>
+          <li><strong>Football IQ:</strong> anticipatory reading of play reduces reactive interventions and errors.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Comparative aggression:</strong> lower tackle volume by design; some scouting teams misinterpret low tackle counts as passivity.</li>
+          <li><strong>Era translation:</strong> modern high-line pace demands must be calibrated when projecting younger defenders onto Maldini's profile.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">A lifelong Milan servant, Maldini combined elite technique, intelligence and leadership; his career longevity and consistency make him a blueprint for defensive excellence and player development pathways.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: Milan Champions League finals (1989, 1990, 1994, 2003, 2007), Serie A peak seasons (1987–1996, 2003–2007), World Cup 1994 and Euro 2000 matches. Extraction checklist: match ID; mm:ss; event type (anticipation interception, sliding/standing tackle, progressive pass, positional recovery); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Franco Baresi (Defensive Colleague)</h3>
+        <p class="small"><strong>Dynamic:</strong> A peer relationship that produced one of football's most coherent defensive partnerships; mutual understanding elevated team positioning and defensive cohesion.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Arrigo Sacchi / Fabio Capello / Carlo Ancelotti (Managers)</h3>
+        <p class="small"><strong>Dynamic:</strong> Adaptive across distinct managerial systems—high-press Sacchi, pragmatic Capello and flexible Ancelotti—showing tactical malleability and coachability at elite level.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Alessandro Nesta (Later Partner)</h3>
+        <p class="small"><strong>Dynamic:</strong> Mature centre-back partnership combining Maldini's reading with Nesta's timing; effective in late-career central defensive deployments.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Youth & Family Influence</h3>
+        <p class="small">Son of Cesare Maldini, Paolo's upbringing instilled professional standards and institutional loyalty; later mentored young defenders during his sporting-director tenure.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Paolo Maldini scouting profile. Numeric fields are ERA‑adjusted estimates; mark rows for final event coding and triple-source verification before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Maldini vs peers (Baresi, Nesta)
+    const ctx = document.getElementById('maldiniRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Positioning','Anticipation','Distribution','Leadership','Pace','Aerial','Durability'],
+        datasets: [
+          { label: 'Paolo Maldini', data: [9.6,9.8,9.1,9.7,8.6,8.9,9.3], backgroundColor:'rgba(52,209,255,0.12)', borderColor:'#34d1ff', pointBackgroundColor:'#34d1ff' },
+          { label: 'Franco Baresi', data: [9.7,9.6,8.9,9.4,8.0,8.8,9.0], backgroundColor:'rgba(11,154,111,0.12)', borderColor:'#0b9a6f', pointBackgroundColor:'#0b9a6f' },
+          { label: 'Alessandro Nesta', data: [9.4,9.5,8.8,9.1,8.4,8.7,8.9], backgroundColor:'rgba(124,58,237,0.12)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Positioning','Anticipation','Distribution','Leadership','Pace','Aerial','Durability'],
+        datasets:[{ label:'Maldini', data:[9.6,9.8,9.1,9.7,8.6,8.9,9.3], backgroundColor:'rgba(11,154,111,0.12)', borderColor:'#0b9a6f', pointBackgroundColor:'#0b9a6f' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (left/central influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#34d1ff'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Half',y:9},{x:'Left Centre',y:8},{x:'Central',y:9}] },
+        { name:'Middle Third', data:[{x:'Left Half',y:8},{x:'Left Centre',y:9},{x:'Central',y:9}] },
+        { name:'Attacking Third', data:[{x:'Left Half',y:7},{x:'Left Centre',y:7},{x:'Central',y:6}] }
+      ],
+      title:{ text:'Left / Central Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

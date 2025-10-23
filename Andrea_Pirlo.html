@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Andrea Pirlo — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#6b46c1; --accent2:#9f7aea; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(111,71,193,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(159,122,234,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(159,122,234,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://imgresizer.tntsports.io/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.tntsports.io/2010/11/22/663263-21727725-2560-1440.jpg" alt="Andrea Pirlo photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Andrea Pirlo</div>
+        <div class="sub">Deep-Lying Playmaker · Italy · Born: 19 May 1979 · Height: 1.77 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Brescia; Inter; Reggina; AC Milan; Juventus; New York City FC</span>
+          <span class="pill"><strong>International</strong> Italy (116 caps, 13 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.7</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Passing Precision</td><td>9.9</td></tr>
+            <tr><td>Tempo Control</td><td>9.8</td></tr>
+            <tr><td>Set-piece Mastery</td><td>9.3</td></tr>
+            <tr><td>Spatial Scanning</td><td>9.7</td></tr>
+            <tr><td>Long-Range Passing</td><td>9.6</td></tr>
+            <tr><td>Composure</td><td>9.8</td></tr>
+            <tr><td>Defensive Work (positioning)</td><td>8.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Confirm season-by-season assist totals with FBref and official league logs when publishing xA-derived metrics.</li>
+          <li>Validate free-kick and set-piece event locations from match footage for exact shot-creation mapping.</li>
+          <li>When using per-90 comparisons, normalise minutes played across tactical role shifts (AM → Regista) before ERA adjustment.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.7</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Andrea Pirlo redefined the deep-lying playmaker (regista) role with unmatched vision, passing range and set-piece craft. Transitioned from attacking midfielder to maestro under Carlo Ancelotti at AC Milan, Pirlo combined panoramic scanning with precision execution to control tempo and unlock defensive lines for club and country.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1995–1998</td><td>Brescia</td><td>Senior debut; Serie B promotion; early attacking midfielder role</td></tr>
+            <tr><td>1998–2001</td><td>Inter Milan / Loans</td><td>Limited minutes; loans to Reggina and Brescia; role experimentations</td></tr>
+            <tr><td>2001–2011</td><td>AC Milan</td><td>Reinvented as deep-lying playmaker; 2× Champions League, 2× Serie A; cornerstone of Milan's midfield</td></tr>
+            <tr><td>2011–2015</td><td>Juventus</td><td>Four consecutive Serie A titles; restored Juventus dynasty; UCL final 2015</td></tr>
+            <tr><td>2015–2017</td><td>New York City FC</td><td>Final playing years; MLS All-Star; retired 2017</td></tr>
+            <tr><td>2002–2015</td><td>Italy</td><td>116 caps; 2006 World Cup winner; Euro 2012 runner-up; multiple tournament man-of-the-match displays</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2002–03 Champions League run (AC Milan)</strong> — Pirlo instrumental in Milan's control vs European elites; key long-pass assists and tempo control in knockout legs.</li>
+            <li><strong>2006 FIFA World Cup final and knockout phase</strong> — Orchestrated Italy’s midfield rhythm; consistently high match control, awarded Bronze Ball and Team of Tournament recognition; penalty conversion in shootout vs England is high-priority event for clutch-index.</li>
+            <li><strong>2009–10 Serie A peak (Milan)</strong> — Season of elite passing volume and chance creation; extract multi-event sequences for passing chains and progressive pass success.</li>
+            <li><strong>2011–15 Juventus dominance</strong> — Four consecutive Scudetti; Pirlo’s role in Juventus’ transition play and set-piece value produced multiple match-defining events across Serie A and UCL.</li>
+            <li><strong>Euro 2012 run to final</strong> — Three Man of the Match awards; through-ball and set-piece sequences vs England and Germany flagged for high-impact event extraction.</li>
+            <li><strong>2012–13 season (Juventus UCL quarter/semi)</strong> — Centrality in positional play and transitional counter-management; priority clips: quarter-final and semi-final legs for event-level validation.</li>
+            <li><strong>Legacy sequences</strong> — Iconic Panenka penalty in Euro 2012 shootout; long-range assist patterns vs top opposition; free-kick goals and second-ball recovery sequences — recommended for frame-accurate extraction (match ID; mm:ss; event type; x/y if available; ERA tag).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Regista Core Metrics</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passing / Long-Range Accuracy</td><td>9.8</td></tr>
+                <tr><td>Tempo Control Index</td><td>9.7</td></tr>
+                <tr><td>Through-Ball Success</td><td>9.5</td></tr>
+                <tr><td>Pressure Passing (retain under press)</td><td>9.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Set-piece & Clutch</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Free-kick Efficiency</td><td>9.3</td></tr>
+                <tr><td>Penalty Execution & Composure</td><td>9.2</td></tr>
+                <tr><td>Clutch Performance Index</td><td>9.6</td></tr>
+                <tr><td>Big-Game Pass Impact</td><td>9.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Serie A, UCL and international tournament contexts; event-level verification advised for set-piece locations and assist-chain inventories before publishing per-90 metrics.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Pirlo’s DNA aligns with possession-first philosophies that prioritise tempo control, positional rotations and overload creation. He is a prime match for coaches who build from a controlled pivot and value advanced passing geometry, and his profile maps strongly to Cruyffian positional intelligence and Guardiola-style positional occupation.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Cruyff / Positional Play</td><td>9.6</td><td>Spatial occupation and rotation enabling team creativity</td></tr>
+            <tr><td>Ancelotti / Controlled Build</td><td>9.7</td><td>Reinvention as deep-lying playmaker under Ancelotti</td></tr>
+            <tr><td>Guardiola / Tempo Manipulation</td><td>9.5</td><td>Tempo and overload orchestration</td></tr>
+            <tr><td>Pragmatic Counter-Balance</td><td>8.8</td><td>Effective in teams that mix possession with rapid counters</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Andrea Pirlo, Xabi Alonso (positional passing), Sergio Busquets (screening + control)</p>
+        <canvas id="pirloRadar" width="720" height="420" aria-label="Radar comparing Andrea Pirlo with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority sources: AC Milan and Juventus match archives, FIFA tournament feeds (2006 World Cup, Euro 2012), UEFA Champions League knockout reels. Extract: long-pass chains, set-piece maps, penalty sequence (Euro 2012), and UCL big-game passages.</p>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Pirlo strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (central pivot influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Calm under pressure:</strong> trademark composure across penalties, free-kicks and high-stakes passing.</li>
+          <li><strong>High tactical intelligence:</strong> exceptional anticipation and reading of phases to control game tempo.</li>
+          <li><strong>Professional routines:</strong> disciplined pre-match and mental methods contributing to consistent output.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Mobility limits:</strong> less pace and duel aggression compared with box-to-box midfielders; role requires positional cover from teammates.</li>
+          <li><strong>Role evolution:</strong> earlier attacking-mid contributions differ from later regista metrics; normalise across career phases for comparative models.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Pirlo is a foundational template for the FGA deep-playmaker archetype: a low-volume runner who exerts outsized influence through scanning, timing and execution. He is ideal for DNA-matching and mentoring templates for elite playmaker development.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Extraction checklist: match ID; mm:ss; event type (long pass; through ball; free-kick goal; penalty; tempo reset pass); x/y if available; context tag (UCL knockout, World Cup knockout, league title-decider); ERA tag. Priority matches: 2006 WC knockout matches; Euro 2012 quarter/semis; 2003 & 2007 UCL finals; Juventus 2014–15 UCL run.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Carlo Ancelotti</h3>
+        <p class="small"><strong>Dynamic:</strong> Tactical conversion to regista; Ancelotti’s system unlocked Pirlo’s panoramic passing and positional freedom.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Gennaro Gattuso</h3>
+        <p class="small"><strong>Dynamic:</strong> Defensive balance partner who offered protection, enabling Pirlo’s on-ball dominance and progressive passing.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Juventus Cohort (2011–2015)</h3>
+        <p class="small"><strong>Dynamic:</strong> Central to a veteran midfield that combined Pirlo’s creativity with tactical discipline to deliver domestic dominance and deep European runs.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Andrea Pirlo scouting profile. Numeric fields are ERA‑adjusted estimates; validate Champions League, World Cup and national league event logs with archival footage and triple-source verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Pirlo vs peers (Pirlo, Xabi Alonso, Busquets)
+    const ctx = document.getElementById('pirloRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Vision','Passing','Tempo','Set-piece','Composure','Mobility','Clutch'],
+        datasets: [
+          { label: 'Andrea Pirlo', data: [9.9,9.9,9.8,9.3,9.8,7.8,9.6], backgroundColor:'rgba(159,122,234,0.12)', borderColor:'#9f7aea', pointBackgroundColor:'#9f7aea' },
+          { label: 'Xabi Alonso', data: [9.6,9.7,9.4,8.8,9.2,7.6,9.0], backgroundColor:'rgba(107,70,193,0.08)', borderColor:'#6b46c1', pointBackgroundColor:'#6b46c1' },
+          { label: 'Sergio Busquets', data: [9.2,9.1,9.0,8.0,9.3,8.4,8.7], backgroundColor:'rgba(124,58,237,0.08)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Vision','Passing','Tempo','Set-piece','Composure','Mobility','Clutch'],
+        datasets:[{ label:'Pirlo', data:[9.9,9.9,9.8,9.3,9.8,7.8,9.6], backgroundColor:'rgba(107,70,193,0.10)', borderColor:'#6b46c1', pointBackgroundColor:'#6b46c1' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (central pivot influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#a78bfa'},{from:8,to:10,color:'#9f7aea'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Central',y:7},{x:'Central',y:8},{x:'Right Central',y:7}] },
+        { name:'Middle Third', data:[{x:'Left Central',y:9},{x:'Central',y:10},{x:'Right Central',y:9}] },
+        { name:'Attacking Third', data:[{x:'Left Central',y:8},{x:'Central',y:9},{x:'Right Central',y:8}] }
+      ],
+      title:{ text:'Central Pivot Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

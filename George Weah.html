@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>George Weah — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0b6b9e; --accent2:#6ee7b7; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,107,158,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(110,231,183,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(110,231,183,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/e5/13/64/e51364b4662aefe970976eda33d2a8aa.jpg" alt="George Weah photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">George Weah</div>
+        <div class="sub">Striker · Liberia · Born: 1 October 1966 · Height: 1.85 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Tonnerre; Monaco; Paris Saint‑Germain; AC Milan; Chelsea; Manchester City; Marseille; Al‑Jazira</span>
+          <span class="pill"><strong>International</strong> Liberia (75 caps, 18 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 94.6</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Acceleration & Dribble</td><td>9.4</td></tr>
+            <tr><td>Finishing (open play)</td><td>9.2</td></tr>
+            <tr><td>Coast‑to‑coast Impact</td><td>9.1</td></tr>
+            <tr><td>Hold‑up & Link‑Up</td><td>8.6</td></tr>
+            <tr><td>Big‑Game Instinct</td><td>9.0</td></tr>
+            <tr><td>Consistency at Elite Level</td><td>8.8</td></tr>
+            <tr><td>Leadership (national figure)</td><td>9.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Discrepancies exist between domestic league tallies pre‑Monaco and retrospective databases; mark for 3‑source validation (club ledger; national FA; contemporary press).</li>
+          <li>Iconic solo goals and long‑range sequences require frame‑accurate extraction for event‑level shot placement and possession carry metrics.</li>
+          <li>Political career and late exhibition appearances create noise in appearance logs; filter non‑competitive fixtures when computing per‑90 baselines.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.6</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">George Weah is one of football's transformative forwards of the 1990s — a rare blend of pace, power and dribbling who won the Ballon d'Or and FIFA World Player of the Year while still representing an African nation. Prolific in France and Italy and decisive on the biggest stages, Weah set a template for multi‑functional strikers who combine individual brilliance with team outcomes and later transitioned to national leadership roles.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1987–1988</td><td>Tonnerre Yaoundé</td><td>Breakthrough in Cameroon; continental exposure</td></tr>
+            <tr><td>1988–1992</td><td>Monaco</td><td>European adaptation under Arsène Wenger; domestic cup success</td></tr>
+            <tr><td>1992–1995</td><td>Paris Saint‑Germain</td><td>Domestic title; Champions League top scorer 94–95; global recognition</td></tr>
+            <tr><td>1995–2000</td><td>AC Milan</td><td>Two Serie A titles; peak technical/physical prime</td></tr>
+            <tr><td>2000</td><td>Chelsea (loan)</td><td>FA Cup winner; immediate impact in Premier League</td></tr>
+            <tr><td>2000–2001</td><td>Manchester City / Marseille</td><td>Short spells; role adaptation</td></tr>
+            <tr><td>2001–2003</td><td>Al‑Jazira</td><td>Final professional seasons before retirement</td></tr>
+            <tr><td>1986–2003</td><td>Liberia</td><td>75 caps; national icon; strong leadership and development investment</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1994–95 Champions League run (PSG)</strong> — extract full match sequences vs Bayern and semi‑final fixtures to validate high‑velocity dribble entries, shot placement and progressive carries for continental xG calibration.</li>
+            <li><strong>1995 Ballon d'Or season</strong> — season‑level event extraction across domestic and European fixtures to reproduce per‑90 elite output and validate award‑level signal metrics.</li>
+            <li><strong>Iconic solo goal vs Verona (AC Milan)</strong> — coast‑to‑coast sequence for sprint‑carry modelling, take‑on success under pressure and finishing under fatigue; source broadcast frames for shot coordinates.</li>
+            <li><strong>1996–99 Serie A title seasons (Milan)</strong> — target matches for defensive transition analysis and high‑level combination play against top Italian units for positional heat and pressing response.</li>
+            <li><strong>Chelsea FA Cup 2000</strong> — final and cup sequence extraction to measure substitute/short‑term impact and clutch scoring index.</li>
+            <li><strong>National team leadership phases</strong> — match packs from Africa Cup qualifiers and friendlies used to calibrate leadership and clutch indices in lower‑resource team contexts.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Attacking Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Dribble Success / Carry Value</td><td>9.4</td></tr>
+                <tr><td>Shot Quality (placement)</td><td>9.2</td></tr>
+                <tr><td>Progressive Carry / Transition</td><td>9.0</td></tr>
+                <tr><td>Goal Impact per 90 (era adj.)</td><td>9.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Acceleration & Burst</td><td>9.5</td></tr>
+                <tr><td>Pressing / Defensive Work</td><td>7.6</td></tr>
+                <tr><td>Hold‑up Effectiveness</td><td>8.4</td></tr>
+                <tr><td>Stamina & Match Availability</td><td>8.3</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied to 1990s France/Italy contexts; flagged for event‑level frame extraction to verify shot coordinates and extended carry tracking before final publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Weah fits multi‑functional striker templates: direct threat in transition, capable of carrying from deep and finishing in high tempo systems. Strong fit with coaches who value counterattacking speed, vertical dribbling and individual creativity; also adapts to structured AC Milan‑style two‑striker systems where movement and combination are emphasised.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Direct Transition / Counter</td><td>9.5</td><td>Elite acceleration, long carries and finish under space</td></tr>
+            <tr><td>Individual Brilliance / Solo Impact</td><td>9.4</td><td>Ability to win 1v1s and create from nothing</td></tr>
+            <tr><td>Possession / Combination Systems</td><td>8.3</td><td>Effective but less central than in counter frameworks</td></tr>
+            <tr><td>Leadership / Nation Builder</td><td>9.2</td><td>High cultural and leadership signal; national figure</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers and templates: classic finishers with high carry value and modern multi‑functional forwards.</p>
+        <canvas id="weahRadar" width="720" height="420" aria-label="Radar comparing George Weah with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Self‑belief and resilience:</strong> overcame limited resources to succeed at the highest level and later moved into national leadership.</li>
+          <li><strong>Competitive temperament:</strong> performs decisively in elite matches and cup finals.</li>
+          <li><strong>Influence & leadership:</strong> strong cultural impact and mentoring signal for development projects.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Event data gaps:</strong> many defining sequences occur before comprehensive tracking; archival broadcast frames necessary for precise per‑event tagging.</li>
+          <li><strong>Late‑career variance:</strong> short stints and loans introduce sample noise; normalise when aggregating career metrics.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">George Weah is a blueprint for high‑impact, individualistic forwards who can change games single‑handedly and carry teams in transition; verify event rows from PSG and Milan archive footage for final metric validation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: PSG 1994–95 Champions League ties (top scorer sequences), AC Milan 1995–99 title season matches (coast‑to‑coast goal vs Verona), Chelsea FA Cup 2000 fixtures, key Monaco and early European cup ties. Extraction checklist: match ID; mm:ss; event type (dribble carry; shot; solo run; assist; penalty); start/end frame; shot coordinates if available; ERA tag; triple‑source confirmation (club footage; broadcast; official match report).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Arsène Wenger (Monaco)</h3>
+        <p class="small"><strong>Dynamic:</strong> Discovery and European integration influence — foundational coaching relationship enabling Weah's tactical and technical growth.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">PSG & AC Milan teams</h3>
+        <p class="small"><strong>Dynamic:</strong> Played alongside elite creators and in systems that amplified his transition and finishing strengths; club contexts crucial for peak award seasons.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">National Impact</h3>
+        <p class="small"><strong>Dynamic:</strong> Persistent investment in Liberian football infrastructure and social projects; unique legacy as the only player to win Ballon d'Or while representing an African national team.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — George Weah scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for archival extraction and triple‑source verification (club broadcast; national FA reports; contemporary press) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: George Weah strengths
+    const ctx = document.getElementById('weahRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Dribble','Finishing','Carry Value','Link‑Up','Big‑Game','Acceleration','Leadership'],
+        datasets: [
+          { label: 'George Weah', data: [9.4,9.2,9.0,8.6,9.0,9.5,9.3], backgroundColor:'rgba(110,231,183,0.12)', borderColor:'#6ee7b7', pointBackgroundColor:'#6ee7b7' },
+          { label: 'Elite Multi‑Functional FW', data: [8.8,8.9,8.6,8.2,8.7,8.9,8.5], backgroundColor:'rgba(11,107,158,0.08)', borderColor:'#0b6b9e', pointBackgroundColor:'#0b6b9e' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

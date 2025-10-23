@@ -1,0 +1,230 @@
+### Eiður Guðjohnsen — Empire FGA Profile (enhanced historical matches)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eiður Guðjohnsen — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#4dd0e1; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(77,208,225,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(77,208,225,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://substackcdn.com/image/fetch/$s_!eL6k!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fce0e96de-0055-4760-b84d-d5806de3a41c_997x997.jpeg" alt="Eiður Guðjohnsen photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Eiður Guðjohnsen</div>
+        <div class="sub">Forward / Attacking Midfielder · Iceland · Born: 15 September 1978 · Height: 1.85 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Valur; PSV; Bolton; Chelsea; Barcelona; Monaco; Tottenham; Club Brugge; Molde; Pune City</span>
+          <span class="pill"><strong>International</strong> Iceland (88 caps, 26 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.5</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing & Technique</td><td>9.0</td></tr>
+            <tr><td>Link‑Up Play / Vision</td><td>8.8</td></tr>
+            <tr><td>Movement & Off‑ball Intelligence</td><td>8.9</td></tr>
+            <tr><td>Versatility (FW / AM / Wing)</td><td>8.6</td></tr>
+            <tr><td>Big‑Game Impact</td><td>8.7</td></tr>
+            <tr><td>Aerial Ability</td><td>7.8</td></tr>
+            <tr><td>Durability</td><td>8.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club minute totals vary across historic databases for early PSV and Bolton seasons; require FBref / club ledger reconciliation before export.</li>
+          <li>Position mapping differs per season (CF, second striker, AM) — ensure per‑match role tags for accurate positional metrics.</li>
+          <li>Loan spells and short contracts (e.g., Tottenham loan 2010) need explicit match IDs for event extraction sampling.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Eiður Smári Guðjohnsen is Iceland’s standout modern attacker — a technically gifted forward who blended clinical finishing with exceptional link‑up play. He achieved peak club success with Chelsea and Barcelona, winning Premier League titles, La Liga and the UEFA Champions League, and adapted his role from pure goalscorer to creative second‑striker and deep‑lying attacker under different managers.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1994</td><td>Valur</td><td>Senior debut; early goal production</td></tr>
+            <tr><td>1995–1998</td><td>PSV Eindhoven</td><td>Youth development; limited first‑team minutes</td></tr>
+            <tr><td>1998–2000</td><td>Bolton Wanderers</td><td>Breakthrough in England; 21 goals season and major cup runs</td></tr>
+            <tr><td>2000–2006</td><td>Chelsea</td><td>Key goals, hat‑tricks, adapted to deeper creative role; 2x Premier League</td></tr>
+            <tr><td>2006–2009</td><td>Barcelona</td><td>Important squad contributor; Treble 2008–09 (UCL, LaLiga, Copa del Rey)</td></tr>
+            <tr><td>2009–2011</td><td>Monaco / Tottenham (loan)</td><td>Ligue 1 move; Premier League loan spell</td></tr>
+            <tr><td>2012–2014</td><td>Club Brugge</td><td>Belgian resurgence; steady goal returns</td></tr>
+            <tr><td>2014–2016</td><td>Bolton / China / Molde / Pune City</td><td>Late career wanderer with mentoring roles</td></tr>
+            <tr><td>1996–2016</td><td>Iceland</td><td>88 caps, 26 goals; part of Euro 2016 quarter‑final squad</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2000–2001 Premier League breakthrough</strong> — season extraction at Bolton → calibrate shot maps and progressive passing under first English spell.</li>
+            <li><strong>Chelsea 2004–06 title seasons</strong> — sequence extraction for role shift from striker to withdrawn creator; sample key matches vs Man Utd (Aug 2004 winner) and Blackburn hat‑trick (23 Oct 2004) for finishing and late arrival metrics.</li>
+            <li><strong>Barcelona debut winning goal (2006)</strong> — use Camp Nou league debut goal vs Celta Vigo clip to validate adaptation to La Liga timing and off‑the‑ball runs.</li>
+            <li><strong>2008–09 Treble squads</strong> — extract rotation minutes, substitute impact events and assist sequences for per‑90 influence in elite squads.</li>
+            <li><strong>Iceland national team milestones</strong> — debut replacing his father (1996); leadership samples from Euro 2016 squad; per‑match big‑game scoring (qualification ties) to calibrate clutch index.</li>
+            <li><strong>Late‑career mentoring roles</strong> — Club Brugge and Molde seasons for transition from primary finisher to mentor/link‑up role; extract press behaviour and positional drop for aging curve modeling.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Efficiency</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Placement / Composure</td><td>9.1</td></tr>
+                <tr><td>Chance Creation (secondary assists)</td><td>8.7</td></tr>
+                <tr><td>Substitute Impact Index</td><td>8.6</td></tr>
+                <tr><td>Conversion vs xG (era adj.)</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical Versatility</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Role Flexibility (FW ↔ AM)</td><td>8.9</td></tr>
+                <tr><td>Link‑Up Efficiency</td><td>8.8</td></tr>
+                <tr><td>Press Resistance / Hold‑Up</td><td>7.9</td></tr>
+                <tr><td>Progressive Carry / Run In Behind</td><td>8.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Premier League and La Liga contexts; validate per‑match event coordinates for xG/xA calibration using archived broadcast and FBref match logs before publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Guðjohnsen is a hybrid forward — equally effective as a late‑arrival goal threat or a creative second striker. He fits possession teams that use a withdrawn nine to link play, and transitional systems that value intelligent third‑man runs. Strong fit with Mourinho pragmatism (creative adaptability) and Cruyff/Guardiola positional intelligence when used in rotated possession roles.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Creative Second‑Striker / Link</td><td>9.1</td><td>High vision, technical control, back‑to‑goal play</td></tr>
+            <tr><td>Counter / Transitional Attack</td><td>8.8</td><td>Excellent timing and runs in behind</td></tr>
+            <tr><td>Target / Box Predator</td><td>7.9</td><td>Good aerial and finishing but not pure physical target</td></tr>
+            <tr><td>Big Squad Rotation (Elite clubs)</td><td>8.7</td><td>Proven impact off bench and role adaptability</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Template peers: second‑striker creators (2nd striker era), hybrid forwards with deep creative phases (late Mourinho Chelsea examples).</p>
+        <canvas id="eidurRadar" width="720" height="420" aria-label="Radar comparing Eiður Guðjohnsen with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Game intelligence:</strong> reads space, times runs, excels in link‑up and chasing late goals.</li>
+          <li><strong>Adaptability:</strong> successfully shifted roles across countries and managers, accepted rotational duties.</li>
+          <li><strong>Leadership & professionalism:</strong> long career, mentor later stages, national team captaincy phases.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Injury windows:</strong> mid‑career ankle issues influenced season continuity; flag medical timeline for availability modeling.</li>
+          <li><strong>Late‑career variance:</strong> multiple short spells in varied leagues require normalization when aggregating per‑90 metrics.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Eiður Guðjohnsen combined rare technical polish with tactical intelligence, making him a blueprint for modern hybrid forwards who can both score and create at the highest level; verify event rows from Chelsea and Barcelona archives for final publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: Bolton 1999–2000 season highlight reels; Chelsea decisive matches 2003–06 (Blackburn hat‑trick, Aug 2004 goal); Barcelona debut goal vs Celta (Aug 2006); UEFA Champions League 2008–09 match sequences; Iceland national team Euro 2016 preparation and qualification fixtures. Extraction checklist: match ID; mm:ss; event type (goal; assist; secondary assist; off‑ball run; substitute impact); frame reference; shot coordinates if available; ERA tag; triple source verification (club footage; FBref; national FA).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Managerial Dynamics</h3>
+        <p class="small"><strong>Dynamic:</strong> Thrived under tactical pragmatists (Mourinho) and positional coaches (Barcelona staff); role bespoke to manager needs — scorer, creator, substitute impact.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Family & Succession</h3>
+        <p class="small"><strong>Dynamic:</strong> Son of Arnór Guðjohnsen and father to professional sons; unique football lineage contributes to mentorship and leadership signal in later career and scouting narratives.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Eiður Guðjohnsen scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (FBref; club footage; official match reports) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Eiður Guðjohnsen strengths
+    const ctx = document.getElementById('eidurRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Link‑Up','Movement','Versatility','Big‑Game','Aerial','Consistency'],
+        datasets: [
+          { label: 'Eiður Guðjohnsen', data: [9.1,8.8,8.9,8.6,8.7,7.8,8.4], backgroundColor:'rgba(77,208,225,0.12)', borderColor:'#4dd0e1', pointBackgroundColor:'#4dd0e1' },
+          { label: 'Hybrid Forward Template', data: [8.7,8.5,8.3,8.0,8.2,7.5,8.0], backgroundColor:'rgba(124,58,237,0.08)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

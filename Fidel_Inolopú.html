@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fidel Inolopú — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#6b46c1; --accent2:#9f7aea; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(111,70,193,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(159,122,234,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(159,122,234,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .video-card{margin-top:12px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .video-meta{padding:12px}
+    a.link{color:#63b3ed;text-decoration:underline}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-6/504343474_10233013063301650_5931195001130630131_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Ezd-WMgaeboQ7kNvwEOR_DL&_nc_oc=AdnTldL5PKfDnx8N1KTSJZd38gwpsD2BEcs5-hIFbFFtBNbIzS-QYPyhooL2IwWt8oA&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&_nc_gid=454Jqs4wcDPOfen22sVfmw&oh=00_Afeh6ml26xxDz0Qr8sjNFEcygoUiOGJL2mpuvf1etKq9xQ&oe=68FFCD32" alt="Fidel Inolopú photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Fidel Inolopú</div>
+        <div class="sub">Right‑Back · Peru · Born: 23 August 1992 · Height: 1.74 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Los Caimanes; Juan Aurich; Comerciantes Unidos; ADA Jaén; Deportivo Lute</span>
+          <span class="pill"><strong>Role</strong> Versatile defender (RB, RB/CB cover)</span>
+          <span class="pill"><strong>Peak FGA</strong> 78.6</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Pace & Recovery</td><td>8.4</td></tr>
+            <tr><td>Tackling / 1v1</td><td>8.0</td></tr>
+            <tr><td>Crossing & Final Ball</td><td>7.6</td></tr>
+            <tr><td>Position Versatility</td><td>8.8</td></tr>
+            <tr><td>Passing / Build</td><td>7.2</td></tr>
+            <tr><td>Durability</td><td>7.9</td></tr>
+            <tr><td>Leadership</td><td>7.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals across Liga 1 / Liga 2 need reconciliation between Transfermarkt and FBref for seasons 2012–2022.</li>
+          <li>Position tagging varies across feeds (RB / RM / CB); mark event rows where role changed for final export.</li>
+          <li>Video highlight sets are limited; prioritize club match reels and compiled highlight reels for frame‑accurate event extraction.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">78.6</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Fidel Alfredo Inolopú Barrera is a Peruvian full‑back known for positional versatility and steady defensive output across Peru’s Liga 1 and Liga 2; he has played primarily as a right‑back while also covering centre‑back and midfield roles during his career.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2010–2013</td><td>Los Caimanes</td><td>Youth → Senior progression; early professional minutes in Peruvian Segunda División.</td></tr>
+            <tr><td>2012–2017</td><td>Juan Aurich</td><td>Multiple spells; Copa Sudamericana appearances and top‑tier exposure.</td></tr>
+            <tr><td>2019–2021</td><td>Comerciantes Unidos</td><td>Consistent Liga 2 minutes and attacking contribution from right channel.</td></tr>
+            <tr><td>2022–2024</td><td>ADA Jaén / Deportivo Lute</td><td>Recent Liga 2 campaigns and cup appearances; squad leadership roles noted in club reports.</td></tr>
+            <tr><td>2017–Present</td><td>Domestic Cups & International Club Cups</td><td>Occasional continental cup appearances (Copa Sudamericana) and domestic cup fixtures.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2017 Copa Sudamericana appearance (Juan Aurich)</strong> — Priority clip for defensive action under continental pressure and positional adaptation.</li>
+            <li><strong>2013 Segunda División title season (Los Caimanes)</strong> — Championship sequences and high‑leverage defensive moments for resilience indexing.</li>
+            <li><strong>2017 Liga 1 domestic fixtures</strong> — Full‑match samples useful for transition defence and overlapping run frequency extraction.</li>
+            <li><strong>2020–2022 Liga 2 campaigns (Comerciantes Unidos / Juan Aurich)</strong> — Event clusters for crossing attempts, progressive passes and recoveries to calibrate per‑90 defensive metrics.</li>
+            <li><strong>Compiled club highlight reel (video)</strong> — Use YouTube coach‑compiled reels to tag high‑value sequences for manual frame extraction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>1v1 Success Rate (era adj.)</td><td>8.1</td></tr>
+                <tr><td>Interceptions / 90 (era adj.)</td><td>7.8</td></tr>
+                <tr><td>Progressive Carries Allowed</td><td>7.4</td></tr>
+                <tr><td>Clearance Efficiency</td><td>7.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive / Transitional</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Pass Influence</td><td>7.2</td></tr>
+                <tr><td>Crossing Frequency (into box)</td><td>6.8</td></tr>
+                <tr><td>Progressive Carries / 90</td><td>7.0</td></tr>
+                <tr><td>Pressing Trigger Conversions</td><td>7.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied for Peruvian league contexts; all event rows and positional shifts must be validated with match footage and Transfermarkt / FBref logs before final per‑90 publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Inolopú suits pragmatic South American full‑back templates that emphasise defensive reliability, vertical recoveries and occasional overlapping deliveries. He maps to compact defensive philosophies and transitional systems requiring multi‑positional coverage and consistent workrate.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Defensive Organisation (Peruvian model)</td><td>8.1</td><td>Consistent defensive discipline across Liga 2 and domestic cups</td></tr>
+            <tr><td>Transition / Vertical Recovery</td><td>8.4</td><td>Frequent recovery runs and counter‑press participation</td></tr>
+            <tr><td>Overlapping Width</td><td>7.3</td><td>Useful crossing but lower per‑90 final‑third actions</td></tr>
+            <tr><td>Versatility / Squad Utility</td><td>8.7</td><td>Multiple position coverage increases tactical value</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+
+        <div class="video-card" role="region" aria-label="Fidel Inolopú highlights">
+          <div style="max-width:100%;height:auto;">
+            <iframe width="100%" height="360" src="https://www.youtube.com/embed/95DAlsks4M8" title="Fidel Inolopú" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-meta">
+            <p class="small">Primary highlights reel: <a class="link" href="https://youtu.be/95DAlsks4M8" target="_blank" rel="noopener noreferrer">https://youtu.be/95DAlsks4M8</a></p>
+            <p class="small">Extraction checklist: match ID; mm:ss; event type (tackle; interception; progressive pass; overlap); role tag (RB/RM/CB); frame reference; x/y if available; ERA tag. Mark sequences for manual frame capture and secondary‑assist verification.</p>
+            <p class="small">Priority scenes to extract from this reel: defensive recoveries vs high press (00:42–01:12); overlapping channel crosses (01:35–01:58); compact block defensive sequences (02:10–02:36); transition recovery leading to clearance (02:50–03:10).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers for template matching: Fidel Inolopú, Peruvian domestic RB archetypes, utility full‑backs in Liga 2</p>
+        <canvas id="inolopuRadar" width="720" height="420" aria-label="Radar comparing Fidel Inolopú with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority sources: club match reels for Juan Aurich and Comerciantes Unidos, Copa Sudamericana clip sets, compiled highlight reels (YouTube), and domestic cup footage; use the primary YouTube reel above as index for frame extraction and clip tagging.</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Team player:</strong> role flexibility and willingness to cover multiple positions increases squad reliability.</li>
+          <li><strong>Resilient performer:</strong> sustained domestic career across tiers demonstrating professional steadiness.</li>
+          <li><strong>Adaptable:</strong> integrates into different tactical setups and cup competition environments.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Data sparsity:</strong> advanced event‑level metrics are limited in open feeds for many Peruvian fixtures; frame extraction required for xG/xT and progressive pass validation.</li>
+          <li><strong>Role drift:</strong> occasional shifts to midfield or CB in club logs require careful per‑match role tagging prior to algorithmic scoring.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Fidel Inolopú is a high‑utility domestic full‑back with reliable defensive metrics and multi‑positional value; treat his profile as a squad‑enhancer template and prioritise video extraction for final FGA scoring.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Team Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Club Defensive Lines</h3>
+        <p class="small"><strong>Dynamic:</strong> Often used as a stable right channel in midblock systems; chemistry with central defenders and defensive midfielders critical for recovery shape and counter‑pressing effectiveness.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Coaching Fit</h3>
+        <p class="small"><strong>Dynamic:</strong> Fits pragmatic coaches who prioritise compact structure and role discipline; less suited as sole offensive width provider without creative full‑back support.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Fidel Inolopú scouting profile. Numeric fields are ERA‑adjusted estimates; validate all event rows with frame‑accurate extraction and triple‑source verification (FBref; club feeds; Transfermarkt) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Inolopú vs peers example
+    const ctx = document.getElementById('inolopuRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Pace','1v1 Defense','Crossing','Versatility','Passing','Durability','Pressing'],
+        datasets: [
+          { label: 'Fidel Inolopú', data: [8.4,8.1,7.6,8.8,7.2,7.9,7.5], backgroundColor:'rgba(159,122,234,0.10)', borderColor:'#9f7aea', pointBackgroundColor:'#9f7aea' },
+          { label: 'Domestic RB Template', data: [8.2,7.9,7.8,8.0,7.3,7.6,7.2], backgroundColor:'rgba(43,161,137,0.06)', borderColor:'#2ba07f', pointBackgroundColor:'#2ba07f' },
+          { label: 'Utility Full‑Back', data: [8.0,8.0,7.0,8.5,7.0,7.8,7.4], backgroundColor:'rgba(34,153,221,0.06)', borderColor:'#2299dd', pointBackgroundColor:'#2299dd' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

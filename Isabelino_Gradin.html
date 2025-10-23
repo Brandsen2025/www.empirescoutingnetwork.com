@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Isabelino Gradín — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#2aa198; --accent2:#64ffda; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(42,161,152,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(100,255,218,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(100,255,218,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzT4aSMzOwkBbGikEAFxku-PFUPySHH-EuKw&s" alt="Isabelino Gradín photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Isabelino Gradín</div>
+        <div class="sub">Forward · Uruguay · Born: 8 July 1897 · Died: 21 December 1944</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Peñarol; Olimpia (later River Plate Montevideo)</span>
+          <span class="pill"><strong>International</strong> Uruguay (23 caps, 10 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.0</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Explosive Acceleration</td><td>9.6</td></tr>
+            <tr><td>Finishing in the Box</td><td>9.1</td></tr>
+            <tr><td>Crossing & Wide Penetration</td><td>8.8</td></tr>
+            <tr><td>Aerial & Power</td><td>7.6</td></tr>
+            <tr><td>Versatility (both feet)</td><td>8.9</td></tr>
+            <tr><td>Athletic Durability</td><td>8.2</td></tr>
+            <tr><td>Competitive Temperament</td><td>8.7</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals and goal counts compiled from early 1900s records; require triple-source reconciliation before export.</li>
+          <li>Event-level coordinates for Copa América and domestic matches are incomplete; archival footage needed for xG/xT modeling.</li>
+          <li>International cap lists from rebel-era fixtures (FUF) must be flagged and annotated separately in database exports.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Isabelino Gradín was an early Uruguayan star: a rapid, two‑footed forward who combined sprinting pedigree with clinical finishing and accurate crossing; he is widely recognised among Uruguay’s greatest players before the 1930 World Cup.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1915–1921</td><td>Peñarol</td><td>Established himself as a prolific scorer; recorded ~212 apps and 101 goals for Aurinegros in period sources.</td></tr>
+            <tr><td>1922–1929</td><td>Olimpia / River Plate (founding involvement)</td><td>Played later career focusing increasingly on athletics alongside football.</td></tr>
+            <tr><td>1915–1927</td><td>Uruguay</td><td>23 caps, 10 goals; instrumental in early South American Championship campaigns.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1916 South American Championship (Buenos Aires)</strong> — Gradín finished as tournament top scorer with three goals and helped Uruguay claim the inaugural continental title; his brace vs Chile (4–0) drew protests from Chile over Uruguay’s selection of players of African descent.</li>
+            <li><strong>1917 South American Championship</strong> — Member of Uruguay’s title-winning squad; did not play in match minutes but part of the championship group dynamics and squad continuity.</li>
+            <li><strong>1919 South American Championship (Brazil)</strong> — Played every match and scored twice in a tournament decided by a historic 150‑minute playoff; this campaign contextualises endurance and match‑state performance under extreme conditions.</li>
+            <li><strong>1918 & 1921 Uruguayan Primera División</strong> — Domestic league titles with Peñarol during his peak club years; priority footage: championship deciding matches and final‑third sequences for movement templates.</li>
+            <li><strong>Athletics achievements (1918–1922)</strong> — Four‑time South American athletics champion in 200m/400m events; cross‑sport data informs exceptional sprint profile and ERA speed multipliers.</li>
+            <li><strong>Rebel FUF fixtures (1924)</strong> — Played for a rebel Uruguay side during the domestic association split; annotate these caps separately in international datasets to preserve provenance.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Acceleration / First Step</td><td>9.7</td></tr>
+                <tr><td>Finishing (close range)</td><td>9.2</td></tr>
+                <tr><td>Crossing & Final Ball</td><td>8.8</td></tr>
+                <tr><td>Shot Volume (era adj.)</td><td>8.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Box Presence / Timing</td><td>9.0</td></tr>
+                <tr><td>Transition Speed / Breaks</td><td>9.4</td></tr>
+                <tr><td>Athletic Cross‑Sport Transfer</td><td>9.6</td></tr>
+                <tr><td>Durability (career arc)</td><td>8.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied to account for early 20th‑century tactical context, pitch conditions and match durations; event‑level verification from archived reels required for final per‑90 calibration.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Gradín maps to high‑tempo wing/inside‑forward archetypes that prioritise first‑step burst, short‑space finishing and accurate delivery into the box; his athletic profile aligns with pressing transition philosophies where sprint windows create scoring chances.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>South American Early Flair / Penetration</td><td>9.3</td><td>Top scorer in inaugural continental competition; decisive final‑third actions.</td></tr>
+            <tr><td>Transition / Direct Attack</td><td>9.1</td><td>Elite sprint capacity and counter‑penetration</td></tr>
+            <tr><td>Crossing + Wide Support</td><td>8.7</td><td>Accurate crossing combined with finishing threat</td></tr>
+            <tr><td>Big‑Game Temperament</td><td>8.6</td><td>Tournament scoring and decisive match involvement</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers for template matching: Isabelino Gradín, early José Piendibene (Uruguayan inside‑forward), Arthur Friedenreich (contemporary South American forward)</p>
+        <canvas id="gradinRadar" width="720" height="420" aria-label="Radar comparing Isabelino Gradin with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority sources for event extraction: 1916 Copa (match reels and contemporary newsreels), 1919 tournament reels (150‑minute final), Peñarol 1918/1921 championship coverage and athletics race footage (200m/400m). Archive checklist: reel ID; mm:ss; event type (goal; cross; sprint segment); frame reference; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Sociohistoric Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Resilience under racial pressure:</strong> overcame contemporary discrimination and remained a national figurehead.</li>
+          <li><strong>Competitive hunger:</strong> tournament winner and top scorer at 19; multi‑sport champion demonstrating elite mental toughness.</li>
+          <li><strong>Leadership by example:</strong> cultural icon whose legacy influenced future generations of Afro‑Uruguayan players.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Fragmentary records:</strong> incomplete match logs and inconsistent reporting across early sources require careful provenance tagging.</li>
+          <li><strong>Late‑career focus shift:</strong> moved emphasis to athletics and participated in rebel fixtures that affect official cap tallies.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Gradín’s unique combination of elite sprinting and finishing makes him an ideal historical prototype for FGA’s explosive wide‑forward archetype; preserve social context tags when publishing to honour provenance and legacy.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">High‑priority reels: 1916 Copa match vs Chile (two‑goal sequence), 1916 final vs Brazil, 1919 playoff series vs Brazil (150 minutes), Peñarol championship matches (1918, 1921), selected athletics races. Extraction checklist: archive source; reel ID; mm:ss; event type; frame reference; ERA tag; triple‑source confirm (newsreel; club archive; contemporary press).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Historical Context</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Peñarol Cohort</h3>
+        <p class="small"><strong>Dynamic:</strong> Central attacking reference at Peñarol; team visits to Gradín in later life reflect enduring club reverence.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Juan Delgado (teammate)</h3>
+        <p class="small"><strong>Dynamic:</strong> Co‑first black players to appear in an international tournament for Uruguay (1916), together they dismantled racial objections through performance.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Isabelino Gradín scouting profile. Numeric fields are ERA‑adjusted estimates; validate all event rows using archived reels and triple‑source verification (contemporary press; club archives; national federation) before publish.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Gradín vs peers (Gradín, Piendibene, Friedenreich)
+    const ctx = document.getElementById('gradinRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Acceleration','Finishing','Crossing','Durability','Athletic Transfer','Big game','Adaptability'],
+        datasets: [
+          { label: 'Isabelino Gradín', data: [9.7,9.2,8.8,8.1,9.6,8.8,8.4], backgroundColor:'rgba(100,255,218,0.10)', borderColor:'#64ffda', pointBackgroundColor:'#64ffda' },
+          { label: 'José Piendibene', data: [9.0,8.9,8.5,8.6,8.0,8.5,8.2], backgroundColor:'rgba(42,161,152,0.06)', borderColor:'#2aa198', pointBackgroundColor:'#2aa198' },
+          { label: 'Arthur Friedenreich', data: [9.1,9.0,8.7,8.3,8.2,8.6,8.1], backgroundColor:'rgba(34,153,221,0.06)', borderColor:'#2299dd', pointBackgroundColor:'#2299dd' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

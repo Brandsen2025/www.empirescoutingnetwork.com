@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cafú — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#00d1ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.06), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.03), transparent 8%), var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased;}
+    header{display:flex;align-items:center;justify-content:space-between;max-width:1320px;margin:12px auto;padding:0 22px;}
+    header img{height:50px;width:auto;object-fit:contain;}
+    .container{max-width:1320px;margin:22px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px;}
+    .card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative;}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);}
+    .bigname{font-size:40px;font-weight:900;margin:16px 0;color:#fff;line-height:1;}
+    .sub{font-size:14px;color:var(--muted);margin-bottom:10px;}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 0 0;}
+    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;color:var(--white)}
+    th,td{padding:12px;border:1px solid rgba(255,255,255,0.08);text-align:left;vertical-align:top}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:22px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(0,209,255,0.12)}
+    .section{margin-top:26px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .visuals{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .visual{background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;min-width:260px;flex:1}
+    @media (max-width:1000px){.container{grid-template-columns:1fr}.photo{height:300px}}
+  </style>
+</head>
+<body>
+  <header aria-label="Empire FGA header">
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network Logo">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-title">
+    <aside class="card" aria-label="Player summary">
+      <img class="photo" src="https://thumbs.dreamstime.com/b/milan-italy-september-g-meazza-san-siro-stadium-uefa-champions-league-ac-milan-fc-ajax-cafu-match-cafu-match-189240115.jpg" alt="Cafú photo">
+      <div class="bigname" id="profile-title">Marcos Evangelista de Morais (Cafú)</div>
+      <div class="sub">Right-back · Brazil · Born: 7 June 1970 · Height: 1.76 m</div>
+
+      <div style="margin-top:12px">
+        <span class="pill"><strong>Primary</strong> Right-back / Wing-back</span>
+        <span class="pill"><strong>Club highlights</strong> São Paulo · Roma · AC Milan</span>
+        <span class="pill"><strong>National</strong> Brazil (most capped)</span>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Physical & Mental Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical snapshot">
+          <thead><tr><th>Metric</th><th>Score (0-10)</th></tr></thead>
+          <tbody>
+            <tr><td>Explosive Overlapping Runs</td><td>9.6</td></tr>
+            <tr><td>Stamina / Endurance</td><td>9.5</td></tr>
+            <tr><td>Crossing / Final Delivery</td><td>9.1</td></tr>
+            <tr><td>Defensive Positioning</td><td>8.9</td></tr>
+            <tr><td>One-v-One Recovery</td><td>9.0</td></tr>
+            <tr><td>Leadership (captaincy)</td><td>9.2</td></tr>
+            <tr><td>Consistency across tournaments</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Audit Flags</h3>
+        <ul style="color:var(--muted);margin:0;padding-left:18px">
+          <li>International caps reported vary by source (142/143); mark for Triple Source Rule verification before final numeric lock.</li>
+          <li>Club appearance totals aggregated; verify competition-level minute logs for per‑90 metrics and ERA adjustments.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="Main profile">
+      <div class="rating-badge" aria-hidden="false">95.1</div>
+
+      <section class="section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Player Overview</h2>
+        <p style="color:var(--muted)">Cafú is widely regarded as one of the greatest full-backs of all time, defined by relentless stamina, rapid overlapping runs and elite crossing. He combined defensive reliability with elite forward contribution and captained Brazil to the 2002 World Cup title, embodying modern attacking full-back archetypes across club and international football.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline-title">
+        <h2 id="career-timeline-title">Career Timeline</h2>
+        <p style="color:var(--muted)">Youth and Brazil: rose through São Paulo youth system and established himself in the early 1990s. Short European spell at Zaragoza (1994–95), returned to Brazil, then key move to Roma (1997–2003) where he won a Serie A title. Joined AC Milan (2003–2008), adding domestic and continental honours and appearing in the 2005 Champions League final. International: Brazil (1990–2006), three World Cup finals (1994, 1998, 2002) and two World Cup wins.</p>
+      </section>
+
+      <section class="section" aria-labelledby="season-stats-title">
+        <h2 id="season-stats-title">Select Club & International Stats (summary)</h2>
+        <table aria-describedby="season stats">
+          <thead><tr><th>Years</th><th>Team</th><th>Competition</th><th>Apps</th><th>Goals</th></tr></thead>
+          <tbody>
+            <tr><td>1989–1995</td><td>São Paulo</td><td>Domestic / Continental</td><td>216</td><td>33</td></tr>
+            <tr><td>1995</td><td>Zaragoza</td><td>La Liga / Cup</td><td>16</td><td>0</td></tr>
+            <tr><td>1997–2003</td><td>AS Roma</td><td>Serie A / Europe</td><td>163</td><td>5</td></tr>
+            <tr><td>2003–2008</td><td>AC Milan</td><td>Serie A / Europe</td><td>119</td><td>4</td></tr>
+            <tr><td>1990–2006</td><td>Brazil</td><td>International</td><td>~142</td><td>5</td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--muted);margin-top:8px">Aggregates are provisional; final per‑match event coding requires match footage and official minute logs for per‑90 and advanced metric derivation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="international-title">
+        <h2 id="international-title">International Career</h2>
+        <p style="color:var(--muted)">Cafú is Brazil's most‑capped outfield player and the only player to appear in three consecutive World Cup finals, winning in 1994 and 2002 and captaining the 2002 winning side. His international career is a primary source for clutch, tournament-level metrics and leadership indices in Empire FGA coding.</p>
+      </section>
+
+      <section class="section" aria-labelledby="honours-title">
+        <h2 id="honours-title">Honours & Trophies</h2>
+        <table aria-describedby="trophies">
+          <thead><tr><th>Year</th><th>Team / Category</th><th>Honour</th></tr></thead>
+          <tbody>
+            <tr><td>1994, 2002</td><td>Brazil</td><td>FIFA World Cup Winner</td></tr>
+            <tr><td>1992, 1993</td><td>São Paulo</td><td>Copa Libertadores (2x)</td></tr>
+            <tr><td>2001</td><td>AS Roma</td><td>Serie A Champion</td></tr>
+            <tr><td>2007–08</td><td>AC Milan</td><td>UEFA Champions League / Club World Cup (club honours)</td></tr>
+            <tr><td>1994</td><td>Individual</td><td>South American Footballer of the Year</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="match-highlights-title">
+        <h2 id="match-highlights-title">Representative Match Highlights</h2>
+        <table aria-describedby="match highlights">
+          <thead><tr><th>Date</th><th>Fixture</th><th>Competition</th><th>Highlight</th></tr></thead>
+          <tbody>
+            <tr><td>1994</td><td>Brazil vs Italy</td><td>World Cup Final</td><td>Member of title-winning squad; key defensive and transition contributions in tournament</td></tr>
+            <tr><td>2002</td><td>Brazil vs Germany</td><td>World Cup Final</td><td>Captain; leadership and full‑back balance across tournament</td></tr>
+            <tr><td>1994–1995</td><td>Real Zaragoza</td><td>Cup Winners' Cup campaign</td><td>Part of Zaragoza squad that won Cup Winners' Cup (injury-limited participation)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics-title">
+        <h2 id="advanced-metrics-title">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Offensive Contribution</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Carries / 90 (era adj.)</td><td>9.2</td></tr>
+                <tr><td>Crossing Impact</td><td>9.1</td></tr>
+                <tr><td>Chance Creation (CPI)</td><td>8.9</td></tr>
+                <tr><td>Assist Potential</td><td>8.7</td></tr>
+                <tr><td>Offensive Actions in Box</td><td>8.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Defensive / Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Recovery Speed</td><td>9.4</td></tr>
+                <tr><td>Tackling / Interceptions</td><td>8.8</td></tr>
+                <tr><td>Stamina / Minutes Consistency</td><td>9.5</td></tr>
+                <tr><td>Duels Won (era adj.)</td><td>8.6</td></tr>
+                <tr><td>Leadership Index</td><td>9.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Values are Empire FGA era‑adjusted estimates produced from match footage, aggregated logs and tournament records; all metrics flagged for full Triple Source verification before final dataset lock.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-title">
+        <h2 id="tactical-title">Tactical Philosophies & DNA</h2>
+        <p style="color:var(--muted)">Cafú's tactical DNA suits high-tempo, transitional teams that rely on full-backs for width and vertical overloads. He excels in systems that permit sustained overlapping, quick outlet passing, and dynamic defensive recovery. High fit with Brazilian attacking wing-back traditions and modern Klopp/Guardiola transitional demands when combined with disciplined centre-back partners.</p>
+
+        <table aria-describedby="tactical mapping" style="margin-top:12px">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Brazilian Attacking Wing-back</td><td>9.7</td><td>Natural archetype for overlap, crossing and offensive support</td></tr>
+            <tr><td>High Transition / Counter (Lobanovskyi)</td><td>9.4</td><td>Stamina and speed ideal for rapid outlet and recovery</td></tr>
+            <tr><td>Possession / Positional (Guardiola)</td><td>8.6</td><td>Capable in possession but best leveraged with structured midfield balance</td></tr>
+            <tr><td>Pragmatic Defensive Systems</td><td>8.8</td><td>Solid defensive fundamentals with strong recovery; fits disciplined backlines</td></tr>
+            <tr><td>Philosophy Alignment (Trophy Magnet)</td><td>9.3</td><td>High fit for winning squads and tournament-level success</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">Player Comparison & Visuals</h2>
+        <p style="color:var(--muted)">Suggested comparison axes: Overlap Frequency; Crosses into Box; Progressive Passes; Defensive Recoveries; Tournament Leadership; Minutes per Tournament.</p>
+        <div class="visuals">
+          <div class="visual" id="radarPlaceholder">[Radar chart placeholder — Chart.js config ready]</div>
+          <div class="visual" id="heatmapPlaceholder">[Heatmap placeholder — positional density ready]</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights-title">
+        <h2 id="video-highlights-title">Video — Recommended Clips for Event Coding</h2>
+        <ul style="color:var(--muted)">
+          <li>Brazil World Cup 1994 highlights and match sequences for defensive transition and tournament-level performance.</li>
+          <li>2002 World Cup full matches to code captaincy, leadership, and clutch defensive/offensive moments.</li>
+          <li>Roma (2000–01) and AC Milan (2003–2007) club season compilations for league-level crossing and per‑90 event extraction.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources & Audit Notes</h2>
+        <p style="color:var(--muted)">Profile synthesised from club archives, match footage, federation records and public statistical aggregates; numeric fields are provisional and require Empire FGA Triple Source verification (club minute logs, federation sheets, video evidence) before final ingestion into the UCL Finals or Player DB.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Cafú scouting profile. Numeric fields provisional; mark rows for final event coding and ERA adjustments prior to CSV export.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Placeholder configs for chart injection after audit arrays are available
+    window.fga_cafu_placeholders = {
+      radar: { labels:['Overlap Runs','Crossing','Recovery Speed','Stamina','Chance Creation','Defensive Positioning','Leadership','Consistency'], data:[9.6,9.1,9.4,9.5,8.9,8.9,9.2,9.0] },
+      heatmap: { series:[{name:'Defensive Third',data:[{x:'Right',y:9},{x:'Center',y:1},{x:'Left',y:0}]},{name:'Middle Third',data:[{x:'Right',y:8},{x:'Center',y:4},{x:'Left',y:1}]},{name:'Attacking Third',data:[{x:'Right',y:9},{x:'Center',y:3},{x:'Left',y:1}]}] }
+    };
+  </script>
+</body>
+</html>

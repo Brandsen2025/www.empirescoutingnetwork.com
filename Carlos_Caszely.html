@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carlos Caszely — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#d95b1a; --accent2:#ff9f43; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(217,91,26,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,159,67,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,159,67,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.sportball.es/wp-content/uploads/2017/10/Foto4-1.jpg" alt="Carlos Caszely photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Carlos Caszely</div>
+        <div class="sub">Striker · Chile · Born: 5 July 1950 · Height: 1.70 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Colo-Colo; Levante; Espanyol; Barcelona SC</span>
+          <span class="pill"><strong>International</strong> Chile (48–49 caps, 29 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 91.8</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing & Composure</td><td>9.3</td></tr>
+            <tr><td>Positioning & Penetration</td><td>9.1</td></tr>
+            <tr><td>Movement in Box</td><td>9.0</td></tr>
+            <tr><td>Shot Variety (inside/outside)</td><td>8.8</td></tr>
+            <tr><td>Press Resistance</td><td>8.2</td></tr>
+            <tr><td>Leadership & Charisma</td><td>8.6</td></tr>
+            <tr><td>Durability</td><td>8.4</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals vary across era sources; mark for triple-source reconciliation (Club archives; RSSSF; Transfermarkt).</li>
+          <li>1970s Copa Libertadores event coordinates require archival video for xG recalculation; flag for manual extraction.</li>
+          <li>Assist and secondary-assist attribution inconsistent in historical feeds; prefer frame-accurate clip verification.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">91.8</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Carlos Caszely is one of Chile’s most influential forwards: a box‑smart finisher nicknamed “Rey del metro cuadrado” for his lethal small‑space instincts. Prolific for Colo‑Colo and productive in Spain, Caszely combined clinical finishing, excellent spatial timing and a fearless mentality that translated to both club success and international standing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1967–1973</td><td>Colo‑Colo (first spell)</td><td>Breakthrough; early domestic titles; Copa Libertadores runner-up 1973 top scorer.</td></tr>
+            <tr><td>1973–1975</td><td>Levante</td><td>European move during turbulent domestic period; maintained scoring rate.</td></tr>
+            <tr><td>1975–1978</td><td>Espanyol</td><td>La Liga experience; consolidated technical and finishing repertoire in Europe.</td></tr>
+            <tr><td>1978–1985</td><td>Colo‑Colo (return)</td><td>Peak domestic years; multiple league titles and top‑scorer seasons (1979–1981).</td></tr>
+            <tr><td>1986</td><td>Barcelona SC (Ecuador)</td><td>Final professional season before retirement.</td></tr>
+            <tr><td>1969–1985</td><td>Chile</td><td>48–49 caps; 29 goals; World Cups 1974 and 1982; Copa América 1979 standout.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1973 Copa Libertadores (Colo‑Colo run)</strong> — Caszely finished as top scorer; priority clips for tight‑space finishing and penalty sequences.</li>
+            <li><strong>1974 FIFA World Cup opener vs West Germany</strong> — Sent off in a high‑tension match that contextualises discipline and political overlay; useful for psychological indexing and match‑state response coding.</li>
+            <li><strong>1979 Copa América</strong> — Tournament Best Player; extract goal sequences and decisive finishing in continental knockout ties for clutch‑index modeling.</li>
+            <li><strong>1979–1981 Domestic Peak (Colo‑Colo)</strong> — Three consecutive seasons among top scorers; extract per‑match heatmaps and box‑presence sequences to build movement templates.</li>
+            <li><strong>1982 World Cup</strong> — Missed penalty vs Austria; include penalty execution and rebound-management events in risk/reward modeling.</li>
+            <li><strong>Espanyol La Liga period (1975–78)</strong> — European finishing under pressure; priority for cross‑league ERA adjustments and successful adaptation metrics.</li>
+            <li><strong>Political context matches 1973–1974</strong> — Games played during domestic upheaval; include socio‑context tag for mental resilience modeling when comparing clutch performance under extreme external stress.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Scoring Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goal Conversion (box)</td><td>9.4</td></tr>
+                <tr><td>Penalties & Set‑Piece Finishing</td><td>8.7</td></tr>
+                <tr><td>Shot Variety (close‑range / long‑distance)</td><td>8.6</td></tr>
+                <tr><td>Big‑Game Scoring Index</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Movement & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Box Occupation / Timing</td><td>9.1</td></tr>
+                <tr><td>Link‑up Play / Short Combinations</td><td>8.3</td></tr>
+                <tr><td>Press Impact / Defensive Work</td><td>7.9</td></tr>
+                <tr><td>Adaptability (Europe ↔ South America)</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Chilean Primera División and La Liga contexts; event‑level verification required for Libertadores and 1970s footage to calibrate xG and per‑90 rates before publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Caszely’s DNA fits high‑value poacher and inside‑forward templates: excels in compact penalty‑area environments, rapid first‑touch finishing and short‑space creation. Strong match for systems that prioritise advanced box presence, third‑man runs and high support density in the final third.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>South American Finishing / Poacher</td><td>9.4</td><td>Exceptional small‑space instincts and goal output in domestic competitions</td></tr>
+            <tr><td>Pressing + Transition Attack</td><td>8.2</td><td>Effective in quick counters but less primary in high‑press systems</td></tr>
+            <tr><td>European Adaptation</td><td>8.6</td><td>Proved capable in La Liga; movement translated across leagues</td></tr>
+            <tr><td>Clutch & Big‑Game Delivery</td><td>9.0</td><td>Tournament impact and Copa América recognition</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Carlos Caszely, Iván Zamorano (power & finishing), Marcelo Salas (timing & movement)</p>
+        <canvas id="caszelyRadar" width="720" height="420" aria-label="Radar comparing Carlos Caszely with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority archives: Colo‑Colo 1973 Libertadores reels, 1979–1981 domestic seasons, 1974 & 1982 World Cup match footage, Espanyol La Liga clips. Extraction checklist: match ID; mm:ss; event type (goal; penalty; close‑range finish; assist; secondary shot); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Fearless temperament:</strong> high‑pressure competitor who performed during political and social turbulence.</li>
+          <li><strong>Finisher's mentality:</strong> decisive instinct in the box and strong penalty temperament despite documented misses.</li>
+          <li><strong>Public leadership:</strong> cultural icon with strong influence on teammates and national identity.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Discipline moments:</strong> red card in 1974 World Cup notable for contextual analysis; include in behavioral modeling.</li>
+          <li><strong>Historical footage gaps:</strong> detailed per‑event coordinates for 1970s matches will need manual clipping for full metric extraction.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Caszely’s blend of micro‑space finishing, charisma and tournament pedigree make him a primary historical template for FGA’s compact‑space striker archetype; ideal for DNA twin searches focusing on acute box influence.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">High‑priority clips: 1973 Copa Libertadores goal reels; 1974 World Cup opening match (discipline & reaction events); 1979 Copa América key goals and match‑winning actions; 1979–1981 domestic seasons goal sequences. Extraction checklist: match ID; mm:ss; event type; frame reference; assist chain; x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Colo‑Colo Cohort</h3>
+        <p class="small"><strong>Dynamic:</strong> Central attacking reference; strong chemistry with midfield creators enabled high frequency of close‑range opportunities.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">International Teammates</h3>
+        <p class="small"><strong>Dynamic:</strong> Led forward line across turbulent national contexts; influence extended beyond tactics to social leadership and national morale.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Carlos Caszely scouting profile. Numeric fields are ERA‑adjusted estimates; validate Libertadores, Copa América and World Cup event logs with archival footage and triple‑source verification (Club archives; Transfermarkt; RSSSF) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Caszely vs peers (Caszely, Zamorano, Salas)
+    const ctx = document.getElementById('caszelyRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Positioning','Movement','Penalty/Set-piece','Adaptability','Workrate','Leadership'],
+        datasets: [
+          { label: 'Carlos Caszely', data: [9.3,9.1,9.0,8.7,8.6,7.9,8.6], backgroundColor:'rgba(255,159,67,0.12)', borderColor:'#ff9f43', pointBackgroundColor:'#ff9f43' },
+          { label: 'Iván Zamorano', data: [9.1,8.8,8.6,8.9,8.2,8.4,8.3], backgroundColor:'rgba(217,91,26,0.08)', borderColor:'#d95b1a', pointBackgroundColor:'#d95b1a' },
+          { label: 'Marcelo Salas', data: [9.4,9.0,9.2,8.5,8.4,8.1,8.0], backgroundColor:'rgba(34,153,221,0.08)', borderColor:'#2299dd', pointBackgroundColor:'#2299dd' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

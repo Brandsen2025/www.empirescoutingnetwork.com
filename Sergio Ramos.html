@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sergio Ramos — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#b02a2a; --accent2:#ff7a59; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(176,42,42,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,122,89,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,122,89,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{padding-left:18px;margin:0}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/b9/32/15/b93215bbf61b8df594643185c51f9f7e.jpg" alt="Sergio Ramos photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Sergio Ramos</div>
+        <div class="sub">Centre-Back · Spain · Born: 30 March 1986 · Nickname: "El Pilar"</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Sevilla; Real Madrid; Paris Saint-Germain; Sevilla; Monterrey</span>
+          <span class="pill"><strong>International</strong> Spain (180 caps, 23 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 94.3</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Aerial Threat</td><td>9.6</td></tr>
+            <tr><td>Goal Threat (set plays & penalties)</td><td>9.2</td></tr>
+            <tr><td>Tackling & Timing</td><td>8.9</td></tr>
+            <tr><td>Composure in Finals</td><td>9.4</td></tr>
+            <tr><td>Penalty Execution</td><td>9.0</td></tr>
+            <tr><td>Leadership</td><td>9.5</td></tr>
+            <tr><td>Versatility (CB / RB)</td><td>8.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Goal and penalty counts require vendor alignment for club vs international tallies; preserve 3-source verification for historical totals.</li>
+          <li>Disciplinary history (yellow/red card timing) needs per-match timestamps for ERA behaviour models.</li>
+          <li>Convert qualitative leadership notes (captaincy influence) into Tier‑3 CHR / MCS inputs via coach/staff interviews.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.3</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Sergio Ramos is a uniquely influential defender whose career blends elite defending with an unusual goalscoring and clutch-match pedigree. Renowned for aerial dominance, penalty proficiency and captaincy, Ramos has delivered match-defining moments for club and country and remains a tactical outlier who combines aggression with finishing instincts.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1992–2003</td><td>Camas / Sevilla Youth</td><td>Development as full-back and early centre-back training</td></tr>
+            <tr><td>2003–2005</td><td>Sevilla</td><td>Breakthrough season, UEFA Cup exposure, defensive maturity</td></tr>
+            <tr><td>2005–2021</td><td>Real Madrid</td><td>Long-term mainstay; multiple LaLiga and Champions League triumphs; captaincy and iconic finals influence</td></tr>
+            <tr><td>2021–2023</td><td>Paris Saint‑Germain</td><td>Short-term contract; contributed to domestic titles and leadership</td></tr>
+            <tr><td>2023–2024</td><td>Sevilla (return)</td><td>Emotional homecoming and veteran mentorship</td></tr>
+            <tr><td>2025–present</td><td>Monterrey</td><td>Late-career leadership role in Liga MX</td></tr>
+            <tr><td>2005–2021</td><td>Spain</td><td>180 caps; major tournaments: Euro 2008, World Cup 2010, Euro 2012; national team record appearance holder</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Historic Matches & Career Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2005</strong> — Record transfer to Real Madrid at age 19, a landmark move that began a 16-year legacy at the club.</li>
+            <li><strong>2008, 2010, 2012</strong> — Core member of Spain's golden era: UEFA Euro 2008, FIFA World Cup 2010 and UEFA Euro 2012 winners; established defensive backbone for the national tiki-taka era.</li>
+            <li><strong>24 May 2014 — Champions League Final vs Atlético Madrid</strong> — 93rd‑minute headed equaliser that forced extra time and ultimately delivered 'La Décima' to Real Madrid; a defining clutch moment in modern club football.</li>
+            <li><strong>28 May 2016 — Champions League Final vs Atlético Madrid</strong> — Scored in the final; led Real Madrid to another European title and provided decisive leadership in the shootout era.</li>
+            <li><strong>26 May 2018 — Champions League Final vs Liverpool</strong> — Captained Real Madrid to a third consecutive Champions League, reinforcing reputation for big-match influence despite controversy.</li>
+            <li><strong>2019–20 — LaLiga Title</strong> — Instrumental role in Real Madrid’s 34th league championship, exemplifying late-career defensive excellence.</li>
+            <li><strong>2019 — Champions League & Individual Accolades</strong> — Repeated inclusion in UCL Teams of the Season; sustained elite-level defensive output across competitions.</li>
+            <li><strong>Penalty & Set-piece Provenance</strong> — Over 40 career penalty attempts with a high conversion rate; consistently contributed crucial goals in knockout fixtures and decisive moments across UCL and international finals.</li>
+            <li><strong>Disciplinary & Competitive Edge</strong> — Career defined by an aggressive style that produced both match-winning moments and disciplinary incidents; tactical profile important for high-risk/high-reward defenders.</li>
+            <li><strong>National Record</strong> — With 180 caps, became Spain's all-time appearance leader and a generational captain on the international stage.</li>
+            <li><strong>2020–2025 — Transfer & Late Career</strong> — Continued trophy collection at PSG, a return to Sevilla and leadership role in Monterrey, demonstrating longevity and adaptability across leagues.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Impact</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goals per 90 (set-piece & open play)</td><td>8.7</td></tr>
+                <tr><td>Penalty Success Index</td><td>9.0</td></tr>
+                <tr><td>Attacking Aerial xG Contribution</td><td>9.1</td></tr>
+                <tr><td>Big-Game Goal Impact</td><td>9.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Clearance & Block Decisioning</td><td>9.0</td></tr>
+                <tr><td>1v1 Defensive Effectiveness</td><td>8.8</td></tr>
+                <tr><td>Interception Anticipation</td><td>8.9</td></tr>
+                <tr><td>Discipline under Pressure</td><td>7.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied to reconcile competition contexts; event-level verification recommended for penalty timelines and late-match goal mapping.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Ramos is a hybrid defender who fits multiple tactical philosophies: leadership-centred organisation, set-piece magnet roles, and teams that accept controlled aggression to win duels. He pairs well with high-structure defences where his instincts and finishing supplement tactical discipline.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership-Driven Organisation</td><td>9.6</td><td>Captaincy, vocal direction, tempo control in defensive phases</td></tr>
+            <tr><td>Set-Piece Offensive Strategy</td><td>9.4</td><td>Consistent aerial threat and penalty responsibility</td></tr>
+            <tr><td>High-Intensity Press / Turnover Creation</td><td>8.5</td><td>Aggressive defensive triggers produce turnovers but increase disciplinary risk</td></tr>
+            <tr><td>Ball-Playing Center-Back</td><td>8.8</td><td>Capable passer for short-to-mid progressions though not primary line-break initiator</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Sergio Ramos (self), Virgil van Dijk (ball-playing organising archetype), Gerard Piqué (tactical reader).</p>
+        <canvas id="ramosRadar" width="720" height="420" aria-label="Radar comparing Sergio Ramos with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Ramos strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (central / right influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Competitive will:</strong> thrives in high-pressure situations and finals.</li>
+          <li><strong>Clutch performance:</strong> repeatedly delivered decisive goals and penalties.</li>
+          <li><strong>Influence:</strong> changes team standards through intensity and expectations.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Disciplinary variance:</strong> aggressive style yields bookings and suspensions; incorporate behavioral smoothing in projections.</li>
+          <li><strong>Style fit:</strong> not always ideal for systems requiring ultra-low tackle rates or strict foul minimisation.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">From Camas academy to global captaincy, Ramos built a career on leadership, offensive contribution from defence and an uncompromising competitive identity that shapes teams at the highest level.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: 2014 UCL Final (93' equaliser), 2016 UCL Final (goal & leadership), 2018 UCL Final (key moments vs Liverpool), 2010 World Cup knockout phases, Euro 2008 & 2012 finals, multiple late‑minute penalty and set-piece events. Extraction checklist: match ID; mm:ss; event type (headed goal, penalty, clearance, tackle, red/yellow); context tag (final, semi, knockout); ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Real Madrid Leadership Core</h3>
+        <p class="small"><strong>Dynamic:</strong> Long-term captain and leader; tactical axis for defensive shape and late-match decision-making.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">International Colleagues</h3>
+        <p class="small"><strong>Dynamic:</strong> Part of Spain's defensive nucleus across three major tournaments; trusted in high-pressure international fixtures.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Set-piece Partnerships</h3>
+        <p class="small"><strong>Dynamic:</strong> Coordinated routines with key takers and tall targets; repeated match-winning output in knockout phases.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Sergio Ramos scouting profile. Numeric fields are ERA‑adjusted estimates; tag all goals, penalties and disciplinary events for triple-source verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Ramos vs peers (Ramos, Van Dijk, Piqué)
+    const ctx = document.getElementById('ramosRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Aerial','Clutch Goals','Leadership','Tackling','Distribution','Discipline','Durability'],
+        datasets: [
+          { label: 'Sergio Ramos', data: [9.6,9.5,9.5,8.9,8.8,7.6,9.0], backgroundColor:'rgba(255,122,89,0.12)', borderColor:'#ff7a59', pointBackgroundColor:'#ff7a59' },
+          { label: 'Virgil van Dijk', data: [9.8,9.1,9.6,9.0,9.4,8.2,9.0], backgroundColor:'rgba(77,208,255,0.12)', borderColor:'#4dd0ff', pointBackgroundColor:'#4dd0ff' },
+          { label: 'Gerard Piqué', data: [8.9,8.4,9.0,8.8,8.6,8.5,8.8], backgroundColor:'rgba(176,42,42,0.08)', borderColor:'#b02a2a', pointBackgroundColor:'#b02a2a' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Aerial','Clutch Goals','Leadership','Tackling','Distribution','Discipline','Durability'],
+        datasets:[{ label:'Ramos', data:[9.6,9.5,9.5,8.9,8.8,7.6,9.0], backgroundColor:'rgba(176,42,42,0.12)', borderColor:'#b02a2a', pointBackgroundColor:'#b02a2a' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (central / right influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#ff7a59'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Right Centre',y:9},{x:'Central',y:10},{x:'Left Centre',y:8}] },
+        { name:'Middle Third', data:[{x:'Right Centre',y:8},{x:'Central',y:9},{x:'Left Centre',y:8}] },
+        { name:'Attacking Third', data:[{x:'Right Centre',y:7},{x:'Central',y:9},{x:'Left Centre',y:6}] }
+      ],
+      title:{ text:'Central / Right Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

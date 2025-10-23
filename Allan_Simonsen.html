@@ -1,0 +1,230 @@
+### Allan Simonsen — Empire FGA Profile (enhanced historical matches)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Allan Simonsen — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#6b8ce3; --accent2:#8dd3ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(107,140,227,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(141,211,255,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(141,211,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://tmssl.akamaized.net//images/foto/galerie/allan-simonsen-borussia-monchengladbach-1590152194-39325.jpg?lm=1590152203" alt="Allan Simonsen photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Allan Simonsen</div>
+        <div class="sub">Forward / Right Winger · Denmark · Born: 15 December 1952 · Height: 1.65 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Vejle; Borussia Mönchengladbach; Barcelona; Charlton Athletic</span>
+          <span class="pill"><strong>International</strong> Denmark (55 caps, 20 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 93.1</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Technical Dribbling & Close Control</td><td>9.2</td></tr>
+            <tr><td>Finishing & Shot Power</td><td>9.0</td></tr>
+            <tr><td>Off‑ball Movement</td><td>8.9</td></tr>
+            <tr><td>Two‑footedness</td><td>8.8</td></tr>
+            <tr><td>Big‑Match Temperament</td><td>9.1</td></tr>
+            <tr><td>Durability</td><td>8.4</td></tr>
+            <tr><td>Versatility (RW / CF / AM)</td><td>8.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Historic goal and appearance counts vary between club archives and databases for early 1970s; mark for FBref/club ledger reconciliation.</li>
+          <li>Event-level shot coordinates for 1970s European finals require broadcast frame extraction for exact xG/xT calibration.</li>
+          <li>National team minutes across Olympic, qualifying and senior fixtures need per‑match role tags for position-specific metrics.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">93.1</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Allan Rodenkam Simonsen is one of Scandinavia's most decorated forwards — a diminutive, technically superb attacker known for clinical finishing, intelligent movement and decisive goals on Europe’s biggest stages. European Footballer of the Year in 1977, Simonsen combined pace, close control and two‑footed finishing to succeed at Borussia Mönchengladbach and Barcelona and left a lasting tactical template for compact, creative wide forwards.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1971–1972</td><td>Vejle BK</td><td>Senior breakthrough; Danish double 1971–72</td></tr>
+            <tr><td>1972–1979</td><td>Borussia Mönchengladbach</td><td>Bundesliga titles, UEFA Cup/European Cup finals; peak years</td></tr>
+            <tr><td>1979–1982</td><td>FC Barcelona</td><td>Copa del Rey, Cup Winners' Cup; fan favourite 'Simonet'</td></tr>
+            <tr><td>1982–1983</td><td>Charlton Athletic</td><td>Short English spell</td></tr>
+            <tr><td>1983–1989</td><td>Vejle BK</td><td>Return home; domestic success and phased retirement</td></tr>
+            <tr><td>1972–1986</td><td>Denmark</td><td>55 caps, 20 goals; Olympic, Euro 1984 and World Cup 1986 appearances</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1974–75 Bundesliga / UEFA Cup run</strong> — target match packs from 1974–75 season (including UEFA Cup final vs Twente) to extract progressive shot sequences, finishing under pressure and link‑play with team attackers.</li>
+            <li><strong>1977 European Cup Final vs Liverpool</strong> — goal sequence (power shot equaliser) for high‑value finishing under elite defensive pressure; capture frame‑accurate coords and fatigue markers for ERA adjustments.</li>
+            <li><strong>1978–79 UEFA Cup campaign</strong> — eight goals in the run to the title; sample multi‑game sequences to model tournament peak output, goal timing and substitute/rotation impact.</li>
+            <li><strong>1979–82 Barcelona tenure</strong> — extract key La Liga matches and Cup Winners' Cup sequences (81–82) to validate two‑footed finishing, wing‑inside movement and combination play in possession systems.</li>
+            <li><strong>International landmark fixtures</strong> — Denmark at Euro 1984 and World Cup 1986 matches for clutch index calibration in tournament contexts; include Olympic 1972 early career samples to model development curve.</li>
+            <li><strong>Late‑career home return</strong> — Vejle seasons (1983–89) for aging curve extraction: role evolution from primary scorer to mentor, minutes reduction, and preserved technical output.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Signature</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Efficiency / Power</td><td>9.2</td></tr>
+                <tr><td>Progressive Off‑ball Movement</td><td>9.0</td></tr>
+                <tr><td>Chance Creation from Wide</td><td>8.6</td></tr>
+                <tr><td>Goals per 90 (peak ERA)</td><td>9.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Two‑footed Control / Dribble</td><td>9.0</td></tr>
+                <tr><td>Link‑up Play with Striker Partners</td><td>8.7</td></tr>
+                <tr><td>Press Resistance / Quick Combinations</td><td>8.5</td></tr>
+                <tr><td>Set‑piece Contribution</td><td>7.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied for 1970s Bundesliga and early 1980s La Liga contexts; flagged for broadcast frame extraction to confirm shot coordinates and per‑event timestamps before final export.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Simonsen is a compact, creative wide forward whose profile maps to high‑value possession systems that use width and tight combinations, and to counter systems that exploit quick, low‑centered dribblers. Strong alignment with positional philosophies valuing technical balance, intelligent late‑arrival finishing and hybrid winger‑inside roles.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Total Football / Position Fluidity</td><td>8.8</td><td>Comfortable rotating inside and combining centrally</td></tr>
+            <tr><td>Pressing + Quick Transition</td><td>8.4</td><td>Quick combos and burst runs in transitional moments</td></tr>
+            <tr><td>Creative Possession Systems</td><td>9.0</td><td>Technical control and vision suit possession overloads</td></tr>
+            <tr><td>Tournament Clutch Roles</td><td>9.1</td><td>Proven high‑level finals and continental output</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Representative peers: compact creative forwards and technical wide attackers who combine finishing with link‑up.</p>
+        <canvas id="simonsenRadar" width="720" height="420" aria-label="Radar comparing Allan Simonsen with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>High competitive intelligence:</strong> reads defenders, times runs, and finishes in big moments.</li>
+          <li><strong>Mental resilience:</strong> performed consistently across leagues and in European finals.</li>
+          <li><strong>Professional humility:</strong> long career with successful transitions back home and into coaching roles.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Size constraints:</strong> diminutive stature required different physical mapping; use role‑specific normalization when comparing to taller forwards.</li>
+          <li><strong>Historic tracking gaps:</strong> many key sequences predate event tracking; require frame extraction for per‑event detail.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Allan Simonsen combined technical excellence with decisive finishing and remains the only player to score in European Cup, UEFA Cup and Cup Winners' Cup finals — an enduring template for compact, high‑IQ forwards; mark all event rows for triple‑source verification before publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: 1974–75 UEFA Cup final legs (Twente); 1977 European Cup Final vs Liverpool (equaliser); 1978–79 UEFA Cup knockout matches; key Barcelona Cup Winners' Cup fixtures (1981–82); Denmark match packs from Euro 1984 and World Cup 1986. Extraction checklist: match ID; mm:ss; event type (goal; shot on target; dribble sequence; assist; off‑ball run); start/end frame; shot coordinates if available; ERA tag; triple‑source confirmation (club footage; broadcast; official match report).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Borussia Mönchengladbach (1972–79)</h3>
+        <p class="small"><strong>Dynamic:</strong> Integral attacking partner in a dominant Bundesliga side; club environment amplified his finishing and continental output.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">FC Barcelona (1979–82)</h3>
+        <p class="small"><strong>Dynamic:</strong> Adapted to possession and combination roles in La Liga while maintaining goal threat; cultural affinity with supporters ensured lasting legacy as 'Simonet'.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">National team & coaching</h3>
+        <p class="small"><strong>Dynamic:</strong> National stalwart across tournaments; later managerial and developmental roles in Denmark and the Nordic region reinforced leadership and mentorship signals for scouting metadata.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Allan Simonsen scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (club broadcast; official match reports; archival footage) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Allan Simonsen strengths
+    const ctx = document.getElementById('simonsenRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Dribbling','Finishing','Movement','Two‑footedness','Big‑Game','Consistency','Link‑Up'],
+        datasets: [
+          { label: 'Allan Simonsen', data: [9.2,9.0,8.9,8.8,9.1,8.4,8.7], backgroundColor:'rgba(107,140,227,0.12)', borderColor:'#6b8ce3', pointBackgroundColor:'#6b8ce3' },
+          { label: 'Compact Creative FW Template', data: [8.6,8.8,8.4,8.2,8.7,8.0,8.2], backgroundColor:'rgba(141,211,255,0.08)', borderColor:'#8dd3ff', pointBackgroundColor:'#8dd3ff' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

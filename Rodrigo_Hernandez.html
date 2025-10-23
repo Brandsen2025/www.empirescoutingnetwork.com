@@ -1,0 +1,230 @@
+### Rodri — Empire FGA Profile (enhanced historical matches)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rodri — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#1fa2a6; --accent2:#7ee8c9; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(31,162,166,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(126,232,201,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(126,232,201,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://fifpro.org/media/eppjo3cq/rodri_1.jpg?rxy=0.5138991263512869,0.14837785047279334&width=1600&height=1024&rnd=133710599827730000" alt="Rodri photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Rodri</div>
+        <div class="sub">Defensive Midfielder · Spain · Born: 22 June 1996 · Height: 1.90 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Villarreal; Atlético Madrid; Manchester City</span>
+          <span class="pill"><strong>International</strong> Spain (59+ caps)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.8</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Passing Range & Tempo Control</td><td>9.7</td></tr>
+            <tr><td>Press Resistance / Composure</td><td>9.6</td></tr>
+            <tr><td>Ball Recovery / Defensive Reading</td><td>9.5</td></tr>
+            <tr><td>Progression / Box Entries</td><td>9.1</td></tr>
+            <tr><td>Set-piece & Long-range Threat</td><td>8.8</td></tr>
+            <tr><td>Durability & Availability</td><td>8.7</td></tr>
+            <tr><td>Leadership & Competitive IQ</td><td>9.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Per‑match position tags vary (DM vs CM) across leagues; ensure role filter when calculating role‑specific per‑90 metrics.</li>
+          <li>Long‑range passing coordinates and pressure states require broadcast frame extraction for precise ERA calibration.</li>
+          <li>Recent injury (ACL 2024/25) impacts per‑minute baselines; apply availability normalization for season comparisons.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.8</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Rodrigo Hernández Cascante (Rodri) is the archetype of the modern number 6 — combining elite passing, positional intelligence and physical presence. Key architect in Manchester City's sustained dominance and Spain's international success, Rodri evolved from a deep pivot into an advanced midfield engine, contributing goals and progressive entries while retaining defensive screening excellence.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2006–2013</td><td>Atlético Madrid (youth)</td><td>Early development; released for physicality concerns</td></tr>
+            <tr><td>2013–2015</td><td>Villarreal (youth → first team)</td><td>Rapid technical growth; first-team debut 2015</td></tr>
+            <tr><td>2015–2018</td><td>Villarreal</td><td>Established in La Liga; matured passing + defensive reading</td></tr>
+            <tr><td>2018–2019</td><td>Atlético Madrid</td><td>Step‑up to elite La Liga level; UEFA Super Cup winner</td></tr>
+            <tr><td>2019–present</td><td>Manchester City</td><td>Four Premier League titles; Champions League winner (2023); Ballon d'Or 2024</td></tr>
+            <tr><td>2018–present</td><td>Spain</td><td>Key starter; UEFA Nations League 2023; Euro 2024 Player of the Tournament</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2019 Man City debut season</strong> — sample transition sequences where Rodri replaced traditional holding roles; extract pass maps and press escapes to calibrate baseline pass under pressure metrics.</li>
+            <li><strong>2022–23 Champions League final (City v Inter)</strong> — Rodri's winning goal and control sequences; extract frame‑accurate shot coordinates, progressive pass chains and pressure states for clutch index validation.</li>
+            <li><strong>2023 UEFA Nations League Finals</strong> — extract defensive recoveries and turnover timelines to validate tournament‑level defensive impact under international structures.</li>
+            <li><strong>Euro 2024 (Spain run)</strong> — per‑match extraction focusing on Zone 14 influence and late‑arrival goal contributions; use tournament packs to tune attacking expansion metrics for defensive mids.</li>
+            <li><strong>Seasonal evolution samples (2019→2024)</strong> — longitudinal match packs across Premier League seasons to model Rodri's shift from protector to hybrid engine: touches in opposition box, progressive passes, and pressure resilience over time.</li>
+            <li><strong>ACL injury / recovery timeline (2024–25)</strong> — isolate pre‑injury and post‑injury minutes for availability modeling and conservative projection of minutes‑based metrics.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Distribution & Progression</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passes per 90</td><td>9.6</td></tr>
+                <tr><td>Passes into Final Third / 90</td><td>9.5</td></tr>
+                <tr><td>Edge of Box Entries (Zone 14)</td><td>9.3</td></tr>
+                <tr><td>Long Pass Accuracy (under pressure)</td><td>9.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Ball Recoveries / 90</td><td>9.4</td></tr>
+                <tr><td>Tackles + Interceptions</td><td>9.1</td></tr>
+                <tr><td>Press Resistance Index</td><td>9.7</td></tr>
+                <tr><td>Transition Impact (counter restraint)</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers reflect modern Premier League/Champions League context; verify per‑event coordinates and pressure states from broadcast and Opta/FBref logs for final publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Rodri maps to positional philosophies that prioritise control, tempo management and intelligent progression. He is highly compatible with positional possession systems (Guardiola), pressed build-up structures (Cruyff lineage) and modern two‑pivot rotations where one pivot advances into half‑spaces.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Guardiola / Positional Play</td><td>9.8</td><td>Core engine for positional rotations and high‑tempo circulation</td></tr>
+            <tr><td>Total Football / Fluidity</td><td>8.9</td><td>Comfortable stepping into channels and linking play</td></tr>
+            <tr><td>Press‑Resistant Build</td><td>9.7</td><td>Exceptional under pressure and in tight spaces</td></tr>
+            <tr><td>Defensive Midfield Anchor (classic)</td><td>9.4</td><td>Strong screening but adds progressive movement</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Template peers: elite deep‑lying playmakers with progressive tendencies (Busquets → hybrid modern 6s).</p>
+        <canvas id="rodriRadar" width="720" height="420" aria-label="Radar comparing Rodri with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Composure under pressure:</strong> exceptional in high‑tempo, high‑pressure environments.</li>
+          <li><strong>Learning growth mindset:</strong> academic background and methodical development inform tactical intelligence.</li>
+          <li><strong>Leadership by example:</strong> consistent availability and tactical reliability create stabilising influence.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Injury sensitivity:</strong> ACL recovery requires gradual minutes modeling; avoid full extrapolation from pre‑injury minute rates.</li>
+          <li><strong>Role ambivalence:</strong> per‑match position labels (DM vs CM) influence some aggregated metrics; use role filters.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Rodri blends cerebral control with measurable progression value; for audit‑grade publication, extract match packs from Champions League 2023 final, Euro 2024 tournament, and representative Premier League seasons to validate pass progression, pressure escape events and clutch scoring sequences.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: 2023 UCL final (scoring and control sequences), Euro 2024 knockout matches, 2022–24 Premier League season match packs (midfielder progression samples), 2018–19 Atlético vs top opposition (role context). Extraction checklist: match ID; mm:ss; event type (progressive pass; press escape; tackle; interception; zone entry); frame reference; pass coordinate; ERA tag; triple‑source verification (broadcast; FBref event logs; official match report).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Pep Guardiola (Manager)</h3>
+        <p class="small"><strong>Dynamic:</strong> Tactical architect who expanded Rodri's role into an advanced engine; co‑development critical to peak output and positional freedom.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Manchester City Tactical Unit</h3>
+        <p class="small"><strong>Dynamic:</strong> High possession, positional rotations and elite press patterns amplified Rodri's technical profile and award‑level outputs.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Spain National Team</h3>
+        <p class="small"><strong>Dynamic:</strong> Central stabiliser and tournament engine; leadership in international contexts contributes to clutch index and cultural value.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Rodri scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (broadcast; FBref/official logs; club footage) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Rodri strengths
+    const ctx = document.getElementById('rodriRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Passing','Press Resistance','Recoveries','Progression','Box Entries','Leadership','Durability'],
+        datasets: [
+          { label: 'Rodri', data: [9.7,9.6,9.4,9.3,9.1,9.2,8.7], backgroundColor:'rgba(126,232,201,0.12)', borderColor:'#7ee8c9', pointBackgroundColor:'#7ee8c9' },
+          { label: 'Elite Holding Mid Template', data: [9.2,9.0,8.9,8.6,8.1,8.8,8.3], backgroundColor:'rgba(31,162,166,0.08)', borderColor:'#1fa2a6', pointBackgroundColor:'#1fa2a6' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

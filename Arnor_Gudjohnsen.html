@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Árnor Gudjohnsen — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0b757a; --accent2:#3ddc97; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,117,122,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(61,220,151,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(61,220,151,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.kickonmind.com/wp-content/uploads/2022/06/EZ089PrXYAU23jk.jpg" alt="Árnor Gudjohnsen photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Árnor Gudjohnsen</div>
+        <div class="sub">Striker · Iceland · Born: 30 July 1961 · Height: 1.78 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Víkíngur; Lokeren; Anderlecht; Bordeaux; Häcken; Örebro; Valur; Stjarnan</span>
+          <span class="pill"><strong>International</strong> Iceland (73 caps, 14 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 87.1</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing & Composure</td><td>8.8</td></tr>
+            <tr><td>Movement Intelligence</td><td>8.6</td></tr>
+            <tr><td>Aerial Presence</td><td>7.9</td></tr>
+            <tr><td>Link‑up Play</td><td>8.2</td></tr>
+            <tr><td>Penalty / Big‑Game Impact</td><td>8.4</td></tr>
+            <tr><td>Durability</td><td>8.0</td></tr>
+            <tr><td>Leadership</td><td>8.1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Season-by-season appearance totals vary between national archives and club ledgers for 1983–1990; schedule 3-source reconciliation before export.</li>
+          <li>Penalty and set-piece goal attributions need match reports for confirmation (UEFA Cup final sequences flagged).</li>
+          <li>Event-level shot location mapping for 1980s European fixtures requires archived footage for xG calibration.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">87.1</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Árnor Guðjohnsen is an Icelandic striker who forged a high‑level European career through the 1980s and 1990s. Noted for intelligent finishing, positional movement and a reliable penalty and set‑piece threat, Guðjohnsen combined domestic influence with sustained success at Anderlecht, becoming the Belgian First Division top scorer in 1986–87 and collecting multiple league titles.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1978</td><td>Víkíngur</td><td>Senior breakthrough in Iceland; early goalscoring form</td></tr>
+            <tr><td>1978–1983</td><td>Lokeren</td><td>Established in Belgian top flight; development as complete forward</td></tr>
+            <tr><td>1983–1990</td><td>Anderlecht</td><td>139 apps, 40 goals; 3x Belgian champion; UEFA Cup finalist 1984</td></tr>
+            <tr><td>1990–1992</td><td>Bordeaux</td><td>Ligue exposure; contributed to promotion and cup runs</td></tr>
+            <tr><td>1993–1998</td><td>Häcken / Örebro</td><td>Scored regularly in Sweden; sustained European experience</td></tr>
+            <tr><td>1998–2001</td><td>Valur / Stjarnan</td><td>Returned to Iceland; veteran leadership and goals</td></tr>
+            <tr><td>1979–1997</td><td>Iceland</td><td>73 caps, 14 goals; four‑goal haul vs Turkey; unique father‑son national selection story</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1983–84 UEFA Cup run (Anderlecht)</strong> — archive full matches and tie clips for penalty shootout sequences and late‑game decision analysis; critical for pressure performance index.</li>
+            <li><strong>1986–87 Belgian First Division (top scorer season)</strong> — season-long event extraction to validate per‑90 xG, shot placement distribution and penalty contribution.</li>
+            <li><strong>International match vs Turkey, 17 July 1991</strong> — four‑goal game; essential for calibrating peak finishing index and big‑game clutch metric.</li>
+            <li><strong>UEFA Cup final shootout (1984)</strong> — final penalty sequence; use to test penalty psychology and penalty‑state modeling.</li>
+            <li><strong>Late career Scandinavian tenure (Örebro / Häcken)</strong> — sample for role evolution from primary finisher to link‑up forward and set‑piece contributor.</li>
+            <li><strong>Father‑son national team selection (1996)</strong> — contextual sociological note and leadership signal for mentorship and agent transition modelling.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Attacking Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Finish Placement / Composure</td><td>9.0</td></tr>
+                <tr><td>Shot Selection (xG efficiency)</td><td>8.6</td></tr>
+                <tr><td>Penalty Influence</td><td>8.8</td></tr>
+                <tr><td>Chance Conversion (era adj.)</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Movement</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Off‑ball Movement</td><td>8.6</td></tr>
+                <tr><td>Link‑up / Combination Play</td><td>8.2</td></tr>
+                <tr><td>Pressing & Workrate</td><td>7.4</td></tr>
+                <tr><td>Set‑piece Threat (attacking)</td><td>8.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">Era multipliers applied for 1980s European competitions; recommend archived broadcast sampling and match reports to validate shot coordinates and per‑minute influence before final per‑90 publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Árnor maps to 'classic number 9' templates that blend intelligent penalty box positioning, decisive finishing and useful link‑play. He fits systems that supply consistent service from wide creators and midfield runners and pairs well with tactical frameworks that value clinical forwards over pure physical domination.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Direct Clinical Finisher</td><td>9.0</td><td>High conversion, penalty leadership and box instincts</td></tr>
+            <tr><td>Possession Link‑Up</td><td>8.2</td><td>Excellent combination play and second‑phase contributions</td></tr>
+            <tr><td>European Competition Experience</td><td>8.8</td><td>Repeated continental fixtures and high‑pressure shootouts</td></tr>
+            <tr><td>Development / Mentorship</td><td>8.6</td><td>Later career leadership and unique family legacy with son and grandchildren</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers for template matching: Scandinavian/Belgian era strikers, penalty‑strong number 9s, late‑career mentors.</p>
+        <canvas id="arnorRadar" width="720" height="420" aria-label="Radar comparing Árnor Guðjohnsen with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Big‑game temperament:</strong> reliable in finals and penalty states; clutch scoring history.</li>
+          <li><strong>Professional resilience:</strong> long European career across multiple leagues and adaptations.</li>
+          <li><strong>Mentor profile:</strong> legacy builder — father and agent roles indicate leadership and career stewardship.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Era data gaps:</strong> detailed shot coordinates and event‑timing from 1980s matches require archival retrieval for precise xG/xT modeling.</li>
+          <li><strong>Penalty attribution:</strong> several key penalty attributions should be cross‑checked with official match reports and UEFA logs.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Árnor Guðjohnsen is a period‑defining Icelandic striker whose continental achievements and scoring instincts make his profile valuable both historically and as a template for scouting classic number‑9 archetypes.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video & Archive Guidance</h2>
+        <p class="small">Priority archive sources: UEFA match broadcasts (1983–1987 UEFA Cup ties), Belgian league highlight reels (1986–87 top scorer season), French league appearances (Bordeaux), and national team archives for the Turkey match (1991). Extraction checklist: match ID; mm:ss; event type (shot on target; penalty; header; off‑ball run); shot coordinates if available; ERA tag; triple‑source confirmation (UEFA; club archive; national FA).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Club Coaches & Teams</h3>
+        <p class="small"><strong>Dynamic:</strong> Thrived under structured Belgian club systems that provided wide supply and tactical discipline; adapted to French and Scandinavian contexts demonstrating tactical versatility.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Family & Mentorship</h3>
+        <p class="small"><strong>Dynamic:</strong> Father of Eiður Guðjohnsen and grandfather to professional strikers; notable agent/mentor role later in career influencing son’s pathway and broader football lineage.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Árnor Guðjohnsen scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for archival revalidation and triple‑source verification (UEFA; national FA; club archives) prior to publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Árnor Guðjohnsen strengths
+    const ctx = document.getElementById('arnorRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Movement','Aerial','Link‑up','Penalty Impact','Consistency','European Experience'],
+        datasets: [
+          { label: 'Árnor Guðjohnsen', data: [8.8,8.6,7.9,8.2,8.8,8.0,8.8], backgroundColor:'rgba(61,220,151,0.12)', borderColor:'#3ddc97', pointBackgroundColor:'#3ddc97' },
+          { label: 'Classic 9 Template', data: [8.5,8.2,7.6,8.0,8.0,7.8,7.9], backgroundColor:'rgba(43,161,137,0.08)', borderColor:'#2ba07f', pointBackgroundColor:'#2ba07f' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

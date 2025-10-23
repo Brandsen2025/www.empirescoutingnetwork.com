@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Oleg Blokhin — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#00d1ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.06), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.03), transparent 8%), var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased;}
+    header{display:flex;align-items:center;justify-content:space-between;max-width:1320px;margin:12px auto;padding:0 22px;}
+    header img{height:50px;width:auto;object-fit:contain;}
+    .container{max-width:1320px;margin:22px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px;}
+    .card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative;}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);}
+    .bigname{font-size:40px;font-weight:900;margin:16px 0;color:#fff;line-height:1;}
+    .sub{font-size:14px;color:var(--muted);margin-bottom:10px;}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 0 0;}
+    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;color:var(--white)}
+    th,td{padding:12px;border:1px solid rgba(255,255,255,0.08);text-align:left;vertical-align:top}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:22px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(0,209,255,0.12)}
+    .section{margin-top:26px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    pre{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;color:var(--muted);overflow:auto}
+    .visuals{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .visual{background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;min-width:260px;flex:1}
+    .video-wrap{margin-top:14px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,0.02);padding:8px}
+    @media (max-width:1000px){.container{grid-template-columns:1fr}.photo{height:300px}}
+  </style>
+</head>
+<body>
+  <header aria-label="Empire FGA header">
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network Logo">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-title">
+    <aside class="card" aria-label="Player summary">
+      <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMsaPR6oX7tS8nfSAh7156vu7YAVvmxMyTJ4T2jY-rEASFExo34mcy54&s=10" alt="Oleg Blokhin photo">
+      <div class="bigname" id="profile-title">Oleg Vladimirovich Blokhin</div>
+      <div class="sub">Forward · Winger / Striker · Ukraine (Soviet Union) · Born: 5 November 1952 · Height: 1.80 m</div>
+
+      <div style="margin-top:12px">
+        <span class="pill"><strong>Primary</strong> Right/Left Wing / Centre Forward</span>
+        <span class="pill"><strong>Club</strong> Dynamo Kyiv (1969–1988)</span>
+        <span class="pill"><strong>National</strong> Soviet Union</span>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Physical & Mental Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical snapshot">
+          <thead><tr><th>Metric</th><th>Score (0-10)</th></tr></thead>
+          <tbody>
+            <tr><td>Top Speed / Explosive Pace</td><td>9.8</td></tr>
+            <tr><td>Finishing / Composure</td><td>9.1</td></tr>
+            <tr><td>Dribbling / Solo Runs</td><td>9.0</td></tr>
+            <tr><td>Off the Ball Movement</td><td>9.3</td></tr>
+            <tr><td>Stamina / Durability</td><td>8.6</td></tr>
+            <tr><td>Leadership</td><td>8.9</td></tr>
+            <tr><td>Versatility (wing/center)</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:12px 0 6px;color:var(--accent2)">Audit Flags</h3>
+        <ul style="color:var(--muted);margin:0;padding-left:18px">
+          <li>Club appearance and goals consolidated from historical records; verify club-level minute logs before final ingestion.</li>
+          <li>International caps/goals vary across sources; apply Triple Source Rule for final numeric lock.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="Main profile">
+      <div class="rating-badge" aria-hidden="false">94.6</div>
+
+      <section class="section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Player Overview</h2>
+        <p style="color:var(--muted)">Oleg Blokhin is one of Eastern Europe's all‑time great forwards, famed for electric pace, lethal finishing and relentless solo threats. The archetypal Lobanovskyi-era Dynamo Kyiv attacker, Blokhin combined athletic acceleration with intelligent movement and clinical decision-making to dominate the Soviet Top League and produce consistent performances at club and international level.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline-title">
+        <h2 id="career-timeline-title">Career Timeline</h2>
+        <p style="color:var(--muted)">1969–1988: Dynamo Kyiv (dominant domestic and continental years). 1988–1989: Vorwärts Steyr (Austria). 1989–1990: Aris Limassol (Cyprus). International: Soviet Union (1972–1988). Transitioned to management after retirement, including successful spells in Greece and multiple appointments with the Ukraine national team.</p>
+      </section>
+
+      <section class="section" aria-labelledby="season-stats-title">
+        <h2 id="season-stats-title">Select Club & International Stats (summary)</h2>
+        <table aria-describedby="season stats">
+          <thead><tr><th>Years</th><th>Team</th><th>Competition</th><th>Apps</th><th>Goals</th></tr></thead>
+          <tbody>
+            <tr><td>1969–1988</td><td>Dynamo Kyiv</td><td>Soviet Leagues / Europe</td><td>432</td><td>211</td></tr>
+            <tr><td>1988–1989</td><td>Vorwärts Steyr</td><td>Austrian Bundesliga</td><td>41</td><td>9</td></tr>
+            <tr><td>1989–1990</td><td>Aris Limassol</td><td>Cypriot First Division</td><td>22</td><td>5</td></tr>
+            <tr><td>1972–1988</td><td>Soviet Union</td><td>International</td><td>112</td><td>42</td></tr>
+            <tr><td>Total</td><td>Career (approx)</td><td>All competitions</td><td>495</td><td>225</td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--muted);margin-top:8px">Numbers sourced from historical aggregates; finalize after cross-checking Dynamo club logs, national federation sheets, and match footage for per‑match event coding.</p>
+      </section>
+
+      <section class="section" aria-labelledby="international-title">
+        <h2 id="international-title">International Career</h2>
+        <p style="color:var(--muted)">Blokhin is the Soviet Union's most capped player and joint top scorer in many sources, representing the USSR across World Cups and Olympics. He brought pace and directness to the national side and produced important goals across major tournaments.</p>
+      </section>
+
+      <section class="section" aria-labelledby="honours-title">
+        <h2 id="honours-title">Honours & Trophies</h2>
+        <table aria-describedby="trophies">
+          <thead><tr><th>Year</th><th>Team</th><th>Honour</th></tr></thead>
+          <tbody>
+            <tr><td>1975, 1986</td><td>Dynamo Kyiv</td><td>European Cup Winners' Cup</td></tr>
+            <tr><td>1975</td><td>Dynamo Kyiv</td><td>UEFA Super Cup</td></tr>
+            <tr><td>1971–1986 (multiple)</td><td>Dynamo Kyiv</td><td>7–8× Soviet Top League titles (era totals vary by source)</td></tr>
+            <tr><td>1972, 1976</td><td>USSR</td><td>Olympic football team bronze / podium appearances</td></tr>
+            <tr><td>1975</td><td>Individual</td><td>Ballon d'Or (European Footballer of the Year)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="match-highlights-title">
+        <h2 id="match-highlights-title">Representative Match Highlights</h2>
+        <table aria-describedby="match highlights">
+          <thead><tr><th>Date</th><th>Fixture</th><th>Competition</th><th>Highlight</th></tr></thead>
+          <tbody>
+            <tr><td>1975</td><td>Dynamo Kyiv vs Bayern Munich</td><td>UEFA Super Cup (1st leg)</td><td>Iconic solo run and finish; emblematic of Blokhin's pace + technique</td></tr>
+            <tr><td>1975</td><td>Dynamo Kyiv vs Ferencváros</td><td>Cup Winners' Cup Final</td><td>Goal in final; decisive continental success</td></tr>
+            <tr><td>1986</td><td>Dynamo Kyiv vs Atlético Madrid</td><td>Cup Winners' Cup Final</td><td>Contributed to Dynamo's second Cup Winners' Cup triumph</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics-title">
+        <h2 id="advanced-metrics-title">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Offensive / Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goal Threat (per 90, era adj.)</td><td>9.4</td></tr>
+                <tr><td>Progressive Carries</td><td>9.2</td></tr>
+                <tr><td>Shot Quality (Finishing)</td><td>9.1</td></tr>
+                <tr><td>Dribble Impact</td><td>8.9</td></tr>
+                <tr><td>Chance Creation</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="color:var(--accent2);margin:0 0 8px 0">Physical / Mental</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Explosive Pace</td><td>9.8</td></tr>
+                <tr><td>Stamina / Durability</td><td>8.6</td></tr>
+                <tr><td>Decision Making in Transition</td><td>9.0</td></tr>
+                <tr><td>Composure in Finishing</td><td>9.1</td></tr>
+                <tr><td>Consistency (peak era)</td><td>9.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Values produced as Empire FGA era-adjusted estimates using match film, match logs and historical aggregates; flagged for full 3‑source verification prior to final dataset lock.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-title">
+        <h2 id="tactical-title">Tactical Philosophies & DNA</h2>
+        <p style="color:var(--muted)">Blokhin's DNA is optimised for direct, high‑tempo attacking systems that exploit wide channels and vertical transitions. He excels in counter-attacking frameworks and in teams that prioritise quick forward movement, dynamic wing play and late runs into the box.</p>
+
+        <table aria-describedby="tactical mapping" style="margin-top:12px">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Transition / Counter (Lobanovskyi)</td><td>9.6</td><td>Direct pace and timing ideal for fast transitions and vertical outlets</td></tr>
+            <tr><td>Cruyff Intelligence / Wide Inversions</td><td>8.6</td><td>Good spatial understanding when cutting inside and linking play</td></tr>
+            <tr><td>Menotti Artistry</td><td>7.9</td><td>Less individual flair focus; more outcome-driven forward play</td></tr>
+            <tr><td>Pragmatic Goal-First Systems</td><td>9.3</td><td>High fit for systems valuing goals and penetrating runs</td></tr>
+            <tr><td>Pressing / Work-Rate Heavy Systems</td><td>8.4</td><td>Capable, though primary asset remains attacking burst</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">Player Comparison & Visuals</h2>
+        <p style="color:var(--muted)">Suggested comparison axes: Sprint-Triggered Chances; Progressive Carries; Shot Volume; Expected Goals (era adj.); Box Entries; Transition Goal Contribution.</p>
+        <div class="visuals">
+          <div class="visual" id="radarPlaceholder">[Radar chart placeholder — Chart.js config ready]</div>
+          <div class="visual" id="heatmapPlaceholder">[Heatmap placeholder — positional density ready]</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights-title">
+        <h2 id="video-highlights-title">Video — Recommended Clips for Event Coding</h2>
+        <ul style="color:var(--muted)">
+          <li>Dynamo Kyiv Cup Winners' Cup runs (1974–1975, 1985–1986) for final actions and continental-level finishing.</li>
+          <li>UEFA Super Cup 1975 highlights vs Bayern Munich for signature solo run and finishing examples.</li>
+          <li>World Cup 1982 & 1986 match footage for international event coding and pressure performance.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources & Audit Notes</h2>
+        <p style="color:var(--muted)">Profile synthesised from historical club archives, match footage, federation records and public statistical aggregates; all numeric fields are provisional and require Empire FGA Triple Source verification (club minute logs, official federation records, video evidence) before final ingestion.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Oleg Blokhin scouting profile. Numeric fields provisional; flag rows for final event coding and CSV export.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Placeholder configs for chart injection after audit arrays are available
+    window.fga_blokhin_placeholders = {
+      radar: { labels:['Explosive Pace','Goal Threat','Progressive Carries','Off Ball Movement','Finishing','Dribbling','Work Rate','Consistency'], data:[9.8,9.4,9.2,9.3,9.1,9.0,8.6,9.2] },
+      heatmap: { series:[{name:'Defensive Third',data:[{x:'Left',y:1},{x:'Center',y:0},{x:'Right',y:1}]},{name:'Middle Third',data:[{x:'Left',y:6},{x:'Center',y:5},{x:'Right',y:4}]},{name:'Attacking Third',data:[{x:'Left',y:8},{x:'Center',y:9},{x:'Right',y:7}]}] }
+    };
+  </script>
+</body>
+</html>

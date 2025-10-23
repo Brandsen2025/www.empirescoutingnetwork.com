@@ -1,0 +1,231 @@
+### Robert Lewandowski — Empire FGA Profile (enhanced historical matches)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Robert Lewandowski — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#1f8fe3; --accent2:#59d0ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(31,143,227,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(89,208,255,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(89,208,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://assets.goal.com/images/v3/blt7e2c300aac37a4d4/Robert_Lewandowski_FC_Bayern_2022.jpg?auto=webp&format=pjpg&width=3840&quality=60" alt="Robert Lewandowski photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Robert Lewandowski</div>
+        <div class="sub">Striker · Poland · Born: 21 August 1988 · Height: 1.86 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Znicz Pruszków; Lech Poznań; Borussia Dortmund; Bayern Munich; Barcelona</span>
+          <span class="pill"><strong>International</strong> Poland (161+ caps, 87+ goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 96.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing & Shot Selection</td><td>9.9</td></tr>
+            <tr><td>Positioning & Anticipation</td><td>9.8</td></tr>
+            <tr><td>Link‑up Play / Hold‑up</td><td>9.1</td></tr>
+            <tr><td>Aerial Threat</td><td>9.2</td></tr>
+            <tr><td>Penalty & Set‑piece Reliability</td><td>9.5</td></tr>
+            <tr><td>Durability / Availability</td><td>9.0</td></tr>
+            <tr><td>Leadership</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club-level goal tallies differ across official reports for early career seasons; require club archives for season-level confirmation.</li>
+          <li>Penalty attribution and non‑penalty xG require per‑event coordinates from broadcast or Opta to validate conversion metrics.</li>
+          <li>Cross-era comparisons adjusted with ERA multipliers; flag historic lower‑tempo competitions for normalization checks.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">96.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Robert Lewandowski is one of the most complete modern centre‑forwards — elite finisher, intelligent mover and reliable presence in big matches. Exceptional at converting chances in all forms (inside box, aerial, penalties, long‑range finishes), Lewandowski combines technical execution with systematic positional intelligence to maximise goal output across domestic and continental competitions.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1996–2004</td><td>MKS Varsovia / Youth</td><td>Early development and goal instincts</td></tr>
+            <tr><td>2006–2008</td><td>Znicz Pruszków</td><td>Top scorer in lower divisions; promoted to higher tiers</td></tr>
+            <tr><td>2008–2010</td><td>Lech Poznań</td><td>Ekstraklasa title; breakout at top‑flight level</td></tr>
+            <tr><td>2010–2014</td><td>Borussia Dortmund</td><td>Bundesliga titles; Champions League final 2013; tactical development under Klopp</td></tr>
+            <tr><td>2014–2022</td><td>Bayern Munich</td><td>Dominant scorer; multiple Bundesliga titles; 2019‑20 UCL winner; record-setting seasons</td></tr>
+            <tr><td>2022–present</td><td>Barcelona</td><td>La Liga top scorer seasons; continued elite conversion rates</td></tr>
+            <tr><td>2008–present</td><td>Poland</td><td>All‑time leading scorer; long‑term captaincy and tournament leader</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>19 May 2013 — Dortmund vs Real Madrid (UCL semi first leg)</strong> — four‑goal masterclass; extract each shot frame, goalkeeper positioning and pre‑pass sequences for finishing taxonomy.</li>
+            <li><strong>22 September 2015 — Bayern vs Wolfsburg</strong> — five goals in nine minutes; event pack required for extreme conversion rhythm modelling and substitution impact analysis.</li>
+            <li><strong>2019–20 Champions League campaign</strong> — 15 goals en route to UCL title; extract progressive chance chains and movement pockets across knockout fixtures for clutch index calibration.</li>
+            <li><strong>2020–21 & 2021–22 Bundesliga seasons</strong> — record scoring seasons (41; 35 goals); seasonal longitudinal packs to model shot selection, expected goals vs conversion anomalies and workload distribution.</li>
+            <li><strong>2022–present Barcelona transition</strong> — extraction of pocket drops, link‑up combinations and run timing to model system adaptability and goal‑creation from structured positional play.</li>
+            <li><strong>International high‑value packs</strong> — multi‑tournament sample (Euro qualifiers, Euros, World Cups) to validate leadership, clutch penalty sequences and captaincy influence on team output.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Finishing & Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Conversion (non‑penalty)</td><td>9.8</td></tr>
+                <tr><td>Goals per 90 (peak ERA)</td><td>9.7</td></tr>
+                <tr><td>Big‑Chance Conversion</td><td>9.9</td></tr>
+                <tr><td>Goals from Box (1‑10m)</td><td>9.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Movement & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Spatial Intelligence (pocket use)</td><td>9.7</td></tr>
+                <tr><td>Press‑resistant Finishing</td><td>9.4</td></tr>
+                <tr><td>Set‑piece / Penalty Reliability</td><td>9.5</td></tr>
+                <tr><td>Link‑up / One‑touch play</td><td>8.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Bundesliga, La Liga and UCL contexts; final publication requires frame‑level shot coords, pressure state tagging and triple‑source verification for extreme conversion events.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Lewandowski fits centre‑forward philosophies that prioritise positional finishing, penalty reliability and intelligent pocket movement. He maps strongly to pragmatic striker schools that value end‑product above voluminous possession, while also adapting to positional play systems that create pockets and overloads for high‑value service.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Pragmatic Finisher / Classic 9</td><td>9.9</td><td>Elite finishing and positioning define archetype</td></tr>
+            <tr><td>Counter‑Attack Predator</td><td>9.2</td><td>Clinical in transitions and quick final actions</td></tr>
+            <tr><td>Positional Play / Pocket Striker</td><td>9.3</td><td>Drops intelligently; links play in tight spaces</td></tr>
+            <tr><td>High‑Press / Recovery Role</td><td>8.5</td><td>Less primary pressing focus but contributes in structure</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Peers for reference: elite pure strikers and pocket creators (Hernán Crespo; Thierry Henry; Zlatan variant for physicality).</p>
+        <canvas id="lewaRadar" width="720" height="420" aria-label="Radar comparing Lewandowski with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Competitive resilience:</strong> consistent high output across seasons and competitions, rapid recovery from dips in form.</li>
+          <li><strong>Professional discipline:</strong> training ethic, diet and preparation contribute to longevity and peak consistency.</li>
+          <li><strong>Mentor / captaincy profile:</strong> stabilising presence and cultural leader for club and country.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Age and workload management:</strong> at late‑30s stage, minutes and recovery modeling required for projection outputs.</li>
+          <li><strong>System dependency for high‑volume service:</strong> best output seen in teams that create high‑value chances inside the box.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Lewandowski is a blueprint striker for replacement identification and market benchmarking; event‑row extraction across record seasons (2015–2022) will yield a high‑fidelity finishing model usable for scouting and valuation pipelines.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority packs: 2013 semi vs Real Madrid; 2015 Wolfsburg sub‑explosion; 2019–20 UCL knockout run; 2020–22 record Bundesliga seasons; 2022→ Barcelona adaptation matches. Extraction checklist: match ID; mm:ss; event type (finish; big‑chance; penalty; aerial duel; pocket‑drop); shot coordinate; pre‑pass chain; pressure state; ERA tag; triple‑source verification (broadcast; FBref/official logs; club footage).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Jürgen Klopp / Bayern & Dortmund Coaches</h3>
+        <p class="small"><strong>Dynamic:</strong> Tactical environments under Klopp and later Bielsa/Guardiola‑style systems shaped movement, pressing triggers and finishing zones.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Club service & strike partnerships</h3>
+        <p class="small"><strong>Dynamic:</strong> Service quality from wide players and midfield creators maximised Lewandowski's conversion; tactical fit analysis should model supplier impact.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Poland national team</h3>
+        <p class="small"><strong>Dynamic:</strong> Captain and talisman; international packs crucial to model leadership influence and clutch conversion under tournament pressure.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Robert Lewandowski scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (broadcast; FBref/official logs; club footage) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Lewandowski strengths
+    const ctx = document.getElementById('lewaRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Finishing','Positioning','Aerial','Link‑up','Press‑resist','Penalties','Durability'],
+        datasets: [
+          { label: 'Robert Lewandowski', data: [9.8,9.7,9.2,8.9,9.4,9.5,9.0], backgroundColor:'rgba(89,208,255,0.12)', borderColor:'#59d0ff', pointBackgroundColor:'#59d0ff' },
+          { label: 'Elite Striker Template', data: [9.3,9.0,8.8,8.4,8.9,9.0,8.6], backgroundColor:'rgba(31,143,227,0.08)', borderColor:'#1f8fe3', pointBackgroundColor:'#1f8fe3' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

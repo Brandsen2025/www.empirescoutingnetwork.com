@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Antonio Cabrini — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#e24b3b; --accent2:#ffcf4d; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(226,75,59,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,207,77,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,207,77,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQo-oCOrCzp7VkemOqhx2rHjS9M-4JdJyh4u5MiwSTS3UMjqYp5jiOo3uT9x41gFicfy-ka8g0JVRMOo46fiw-IV7aHTf-fHPlE3Ha68ufOM_HvAYmCKvSJjSjvb9JTBr8wkGbWLv0G0k5wHjamqeJ5BD9q3Ps3krAsX_VIrftbHyR_skwkzv7Sx6Vfi0/s2664/cabrini%201980.jpg" alt="Antonio Cabrini photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Antonio Cabrini</div>
+        <div class="sub">Left-Back · Italy · Born: 8 October 1957 · Nickname: "Bell'Antonio"</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Cremonese; Atalanta; Juventus; Bologna</span>
+          <span class="pill"><strong>International</strong> Italy (73 caps, 9 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 90.2</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Pace & Recovery</td><td>8.6</td></tr>
+            <tr><td>Crossing & Final Ball</td><td>8.9</td></tr>
+            <tr><td>Defensive Positioning</td><td>9.0</td></tr>
+            <tr><td>Set-piece Threat</td><td>8.3</td></tr>
+            <tr><td>Goal Threat (attacking runs)</td><td>7.9</td></tr>
+            <tr><td>Durability</td><td>8.8</td></tr>
+            <tr><td>Leadership</td><td>8.7</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li>Club minutes and goal tallies differ slightly across historic sources; mark for 3-source verification prior to export.</li>
+          <li>Event-level crossing maps for 1970s–80s require archival footage for xT / crossing accuracy modeling.</li>
+          <li>International goal location and assist attribution flagged for match-by-match cross-checks with official FIGC records.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">90.2</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Antonio Cabrini is a defining modern full-back from Italy's golden generation — an attacking left-back whose timing, pace and left-foot delivery made him a decisive outlet for Juventus and the Italy national team. Winner of the 1982 FIFA World Cup and multiple continental trophies with Juventus, Cabrini combined defensive intelligence with genuine goal and assist threat, scoring nine international goals and earning the 1978 World Cup Best Young Player award.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1973–1975</td><td>Cremonese</td><td>Youth breakthrough, converted from winger to left side defender</td></tr>
+            <tr><td>1975–1976</td><td>Atalanta</td><td>Regular starter in Serie B; earned Juventus transfer</td></tr>
+            <tr><td>1976–1989</td><td>Juventus</td><td>297 Serie A apps (Juventus); 6x Serie A; UEFA Cup, Cup Winners' Cup, European Cup, Intercontinental Cup</td></tr>
+            <tr><td>1989–1991</td><td>Bologna</td><td>Final seasons before retirement</td></tr>
+            <tr><td>1978–1987</td><td>Italy</td><td>73 caps, 9 goals, World Cup winner 1982; Best Young Player 1978</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Career Milestones & Highlights</h2>
+        <p class="small"><strong>1978:</strong> Best Young Player at the World Cup after helping Italy to fourth place and establishing himself internationally.</p>
+        <p class="small"><strong>1982:</strong> World Cup winner; scored key goal vs Argentina in second round; missed a penalty in the final but Italy won.</p>
+        <p class="small"><strong>1977–1986 (Juventus):</strong> Six Serie A titles and multiple European trophies; one of few players to win every major UEFA club competition.</p>
+        <p class="small"><strong>Club captaincy:</strong> Inherited Juventus armband later in career, demonstrating leadership and standing at Turin.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Profile</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passing / Final Ball</td><td>9.0</td></tr>
+                <tr><td>Crossing Effectiveness</td><td>8.9</td></tr>
+                <tr><td>Shot Contribution</td><td>7.6</td></tr>
+                <tr><td>Key Passes per 90 (era adj.)</td><td>8.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>1v1 Defending</td><td>8.8</td></tr>
+                <tr><td>Position Intelligence</td><td>9.1</td></tr>
+                <tr><td>Recovery Runs / Transition</td><td>8.6</td></tr>
+                <tr><td>Set-piece Defensive Contribution</td><td>8.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">Metrics adjusted with ERA multipliers for late-1970s to mid-1980s competitive context; flagged for event-level revalidation using archived match footage for exact per-90 calibration.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Cabrini represents an attacking full-back archetype who fits positional philosophies that value width, overlapping runs and reliable defensive cover. His DNA aligns strongly with Italian organized defensive schools while also pairing well with possession-based coaches who use full-backs as secondary creators.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Trapattoni / Italian Organization</td><td>9.2</td><td>Strong tactical discipline and defensive awareness</td></tr>
+            <tr><td>Attacking Full-Back (overlap) / Possession</td><td>8.9</td><td>Progressive passing and crossing excel</td></tr>
+            <tr><td>Press-Resistant Systems</td><td>8.5</td><td>Composed under pressure; intelligent positioning</td></tr>
+            <tr><td>Counter-Attacking setups</td><td>8.3</td><td>Good recovery speed and transitional impact</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Paolo Maldini (modern), Bruno Conti (era teammate), Giacinto Facchetti (precedent full-back).</p>
+        <canvas id="cabriniRadar" width="720" height="420" aria-label="Radar comparing Antonio Cabrini with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Cabrini strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (left channel influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Confidence and charisma:</strong> public figure with strong presence; nickname "Bell'Antonio" reflected cultural impact.</li>
+          <li><strong>Competitive composure:</strong> delivered in World Cups and high-pressure European fixtures.</li>
+          <li><strong>Professional resilience:</strong> long-term Juventus starter with high availability and consistency.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Era expectations:</strong> distribution and inverted full-back responsibilities changed since his prime; modern ball-playing sweep demands are higher.</li>
+          <li><strong>Event data gaps:</strong> crossing accuracy per-event needs archived footage for precise xT modelling.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Born in Cremona, Cabrini moved from winger to world-class full-back, forming a legendary defensive unit at Juventus and with Italy, known for tactical intelligence, athleticism and a reliable left foot.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: 1978 World Cup matches (young Cabrini), 1982 World Cup (goal vs Argentina, defensive sequences), Juventus European Cup campaigns (1983–85), Serie A peak seasons (late 1970s–mid 80s). Extraction checklist: match ID; mm:ss; event type (cross, key pass, tackle, interception, shot); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Dino Zoff (Defensive Anchor)</h3>
+        <p class="small"><strong>Dynamic:</strong> Zoff's experience and leadership allowed full-backs like Cabrini to venture forward with safety; mutual trust in defensive structure enabled Italy's balance during the 1982 World Cup.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Gaetano Scirea & Claudio Gentile (Defensive Unit)</h3>
+        <p class="small"><strong>Dynamic:</strong> Part of one of the most cohesive backlines of all time; positional clarity among the four defenders maximised Cabrini's attacking license while protecting transitional vulnerabilities.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Giovanni Trapattoni (Club Manager)</h3>
+        <p class="small"><strong>Dynamic:</strong> Trapattoni's tactical pragmatism at Juventus emphasised structure and role discipline; Cabrini thrived as an attacker who could execute defensive tasks within a tightly organised system.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Paolo Rossi / Marco Tardelli (Team Impact)</h3>
+        <p class="small"><strong>Dynamic:</strong> Attacking partners who benefited from width and service; Cabrini's crosses and late runs supplied goal opportunities and tactical variety.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Mentorship & Later Roles</h3>
+        <p class="small">After retirement Cabrini moved into coaching, media and motivational speaking; his interpersonal profile evolved from private professional to public mentor and mental coach.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Antonio Cabrini scouting profile. Numeric fields are ERA‑adjusted estimates; mark rows for final event coding and triple-source verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Cabrini vs peers (Maldini, Facchetti)
+    const ctx = document.getElementById('cabriniRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Crossing','Positioning','Pace','Defense','Set-piece Impact','Consistency','Leadership'],
+        datasets: [
+          { label: 'Antonio Cabrini', data: [8.9,9.1,8.6,8.8,8.3,8.8,8.7], backgroundColor:'rgba(255,207,77,0.12)', borderColor:'#ffcf4d', pointBackgroundColor:'#ffcf4d' },
+          { label: 'Paolo Maldini', data: [8.2,9.5,7.8,9.4,7.0,9.3,9.4], backgroundColor:'rgba(124,58,237,0.12)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' },
+          { label: 'Giacinto Facchetti', data: [8.6,9.0,8.4,8.9,7.8,8.7,8.6], backgroundColor:'rgba(34,153,221,0.12)', borderColor:'#2299dd', pointBackgroundColor:'#2299dd' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Crossing','Positioning','Pace','Defense','Set-piece','Consistency','Leadership'],
+        datasets:[{ label:'Cabrini', data:[8.9,9.1,8.6,8.8,8.3,8.8,8.7], backgroundColor:'rgba(226,75,59,0.12)', borderColor:'#e24b3b', pointBackgroundColor:'#e24b3b' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (left channel influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#ff7a59'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Wing',y:8},{x:'Left Inside',y:7},{x:'Penalty Edge',y:6}] },
+        { name:'Middle Third', data:[{x:'Left Wing',y:9},{x:'Left Inside',y:9},{x:'Centre',y:7}] },
+        { name:'Attacking Third', data:[{x:'Left Wing',y:9},{x:'Left Inside',y:8},{x:'Backpost',y:7}] }
+      ],
+      title:{ text:'Left Channel Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

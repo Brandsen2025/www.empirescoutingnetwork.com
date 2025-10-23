@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bruno Pezzey — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0b84a5; --accent2:#6fe3ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,132,165,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(111,227,255,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(111,227,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX7S8q3Cn8By7vF4l2OOJZ63XtTx-p0rsQ28UUtbOEt4IYQ7gkh60eitXfgF8YESp3wqgXloeUi0gmSonCkFWfQhxvXC9TszikWNKqY-fkwsrEH0_FrhtiqovgiLMgxwvNuac_FFr9-ScV/s1600/bruno+pezzey+eintracht+frakfurt.jpg" alt="Bruno Pezzey photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Bruno Pezzey</div>
+        <div class="sub">Centre-Back / Sweeper · Austria · Born: 3 February 1955 · Height: 1.88 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> FC Vorarlberg; Wacker Innsbruck; Eintracht Frankfurt; Werder Bremen; Swarovski Tirol</span>
+          <span class="pill"><strong>International</strong> Austria (84 caps, 9 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 91.0</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Reading & Anticipation</td><td>9.3</td></tr>
+            <tr><td>Aerial Dominance</td><td>9.1</td></tr>
+            <tr><td>Ball Progression / Long Passing</td><td>8.7</td></tr>
+            <tr><td>Set-piece Threat</td><td>8.8</td></tr>
+            <tr><td>Versatility (CB/Sweeper)</td><td>9.0</td></tr>
+            <tr><td>Durability</td><td>8.6</td></tr>
+            <tr><td>Leadership</td><td>8.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Verify club appearance and goal totals across FBref, Transfermarkt and club archives prior to export.</li>
+          <li>Event-level timestamps for UEFA Cup 1979–80 and DFB-Pokal 1980–81 finals required for clutch indexing.</li>
+          <li>International match-by-match assist/goal context from RSSSF and FIFA archives for ERA adjustments.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">91.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Bruno Edmund Pezzey was one of Austria’s finest defensive exports of the 1970s and 80s: a tall, commanding sweeper who combined aerial power with elegant long passing and a genuine scoring threat from set-plays. Successful in Austria and the Bundesliga, Pezzey anchored Wacker Innsbruck, starred for Eintracht Frankfurt during their UEFA Cup run and later strengthened Werder Bremen before returning to Austria to close his career.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1973–1974</td><td>FC Vorarlberg</td><td>Senior debut; rapid progression from youth ranks</td></tr>
+            <tr><td>1974–1978</td><td>Wacker Innsbruck</td><td>Two Austrian Bundesliga titles; Mitropa Cup success; emergence as national team regular</td></tr>
+            <tr><td>1978–1983</td><td>Eintracht Frankfurt</td><td>UEFA Cup winner 1979–80; DFB-Pokal 1980–81; established in Bundesliga</td></tr>
+            <tr><td>1983–1987</td><td>Werder Bremen</td><td>Consistent performances; Bundesliga runner-up finishes and Kicker Team of the Season recognitions</td></tr>
+            <tr><td>1987–1990</td><td>Swarovski Tirol</td><td>Returned to Austria; two more league titles and domestic cup success late in career</td></tr>
+            <tr><td>1975–1990</td><td>Austria</td><td>84 caps, 9 goals; participant at 1978 and 1982 World Cups; key international leader</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Historic Matches & Enhanced Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1974–77 (Wacker Innsbruck):</strong> Domestic consolidation — two Austrian Bundesliga titles (1974–75, 1976–77) and an Austrian Cup demonstrating early leadership in defensive unit organisation.</li>
+            <li><strong>1979–80 UEFA Cup (Eintracht Frankfurt):</strong> Key defensive and set-piece contributor during knockout phases leading to the UEFA Cup triumph; multiple match-winning headers and decisive clearances in semi-final and final legs mark priority event extraction.</li>
+            <li><strong>1980–81 DFB-Pokal:</strong> Starter in cup run that culminated in national cup victory; recommended to extract cup-final defensive sequences and set-piece involvements for event coding.</li>
+            <li><strong>1978 & 1982 World Cups:</strong> Defensive anchor across major tournament fixtures; scored in 1982 second-round draw with Northern Ireland — a validated high-impact event for clutch-index and ERA adjustments.</li>
+            <li><strong>Bundesliga peak seasons (1980–1983):</strong> Multiple Kicker Team of the Season inclusions and Guardian-style 'Ideal European XI' recognitions — use season-level index to validate elite-era multiplier.</li>
+            <li><strong>Return to Austria (1987–1990):</strong> Two late-career Austrian league titles and an Austrian Cup with Swarovski Tirol, evidencing leadership longevity and late ERA smoothing considerations.</li>
+            <li><strong>Legacy events:</strong> UEFA Cup final legs, DFB-Pokal final, World Cup goal vs Northern Ireland (1982) and league-clinching matches — all recommended for frame-accurate event extraction (match ID; mm:ss; event type; x/y if available; ERA tag).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Interception & Reading</td><td>9.3</td></tr>
+                <tr><td>Aerial Duels Won (era adj.)</td><td>9.1</td></tr>
+                <tr><td>Tactical Positioning</td><td>9.2</td></tr>
+                <tr><td>Clearance Decisioning</td><td>8.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Contribution</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Set-piece Scoring</td><td>8.8</td></tr>
+                <tr><td>Progressive Long Passing</td><td>8.7</td></tr>
+                <tr><td>Goal Frequency (defender)</td><td>8.2</td></tr>
+                <tr><td>Clutch Event Index</td><td>8.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Austrian and German league contexts. Flagged for event-level revalidation using UEFA Cup 1979–80 footage, DFB-Pokal 1980–81 final and World Cup 1982 match tapes for exact per-90 calibration and clutch-index validation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Pezzey's DNA suits organized defensive systems that require a commanding aerial presence, a sweeper capable of initiating attacks and a defender who contributes offensively on set-plays. He aligns with pragmatic continental philosophies that balance structure with progressive outlet passing.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>German/Austrian Organisation</td><td>9.1</td><td>Positional discipline and Bundesliga-proven tactical reliability</td></tr>
+            <tr><td>Ball-Playing Sweeper</td><td>9.0</td><td>Long passing and spatial reads enable progressive transitions</td></tr>
+            <tr><td>Set-piece Offensive Strategy</td><td>8.8</td><td>Proven scoring threat from corners and free-kicks</td></tr>
+            <tr><td>Counter-Attack Resistance</td><td>8.4</td><td>Strong recovery and aerial clearing in transition phases</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Bruno Pezzey, Franz Beckenbauer (libero prototype), Harald Schumacher-era defensive anchors.</p>
+        <canvas id="pezzeyRadar" width="720" height="420" aria-label="Radar comparing Bruno Pezzey with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Pezzey strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (central / left centre influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Composure and resilience:</strong> consistent performer in high-stakes European knockout fixtures and World Cup matches.</li>
+          <li><strong>Leadership:</strong> captain-type presence with clear on-field communication and positional authority.</li>
+          <li><strong>Competitive mentality:</strong> sustained peak across domestic and international competitions demonstrating professional durability.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Event-data gaps:</strong> full event logs from 1970s Austrian domestic cups and early UEFA rounds require archival footage for per-event validation.</li>
+          <li><strong>Late-career role shift:</strong> compare early-career progressive passing metrics with late-career positional consolidation when normalizing with ERA.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Pezzey combined the physical traits of a dominant centre-back with the technical polish to start attacks from the back and score crucial goals; his continental successes make him a strong historic template for modern ball-playing stoppers.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: UEFA Cup 1979–80 knockout fixtures and final legs (Eintracht Frankfurt), DFB-Pokal 1980–81 final sequences, 1982 World Cup Austria vs Northern Ireland goal (match replay), Bundesliga peak seasons (1980–1983). Extraction checklist: match ID; mm:ss; event type (headed goal; interception; clearance; long pass; set-piece involvement); context tag (semi/final/knockout); ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Wacker Innsbruck Cohort</h3>
+        <p class="small"><strong>Dynamic:</strong> Early professional environment shaped Pezzey's winning mentality and foundational tactical discipline in Austrian football culture.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Eintracht Frankfurt Leadership</h3>
+        <p class="small"><strong>Dynamic:</strong> Formed a defensive nucleus that combined German organisation with Pezzey's aerial and long-pass threat, crucial during UEFA Cup success.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Austria National Team (1978–1982)</h3>
+        <p class="small"><strong>Dynamic:</strong> Central figure in national setups; on-pitch leadership and set-piece contributions amplified Austria's competitiveness on the world stage.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Bruno Pezzey scouting profile. Numeric fields are ERA‑adjusted estimates; mark UEFA Cup 1979–80, DFB-Pokal 1980–81 and World Cup 1982 events for final event coding and triple-source verification before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Pezzey vs peers (Pezzey, Beckenbauer, Schumacher-era defender)
+    const ctx = document.getElementById('pezzeyRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Reading','Aerial','Passing','Leadership','Versatility','Set-piece','Clutch'],
+        datasets: [
+          { label: 'Bruno Pezzey', data: [9.3,9.1,8.7,8.9,9.0,8.8,8.9], backgroundColor:'rgba(111,227,255,0.10)', borderColor:'#6fe3ff', pointBackgroundColor:'#6fe3ff' },
+          { label: 'Franz Beckenbauer', data: [9.6,8.9,9.3,9.2,9.1,8.2,9.1], backgroundColor:'rgba(11,132,165,0.08)', borderColor:'#0b84a5', pointBackgroundColor:'#0b84a5' },
+          { label: 'Generic Bundesliga Anchor', data: [9.0,9.0,8.5,8.6,8.8,8.0,8.7], backgroundColor:'rgba(124,58,237,0.08)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Reading','Aerial','Passing','Leadership','Versatility','Set-piece','Clutch'],
+        datasets:[{ label:'Pezzey', data:[9.3,9.1,8.7,8.9,9.0,8.8,8.9], backgroundColor:'rgba(11,132,165,0.08)', borderColor:'#0b84a5', pointBackgroundColor:'#0b84a5' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (central influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#6fe3ff'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Centre',y:9},{x:'Central',y:10},{x:'Right Centre',y:8}] },
+        { name:'Middle Third', data:[{x:'Left Centre',y:8},{x:'Central',y:9},{x:'Right Centre',y:8}] },
+        { name:'Attacking Third', data:[{x:'Left Centre',y:7},{x:'Central',y:8},{x:'Right Centre',y:6}] }
+      ],
+      title:{ text:'Central Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

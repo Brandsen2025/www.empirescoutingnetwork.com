@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>José Leandro Andrade — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#f59e0b;--accent2:#ffd27a;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(245,158,11,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,122,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,210,122,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Andrade_urug.jpg" alt="José Leandro Andrade photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">José Leandro Andrade</div>
+        <div class="sub">Right Half / Midfielder · Uruguay · Born: 22 November 1901 · Died: 5 October 1957 · Height: 1.78 m (est.)</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Central Atlético; Nacional; Peñarol (era records vary)</span>
+          <span class="pill"><strong>International</strong> Uruguay (1923–1932; Olympic & World Cup winner)</span>
+          <span class="pill"><strong>Peak FGA</strong> 93.7</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Technical Elegance</td><td>9.6</td></tr>
+            <tr><td>Ball Progression under Pressure</td><td>9.2</td></tr>
+            <tr><td>Spatial Intelligence</td><td>9.4</td></tr>
+            <tr><td>Composure / Flair</td><td>9.5</td></tr>
+            <tr><td>Durability (Era Adjusted)</td><td>8.7</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Early 1920s match logs are incomplete; club affiliations vary by source—require federation and newspaper archives for verification.</li>
+          <li>Photographic and film archives are limited; provenance tags required for any quoted anecdote or image.</li>
+          <li>International caps and goal tallies differ across historical registries; reconcile with AUF and IOC records.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">93.7</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">José Leandro Andrade was a seminal figure in early Uruguayan football, nicknamed "The Black Marvel." A technically superb right half with exceptional spatial intelligence and composure, Andrade combined rhythmic ball control with progressive passing and calm leadership on the field; central to Uruguay's 1924 & 1928 Olympic triumphs and 1930 World Cup victory.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1919–1924</td><td>Central Atlético / early clubs</td><td>Emergence at senior level; local acclaim for technique and composure.</td></tr>
+            <tr><td>1924–1928</td><td>Uruguay national team / Olympics</td><td>Key figure in Olympic gold medals (Paris 1924, Amsterdam 1928).</td></tr>
+            <tr><td>1929–1934</td><td>Uruguay / domestic clubs</td><td>Integral to 1930 World Cup winning squad; domestic career with top Uruguayan sides across era.</td></tr>
+            <tr><td>Post‑1934</td><td>Later career & legacy</td><td>Enduring cultural and technical legacy; subject of historical retrospectives.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1924 Olympic Games (Paris)</strong> — Uruguay squad; demonstration of technical superiority vs European opposition.</li>
+            <li><strong>1928 Olympic Games (Amsterdam)</strong> — Repeat Olympic success; marked global recognition for Uruguayan style.</li>
+            <li><strong>30 Jul 1930 — World Cup Final: Uruguay 4–2 Argentina</strong> — Foundational World Cup victory; Andrade key midfield presence.</li>
+            <li><strong>Multiple South American Championship appearances</strong> — Regional dominance and era-standard setting.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Technical & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Ball Retention under Press</td><td>9.5</td></tr>
+                <tr><td>Progressive Passing Influence</td><td>9.3</td></tr>
+                <tr><td>Spatial Occupation / Zone Control</td><td>9.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Mental & Cultural</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Composure & Elegance</td><td>9.6</td></tr>
+                <tr><td>Competitive Influence (international)</td><td>9.4</td></tr>
+                <tr><td>Legacy Index</td><td>9.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied to account for differences in match tempo, rules and available event detail across 1920s–1930s competitions. Final event-level extraction requires archive film and contemporary press corroboration.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Andrade's DNA sits at the crossroads of early South American technical expression and positional intelligence. He functioned as a progressive half with licence to carry and orchestrate attacks while maintaining defensive discipline; modern comparators map to ball-progressing deep midfielders with high technical influence.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Positional Play (early positional intelligence)</td><td>9.2</td><td>Progressive passing into channels; spatial occupation to create overloads</td></tr>
+            <tr><td>Joga Bonito / Brazilian Creative Lineage</td><td>9.1</td><td>Technical flair; expressive control and dribble sequences</td></tr>
+            <tr><td>Total Football (positional interchange)</td><td>8.6</td><td>Early form of position rotation and support play</td></tr>
+            <tr><td>Pragmatic Defensive Block</td><td>8.9</td><td>Disciplined zone coverage when possession lost; timely retreats</td></tr>
+            <tr><td>Garra / Uruguayan Pragmatism</td><td>9.0</td><td>Competitive mindset; decisive international performance under pressure</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: decision-making under pressure; composure; resilience; leadership style; clutch index; adaptability. Andrade shows historic signs of high composure and cultural influence that elevated team performance on global stages.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Andrade Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Decision Making Under Pressure</td><td>9.4</td><td>Calm orchestration in Olympic and World Cup matches</td></tr>
+            <tr><td>Composure</td><td>9.6</td><td>Exceptional ball control and low error propensity</td></tr>
+            <tr><td>Resilience</td><td>9.1</td><td>Consistent output across international tours and hostile environments</td></tr>
+            <tr><td>Leadership Style</td><td>8.8</td><td>Leading through example and technical authority</td></tr>
+            <tr><td>Adaptability</td><td>8.6</td><td>Successful international tours and exhibition matches</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:8px">Application: psychological scores are used to weight historical comparators in the DNA algorithm and to assess cultural/legacy fit in content packages.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Tactical, cultural and developmental relationships that inform historical context and legacy partnerships.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>National Team Core</td><td>1924/1928 Olympic & 1930 World Cup cohorts</td><td>Understanding group dynamics and creative freedom granted to technical players</td></tr>
+            <tr><td>Club Affiliations</td><td>Central Atlético; Nacional; Peñarol (period sources vary)</td><td>Reconciling club-level event rows with national outputs</td></tr>
+            <tr><td>Contemporary Press & Archive Keepers</td><td>Period newspapers; IOC archives</td><td>Primary sources for event reconstruction and anecdote provenance</td></tr>
+            <tr><td>Legacy Institutions</td><td>AUF; FIFA historical committees</td><td>Verification of honours and caps</td></tr>
+            <tr><td>Cultural Partners</td><td>Historians; museum curators</td><td>Framing for heritage content and commemorative packages</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction with tactical objective and extraction focus. All rows require triple-source provenance: archive film; federation logs; contemporary press accounts.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>28 Jun 1924</td><td>1924 Olympic Final (Uruguay vs Switzerland)</td><td>Showcase of Uruguayan technical superiority vs Europe</td><td>Passing sequences; ball retention under press; positional support</td></tr>
+            <tr><td>13 Aug 1928</td><td>1928 Olympic Final (Uruguay vs Argentina)</td><td>Repeat international dominance and composure under pressure</td><td>Progressive passing; midfield orchestration; clutch sequences</td></tr>
+            <tr><td>30 Jul 1930</td><td>World Cup Final: Uruguay 4–2 Argentina</td><td>World-class performance in inaugural World Cup final</td><td>Midfield control; transition initiation; assist/secondary assist chains</td></tr>
+            <tr><td>1924–1930 tours</td><td>European & South American exhibition matches</td><td>Technical adaptability and crowd-pressure handling</td><td>Cross-era event comparison; demonstration of ball mastery vs diverse opposition</td></tr>
+            <tr><td>Contemporary archives</td><td>Press & IOC records</td><td>Contextual narratives and provenance tagging</td><td>Newspaper match reports; photographic sequencing; testimonial corroboration</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video & Archive Extraction Guide</h2>
+        <ul class="small">
+          <li>Primary sources: IOC film archives (1924, 1928), FIFA 1930 film reels, national newspaper photo sequences.</li>
+          <li>Extraction checklist: archive ID; reel/mm:ss; event type; start/end frames; contextual annotation; provenance tag (press/federation/film).</li>
+          <li>Note: some events require frame interpolation and expert annotation due to film quality—document interpolation method in audit trail.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: era-adjusted creative midfielders with exceptional composure. Recommended comparators for DNA matching: Andrés Iniesta (technical influence), Xavi Hernández (positional control), and modern deep-lying creators after ERA adjustment. Use FGA DNA algorithm and ERA normalization for radar outputs.</p>
+
+        <div class="visual-canvas">
+          <canvas id="andradeRadar" aria-label="Radar for Andrade vs comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items derived from AUF archives, IOC & FIFA historical records and contemporary press. All match and anecdotal event rows must be triple‑verified (archive film; federation logs; contemporary press) before inclusion in published profiles.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — José Leandro Andrade scouting profile. Numeric fields are ERA‑adjusted estimates; archive event rows and cultural anecdotes must be triple‑verified before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('andradeRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Technical Elegance','Ball Progression','Spatial Intelligence','Composure','International Impact','Durability','Legacy'],
+        datasets: [
+          {
+            label: 'José Leandro Andrade',
+            data: [9.6,9.3,9.4,9.5,9.4,8.7,9.5],
+            backgroundColor: 'rgba(245,158,11,0.12)',
+            borderColor: '#ffd27a',
+            pointBackgroundColor: '#ffd27a',
+            borderWidth: 2
+          },
+          {
+            label: 'Xavi (ERA adj comparator)',
+            data: [9.4,9.2,9.5,9.1,9.0,8.8,9.2],
+            backgroundColor: 'rgba(59,130,246,0.10)',
+            borderColor: '#3b82f6',
+            pointBackgroundColor: '#3b82f6',
+            borderWidth: 2
+          },
+          {
+            label: 'Iniesta (ERA adj comparator)',
+            data: [9.5,9.1,9.3,9.2,9.0,8.6,9.1],
+            backgroundColor: 'rgba(124,58,237,0.10)',
+            borderColor: '#7c3aed',
+            pointBackgroundColor: '#7c3aed',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

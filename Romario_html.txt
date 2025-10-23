@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Romário — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#10b981;--accent2:#6ee7b7;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(16,185,129,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(110,231,183,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(110,231,183,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.ytimg.com/vi/yT92q1WXOxI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAc1VmnMi6f0iU4z4g7Fl2HfHFu7Q" alt="Romário photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Romário de Souza Faria</div>
+        <div class="sub">Striker · Brazil · Born: 29 January 1966 · Height: 1.67 m · Nickname: Baixinho</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Vasco da Gama; PSV; Barcelona; Flamengo; Valencia; others</span>
+          <span class="pill"><strong>International</strong> Brazil (70 caps, 55 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.6</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Penalty Area Instinct / Finishing</td><td>9.9</td></tr>
+            <tr><td>Short-Burst Acceleration</td><td>9.4</td></tr>
+            <tr><td>Spatial Awareness / Positioning</td><td>9.7</td></tr>
+            <tr><td>Composure in 1v1 / Toe-Poke Finishes</td><td>9.8</td></tr>
+            <tr><td>Big-Game Output</td><td>9.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Career totals compiled from major databases; verify club-season splits against club archives for event-level exports.</li>
+          <li>ERA normalization required when comparing Romário to modern centre-forwards; document multiplier used.</li>
+          <li>Claimed career goal totals often include friendlies; final publishing must mark official vs unofficial tallies.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.6</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Romário is one of football's all-time pure finishers, defined by lethal penalty‑area instincts, exceptional short‑burst acceleration and an uncanny ability to score from minimal space; World Cup 1994 Golden Ball winner and a defining striker across PSV, Barcelona and Brazil's national team.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1985–1988</td><td>Vasco da Gama</td><td>Breakthrough; domestic scoring; Olympic top scorer 1988.</td></tr>
+            <tr><td>1988–1993</td><td>PSV Eindhoven</td><td>Prolific goalscoring; multiple Eredivisie titles.</td></tr>
+            <tr><td>1993–1995</td><td>FC Barcelona</td><td>Johan Cruyff's Dream Team; La Liga top scorer 1993–94; elite strike partnership era.</td></tr>
+            <tr><td>1994</td><td>Brazil</td><td>World Cup winner; Golden Ball; tournament-defining finishes.</td></tr>
+            <tr><td>1995–2006</td><td>Various (Flamengo, Valencia, returns to Vasco, others)</td><td>Continued scoring; domestic titles; late-career leadership.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>1988 Olympic Games — top scorer; raised international profile.</li>
+            <li>1993–94 La Liga — top scorer with Barcelona; critical to title win.</li>
+            <li>1994 FIFA World Cup — five goals and Golden Ball as tournament MVP.</li>
+            <li>Multiple seasons with 30+ goals across PSV, Barcelona and Brazilian leagues.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Finishing & Efficiency</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Conversion from Inside Box</td><td>9.9</td></tr>
+                <tr><td>Shot Placement Variety</td><td>9.3</td></tr>
+                <tr><td>Minutes Per Goal (Peak)</td><td>9.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Mental</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Spatial Intelligence</td><td>9.7</td></tr>
+                <tr><td>Clutch / Big-Game Finisher</td><td>9.6</td></tr>
+                <tr><td>Selfishness vs Team Play Balance</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustment applied for era and league context; event-level goals require triple-source verification for official tallies.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Romário's DNA is archetypal for penalty-area predators: excels in low-space finishing, quick positional shifts inside the box and decisive half‑turns; ideal for teams that create high‑volume inside‑box chances and prioritize clinical finishing over progressive buildup.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Brazilian Finishing Craft (Santana lineage)</td><td>9.8</td><td>Instant inside-box threat; toe-poke and tight-space finishes</td></tr>
+            <tr><td>Counter-Attack Predator</td><td>9.4</td><td>Explosive short-burst movement; finishes off transitions</td></tr>
+            <tr><td>Jogo Bonito / Expressive Attack</td><td>9.0</td><td>Natural flair combined with ruthless end product</td></tr>
+            <tr><td>Pragmatic Efficiency (Bilardo)</td><td>8.9</td><td>High conversion rates; situational opportunism</td></tr>
+            <tr><td>Dream Team Influence (Cruyff)</td><td>8.7</td><td>Interplay in tight zones with creative partners</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: finishing confidence; temperament; training intensity; leadership. Scores are anchors used in Transfer Risk and squad-fit models.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Romário Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Finishing Confidence</td><td>9.9</td><td>Unflappable in the box; decisive in finals</td></tr>
+            <tr><td>Temperament</td><td>7.8</td><td>Occasional disciplinary and training friction; high match-focus</td></tr>
+            <tr><td>Leadership</td><td>8.2</td><td>Leads by example on output rather than vocal organisation</td></tr>
+            <tr><td>Professional Longevity</td><td>9.0</td><td>Consistent scoring across multiple leagues and decades</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Tactical, cultural and developmental relationships informing recruitment fit and DNA comparators.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Nucleus</td><td>PSV strike partnerships; Barcelona Dream Team</td><td>Predict partnership outputs and assist networks</td></tr>
+            <tr><td>International Cohort</td><td>Brazil 1994 core (Bebeto, Dunga)</td><td>Big-game finishing templates</td></tr>
+            <tr><td>Philosophy Links</td><td>Brazilian finishing schools; Cruyff-era Barcelona</td><td>Role expectations and tactical deployment</td></tr>
+            <tr><td>Legacy & Content</td><td>Goal compilations; World Cup archives</td><td>High-value content for legacy packaging</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: broadcast; club logs; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1993–94</td><td>Barcelona league campaign</td><td>Peak La Liga finishing in Cruyff system</td><td>Shot locations; partnership assists; goal sequences</td></tr>
+            <tr><td>1994 World Cup</td><td>USA tournament run</td><td>Single‑player tournament impact; clutch finishing</td><td>Goal frames; lead-up passes; pressure state</td></tr>
+            <tr><td>1988–1993</td><td>PSV dominant seasons</td><td>Consistent domestic scoring efficiency</td><td>Goals per 90; inside-box dominance; penalty influence</td></tr>
+            <tr><td>2000</td><td>Vasco da Gama title run</td><td>Late-career domestic leadership</td><td>Seasonal output; assist involvement; mentor role</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Priority sources: FIFA World Cup 1994 footage, PSV archive reels, FC Barcelona matches (1993–94), Vasco da Gama and Flamengo archives.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; ERA tag; triple-source confirmation for official goal credit.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: elite inside‑box finishers and short‑burst predators. Recommended comparators: Bebeto (partnership DNA), Hugo Sánchez (ERA‑adjusted), Inzaghi (movement archetype). Use FGA DNA algorithm and ERA normalization for radar outputs.</p>
+
+        <div class="visual-canvas">
+          <canvas id="romarioRadar" aria-label="Radar comparing Romário and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items drawn from consolidated career records, major databases and tournament archives. Event-level rows and official tallies must be triple‑verified (broadcast; club logs; federation records) before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Romário scouting profile. Numeric fields are ERA‑adjusted estimates; official goal totals and event rows must be triple‑verified before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('romarioRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Inside-Box Finishing','Burst Acceleration','Positioning','Shot Variety','Big-Game Index','Conversion Rate','Spatial IQ'],
+        datasets: [
+          { label: 'Romário', data: [9.9,9.4,9.7,9.3,9.6,9.8,9.7], backgroundColor:'rgba(16,185,129,0.12)', borderColor:'#6ee7b7', pointBackgroundColor:'#6ee7b7', borderWidth:2 },
+          { label: 'Hugo Sánchez (ERA adj)', data: [9.5,9.1,9.3,9.0,9.2,9.4,9.1], backgroundColor:'rgba(59,130,246,0.10)', borderColor:'#3b82f6', pointBackgroundColor:'#3b82f6', borderWidth:2 },
+          { label: 'Filippo Inzaghi (ERA adj)', data: [9.2,8.9,9.0,8.8,9.1,9.0,9.0], backgroundColor:'rgba(250,204,21,0.10)', borderColor:'#f59e0b', pointBackgroundColor:'#f59e0b', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

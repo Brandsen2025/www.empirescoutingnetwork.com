@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Steven Gerrard — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#d9534f; --accent2:#ff9f43; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(217,83,79,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,159,67,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(255,159,67,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-6/514201628_1169679155199631_4720366966010379187_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wo2FD6-yNYIQ7kNvwGddYMY&_nc_oc=AdnudNeQy1uJn6LCpzzg3WdtRCL4ceHXhYoUpFiQU3TxYdNcYTE81-jrl209L1L6dmQ&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&_nc_gid=_pw4c5328us3KmANO6gLPg&oh=00_AfepaKcNm8oyL-zb9-Ns7IVDNTnQlI3SQ1bdQVRws33snA&oe=69000D13" alt="Steven Gerrard photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Steven Gerrard</div>
+        <div class="sub">Central Midfielder · England · Born: 30 May 1980 · Height: 1.83 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Liverpool; LA Galaxy; Rangers (manager); Aston Villa (manager)</span>
+          <span class="pill"><strong>International</strong> England (114 caps, 21 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 94.6</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Box‑to‑Box Influence</td><td>9.6</td></tr>
+            <tr><td>Long‑Range Shooting</td><td>9.4</td></tr>
+            <tr><td>Passing Range & Vision</td><td>9.3</td></tr>
+            <tr><td>Leadership & Presence</td><td>9.5</td></tr>
+            <tr><td>Defensive Contribution</td><td>8.9</td></tr>
+            <tr><td>Set‑piece Threat</td><td>9.0</td></tr>
+            <tr><td>Stamina / Work Rate</td><td>9.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Per‑match role labels (CM vs AM vs RM) vary by source; apply role filter for positional metrics.</li>
+          <li>Historic assist attribution differences across competitions require cross‑checking with official match reports.</li>
+          <li>Event sequences for key long‑range shots and last‑man tackles need broadcast frame extraction for shot‑coords and pressure state tagging.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.6</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Steven Gerrard is one of the defining midfielders of the modern age — a relentless box‑to‑box leader combining timing, range of passing, late‑arrival goals and match‑winning mentality. A driving force at Liverpool for 17 seasons, Gerrard produced decisive moments across domestic and European competitions and transitioned into management with a pragmatic, standards-first coaching approach.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1989–1998</td><td>Liverpool (Youth)</td><td>Academy development and technical foundation</td></tr>
+            <tr><td>1998–2015</td><td>Liverpool (Captain)</td><td>710 appearances; Champions League 2005; multiple domestic cups</td></tr>
+            <tr><td>2015–2016</td><td>LA Galaxy</td><td>Final playing chapter in MLS</td></tr>
+            <tr><td>2017–2018</td><td>Liverpool U18 / Academy coach</td><td>Coaching formation and learning phase</td></tr>
+            <tr><td>2018–2021</td><td>Rangers (Manager)</td><td>Scottish Premiership title; unbeaten domestic league season</td></tr>
+            <tr><td>2021–2022</td><td>Aston Villa (Manager)</td><td>Premier League management at top tier</td></tr>
+            <tr><td>2023–2025</td><td>Al‑Ettifaq (Manager)</td><td>International management in Saudi Pro League</td></tr>
+            <tr><td>2000–2014</td><td>England</td><td>114 caps; captain; multiple tournament appearances</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>2005 Champions League Final (Liverpool vs AC Milan)</strong> — essential pack for clutch index: second‑half recovery sequences, transitional pressing, scoring trigger events and high‑value long passes; extract frame‑accurate shot coords and progressive possession chains.</li>
+            <li><strong>2006 FA Cup Final (Liverpool vs West Ham)</strong> — Gerrard's late equaliser and extra‑time influence for match‑winning pressure resilience; extract shot placement, sequence starts and stamina markers for late‑game impact modeling.</li>
+            <li><strong>2008–09 Premier League season</strong> — 24 league goals season sample to model peak attacking output from midfield: shooting maps, goal zones, and long‑range shot conversion under varying defensive schemes.</li>
+            <li><strong>2000–2005 developmental pack</strong> — early career evolution from deeper distributor to box‑to‑box engine; extract transition runs, defensive recoveries and progressive pass trajectories across seasons.</li>
+            <li><strong>Rangers unbeaten domestic season (2020–21, manager)</strong> — managerial blueprint pack: tactical setups, pressing triggers, set‑piece structures and rotation impact; use for coach DNA and tactical philosophy tagging.</li>
+            <li><strong>International tournament samples (Euro 2004, World Cup 2006, Euro 2012)</strong> — extract clutch performance events and captaincy influence on team outcomes for psychological and leadership indices.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Attacking & Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Late‑Arrival Goals / 90 (peak ERA)</td><td>9.5</td></tr>
+                <tr><td>Long‑Range Shot Efficiency</td><td>9.3</td></tr>
+                <tr><td>Through‑ball & Long Pass Accuracy</td><td>9.1</td></tr>
+                <tr><td>Chance Creation from Midfield</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive & Psychological</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Tackles + Interceptions Influence</td><td>8.8</td></tr>
+                <tr><td>Counter‑press Recovery</td><td>9.0</td></tr>
+                <tr><td>Clutch / Leadership Index</td><td>9.7</td></tr>
+                <tr><td>Durability (Seasons as starter)</td><td>9.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied for Premier League and European competition contexts; final publication requires event‑level verification from broadcast frames and FBref/official logs for shot coordinates and assist attribution.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Gerrard exemplifies the hybrid box‑to‑box / mezzala archetype who blends goal threat with defensive cover. His DNA aligns with high‑intensity, transitional systems and with cultures valuing leadership‑centred midfield design. Strong fit with Ferguson/Ferguson‑style winning mentality and Benítez‑style structured transition phases.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Winning Mentality / Ferguson</td><td>9.6</td><td>Leadership and clutch performances define impact</td></tr>
+            <tr><td>Benítez / Structured Transition</td><td>9.1</td><td>Thrives in compact, transition‑driven phases with a free‑roaming #10 role at times</td></tr>
+            <tr><td>Guardiola / Positional Play (partial)</td><td>8.4</td><td>Technical range fits, but role specialization differs from strict positional sifters</td></tr>
+            <tr><td>Counter‑Pressing / Intensity Systems</td><td>9.0</td><td>High work rate and recovery contribute effectively</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Representative peers: box‑to‑box leaders and late‑arriving scorers (Zinedine Zidane variant; Lampard template comparisons for goal output).</p>
+        <canvas id="gerrardRadar" width="720" height="420" aria-label="Radar comparing Steven Gerrard with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Competitive bravery:</strong> repeatedly raises performance in finals and high‑pressure moments.</li>
+          <li><strong>Leadership by example:</strong> captaining at club and country, elevating teammates through presence and action.</li>
+          <li><strong>Resilience and consistency:</strong> long peak period with high availability and repeated physical output.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Shot selection volatility:</strong> high volume of long‑range attempts requires per‑event quality filtering.</li>
+          <li><strong>Managerial learning curve:</strong> coaching philosophy matured over several roles; treat managerial DNA separately from player DNA.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Gerrard's profile combines audacious shot‑making, leadership and energy — a rare midfield blend whose event rows must be triple‑verified before publishing to ensure assist and shot provenance are exact.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: 2005 UCL final pack; 2006 FA Cup final moments; 2008–09 Premier League season goal collection; key international tournament matches (2006 World Cup, Euro 2012); Rangers title run (managerial). Extraction checklist: match ID; mm:ss; event type (goal; long‑range shot; key pass; tackle; recovery); start/end frame; shot coordinates; ERA tag; triple‑source verification (broadcast; official match report; event logs).</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Liverpool (Club)</h3>
+        <p class="small"><strong>Dynamic:</strong> Club legend and cultural anchor whose performances shaped Liverpool's identity in the 2000s; enduring commercial and scouting value.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">England (National Team)</h3>
+        <p class="small"><strong>Dynamic:</strong> Long‑term captain and central figure; tournament output contributed to captaincy and leadership indices despite inconsistent team results.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Managerial Continuum</h3>
+        <p class="small"><strong>Dynamic:</strong> Managerial record demonstrates emphasis on structure, standards and player development; complements player DNA for talent pathway mapping.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Steven Gerrard scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (broadcast; FBref/official logs; club archives) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Gerrard strengths
+    const ctx = document.getElementById('gerrardRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Box Influence','Long Shots','Passing','Leadership','Recovery','Set‑piece','Stamina'],
+        datasets: [
+          { label: 'Steven Gerrard', data: [9.6,9.4,9.3,9.5,8.9,9.0,9.2], backgroundColor:'rgba(217,83,79,0.12)', borderColor:'#d9534f', pointBackgroundColor:'#d9534f' },
+          { label: 'Elite Midfield Template', data: [9.1,8.9,9.0,9.0,8.7,8.6,8.9], backgroundColor:'rgba(255,159,67,0.08)', borderColor:'#ff9f43', pointBackgroundColor:'#ff9f43' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

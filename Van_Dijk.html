@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Virgil van Dijk — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#2bb673; --accent2:#4dd0ff; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(43,182,115,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(77,208,255,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(77,208,255,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.sport.fr/wp-content/uploads/2024/11/ICONSPORT_243806_0025.webp" alt="Virgil van Dijk photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Virgil van Dijk</div>
+        <div class="sub">Centre-Back · Netherlands · Born: 8 July 1991 · Height: 1.95 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Groningen; Celtic; Southampton; Liverpool</span>
+          <span class="pill"><strong>International</strong> Netherlands (captain)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.1</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Aerial Dominance</td><td>9.8</td></tr>
+            <tr><td>Positioning & Anticipation</td><td>9.7</td></tr>
+            <tr><td>Leadership & Communication</td><td>9.6</td></tr>
+            <tr><td>Passing Range / Line-breaks</td><td>9.4</td></tr>
+            <tr><td>Pace (recovery & sprint)</td><td>8.9</td></tr>
+            <tr><td>Physical Strength</td><td>9.3</td></tr>
+            <tr><td>Durability</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li>Per-90 passing networks vary by data vendor; align FBref pass types with club tracking for exact line-break calibration.</li>
+          <li>Injury interruption windows (ACL 2020) require era-adjusted form smoothing for season-level comparators.</li>
+          <li>Captaincy and leadership impact measured qualitatively; capture coach/staff assessments for Tier-3 validation.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.1</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Virgil van Dijk is a generational central defender who transformed Liverpool's defence after his 2018 arrival. He pairs elite physical attributes with refined positional intelligence and exceptional passing for a centre-back. A natural leader and proven winner at club and international level, Van Dijk's influence extends from defensive organisation to initiating attacks with progressive, line-breaking passes.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2011–2013</td><td>Groningen</td><td>Breakthrough; moved from right-back to central defence; senior debut and domestic impact</td></tr>
+            <tr><td>2013–2015</td><td>Celtic</td><td>Domestic titles, PFA Scotland recognition; technical development in a dominant team</td></tr>
+            <tr><td>2015–2018</td><td>Southampton</td><td>Premier League acclimation; displayed composure and leadership leading to big-club move</td></tr>
+            <tr><td>2018–present</td><td>Liverpool</td><td>Transformational signing; Champions League, Premier League, UEFA and Club World Cup honours; long-term captaincy at club and nation</td></tr>
+            <tr><td>2015–present</td><td>Netherlands</td><td>Established international leader and captain; Nations League final and major tournament leadership</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Career Milestones & Highlights</h2>
+        <p class="small"><strong>2018–19:</strong> Champions League winner and UEFA Men's Player of the Year; pivotal defensive form.</p>
+        <p class="small"><strong>2019–20:</strong> Premier League champion; instrumental in ending club's 30-year league drought.</p>
+        <p class="small"><strong>2019:</strong> Runner-up Ballon d'Or; rare defender recognition at top individual awards.</p>
+        <p class="small"><strong>2020:</strong> Major ACL injury and full-season absence; high-quality return to elite levels post-rehab.</p>
+        <p class="small"><strong>Captaincy:</strong> Appointed Netherlands captain (2018) and long-term Liverpool leadership presence; consistent dressing-room influence.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Anticipation / Reading</td><td>9.7</td></tr>
+                <tr><td>Interceptions per 90 (era adj.)</td><td>9.1</td></tr>
+                <tr><td>Clearance Decisioning</td><td>9.3</td></tr>
+                <tr><td>Aerial Duel Win Rate</td><td>9.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Distribution & Impact</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passing / Line-breaks</td><td>9.4</td></tr>
+                <tr><td>Pass Completion under Pressure</td><td>9.2</td></tr>
+                <tr><td>Build Initiation (passes to final third)</td><td>9.0</td></tr>
+                <tr><td>Set-piece Threat (offensive)</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied for competition and season context; event-level tracking recommended to reconcile vendor pass-type definitions and set-piece xG contributions.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Van Dijk's profile is ideal for high-structure possession teams that require a calm, progressive centre-back who can defend aggressively while initiating attacks. He maps strongly to philosophies valuing defensive organisation, high line security and ball-playing starting points.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>High-Line / Pressing Systems</td><td>9.1</td><td>Positional intelligence and recovery speed support compact defensive lines</td></tr>
+            <tr><td>Possession-Build (ball-playing CB)</td><td>9.5</td><td>Exceptional passing range and composure under pressure</td></tr>
+            <tr><td>Counter-Attack Resistance</td><td>9.3</td><td>Physicality and aerial security neutralise transitional threats</td></tr>
+            <tr><td>Leadership-Driven Organisation</td><td>9.7</td><td>Natural captaincy and communication elevate team structure</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Virgil van Dijk, Sergio Ramos (peak), Aymeric Laporte (ball-playing peer).</p>
+        <canvas id="vandijkRadar" width="720" height="420" aria-label="Radar comparing Virgil van Dijk with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Strength Radar</h3>
+            <canvas id="strengthRadar" width="420" height="360" aria-label="Van Dijk strengths radar"></canvas>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Positional Heatmap (central influence)</h3>
+            <div id="heatmap" style="height:300px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Winning mentality:</strong> intense focus on clean sheets and collective standards; models elite professionalism.</li>
+          <li><strong>Calm leadership:</strong> leads by example with controlled communication and match-long concentration.</li>
+          <li><strong>Resilience:</strong> returned from serious injury to elite form, showing strong mental and physical recovery processes.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Age trajectory:</strong> projection models should account for pace decline curves when comparing to younger centre-backs.</li>
+          <li><strong>Vendor variation:</strong> passing and defensive action categorizations differ between event providers; reconcile definitions for accurate historical comparisons.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">From Groningen to Liverpool, Van Dijk's career arc is defined by technical growth, leadership and consistent elite performance; his blend of physicality, technique and intelligence makes him a modern defensive archetype.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips for event coding: 2018–19 Champions League run, 2019–20 Premier League title season, key international fixtures (Nations League 2019, Euro/World Cup knockout matches), and post-injury return seasons. Extraction checklist: match ID; mm:ss; event type (press-block, interception, line-breaking pass, headed clearance, aerial duel); x/y if available; ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Jürgen Klopp / Arne Slot (Managers)</h3>
+        <p class="small"><strong>Dynamic:</strong> Klopp's trust and Slot's evolution of system benefit from Van Dijk's leadership and ball progression; managerial reliance on his organisational influence is central to defensive strategies.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Alisson Becker (Goalkeeper)</h3>
+        <p class="small"><strong>Dynamic:</strong> Elite goalkeeper-defender partnership based on communication and mutual understanding; Van Dijk's positioning complements Alisson's sweeping tendencies.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Trent Alexander-Arnold / Andy Robertson (Full-backs)</h3>
+        <p class="small"><strong>Dynamic:</strong> Full-backs provide width and progressive passing options; Van Dijk's cover and diagonal passing unlock attacking patterns and transitions.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Netherlands Leadership Core</h3>
+        <p class="small">As national team captain, Van Dijk's stabilising presence elevates defensive cohesion and sets cultural standards across age groups.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Virgil van Dijk scouting profile. Numeric fields are ERA‑adjusted estimates; mark rows for final event coding and triple-source verification before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Van Dijk vs peers (Van Dijk, Ramos, Laporte)
+    const ctx = document.getElementById('vandijkRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Positioning','Aerial','Passing','Leadership','Pace','Strength','Durability'],
+        datasets: [
+          { label: 'Virgil van Dijk', data: [9.7,9.8,9.4,9.6,8.9,9.3,9.0], backgroundColor:'rgba(77,208,255,0.12)', borderColor:'#4dd0ff', pointBackgroundColor:'#4dd0ff' },
+          { label: 'Sergio Ramos (peak)', data: [9.2,9.6,8.7,9.4,9.0,9.1,8.6], backgroundColor:'rgba(43,182,115,0.12)', borderColor:'#2bb673', pointBackgroundColor:'#2bb673' },
+          { label: 'Aymeric Laporte', data: [9.1,8.9,8.9,8.8,8.2,8.8,8.7], backgroundColor:'rgba(124,58,237,0.12)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+
+    // Strength radar single
+    const ctxS = document.getElementById('strengthRadar').getContext('2d');
+    new Chart(ctxS, {
+      type: 'radar',
+      data: { labels:['Positioning','Aerial','Passing','Leadership','Pace','Strength','Durability'],
+        datasets:[{ label:'Van Dijk', data:[9.7,9.8,9.4,9.6,8.9,9.3,9.0], backgroundColor:'rgba(43,182,115,0.12)', borderColor:'#2bb673', pointBackgroundColor:'#2bb673' }]},
+      options:{ scales:{ r:{ beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} }
+    });
+
+    // Heatmap using ApexCharts (central influence)
+    const heatmapOptions = {
+      chart:{ type:'heatmap', height:300, background:'transparent', toolbar:{show:false} },
+      plotOptions:{ heatmap:{ enableShades:true, radius:6, shadeIntensity:0.5, colorScale:{ ranges:[{from:0,to:3,color:'#7c3aed'},{from:4,to:7,color:'#00d1ff'},{from:8,to:10,color:'#34d1ff'}] } } },
+      dataLabels:{ enabled:false },
+      series:[
+        { name:'Defensive Third', data:[{x:'Left Centre',y:9},{x:'Central',y:10},{x:'Right Centre',y:9}] },
+        { name:'Middle Third', data:[{x:'Left Centre',y:8},{x:'Central',y:9},{x:'Right Centre',y:8}] },
+        { name:'Attacking Third', data:[{x:'Left Centre',y:7},{x:'Central',y:7},{x:'Right Centre',y:6}] }
+      ],
+      title:{ text:'Central Influence (approx.)', style:{ color:'#cbd5e1' } }
+    };
+    const heatmap = new ApexCharts(document.querySelector("#heatmap"), heatmapOptions);
+    heatmap.render();
+  </script>
+</body>
+</html>

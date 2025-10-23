@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Chris Waddle — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#ef4444;--accent2:#fca5a5;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(239,68,68,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(252,165,165,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(252,165,165,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://lecorner.org/wp-content/uploads/2020/04/waddle.jpg" alt="Chris Waddle photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Christopher Roland Waddle</div>
+        <div class="sub">Winger / Attacking Midfielder · England · Born: 14 December 1960 · Height: 1.83 m · Nickname: Magic Chris</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Newcastle United; Tottenham Hotspur; Olympique de Marseille; Sheffield Wednesday; others</span>
+          <span class="pill"><strong>International</strong> England (62 caps, 6 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.5</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Dribbling & Close Control</td><td>9.4</td></tr>
+            <tr><td>Crossing & Final Third Delivery</td><td>9.2</td></tr>
+            <tr><td>Pace & Acceleration</td><td>9.0</td></tr>
+            <tr><td>Chance Creation</td><td>9.1</td></tr>
+            <tr><td>Big-Game Influence</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance totals consolidate league data across English, French and later career; verify season-level breakdowns with club archives where needed.</li>
+          <li>ERA adjustments applied for 1980s–1990s pace and tactical context; document multiplier when comparing to modern wide attackers.</li>
+          <li>Assist provenance in pre-digital eras needs frame-based extraction from broadcast archives for event-level validation.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Chris Waddle is a high-velocity, technically brilliant winger and attacking midfielder celebrated for mesmerising dribbles, precise crossing and game-changing creativity; instrumental in Newcastle's rise, Tottenham's attacking periods, Marseille's three consecutive Ligue 1 titles and England's 1986 and 1990 World Cup campaigns.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1980–1985</td><td>Newcastle United</td><td>Breakthrough; prolific wide attacker, promotion contributor.</td></tr>
+            <tr><td>1985–1989</td><td>Tottenham Hotspur</td><td>Domestic prominence; FA Cup run; reputation solidified.</td></tr>
+            <tr><td>1989–1992</td><td>Olympique de Marseille</td><td>£4.5m transfer; three Ligue 1 titles; European Cup finalist 1991.</td></tr>
+            <tr><td>1992–1996</td><td>Sheffield Wednesday</td><td>Premier League influence; FWA Footballer of the Year 1993.</td></tr>
+            <tr><td>1985–1991</td><td>England</td><td>62 caps; World Cup 1986 quarter-finalist; 1990 semi-finalist; Euro 1988 participant.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>1989 — high-value transfer to Olympique de Marseille; immediate title impact.</li>
+            <li>1991 — European Cup Final appearance with Marseille.</li>
+            <li>1992–93 — FWA Footballer of the Year while at Sheffield Wednesday.</li>
+            <li>1986 & 1990 — key England tournament contributor across World Cups.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive & Technical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Dribble Success under Pressure</td><td>9.4</td></tr>
+                <tr><td>Key Passes / Chance Creation</td><td>9.1</td></tr>
+                <tr><td>Cross Completion & Quality</td><td>9.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Mental</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Pace & Recovery Runs</td><td>9.0</td></tr>
+                <tr><td>Big-Game Composure</td><td>9.0</td></tr>
+                <tr><td>Adaptability / Role Evolution</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments applied to compare Waddle's 1980s–90s output with modern attacking profiles; event-level export requires archived broadcast and club logs for assist chains and pre-assist tagging.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Waddle's DNA maps to high-possession transitional systems that exploit wide overloads, individual dribble penetration and precise final-third delivery; ideal as an advanced wide creator in counter-press or structured possession shapes.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Wide Creative Play (Spanish/Positional)</td><td>9.3</td><td>High-value crosses; diagonal runs into box</td></tr>
+            <tr><td>Counter-Attack Penetration (Modern)</td><td>9.2</td><td>Explosive transitions; outlet dribbles</td></tr>
+            <tr><td>Joga Bonito / Flair</td><td>8.9</td><td>Expressive dribbling and spectacle under pressure</td></tr>
+            <tr><td>Italian Zonal Integration</td><td>8.6</td><td>Role discipline when required by compact systems</td></tr>
+            <tr><td>Pragmatic Attack (Bilardo)</td><td>8.4</td><td>Efficient end-product focus in final third</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: decision-making under pressure; creativity; resilience; leadership; clutch index. Scores are anchors for transfer modelling and content framing.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Waddle Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Decision Making Under Pressure</td><td>9.1</td><td>Quality choices in fast transitions and limited space</td></tr>
+            <tr><td>Creativity & Flair</td><td>9.4</td><td>High improvisation; unlocks compact defences</td></tr>
+            <tr><td>Resilience</td><td>8.8</td><td>Successful league and international career across systems</td></tr>
+            <tr><td>Leadership Style</td><td>8.5</td><td>Influence through performance and example</td></tr>
+            <tr><td>Professionalism</td><td>8.7</td><td>Longevity and adaptability across countries</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:8px">Application: psychological modifiers feed into the Transfer Risk Index, Matchday Impact forecasts and DNA comparator weighting.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Tactical and cultural relationships useful for recruitment, mentorship and historical packaging.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Cores</td><td>Newcastle United; Tottenham; Marseille; Sheffield Wednesday</td><td>Passing lanes; support runners; role templates</td></tr>
+            <tr><td>International Cohorts</td><td>England 1986 / 1990 squads</td><td>Big-game integration and tournament performance</td></tr>
+            <tr><td>Philosophy Links</td><td>Counter-attacking creators; flair wingers</td><td>Comparator sets for DNA matching</td></tr>
+            <tr><td>Legacy Channels</td><td>Club archives; broadcast partners</td><td>Content and heritage packages</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction with tactical objectives and extraction focus. All rows require triple-source provenance: broadcast; club match logs; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1989</td><td>Transfer to Olympique de Marseille</td><td>Immediate attacking impact in Ligue 1</td><td>Goal involvement; chance creation vs elite defenders</td></tr>
+            <tr><td>1991</td><td>European Cup Final: Marseille</td><td>High-level final-stage performance</td><td>Final third sequences; crossing under pressure</td></tr>
+            <tr><td>1992–93</td><td>Sheffield Wednesday FWA season</td><td>Consistent individual excellence in Premier League</td><td>Key passes per 90; dribble success; influence index</td></tr>
+            <tr><td>1986 / 1990</td><td>World Cup matches (England)</td><td>International clutch and tactical fit</td><td>Transition outputs; hold-up vs full-back interactions</td></tr>
+            <tr><td>Selected League Seasons</td><td>Club peak seasons</td><td>Seasonal output normalization</td><td>Per-90 creation; shot-location heatmaps; assist provenance</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Priority sources: club archives (Newcastle, Tottenham, Marseille, Sheffield Wednesday), FIFA World Cup reels (1986, 1990), UEFA/European Cup footage.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; pressure state; ERA tag; triple-source confirmation for assist and pre-assist attribution.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: classic wide creators with high dribble-and-deliver profiles. Recommended comparators for DNA matching: John Barnes (ERA‑adjusted), Ryan Giggs (ERA‑adjusted), and modern flank creators after ERA normalization.</p>
+
+        <div class="visual-canvas">
+          <canvas id="waddleRadar" aria-label="Radar comparing Waddle and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items in this profile consolidate club records, tournament archives and major performance databases. All match‑level event rows must be triple‑verified (broadcast archives; club logs; federation records) before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Chris Waddle scouting profile. Numeric fields are ERA‑adjusted estimates; event rows, honours and anecdotal quotes must be triple‑verified before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('waddleRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Dribbling','Crossing','Pace','Chance Creation','Big-Game Index','Adaptability','Composure'],
+        datasets: [
+          { label: 'Chris Waddle', data: [9.4,9.2,9.0,9.1,9.0,8.8,8.9], backgroundColor:'rgba(239,68,68,0.12)', borderColor:'#fca5a5', pointBackgroundColor:'#fca5a5', borderWidth:2 },
+          { label: 'John Barnes (ERA adj)', data: [9.2,9.0,8.8,8.9,8.8,8.7,8.6], backgroundColor:'rgba(59,130,246,0.10)', borderColor:'#3b82f6', pointBackgroundColor:'#3b82f6', borderWidth:2 },
+          { label: 'Ryan Giggs (ERA adj)', data: [9.1,8.9,8.9,8.7,8.6,8.8,8.7], backgroundColor:'rgba(124,58,237,0.10)', borderColor:'#7c3aed', pointBackgroundColor:'#7c3aed', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

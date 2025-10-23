@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rainer Bonhof — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0bbf6b; --accent2:#7ef0a1; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,191,107,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(126,240,161,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(126,240,161,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/c9/75/4c/c9754c4ae58b218997e982c7b81a8548.jpg" alt="Rainer Bonhof photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Rainer Bonhof</div>
+        <div class="sub">Midfielder / Wing‑Back · West Germany · Born: 29 March 1952 · Height: 1.80 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Borussia M'gladbach; Valencia; 1. FC Köln; Hertha BSC</span>
+          <span class="pill"><strong>International</strong> West Germany (53 caps, 9 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 92.1</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Long‑Range Shooting</td><td>9.2</td></tr>
+            <tr><td>Pass Range</td><td>8.8</td></tr>
+            <tr><td>Burst Forward / Late Runs</td><td>8.9</td></tr>
+            <tr><td>Set‑Piece & Free‑Kick Power</td><td>9.0</td></tr>
+            <tr><td>Versatility (midfield / full‑back)</td><td>8.7</td></tr>
+            <tr><td>Leadership</td><td>8.4</td></tr>
+            <tr><td>Durability</td><td>8.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Club appearance and goal totals cross-check Transfermarkt and RSSSF season logs prior to publishing for final export.</li>
+          <li>Event-level long-range shot coordinates require archival footage for precise xG/xT modelling; mark UCL/UEFA Cup legs for extraction.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.1</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Rainer Bonhof was a technically gifted, tactically versatile midfielder and wing‑back noted for powerful long shots, set‑piece delivery and late forward surges; he featured centrally for Borussia Mönchengladbach and was a key member of West Germany’s 1974 World Cup winning side.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1963–1970</td><td>SuS Emmerich (Youth)</td><td>Local youth development, converted roles</td></tr>
+            <tr><td>1970–1978</td><td>Borussia M'gladbach</td><td>Core of dominant 1970s Gladbach era; domestic and UEFA successes.</td></tr>
+            <tr><td>1978–1980</td><td>Valencia</td><td>La Liga period with Copa del Rey success and European competition appearances.</td></tr>
+            <tr><td>1980–1983</td><td>1. FC Köln</td><td>Strong Bundesliga form; DFB‑Pokal winner in early 80s.</td></tr>
+            <tr><td>1983</td><td>Hertha BSC</td><td>Final professional season before retirement.</td></tr>
+            <tr><td>1972–1981</td><td>West Germany</td><td>53 caps, 9 goals; World Cup 1974 winner and two‑time European Championship winner (1972, 1980).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>1974 FIFA World Cup Final, West Germany 2–1 Netherlands</strong> — Bonhof provided the penetrating run and assist for Gerd Müller's winning goal; priority clip for clutch-index and assist sequencing.</li>
+            <li><strong>1974 World Cup vs Sweden (Second Round)</strong> — Bonhof scored a long‑range goal that opened the game; flag for event extraction and long‑shot modelling.</li>
+            <li><strong>Borussia M'gladbach UEFA Cup and Bundesliga runs (1970s)</strong> — multiple league titles and UEFA Cup 1974–75 contributions; extract knockout leg defensive/offensive transitions for ERA calibration.</li>
+            <li><strong>Valencia 1979–80 Cup Winners' Cup</strong> — continental final runs and set‑piece highlights mark Euro competition sequencing for event coding.</li>
+            <li><strong>Euro 1976 & 1980 tournaments</strong> — high‑impact passing and free‑kick sequences across finals and semi‑finals recommended for clutch and set‑piece indexing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive Impact</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Long‑Range Strike Power</td><td>9.2</td></tr>
+                <tr><td>Set‑Piece Value</td><td>9.0</td></tr>
+                <tr><td>Progressive Carry / Late Runs</td><td>8.8</td></tr>
+                <tr><td>Shot Threat (per 90, era adj.)</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Positioning & Tactical Versatility</td><td>8.6</td></tr>
+                <tr><td>Transition Contribution</td><td>8.9</td></tr>
+                <tr><td>Aerial / Throw‑in Utility</td><td>7.8</td></tr>
+                <tr><td>Durability & Availability</td><td>8.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied across Bundesliga, La Liga and international tournament contexts; extract match footage for long‑shot coordinates and assist‑chain validation before final per‑90 publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Bonhof maps to ball‑progression and counter‑pressing philosophies: a midfield operator who can shift from disciplined defensive structure to late attacking surges, fitting German organisational schools but also offering traits valuable to possession‑to‑counter transition systems.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>German Organisation</td><td>8.9</td><td>Positional intelligence and structured transitions</td></tr>
+            <tr><td>Counter‑Press / Transition</td><td>9.0</td><td>Late runs and progressive ball carrying</td></tr>
+            <tr><td>Set‑Piece Specialist</td><td>9.1</td><td>Powerful free‑kicks and throw‑in utility</td></tr>
+            <tr><td>Versatile Wing‑Back Role</td><td>8.6</td><td>Ability to function as full‑back or central midfielder</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison (radar)</h2>
+        <p class="small">Selected peers: Rainer Bonhof, Paul Breitner (overlap & long‑shot threat), Günter Netzer (creative long pass influence)</p>
+        <canvas id="bonhofRadar" width="720" height="420" aria-label="Radar comparing Rainer Bonhof with peers"></canvas>
+      </section>
+
+      <section class="section" aria-labelledby="visuals">
+        <h2 id="visuals" style="color:var(--accent)">Visualizations & Video Sources</h2>
+        <p class="small">Priority visual sources: Borussia M'gladbach 1970s UEFA and Bundesliga archives, 1974 World Cup final and second‑round matches, Valencia 1978–80 European runs. Use season‑by‑season reels to extract long‑range shot coordinates, assist chains and set‑piece placements.</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Composure under pressure:</strong> decisive in finals and big matches.</li>
+          <li><strong>Competitive intelligence:</strong> reads transitions and times forward surges effectively.</li>
+          <li><strong>Self‑belief in execution:</strong> renowned for powerful, accurate long shots and set‑pieces.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Data gaps:</strong> full event coordinates for 1970s matches require archival extraction for exact xT/xG mapping.</li>
+          <li><strong>Role heterogeneity:</strong> positional labels vary across sources; normalise role weights in DNA matching.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Bonhof combined technical power and tactical intelligence to deliver both defensive solidity and game‑deciding offensive contributions; a high‑value historical template for hybrid midfielders in the FGA DNA model.</p>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <p class="small">Priority clips: 1974 World Cup Final (assist to Müller's winner), 1974 vs Sweden long‑range goal, Borussia M'gladbach UEFA Cup knockout legs, Valencia Cup Winners' Cup run. Extraction checklist: match ID; mm:ss; event type (long shot; assist; set‑piece; progressive carry); x/y if available; context tag (final/knockout/league critical); ERA tag.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Borussia M'gladbach 1970s Cohort</h3>
+        <p class="small"><strong>Dynamic:</strong> Integral part of a high‑performing unit that combined tactical discipline with attacking verve, allowing Bonhof to balance defensive duties with forward surges.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">West Germany 1974 Squad</h3>
+        <p class="small"><strong>Dynamic:</strong> Synergised with world‑class teammates like Beckenbauer and Müller; Bonhof’s timing and execution in big moments amplified team outcomes in finals.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Rainer Bonhof scouting profile. Numeric fields are ERA‑adjusted estimates; validate club season logs and tournament footage with triple‑source verification (Transfermarkt; RSSSF; club archives) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Bonhof vs peers
+    const ctx = document.getElementById('bonhofRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Long-Shot','Passing','Transition','Set-piece','Versatility','Defense','Leadership'],
+        datasets: [
+          { label: 'Rainer Bonhof', data: [9.2,8.8,8.9,9.0,8.7,8.6,8.4], backgroundColor:'rgba(126,240,161,0.10)', borderColor:'#7ef0a1', pointBackgroundColor:'#7ef0a1' },
+          { label: 'Paul Breitner', data: [8.9,8.6,8.7,8.3,8.5,8.8,8.6], backgroundColor:'rgba(11,191,107,0.08)', borderColor:'#0bbf6b', pointBackgroundColor:'#0bbf6b' },
+          { label: 'Günter Netzer', data: [8.4,9.1,8.2,7.8,8.0,7.9,7.8], backgroundColor:'rgba(34,153,221,0.08)', borderColor:'#2299dd', pointBackgroundColor:'#2299dd' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{labels:{color:'#cbd5e1'}}}, responsive:true }
+    });
+  </script>
+</body>
+</html>

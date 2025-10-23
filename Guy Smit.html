@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guy Smit — Empire FGA Profile</title>
+  <style>
+    :root{
+      --bg:#071226; --card:#0b1220; --accent:#0b84d6; --accent2:#63b3ed; --muted:#9fb0c8; --white:#e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,132,214,0.04), transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(99,179,237,0.02), transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:36px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(99,179,237,0.12)}
+    .section{margin-top:22px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .video-card{margin-top:12px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .video-meta{padding:12px}
+    a.link{color:#63b3ed;text-decoration:underline}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://images.gelderlander.nl/MWU5Y2FlZjBiMjFmMDNmYzRhMGEvZGlvLzIwOTY2NTQ5OC9maXQtd2lkdGgvMTIwMA/guy-smit-in-actie-als-doelman-van-leiknir-reykjavik" alt="Guy Smit photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Guy Smit</div>
+        <div class="sub">Goalkeeper · Netherlands · Born: 19 January 1996 · Height: 1.96 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> NEC; FC Eindhoven; Leiknir; Valur; ÍBV (loan); KR; Vestri</span>
+          <span class="pill"><strong>Agent</strong> Soccer-Solutions</span>
+          <span class="pill"><strong>Peak FGA</strong> 81.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-goalkeeping">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Shot‑Stopping Reflexes</td><td>8.9</td></tr>
+            <tr><td>Aerial Command</td><td>8.5</td></tr>
+            <tr><td>Distribution (short)</td><td>7.4</td></tr>
+            <tr><td>Distribution (long)</td><td>7.6</td></tr>
+            <tr><td>One‑on‑One</td><td>8.7</td></tr>
+            <tr><td>Penalty State Response</td><td>8.3</td></tr>
+            <tr><td>Leadership / Organisation</td><td>8.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Early career minutes require club ledger reconciliation (NEC / Eindhoven seasons) before export.</li>
+          <li>Injury history (double fracture) must be annotated in medical timeline for availability modeling.</li>
+          <li>Loan and mid‑season moves (ÍBV loan) need per‑match role tags for consistent per‑90 goalkeeping metrics.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">81.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Guy Smit is a tall, physically imposing goalkeeper who rebuilt his professional trajectory across Icelandic leagues after early setbacks in the Netherlands. Noted for reflex saves, aerial presence and resilience after a serious leg injury, Smit established himself as a trusted starter in Icelandic top flight clubs and provides experienced shot‑stopping with solid distribution for under‑pressure build phases.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Youth</td><td>DZC '68; Vitesse</td><td>Youth development; trials with Arsenal and Brighton</td></tr>
+            <tr><td>2015–2016</td><td>NEC Nijmegen</td><td>Bench exposure; senior squad integration</td></tr>
+            <tr><td>2016–2019</td><td>FC Eindhoven</td><td>Senior debut; suffered double leg fracture; limited appearances</td></tr>
+            <tr><td>2020–2021</td><td>Leiknir (Iceland)</td><td>Promoted club to top flight; best keeper award in season</td></tr>
+            <tr><td>2022–2023</td><td>Valur / ÍBV (loan)</td><td>Top‑flight exposure and continental cup involvement</td></tr>
+            <tr><td>2024</td><td>KR Reykjavík</td><td>Regular starter in domestic top flight</td></tr>
+            <tr><td>2025–</td><td>Vestri</td><td>Signed Feb 2025; continued first‑team duties and Icelandic Cup success indexing</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>Promotion season with Leiknir (2020)</strong> — priority full‑match reels to extract clutch saves and penalty‑state behavior in promotion pressure matches.</li>
+            <li><strong>Key Vestri league fixtures (2025)</strong> — cup‑winning run and clean‑sheet clusters for high‑pressure sampling and late‑game shot distribution analysis.</li>
+            <li><strong>KR Reykjavik tenure (2024)</strong> — repeated top‑flight starts offering baseline for cross‑club per‑90 save rate normalization.</li>
+            <li><strong>FC Eindhoven debut (2019)</strong> — senior debut match vs Roda JC for early competence and post‑injury resilience modeling.</li>
+            <li><strong>Notable saves compilation</strong> — user‑facing highlight sequences (reflex saves, set‑piece control) to calibrate reflex and aerial indices.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Era‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Shot‑Stopping & Command</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Reflex Saves Index</td><td>8.9</td></tr>
+                <tr><td>Crosses Claimed / 90 (era adj.)</td><td>8.4</td></tr>
+                <tr><td>Penalty Save Influence</td><td>8.1</td></tr>
+                <tr><td>Clean Sheet Conversion</td><td>7.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Distribution & Build</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Short Distribution Accuracy</td><td>7.4</td></tr>
+                <tr><td>Long Kick Precision</td><td>7.6</td></tr>
+                <tr><td>Shot‑Stopping Under Pressure</td><td>8.2</td></tr>
+                <tr><td>Sweeper‑Keeper Actions</td><td>6.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA multipliers applied for Dutch and Icelandic competitive contexts; verify match logs and club minute sheets for final per‑90 and xGA calibrations.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Smit suits compact defensive systems that prioritise aerial dominance and second‑phase control. He fits well with pragmatic, direct teams in smaller leagues and with coaches who value a traditional goalkeeper who can command the box and produce high reflex outputs during transitional counters.</p>
+        <table aria-describedby="philosophy-fit">
+          <thead><tr><th>Philosophy Axis</th><th>Fit (0–10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Direct / Counter System</td><td>8.6</td><td>Strong aerial command and reflexes</td></tr>
+            <tr><td>Structured Build (short passes)</td><td>7.4</td><td>Good short distribution, not elite sweeper role</td></tr>
+            <tr><td>Set‑Piece Defence</td><td>8.5</td><td>Reliable in box during corners and crosses</td></tr>
+            <tr><td>High‑Press Sweeper Role</td><td>6.6</td><td>Less suited to aggressive off‑line sweeper demands</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+
+        <div class="video-card" role="region" aria-label="Guy Smit highlights">
+          <div style="max-width:100%;height:auto;">
+            <iframe width="100%" height="360" src="https://www.youtube.com/embed/lXR7xOQ4M_s" title="Guy Smit highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-meta">
+            <p class="small">Primary highlights reel: <a class="link" href="https://youtu.be/lXR7xOQ4M_s" target="_blank" rel="noopener noreferrer">https://youtu.be/lXR7xOQ4M_s</a></p>
+            <p class="small">Extraction checklist: match ID; mm:ss; event type (reflex save; cross claim; distribution to wing; last‑ditch block); frame reference; x/y if available; ERA tag. Prioritise sequences that show: reflex shot saves (00:20–00:45), aerial dominance on corners (01:10–01:36), long distribution leading to counter (02:05–02:28), penalty‑state reaction (02:50–03:08).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <h3 style="color:var(--accent2);margin:6px 0">Strengths</h3>
+        <ul class="small">
+          <li><strong>Resilience:</strong> returned to form after serious leg injury and rebuilt career abroad.</li>
+          <li><strong>Adaptability:</strong> successful transitions across clubs and leagues, including promotion campaigns and continental matches.</li>
+          <li><strong>Presence:</strong> vocal organiser with clear command of defensive lines in set‑piece moments.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Caveats</h3>
+        <ul class="small">
+          <li><strong>Sweeper limitations:</strong> not a primary sweeper‑keeper for high‑line systems; prefer conservative off‑line positioning.</li>
+          <li><strong>Distribution ceiling:</strong> competent long kicks but below elite RCT build thresholds for progressive short passing under press.</li>
+        </ul>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Concise personal note</h3>
+        <p class="small">Guy Smit is a reliable shot‑stopper and box commander whose career arc provides a robust template for resilient goalkeepers who succeed across smaller European leagues; validate event rows and injury timelines before final publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Team Dynamics</h2>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Club Defensive Units</h3>
+        <p class="small"><strong>Dynamic:</strong> Works best with compact central defenders who clear second balls quickly; benefits from a defensive midfielder who screens counters to reduce sweeper demands.</p>
+
+        <h3 style="color:var(--accent2);margin:6px 0">Agent & Representation</h3>
+        <p class="small"><strong>Agency:</strong> Soccer‑Solutions — use agency contact for commercial, transfer and verification requests.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Guy Smit scouting profile. Numeric fields are ERA‑adjusted estimates; verify all event rows with frame‑accurate extraction and triple‑source confirmation (club logs; FBref/Sofascore; transfer records) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    // Radar: Guy Smit strengths (example)
+    const ctx = document.getElementById('inolopuRadar') || document.createElement('canvas');
+    ctx.id = 'smitRadar';
+    if (!document.getElementById('smitRadar')) {
+      const section = document.querySelector('[aria-label="full-profile"]');
+      const canvasWrap = document.createElement('div');
+      canvasWrap.style.display='none';
+      canvasWrap.appendChild(ctx);
+      document.body.appendChild(canvasWrap);
+    }
+    new Chart(ctx.getContext ? ctx.getContext('2d') : ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Reflexes','Aerial','1v1','Distribution','Command','Consistency','Penalty State'],
+        datasets: [
+          { label: 'Guy Smit', data: [8.9,8.5,8.7,7.5,8.4,8.1,8.3], backgroundColor:'rgba(99,179,237,0.10)', borderColor:'#63b3ed', pointBackgroundColor:'#63b3ed' }
+        ]
+      },
+      options: { scales: { r: { beginAtZero:true, max:10 } }, plugins:{legend:{display:false}} , responsive:true}
+    });
+  </script>
+</body>
+</html>
