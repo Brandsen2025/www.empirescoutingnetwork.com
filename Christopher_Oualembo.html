@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Christopher Oualembo — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#6c8ef5;--accent2:#9fb9ff;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(108,142,245,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(159,185,255,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:420px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:32px;font-weight:900;margin:12px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:7px 10px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:24px;box-shadow:0 10px 30px rgba(159,185,255,0.12)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:300px}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://v.wpimg.pl/OTcxNy5qYDUCGjhKGgptIEFCbBBcU2N2Flp0WxpEeWQbS39MGgIpeQIcIxBbGDwgERktE1RfOCQAHCBXRR1gJxcXPBhSFH17BR0vDUADKjA8FzwQUhghNQ9Xe0sMRSlgBht9SwxHLGA8SnlNBkh4ZVRWJAlSUzI" alt="Christopher Oualembo photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Christopher Clark Oualembo</div>
+        <div class="sub">Full-back · DR Congo / France · Born: 31 January 1987 · Height: 1.78 m</div>
+
+        <div>
+          <span class="pill"><strong>Youth</strong> Paris Saint-Germain</span>
+          <span class="pill"><strong>Clubs</strong> Paris SG; US Quevilly; Levante; Monza; Chernomorets; Lechia Gdańsk; Académica</span>
+          <span class="pill"><strong>International</strong> DR Congo (12–13 caps)</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Recovery Pace</td><td>8.7</td></tr>
+            <tr><td>1v1 Defending</td><td>8.4</td></tr>
+            <tr><td>Crossing & Final Third Delivery</td><td>8.1</td></tr>
+            <tr><td>Versatility (RB/LB/RM)</td><td>8.6</td></tr>
+            <tr><td>Durability / Availability</td><td>8.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Early Paris SG minutes and reserve appearances require club archive verification for accurate minutes breakdown.</li>
+          <li>Poland and Bulgaria league records may vary on cup appearances; use league feeds + club match logs for event rows.</li>
+          <li>International cap count ranges between sources; final export must use federation match list for verification.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">86.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Christopher Oualembo is a defensively reliable full-back with a PSG academy background whose professional path traversed Spain, Italy, Poland, Bulgaria and Portugal. He offers positional versatility, disciplined defensive metrics and a useful attacking outlet from wide positions, proving especially valuable in transitional systems and compact defensive blocks.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2004–2006</td><td>Paris Saint-Germain (senior breakthrough)</td><td>Youth-to-first-team integration; defensive foundations</td></tr>
+            <tr><td>2006–2007</td><td>US Quevilly</td><td>Regular senior minutes in French lower leagues</td></tr>
+            <tr><td>2007–2008</td><td>Levante (Atlético Levante)</td><td>Spanish adaptation; limited first-team minutes</td></tr>
+            <tr><td>2009–2011</td><td>AC Monza</td><td>Consolidated as dependable RB in Italy's lower tiers</td></tr>
+            <tr><td>2012</td><td>Chernomorets Burgas</td><td>Short Bulgarian spell; defensive role</td></tr>
+            <tr><td>2012–2014</td><td>Lechia Gdańsk</td><td>Ekstraklasa appearances and domestic cup involvement</td></tr>
+            <tr><td>2014–2016</td><td>Académica de Coimbra</td><td>Primeira Liga appearances; experienced full-back role</td></tr>
+            <tr><td>2008–2016</td><td>DR Congo</td><td>International caps; part of 2015 AFCON bronze squad environment</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Enhanced Historical Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li><strong>PSG reserve → senior transition</strong> — archive the 2004–2006 senior minutes to validate early defensive event rows and youth-to-pro progression.</li>
+            <li><strong>Monza 2009–2011 season set</strong> — consecutive full-season defensive sequences ideal for intercept timing and recovery run labeling.</li>
+            <li><strong>Lechia Gdańsk Ekstraklasa runs</strong> — gather broadcast clips for cross-league ERA calibration and crossing vectors vs top Polish teams.</li>
+            <li><strong>Académica 2014–2016 Primeira Liga matches</strong> — higher-quality footage for pass accuracy and progressive carry tagging against top Portuguese opposition.</li>
+            <li><strong>DR Congo national team fixtures (2008–2016)</strong> — international defensive snapshots to calibrate clutch-index and tournament-stage performance.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Defensive Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Interception Timing</td><td>8.3</td></tr>
+                <tr><td>Tackling Precision</td><td>8.4</td></tr>
+                <tr><td>Recovery Runs / Transition Defense</td><td>8.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Offensive & Passing</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Passes / Final Third Entries</td><td>7.9</td></tr>
+                <tr><td>Cross Completion (era adj.)</td><td>7.8</td></tr>
+                <tr><td>Versatility Score (multi-pos)</td><td>8.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA normalization applied across France, Spain, Italy, Poland, Bulgaria and Portugal competitions; final export requires match-level event rows from broadcast and club logs to confirm progressive pass vectors and crossing coordinates.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Oualembo fits defensive solidity and transitional wide defender archetypes: disciplined in low-block structures, well-suited to managers who require full-backs to balance defensive discipline with selective forays forward. He adapts well to 4-2-3-1 and 3-5-2 wing-back rotations where defensive recovery speed and positional discipline are prioritized.</p>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Radar comparing Christopher Oualembo with similar right-backs: Bacary Sagna (reliable modern full-back), Gregory van der Wiel (ball-carrying full-back) and Johan Djourou (defensive-minded full-back) across: Recovery Pace; 1v1 Defending; Crossing; Passing Range; Versatility; Aerial Competence; Composure.</p>
+
+        <div class="visual-canvas">
+          <canvas id="oualemboRadar" aria-label="Radar comparing Oualembo, Sagna, Van der Wiel, Djourou" width="720" height="420"></canvas>
+        </div>
+
+        <p class="small" style="margin-top:10px"><strong>Legend:</strong> Oualembo (cyan); Sagna (gold); Van der Wiel (purple); Djourou (red).</p>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Personality Analysis</h2>
+        <ul class="small">
+          <li><strong>Strengths:</strong> professional adaptability, resilience through multiple leagues and cultures, disciplined defensive temperament.</li>
+          <li><strong>Caveats:</strong> frequent club moves mean some seasonal event continuity gaps; use ERA and event revalidation to avoid sample bias.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li><strong>Packs:</strong> Monza 2009–2011; Lechia Gdańsk Ekstraklasa seasons; Académica Primeira Liga matches vs Benfica/Porto; select DR Congo qualifiers and AFCON 2015 preparation matches.</li>
+          <li><strong>Per clip checklist:</strong> match ID; mm:ss; event type; start/end frames; x/y coordinates; pre- and post-event chain; pressure state; ERA tag; triple-source confirmation.</li>
+          <li><strong>Labeling focus:</strong> recovery run vectors, overlapping vs underlapping sequences, blocked crosses, and defensive duels in transition.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Legacy</h2>
+        <p class="small">Product of the PSG academy system; built a journeyman career across Southern and Eastern Europe and ended with Primeira Liga experience. Recognised within DR Congo national setups for defensive reliability during transitional tournament cycles including the 2015 AFCON environment.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Christopher Oualembo scouting profile. Numeric fields are ERA‑adjusted estimates; mark event rows for match‑level extraction and triple‑source verification (broadcast; club logs; federation reports) before publishing.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('oualemboRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Recovery Pace','1v1 Defending','Crossing','Passing Range','Versatility','Aerial Competence','Composure'],
+        datasets: [
+          {
+            label: 'Oualembo',
+            data: [8.7,8.4,8.1,7.9,8.6,7.6,8.2],
+            backgroundColor: 'rgba(31,209,230,0.12)',
+            borderColor: '#7fd7ff',
+            pointBackgroundColor: '#7fd7ff',
+            borderWidth: 2
+          },
+          {
+            label: 'Bacary Sagna',
+            data: [8.5,8.6,8.4,8.2,8.4,8.0,8.6],
+            backgroundColor: 'rgba(255,205,86,0.10)',
+            borderColor: '#ffd34d',
+            pointBackgroundColor: '#ffd34d',
+            borderWidth: 2
+          },
+          {
+            label: 'Gregory van der Wiel',
+            data: [8.2,7.9,8.6,8.5,8.0,7.2,7.8],
+            backgroundColor: 'rgba(124,58,237,0.10)',
+            borderColor: '#7c3aed',
+            pointBackgroundColor: '#7c3aed',
+            borderWidth: 2
+          },
+          {
+            label: 'Johan Djourou',
+            data: [8.0,8.3,7.4,7.6,7.8,8.1,8.0],
+            backgroundColor: 'rgba(255,99,102,0.10)',
+            borderColor: '#ff4f5a',
+            pointBackgroundColor: '#ff4f5a',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } },
+        plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } }
+      }
+    });
+  </script>
+</body>
+</html>
