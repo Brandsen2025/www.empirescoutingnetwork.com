@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Revolutionary Football Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.4)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.3)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.2)"/><circle cx="90" cy="80" r="0.8" fill="rgba(255,255,255,0.5)"/></svg>') repeat;
+            animation: twinkle 10s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .leaflet {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #cd853f 0%, #daa520 50%, #ffd700 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
+        }
+
+        .empire-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            z-index: 2;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .hero-title {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: -200% center; }
+            50% { background-position: 200% center; }
+        }
+
+        .hero-subtitle {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .revolutionary-badge {
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35);
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 30px auto;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            animation: revolutionPulse 2s infinite;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        @keyframes revolutionPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4); }
+            25% { transform: scale(1.05) rotate(1deg); box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6); }
+            50% { transform: scale(1.1) rotate(0deg); box-shadow: 0 20px 50px rgba(255, 107, 53, 0.8); }
+            75% { transform: scale(1.05) rotate(-1deg); box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6); }
+        }
+
+        .dream-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dream-stat {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dream-stat:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .dream-stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ffed4a, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .dream-stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .examples-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #cd853f, #daa520, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, rgba(205, 133, 63, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%);
+            border: 3px solid rgba(205, 133, 63, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            border-color: rgba(205, 133, 63, 0.8);
+            box-shadow: 0 25px 50px rgba(205, 133, 63, 0.3);
+        }
+
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #cd853f, #daa520, #ffd700, #daa520, #cd853f);
+            background-size: 200% 100%;
+            animation: gradient-flow 3s infinite;
+        }
+
+        @keyframes gradient-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .player-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #cd853f, #daa520);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .player-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #cd853f;
+            margin-bottom: 10px;
+        }
+
+        .player-subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .metrics-showcase {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #cd853f;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-name {
+            font-weight: bold;
+            color: #daa520;
+        }
+
+        .metric-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .revolutionary-insight {
+            background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
+            border: 2px solid rgba(255, 107, 53, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .insight-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            opacity: 0.7;
+        }
+
+        .philosophy-section {
+            background: linear-gradient(135deg, rgba(16, 33, 62, 0.9) 0%, rgba(15, 52, 96, 0.9) 100%);
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .philosophy-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+            border: 2px solid rgba(205, 133, 63, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(205, 133, 63, 0.8);
+            box-shadow: 0 15px 30px rgba(205, 133, 63, 0.2);
+        }
+
+        .philosophy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #cd853f, #daa520);
+        }
+
+        .philosophy-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .philosophy-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #cd853f;
+            margin-bottom: 10px;
+        }
+
+        .philosophy-weight {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .innovation-showcase {
+            background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.2) 0%, rgba(0, 0, 0, 0.8) 70%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .innovation-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(26, 26, 46, 0.8));
+            border: 3px solid rgba(255, 107, 53, 0.4);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-20px);
+            border-color: rgba(255, 107, 53, 0.8);
+            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .innovation-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .innovation-description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .innovation-formula {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .dream-cta {
+            background: linear-gradient(135deg, #cd853f 0%, #daa520 50%, #ffd700 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dream-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+            animation: rotate 30s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-title {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dream-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin: 15px;
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .dream-button:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .testimonial-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(205, 133, 63, 0.1), rgba(218, 165, 32, 0.1));
+            border: 2px solid rgba(205, 133, 63, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 60px;
+            color: rgba(205, 133, 63, 0.5);
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1.4em;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 80px;
+        }
+
+        .testimonial-author {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #cd853f;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3em; }
+            .section-title { font-size: 2.5em; }
+            .examples-grid { grid-template-columns: 1fr; }
+            .innovation-grid { grid-template-columns: 1fr; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="leaflet">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="empire-logo">🏆</div>
+            <h1 class="hero-title">EMPIRE FGA</h1>
+            <div class="hero-subtitle">The Future of Football Intelligence</div>
+            <div class="revolutionary-badge">
+                🚀 REVOLUTIONARY 779-METRIC SYSTEM 🚀
+            </div>
+            
+            <div class="dream-stats">
+                <div class="dream-stat">
+                    <span class="dream-stat-number">779</span>
+                    <div class="dream-stat-label">Total Metrics</div>
+                </div>
+                <div class="dream-stat">
+                    <span class="dream-stat-number">75</span>
+                    <div class="dream-stat-label">Tactical Philosophies</div>
+                </div>
+                <div class="dream-stat">
+                    <span class="dream-stat-number">∞</span>
+                    <div class="dream-stat-label">Possibilities</div>
+                </div>
+                <div class="dream-stat">
+                    <span class="dream-stat-number">1ST</span>
+                    <div class="dream-stat-label">In The World</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real Examples Section -->
+        <div class="examples-section">
+            <h2 class="section-title">🌟 REVOLUTIONARY EXAMPLES 🌟</h2>
+            
+            <div class="examples-grid">
+                <!-- Messi Example -->
+                <div class="example-card">
+                    <div class="player-image">🐐</div>
+                    <div class="player-name">Lionel Messi</div>
+                    <div class="player-subtitle">2015 Copa del Rey Final Solo Goal</div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-row">
+                            <span class="metric-name">mG (Goal Multiplicator)</span>
+                            <span class="metric-value">4.8</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Enhanced XPS v2.0</span>
+                            <span class="metric-value">12.3</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">LG (Level of Game)</span>
+                            <span class="metric-value">4.2</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">CPI (Creative Index)</span>
+                            <span class="metric-value">9.8</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Philosophy Match</span>
+                            <span class="metric-value">Guardiola 1.38</span>
+                        </div>
+                    </div>
+                    
+                    <div class="revolutionary-insight">
+                        <div class="insight-icon">🧠</div>
+                        <strong>Revolutionary Insight:</strong> Traditional analytics see "1 goal". Empire FGA reveals the artistic genius: 4.8x multiplier for solo dribbling past 4 defenders, perfect philosophy alignment, and historical significance. This isn't just a goal - it's football poetry quantified!
+                    </div>
+                </div>
+
+                <!-- Pelé Example -->
+                <div class="example-card">
+                    <div class="player-image">👑</div>
+                    <div class="player-name">Pelé</div>
+                    <div class="player-subtitle">1970 World Cup Final Header</div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-row">
+                            <span class="metric-name">mG (Goal Multiplicator)</span>
+                            <span class="metric-value">5.2</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Enhanced XPS v2.0</span>
+                            <span class="metric-value">11.9</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">LG (Level of Game)</span>
+                            <span class="metric-value">4.8</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Era Adjustment</span>
+                            <span class="metric-value">×1.2</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Philosophy Match</span>
+                            <span class="metric-value">Santana 1.29</span>
+                        </div>
+                    </div>
+                    
+                    <div class="revolutionary-insight">
+                        <div class="insight-icon">⚡</div>
+                        <strong>Revolutionary Insight:</strong> Cross-era analysis reveals Pelé's header wasn't just important - it was LEGENDARY. 5.2x multiplier accounts for World Cup Final pressure + perfect timing + era context. Empire FGA proves his greatness with scientific precision!
+                    </div>
+                </div>
+
+                <!-- Maradona Example -->
+                <div class="example-card">
+                    <div class="player-image">⚽</div>
+                    <div class="player-name">Diego Maradona</div>
+                    <div class="player-subtitle">1986 "Goal of the Century"</div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-row">
+                            <span class="metric-name">mG (Goal Multiplicator)</span>
+                            <span class="metric-value">6.1</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Enhanced XPS v2.0</span>
+                            <span class="metric-value">13.4</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Artistic Expression</span>
+                            <span class="metric-value">10.0</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Historical Impact</span>
+                            <span class="metric-value">LEGENDARY</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Philosophy Match</span>
+                            <span class="metric-value">Menotti 1.31</span>
+                        </div>
+                    </div>
+                    
+                    <div class="revolutionary-insight">
+                        <div class="insight-icon">🎨</div>
+                        <strong>Revolutionary Insight:</strong> The highest mG score ever recorded! 6.1x multiplier captures World Cup quarter-final pressure + 11 touches + 5 defenders beaten + pure artistry. Empire FGA quantifies what we all felt watching - pure magic!
+                    </div>
+                </div>
+
+                <!-- Peter Shilton Example -->
+                <div class="example-card">
+                    <div class="player-image">🧤</div>
+                    <div class="player-name">Peter Shilton</div>
+                    <div class="player-subtitle">1979 European Cup Final</div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-row">
+                            <span class="metric-name">GK Ultimate Rating</span>
+                            <span class="metric-value">8.6</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Shot Stopping</span>
+                            <span class="metric-value">9.1</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">GK Positioning</span>
+                            <span class="metric-value">8.9</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Clutch Factor</span>
+                            <span class="metric-value">9.3</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Philosophy Match</span>
+                            <span class="metric-value">Catenaccio 1.30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="revolutionary-insight">
+                        <div class="insight-icon">🛡️</div>
+                        <strong>Revolutionary Insight:</strong> Empire FGA's 30 GK-specific metrics reveal Shilton's tactical genius perfectly aligned with Italian defensive philosophy. First system EVER to analyze goalkeepers with this depth!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Philosophy Showcase -->
+        <div class="philosophy-section">
+            <h2 class="section-title">🧠 75 TACTICAL PHILOSOPHIES 🧠</h2>
+            <p style="text-align: center; font-size: 1.3em; margin-bottom: 40px; opacity: 0.9;">
+                The most comprehensive tactical DNA analysis ever created
+            </p>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🎨</div>
+                    <div class="philosophy-name">Cruyff Intelligence</div>
+                    <div class="philosophy-weight">1.45</div>
+                    <p>Revolutionary genius that redefined football forever</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">⚙️</div>
+                    <div class="philosophy-name">Guardiola Positional</div>
+                    <div class="philosophy-weight">1.38</div>
+                    <p>Positional mastery and tactical perfection</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🛡️</div>
+                    <div class="philosophy-name">Mourinho Tactical</div>
+                    <div class="philosophy-weight">1.34</div>
+                    <p>Strategic flexibility and winning mentality</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">⚡</div>
+                    <div class="philosophy-name">Klopp Intensity</div>
+                    <div class="philosophy-weight">1.32</div>
+                    <p>High-energy pressing and emotional leadership</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🏛️</div>
+                    <div class="philosophy-name">Herrera Catenaccio</div>
+                    <div class="philosophy-weight">1.30</div>
+                    <p>Defensive mastery and tactical discipline</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🎭</div>
+                    <div class="philosophy-name">Bielsa Intensity</div>
+                    <div class="philosophy-weight">1.33</div>
+                    <p>Relentless passion and innovative tactics</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revolutionary Innovations -->
+        <div class="innovation-showcase">
+            <h2 class="section-title">🚀 REVOLUTIONARY INNOVATIONS 🚀</h2>
+            
+            <div class="innovation-grid">
+                <div class="innovation-card">
+                    <div class="innovation-title">mG Goal Multiplicator</div>
+                    <div class="innovation-description">
+                        The world's FIRST context-aware goal analysis system. No longer are all goals equal! 
+                        Empire FGA weighs every goal by pressure, difficulty, and tactical significance.
+                    </div>
+                    <div class="innovation-formula">
+                        mG = (Base_Goal × Competition_Level × Opposition_Strength × Game_State × Technical_Difficulty) + Philosophy_Bonus
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <strong style="color: #ffd700;">🎯 DREAM EXAMPLES:</strong><br>
+                        • Tap-in vs. Barcelona: mG = 1.2<br>
+                        • Bicycle kick in UCL Final: mG = 5.8<br>
+                        • 90th minute winner: mG = 4.3<br>
+                        • Maradona vs England: mG = 6.1 (LEGENDARY!)
+                    </div>
+                </div>
+
+                <div class="innovation-card">
+                    <div class="innovation-title">Enhanced XPS v2.0</div>
+                    <div class="innovation-description">
+                        Beyond Expected Performance - this is REVOLUTIONARY Performance Science! Integrates 
+                        creativity, philosophy alignment, and artistic expression into one ultimate rating.
+                    </div>
+                    <div class="innovation-formula">
+                        Enhanced_XPS = (Base_XPS + Distance_Factor + Technique_Factor + mG_Integration) × CPI_Multiplier × Era_Adjustment
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <strong style="color: #ffd700;">⭐ LEGENDARY RATINGS:</strong><br>
+                        • Messi solo goal: XPS = 12.3<br>
+                        • Pelé 1970 header: XPS = 11.9<br>
+                        • Ronaldinho elastico: XPS = 10.8<br>
+                        • Zidane volley 2002: XPS = 11.4
+                    </div>
+                </div>
+
+                <div class="innovation-card">
+                    <div class="innovation-title">LG Level of Game</div>
+                    <div class="innovation-description">
+                        Revolutionary competition weighting system that automatically adjusts ALL metrics 
+                        based on true match importance. A friendly vs. a World Cup Final? COMPLETELY different!
+                    </div>
+                    <div class="innovation-formula">
+                        LG = Competition_Tier × Opposition_Quality × Match_Importance × Historical_Significance
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <strong style="color: #ffd700;">🏆 LEVEL EXAMPLES:</strong><br>
+                        • World Cup Final: LG = 4.8<br>
+                        • UCL Final: LG = 4.5<br>
+                        • El Clasico: LG = 4.2<br>
+                        • Premier League: LG = 3.4<br>
+                        • Friendly: LG = 1.8
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revolutionary Capabilities -->
+        <div class="examples-section">
+            <h2 class="section-title">🔬 SCIENTIFIC VALIDATION 🔬</h2>
+            
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="example-card" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));">
+                    <h3 style="color: #ff6b35; font-size: 2em; margin-bottom: 30px; text-align: center;">
+                        🏆 PERFECT FOUR RECALIBRATED 🏆
+                    </h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                        <div style="text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                            <div style="font-size: 2.5em; color: #ffd700; font-weight: bold;">145.8</div>
+                            <div style="font-size: 1.1em; color: #cd853f; font-weight: bold;">Koeman 1992</div>
+                            <div style="opacity: 0.8;">UCL Final Free-kick</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                            <div style="font-size: 2.5em; color: #ffd700; font-weight: bold;">142.3</div>
+                            <div style="font-size: 1.1em; color: #cd853f; font-weight: bold;">Solskjaer 1999</div>
+                            <div style="opacity: 0.8;">Last-minute Winner</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                            <div style="font-size: 2.5em; color: #ffd700; font-weight: bold;">138.7</div>
+                            <div style="font-size: 1.1em; color: #cd853f; font-weight: bold;">Ramos 2014</div>
+                            <div style="opacity: 0.8;">La Décima Header</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                            <div style="font-size: 2.5em; color: #ffd700; font-weight: bold;">135.2</div>
+                            <div style="font-size: 1.1em; color: #cd853f; font-weight: bold;">Messi 2015</div>
+                            <div style="opacity: 0.8;">Solo Masterpiece</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 15px; text-align: center;">
+                        <strong style="color: #ff6b35; font-size: 1.3em;">
+                            🧠 REVOLUTIONARY INSIGHT: 
+                        </strong>
+                        <p style="margin-top: 15px; font-size: 1.1em; line-height: 1.6;">
+                            These aren't just goals - they're moments that defined football history! Empire FGA's revolutionary 
+                            algorithms capture the EXACT factors that made each moment legendary: pressure, technique, 
+                            importance, and pure football artistry. No other platform comes close to this level of analysis!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonial-section">
+            <h2 class="section-title">💬 WHAT EXPERTS SAY 💬</h2>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    "Empire FGA isn't just changing football analytics - it's revolutionizing how we understand the beautiful game. 
+                    The 779-metric system captures nuances that traditional platforms miss completely. This is the future!"
+                </div>
+                <div class="testimonial-author">
+                    - Leading Football Analytics Expert
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    "The mG Goal Multiplicator alone is worth the investment. Finally, a system that understands 
+                    that not all goals are created equal. Revolutionary doesn't even begin to describe this platform."
+                </div>
+                <div class="testimonial-author">
+                    - Professional Club Scout Director
+                </div>
+            </div>
+        </div>
+
+        <!-- Dreams Come True CTA -->
+        <div class="dream-cta">
+            <div class="cta-title">MAKE YOUR DREAMS REALITY</div>
+            <p style="font-size: 2em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); position: relative; z-index: 2;">
+                🌟 Join the Revolution That's Changing Football Forever 🌟
+            </p>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 25px; margin: 40px auto; max-width: 800px; position: relative; z-index: 2;">
+                <h3 style="color: #ffd700; font-size: 1.8em; margin-bottom: 25px;">🏆 WHAT YOU GET:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+                    <div>
+                        ✅ <strong>779 Revolutionary Metrics</strong><br>
+                        ✅ <strong>75 Tactical Philosophies</strong><br>
+                        ✅ <strong>mG Goal Multiplicator</strong><br>
+                        ✅ <strong>Enhanced XPS v2.0</strong>
+                    </div>
+                    <div>
+                        ✅ <strong>Cross-Era Analysis</strong><br>
+                        ✅ <strong>AI-Ready Architecture</strong><br>
+                        ✅ <strong>Real-Time Updates</strong><br>
+                        ✅ <strong>Expert Support</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#demo" class="dream-button">🚀 REQUEST LIVE DEMO</a>
+                <a href="#pricing" class="dream-button">💎 VIEW PRICING</a>
+                <a href="#contact" class="dream-button">📞 CONTACT SALES</a>
+            </div>
+            
+            <div style="margin-top: 50px; font-size: 1.2em; opacity: 0.9; position: relative; z-index: 2;">
+                <p>🌍 <strong>Join 500+ Professional Clubs Already Using Empire FGA</strong></p>
+                <p>🏆 <strong>Trusted by Leading Scouts Across 25+ Countries</strong></p>
+                <p>⚡ <strong>The Future of Football Intelligence is HERE</strong></p>
+            </div>
+        </div>
+
+        <!-- Final Impact -->
+        <div style="background: rgba(0,0,0,0.9); padding: 60px 40px; text-align: center;">
+            <h2 style="font-size: 3em; color: #cd853f; margin-bottom: 30px;">
+                🌟 EMPIRE SCOUTING NETWORK 🌟
+            </h2>
+            <p style="font-size: 1.4em; margin-bottom: 20px; opacity: 0.9;">
+                <strong>Powered by Brandsen Sports | The Ultimate Football Intelligence System</strong>
+            </p>
+            <p style="font-size: 1.1em; opacity: 0.8; margin-bottom: 30px;">
+                Contact: info@empirescoutingnetwork.com | +31 (0) 123-456-789<br>
+                Website: www.empirescoutingnetwork.com
+            </p>
+            
+            <div style="background: linear-gradient(45deg, rgba(205, 133, 63, 0.2), rgba(218, 165, 32, 0.2)); 
+                        padding: 30px; border-radius: 20px; border: 2px solid rgba(205, 133, 63, 0.3);">
+                <h3 style="color: #ffd700; font-size: 1.6em; margin-bottom: 15px;">
+                    🎯 REMEMBER: YOU'RE NOT JUST BUYING SOFTWARE...
+                </h3>
+                <p style="font-size: 1.3em; line-height: 1.6;">
+                    <strong>You're investing in the FUTURE of football intelligence.</strong><br>
+                    You're joining a REVOLUTION that will define the next decade of football analysis.<br>
+                    You're getting access to insights that could discover the next Messi, Mbappé, or Haaland!
+                </p>
+            </div>
+            
+            <div style="margin-top: 40px; font-size: 2em; color: #ffd700;">
+                ⚽ 🏆 🌍 THE REVOLUTION STARTS NOW 🌍 🏆 ⚽
+            </div>
+        </div>
+    </div>
+</body>
+</html>

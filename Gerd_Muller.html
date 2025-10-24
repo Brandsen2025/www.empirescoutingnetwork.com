@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Gerd Müller — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#3b82f6;--accent2:#93c5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(59,130,246,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(147,197,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(147,197,253,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://sportgrill.co.uk/wp-content/uploads/2021/08/G-Muller.jpg" alt="Gerd Müller photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Gerd Müller</div>
+        <div class="sub">Striker · Germany · Born: 3 November 1945 · Died: 15 August 2021 · Height: 1.76 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> TSV 1861 Nördlingen; Bayern Munich; Fort Lauderdale Strikers</span>
+          <span class="pill"><strong>International</strong> West Germany (62 caps, 68 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 95.9</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Box Predation</td><td>9.8</td></tr>
+            <tr><td>Finishing Efficiency</td><td>9.7</td></tr>
+            <tr><td>Positioning & Timing</td><td>9.6</td></tr>
+            <tr><td>Penalty & Big-Game Output</td><td>9.5</td></tr>
+            <tr><td>Aerial + Acceleration (short bursts)</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Career totals consolidated from Transfermarkt, Wikipedia and historical federation records; verify season event rows for per‑90 extractions.</li>
+          <li>ERA adjustments required when comparing to modern event densities; use archived match logs for publication-level claims.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">95.9</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Gerd Müller, nicknamed "Der Bomber", is one of football’s greatest pure goal scorers, famed for extraordinary efficiency inside the six-yard box, lethal instinct for rebounds and positional timing that produced record-breaking scoring tallies for club and country.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1963–1964</td><td>TSV 1861 Nördlingen</td><td>Early senior breakthrough and prolific youth scoring.</td></tr>
+            <tr><td>1964–1979</td><td>Bayern Munich</td><td>Career-defining period; 398 goals in 453 appearances for club across competitions, multiple Bundesliga and European trophies.</td></tr>
+            <tr><td>1979–1981</td><td>Fort Lauderdale Strikers</td><td>Final playing years in NASL before retirement.</td></tr>
+            <tr><td>1966–1974</td><td>West Germany</td><td>62 caps, 68 goals; 1970 World Cup Golden Boot; 1972 European Champion; 1974 World Cup winner (scored winning goal in final).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>1970 FIFA World Cup — Golden Boot with 10 goals, establishing global status as a lethal finisher.</li>
+            <li>1972 European Championship — top scorer and tournament winner for West Germany.</li>
+            <li>1974 FIFA World Cup — scored the winning goal in the final to secure the title for West Germany.</li>
+            <li>Multiple Bundesliga top-scorer seasons and record 40-goal season (1971–72) still a benchmark.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Finishing & Volume</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goals per 90 (career peak)</td><td>9.8</td></tr>
+                <tr><td>Shot-to-Goal Efficiency</td><td>9.7</td></tr>
+                <tr><td>Rebound & Poacher Index</td><td>9.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Positioning / Timing</td><td>9.6</td></tr>
+                <tr><td>Penalty & Big-Game Output</td><td>9.5</td></tr>
+                <tr><td>Aggression + Compact Accel.</td><td>8.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA adjustments required to normalise Müller’s historic scoring rates versus modern event density; event-level extraction from archived match logs recommended for publication-grade outputs.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Müller’s DNA is archetypal pure striker predation: exceptional near-goal spatial occupation, instinctive finishing and minimal wasted movement; ideal for systems valuing a high-volume central finisher and clinical penalty/big-game performer.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Pure Finisher Archetype</td><td>9.8</td><td>Box presence; unrivalled conversion</td></tr>
+            <tr><td>German Efficiency</td><td>9.6</td><td>Maximise goals with minimal possession</td></tr>
+            <tr><td>Big-Game Output</td><td>9.5</td><td>Decisive finals and tournament scorer</td></tr>
+            <tr><td>Penalty & Set-piece Taker</td><td>9.2</td><td>Reliable from spot and composed under pressure</td></tr>
+            <tr><td>Poacher / Rebound Specialist</td><td>9.7</td><td>Exceptional in second-chance scenarios</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: killer instinct; composure; clutch performance; consistency. Scores below act as anchors for transfer risk and role-projection modelling.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Müller Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Killer Instinct</td><td>9.8</td><td>Relentless goal focus inside box</td></tr>
+            <tr><td>Composure</td><td>9.6</td><td>Calm finishing under extreme pressure</td></tr>
+            <tr><td>Clutch Performance</td><td>9.6</td><td>Prolific in tournaments and finals</td></tr>
+            <tr><td>Work Ethic</td><td>8.8</td><td>Positional discipline and reading of play</td></tr>
+            <tr><td>Legacy Influence</td><td>9.4</td><td>Template for modern poachers and target men</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:8px">Psychological modifiers feed into FGA DNA weighting and success-probability models for striker recruitment.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Mapping of tactical, club and international relationships that inform recruitment narratives and DNA propagation.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Nucleus</td><td>Bayern Munich golden era (with Beckenbauer, Maier)</td><td>Predict assist providers and crossing patterns</td></tr>
+            <tr><td>International Core</td><td>West Germany 1972–1974 squads</td><td>Big-game composition and disposal patterns</td></tr>
+            <tr><td>Poacher Lineage</td><td>Historical finishing schools</td><td>Identify training focus for reproduction</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: broadcast; club/league match logs; federation records.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1970 FIFA World Cup</td><td>Multiple matches (Golden Boot performance)</td><td>High-volume finishing against varied opponents</td><td>Shot locations; rebound chains; penalty frames</td></tr>
+            <tr><td>1972 European Championship</td><td>Final and tournament sequences</td><td>Goal output and positioning in continental competition</td><td>Positioning heatframes; final-third conversions</td></tr>
+            <tr><td>7 Jul 1974</td><td>World Cup Final 1974</td><td>Decisive final goal vs Netherlands</td><td>Goal buildup; timing; pressure state</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Priority sources: World Cup archives, Bayern Munich match footage and authorised historical compilations for event-level extraction.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; rebound chains; body orientation; ERA tag; triple-source confirmation.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: pure strikers and historical poachers. Recommended comparators for DNA matching: Filippo Inzaghi (poacher lineage), Gerd Müller vs Müller-era finishers, and modern high-efficiency forwards. Use FGA DNA algorithm and ERA normalization for radar outputs.</p>
+
+        <div class="visual-canvas">
+          <canvas id="mullerRadar" aria-label="Radar comparing Müller and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych2">
+        <h2 id="psych2" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Apply poacher multiplier to goal-projection models: GoalAdj = BaseGoals × (1 + 0.10 × PoacherIndex).</li>
+          <li>Use clutch and penalty reliability as positive risk-adjusters in transfer valuations.</li>
+          <li>Prioritise extraction of rebound and second-phase sequences for accurate replication of Müller-style outputs.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items drawn from Transfermarkt, Britannica and consolidated historical federation records; event-level extractions and ERA calibrations must be triple‑verified (broadcast; club/federation logs; authoritative archives) before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Gerd Müller scouting profile. Numeric fields are ERA‑adjusted estimates; event rows and match claims must be triple‑verified (club logs; federation records; broadcast feeds) before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('mullerRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Box Predation','Finishing','Positioning','Penalty / Big-Game','Aerial / Burst Accel','Rebound Sense','Professionalism'],
+        datasets: [
+          { label: 'Gerd Müller', data: [9.8,9.7,9.6,9.6,8.9,9.6,9.0], backgroundColor:'rgba(59,130,246,0.12)', borderColor:'#93c5fd', pointBackgroundColor:'#93c5fd', borderWidth:2 },
+          { label: 'Filippo Inzaghi', data: [9.4,9.2,9.3,9.1,8.6,9.0,8.7], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
+          { label: 'Alan Shearer', data: [9.2,9.3,9.0,9.0,8.8,8.9,8.9], backgroundColor:'rgba(250,204,21,0.10)', borderColor:'#f59e0b', pointBackgroundColor:'#f59e0b', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>

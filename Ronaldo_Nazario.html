@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ronaldo Nazário — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#3b82f6;--accent2:#93c5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(59,130,246,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(147,197,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(147,197,253,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.guim.co.uk/img/media/c5d86df52ad254fa17268477623338463703d42c/0_247_4438_2663/master/4438.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=fd7208bbba17b80e907e314b76ca3778" alt="Ronaldo photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Ronaldo Luís Nazário de Lima</div>
+        <div class="sub">Striker · Brazil · Born: 18 September 1976 · Height: 1.83 m</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Cruzeiro; PSV Eindhoven; Barcelona; Inter Milan; Real Madrid; AC Milan; Corinthians</span>
+          <span class="pill"><strong>International</strong> Brazil (98 caps, 62 goals)</span>
+          <span class="pill"><strong>Peak FGA</strong> 99.4</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Explosive Acceleration / Pace</td><td>9.7</td></tr>
+            <tr><td>Finishing & Composure</td><td>9.8</td></tr>
+            <tr><td>Dribbling in Tight Spaces</td><td>9.5</td></tr>
+            <tr><td>Off-the-ball Movement</td><td>9.6</td></tr>
+            <tr><td>Aerial & Link-up</td><td>8.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Caps and goals consolidated from federation and Transfermarkt records; verify final publication with official match logs.</li>
+          <li>Peak-season per‑90 metrics require event-row extraction from FBref/Opta for final calibration.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">99.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="small">Ronaldo, known as "O Fenômeno", is one of the most complete strikers in football history, combining explosive acceleration, exceptional finishing, and elite dribbling to produce repeated match-defining performances at club and international level, including two World Cup titles and three FIFA World Player of the Year awards.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1993–1994</td><td>Cruzeiro</td><td>Senior breakthrough; prolific young goalscorer leading to European move.</td></tr>
+            <tr><td>1994–1996</td><td>PSV Eindhoven</td><td>Explosive scoring in Eredivisie; rapid adaptation to European football.</td></tr>
+            <tr><td>1996–1997</td><td>FC Barcelona</td><td>Exceptional season; Ballon d'Or and FIFA World Player of the Year recognition.</td></tr>
+            <tr><td>1997–2002</td><td>Inter Milan</td><td>Peak performances disrupted by major knee injuries; still produced decisive high-level outputs.</td></tr>
+            <tr><td>2002–2007</td><td>Real Madrid</td><td>Return to elite form; World Cup 2002 Golden Boot and La Liga success.</td></tr>
+            <tr><td>2007–2008</td><td>AC Milan</td><td>Short but impactful spell; further injury challenges.</td></tr>
+            <tr><td>2009–2011</td><td>Corinthians</td><td>Late-career domestic success and retirement in 2011.</td></tr>
+            <tr><td>1994–2011</td><td>Brazil</td><td>98 caps, 62 goals; World Cup winner 1994 (squad), 2002 (star), Golden Ball 1998, Golden Boot 2002.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
+        <div class="small">
+          <ul>
+            <li>FIFA World Cup 2002 — Golden Boot, 2 goals in final, central to Brazil's title run.</li>
+            <li>1996–1997 season with Barcelona — dominant scoring and Ballon d'Or recognition.</li>
+            <li>Multiple seasons of elite Champions League and domestic impact; three-time FIFA World Player of the Year.</li>
+            <li>Overcame severe knee injuries to return to world-class performance levels.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Finishing & Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Shot Quality & Composure</td><td>9.8</td></tr>
+                <tr><td>Non-Penalty xG Contribution</td><td>9.6</td></tr>
+                <tr><td>Conversion Efficiency</td><td>9.7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Tactical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Acceleration / Burst</td><td>9.7</td></tr>
+                <tr><td>Dribble Penetration</td><td>9.5</td></tr>
+                <tr><td>Movement Intelligence</td><td>9.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">Numeric fields are ERA‑adjusted to normalise league and era differences; event-level per‑90 metrics should be sourced from consolidated match feeds (FBref/Opta) for final publication.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
+        <p class="small">Ronaldo's DNA blends explosive directness, technical mastery in tight spaces and elite finishing; maps exceptionally to transition-driven attacking systems and striker-centric schemas where individual creation and final-third decisiveness are critical.</p>
+
+        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Brazilian Striker Phenomenon (Santana lineage)</td><td>9.6</td><td>Explosive dribble-to-shot sequences; two-footed finishing</td></tr>
+            <tr><td>Counter-Attack Maestro</td><td>9.5</td><td>Rapid transitions, diagonal runs behind defence</td></tr>
+            <tr><td>Pragmatic Finisher</td><td>9.4</td><td>Clinical in the box; minimal wasted possession in final third</td></tr>
+            <tr><td>Total Football adaptability</td><td>9.0</td><td>Positional interchangeability in front line; high tactical IQ</td></tr>
+            <tr><td>Big-Game Performer</td><td>9.7</td><td>Consistently decisive in finals and international tournaments</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych">
+        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
+        <p class="small">Assessment dimensions: decision-making under pressure; composure; resilience; clutch index; recovery from injury. Scores below are anchors for transfer risk and minutes projection models.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Ronaldo Score</th><th>Scout Signal</th></tr></thead>
+          <tbody>
+            <tr><td>Decision Making Under Pressure</td><td>9.7</td><td>Explosive decision speed in 1v1s and finishing situations</td></tr>
+            <tr><td>Composure</td><td>9.6</td><td>High conversion rate in clutch moments</td></tr>
+            <tr><td>Resilience</td><td>9.0</td><td>Returned from career-threatening injuries to elite performance</td></tr>
+            <tr><td>Adaptive Intelligence</td><td>9.3</td><td>Adapted to multiple tactical systems across Europe and Brazil</td></tr>
+            <tr><td>Leadership Impact</td><td>8.8</td><td>Influence primarily through performance rather than vocal captaincy</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:8px">Psychological modifiers feed into DNA similarity risk weights and projected minutes retention under new coaching regimes.</p>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
+        <p class="small">Mapping of tactical, developmental and commercial relationships informing recruitment fit and mentorship pairings.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
+          <tbody>
+            <tr><td>Club Nucleus</td><td>Real Madrid front-line; Inter attacking cores</td><td>Predict interplay partners and assist vectors</td></tr>
+            <tr><td>Coach Lineage</td><td>Tailored systems accommodating striker bursts</td><td>Likelihood of role preservation across coaches</td></tr>
+            <tr><td>International Core</td><td>Brazil attacking cohorts (Rivaldo, Ronaldinho)</td><td>Synergy in national team tactical setups</td></tr>
+            <tr><td>Positional Mentors</td><td>Striker archetypes across eras</td><td>Development pathway mapping for similar youth profiles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="matches-table">
+        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
+        <p class="small">Priority match packs for event-level extraction. All rows require triple-source provenance: broadcast frame; club/league match log; federation record.</p>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>30 Jun 2002</td><td>World Cup Final: Brazil vs Germany</td><td>Clinical finishing in final</td><td>Shot locations; build-up positioning; goal sequences</td></tr>
+            <tr><td>1996–1997 season</td><td>Barcelona key fixtures</td><td>Explosive 1v1 breaks and finishing</td><td>Dribble-to-shot sequences; xG impact</td></tr>
+            <tr><td>Various</td><td>Inter / Real key UCL matches</td><td>High-level finishing vs top defences</td><td>Shot quality; penalty/goal involvement; injury-affected resilience</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
+        <ul class="small">
+          <li>Priority sources: FIFA World Cup packs, Champions League match archives, club full-match footage for event-level extraction and frame tagging.</li>
+          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; pressure state; ERA tag; triple-source confirmation.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: hybrid explosive strikers and technical finishers. Recommended comparators for DNA matching: Thierry Henry (pace + finishing), Romário (technical center finishing), and Zlatan Ibrahimović (physical + finishing contrasts). Use FGA DNA algorithm for similarity tiers and ERA-normalised radar outputs.</p>
+
+        <div class="visual-canvas">
+          <canvas id="ronaldoRadar" aria-label="Radar comparing Ronaldo and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych2">
+        <h2 id="psych2" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Use psychological scores as multipliers on Transfer Risk Index: RiskAdj = BaseRisk × (1 - 0.05 × Adaptability) × (1 - 0.03 × Composure).</li>
+          <li>Apply clutch-performance weighting for scouting ROI: ClutchBoost = MinutesRetentionProb × (0.15 × BigGameScore).</li>
+          <li>Flag players with high finishing but lower durability for targeted sports science interventions.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Core factual items in this profile drawn from consolidated career records and honours; verify caps/goals and season stats with federation/league match logs and FBref/Opta event rows before publication.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Ronaldo Nazário scouting profile. Numeric fields are ERA‑adjusted estimates; event rows, assist attributions and quotes must be triple‑verified (club logs; federation records; broadcast feeds) before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('ronaldoRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Acceleration','Finishing','Dribbling','Movement','Aerial','Durability','Composure'],
+        datasets: [
+          { label: 'Ronaldo', data: [9.7,9.8,9.5,9.6,8.9,8.8,9.6], backgroundColor:'rgba(59,130,246,0.12)', borderColor:'#93c5fd', pointBackgroundColor:'#93c5fd', borderWidth:2 },
+          { label: 'Thierry Henry', data: [9.4,9.2,9.0,9.3,7.8,9.0,9.1], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
+          { label: 'Romário', data: [9.1,9.6,9.3,9.0,8.2,8.6,9.4], backgroundColor:'rgba(250,204,21,0.10)', borderColor:'#f59e0b', pointBackgroundColor:'#f59e0b', borderWidth:2 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+    });
+  </script>
+</body>
+</html>
