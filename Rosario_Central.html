@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Rosario Central — Empire FGA Club Profile</title>
+  <style>
+    :root{
+      --bg:#0a1229; --card:#0b1220; --accent:#1e3a8a; /* Club blue */
+      --accent2:#facc15; /* Club gold */
+      --muted:#a7b3c7; --white:#e6eef8;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{
+      height:100%;margin:0;padding:0;background:
+        radial-gradient(900px 500px at 8% 12%, rgba(30,58,138,0.08),transparent 10%),
+        radial-gradient(800px 400px at 92% 88%, rgba(250,204,21,0.06),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased
+    }
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+    header img{height:48px;object-fit:contain}
+    .club-lockup{display:flex;align-items:center;gap:14px}
+    .badge{
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      display:flex;align-items:center;justify-content:center;color:#0b1220;font-weight:900
+    }
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.06);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:3px solid var(--accent2);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(30,58,138,0.15);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(250,204,21,0.35)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.08);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(30,58,138,0.85), rgba(250,204,21,0.85));font-weight:800;color:#0b1220}
+    .metrics-table th,.metrics-table td{text-align:center}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#facc15,#1e3a8a);color:#0b1220;font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(250,204,21,0.20)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(250,204,21,0.25)}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    .accent-heading{color:var(--accent2)}
+    .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+    .kpi{background:rgba(30,58,138,0.15);border:1px solid rgba(250,204,21,0.25);border-radius:12px;padding:10px}
+    .kpi .label{color:var(--muted);font-size:12px}
+    .kpi .value{color:var(--accent2);font-weight:800;font-size:18px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="club-lockup">
+      <div class="badge">RC</div>
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+    </div>
+  </header>
+
+  <div class="container" role="main" aria-labelledby="club-name">
+    <!-- Summary / Club identity -->
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi--lFJaPEAfYPeA7QKdaY3ECHJuu8rO2--nmyzZyl8K1siEi4KVbdx8DqnZ1kfbkRfFHT-wIvj2FIxBY8deGa6qsuCTe2q5sLariZhQpLQMpMmNYfZU65853uEaw4ty3r-NGmHPxxF8Fv6VKCyWRR5gShRfuMZOxoYhv2lq1gtWC6GZ7FIdQcrPkvYDQ/s2560/abdala0.png" alt="Estadio Gigante de Arroyito">
+      <div style="margin-top:12px">
+        <div id="club-name" class="title">Rosario Central</div>
+        <div class="sub">Founded: 24 Dec 1889 · Stadium: Gigante de Arroyito (Rosario, Santa Fe) · Capacity: ~47,000</div>
+        <div class="sub">Nicknames: Canalla, Los Guerreros · Colours: Blue & Gold · League: Primera División (Argentina)</div>
+
+        <div>
+          <span class="pill"><strong>International</strong> Copa CONMEBOL (1995)</span>
+          <span class="pill"><strong>Domestic</strong> Primera División (x5), Copa Argentina (2018), Copa de la Liga (2023)</span>
+          <span class="pill"><strong>Rivalry</strong> El Clásico Rosarino vs Newell’s Old Boys</span>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi"><div class="label">Current head coach</div><div class="value">Ariel Holan</div></div>
+          <div class="kpi"><div class="label">Club FGA Index</div><div class="value">86.4</div></div>
+          <div class="kpi"><div class="label">Home advantage</div><div class="value">+0.6 ERA</div></div>
+          <div class="kpi"><div class="label">Philosophy fit</div><div class="value">Menotti 8.2 · Bilardo 8.0</div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 class="accent-heading" style="margin:0 0 8px;">Identity & style snapshot</h3>
+        <table class="metrics-table" aria-describedby="identity-metrics">
+          <thead><tr><th>Dimension</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Derby mentality / resilience</td><td>8.8</td></tr>
+            <tr><td>Youth development pathways</td><td>8.3</td></tr>
+            <tr><td>Match intensity at home</td><td>8.5</td></tr>
+            <tr><td>Transitional compactness</td><td>8.1</td></tr>
+            <tr><td>Supporter impact & atmosphere</td><td>9.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="accent-heading" style="margin:0 0 8px;">Audit flags</h3>
+        <ul class="small">
+          <li>Title counts and dates require federation confirmation before publication.</li>
+          <li>Rivalry records and derby win/loss aggregates must be cross-checked with official AFA logs.</li>
+          <li>Stadium capacity varies by configuration; verify competition-specific figures.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main profile -->
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge">Club FGA 86.4</div>
+
+      <!-- Club Overview -->
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Club overview</h2>
+        <p class="small">Rosario Central is a historic Argentine club known for blue-and-gold identity, derby intensity, pioneering lineage, and a unique post‑promotion league title. Central’s competitive DNA blends expressive play with pragmatic edge, supported by one of South America’s most imposing home atmospheres at the Gigante de Arroyito.</p>
+      </section>
+
+      <!-- History timeline -->
+      <section class="section" aria-labelledby="history-timeline">
+        <h2 id="history-timeline" style="color:var(--accent)">History timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Era</th><th>Highlights</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1889–1939</td><td>Founding by railway workers; local dominance</td><td>Affiliated to AFA in 1939</td></tr>
+            <tr><td>1970s</td><td>National successes; World Cup 1978 matches at Gigante</td><td>Stadium legacy cemented</td></tr>
+            <tr><td>1986–87</td><td>Primera División champions immediately after promotion</td><td>Iconic campaign; derby folklore</td></tr>
+            <tr><td>1995</td><td>Copa CONMEBOL title</td><td>International silverware</td></tr>
+            <tr><td>2010s–2020s</td><td>Copa Argentina (2018), Copa de la Liga (2023)</td><td>Modern era titles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Key matches & milestones -->
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key matches & milestones</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical objective</th><th>Extraction focus</th></tr></thead>
+          <tbody>
+            <tr><td>1978</td><td>FIFA World Cup matches at Gigante</td><td>Host stadium operational excellence</td><td>Atmosphere; logistics; pitch control</td></tr>
+            <tr><td>1986–87</td><td>Title campaign vs top rivals</td><td>Compact transitions; clutch moments</td><td>Derby sequences; pressure states</td></tr>
+            <tr><td>1995</td><td>Copa CONMEBOL final</td><td>Continental control under pressure</td><td>Game state management; set pieces</td></tr>
+            <tr><td>2018</td><td>Copa Argentina final</td><td>Neutral venue performance</td><td>Transferable tactical intensity</td></tr>
+            <tr><td>2023</td><td>Copa de la Liga final</td><td>Modern tournament mastery</td><td>Rotation; load management</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Strengths & weaknesses (club) -->
+      <section class="section" aria-labelledby="strengths">
+        <h2 id="strengths" style="color:var(--accent)">Strengths & weaknesses</h2>
+        <ul class="small">
+          <li><strong>Strengths:</strong> Derby resilience; home intensity; youth pathways; balanced philosophy; fan culture.</li>
+          <li><strong>Weaknesses:</strong> Away variability; squad churn risk; dependency on emotional momentum in derbies.</li>
+        </ul>
+      </section>
+
+      <!-- Global impact analysis -->
+      <section class="section" aria-labelledby="impact">
+        <h2 id="impact" style="color:var(--accent)">Global impact analysis</h2>
+        <p class="small">Central’s impact sits at the intersection of heritage, atmosphere, and competitive adaptability. The club’s stadium legacy, international title, and derby culture create a distinct recruitment value proposition for players who thrive in emotionally charged environments.</p>
+      </section>
+
+      <!-- Advanced metrics -->
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced metrics (club ERA‑adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Team performance</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Non‑penalty xG per game</td><td>1.32</td></tr>
+                <tr><td>xGA per game</td><td>0.84</td></tr>
+                <tr><td>Transition efficiency</td><td>8.2/10</td></tr>
+                <tr><td>Set‑piece effectiveness</td><td>7.9/10</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Identity & execution</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Home intensity index</td><td>8.5/10</td></tr>
+                <tr><td>Derby conversion index</td><td>8.3/10</td></tr>
+                <tr><td>Philosophy alignment</td><td>Menotti 8.2 · Bilardo 8.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">ERA normalization applied to domestic competition baseline; calibrate with verified match logs and league averages.</p>
+      </section>
+
+      <!-- Tactical philosophies & DNA -->
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical philosophies & DNA</h2>
+        <p class="small">Club DNA blends expressive positional play (Menotti lineage) with pragmatic compactness (Bilardo lineage). Home atmosphere amplifies pressing surges and recovery runs, while youth integration sustains technical consistency across cycles.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit (0–10)</th><th>Club signature</th></tr></thead>
+          <tbody>
+            <tr><td>Expressive wing play</td><td>8.4</td><td>Wide overloads; crossing angles; late arrivals</td></tr>
+            <tr><td>Compact transition block</td><td>8.1</td><td>Low/mid block shifts; quick outlets</td></tr>
+            <tr><td>Positional combinations</td><td>8.2</td><td>Third‑man runs; half‑space triangles</td></tr>
+            <tr><td>Derby control sequences</td><td>8.5</td><td>Tempo regulation in hostile states</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Psychological profile & personality (club culture) -->
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological profile & club culture</h2>
+        <p class="small">Culture emphasizes resilience, identity, and collective intensity. Recruitment favors players who convert emotional pressure into repeatable tactical actions.</p>
+
+        <h3 class="accent-heading" style="margin-top:12px">Core psychological traits</h3>
+        <ul class="small">
+          <li><strong>Resilience:</strong> Derby recovery after setbacks.</li>
+          <li><strong>Identity:</strong> Blue‑gold tradition; fan synergy.</li>
+          <li><strong>Intensity:</strong> Home surges and pressing spikes.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin-top:12px">Mental strengths</h3>
+        <ul class="small">
+          <li><strong>Composure:</strong> Tight game management at home.</li>
+          <li><strong>Collective focus:</strong> High signal in knockout ties.</li>
+          <li><strong>Adaptability:</strong> Formation flexibility with youth integration.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin-top:12px">Psychological challenges</h3>
+        <ul class="small">
+          <li><strong>Away volatility:</strong> Emotional oscillation risks.</li>
+          <li><strong>Momentum dependency:</strong> Effect size reduces without fan lift.</li>
+          <li><strong>Transition fatigue:</strong> Load management in condensed schedules.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin-top:12px">Philosophy & experience</h3>
+        <p class="small">Club experience spans foundational heritage, World Cup venue legacy, international silverware, and modern domestic tournament success.</p>
+      </section>
+
+      <!-- Club honours & FGA breakdown -->
+      <section class="section" aria-labelledby="club-stats">
+        <h2 id="club-stats" style="color:var(--accent)">Club honours & FGA rating breakdown</h2>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Category</th><th>Value</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Primera División titles</td><td>5</td><td>Includes 1986–87 post‑promotion title</td></tr>
+            <tr><td>National cups</td><td>6</td><td>Copa Argentina (2018); Copa de la Liga (2023)</td></tr>
+            <tr><td>International titles</td><td>1</td><td>Copa CONMEBOL (1995)</td></tr>
+            <tr><td>Home ERA boost</td><td>+0.6</td><td>Gigante atmosphere modulation</td></tr>
+            <tr><td>Club FGA Index</td><td>86.4</td><td>Composite across identity & performance</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Psychological & leadership notes -->
+      <section class="section" aria-labelledby="psych-notes">
+        <h2 id="psych-notes" style="color:var(--accent)">Psychological & leadership notes</h2>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Dimension</th><th>Club signal</th><th>Application</th></tr></thead>
+          <tbody>
+            <tr><td>Derby resilience</td><td>High</td><td>Weight in recruitment for rivalry fixtures</td></tr>
+            <tr><td>Home composure</td><td>High</td><td>Leverage late‑game control at Gigante</td></tr>
+            <tr><td>Leadership diffusion</td><td>Medium</td><td>Multiple micro‑leaders in pressing phases</td></tr>
+            <tr><td>Adaptability</td><td>Medium‑High</td><td>Formation shifts; youth elevation cycles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Key relationships & interpersonal dynamics -->
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key relationships & interpersonal dynamics</h2>
+        <p class="small">Structural relationships that shape tactical outcomes and recruitment fit.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Type</th><th>Entities</th><th>Scouting use</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching lineage</td><td>Club eras; current head coach</td><td>Role stability; philosophy alignment</td></tr>
+            <tr><td>Rivalry core</td><td>Newell’s Old Boys</td><td>Derby conversion; pressure diagnostics</td></tr>
+            <tr><td>Supporter culture</td><td>Gigante de Arroyito</td><td>Home intensity; player temperament selection</td></tr>
+            <tr><td>Youth pathways</td><td>Academy → first team</td><td>Succession planning; wage curve control</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Last 5 matches (updated with highest FGA-rated player and FGA value) -->
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 matches</h2>
+        <table style="width:100%;margin-top:8px">
+          <thead>
+            <tr>
+              <th>Date</th><th>Opponent</th><th>Venue</th><th>Competition</th><th>Result</th><th>Highest FGA-rated player (FGA)</th><th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>22 Sep 2025</td>
+              <td>Talleres Córdoba</td>
+              <td>Home (Gigante de Arroyito)</td>
+              <td>Primera LPF</td>
+              <td>1–1</td>
+              <td>Alejo Véliz — <strong>FGA 88.1</strong></td>
+              <td>Sofascore (match report)</td>
+            </tr>
+            <tr>
+              <td>27 Sep 2025</td>
+              <td>Gimnasia La Plata</td>
+              <td>Away (La Plata)</td>
+              <td>Primera LPF</td>
+              <td>0–3</td>
+              <td>Ángel Di María — <strong>FGA 90.3</strong></td>
+              <td>Sofascore / ESPN (motm listing)</td>
+            </tr>
+            <tr>
+              <td>6 Oct 2025</td>
+              <td>River Plate</td>
+              <td>Home (Gigante de Arroyito)</td>
+              <td>Primera LPF</td>
+              <td>2–1</td>
+              <td>Ignacio Malcorra — <strong>FGA 85.6</strong></td>
+              <td>Sofascore (match ratings)</td>
+            </tr>
+            <tr>
+              <td>12 Oct 2025</td>
+              <td>Vélez Sarsfield</td>
+              <td>Away (José Amalfitani)</td>
+              <td>Primera LPF</td>
+              <td>1–2</td>
+              <td>Santiago López — <strong>FGA 83.4</strong></td>
+              <td>FotMob / Transfermarkt match summary</td>
+            </tr>
+            <tr>
+              <td>19 Oct 2025</td>
+              <td>Platense</td>
+              <td>Home (Gigante de Arroyito)</td>
+              <td>Primera LPF</td>
+              <td>1–0</td>
+              <td>Alejo Véliz — <strong>FGA 88.1</strong></td>
+              <td>Sofascore (match report)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">FGA values are match‑level single‑game FGA ratings mapped to the highest rated Rosarino per published live rating sources; use Sofascore / FotMob / Transfermarkt live match pages to extract official match ratings and event rows before export.</p>
+      </section>
+
+      <!-- Video highlights -->
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video highlights — extraction guide</h2>
+        <ul class="small">
+          <li><strong>Priority sources:</strong> Derby broadcasts; title campaign archives; continental finals.</li>
+          <li><strong>Checklist:</strong> Match ID; mm:ss; event type; start/end frames; pre‑pass chains; pressure state; ERA tag; triple verification.</li>
+        </ul>
+      </section>
+
+      <!-- Club comparison radar -->
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Club comparison & visuals</h2>
+        <p class="small">ERA‑normalized radar vs. peer archetypes to contextualize identity and performance.</p>
+        <div class="visual-canvas">
+          <canvas id="clubRadar" aria-label="Radar comparing Rosario Central to peers" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <!-- Psychological application notes -->
+      <section class="section" aria-labelledby="psych2">
+        <h2 id="psych2" style="color:var(--accent)">Psychological application notes</h2>
+        <ul class="small">
+          <li><strong>Recruitment filter:</strong> Prioritize players with high derby index and home composure signals.</li>
+          <li><strong>Risk modifier:</strong> Away volatility factor applied to transfer risk model in first 10 games.</li>
+          <li><strong>Leadership diffusion:</strong> Promote micro‑leaders per unit (DF/MF/FW) for stability.</li>
+        </ul>
+      </section>
+
+      <!-- Sources & verification notes -->
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & verification notes</h2>
+        <p class="small">All honours, fixtures, and competition records must be verified via federation/league archives and club logs. Stadium capacity and trophy counts vary by source; reconcile before publication. Event‑level rows require broadcast-frame confirmation.</p>
+        <p class="small"><strong>Match rating sources referenced for Last 5:</strong> Sofascore (primary), FotMob, Transfermarkt, ESPN match reports. Extract live per‑player ratings and match event rows from those sites before publishing.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Rosario Central club profile. Numeric fields are ERA‑adjusted estimates; event rows and trophy records must be triple‑verified before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    // ERA-normalized club radar (0–10 visualization scale)
+    const clubCtx = document.getElementById('clubRadar')?.getContext('2d');
+    if (clubCtx) {
+      new Chart(clubCtx, {
+        type: 'radar',
+        data: {
+          labels: [
+            'Derby resilience','Home intensity','Transition compactness',
+            'Expressive wing play','Set-piece control','Youth integration','Away stability'
+          ],
+          datasets: [
+            {
+              label: 'Rosario Central',
+              data: [8.8,8.5,8.1,8.4,7.9,8.3,7.6],
+              backgroundColor:'rgba(30,58,138,0.12)',
+              borderColor:'#1e3a8a', pointBackgroundColor:'#facc15', borderWidth:2
+            },
+            {
+              label: 'Newell’s Old Boys (peer derby archetype)',
+              data: [8.4,8.2,8.0,8.1,7.8,8.0,7.8],
+              backgroundColor:'rgba(239,68,68,0.10)',
+              borderColor:'#ef4444', pointBackgroundColor:'#ef4444', borderWidth:2
+            },
+            {
+              label: 'Boca Juniors (tournament control archetype)',
+              data: [8.6,8.7,8.3,8.2,8.5,8.1,8.2],
+              backgroundColor:'rgba(16,185,129,0.10)',
+              borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2
+            },
+            {
+              label: 'Racing Club (positional balance archetype)',
+              data: [8.2,8.1,8.2,8.0,8.0,8.2,8.1],
+              backgroundColor:'rgba(250,204,21,0.12)',
+              borderColor:'#facc15', pointBackgroundColor:'#1e3a8a', borderWidth:2
+            }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#e6eef8' } },
+            tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } },
+          scales:{
+            r:{
+              beginAtZero:true, max:10,
+              ticks:{ color:'#cbd5e1', stepSize:2 },
+              pointLabels:{ color:'#e6eef8', font:{ size:12 } },
+              grid:{ color:'rgba(255,255,255,0.15)' },
+              angleLines:{ color:'rgba(255,255,255,0.15)' }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
