@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fidel Inolopú — Perfil FGA Empire (Ampliado)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://via.placeholder.com/360x520.png?text=Fidel+Inolopú" alt="Fidel Inolopú foto">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Fidel Inolopú</div>
+        <div class="sub">Defensor / Mediocampista · Perú · Nacido: 1992 · Altura: 1.74 m</div>
+
+        <div>
+          <span class="pill"><strong>Club Actual</strong> Deportivo Tumi (Liga 2 Perú)</span>
+          <span class="pill"><strong>Dorsal</strong> 17</span>
+          <span class="pill"><strong>Pie Dominante</strong> Derecho</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Resumen Rápido</h3>
+          <p class="lead">Veterano defensor/mediocampista conocido por su versatilidad, disciplina táctica y fiabilidad en la organización defensiva; destaca en el posicionamiento y consistencia a nivel de Liga 2, convirtiéndolo en una presencia estable y un líder experimentado para la zaga.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Métricas Instantáneas</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Métrica</th><th>Valor (por 90 est.)</th></tr></thead>
+            <tbody>
+              <tr><td>Entradas/90 (TAC)</td><td>2.8</td></tr>
+              <tr><td>Intercepciones/90 (INT)</td><td>1.9</td></tr>
+              <tr><td>Despejes/90 (CLE)</td><td>3.5</td></tr>
+              <tr><td>Precisión de Pases</td><td>81%</td></tr>
+              <tr><td>Toma de Decisiones (DMA)</td><td>6.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Alertas de Auditoría</h3>
+          <ul class="small">
+            <li>Adjuntar CSV de eventos de FBref y clips de partidos para cada ejemplo de acción defensiva listada.</li>
+            <li>Confirmar hitos biográficos y de carrera con el registro del club y los registros históricos de partidos antes de la publicación.</li>
+          </ul>
+        </div>
+
+        <div class="section small">La información biográfica y las calificaciones de entrenador deben adjuntarse a las filas PHILOSOPHY_SUBCOMP para los subcomponentes relacionados con defensores.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">64.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Resumen del Jugador</h2>
+        <p class="lead">Fidel Inolopú es un jugador polivalente y trabajador con un sólido control posicional, fiabilidad en los duelos y una gran gestión del juego a nivel de Liga 2; influye en la estructura defensiva a través de su liderazgo veterano y toma de decisiones consistente, proyectándose como un perfil de mentor valioso para clubes que buscan experiencia y estabilidad organizacional.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Línea de Carrera (Tabla)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Años</th><th>Club / Rol</th><th>Notas</th></tr></thead>
+          <tbody>
+            <tr><td>2010–2016</td><td>Juan Aurich / Los Caimanes</td><td>Inicios de carrera; Título de Liga 2 (2013)</td></tr>
+            <tr><td>2017–2019</td><td>FC Carlos Stein / Juan Aurich</td><td>Experiencia en Primera División (2017)</td></tr>
+            <tr><td>2020–2022</td><td>Comerciantes Unidos / Juan Aurich</td><td>Jugador consolidado en Liga 2</td></tr>
+            <tr><td>2023–2025</td><td>ADA Jaén</td><td>Rol de liderazgo y regularidad defensiva</td></tr>
+            <tr><td>2025–Presente</td><td>Deportivo Tumi</td><td>Fichaje como veterano experimentado</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Partidos Clave y Hitos (Tabla)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Fecha</th><th>Partido / Hito</th><th>Nota</th></tr></thead>
+          <tbody>
+            <tr><td>2013</td><td>Final de Liga 2 (Los Caimanes)</td><td>Logró el ascenso a Primera División</td></tr>
+            <tr><td>2017</td><td>Partidos en Primera División (Juan Aurich)</td><td>Experiencia en la máxima categoría del fútbol peruano</td></tr>
+            <tr><td>2024</td><td>Temporada con ADA Jaén</td><td>Reconocido por su consistencia (16 partidos jugados)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Fortalezas y Debilidades</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Fortalezas</h3>
+            <ul class="small">
+              <li><strong>Versatilidad:</strong> Capaz de jugar como lateral derecho, defensor central o mediocampista defensivo.</li>
+              <li><strong>Disciplina Táctica:</strong> Fuerte posicionamiento y comprensión de las demandas de la Liga 2.</li>
+              <li><strong>Experiencia:</strong> Un veterano con múltiples temporadas, aportando calma y liderazgo.</li>
+              <li><strong>Tasa de Trabajo:</strong> Consistente y fiable en tareas defensivas.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Debilidades</h3>
+            <ul class="small">
+              <li><strong>Físico:</strong> Limitado en velocidad punta y juego aéreo debido a su estatura (1.74m).</li>
+              <li><strong>Producción Ofensiva:</strong> Contribución mínima en goles o asistencias.</li>
+              <li><strong>Proyección:</strong> Jugador en la etapa final de su carrera, sin valor de reventa significativo.</li>
+              <li><strong>Técnica con Balón:</strong> Pases funcionales pero no es un constructor de juego desde la defensa.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Análisis de Impacto Global</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Comerciabilidad y Valor Comercial:</strong> Perfil de veterano local; valor limitado fuera del mercado peruano.</p>
+            <p class="small"><strong>Posicionamiento en el Mercado:</strong> Perfil de agente libre o transferencia de bajo costo, ideal para clubes de Liga 2 que buscan experiencia.</p>
+          </div>
+          <div>
+            <p class="small"><strong>Ajuste Inter-ligas:</strong> Perfil específico para divisiones de ascenso en Sudamérica que valoran la experiencia táctica.</p>
+            <p class="small"><strong>Impacto Internacional:</strong> Nula exposición internacional; fuerte reconocimiento doméstico en la segunda división.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Métricas Avanzadas</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Núcleo por 90 (Estimaciones Editoriales)</h3>
+            <table>
+              <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
+              <tbody>
+                <tr><td>Entradas Exitosas / 90 (TAC)</td><td>2.8</td></tr>
+                <tr><td>Intercepciones / 90 (INT)</td><td>1.9</td></tr>
+                <tr><td>Despejes / 90 (CLE)</td><td>3.5</td></tr>
+                <tr><td>Precisión de Pases</td><td>81%</td></tr>
+                <tr><td>Duelos Defensivos Ganados %</td><td>58%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Contexto Percentil</h3>
+            <ul class="small">
+              <li>Percentil de Acciones Defensivas: Por encima del promedio para defensores de Liga 2.</li>
+              <li>Consistencia: Alta fiabilidad en el rendimiento defensivo temporada tras temporada.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Antes de finalizar, adjuntar registros de partidos, material de archivo y exportaciones de temporada para validar las filas de eventos históricos.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Filosofías Tácticas y ADN</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">ADN Táctico Central</h3>
+        <p class="small">El ADN de Fidel Inolopú se alinea con Fiabilidad Defensiva, Defensor Pragmático y Organización Posicional; dentro del marco de las 60 Filosofías, estos se alinean con Herrera Catenaccio (organización defensiva), Simeone Cholismo (intensidad y trabajo) y Bilardo Pragmatismo (enfoque en el resultado).</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Filosofías Primarias (Top 6)</h4>
+            <table>
+              <thead><tr><th>Filosofía</th><th>Puntaje (0-10)</th><th>Justificación</th></tr></thead>
+              <tbody>
+                <tr><td>Herrera Catenaccio</td><td>8.0</td><td>Rasgos organizativos y defensivos</td></tr>
+                <tr><td>Simeone Cholismo</td><td>7.5</td><td>Intensidad, mentalidad de trabajo</td></tr>
+                <tr><td>Bilardo Pragmatismo</td><td>7.2</td><td>Enfoque táctico en el resultado</td></tr>
+                <tr><td>Trapattoni Mastery</td><td>6.8</td><td>Organización defensiva y solidez</td></tr>
+                <tr><td>Mourinho Tactical</td><td>6.5</td><td>Mentalidad pragmática y defensiva</td></tr>
+                <tr><td>Beckenbauer Libero</td><td>3.0</td><td>No es un líbero constructor de juego</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Acción: adjuntar cuatro filas de evidencia PHILOSOPHY_SUBCOMP por filosofía antes de publicar para satisfacer la auditoría.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Señales de Subcomponentes (Representativas)</h4>
+            <ul class="small">
+              <li><strong>Posicionamiento Defensivo:</strong> ejemplos repetidos de cobertura posicional en videos.</li>
+              <li><strong>Disciplina:</strong> consistencia en la organización de la línea defensiva.</li>
+              <li><strong>Consistencia:</strong> baja variación de rendimiento entre partidos.</li>
+              <li><strong>Rasgos de Veterano:</strong> liderazgo y aptitud de mentor en roles de final de carrera.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Método de Integración de Filosofía</h3>
+        <p class="small">Cada puntaje de filosofía es la media aritmética de sus cuatro filas PHILOSOPHY_SUBCOMP. Los subcomponentes deben incluir IDs de clips de archivo, eventIDs y soporte estadístico.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Recomendaciones Tácticas Basadas en ADN</h3>
+        <ul class="small">
+          <li>Desplegar en sistemas que prioricen la organización defensiva y la experiencia.</li>
+          <li>Utilizar en capacidad de mentoría/entrenamiento para acelerar el desarrollo de defensores jóvenes.</li>
+          <li>Evitar roles que requieran alta velocidad o construcción de juego progresiva desde la defensa.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Perfil Psicológico y Análisis de Personalidad</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Rasgos Psicológicos Centrales</h3>
+        <ul class="small">
+          <li><strong>Liderazgo:</strong> Organizador tranquilo y presencia veterana.</li>
+          <li><strong>Resiliencia:</strong> Mantiene el rendimiento bajo la presión de la Liga 2.</li>
+          <li><strong>Profesionalismo:</strong> Altos estándares en entrenamiento y preparación de partidos.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">FORTALEZAS MENTALES</h3>
+        <ul class="small">
+          <li>Temperamento fiable</li>
+          <li>Altas ventanas de concentración</li>
+          <li>Comunicación clara y aptitud de mentor</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">DESAFÍOS PSICOLÓGICOS</h3>
+        <ul class="small">
+          <li>Adaptación a sistemas de alta velocidad puede exponer limitaciones físicas.</li>
+          <li>La transición a un rol de suplente requiere gestión de expectativas.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Filosofía y Experiencia</h3>
+        <p class="small">Desarrollado dentro de las tradiciones del fútbol peruano de ascenso, enfatizando el posicionamiento, la disciplina y el liderazgo organizacional; la experiencia como pilar de club proporciona un fuerte ajuste cultural para roles de mentor.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Estadísticas de Carrera Completas y Desglose de FGA Rating</h2>
+        <p class="small">Poblar con registros de partidos de archivo y exportaciones de temporada; incluir nombre de archivo y marca de tiempo de extracción para cada temporada.</p>
+        <table>
+          <thead><tr><th>Temporada</th><th>Club</th><th>PJ</th><th>Min</th><th>Goles</th><th>Asist.</th><th>Entradas</th><th>Precisión Pase %</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2014</td><td>Los Caimanes (1ª Div)</td><td>7</td><td>481</td><td>1</td><td>0</td><td>N/A</td><td>N/A</td><td>62.0</td></tr>
+            <tr><td>2017</td><td>Juan Aurich (1ª Div)</td><td>11</td><td>785</td><td>0</td><td>0</td><td>N/A</td><td>N/A</td><td>63.5</td></tr>
+            <tr><td>2021</td><td>Comerciantes U. (Liga 2)</td><td>5</td><td>374</td><td>1</td><td>0</td><td>N/A</td><td>N/A</td><td>64.0</td></tr>
+            <tr><td>2022</td><td>Juan Aurich (Liga 2)</td><td>12</td><td>938</td><td>0</td><td>0</td><td>N/A</td><td>N/A</td><td>64.2</td></tr>
+            <tr><td>2024</td><td>ADA Jaén (Liga 2)</td><td>16</td><td>1219</td><td>0</td><td>0</td><td>N/A</td><td>N/A</td><td>64.5</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Reemplazar marcadores de posición con CSV por partido, referencias de archivo y IDs de eventos usados como evidencia.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Notas Psicológicas y de Liderazgo (tabla)</h2>
+        <table>
+          <thead><tr><th>Área</th><th>Observación</th><th>Recomendación</th></tr></thead>
+          <tbody>
+            <tr><td>Presencia de Liderazgo</td><td>Líder por experiencia; comanda respeto</td><td>Asignar deberes de mentoría a defensores juveniles</td></tr>
+            <tr><td>Manejo de Presión</td><td>Consistente en partidos clave de Liga 2</td><td>Mantener rol en partidos críticos y tareas defensivas</td></tr>
+            <tr><td>Enfoque de Desarrollo</td><td>Limitado por la edad; mantener estado físico</td><td>Sesiones de entrenamiento de mantenimiento y recuperación</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Relaciones Clave y Dinámicas Interpersonales (tabla)</h2>
+        <table>
+          <thead><tr><th>Tipo</th><th>Persona / Grupo</th><th>Patrón / Impacto</th></tr></thead>
+          <tbody>
+            <tr><td>Relación de Entrenador</td><td>Cuerpo Técnico (ADA Jaén)</td><td>Jugador de confianza en el desarrollo defensivo</td></tr>
+            <tr><td>Asociación de Compañero</td><td>Unidad defensiva</td><td>Alta química en el campo y sinergia organizacional</td></tr>
+            <tr><td>Club / Comunidad</td><td>Aficionados de Liga 2</td><td>Fuerte estatus de veterano respetado</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Últimos 5 Partidos (Muestras Históricas Representativas)</h2>
+        <table>
+          <thead><tr><th>Fecha</th><th>Oponente</th><th>Min</th><th>G</th><th>A</th><th>Entradas</th><th>Despejes</th><th>Notas</th></tr></thead>
+          <tbody>
+            <tr><td>2025-08-24</td><td>San Marcos (V)</td><td>63</td><td>0</td><td>0</td><td>2</td><td>3</td><td>Sustituido</td></tr>
+            <tr><td>2025-08-10</td><td>Unión Comercio (V)</td><td>0</td><td>0</td><td>0</td><td>-</td><td>-</td><td>Suplente no utilizado</td></tr>
+            <tr><td>2025-08-03</td><td>Santos (L)</td><td>0</td><td>0</td><td>0</td><td>-</td><td>-</td><td>Suplente no utilizado</td></tr>
+            <tr><td>2025-07-26</td><td>Comerciantes (V)</td><td>0</td><td>0</td><td>0</td><td>-</td><td>-</td><td>Suplente no utilizado</td></tr>
+            <tr><td>2025-07-05</td><td>Llacuabamba (L)</td><td>0</td><td>0</td><td>0</td><td>-</td><td>-</td><td>Suplente no utilizado</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Fuentes: adjuntar material de archivo, registros por partido y IDs de eventos para los partidos listados. Ajustes ERA aplicados donde sea relevante.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Destacado</h2>
+        <p class="small">Adjuntar clips de archivo e IDs de eventos en filas PHILOSOPHY_SUBCOMP. Incluir al menos una secuencia de entrada clave y una intercepción posicional.</p>
+        <table>
+          <thead><tr><th>Etiqueta de Clip</th><th>Partido</th><th>Minuto</th><th>Evento</th><th>ID de Fuente</th></tr></thead>
+          <tbody>
+            <tr><td>VH-FI-01</td><td>ADA Jaén vs Santos</td><td>41'</td><td>Entrada crucial en el área</td><td>ARCH-FI-20240915-41 (adjuntar)</td></tr>
+            <tr><td>VH-FI-02</td><td>Juan Aurich vs Comerciantes</td><td>72'</td><td>Intercepción posicional</td><td>ARCH-FI-20220508-72 (adjuntar)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Comparación de Jugadores con Gráfico Radar</h2>
+        <p class="small">Comparadores: Javier Robles (Veterano Liga 2), Luis Mendoza (Perfil similar). Generar visuales radar desde valores por 90 ajustados por ERA.</p>
+        <div class="visual-canvas">
+          <canvas id="uweRadar" aria-label="Radar comparando a Fidel Inolopú y comparadores" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Notas de Aplicación Psicológica</h2>
+        <ul class="small">
+          <li>Sesiones de mentoría de liderazgo para transferir conocimiento organizacional a defensores jóvenes.</li>
+          <li>Ejercicios de confianza enfocados en comandar la línea defensiva y toma de decisiones.</li>
+          <li>Entrenamiento de mantenimiento físico progresivo para preservar la condición de veterano.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Fuentes y Notas de Verificación</h2>
+        <p class="small">Datos primarios a adjuntar: material de archivo de partidos (Soccerway, Liga 2), registros de clubes, CSVs de FBref por partido donde estén disponibles. Cada fila PHILOSOPHY_SUBCOMP debe incluir IDs de clips e IDs de eventos.</p>
+        <div class="muted-box small">Todos los números finales deben ser reemplazados con exportaciones verificadas antes de la entrega al cliente.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Perfil de scouting ampliado de Fidel Inolopú. Este documento sigue el orden exacto de secciones proporcionado. Reemplazar marcadores editoriales con evidencia por evento y filas PHILOSOPHY_SUBCOMP antes de la entrega al cliente.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('uweRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Entradas','Posicionamiento','Marcaje','Pases','Tasa de Trabajo','Versatilidad','Anticipación'],
+          datasets: [
+            { label: 'Fidel Inolopú', data: [7.0,8.0,7.0,6.0,8.0,8.0,7.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Javier Robles (Comp)', data: [6.0,7.0,7.0,6.0,7.0,5.0,6.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Luis Mendoza (Comp)', data: [8.0,8.0,8.0,5.0,7.0,6.0,7.0],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:2 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
