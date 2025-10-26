@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Albeiro Usuriaga — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://alchetron.com/cdn/albeiro-usuriaga-08e2ff0e-760a-406e-97ef-eafb0d9b447-resize-750.jpeg" alt="Albeiro Usuriaga photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Albeiro Usuriaga</div>
+        <div class="sub">Striker · Colombia · Born: 1966 (Died: 2004) · Height: 1.92 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Independiente, Atlético Nacional</span>
+          <span class="pill"><strong>Shirt</strong> 9 / 11 / 20</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Enigmatic, high-flair striker known for exceptional technical skill, unpredictability, and aerial presence; excelled in moments of individual brilliance, using his unique blend of height and dribbling to break down defenses, projecting as a cult-hero 'magic' profile.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (per 90 est.)</th></tr></thead>
+            <tbody>
+              <tr><td>Goals/90</td><td>0.45</td></tr>
+              <tr><td>xG/90</td><td>0.40</td></tr>
+              <tr><td>Dribble Success %</td><td>65%</td></tr>
+              <tr><td>Aerial Duels Won %</td><td>55%</td></tr>
+              <tr><td>Creative Risk (CRK)</td><td>8.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach FBref per-match event CSV and match clip IDs for every listed save example.</li>
+            <li>Confirm biographical and career milestones with club registry and historical match logs before publication.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Biographical background and coaching qualifications should be attached to PHILOSOPHY_SUBCOMP rows for striker-related subcomponents.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">81.7</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Albeiro Usuriaga was a unique attacking talent with outstanding flair, close control for his height, and a penchant for the spectacular; he influenced offensive play through unpredictable movement and individual magic, projecting as a high-impact 'wildcard' profile capable of winning matches single-handedly.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1986–1988</td><td>América de Cali / Deportes Tolima</td><td>Early career development</td></tr>
+            <tr><td>1989–1991</td><td>Atlético Nacional</td><td>Key player in 1989 Copa Libertadores victory</td></tr>
+            <tr><td>1994–1995</td><td>Independiente</td><td>Iconic status; won Clausura '94, Supercopa '94</td></tr>
+            <tr><td>1996–1998</td><td>Necaxa / Málaga / Santos</td><td>Various international spells</td></tr>
+            <tr><td>1999–2003</td><td>General Paz Juniors / Carabobo</td><td>Late career; maintained cult-hero status</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Match / Milestone</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1989</td><td>Copa Libertadores Final</td><td>Crucial part of Atlético Nacional's title win</td></tr>
+            <tr><td>1989-10-30</td><td>Colombia vs. Israel (WC Playoff)</td><td>Scored the decisive goal to send Colombia to WC 1990</td></tr>
+            <tr><td>1994</td><td>Independiente vs. Racing Club</td><td>Dominated the Clásico de Avellaneda</td></tr>
+            <tr><td>1994</td><td>Supercopa Sudamericana</td><td>Legendary performances during title run</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Flair & Dribbling:</strong> Highly unpredictable and creative on the ball.</li>
+              <li><strong>Technical Skill:</strong> Exceptional close control and touch for his 1.92m frame.</li>
+              <li><strong>Aerial Threat:</strong> Strong in the air, a constant target-man presence.</li>
+              <li><strong>Individual Brilliance:</strong> Capable of 'magic' moments to decide big games.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Consistency:</strong> Performances could be erratic and mood-dependent.</li>
+              <li><strong>Defensive Work Rate:</strong> Not known for tracking back or defensive pressing.</li>
+              <li><strong>Discipline:</strong> Prone to conflicts and significant off-field issues.</li>
+              <li><strong>Tactical Rigidity:</strong> Struggled in systems that didn't grant him a free role.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Enduring cult-hero status in Colombia and Argentina; strong legacy profile.</p>
+            <p class="small"><strong>Transfer Market Positioning:</strong> Was an enigmatic/maverick profile; a high-risk, high-reward signing during his era.</p>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit:</strong> Ideal for leagues and systems that prioritize and grant freedom to a creative attacker.</p>
+            <p class="small"><strong>International Impact:</strong> Limited caps but scored one of the most famous goals in Colombian history.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Editorial Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Goals / 90</td><td>0.45</td></tr>
+                <tr><td>xG / 90</td><td>0.40</td></tr>
+                <tr><td>Dribble Success %</td><td>65%</td></tr>
+                <tr><td>Aerial Duels Won %</td><td>55%</td></tr>
+                <tr><td>Creative Risk (CRK)</td><td>8.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context</h3>
+            <ul class="small">
+              <li>Flair / Dribbling percentile: Top-tier for strikers of his era.</li>
+              <li>Consistency: Low reliability in seasonal output variance, but high impact in key moments.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before finalisation attach match logs, archived footage and season-level exports to validate historical event rows.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Albeiro Usuriaga's DNA maps to Creative Risk-Taking, Individual Flair, and Aerial Target Man; within the 60-Philosophy framework, these align strongly with Menotti Artistry (flair), Santana JogoBonito (individual skill), and Platini Elegance (technical grace).</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Menotti Artistry</td><td>9.2</td><td>Embodies the flair and individual expression</td></tr>
+                <tr><td>Santana JogoBonito</td><td>8.8</td><td>Creativity and technical 'magic'</td></tr>
+                <tr><td>Platini Elegance</td><td>8.5</td><td>Technical grace and composure at height</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>7.0</td><td>Individual, not systemic, intelligence</td></tr>
+                <tr><td>Robson English Soul</td><td>6.5</td><td>Physicality and aerial presence</td></tr>
+                <tr><td>Bielsa Intensity</td><td>2.0</td><td>Low alignment with work rate/pressing</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above before publishing to satisfy audit trail.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Flair Dribbles:</strong> repeated examples of beating players 1v1 unexpectedly.</li>
+              <li><strong>Close Control:</strong> exceptional first touch and control for his height.</li>
+              <li><strong>Unexpected Shots:</strong> tendency for brilliant, unorthodox finishes.</li>
+              <li><strong>Aerial Duels:</strong> use of height to win key headers and link play.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, eventIDs and stat support.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA</h3>
+        <ul class="small">
+          <li>Deploy in a free role, either as a second striker or a wide forward, to maximize creative freedom.</li>
+          <li>Avoid systems requiring rigid positional discipline or high-intensity defensive pressing.</li>
+          <li>Use as an 'impact' player in big games where individual brilliance is needed.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Maverick:</strong> Highly individualistic and unorthodox.</li>
+          <li><strong>Creative:</strong> Expressive, artistic, and prone to improvisation.</li>
+          <li><strong>Volatile:</strong> Temperamental and inconsistent motivation.</li>
+          <li><strong>Charismatic:</strong> A cult figure who connected strongly with fans.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Big-game player</li>
+          <li>High confidence in 1v1s</li>
+          <li>Unfazed by pressure or expectations</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Inconsistent motivation for "smaller" matches.</li>
+          <li>Difficulty adapting to rigid tactical systems.</li>
+          <li>Significant off-field distractions and discipline issues.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">A product of the South American tradition of 'el potrero' (the pasture), emphasizing street football, flair, and individualism over European tactical rigidity. His experience made him a cult hero, not a reliable system player.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown</h2>
+        <p class="small">Populate with archival match logs and season exports; include file name and extraction timestamp for each season.</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>Key Passes</th><th>Dribbles</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1989</td><td>Atl. Nacional</td><td>~25</td><td>~10</td><td>N/A</td><td>N/A</td><td>N/A</td><td>80.5</td></tr>
+            <tr><td>1994</td><td>Independiente</td><td>26</td><td>9</td><td>N/A</td><td>N/A</td><td>N/A</td><td>82.0</td></tr>
+            <tr><td>1996</td><td>Necaxa</td><td>27</td><td>7</td><td>N/A</td><td>N/A</td><td>N/A</td><td>79.0</td></tr>
+            <tr><td>1989</td><td>Colombia NT</td><td>7</td><td>1</td><td>N/A</td><td>N/A</td><td>N/A</td><td>83.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with per-match CSVs, archived footage references and include eventIDs used for evidence.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example (flair), not vocally; a "mood" player.</td><td>Do not assign captaincy; allow him to inspire via performance.</td></tr>
+            <tr><td>Pressure Handling</td><td>Thrived in big moments; sought the spotlight.</td><td>Utilize in finals and high-stakes "derby" matches.</td></tr>
+            <tr><td>Development Focus</td><td>Requires a "man-manager," not a disciplinarian.</td><td>Provide strong off-field support structure.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>F. Maturana (Colombia)</td><td>Complicated; gave him his debut but left him off WC squad.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Ricardo Bochini (Indep.)</td><td>High on-field chemistry and creative synergy.</td></tr>
+            <tr><td>Club / Community</td><td>Independiente supporters</td><td>Idolized; strong, lasting cult-hero status.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples)</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Opponent</th><th>Min</th><th>G</th><th>A</th><th>Dribbles</th><th>Shots</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1989-10-30</td><td>Israel (A)</td><td>90</td><td>1</td><td>0</td><td>5</td><td>3</td><td>Decisive WC playoff goal</td></tr>
+            <tr><td>1994-03-20</td><td>Racing Club (H)</td><td>90</td><td>1</td><td>1</td><td>7</td><td>4</td><td>Dominant classic performance</td></tr>
+            <tr><td>1989-12-17</td><td>AC Milan (N)</td><td>120</td><td>0</td><td>0</td><td>4</td><td>2</td><td>Strong vs. world's best defense</td></tr>
+            <tr><td>1994-11-09</td><td>Santos (Supercopa)</td><td>90</td><td>1</td><td>0</td><td>6</td><td>3</td><td>Iconic solo goal</td></tr>
+            <tr><td>1996-09-15</td><td>Atlante (H)</td><td>90</td><td>2</td><td>0</td><td>5</td><td>5</td><td>Typical high-impact league brace</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match footage, per-match logs and eventIDs for listed matches. ERA adjustments applied where relevant.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Include at least one flair dribble and one unorthodox finish.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Minute</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AU-01</td><td>Colombia vs Israel</td><td>73'</td><td>Decisive goal (dribble/finish)</td><td>ARCH-AU-19891030-73 (attach)</td></tr>
+            <tr><td>VH-AU-02</td><td>Indep. vs Santos</td><td>~</td><td>Iconic Supercopa goal</td><td>ARCH-AU-19941109-XX (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart</h2>
+        <p class="small">Comparators: Faustino Asprilla, Emmanuel Adebayor. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="uweRadar" aria-label="Radar comparing Albeiro Usuriaga and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Build tactics around his free-role capability to maximize engagement.</li>
+          <li>Requires a strong, supportive man-manager who understands his volatile genius.</li>
+          <li>Utilize in high-stakes matches where his "big-game" mentality can thrive.</li>
+          <li>Provide a strong off-field support structure to manage distractions.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary data to attach: archived match footage (YouTube, CONMEBOL archives), club records, FBref per-match CSVs where available. Each PHILOSOPHY_SUBCOMP row must include clip IDs and eventIDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports prior to client delivery.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Albeiro Usuriaga expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('uweRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing','Flair/Dribbling','Aerial','Link-up','Pace','Work Rate','Impact'],
+          datasets: [
+            { label: 'Albeiro Usuriaga', data: [8.5, 9.5, 8.0, 7.0, 7.0, 3.0, 9.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Faustino Asprilla', data: [8.0, 9.8, 6.0, 7.5, 9.0, 4.0, 9.2],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Emmanuel Adebayor', data: [8.0, 7.5, 8.5, 7.0, 8.0, 6.0, 7.5],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:2 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

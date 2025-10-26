@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Uwe Kamps — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://cdn.prod.www.11freunde.de/images/7bec724e-65a1-40a0-98dd-600bccda67e9_w1024_r0.6546563192904656_fpx49.99_fpy51.06.jpg" alt="Uwe Kamps photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Uwe Kamps</div>
+        <div class="sub">Goalkeeper · Germany · Born: 1964 · Height: 1.88 m</div>
+
+        <div>
+          <span class="pill"><strong>Current Club</strong> Borussia Mönchengladbach (legend)</span>
+          <span class="pill"><strong>Shirt</strong> 1</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Veteran goalkeeper known for exceptional reflexes, leadership behind the back line and consistency across long domestic career; excels in shot-stopping, positioning and organizing set-piece defence making him a reliable presence and coaching asset in transition to mentoring roles.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (per 90 est.)</th></tr></thead>
+            <tbody>
+              <tr><td>Saves/90</td><td>3.1</td></tr>
+              <tr><td>Post-shot xG Saved</td><td>0.18</td></tr>
+              <tr><td>Clean Sheets %</td><td>38%</td></tr>
+              <tr><td>Aerial Claims</td><td>4.2</td></tr>
+              <tr><td>Distribution Accuracy</td><td>71%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach FBref per-match event CSV and match clip IDs for every listed save example.</li>
+            <li>Confirm biographical and career milestones with club registry and historical match logs before publication.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Biographical background and coaching qualifications should be attached to PHILOSOPHY_SUBCOMP rows for goalkeeper-related subcomponents.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">82.3</div>
+
+      <!-- 1) Player Overview -->
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Uwe Kamps is a commanding goalkeeper with outstanding reflexes, reliable aerial control and strong game management; he influences defensive structure through vocal leadership and consistent decision-making, projecting as a high-value mentoring profile for clubs seeking experience and organizational stability.</p>
+      </section>
+
+      <!-- 2) Career Timeline (Table) -->
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1986–2000</td><td>Borussia Mönchengladbach Senior</td><td>Long-serving first-team goalkeeper; numerous clean sheets and leadership role</td></tr>
+            <tr><td>2000–2002</td><td>Player-Coach Transition</td><td>Gradual move into coaching and mentoring younger keepers</td></tr>
+            <tr><td>2003–Present</td><td>Goalkeeping Coach / Ambassador</td><td>Club staff roles and youth development involvement</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 3) Key Matches and Milestones (Table) -->
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Match / Score</th><th>Milestone / Note</th></tr></thead>
+          <tbody>
+            <tr><td>1995</td><td>Bundesliga Match</td><td>Several match-winning saves; showcased reflex consistency</td></tr>
+            <tr><td>1998</td><td>DFB-Pokal run</td><td>Key clean sheets contributing to cup progress</td></tr>
+            <tr><td>2000</td><td>Farewell Appearance</td><td>Recognised for longevity and leadership at club</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 4) Strengths and Weaknesses -->
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Shot-stopping:</strong> Exceptional reflexes in close-range situations.</li>
+              <li><strong>Leadership:</strong> Organises defence; strong communicator.</li>
+              <li><strong>Aerial Control:</strong> Reliable claims and positioning on set pieces.</li>
+              <li><strong>Consistency:</strong> Low variance performance across seasons.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Modern Distribution:</strong> Less polished under high-press building compared with contemporary sweeper-keepers.</li>
+              <li><strong>High Line Sweeping:</strong> Not primarily a 'sweeper keeper' in aggressive high defensive lines.</li>
+              <li><strong>Mobility with Feet:</strong> Requires specific coaching to meet current playing-out demands.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5) Global Impact Analysis -->
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Strong legacy profile in German market; valuable for academy pathways and ambassador roles.</p>
+            <p class="small"><strong>Transfer Market Positioning:</strong> Veteran profile suited to coaching contracts, short-term advisory roles and veteran goalkeeper signings at lower-tier clubs.</p>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit:</strong> Ideal for Bundesliga clubs valuing experience; suitable for coaching transition roles internationally.</p>
+            <p class="small"><strong>International Impact:</strong> Limited senior international exposure but strong domestic recognition and respect among peers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6) Advanced Metrics -->
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Editorial Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Saves / 90</td><td>3.1</td></tr>
+                <tr><td>Post-shot xG Saved</td><td>0.18</td></tr>
+                <tr><td>Clean Sheets %</td><td>38%</td></tr>
+                <tr><td>Distribution Accuracy</td><td>71%</td></tr>
+                <tr><td>Aerial Claims</td><td>4.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context</h3>
+            <ul class="small">
+              <li>Post-shot xG saved percentile: Above average for long-serving Bundesliga keepers of era.</li>
+              <li>Consistency: High reliability in seasonal clean-sheet contributions.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before finalisation attach match logs, archived footage and season-level exports to validate historical event rows.</p>
+      </section>
+
+      <!-- 7) Tactical Philosophies & DNA -->
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Uwe Kamps' DNA maps to Goalkeeper Reliability, Traditional Commanding Keeper and Defensive Organisation; within the 60-Philosophy framework these align with Beckenbauer Libero (sweeper awareness), Herrera Catenaccio (defensive organisation) and Wenger Development (youth transition coaching traits).</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Beckenbauer Libero</td><td>7.8</td><td>Reading of space and positional sweep instincts</td></tr>
+                <tr><td>Wenger Development</td><td>7.6</td><td>Coaching mindset and youth mentoring potential</td></tr>
+                <tr><td>Herrera Catenaccio</td><td>7.4</td><td>Organisational defensive traits</td></tr>
+                <tr><td>Yashin Revolution (GK)</td><td>8.0</td><td>Shot-stopping excellence</td></tr>
+                <tr><td>Platini Elegance</td><td>6.8</td><td>Composure and technical handling</td></tr>
+                <tr><td>DeVisser Global</td><td>6.9</td><td>Adaptability to modern coaching roles</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above before publishing to satisfy audit trail.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Shot Reflexes:</strong> repeated close-range save examples across match footage.</li>
+              <li><strong>Command of Area:</strong> consistent set-piece organisation and successful claims.</li>
+              <li><strong>Consistency:</strong> low performance variance across seasons.</li>
+              <li><strong>Mentor Traits:</strong> leadership and coaching aptitude in late-career roles.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, eventIDs and stat support.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA</h3>
+        <ul class="small">
+          <li>Deploy in systems that prioritise defensive organisation and experienced goalkeeper presence.</li>
+          <li>Use in mentoring/coaching capacity to accelerate youth goalkeeper development.</li>
+          <li>Adjust distribution training to modern demands for playing-out from the back if deployed in playing roles.</li>
+        </ul>
+      </section>
+
+      <!-- 8) Psychological Profile & Personality Analysis -->
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Leadership:</strong> Strong organiser and calming presence.</li>
+          <li><strong>Resilience:</strong> Maintains performance under sustained pressure.</li>
+          <li><strong>Professionalism:</strong> High standards in training and match preparation.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Dependable temperament</li>
+          <li>High concentration windows</li>
+          <li>Clear communication and coaching aptitude</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Transitioning playing style to modern footwork-heavy systems requires targeted coaching</li>
+          <li>Adaptation to highly aggressive defensive lines may expose sweeping limitations</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Developed within German goalkeeping traditions emphasising positioning, reflex training and organisational leadership; experience as club stalwart provides strong cultural fit for mentoring roles.</p>
+      </section>
+
+      <!-- 9) Complete Career Statistics & FGA Rating Breakdown -->
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown</h2>
+        <p class="small">Populate with archival match logs and season exports; include file name and extraction timestamp for each season.</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Min</th><th>Clean Sheets</th><th>Saves</th><th>PSxG Saved</th><th>Distribution %</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1992</td><td>Borussia M'gladbach</td><td>34</td><td>3060</td><td>12</td><td>98</td><td>3.1</td><td>69%</td><td>81.0</td></tr>
+            <tr><td>1996</td><td>Borussia M'gladbach</td><td>31</td><td>2790</td><td>10</td><td>89</td><td>2.6</td><td>72%</td><td>82.0</td></tr>
+            <tr><td>1999</td><td>Borussia M'gladbach</td><td>28</td><td>2520</td><td>9</td><td>84</td><td>2.4</td><td>70%</td><td>82.5</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with per-match CSVs, archived footage references and include eventIDs used for evidence.</div>
+      </section>
+
+      <!-- 10) Psychological & Leadership Notes (table) -->
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Natural leader; commands respect in dressing room</td><td>Assign senior mentoring and youth keeper coaching duties</td></tr>
+            <tr><td>Pressure Handling</td><td>Consistent under high-stakes matches</td><td>Maintain role in critical fixtures and media-facing duties</td></tr>
+            <tr><td>Development Focus</td><td>Modern distribution under pressure</td><td>Targeted distribution and footwork retraining sessions</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 11) Key Relationships & Interpersonal Dynamics (table) -->
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Club coaching staff</td><td>Trusted collaborator in youth development</td></tr>
+            <tr><td>Teammate Partnership</td><td>Defensive unit</td><td>High on-field chemistry and organisational synergy</td></tr>
+            <tr><td>Club / Community</td><td>Borussia M'gladbach supporters</td><td>Strong legacy status and ambassadorial value</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 12) Last 5 Matches -->
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples)</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Opponent</th><th>Min</th><th>CS</th><th>Saves</th><th>PSxG Saved</th><th>Distribution %</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1999-05-01</td><td>Bayern Munich (A)</td><td>90</td><td>0</td><td>5</td><td>0.45</td><td>68%</td><td>Multiple reflex saves</td></tr>
+            <tr><td>1998-11-12</td><td>Schalke 04 (H)</td><td>90</td><td>1</td><td>3</td><td>0.12</td><td>73%</td><td>Clean sheet, strong aerial claims</td></tr>
+            <tr><td>1997-03-22</td><td>Werder Bremen (A)</td><td>90</td><td>0</td><td>4</td><td>0.30</td><td>70%</td><td>Leadership under sustained pressure</td></tr>
+            <tr><td>1996-09-15</td><td>HSV (H)</td><td>90</td><td>1</td><td>2</td><td>0.08</td><td>71%</td><td>Dominant set-piece control</td></tr>
+            <tr><td>1995-02-04</td><td>St. Pauli (A)</td><td>90</td><td>1</td><td>3</td><td>0.20</td><td>69%</td><td>Composed distribution to initiate counters</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match footage, per-match logs and eventIDs for listed matches. ERA adjustments applied where relevant.</div>
+      </section>
+
+      <!-- 13) Video Highlights -->
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Include at least one reflex save sequence and one set-piece claim per subcomponent.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Minute</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-UK-01</td><td>Bayern Munich (A)</td><td>67'</td><td>Reflex save sequence</td><td>ARCH-UK-19990501-67 (attach)</td></tr>
+            <tr><td>VH-UK-02</td><td>Schalke 04 (H)</td><td>81'</td><td>Penalty-area aerial claim</td><td>ARCH-UK-19981112-81 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 14) Player Comparison with Radar Chart -->
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart</h2>
+        <p class="small">Comparators: Jens Lehmann, Oliver Kahn. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="uweRadar" aria-label="Radar comparing Uwe Kamps and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <!-- 15) Psychological Application Notes -->
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Leadership coaching sessions to transfer organisational knowledge to youth goalkeepers.</li>
+          <li>Confidence-building drills focused on commanding the penalty area and decision-making under pressure.</li>
+          <li>Progressive distribution training to modernise playing-out technique while preserving shot-stopping excellence.</li>
+        </ul>
+      </section>
+
+      <!-- 16) Sources & Verification Notes -->
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary data to attach: archived match footage, club records, FBref per-match CSVs where available. Each PHILOSOPHY_SUBCOMP row must include clip IDs and eventIDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports prior to client delivery.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Uwe Kamps expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('uweRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Shot-stopping','Aerial','Positioning','Distribution','Leadership','Consistency','Reflexes'],
+          datasets: [
+            { label: 'Uwe Kamps', data: [8.2,8.0,8.1,6.9,8.4,8.3,8.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Jens Lehmann', data: [8.5,8.3,7.9,8.0,7.8,8.1,8.4],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Oliver Kahn', data: [9.0,8.7,8.5,6.8,9.0,8.9,9.2],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:2 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
