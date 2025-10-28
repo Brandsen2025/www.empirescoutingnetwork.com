@@ -59,7 +59,6 @@
 </head>
 <body class="bg-slate-950 text-white">
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -77,7 +76,10 @@
                     <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
                 </div>
 
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
+                        Login
+                    </a>
                     <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
                         Request Demo
                     </a>
@@ -94,25 +96,24 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
             <div class="px-4 py-4 space-y-3">
                 <a href="#features" class="block hover:text-blue-400">Features</a>
                 <a href="#pricing" class="block hover:text-blue-400">Pricing</a>
                 <a href="#roi" class="block hover:text-blue-400">ROI Calculator</a>
                 <a href="#testimonials" class="block hover:text-blue-400">Testimonials</a>
-                <a href="#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center">
+                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
+                <a href="#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
                     Request Demo
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-gradient pt-32 pb-20 px-4">
         <div class="max-w-7xl mx-auto text-center animate-fadeInUp">
             <div class="mb-8 flex justify-center">
-                <img src="https://yt3.googleusercontent.com/sRK1Gfn9mF_k80vogh3eWDa48ogGvrD14tJbnNdEsTEMLDJtVJIKJPLrE_2pXS098AAErgFRng=s160-c-k-c0x00ffffff-no-rj" 
+                <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1" 
                      alt="Empire FGA" 
                      class="h-24 w-auto">
             </div>
@@ -137,7 +138,6 @@
                 </a>
             </div>
 
-            <!-- Stats Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6 card-hover">
                     <svg class="w-8 h-8 text-blue-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="py-20 px-4 bg-slate-900/30">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -246,7 +245,6 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section id="pricing" class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -257,7 +255,7 @@
             </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Academy Tier -->
+                
                 <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
                     <h3 class="text-2xl font-bold mb-2">Academy Tier</h3>
                     <div class="mb-4">
@@ -271,72 +269,25 @@
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>Dedicated account manager</span>
+                            <span>Up to 500 player profiles</span>
                         </li>
                         <li class="flex items-start text-sm">
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>API access</span>
+                            <span>Basic scouting reports</span>
                         </li>
                         <li class="flex items-start text-sm">
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>Live match analysis</span>
+                            <span>Monthly data updates</span>
                         </li>
-                    </ul>
-
-                    <a href="#contact" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
-                        Unlock Elite Access
-                    </a>
-                </div>
-
-                <!-- Enterprise Tier -->
-                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
-                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
-                    <div class="mb-4">
-                        <span class="text-4xl font-bold">Custom</span>
-                        <span class="text-slate-400"> pricing</span>
-                    </div>
-                    <p class="text-slate-300 mb-6 text-sm">Multi-club groups, federations, agencies</p>
-
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start text-sm">
+                         <li class="flex items-start text-sm">
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>Everything in Elite</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>White-label solutions</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Custom integrations</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Federation-wide deployment</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Unlimited users</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Global scout network access</span>
+                            <span>Email support</span>
                         </li>
                     </ul>
 
@@ -345,7 +296,6 @@
                     </a>
                 </div>
 
-                <!-- Professional Tier (Highlighted) -->
                 <div class="bg-gradient-to-br from-blue-600 to-cyan-600 border-2 border-blue-400 rounded-xl p-8 transform scale-105 card-hover">
                     <div class="bg-yellow-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">
                         MOST POPULAR
@@ -402,7 +352,6 @@
                     </a>
                 </div>
 
-                <!-- Elite Tier -->
                 <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
                     <h3 class="text-2xl font-bold mb-2">Elite Tier</h3>
                     <div class="mb-4">
@@ -428,47 +377,80 @@
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
+                            <span>Full 779 proprietary metrics</span>
+                        </li>
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
                             <span>Real-time data updates</span>
                         </li>
                         <li class="flex items-start text-sm">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>779 proprietary metrics access</span>
-                        </li>
-                        <li class="flex items-start text-sm">
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>Up to 500 player profiles</span>
+                            <span>Global scout network access</span>
                         </li>
-                        <li class="flex items-start text-sm">
+                         <li class="flex items-start text-sm">
                             <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>Basic scouting reports</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Monthly data updates</span>
-                        </li>
-                        <li class="flex items-start text-sm">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>Email support</span>
+                            <span>Dedicated account manager</span>
                         </li>
                     </ul>
-                   
-			Contact Sales
 
+                    <a href="#contact" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                        Unlock Elite Access
                     </a>
                 </div>
+                
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
+                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold">Custom</span>
+                        <span class="text-slate-400"> pricing</span>
+                    </div>
+                    <p class="text-slate-300 mb-6 text-sm">Multi-club groups, federations, agencies</p>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Everything in Elite</span>
+                        </li>
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>White-label solutions</span>
+                        </li>
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Custom integrations & API</span>
+                        </li>
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Federation-wide deployment</span>
+                        </li>
+                        <li class="flex items-start text-sm">
+                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Unlimited users</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                        Contact Sales
+                    </a>
+                </div>
+
             </div>
-</body>
-</html>                    
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5
 
             <div class="text-center mt-12">
                 <p class="text-slate-400 mb-4">
@@ -481,7 +463,6 @@
         </div>
     </section>
 
-    <!-- ROI Calculator -->
     <section id="roi" class="py-20 px-4 bg-slate-900/30">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -553,7 +534,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section id="testimonials" class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -561,7 +541,6 @@
             </h2>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Insua Group -->
                 <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
                     <div class="text-yellow-400 text-4xl mb-4">"</div>
                     <p class="text-slate-300 mb-6 italic">
@@ -576,7 +555,6 @@
                     </div>
                 </div>
 
-                <!-- YSI Football Developers -->
                 <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
                     <div class="text-yellow-400 text-4xl mb-4">"</div>
                     <p class="text-slate-300 mb-6 italic">
@@ -590,7 +568,6 @@
                     </div>
                 </div>
 
-                <!-- Football Scout Events -->
                 <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8 card-hover">
                     <div class="text-yellow-400 text-4xl mb-4">"</div>
                     <p class="text-slate-300 mb-6 italic">
@@ -612,7 +589,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section id="contact" class="py-20 px-4 bg-gradient-to-r from-blue-600 to-cyan-600">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -635,12 +611,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-950 py-12 px-4 border-t border-blue-500/20">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" 
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
                          alt="Empire Scouting Network" 
                          class="h-12 w-auto mb-4">
                     <p class="text-sm text-slate-400">
@@ -704,36 +679,52 @@
             const annualSavings = budget * (savingsPercent / 100);
             const tierCost = 25000; // Professional tier as default
             const netSavings = annualSavings - tierCost;
-            const roi = ((netSavings / tierCost) * 100).toFixed(0);
             
-            document.getElementById('annual-savings').textContent = '€' + annualSavings.toLocaleString('en-US');
-            document.getElementById('net-savings').textContent = '€' + netSavings.toLocaleString('en-US');
-            document.getElementById('roi-percent').textContent = roi + '%';
+            // Avoid division by zero if cost is 0 and handle potential NaN
+            const roi = (tierCost > 0) ? ((netSavings / tierCost) * 100) : 0;
+            const roiFormatted = !isNaN(roi) ? roi.toFixed(0) : '0';
+
+            
+            document.getElementById('annual-savings').textContent = '€' + annualSavings.toLocaleString('de-DE'); // Use German locale for formatting
+            document.getElementById('net-savings').textContent = '€' + netSavings.toLocaleString('de-DE');
+            document.getElementById('roi-percent').textContent = roiFormatted.toLocaleString('de-DE') + '%';
         }
 
+
         // Initialize calculator on page load
-        calculateROI();
+        document.addEventListener('DOMContentLoaded', calculateROI);
+
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    const menu = document.getElementById('mobile-menu');
-                    if (menu.classList.contains('active')) {
-                        toggleMobileMenu();
+                const targetId = this.getAttribute('href');
+                 // Don't prevent default for external links or different pages
+                if (targetId === '#' || targetId.startsWith('#')) { 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        const menu = document.getElementById('mobile-menu');
+                        const menuIcon = document.getElementById('menu-icon');
+                        const closeIcon = document.getElementById('close-icon');
+                        if (menu.classList.contains('active')) {
+                            menu.classList.remove('active');
+                             menuIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
                     }
+                 } else {
+                    // Allow normal link behavior if it's not an anchor link on the same page
+                    window.location.href = targetId;
                 }
             });
         });
     </script>
 
-
-<a href="#contact" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
-
+</body>
+</html>

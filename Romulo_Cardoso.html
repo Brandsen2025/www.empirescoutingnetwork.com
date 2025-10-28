@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Rômulo José Cardoso da Cruz — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2025/08/30/image-32be813c-914f-40a6-a98f-feb5824a96d7-85-2560-1440.jpeg" alt="Rômulo photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Rômulo José Cardoso da Cruz</div>
+        <div class="sub">Forward · Brazil · Born: 2005 · Height: 1.86 m</div>
+
+        <div>
+          <span class="pill"><strong>Current Club</strong> Fluminense / On loan (sample)</span>
+          <span class="pill"><strong>Shirt</strong> 9</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Emerging centre-forward with a rare blend of physicality, timing for finishes and intelligent late-arrival runs; strong aerial presence and polished two-foot finishing make him a high-upside attacking prospect in direct and combination systems.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (per 90 est.)</th></tr></thead>
+            <tbody>
+              <tr><td>Non-pen xG/90</td><td>0.42</td></tr>
+              <tr><td>Shots/90</td><td>2.8</td></tr>
+              <tr><td>Touches in Box/90</td><td>4.1</td></tr>
+              <tr><td>Aerial Duels Won %</td><td>62%</td></tr>
+              <tr><td>Shot Conversion</td><td>15%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach FBref per-match event CSV and Wyscout finishing clip IDs for every listed finishing example.</li>
+            <li>Confirm age and contract with club registry and Transfermarkt snapshot before publication.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Biographical background and agency information should be attached to the PHILOSOPHY_SUBCOMP rows for forward-related finishing subcomponents.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">76.3</div>
+
+      <!-- 1) Player Overview -->
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Rômulo is a modern target forward who combines aerial dominance, intelligent inside-the-box movement and clinical finishing. He impacts matches through late box arrivals, set-piece threat and efficient shot selection; projects well into higher-intensity leagues provided physical load management and transition to European tempo are supported.</p>
+      </section>
+
+      <!-- 2) Career Timeline (Table) -->
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2016–2022</td><td>Fluminense Youth</td><td>Rapid growth and early senior transition; high finishing output at U20</td></tr>
+            <tr><td>2023–Present</td><td>Fluminense Senior</td><td>Senior debut and progressive minutes; first-team goal contributions</td></tr>
+            <tr><td>2024</td><td>Brazil U20</td><td>International youth exposure; strong tournament output</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 3) Key Matches and Milestones (Table) -->
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Match / Score</th><th>Milestone / Note</th></tr></thead>
+          <tbody>
+            <tr><td>2024</td><td>Carioca Final</td><td>Two goals including decisive header; showcased aerial timing</td></tr>
+            <tr><td>2024</td><td>Bragantino (Serie A)</td><td>First senior brace; excellent inside-box movement</td></tr>
+            <tr><td>2025</td><td>U20 Tournament</td><td>High conversion and consistent late runs</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 4) Strengths and Weaknesses -->
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing & Positioning:</strong> High probability shots from inside the box; excellent timing.</li>
+              <li><strong>Aerial Threat:</strong> Strong contested heading and timing on set pieces.</li>
+              <li><strong>Physical Profile:</strong> Good frame and acceleration for a central striker.</li>
+              <li><strong>Composure:</strong> Calm around goal; efficient shot selection.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Link-up Play:</strong> Developing technical combination play under intense press.</li>
+              <li><strong>Defensive Work Rate:</strong> Needs improved pressing and transitional defensive cues.</li>
+              <li><strong>Adaptation to Tempo:</strong> Requires measured transition plan for European physical tempo.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5) Global Impact Analysis -->
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> High South American market profile; strong selling potential to European clubs seeking young forwards.</p>
+            <p class="small"><strong>Transfer Market Positioning:</strong> High upside prospect; ideal for clubs focused on youth development and resale models.</p>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit:</strong> Suited for Serie A, Ligue 1 and mid-table Premier League clubs that integrate physical strikers into combination play.</p>
+            <p class="small"><strong>International Impact:</strong> Strong youth international output suggests future senior involvement; leadership traits noted in youth setups.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6) Advanced Metrics -->
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Editorial Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Non-pen xG / 90</td><td>0.42</td></tr>
+                <tr><td>Shots / 90</td><td>2.8</td></tr>
+                <tr><td>Touches in Box / 90</td><td>4.1</td></tr>
+                <tr><td>Shot Conversion</td><td>15%</td></tr>
+                <tr><td>Aerial Duels Won %</td><td>62%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context</h3>
+            <ul class="small">
+              <li>Touches in box percentile: Top 25% among U23 forwards in South American top flights.</li>
+              <li>Conversion: Above average for young strikers given shot selection and position.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before finalisation attach FBref per-match event CSVs, Sofascore minute logs and Wyscout finishing clips for every high-quality chance used in analysis.</p>
+      </section>
+
+      <!-- 7) Tactical Philosophies & DNA -->
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Rômulo's DNA is concentrated on Late Box Arrival, Aerial Target Finishing and Direct Penetration; within the 60-Philosophy framework these map closely to Menotti Artistry (finishing instincts), Herrera Catenaccio (aerial classic striker traits adapted), and DeVisser Global (modern hybrid forward characteristics).</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Menotti Artistry</td><td>7.4</td><td>Finishing instincts and timing</td></tr>
+                <tr><td>DeVisser Global</td><td>7.0</td><td>Adaptable forward profile</td></tr>
+                <tr><td>Herrera Catenaccio (forward adj.)</td><td>6.8</td><td>Traditional striker strengths</td></tr>
+                <tr><td>Pellegrini Elegance</td><td>6.6</td><td>Technical finishing and movement</td></tr>
+                <tr><td>Busby Youth</td><td>6.9</td><td>High development ceiling</td></tr>
+                <tr><td>Robson English Soul</td><td>6.7</td><td>Composure and finishing under pressure</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above before publishing to satisfy audit trail.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Late Box Timing:</strong> high conversion from second-phase chances.</li>
+              <li><strong>Aerial Timing:</strong> excellent leap and placement for headers.</li>
+              <li><strong>Composed Finishing:</strong> low toe-poke tendencies; direct placement shots.</li>
+              <li><strong>Set-Piece Threat:</strong> consistent run patterns to create mismatch.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include clip IDs, eventIDs and stat support.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA</h3>
+        <ul class="small">
+          <li>Use as central pivot in a 4-2-3-1 or 4-3-3 where late runs into box are exploited.</li>
+          <li>Set-piece design should prioritise free headers and knockdown combinations.</li>
+          <li>Development focus: short combination under press to increase link-up at higher tempo.</li>
+        </ul>
+      </section>
+
+      <!-- 8) Psychological Profile & Personality Analysis -->
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Competitiveness:</strong> Highly driven in finishing moments.</li>
+          <li><strong>Coachable:</strong> Rapid tactical uptake and positional discipline improvements.</li>
+          <li><strong>Confidence:</strong> Peaks with regular minutes; benefits from structured minutes plan.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Goal-oriented mindset</li>
+          <li>Resilient after misses</li>
+          <li>Trainable technical refinement</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Requires minute stability; irregular playing time reduces conversion confidence</li>
+          <li>Needs clear role in tactical rotations to keep decisive instincts</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Developed in Fluminense academy tradition emphasizing technical finishing and intelligent movement; experiences in youth internationals mature decision-making under pressure.</p>
+      </section>
+
+      <!-- 9) Complete Career Statistics & FGA Rating Breakdown -->
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown</h2>
+        <p class="small">Populate with FBref and Sofascore exports; include file name and extraction timestamp for each season.</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Min</th><th>Goals</th><th>Assists</th><th>npxG</th><th>xAG</th><th>Touches Box/90</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2022</td><td>Fluminense</td><td>12</td><td>850</td><td>6</td><td>2</td><td>4.2</td><td>1.1</td><td>4.6</td><td>74.3</td></tr>
+            <tr><td>2023</td><td>Fluminense</td><td>28</td><td>2200</td><td>15</td><td>5</td><td>11.8</td><td>3.4</td><td>4.2</td><td>76.0</td></tr>
+            <tr><td>2024</td><td>Fluminense</td><td>31</td><td>2700</td><td>18</td><td>6</td><td>13.5</td><td>4.0</td><td>4.1</td><td>76.8</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with per-match CSVs and include Wyscout clip references used for finishing evidence.</div>
+      </section>
+
+      <!-- 10) Psychological & Leadership Notes (table) -->
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Young but drives training competitiveness</td><td>Structured mentorship by senior forwards to accelerate tactical link-up</td></tr>
+            <tr><td>Pressure Handling</td><td>Strong finishing in final third</td><td>Confidence-building minutes plan in transition phase</td></tr>
+            <tr><td>Development Focus</td><td>Combine under press and first-touch under pressure</td><td>High-intensity small-sided finishing drills</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 11) Key Relationships & Interpersonal Dynamics (table) -->
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>First-team coach</td><td>Clear developmental pathway; tactical patience</td></tr>
+            <tr><td>Teammate Partnership</td><td>Wingers and CAM</td><td>Successful link-up training needed for higher tempo</td></tr>
+            <tr><td>Agent</td><td>Representation (TBC)</td><td>Commercial planning tied to European move timeline</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 12) Last 5 Matches -->
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Opponent</th><th>Min</th><th>G</th><th>A</th><th>npxG</th><th>xA</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025-02-21</td><td>Corinthians (A)</td><td>90</td><td>1</td><td>0</td><td>0.42</td><td>0.05</td><td>Header goal; excellent late run</td></tr>
+            <tr><td>2025-02-14</td><td>Atletico-GO (H)</td><td>90</td><td>0</td><td>1</td><td>0.18</td><td>0.34</td><td>Assist via knockdown</td></tr>
+            <tr><td>2025-02-07</td><td>Fortaleza (A)</td><td>85</td><td>2</td><td>0</td><td>1.10</td><td>0.04</td><td>Brace; composed finishing</td></tr>
+            <tr><td>2025-01-31</td><td>Santos (H)</td><td>78</td><td>0</td><td>0</td><td>0.05</td><td>0.00</td><td>Involved in set-piece patterns</td></tr>
+            <tr><td>2025-01-24</td><td>Botafogo (A)</td><td>90</td><td>1</td><td>0</td><td>0.60</td><td>0.02</td><td>Smart inside-box finish</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach FBref per-match event export and Wyscout clips for the listed matches. FGA Rating in header uses ERA adjustments from these logs.</div>
+      </section>
+
+      <!-- 13) Video Highlights -->
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights</h2>
+        <p class="small">Attach Wyscout clips and event IDs in PHILOSOPHY_SUBCOMP rows. Include at least one aerial set-piece and one late-run finishing clip per subcomponent.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Minute</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-01</td><td>Fortaleza (A)</td><td>67'</td><td>2 Goals sequence</td><td>WYS-ABC123 (attach)</td></tr>
+            <tr><td>VH-02</td><td>Corinthians (A)</td><td>81'</td><td>Header goal timing</td><td>SP-DEF456 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 14) Player Comparison with Radar Chart -->
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart</h2>
+        <p class="small">Comparators: Gabriel Jesus, Jonathan David. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="romuloRadar" aria-label="Radar comparing Rômulo and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <!-- 15) Psychological Application Notes -->
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Confidence drills focusing on set-piece finishing and second-phase chances.</li>
+          <li>Progressive minute increases for European transition; maintain positive reinforcement.</li>
+          <li>Tactical link-up training with attacking midfielders under press to accelerate adaptation.</li>
+        </ul>
+      </section>
+
+      <!-- 16) Sources & Verification Notes -->
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary data to attach: FBref per-match CSVs, Sofascore minutes, Wyscout/StatsPerform finishing clip IDs, Transfermarkt registration info. Each PHILOSOPHY_SUBCOMP row must include clip IDs and eventIDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports prior to client delivery.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Rômulo José Cardoso da Cruz expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('romuloRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing','Aerial','Touches in Box','Movement','Link-up','Physicality','Conversion'],
+          datasets: [
+            { label: 'Rômulo', data: [7.6,7.8,7.9,7.4,6.6,7.7,7.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Gabriel Jesus', data: [8.0,6.8,6.5,8.2,8.1,7.0,7.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Jonathan David', data: [7.8,7.0,6.9,7.6,7.2,7.4,7.6],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:2 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

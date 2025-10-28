@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Scouting Network - RB Leipzig Strategic Demo</title>
+    <meta name="description" content="Strategic January 2026 Analysis & Roster Overview for RB Leipzig. 779 proprietary metrics, 60 tactical philosophies.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .player-card.selected {
+            border-color: #3b82f6; /* blue-600 */
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+
+        .player-name-link {
+            text-decoration: none;
+            color: inherit; 
+            transition: color 0.2s ease;
+        }
+        .player-name-link:hover {
+            color: #60a5fa; 
+        }
+        /* Roster Table Styles */
+        .roster-table th, .roster-table td {
+             padding: 12px 15px;
+             border-bottom: 1px solid rgba(59, 130, 246, 0.2); /* border-blue-500/20 */
+             vertical-align: middle; /* Align text vertically */
+        }
+         .roster-table th {
+            background-color: rgba(30, 58, 138, 0.3); /* blue-800 with alpha */
+            color: #93c5fd; /* blue-300 */
+            text-align: left;
+            font-weight: 600;
+        }
+        .roster-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1); /* blue-600 with alpha */
+        }
+        .roster-table a {
+            color: #60a5fa; /* blue-400 */
+            text-decoration: none;
+            font-weight: 500;
+        }
+         .roster-table a:hover {
+             text-decoration: underline;
+         }
+         /* Metric Bar Width Calculation */
+         .metric-bar .metric-fill-100 { 
+            height: 100%;
+            background: linear-gradient(45deg, #4299e1, #667eea);
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                         alt="Empire Scouting Network" 
+                         class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button data-section="dashboard" class="nav-button text-slate-300 hover:text-blue-400 transition font-medium">Dashboard</button>
+                    <button data-section="roster" class="nav-button text-slate-300 hover:text-blue-400 transition font-medium">Roster</button> 
+                    <span class="text-sm text-slate-400"> | CONFIDENTIAL: RB Leipzig Demo</span>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
+            <div class="px-4 py-4 space-y-3">
+                 <button data-section="dashboard" class="nav-button block w-full text-left hover:text-blue-400">Dashboard</button>
+                 <button data-section="roster" class="nav-button block w-full text-left hover:text-blue-400">Roster</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <section id="dashboard" class="section">
+                <div class="text-center mb-12 p-8 bg-slate-900/50 rounded-xl border border-blue-500/20">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                        Empire FGA Strategic Intelligence
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+                        The Ultimate Football Intelligence System - 779 Proprietary Metrics | 60-Philosophy Framework
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                         <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">779</div>
+                            <div class="text-sm text-slate-400">Total Metrics</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">60</div>
+                            <div class="text-sm text-slate-400">Tactical Philosophies</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-green-400 mb-2">18</div> <div class="text-sm text-slate-400">Players Analyzed</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">Jan '26</div>
+                            <div class="text-sm text-slate-400">Target Window</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center mb-12">
+                    <div class="bg-slate-900/50 border-2 border-blue-400 rounded-xl p-8 w-full md:w-96 card-hover shadow-lg shadow-blue-500/20 mb-6">
+                        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden bg-white">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RasenBallsport_Leipzig_logo.svg/1200px-RasenBallsport_Leipzig_logo.svg.png" alt="RBL Logo" class="h-16 w-auto">
+                        </div>
+                        <h2 class="text-2xl font-bold text-center mb-2">RB Leipzig</h2>
+                        <p class="text-slate-400 text-center">Strategic Jan '26 Analysis<br>Germany • Bundesliga</p>
+                    </div>
+                    <div class="text-center">
+                         <p class="text-slate-300 mb-2">Analysis aligned with Head Coach tactical DNA:</p>
+                         <a href="Ole_Werner.html" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition text-white text-sm">
+                             View Ole Werner Profile
+                         </a>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-1 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Target & Asset List</h3>
+                        <div id="player-list" class="space-y-4">
+                            </div>
+                    </div>
+                    <div class="md:col-span-2 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Player Analysis</h3>
+                        <div id="player-analysis">
+                             <div class="text-center py-10">
+                                <svg class="animate-spin h-8 w-8 text-blue-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <p class="text-slate-400">Loading player data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </section>
+
+             <section id="roster" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                     <h1 class="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+                        RB Leipzig Roster (Analyzed Players)
+                     </h1>
+                     <div class="overflow-x-auto">
+                        <table class="roster-table w-full text-sm text-left text-slate-300">
+                             <thead class="text-xs uppercase">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Nationality</th>
+                                    <th scope="col">FGA Rating (/100)</th>
+                                </tr>
+                             </thead>
+                             <tbody id="roster-table-body">
+                                </tbody>
+                         </table>
+                     </div>
+                     <p class="text-xs text-slate-500 mt-4 text-center">Click player name to view full profile. FGA Ratings based on latest analysis.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // --- DATA OBJECTS (Includes ALL 18 players, FGA /100) ---
+        const clubData = {
+            rbl: {
+                name: "RB Leipzig",
+                players: [
+                    // FGA Ratings from individual profiles (/100 scale)
+                    { id: 1, name: "Fisnik Asllani", profileHtml: "Fisnik_Asllani.html", position: "ST", age: 23, nationality: "Germany", shirt: 40, fga: 81.5, metrics: { technical: 88.0, mental: 82.0, tactical: 89.0, physical: 84.0, philosophy: 90.0 }, philosophies: { "Ole Werner 4-3-3 Fit": 9.4, "Klopp Intensity": 9.1, "Bielsa Intensity": 8.8, "Clinical Finishing": 9.0, "Bundesliga Adaptation": 9.5 }, specialMetrics: { XPS: "8.8", STK: "+2.4", DYN: "8.5", LGP: "7.9", marketValue: "€18M (Recommended Bid)", potentialRating: "Immediate Top 4 Impact", scoutingNotes: "<strong>PRIMARY TARGET.</strong> 4 goals in 4 matches. Bundesliga 2 top scorer last season. Pacy, good in space, and adapted to the league. Ready for immediate impact. <strong>Non-negotiable for Werner's high-press system.</strong>" } },
+                    { id: 2, name: "Ilyas Ansah", profileHtml: "Ilyas_Ansah.html", position: "ST", age: 20, nationality: "Germany", shirt: 18, fga: 77.8, metrics: { technical: 70.0, mental: 68.0, tactical: 72.0, physical: 80.0, philosophy: 70.0 }, philosophies: { "Ole Werner 4-3-3 Fit": 7.5, "Physical Striker Profile": 8.5, "Aerial Threat": 8.2, "High Resale Value": 8.8 }, specialMetrics: { XPS: "7.5", STK: "+1.9", DYN: "7.0", LGP: "6.5", marketValue: "€12M (Recommended Bid)", potentialRating: "Bargain Potential", scoutingNotes: "<strong>SECONDARY TARGET.</strong> 4 goals in 4 matches. Physical, 6'4\" aerial threat. High resale value. Bargain price as Union need funds." } },
+                    { id: 3, name: "Rômulo", profileHtml: "Romulo_Cardoso.html", position: "ST", age: 20, nationality: "Brazil", shirt: 9, fga: 76.3, metrics: { technical: 75.0, mental: 65.0, tactical: 68.0, physical: 70.0, philosophy: 65.0 }, philosophies: { "Ole Werner 4-3-3 Fit": 6.5, "Development Project": 8.0, "Technical Flair": 7.8 }, specialMetrics: { XPS: "7.0", STK: "+0.5", DYN: "6.2", LGP: "6.0", marketValue: "N/A (Current Squad)", potentialRating: "High (Development Project)", scoutingNotes: "<strong>Current squad asset.</strong> 2 goals in 5 matches. Promising but unproven and not enough to fill the 15-20 goal gap alone this season." } }, 
+                    { id: 4, name: "Conrad Harder", profileHtml: "Conrad_Harder.html", position: "ST", age: 19, nationality: "Denmark", shirt: 38, fga: 74.8, metrics: { technical: 60.0, mental: 50.0, tactical: 52.0, physical: 60.0, philosophy: 51.0 }, philosophies: { "Ole Werner 4-3-3 Fit": 4.8, "Development Project": 8.5, "Raw Potential": 7.5 }, specialMetrics: { XPS: "4.5", STK: "-1.2", DYN: "5.0", LGP: "5.5", marketValue: "N/A (Current Squad)", potentialRating: "Development Project", scoutingNotes: "<strong>Current squad asset.</strong> 0 starts, 0 goals. <strong>Too raw for immediate impact.</strong> This is the 'project' profile, not the 'win-now' solution. Compare FGA <strong>74.8</strong> vs Asllani's <strong>81.5</strong>." } }, 
+                    { id: 5, name: "Amadou Haidara", profileHtml: "Amadou_Haidara.html", position: "CM", age: 27, nationality: "Mali", shirt: 8, fga: 78.4, metrics: { technical: 75, mental: 78, tactical: 80, physical: 79, philosophy: 77 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 6, name: "Assan Ouedraogo", profileHtml: "Assan_Ouedraogo.html", position: "CM", age: 19, nationality: "Germany", shirt: 34, fga: 79.1, metrics: { technical: 78, mental: 75, tactical: 80, physical: 82, philosophy: 79 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 7, name: "Antonio Nusa", profileHtml: "Antonio_Nusa.html", position: "LW/RW", age: 20, nationality: "Norway", shirt: 7, fga: 82.9, metrics: { technical: 85, mental: 78, tactical: 80, physical: 84, philosophy: 83 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 8, name: "Castello Lukeba", profileHtml: "Castello_Lukeba.html", position: "CB", age: 22, nationality: "France", shirt: 23, fga: 86.1, metrics: { technical: 84, mental: 85, tactical: 88, physical: 87, philosophy: 86 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 9, name: "David Raum", profileHtml: "David Raum.html", position: "LWB/LB", age: 27, nationality: "Germany", shirt: 22, fga: 82.4, metrics: { technical: 83, mental: 80, tactical: 84, physical: 81, philosophy: 82 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 10, name: "El Chadaille Bitshiabu", profileHtml: "El_Bitshiabu.html", position: "CB", age: 20, nationality: "France", shirt: 5, fga: 78.4, metrics: { technical: 75, mental: 76, tactical: 79, physical: 85, philosophy: 77 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 11, name: "Ezechiel Banzuzi", profileHtml: "Ezechiel_Banzuzi.html", position: "CM", age: 20, nationality: "Netherlands", shirt: 6, fga: 84.3, metrics: { technical: 82, mental: 80, tactical: 85, physical: 86, philosophy: 84 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 12, name: "Johan Bakayoko", profileHtml: "Johan_Bakayoko.html", position: "RW", age: 22, nationality: "Belgium", shirt: 9, fga: 85.7, metrics: { technical: 88, mental: 82, tactical: 84, physical: 86, philosophy: 87 }, philosophies: {}, specialMetrics: {} }, 
+                    { id: 13, name: "Lukas Klostermann", profileHtml: "Lukas_Klostermann.html", position: "RB/CB", age: 29, nationality: "Germany", shirt: 16, fga: 78.9, metrics: { technical: 76, mental: 80, tactical: 82, physical: 78, philosophy: 79 }, philosophies: {}, specialMetrics: {} },
+                    // New Players Added
+                    { id: 14, name: "Christoph Baumgartner", profileHtml: "Christian_Baumgartner.html", position: "AM", age: 26, nationality: "Austria", shirt: 14, fga: 84.2, metrics: { technical: 80, mental: 85, tactical: 88, physical: 82, philosophy: 85 }, philosophies: {}, specialMetrics: {} }, // Note corrected filename
+                    { id: 15, name: "Maarten Vandevoordt", profileHtml: "Maarten_Vandevoordt.html", position: "GK", age: 23, nationality: "Belgium", shirt: 26, fga: 84.7, metrics: { technical: 80, mental: 82, tactical: 80, physical: 85, philosophy: 83 }, philosophies: {}, specialMetrics: {} },
+                    { id: 16, name: "Nicolas Seiwald", profileHtml: "Nicolas_Seiwald.html", position: "DM", age: 24, nationality: "Austria", shirt: 13, fga: 83.6, metrics: { technical: 78, mental: 85, tactical: 88, physical: 80, philosophy: 82 }, philosophies: {}, specialMetrics: {} },
+                    { id: 17, name: "Peter Gulácsi", profileHtml: "Peter_Gulacsi.html", position: "GK", age: 35, nationality: "Hungary", shirt: 1, fga: 84.7, metrics: { technical: 78, mental: 88, tactical: 85, physical: 80, philosophy: 84 }, philosophies: {}, specialMetrics: {} },
+                    { id: 18, name: "Timo Werner", profileHtml: "Timo_Werner.html", position: "ST", age: 29, nationality: "Germany", shirt: 36, fga: 83.0, metrics: { technical: 80, mental: 78, tactical: 82, physical: 88, philosophy: 80 }, philosophies: {}, specialMetrics: {} },
+                    { id: 19, name: "Xaver Schlager", profileHtml: "Xaver Schlager.html", position: "CM/DM", age: 28, nationality: "Austria", shirt: 24, fga: 78.0, metrics: { technical: 75, mental: 80, tactical: 82, physical: 76, philosophy: 78 }, philosophies: {}, specialMetrics: {} }, // Note filename with space
+                    { id: 20, name: "Yan Diomande", profileHtml: "Yan_Diomande.html", position: "Winger", age: 18, nationality: "Ivory Coast", shirt: 49, fga: 80.8, metrics: { technical: 80, mental: 78, tactical: 75, physical: 85, philosophy: 79 }, philosophies: {}, specialMetrics: {} }
+                 ]
+            }
+        };
+
+        // --- GLOBAL VARIABLES ---
+        let currentClub = 'rbl';
+        let selectedPlayer = null;
+        let chartInstance = null;
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', function() {
+            setupNavButtons();
+            loadDashboardPlayers(); 
+            loadRosterTable();    
+            showSection('dashboard'); 
+            selectPlayer(1); 
+        });
+
+        // --- NAVIGATION ---
+        function setupNavButtons() {
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const sectionId = event.target.getAttribute('data-section');
+                    showSection(sectionId);
+                    const menu = document.getElementById('mobile-menu');
+                     const menuIcon = document.getElementById('menu-icon');
+                    const closeIcon = document.getElementById('close-icon');
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                 activeSection.classList.remove('hidden');
+            }
+            document.querySelectorAll('.nav-button').forEach(btn => {
+                if (btn.getAttribute('data-section') === sectionId) {
+                    btn.classList.add('text-blue-400', 'font-semibold');
+                    btn.classList.remove('hover:text-blue-400', 'text-slate-300'); 
+                } else {
+                    btn.classList.remove('text-blue-400', 'font-semibold');
+                    btn.classList.add('hover:text-blue-400', 'text-slate-300'); 
+                }
+            });
+             // Update player analysis panel display based on section
+             const analysisPanel = document.getElementById('player-analysis');
+             if (analysisPanel) {
+                if (sectionId === 'dashboard') {
+                    // If a player was selected, re-show their analysis
+                    if (selectedPlayer) {
+                        showPlayerAnalysis(selectedPlayer);
+                    } else {
+                        analysisPanel.innerHTML = '<p class="text-slate-400 text-center py-10">Select a player from the list to view analysis.</p>';
+                    }
+                } else {
+                    // Clear analysis panel if not on dashboard (optional)
+                     // analysisPanel.innerHTML = ''; 
+                }
+             }
+        }
+
+
+        // --- DASHBOARD FUNCTIONS ---
+        function loadDashboardPlayers() {
+            const dashboardPlayers = clubData[currentClub].players.filter(p => [1, 2, 3, 4].includes(p.id)); // Explicitly select IDs 1-4
+            const playerListElement = document.getElementById('player-list');
+            
+            playerListElement.innerHTML = dashboardPlayers.map(player => `
+                <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                     onclick="selectPlayer(${player.id})" 
+                     id="player-${player.id}">
+                    <div class="flex justify-between items-start mb-3">
+                        <a href="${player.profileHtml}" target="_blank" class="player-name-link text-xl font-bold hover:text-blue-400" title="View full profile (opens new tab)">${player.name}</a>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm inline-block ml-2 flex-shrink-0">
+                            FGA: ${player.fga.toFixed(1)} 
+                        </span>
+                    </div>
+                    <div class="flex justify-between text-slate-400 text-sm mb-4">
+                        <span>${player.position} • ${player.age} years • #${player.shirt}</span>
+                        <span>${player.nationality}</span>
+                    </div>
+                    <div class="text-sm font-semibold ${player.id <= 2 ? 'text-yellow-400' : 'text-cyan-400'}">
+                        ★ ${player.id <= 2 ? 'Target Player' : 'Current Asset'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectPlayer(playerId) {
+            selectedPlayer = playerId;
+            document.querySelectorAll('#player-list .player-card').forEach(card => {
+                 card.classList.remove('selected', 'bg-slate-700/50', 'border-blue-400');
+            });
+             const selectedCard = document.getElementById(`player-${playerId}`);
+            if (selectedCard) { 
+                selectedCard.classList.add('selected', 'bg-slate-700/50', 'border-blue-400');
+             }
+            showPlayerAnalysis(playerId);
+        }
+
+         function showPlayerAnalysis(playerId) {
+            const analysisElement = document.getElementById('player-analysis');
+            const player = clubData[currentClub].players.find(p => p.id === playerId); 
+            if (!player) {
+                 analysisElement.innerHTML = `<p class="text-slate-400 text-center py-10">Player data not found.</p>`;
+                return;
+             }
+
+            if (!document.getElementById('dashboard').classList.contains('hidden')) {
+                 analysisElement.innerHTML = `
+                    <div class="flex justify-between items-center mb-6">
+                        <h4 class="text-4xl font-bold">${player.name}</h4>
+                        <a href="${player.profileHtml}" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold transition text-white text-sm">
+                            View Full Expanded Profile &rarr;
+                        </a>
+                    </div>
+                    
+                    <div class="bg-slate-800/50 border border-blue-500/30 rounded-lg p-4 mb-6">
+                         <div class="flex justify-between items-center">
+                            <span class="text-blue-300 font-semibold">Market Value:</span>
+                            <span class="text-lg font-bold text-yellow-400">${player.specialMetrics.marketValue || 'N/A'}</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-blue-300 font-semibold">Potential:</span>
+                             <span class="text-lg font-bold text-white">${player.specialMetrics.potentialRating || 'N/A'}</span>
+                         </div>
+                     </div>
+
+                    <h5 class="text-2xl font-bold text-white mb-4">Core FGA Metrics (/100)</h5>
+                    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+                        ${Object.entries(player.metrics || {}).map(([key, value]) => `
+                            <div class="bg-slate-800/50 rounded-lg p-4 text-center card-hover">
+                                <div class="text-2xl font-bold text-blue-400 mb-1">${value ? value.toFixed(1) : '-'}</div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider">${key}</div>
+                                <div class="w-full h-1 bg-slate-700 rounded-full overflow-hidden mt-2 metric-bar">
+                                     <div class="h-full bg-blue-500 metric-fill-100" style="width: ${value || 0}%"></div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <h5 class="text-2xl font-bold text-white mb-4">Key Performance Indicators (Specific Scales)</h5>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                         <div class="bg-slate-800/50 rounded-lg p-6 text-center card-hover">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">${player.specialMetrics.XPS || '-'}</div>
+                            <div class="text-sm text-slate-400 mb-3">XPS (Shot Performance /10)</div>
+                            <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden metric-bar">
+                                <div class="h-full bg-blue-500 metric-fill-100" style="width: ${parseFloat(player.specialMetrics.XPS || 0) * 10}%"></div>
+                             </div>
+                         </div>
+                         <div class="bg-slate-800/50 rounded-lg p-6 text-center card-hover">
+                            <div class="text-3xl font-bold ${parseFloat(player.specialMetrics.STK || 0) > 0 ? 'text-green-400' : 'text-red-400'} mb-2">${player.specialMetrics.STK || '-'}</div>
+                            <div class="text-sm text-slate-400 mb-3">STK (Strike Efficiency / G-xG)</div>
+                            <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden metric-bar">
+                                <div class="h-full ${parseFloat(player.specialMetrics.STK || 0) > 0 ? 'bg-green-500' : 'bg-red-500'} metric-fill-100" style="width: ${Math.min(100, Math.max(0, (parseFloat(player.specialMetrics.STK || 0) / 3 + 0.5) * 100))}%"></div> 
+                             </div>
+                         </div>
+                         <div class="bg-slate-800/50 rounded-lg p-6 text-center card-hover">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">${player.specialMetrics.DYN || '-'}</div>
+                            <div class="text-sm text-slate-400 mb-3">DYN (Pressing /10)</div>
+                            <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden metric-bar">
+                                <div class="h-full bg-blue-500 metric-fill-100" style="width: ${parseFloat(player.specialMetrics.DYN || 0) * 10}%"></div>
+                             </div>
+                         </div>
+                         <div class="bg-slate-800/50 rounded-lg p-6 text-center card-hover">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">${player.specialMetrics.LGP || '-'}</div>
+                            <div class="text-sm text-slate-400 mb-3">LGP (Link Play /10)</div>
+                             <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden metric-bar">
+                                <div class="h-full bg-blue-500 metric-fill-100" style="width: ${parseFloat(player.specialMetrics.LGP || 0) * 10}%"></div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 rounded-xl p-6 my-8 border border-blue-500/20">
+                         <h5 class="text-2xl font-bold text-white mb-4">FGA Performance Radar (/100)</h5>
+                        <div class="h-80">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 my-8">
+                         <h5 class="text-2xl font-bold text-white mb-4">Tactical Philosophy Alignment (/10)</h5> 
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                             ${Object.entries(player.philosophies || {}).map(([philosophy, score]) => `
+                                <div class="bg-slate-800/50 rounded-lg p-4 text-center">
+                                    <div class="font-semibold text-blue-300 text-sm">${philosophy}</div>
+                                    <div class="text-2xl font-bold text-white">${score ? score.toFixed(1) : '-'}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                     <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6 mt-8">
+                        <h5 class="text-2xl font-bold text-yellow-300 mb-4">🔍 Professional Scouting Report (Jan '26 Context)</h5>
+                         <p class="text-slate-200 leading-relaxed">${player.specialMetrics.scoutingNotes || 'No specific notes available for this player in the Jan \'26 context.'}</p>
+                     </div>
+                 `;
+                
+                createRadarChart(player);
+            } else {
+                 analysisElement.innerHTML = '<p class="text-slate-400 text-center py-10">Select a player from the Dashboard list to view analysis.</p>';
+            }
+        }
+
+
+        // --- ROSTER FUNCTIONS ---
+        function loadRosterTable() {
+            const rosterPlayers = clubData[currentClub].players; 
+            const tableBody = document.getElementById('roster-table-body');
+            rosterPlayers.sort((a, b) => a.name.localeCompare(b.name));
+
+            tableBody.innerHTML = rosterPlayers.map(player => `
+                <tr>
+                    <td class="font-medium text-white">
+                        <a href="${player.profileHtml}" target="_blank" title="View ${player.name}'s full profile">${player.name}</a>
+                    </td>
+                    <td>${player.position || 'N/A'}</td>
+                    <td>${player.age || 'N/A'}</td>
+                    <td>${player.nationality || 'N/A'}</td>
+                     <td class="font-semibold ${getFgaColor(player.fga)}">
+                        ${player.fga ? player.fga.toFixed(1) : 'N/A'} 
+                    </td>
+                 </tr>
+             `).join('');
+         }
+        
+        function getFgaColor(fga) {
+            if (!fga) return 'text-slate-400';
+            if (fga >= 85) return 'text-green-400';  
+            if (fga >= 80) return 'text-blue-400';   
+            if (fga >= 75) return 'text-cyan-400';   
+            if (fga >= 70) return 'text-yellow-400'; 
+            return 'text-red-400';                  
+        }
+
+
+        // --- CHARTING ---
+        function createRadarChart(player) {
+            const ctx = document.getElementById('radarChart');
+            if (!ctx) return;
+            if (chartInstance) chartInstance.destroy(); 
+            
+            Chart.defaults.color = '#94a3b8'; 
+            Chart.defaults.font.family = 'Inter, sans-serif';
+
+             const chartData = [
+                player.metrics?.technical || 0,
+                player.metrics?.mental || 0,
+                player.metrics?.tactical || 0,
+                player.metrics?.physical || 0,
+                player.metrics?.philosophy || 0 
+            ];
+
+            chartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Technical', 'Mental', 'Tactical', 'Physical', 'Philosophy Fit'],
+                    datasets: [{
+                        label: player.name,
+                        data: chartData, 
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)', 
+                        borderColor: '#3b82f6', 
+                        borderWidth: 2,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#3b82f6'
+                    }]
+                },
+                options: { 
+                     responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { color: '#e2e8f0' } } },
+                    scales: { 
+                        r: { 
+                            beginAtZero: true, 
+                            max: 100, // MAX SCALE 100
+                            min: 0, 
+                            ticks: { color: '#94a3b8', backdropColor: 'rgba(0,0,0,0)', stepSize: 20 }, 
+                            grid: { color: 'rgba(59, 130, 246, 0.2)' }, 
+                            angleLines: { color: 'rgba(59, 130, 246, 0.2)' }, 
+                            pointLabels: { color: '#e2e8f0', font: { size: 14, weight: '600' } } 
+                        } 
+                    }
+                }
+            });
+        }
+
+        // --- MOBILE MENU ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            menu.classList.toggle('active');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+    </script>
+</body>
+</html>
