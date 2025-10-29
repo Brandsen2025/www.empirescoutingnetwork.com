@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Scout Data Collection Template</title>
+    <meta name="description" content="The complete 779-Metric Empire FGA data collection template for professional scouts.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Google Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Gradient Text from your index.html */
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; /* slate-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6; /* blue-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa; /* blue-400 */
+        }
+
+        /* Tab Styles */
+        .tab-button {
+            background-color: transparent;
+            border-color: #334155; /* slate-700 */
+            color: #94a3b8; /* slate-400 */
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-button:hover {
+            background-color: #1e293b; /* slate-800 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .tab-button.active {
+            background-color: #3b82f6; /* blue-600 */
+            border-color: #3b82f6; /* blue-600 */
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Form Input Styles */
+        .form-input {
+            background-color: #1e293b; /* slate-800 */
+            border-color: #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .form-input:focus {
+            --tw-ring-color: #3b82f6; /* blue-600 */
+            border-color: #3b82f6; /* blue-600 */
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        }
+        .form-checkbox {
+            color: #3b82f6; /* blue-600 */
+        }
+        .form-rating {
+            width: 70px; /* Small width for 0-10 inputs */
+        }
+        
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [
+                require('@tailwindcss/forms'),
+            ],
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                         alt="Empire Scouting Network" 
+                         class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                    <a href="RBL_Demo_Final_V2.html" class="hover:text-blue-400 transition">RBL Demo</a>
+                    <a href="login.html" class="hover:text-blue-400 transition">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-3 gradient-text">🎯 Empire FGA Scout Data Collection Template</h1>
+                <p class="text-xl text-slate-300">Complete 779-Metric System Web Form</p>
+                <p class="text-sm text-slate-500 mt-2">Version: 1.0 | Format: Web Form (from .xlsx)</p>
+            </div>
+
+            <div class="mb-6 overflow-x-auto">
+                <div class="flex flex-nowrap border-b border-slate-700 space-x-1" id="tab-buttons">
+                    <button class="tab-button active flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="scout-info">1. Scout Info</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="player-basic">2. Player Basic</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="foundation">3. Foundation (AB-BQ)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="core-fga">4. Core FGA (BR-CA)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="context">5. Context (CB-DA)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="philosophy-scores">6. Philosophy Scores</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="philosophy-subcomp">7. Philosophy Sub-Comp</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="physical">9. Physical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="technical">10. Technical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="goalkeeper">11. Goalkeeper</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="tactical">12. Tactical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="crossing">13. Crossing</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="creative">14. Creative</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="psychological">15. Psychological</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="relationships">16. Relationships</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="validation">17. Validation</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="summary">18. Summary</button>
+                </div>
+            </div>
+
+            <form id="scout-report-form">
+                <div id="tab-content" class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 md:p-8">
+
+                    <div class="tab-pane active" id="scout-info">
+                        <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 1: Scout Info</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-slate-700">
+                                <thead class="bg-slate-800">
+                                    <tr>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Field</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Input</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Required</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800">
+                                    <tr>
+                                        <td class="p-3 text-sm font-medium text-slate-200">Scout_Name</td>
+                                        <td class="p-3"><input type="text" id="scout-name" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                        <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                        <td class="p-3 text-sm text-slate-400">Full name of scout [cite: 853]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 text-sm font-medium text-slate-200">Matches_Analyzed</td>
+                                        <td class="p-3"><input type="number" id="matches-analyzed" min="1" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                        <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                        <td class="p-3 text-sm text-slate-400">Number of full matches watched [cite: 857]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 text-sm font-medium text-slate-200">Total_Minutes_Watched</td>
+                                        <td class="p-3"><input type="number" id="minutes-watched" min="1" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                        <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                        <td class="p-3 text-sm text-slate-400">Total minutes analyzed [cite: 858]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane hidden" id="player-basic">
+                        <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 2: Player Basic (A-AA)</h2>
+                        <h3 class="text-xl font-semibold mb-4 text-slate-200">Section A: Identification</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">A: Player_Name <span class="text-green-400">*</span></label>
+                                <input type="text" id="player-name" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">C: Position <span class="text-green-400">*</span></label>
+                                <select id="player-position" class="form-select form-input rounded-md shadow-sm w-full text-sm">
+                                    <option value="">-- Select --</option>
+                                    <option>GK</option><option>CB</option><option>LB</option><option>RB</option>
+                                    <option>CDM</option><option>CM</option><option>CAM</option>
+                                    <option>LW</option><option>RW</option><option>ST</option><option>CF</option>
+                                </select> [cite: 863]
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">D: Age <span class="text-green-400">*</span></label>
+                                <input type="number" id="player-age" min="15" max="45" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">J: Minutes_Played <span class="text-green-400">*</span></label>
+                                <input type="number" id="minutes-played" min="0" class="form-input rounded-md shadow-sm w-full text-sm"> 
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">K: Goals <span class="text-green-400">*</span></label>
+                                <input type="number" id="goals" min="0" class="form-input rounded-md shadow-sm w-full text-sm"> 
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="tab-pane hidden" id="foundation">
+                        <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 3: Foundation (AB-BQ)</h2>
+                        <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples for each rating. [cite: 883-916]</p>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-slate-700">
+                                <thead class="bg-slate-800">
+                                    <tr>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Metric</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Rating (0-10)</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Evidence Notes (3+ examples)</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Video Clips (Links)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 metric-table-body">
+                                    <tr class="metric-row">
+                                        <td class="p-3 text-sm font-medium text-slate-200" data-metric-name="DMA - Decision Making">AB: DMA - Decision Making <span class="text-green-400">*</span></td>
+                                        <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm metric-rating-input" id="dma-rating"></td>
+                                        <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                        <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm metric-video-input"></td>
+                                    </tr>
+                                    <tr class="metric-row">
+                                        <td class="p-3 text-sm font-medium text-slate-200" data-metric-name="SPI - Spatial Performance Index">AD: SPI - Spatial Performance <span class="text-green-400">*</span></td>
+                                        <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm metric-rating-input"></td>
+                                        <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                        <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm metric-video-input"></td>
+                                    </tr>
+                                    <tr class="metric-row">
+                                        <td class="p-3 text-sm font-medium text-slate-200" data-metric-name="CRK - Creative Risk Taking">BI: CRK - Creative Risk Taking</td>
+                                        <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm metric-rating-input"></td>
+                                        <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                        <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm metric-video-input"></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane hidden" id="physical">
+                        <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 9: Physical (17 Metrics)</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-slate-700">
+                                <thead class="bg-slate-800">
+                                    <tr>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Metric</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Rating (0-10)</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Evidence Notes</th>
+                                        <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Video Clips (Links)</th>
+                                    </tr>
+                                </thead>
+                                 <tbody class="divide-y divide-slate-800 metric-table-body">
+                                     <tr class="metric-row">
+                                        <td class="p-3 text-sm font-medium text-slate-200" data-metric-name="Example Physical Metric">GJ: Example Physical Metric</td>
+                                        <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm metric-rating-input"></td>
+                                        <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                        <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm metric-video-input"></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane hidden" id="core-fga"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 4: Core FGA (BR-CA)</h2><p class="text-cyan-400">Auto-calculated based on other inputs. [cite: 918-925]</p></div>
+                    <div class="tab-pane hidden" id="context"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 5: Context (CB-DA)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="philosophy-scores"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 6: Philosophy Scores (DB-FI)</h2><p class="text-cyan-400">Auto-calculated from Sub-Components. [cite: 943-997]</p></div>
+                    <div class="tab-pane hidden" id="philosophy-subcomp"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 7: Philosophy Sub-Components</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="technical"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 10: Technical (26 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="goalkeeper"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 11: Goalkeeper (26 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="tactical"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 12: Tactical (26 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="crossing"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 13: Crossing (26 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="creative"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 14: Creative (26 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="psychological"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 15: Psychological (30 Metrics)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="relationships"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 16: Relationships (20+ Entries)</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="validation"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 17: Validation</h2><p>...</p></div>
+                    <div class="tab-pane hidden" id="summary"><h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 18: Summary Report</h2><p>...</p></div>
+                
+                </div>
+
+                <div class="mt-8">
+                    <div id="validation-summary" class="hidden my-6 p-4 bg-red-900/50 border border-red-700 rounded-lg">
+                        <h4 class="text-lg font-bold text-red-300 mb-2">Validation Failed</h4>
+                        <p class="text-red-300 mb-3">Please correct the following errors before submitting:</p>
+                        <ul id="validation-errors-list" class="list-disc list-inside text-red-300 space-y-1">
+                            </ul>
+                    </div>
+                    <div id="validation-success" class="hidden my-6 p-4 bg-green-900/50 border border-green-700 rounded-lg">
+                        <h4 class="text-lg font-bold text-green-300">Validation Successful!</h4>
+                        <p class="text-green-300">Report is ready for submission.</p>
+                    </div>
+
+                    <div class="flex justify-end mt-8">
+                        <button type="button" id="validate-submit-button" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-base font-semibold transition">Validate & Submit Report</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // --- Tab Switching Logic ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Deactivate all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Activate clicked button
+                    button.classList.add('active');
+
+                    // Hide all panes
+                    tabPanes.forEach(pane => {
+                        if (pane.id === targetTab) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // --- Validation Logic ---
+            const submitButton = document.getElementById('validate-submit-button');
+            const validationSummary = document.getElementById('validation-summary');
+            const validationSuccess = document.getElementById('validation-success');
+            const validationErrorsList = document.getElementById('validation-errors-list');
+
+            submitButton.addEventListener('click', validateReport);
+
+            function validateReport() {
+                let errors = [];
+                validationSummary.classList.add('hidden');
+                validationSuccess.classList.add('hidden');
+                validationErrorsList.innerHTML = '';
+
+                // --- QC-1: Completeness ---
+                // [cite: 853, 860, 863, 864, 884, 886]
+                const requiredFields = [
+                    { id: 'scout-name', name: 'Scout Name (Tab 1)' },
+                    { id: 'player-name', name: 'Player Name (Tab 2)' },
+                    { id: 'player-position', name: 'Player Position (Tab 2)' },
+                    { id: 'player-age', name: 'Player Age (Tab 2)' },
+                    { id: 'dma-rating', name: 'DMA - Decision Making (Tab 3)' }
+                    // Add more required fields here by ID
+                ];
+
+                requiredFields.forEach(field => {
+                    const element = document.getElementById(field.id);
+                    if (element && element.value.trim() === '') {
+                        errors.push(`<b>${field.name}</b> is a required field.`);
+                    }
+                });
+
+                // --- QC-2: Plausibility ---
+                // [cite: 868, 869]
+                const goals = parseInt(document.getElementById('goals').value) || 0;
+                const minutes = parseInt(document.getElementById('minutes-played').value) || 0;
+                if (minutes > 0 && goals > minutes) {
+                    errors.push(`<b>Plausibility Error (Tab 2):</b> 'Goals' (${goals}) cannot be greater than 'Minutes_Played' (${minutes}).`);
+                }
+
+                // --- QC-3: Evidence for High Ratings ---
+                const evidenceThreshold = 8.0;
+                // Check all metric tables (Foundation, Physical, etc.)
+                document.querySelectorAll('.metric-table-body').forEach(tableBody => {
+                    const rows = tableBody.querySelectorAll('.metric-row');
+                    rows.forEach(row => {
+                        const ratingInput = row.querySelector('.metric-rating-input');
+                        const videoInput = row.querySelector('.metric-video-input');
+                        const metricName = row.querySelector('[data-metric-name]').getAttribute('data-metric-name');
+
+                        if (ratingInput && videoInput) {
+                            const rating = parseFloat(ratingInput.value);
+                            if (rating >= evidenceThreshold && videoInput.value.trim() === '') {
+                                errors.push(`<b>Evidence Missing:</b> Metric <b>'${metricName}'</b> has a high rating (${rating}) but no Video Clip link provided.`);
+                            }
+                        }
+                    });
+                });
+
+                // --- Display Results ---
+                if (errors.length > 0) {
+                    errors.forEach(error => {
+                        const li = document.createElement('li');
+                        li.innerHTML = error;
+                        validationErrorsList.appendChild(li);
+                    });
+                    validationSummary.classList.remove('hidden');
+                    window.scrollTo(0, validationSummary.offsetTop - 100); // Scroll to errors
+                } else {
+                    validationSuccess.classList.remove('hidden');
+                    // In a real scenario, this is where you would call the function
+                    // to package the data and send it to your Airtable Webhook.
+                    // e.g., submitToAirtable();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

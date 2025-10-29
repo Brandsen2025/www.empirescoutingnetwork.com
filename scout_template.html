@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Scout Data Collection Template</title>
+    <meta name="description" content="The complete 779-Metric Empire FGA data collection template for professional scouts.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Google Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Gradient Text from your index.html */
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; /* slate-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6; /* blue-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa; /* blue-400 */
+        }
+
+        /* Tab Styles */
+        .tab-button {
+            background-color: transparent;
+            border-color: #334155; /* slate-700 */
+            color: #94a3b8; /* slate-400 */
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-button:hover {
+            background-color: #1e293b; /* slate-800 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .tab-button.active {
+            background-color: #3b82f6; /* blue-600 */
+            border-color: #3b82f6; /* blue-600 */
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Form Input Styles */
+        .form-input {
+            background-color: #1e293b; /* slate-800 */
+            border-color: #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .form-input:focus {
+            --tw-ring-color: #3b82f6; /* blue-600 */
+            border-color: #3b82f6; /* blue-600 */
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        }
+        .form-checkbox {
+            color: #3b82f6; /* blue-600 */
+        }
+        .form-rating {
+            width: 70px; /* Small width for 0-10 inputs */
+        }
+        
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [
+                require('@tailwindcss/forms'),
+            ],
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                         alt="Empire Scouting Network" 
+                         class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                    <a href="RBL_Demo_Final_V2.html" class="hover:text-blue-400 transition">RBL Demo</a>
+                    <a href="login.html" class="hover:text-blue-400 transition">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-3 gradient-text">🎯 Empire FGA Scout Data Collection Template</h1>
+                <p class="text-xl text-slate-300">Complete 779-Metric System Web Form</p>
+                <p class="text-sm text-slate-500 mt-2">Version: 1.0 | Format: Web Form (from .xlsx)</p>
+            </div>
+
+            <div class="mb-6 overflow-x-auto">
+                <div class="flex flex-nowrap border-b border-slate-700 space-x-1" id="tab-buttons">
+                    <button class="tab-button active flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="scout-info">1. Scout Info</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="player-basic">2. Player Basic</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="foundation">3. Foundation (AB-BQ)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="core-fga">4. Core FGA (BR-CA)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="context">5. Context (CB-DA)</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="philosophy-scores">6. Philosophy Scores</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="philosophy-subcomp">7. Philosophy Sub-Comp</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="physical">9. Physical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="technical">10. Technical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="goalkeeper">11. Goalkeeper</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="tactical">12. Tactical</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="crossing">13. Crossing</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="creative">14. Creative</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="psychological">15. Psychological</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="relationships">16. Relationships</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="validation">17. Validation</button>
+                    <button class="tab-button flex-shrink-0 px-4 py-2 text-sm font-medium border-b-2 rounded-t-lg" data-tab="summary">18. Summary</button>
+                    </div>
+            </div>
+
+            <div id="tab-content" class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 md:p-8">
+
+                <div class="tab-pane active" id="scout-info">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 1: Scout Info</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                            <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Field</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Input</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Required</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Scout_ID</td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Unique scout identifier</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Scout_Name</td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Full name of scout</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Organization</td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Club/Agency/Company</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Assignment_Date</td>
+                                    <td class="p-3"><input type="date" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Date assigned to scout</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Target_Completion_Date</td>
+                                    <td class="p-3"><input type="date" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Expected completion date</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Assessment_Priority</td>
+                                    <td class="p-3">
+                                        <select class="form-select form-input rounded-md shadow-sm w-full text-sm">
+                                            <option>High</option>
+                                            <option>Medium</option>
+                                            <option>Low</option>
+                                        </select>
+                                    </td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">High/Medium/Low</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Matches_Analyzed</td>
+                                    <td class="p-3"><input type="number" min="1" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Number of full matches watched</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Total_Minutes_Watched</td>
+                                    <td class="p-3"><input type="number" min="1" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-green-400 font-semibold">✅</td>
+                                    <td class="p-3 text-sm text-slate-400">Total minutes analyzed</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Video_Source</td>
+                                    <td class="p-3"><input type="text" placeholder="Wyscout/InStat/etc." class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                    <td class="p-3 text-sm text-red-400">❌</td>
+                                    <td class="p-3 text-sm text-slate-400">Wyscout/InStat/Hudl/etc.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="player-basic">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 2: Player Basic (A-AA)</h2>
+                    <h3 class="text-xl font-semibold mb-4 text-slate-200">Section A: Identification</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">A: Player_Name <span class="text-green-400">*</span></label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">B: Nation <span class="text-green-400">*</span></label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">C: Position <span class="text-green-400">*</span></label>
+                            <select class="form-select form-input rounded-md shadow-sm w-full text-sm">
+                                <option>GK</option><option>CB</option><option>LB</option><option>RB</option>
+                                <option>CDM</option><option>CM</option><option>CAM</option>
+                                <option>LW</option><option>RW</option><option>ST</option><option>CF</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">D: Age <span class="text-green-400">*</span></label>
+                            <input type="number" min="15" max="45" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">E: Club <span class="text-green-400">*</span></label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">F: Competition <span class="text-green-400">*</span></label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">G: Season <span class="text-green-400">*</span></label>
+                            <input type="text" placeholder="YYYY-YYYY" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">O: Height (cm) <span class="text-green-400">*</span></label>
+                            <input type="number" min="150" max="220" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">P: Weight (kg) <span class="text-green-400">*</span></label>
+                            <input type="number" min="50" max="120" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">Q: Foot <span class="text-green-400">*</span></label>
+                            <select class="form-select form-input rounded-md shadow-sm w-full text-sm">
+                                <option>Right</option><option>Left</option><option>Both</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">T: Birth_Date <span class="text-green-400">*</span></label>
+                            <input type="date" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">U: Birth_Place <span class="text-green-400">*</span></label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">R: Market_Value (EUR)</label>
+                            <input type="number" min="0" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                         <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">S: Contract_Expires</label>
+                            <input type="date" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4 text-slate-200">Section B: Photos & Media</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">Player_Photo_URL <span class="text-green-400">*</span></label>
+                            <input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">Highlight_Video_URL</label>
+                            <input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="foundation">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 3: Foundation (AB-BQ)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples for each rating.</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                            <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Code</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Metric Name</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Rating (0-10)</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Evidence Notes (3+ examples)</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Video Clips (Links)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">AB</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">DMA - Decision Making</td>
+                                    <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm"></td>
+                                    <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                    <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">AC</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">UNP - Unexpected Pass</td>
+                                    <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm"></td>
+                                    <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                    <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">AD</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">SPI - Spatial Performance Index</td>
+                                    <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm"></td>
+                                    <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="1. (Match, Min) Desc..."></textarea></td>
+                                    <td class="p-3"><input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">...</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">...</td>
+                                    <td class="p-3">...</td>
+                                    <td class="p-3">...</td>
+                                    <td class="p-3">...</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">BQ</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Era_Adjustment</td>
+                                    <td class="p-3"><input type="number" min="0.8" max="1.2" step="0.01" class="form-input form-rating rounded-md shadow-sm text-sm" placeholder="1.0"></td>
+                                    <td class="p-3"><textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Justification for adjustment..."></textarea></td>
+                                    <td class="p-3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="core-fga">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 4: Core FGA (BR-CA)</h2>
+                    <p class="text-lg text-cyan-400 bg-cyan-900/50 border border-cyan-700 rounded-lg p-4 mb-6">
+                        <span class="font-bold">NOTE:</span> All fields in this section are **AUTO-CALCULATED** based on data entered in other worksheets. No manual entry is required.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                            <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Code</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Metric Name</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Formula / Logic</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Calculated Value</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">BR</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">POI - Position Intelligence</td>
+                                    <td class="p-3 text-sm text-slate-400 font-mono">=AVERAGE(AB, AC, AD, AE)</td>
+                                    <td class="p-3 text-lg font-bold text-cyan-400">[AUTO]</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">BS</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">CPX - Composure</td>
+                                    <td class="p-3 text-sm text-slate-400 font-mono">=AVERAGE(AB, AH, AI, AJ)</td>
+                                    <td class="p-3 text-lg font-bold text-cyan-400">[AUTO]</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">CA</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">FGA_Rating_Base</td>
+                                    <td class="p-3 text-sm text-slate-400 font-mono">=Position-specific average...</td>
+                                    <td class="p-3 text-lg font-bold text-cyan-400">[AUTO]</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-pane hidden" id="context">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 5: Context (CB-DA)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CD: Opposition_Strength (1.5-3.5) <span class="text-green-400">*</span></label>
+                            <input type="number" min="1.5" max="3.5" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CE: Pressure_Index (0.5-1.0) <span class="text-green-400">*</span></label>
+                            <input type="number" min="0.5" max="1.0" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CH: Stakes_Multiplier (1.0-1.5) <span class="text-green-400">*</span></label>
+                            <input type="number" min="1.0" max="1.5" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CK: Physical_State (0.8-1.2) <span class="text-green-400">*</span></label>
+                            <input type="number" min="0.8" max="1.2" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CT: Clutch_Performance (1.0-1.5) <span class="text-green-400">*</span></label>
+                            <input type="number" min="1.0" max="1.5" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium text-slate-300">DA: Ultimate_Context_Score</label>
+                            <input type="text" class="form-input rounded-md shadow-sm w-full text-sm bg-slate-700" value="[AUTO]" readonly>
+                        </div>
+                        <div class="md:col-span-2 lg:col-span-3 space-y-1">
+                            <label class="text-sm font-medium text-slate-300">CB: Event_Descriptions <span class="text-green-400">*</span></label>
+                            <textarea rows="4" class="form-input rounded-md shadow-sm w-full text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="philosophy-scores">
+                     <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 6: Philosophy Scores (DB-FI)</h2>
+                     <p class="text-lg text-cyan-400 bg-cyan-900/50 border border-cyan-700 rounded-lg p-4 mb-6">
+                        <span class="font-bold">NOTE:</span> All scores are **AUTO-CALCULATED** from the 4 sub-components in the 'Philosophy Sub-Comp' tab.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                            <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Code</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Philosophy Name</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">School</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Weight</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Base Score (0-10)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">DB</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Cruyff Intelligence</td>
+                                    <td class="p-3 text-sm text-slate-400">Dutch</td>
+                                    <td class="p-3 text-sm text-slate-400">1.45</td>
+                                    <td class="p-3 text-lg font-bold text-cyan-400">[AUTO]</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">DC</td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Michels Total Football</td>
+                                    <td class="p-3 text-sm text-slate-400">Dutch</td>
+                                    <td class="p-3 text-sm text-slate-400">1.18</td>
+                                    <td class="p-3 text-lg font-bold text-cyan-400">[AUTO]</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-pane hidden" id="philosophy-subcomp">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 7: Philosophy Sub-Components</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all 240 sub-components (4 for each of the 60 philosophies) on a 0-10 scale.</p>
+                    
+                    <div class="mb-6 p-4 border border-slate-700 rounded-lg">
+                        <h4 class="text-xl font-bold text-slate-200 mb-4">DB: Cruyff Intelligence (Weight: 1.45)</h4>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <div class="md:col-span-2 space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">1. Spatial Geometry Mastery</label>
+                                    <textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Evidence: (Match, Min) Created 2-touch triangle..."></textarea>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">Rating (0-10)</label>
+                                    <input type="number" min="0" max="10" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">Video Clips</label>
+                                    <input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <div class="md:col-span-2 space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">2. Positional Interchangeability</label>
+                                    <textarea rows="2" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Evidence: (Match, Min) Swapped with LW..."></textarea>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">Rating (0-10)</label>
+                                    <input type="number" min="0" max="10" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-medium text-slate-300">Video Clips</label>
+                                    <input type="url" placeholder="https://" class="form-input rounded-md shadow-sm w-full text-sm">
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                    <p class="text-slate-500 italic">... This structure repeats for all 60 philosophies ...</p>
+                </div>
+                
+                <div class="tab-pane hidden" id="physical">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 9: Physical (17 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                    </div>
+
+                <div class="tab-pane hidden" id="technical">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 10: Technical (26 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                </div>
+
+                <div class="tab-pane hidden" id="goalkeeper">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 11: Goalkeeper (26 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">GK ONLY. Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                </div>
+
+                <div class="tab-pane hidden" id="tactical">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 12: Tactical (26 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                </div>
+
+                <div class="tab-pane hidden" id="crossing">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 13: Crossing (26 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                </div>
+
+                <div class="tab-pane hidden" id="creative">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 14: Creative (26 Metrics)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Rate all metrics 0-10. Provide 3+ video/data examples.</p>
+                </div>
+                
+                <div class="tab-pane hidden" id="psychological">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 15: Psychological (30 Metrics)</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                             <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Category</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Metric Name</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Rating (0-10)</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Evidence Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr class="bg-slate-800/50">
+                                    <td class="p-3 text-sm font-semibold text-slate-300" colspan="4">Core Personality</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Perfectionist Mindset</td>
+                                    <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm"></td>
+                                    <td class="p-3"><textarea rows="1" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Behavioral examples..."></textarea></td>
+                                </tr>
+                                <tr class="bg-slate-800/50">
+                                    <td class="p-3 text-sm font-semibold text-slate-300" colspan="4">Mental Strengths</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Temporal Intelligence</td>
+                                    <td class="p-3"><input type="number" min="0" max="10" step="0.1" class="form-input form-rating rounded-md shadow-sm text-sm"></td>
+                                    <td class="p-3"><textarea rows="1" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Game timing examples..."></textarea></td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="relationships">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 16: Relationships (20+ Entries)</h2>
+                    <p class="text-slate-400 mb-4 text-sm">Document at least 5 key relationships (teammates, coaches, rivals).</p>
+                    <div class="p-4 border border-slate-700 rounded-lg space-y-4">
+                        <h4 class="text-lg font-semibold text-slate-200">New Relationship Entry</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Related_Person_Name</label>
+                                <input type="text" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Related_Person_Role</label>
+                                <input type="text" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Teammate/Coach/Rival...">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Relationship_Type</label>
+                                <select class="form-select form-input rounded-md shadow-sm w-full text-sm">
+                                    <option>Positive</option><option>Negative</option><option>Neutral</option><option>Complicated</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">On_Field_Chemistry (0-10)</label>
+                                <input type="number" min="0" max="10" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Tactical_Compatibility (0-10)</label>
+                                <input type="number" min="0" max="10" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                             <div class="space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Relationship_Score (-10 to +10)</label>
+                                <input type="number" min="-10" max="10" step="0.1" class="form-input rounded-md shadow-sm w-full text-sm">
+                            </div>
+                            <div class="md:col-span-3 space-y-1">
+                                <label class="text-sm font-medium text-slate-300">Relationship_Description</label>
+                                <textarea rows="3" class="form-input rounded-md shadow-sm w-full text-sm"></textarea>
+                            </div>
+                        </div>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">Add Relationship</button>
+                    </div>
+                </div>
+
+                <div class="tab-pane hidden" id="validation">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 17: Validation</h2>
+                    <h3 class="text-xl font-semibold mb-4 text-slate-200">Data Quality Checklist</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-700">
+                            <thead class="bg-slate-800">
+                                <tr>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Item</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Status</th>
+                                    <th class="p-3 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Minimum 5 full matches analyzed</td>
+                                    <td class="p-3"><input type="checkbox" class="form-checkbox h-5 w-5 rounded"></td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Count: ___"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Video evidence for all key ratings</td>
+                                    <td class="p-3"><input type="checkbox" class="form-checkbox h-5 w-5 rounded"></td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="% Complete: ___"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm font-medium text-slate-200">Second scout reviewed</td>
+                                    <td class="p-3"><input type="checkbox" class="form-checkbox h-5 w-5 rounded"></td>
+                                    <td class="p-3"><input type="text" class="form-input rounded-md shadow-sm w-full text-sm" placeholder="Scout name: ___"></td>
+                                Failure to provide a source for a given fact will result in a lower-quality answer.
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-pane hidden" id="summary">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-400">Worksheet 18: Summary Report</h2>
+                    <p class="text-lg text-cyan-400 bg-cyan-900/50 border border-cyan-700 rounded-lg p-4 mb-6">
+                        <span class="font-bold">NOTE:</span> This summary will be auto-generated once all data is validated and finalized.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get target tab
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // Deactivate all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Activate clicked button
+                    button.classList.add('active');
+
+                    // Hide all panes
+                    tabPanes.forEach(pane => {
+                        if (pane.id === targetTab) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
