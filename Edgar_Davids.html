@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Edgar Davids — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://calciopedia.com.br/wp-content/uploads/2013/08/31382311-810x540.jpg" alt="Edgar Davids photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Edgar Davids</div>
+        <div class="sub">Midfielder (Box-to-Box / DM) (Retired) · Netherlands · Born: 13 March 1973 · Height: 1.69 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Ajax, Juventus, Barcelona, Inter</span>
+          <span class="pill"><strong>Nickname</strong> The Pitbull</span>
+          <span class="pill"><strong>Primary Foot</strong> Left</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Iconic, tenacious midfielder instantly recognizable for his dreadlocks and protective goggles. Renowned for his incredible stamina, aggressive tackling, ball-winning ability, and surprising technical skill. A dominant box-to-box presence who anchored world-class midfields.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>TPI - Tactical Pressure Index</td><td>9.8 (Elite)</td></tr>
+              <tr><td>MRK - Marking Quality</td><td>9.2</td></tr>
+              <tr><td>Tackles Won/90</td><td>4.0+</td></tr>
+              <tr><td>Physicality (Stamina/Aggression)</td><td>9.5</td></tr>
+              <tr><td>CHR - Character</td><td>9.3 (Intensity)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach historical match logs (Eredivisie, Serie A, La Liga, CL) and video footage to verify defensive metrics (TPI, MRK, Tackles).</li>
+            <li>Confirm trophy wins and FIFA 100 inclusion via official competition/FIFA records.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from historical football databases, club records, and national team archives. ERA adjustments applied.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Edgar "The Pitbull" Davids was a force of nature in midfield, blending relentless energy and ferocious tackling (elite TPI/MRK) with impressive close control and dribbling ability (high DXT). His stamina allowed him to cover immense ground, contributing significantly in both defensive and attacking phases. A key component of multiple trophy-winning sides, his aggressive ball-winning and dynamic presence defined the box-to-box midfielder role for his generation.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1991–1996</td><td>Ajax</td><td>Breakthrough; Won Eredivisie (x3), Champions League ('95), UEFA Cup ('92), Intercontinental Cup ('95).</td></tr>
+            <tr><td>1996–1997</td><td>AC Milan</td><td>Brief, less successful spell.</td></tr>
+            <tr><td>1997–2004</td><td>Juventus</td><td>Iconic period; Won Serie A (x3); reached multiple CL finals. Formed legendary midfield partnerships.</td></tr>
+            <tr><td>2004</td><td>Barcelona (Loan)</td><td>Highly impactful loan spell, credited with revitalizing the team mid-season.</td></tr>
+            <tr><td>2004–2005</td><td>Inter Milan</td><td>Won Coppa Italia.</td></tr>
+            <tr><td>2005–2007</td><td>Tottenham Hotspur</td><td>Brought experience to the Premier League.</td></tr>
+            <tr><td>2007–2010</td><td>Ajax / Crystal Palace / Barnet</td><td>Later career, including player-manager role at Barnet.</td></tr>
+            <tr><td>1994–2005</td><td>Netherlands National Team</td><td>74 caps, 6 goals; Key player in multiple World Cups and Euros (WC '98 Semi-finalist).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1995-05-24</td><td>Champions League Final (Ajax vs AC Milan)</td><td>Started in Ajax's iconic victory.</td></tr>
+            <tr><td>1998</td><td>FIFA World Cup</td><td>Named in Tournament All-Star Team for his dominant midfield displays.</td></tr>
+            <tr><td>2004 (Spring)</td><td>Loan Spell at Barcelona</td><td>Widely credited for turning Barcelona's season around.</td></tr>
+            <tr><td>Multiple</td><td>Serie A Titles (Juventus)</td><td>Engine room of dominant Juventus sides.</td></tr>
+            <tr><td>Career</td><td>FIFA 100 Inclusion</td><td>Named by Pelé as one of the world's greatest living players (in 2004).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Stamina & Work Rate (TPI):</strong> Incredible engine, covered every blade of grass.</li>
+              <li><strong>Tackling & Ball-Winning (MRK):</strong> World-class ability to dispossess opponents; aggressive and effective.</li>
+              <li><strong>Aggression & Tenacity (CHR):</strong> Fearsome competitor ("The Pitbull" nickname).</li>
+              <li><strong>Dribbling & Close Control (DXT):</strong> Surprising skill and agility on the ball for a defensive midfielder.</li>
+              <li><strong>Passing:</strong> Good range and accuracy, capable of starting attacks after winning the ball.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Discipline:</strong> Aggressive style led to frequent yellow/red cards.</li>
+              <li><strong>Temperament:</strong> Could be volatile and involved in on-field confrontations.</li>
+              <li><strong>Goal Threat:</strong> Primarily a ball-winner/carrier, not a major goalscorer.</li>
+              <li><strong>Height/Aerial Ability:</strong> At 1.69m, not a factor in aerial duels.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Instantly recognizable global icon (goggles, dreadlocks); featured in major ad campaigns (e.g., Nike). High commercial appeal.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Elite, world-class midfielder profile during his peak; highly sought after by top European clubs.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Proven success in Eredivisie, Serie A, La Liga, Premier League; engine and technical skill adaptable anywhere.</td>
+            <p class="small"><strong>International Impact:</strong> Key player for a strong generation of Dutch midfielders; influential in major tournaments.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>TPI - Tactical Pressure Index</td><td>9.8</td></tr>
+                <tr><td>Tackles Won / 90</td><td>4.0+</td></tr>
+                <tr><td>Interceptions / 90</td><td>3.0+</td></tr>
+                <tr><td>Successful Dribbles / 90</td><td>2.5+</td></tr>
+                <tr><td>Progressive Carries / 90</td><td>3.0+</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Elite Midfielders)</h3>
+            <ul class="small">
+              <li>Ball Winning (TPI/Tackles/INT): 99th percentile, defining trait.</li>
+              <li>Dribbling / Carries: Exceptionally high percentile for a defensive-minded midfielder.</li>
+              <li>Work Rate / Stamina: Elite percentile globally.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with detailed historical stats databases (Opta data exists for later career). ERA Factor: ~1.08 (adjusting for late 90s/early 00s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Davids' DNA is the epitome of the **All-Action Ball Winner**, combining **Relentless Pressing** with **Technical Security** and **Transition Driving**. Within the 60-Philosophy framework, he is the engine required by high-intensity, dynamic systems.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Simeone Cholismo</td><td>9.8</td><td>Peak intensity, aggression, ball-winning, competitive spirit.</td></tr>
+                <tr><td>Klopp Intensity</td><td>9.5</td><td>Gegenpressing engine, stamina, transition ability.</td></tr>
+                <tr><td>Bielsa Intensity</td><td>9.2</td><td>Relentless energy, verticality after winning ball.</td></tr>
+                <tr><td>Sacchi Pressing</td><td>9.0</td><td>Key component in coordinated team pressing structure.</td></tr>
+                <tr><td>Van Gaal System</td><td>8.5</td><td>Developed under Van Gaal; technical base + tactical discipline.</td></tr>
+                <tr><td>Ferguson Mental</td><td>8.8</td><td>Warrior mentality, drive, big-game performer.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on tackles, interceptions, ball carries after winning possession, high-energy displays.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Aggressive Ball Winning (MRK/TPI):</strong> High volume of successful tackles and duels won.</li>
+              <li><strong>Transition Play (OMS):</strong> Ability to quickly turn defense into attack after winning ball.</li>
+              <li><strong>Stamina/Work Rate:</strong> Consistently covered huge distances, maintained intensity for 90 mins.</li>
+              <li><strong>Press Resistance (DXT):</strong> Used close control and dribbling to retain possession under pressure.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (tackles, INT, distance covered if available), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a central midfielder (box-to-box or defensive) in a two or three-person midfield.</li>
+          <li>Grant license to press aggressively and win the ball high up the pitch.</li>
+          <li>Utilize his carrying ability to drive transitions after turnovers.</li>
+          <li>Requires partnership with more positionally disciplined or creative midfielders for balance.</li>
+          <li>System must accommodate his aggressive style (risk of fouls/cards).</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Aggressive & Tenacious:</strong> Fierce competitor, embodied "The Pitbull" nickname.</li>
+          <li><strong>Determined & Relentless:</strong> Incredible work ethic and stamina.</li>
+          <li><strong>Confident:</strong> Strong personality, played with authority.</li>
+          <li><strong>Combative:</strong> Prone to confrontation and disciplinary issues.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Exceptional mental and physical endurance</li>
+          <li>Fearless in challenges</li>
+          <li>Ability to impose his will on midfield battles</li>
+          <li>Big-game mentality</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Controlling aggression (discipline record)</li>
+          <li>Managing temperament in high-pressure moments</li>
+          <li>Potential clashes due to strong personality</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">A product of the famed Ajax academy, combining technical skill with immense physical and mental attributes. His experience winning major trophies at multiple elite clubs (Ajax, Juventus, Inter) and performing consistently for the Netherlands NT highlights his world-class pedigree and adaptability.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives; apply ERA adjustments. ERA Factor: ~1.08</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Tackles p90 (Est.)</th><th>Succ. Dribbles p90 (Est.)</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1994-95</td><td>Ajax</td><td>~40</td><td>~5</td><td>~4.5</td><td>~2.8</td><td>91.0 (CL Win)</td></tr>
+            <tr><td>1997-98</td><td>Juventus</td><td>~35</td><td>~2</td><td>~4.8</td><td>~3.0</td><td>93.0 (Peak)</td></tr>
+            <tr><td>2000-01</td><td>Juventus</td><td>~30</td><td>~1</td><td>~4.2</td><td>~2.5</td><td>92.0 (Serie A Title)</td></tr>
+            <tr><td>2003-04</td><td>Barcelona</td><td>18</td><td>1</td><td>~4.0</td><td>~2.6</td><td>90.5 (Impact Loan)</td></tr>
+            <tr><td>1998</td><td>Netherlands NT (WC)</td><td>6</td><td>1</td><td>~5.0</td><td>~3.2</td><td>94.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data where available. Defensive/Dribbling stats estimated based on profile/era. Include source and ERA factor used.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Led through ferocious intensity and setting physical example.</td><td>Harness his competitive fire; key figure in driving team aggression.</td></tr>
+            <tr><td>Pressure Handling</td><td>Thrived in high-stakes matches (CL finals, WCs).</td><td>Reliable performer when intensity is highest.</td></tr>
+            <tr><td>Temperament Management</td><td>Disciplinary record was a consistent issue.</td><td>Requires strong man-management to channel aggression productively.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Louis van Gaal (Ajax)</td><td>Key coach in his development; instilled tactical discipline.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Marcello Lippi (Juventus)</td><td>Central figure in Lippi's dominant Juventus midfield.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Zinedine Zidane (Juventus)</td><td>Formed iconic midfield pairing balancing steel and silk.</td></tr>
+            <tr><td>National Team</td><td>Netherlands NT Midfield (Seedorf, Cocu)</td><td>Part of a technically gifted but often internally complex generation.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1995-05-24</td><td>AC Milan (CL Final - Ajax)</td><td>W 1-0</td><td>Dominated midfield battle, ball-winning</td><td>Champions League winner</td></tr>
+            <tr><td>1998-07-04</td><td>Argentina (WC QF - Neth)</td><td>W 2-1</td><td>Sent off, but high impact before red card</td><td>Iconic World Cup match</td></tr>
+            <tr><td>2003-05-28</td><td>Real Madrid (CL Final - Juv)</td><td>D 0-0 (Lost Pens)</td><td>Tireless midfield performance</td><td>Champions League Final</td></tr>
+            <tr><td>2004-04-25</td><td>Real Madrid (La Liga - Barca)</td><td>W 2-1</td><td>Controlled midfield, key tackles</td><td>Crucial El Clásico win during loan</td></tr>
+            <tr><td>2000-06-29</td><td>Italy (Euro SF - Neth)</td><td>D 0-0 (Lost Pens)</td><td>Immense performance despite playing with 10 men</td><td>Euro Semi-Final</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries and video footage where available. ERA adjustments applied where relevant. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on examples of aggressive tackling, interceptions, powerful runs, and occasional technical skill.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-ED-01</td><td>Netherlands vs Yugoslavia (WC'98)</td><td>1998</td><td>Famous winning goal (run & shot)</td><td>ARCH-ED-1998WC-YUG (attach)</td></tr>
+            <tr><td>VH-ED-02</td><td>Juventus vs (Opp)</td><td>~</td><td>Compilation of signature tackles/ball recoveries</td><td>ARCH-ED-TACKLES (attach)</td></tr>
+            <tr><td>VH-ED-03</td><td>Barcelona vs (Opp)</td><td>2004</td><td>Driving run from midfield</td><td>ARCH-ED-2004-BAR (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Tenacious Midfielders)</h2>
+        <p class="small">Comparators: Roy Keane, Gennaro Gattuso. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="davidsRadar" aria-label="Radar comparing Davids and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+        <ul class="small">
+          <li>Leverage his intense competitiveness to set the team's tempo and aggression.</li>
+          <li>His presence alone could intimidate opponents.</li>
+          <li>Requires strong referee management and internal discipline guidance due to temperament.</li>
+          <li>Channel his energy; crucial for driving team performance in big games.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Historical league stats (Eredivisie, Serie A, La Liga, PL), UEFA/FIFA records, Transfermarkt, National-Football-Teams.com, contemporary news archives. ERA factors based on FGA historical league modeling for Europe in the 90s/00s. Each PHILOSOPHY_SUBCOMP row requires clip descriptions/IDs, qualitative assessments, and disciplinary records.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate trophy wins, caps, and major disciplinary incidents.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Edgar Davids expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('davidsRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Tackling (MRK)','Work Rate (TPI)','Stamina','Aggression (CHR)','Dribbling (DXT)','Passing'],
+          datasets: [
+            { label: 'Edgar Davids', data: [9.5, 9.8, 9.9, 9.6, 8.5, 7.8],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Roy Keane', data: [9.2, 9.5, 9.6, 9.8, 7.0, 8.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Gennaro Gattuso', data: [9.8, 9.9, 9.8, 9.9, 6.5, 7.0],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
