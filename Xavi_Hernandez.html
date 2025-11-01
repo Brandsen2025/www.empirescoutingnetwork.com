@@ -1,243 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Xavi Hernández — Empire FGA Profile</title>
-  <style>
-    :root{--bg:#071226;--card:#0b1220;--accent:#3b82f6;--accent2:#93c5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-    html,body{height:100%;margin:0;padding:0;background:
-      radial-gradient(900px 500px at 8% 12%, rgba(59,130,246,0.04),transparent 10%),
-      radial-gradient(800px 400px at 92% 88%, rgba(147,197,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
-    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
-    header img{height:48px;object-fit:contain}
-    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
-    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
-    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
-    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
-    .sub{color:var(--muted);margin-bottom:10px}
-    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
-    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
-    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
-    th{background:var(--accent);font-weight:800}
-    .metrics-table th,.metrics-table td{text-align:center}
-    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(147,197,253,0.12)}
-    .section{margin-top:20px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .small{color:var(--muted);font-size:14px;line-height:1.6}
-    ul.small{margin:0;padding-left:18px}
-    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
-    .mini-table th,.mini-table td{font-size:13px;padding:8px}
-    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <header>
-    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
-  </header>
 
-  <div class="container" role="main" aria-labelledby="profile-name">
-    <aside class="card" aria-label="summary">
-      <img class="photo" src="https://d3nfwcxd527z59.cloudfront.net/content/uploads/2023/02/22132940/Xavi-FCB.jpg" alt="Xavi Hernández photo">
-      <div style="margin-top:12px">
-        <div id="profile-name" class="title">Xavi Hernández</div>
-        <div class="sub">Central Midfielder · Spain · Born: 25 January 1980 · Height: 1.70 m</div>
+<html lang="en"> <head> <meta charset="utf-8"/> <meta name="viewport" content="width=device-width,initial-scale=1"/> <title>Xavi Hernández — Empire FGA Profile (Expanded)</title> <style> :root{ --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d; --muted:#98a7bf; --white:#eef6ff; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif } html,body{height:100%;margin:0;padding:0;background: radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg); color:var(--white);-webkit-font-smoothing:antialiased} header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center} header img{height:48px;object-fit:contain} .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px} .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative} .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624} .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)} .sub{color:var(--muted);margin-bottom:10px} .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)} table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px} th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left} th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122} .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)} .section{margin-top:18px} .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px} .small{color:var(--muted);font-size:14px;line-height:1.6} .lead{color:var(--white);font-size:16px;line-height:1.5} ul.small{margin:0;padding-left:18px} .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)} .accent-heading{color:var(--accent2)} .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)} @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}} </style> <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> </head> <body> <header> <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network"> </header>
 
-        <div>
-          <span class="pill"><strong>Clubs</strong> Barcelona; Al Sadd</span>
-          <span class="pill"><strong>International</strong> Spain (133 caps, 13 goals)</span>
-          <span class="pill"><strong>Peak FGA</strong> 94.0</span>
-        </div>
-      </div>
+<div class="container" role="main" aria-labelledby="profile-name"> <aside class="card" aria-label="summary"> <img class="photo" src="https://cdn.bleacherreport.net/images_root/slides/photos/000/629/010/108096092_original.jpg?1295306079" alt="Xavi Hernández photo"> <div style="margin-top:12px"> <div id="profile-name" class="title">Xavi Hernández</div> <div class="sub">Central Midfielder (Retired) · Spain · Born: 25 Jan 1980 · Height: 1.70 m</div>
 
-      <div class="section">
-        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
-        <table class="metrics-table" aria-describedby="physical-metrics">
-          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
-          <tbody>
-            <tr><td>Passing Range & Tempo Control</td><td>9.8</td></tr>
-            <tr><td>Vision / Through-Ball Quality</td><td>9.6</td></tr>
-            <tr><td>Ball Retention / Short Passing</td><td>9.7</td></tr>
-            <tr><td>Spatial Awareness / Positioning</td><td>9.5</td></tr>
-            <tr><td>Leadership & Game Management</td><td>9.2</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div>
+      <span class="pill"><strong>Iconic Clubs</strong> FC Barcelona, Spain NT</span>
+      <span class="pill"><strong>Shirt</strong> 6 / 8</span>
+      <span class="pill"><strong>Primary Foot</strong> Right</span>
+    </div>
 
-      <div class="section">
-        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
-        <ul class="small">
-          <li>Caps and honours reconciled to federation and major databases; verify any season-level counts against club archives.</li>
-          <li>ERA adjustments required when comparing Xavi to modern high-tempo midfielders; document multiplier used.</li>
-        </ul>
-      </div>
-    </aside>
+    <div class="section">
+      <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+      <p class="lead">"The Puppet Master." The defining central midfielder of his generation. The on-field brain and "metronome" of FC Barcelona's "Tiki-Taka" and Spain's 2008-2012 dynasty. Famed for his generational vision (DMA), passing (PAS), and positional intelligence (POI).</p>
+    </div>
 
-    <main class="card" aria-label="full-profile">
-      <div class="rating-badge" aria-hidden="false">94.0</div>
+    <div class="section">
+      <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+      <table aria-describedby="physical-metrics">
+        <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+        <tbody>
+          <tr><td>POI - Position Intelligence</td><td>10.0 (Generational)</td></tr>
+          <tr><td>PAS - Passing</td><td>10.0 (Generational)</td></tr>
+          <tr><td>DMA - Decision Making</td><td>10.0 (Generational)</td></tr>
+          <tr><td>TEC - Technique (Control)</td><td>9.9 (Elite)</td></tr>
+          <tr><td>KEY - Key Passes/90</td><td>9.8 (Elite)</td></tr>
+          <tr><td>CHR - Character (Leader)</td><td>9.5 (Elite)</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-      <section class="section" aria-labelledby="overview">
-        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
-        <p class="small">Xavier Hernández Creus is a generational central midfielder defined by supreme passing, tempo control and spatial intelligence; architect of Barcelona and Spain's possession-based dominance and a pivotal figure in multiple Champions League and international tournament victories.</p>
-      </section>
+    <div class="section">
+      <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+      <ul class="small">
+        <li>Attach historical match logs (La Liga 2008-12, WC '10, Euro '08/'12) from FBref/BeSoccer to verify POI, PAS, and KEY metrics.</li>
+        <li>Confirm exact trophy counts, 2010 WC win, 2008/2012 Euro wins, 4x UCL wins, and 3x Ballon d'Or 3rd place via official FIFA/UEFA/RFEF records.</li>
+      </ul>
+    </div>
 
-      <section class="section" aria-labelledby="career-timeline">
-        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
-        <table aria-describedby="timeline-table">
-          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td>1991–1998</td><td>La Masia / Barcelona Youth</td><td>Developed core passing and positional IQ.</td></tr>
-            <tr><td>1998–2015</td><td>FC Barcelona</td><td>Club icon; multiple La Liga and Champions League triumphs; midfield nucleus with Iniesta and Busquets.</td></tr>
-            <tr><td>2015–2019</td><td>Al Sadd</td><td>Late-career leadership and trophies in Qatar; transition to coaching.</td></tr>
-            <tr><td>2000–2014</td><td>Spain</td><td>133 caps; Euro 2008, 2012 and World Cup 2010 key contributor.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="milestones">
-        <h2 id="milestones" style="color:var(--accent)">Key Matches & Milestones</h2>
-        <div class="small">
-          <ul>
-            <li>UEFA Euro 2008 & 2012 — central architect in Spain's possession dominance.</li>
-            <li>FIFA World Cup 2010 — key midfield control in Spain's title run.</li>
-            <li>Multiple Champions League finals (2006, 2009, 2011, 2015) — sustained elite-level influence.</li>
-            <li>Ballon d'Or top-three finishes and multiple world playmaker awards.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="advanced">
-        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
-        <div class="two-col">
-          <div>
-            <h3 style="margin:0 0 8px;color:var(--accent2)">Creative & Distribution</h3>
-            <table>
-              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
-              <tbody>
-                <tr><td>Pass Completion under Pressure</td><td>9.7</td></tr>
-                <tr><td>Progressive Passing Influence</td><td>9.5</td></tr>
-                <tr><td>Key Passes / Tempo Control</td><td>9.6</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Mental</h3>
-            <table>
-              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
-              <tbody>
-                <tr><td>Positional Discipline / Spatial IQ</td><td>9.5</td></tr>
-                <tr><td>Game-State Management</td><td>9.4</td></tr>
-                <tr><td>Leadership & Influence</td><td>9.2</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <p class="small">ERA adjustments applied for comparisons across leagues and eras; per‑match event exports require multi-source verification for assist attribution and pass-chains.</p>
-      </section>
-
-      <section class="section" aria-labelledby="tactical">
-        <h2 id="tactical" style="color:var(--accent)">Tactical Fit & Philosophy DNA</h2>
-        <p class="small">Xavi maps strongly to possession-first positional play and tempo-control philosophies; ideal as a midfield pivot in systems that prioritise short passing triangles, half-space exploitation and structured press recovery.</p>
-
-        <h3 style="color:var(--accent2);margin-top:12px">Philosophy DNA Snapshot (first 5)</h3>
-        <table class="mini-table" style="width:100%;margin-top:8px">
-          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10, ERA‑adjusted)</th><th>Scout Signature</th></tr></thead>
-          <tbody>
-            <tr><td>Positional Play (Guardiola)</td><td>9.8</td><td>Short triangle dominance; tempo control; orchestrates possession progression</td></tr>
-            <tr><td>Total Football (Michels / Cruyff)</td><td>9.0</td><td>Positional interchange and spatial occupation discipline</td></tr>
-            <tr><td>Deep-Lying Playmaker (Pirlo archetype)</td><td>9.6</td><td>Dictates tempo from deep; long-range distribution when needed</td></tr>
-            <tr><td>Italian Intelligence (Sacchi / Spalletti)</td><td>8.9</td><td>Zonal compactness and tactical transitions management</td></tr>
-            <tr><td>Modern Hybrid (Nagelsmann / DeVisser)</td><td>8.8</td><td>Flexible positional shapes; data-driven role adjustments</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="psych">
-        <h2 id="psych" style="color:var(--accent)">Psychological & Leadership Notes</h2>
-        <p class="small">Assessment dimensions: decision-making under pressure; composure; resilience; leadership style; adaptability. Scores below are anchors used in Transfer Risk and squad models.</p>
-        <table class="mini-table" style="width:100%;margin-top:8px">
-          <thead><tr><th>Dimension</th><th>Xavi Score</th><th>Scout Signal</th></tr></thead>
-          <tbody>
-            <tr><td>Decision Making Under Pressure</td><td>9.6</td><td>Exceptional tempo judgement in finals and tournament play</td></tr>
-            <tr><td>Composure</td><td>9.7</td><td>Minimal turnovers; retains control under aggressive pressing</td></tr>
-            <tr><td>Resilience</td><td>9.1</td><td>Consistent peak performance over long career</td></tr>
-            <tr><td>Leadership Style</td><td>9.3</td><td>Leads by example; organiser and coach-on-pitch</td></tr>
-            <tr><td>Adaptability</td><td>8.9</td><td>Seamless role transition into coaching and tactical evolution</td></tr>
-          </tbody>
-        </table>
-        <p class="small" style="margin-top:8px">Application: psychological modifiers feed into Trophy Magnet and Transfer Risk indices.</p>
-      </section>
-
-      <section class="section" aria-labelledby="relationships">
-        <h2 id="relationships" style="color:var(--accent)">Key Relationships</h2>
-        <p class="small">Tactical, cultural and developmental relationships that inform recruitment fit and mentorship pairings.</p>
-        <table class="mini-table" style="width:100%;margin-top:8px">
-          <thead><tr><th>Type</th><th>Entities</th><th>Scouting Use</th></tr></thead>
-          <tbody>
-            <tr><td>Club Nucleus</td><td>Barcelona midfield core (Iniesta, Busquets)</td><td>Predict passing networks and rotational partners</td></tr>
-            <tr><td>Coach Lineage</td><td>Pep Guardiola; La Masia ethos</td><td>Role expectation; philosophy continuity</td></tr>
-            <tr><td>National Team Core</td><td>Spain 2008–2012 cohort</td><td>Big-game possession control and tournament templates</td></tr>
-            <tr><td>Positional Mentors</td><td>Pirlo, Xabi comparators</td><td>Development pathway for tempo controllers</td></tr>
-            <tr><td>Commercial Partners</td><td>Club heritage channels</td><td>Content packaging and legacy storytelling</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="matches-table">
-        <h2 id="matches-table" style="color:var(--accent)">Enhanced Key Matches & Milestones (table)</h2>
-        <p class="small">Priority match packs for event-level extraction with tactical objective and extraction focus. All rows require triple-source provenance: broadcast; club archives; federation records.</p>
-        <table aria-describedby="enhanced-matches" style="margin-top:8px">
-          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
-          <tbody>
-            <tr><td>2008–2012</td><td>Spain tournaments (Euro 2008, WC 2010, Euro 2012)</td><td>Possession dominance and tournament tempo control</td><td>Pass chains; controlling sequences; clutch assists</td></tr>
-            <tr><td>2008–2011</td><td>Barcelona Champions League campaigns</td><td>Midfield orchestration vs elite opposition</td><td>Passing networks; transition triggers; pressing recovery</td></tr>
-            <tr><td>2009/2011</td><td>Champions League Finals</td><td>Peak match control on biggest stage</td><td>Final third creation; press resistance; assist provenance</td></tr>
-            <tr><td>2015</td><td>Late career Al Sadd leadership matches</td><td>Role transition and mentoring output</td><td>Leadership sequences; passing influence in different league context</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="video">
-        <h2 id="video" style="color:var(--accent)">Video Highlights — Extraction Guide</h2>
-        <ul class="small">
-          <li>Priority sources: UEFA finals footage, FC Barcelona archives, FIFA tournament reels for event-level extraction and frame tagging.</li>
-          <li>Extraction checklist: match ID; mm:ss; event type; start/end frames; pre-pass chains; pressure state; ERA tag; triple-source confirmation for assists.</li>
-        </ul>
-      </section>
-
-      <section class="section" aria-labelledby="comparison">
-        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
-        <p class="small">Comparators: elite tempo controllers and deep-lying playmakers. Recommended comparators for DNA matching: Andrea Pirlo, Xabi (ERA-adjusted), Andrés Iniesta. Use FGA DNA algorithm and ERA normalisation for radar outputs.</p>
-
-        <div class="visual-canvas">
-          <canvas id="xaviRadar" aria-label="Radar comparing Xavi and comparators" width="720" height="420"></canvas>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="sources">
-        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
-        <p class="small">Core factual items drawn from consolidated career records, club archives and major performance databases. All match-level event rows must be triple-verified (broadcast; club logs; federation records) before publication.</p>
-      </section>
-
-      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Xavi Hernández scouting profile. Numeric fields are ERA‑adjusted estimates; event rows and honours must be triple‑verified before publication.</footer>
-    </main>
+    <div class="section small">Bio and career details referenced from historical football databases (Transfermarkt, FBref, Sofascore, BeSoccer) and club/national team archives. Minimal ERA adjustments applied.</div>
   </div>
+</aside>
 
-  <script>
-    const ctx = document.getElementById('xaviRadar').getContext('2d');
-    new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: ['Passing Range','Tempo Control','Vision','Ball Retention','Spatial IQ','Leadership','Progressive Passing'],
-        datasets: [
-          { label: 'Xavi', data: [9.8,9.7,9.6,9.7,9.5,9.2,9.5], backgroundColor:'rgba(59,130,246,0.12)', borderColor:'#93c5fd', pointBackgroundColor:'#93c5fd', borderWidth:2 },
-          { label: 'Andrea Pirlo', data: [9.6,9.5,9.4,9.1,9.3,8.8,9.4], backgroundColor:'rgba(16,185,129,0.10)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
-          { label: 'Iniesta (ERA adj)', data: [9.4,9.2,9.5,9.3,9.4,9.0,9.1], backgroundColor:'rgba(250,204,21,0.10)', borderColor:'#f59e0b', pointBackgroundColor:'#f59e0b', borderWidth:2 }
-        ]
-      },
-      options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
-    });
-  </script>
-</body>
-</html>
+<main class="card" aria-label="full-profile">
+  <div class="rating-badge" aria-hidden="false">99.0</div>
+
+  <section class="section" aria-labelledby="overview">
+    <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+    <p class="lead">Xavier "Xavi" Hernández Creus was the embodiment of a footballing philosophy. He was the "metronome" and on-field brain of two of the greatest teams in history (Guardiola's Barcelona and Spain's 2008-12 dynasty). His game was not physical, but purely mental (POI 10.0, DMA 10.0). He dictated the tempo, controlled possession ("the passing carousel"), and broke down defenses with his generational vision and passing (PAS 10.0). His ability to find space, receive under pressure ("La Pausa"), and execute the perfect pass (KEY 9.8) was unmatched.</p>
+  </section>
+
+  <section class="section" aria-labelledby="career-timeline">
+    <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+    <table aria-describedby="timeline-table">
+      <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1998–2015</td><td>FC Barcelona</td><td>Club legend; 767 apps; 8x La Liga, 4x UEFA Champions League. (Transfermarkt)</td></tr>
+        <tr><td>2015–2019</td><td>Al Sadd</td><td>Player, and later Manager. (Transfermarkt)</td></tr>
+        <tr><td>2000–2014</td><td>Spain National Team</td><td>Legend; 133 caps; 2010 World Cup Winner, 2008 & 2012 Euro Winner. (FBref)</td></tr>
+        <tr><td>Post-Career</td><td>Manager (Al Sadd, FC Barcelona)</td><td>Returned to manage Barcelona, implementing his philosophy.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" aria-labelledby="key-matches">
+    <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+    <table aria-describedby="key-matches-table">
+      <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>2010</td><td>FIFA World Cup Winner</td><td>The midfield engine of Spain's first World Cup win. (FIFA)</td></tr>
+        <tr><td>2008, 2012</td><td>European Championship Winner (2 times)</td><td>Named Player of the Tournament at Euro 2008. (UEFA)</td></tr>
+        <tr><td>2009, 2010, 2011</td><td>Ballon d'Or (3rd Place)</td><td>Finished 3rd three consecutive years.</td></tr>
+        <tr><td>Career</td><td>4x UEFA Champions League Winner</td><td>Core player in Barcelona's 2006, 2009, 2011, and 2015 victories.</td></tr>
+        <tr><td>Career</td><td>8x La Liga Champion</td><td>Dominated Spanish football for over a decade.</td></tr>
+        <tr><td>2011 (CL Final)</td><td>Champions League Final vs. Man Utd</td><td>A "Tiki-Taka" masterclass; Man of the Match.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" aria-labelledby="strengths-weaknesses">
+    <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+    <div class="two-col">
+      <div>
+        <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+        <ul class="small">
+          <li><strong>Football IQ (POI/DMA):** Generational (10.0); A "genius," saw the game in 360 degrees.</li>
+          <li><strong>Passing (PAS):** (10.0); The greatest possession/tempo passer ever. Master of "Tiki-Taka."</li>
+          <li><strong>Vision (KEY):** (9.8); Unlocked defenses with impossible through-balls.</li>
+          <li><strong>Press Resistance (TEC):** (9.9); Flawless first touch and "La Pausa" to escape pressure.</li>
+          <li><strong>Leadership (CHR):** (9.5); The on-field coach, captain, and "philosopher" of the team.</li>
+          <li><strong>Composure (CMP):** (9.9); Never panicked, always in control.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+        <ul class="small">
+          <li><strong>Physicality (PHY):** Lacked size and strength; avoided duels.</li>
+          <li><strong>Pace (PAC):** Lacked any significant speed.</li>
+          <li><strong>Aerial Ability:** (N/A) Not part of his game at 1.70m.</li>
+          <li><strong>Goalscoring (GOL):** Was a creator, not a finisher (ERA-Adjusted).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="global-impact">
+    <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+    <div class="two-col">
+      <div>
+        <p class="small"><strong>Marketability & Commercial Value:</strong> Global icon; synonymous with "Tiki-Taka" and Barcelona's golden era. A "purist's" favorite.</td>
+        <p class="small"><strong>Transfer Market Positioning (Player):** (N/A - GTM). A one-club man. He was priceless and non-transferable.</td>
+      </div>
+      <div>
+        <p class="small"><strong>Cross-League Fit (Player):** His style is system-dependent. In a possession team, he is the best. In a physical, direct team, he would struggle.</td>
+        <p class="small"><strong>International Impact:</strong> Spanish legend; the "brain" behind their WC and 2x Euro wins.</td>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="advanced">
+    <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+    <div class="two-col">
+      <div>
+        <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+        <table>
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Tempo Index (POI+PAS+DMA)</td><td>10.0 (Archetype)</td></tr>
+            <tr><td>Pass Completion %</td><td>94-96% (Est.)</td></tr>
+            <tr><td>Passes/90</td><td>110+ (Est.)</td></tr>
+            <tr><td>KEY - Key Passes/90</td><td>3.5+ (Est.)</td></tr>
+            <tr><td>Press Resistance (TEC)</td><td>9.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Legends)</h3>
+        <ul class="small">
+          <li>Intelligence/Vision/Passing: 99.9th percentile. (FBref, BeSoccer)</li>
+          <li>Press Resistance (TEC): 99.9th percentile.</li>
+          <li>Tempo Control (DMA): 99.9th percentile.</li>
+          <li>Physical/Athletic Metrics: Bottom 10th percentile.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small">Detailed event data available. ERA Factor: ~1.00 (Modern player).</p>
+  </section>
+
+  <section class="section" aria-labelledby="tactical-philosophies">
+    <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+    <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+    <p class="small">Xavi's DNA **IS** the philosophy. He is the **Tiki-Taka Architect**. He is defined by **Generational Intelligence (POI/DMA)**, **Passing Perfection (PAS)**, and **Total Tempo Control (TEC)**. He is the benchmark and on-field executioner of FGA Philosophy `Philosophy_09_Guardiola_Positional` and `Philosophy_01_Cruyff_Intelligence`.</p>
+
+    <div class="two-col">
+      <div>
+        <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Philosophy_09_Guardiola_Positional</td><td>10.0</td><td>The archetype and on-field brain of the system.</td></tr>
+            <tr><td>Philosophy_01_Cruyff_Intelligence</td><td>10.0</td><td>The "No. 4" who became the "No. 6" (No. 8); total IQ.</td></tr>
+            <tr><td>Philosophy_02_Michels_Total</td><td>9.5</td><td>The "Total Football" metronome.</td></tr>
+            <tr><td>Platini Elegance</td><td>9.0</td><td>Shared the intelligence, but less of a goal threat.</td></tr>
+            <tr><td>Menotti Artistry</td><td>9.2</td><td>Flair, individualism, and technical genius.</td></tr>
+            <tr><td>Baresi Sweeper</td><td>9.0</td><td>(N/A - But shared the "playmaker from deep" DNA).</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use 2011 CL Final vs Man Utd, 2012 Euro Final vs Italy, 2010 El Clásico (5-0 win).</div>
+      </div>
+
+      <div>
+        <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+        <ul class="small">
+          <li><strong>Generational IQ (POI/DMA):** "The Passing Carousel," 360-degree vision.</li>
+          <li><strong>"La Pausa" (TEC):** The ability to stop, let play develop, and then pass.</li>
+          <li><strong>Tempo Control (PAS):** 100+ passes per game, 95% accuracy. (FBref)</li>
+          <li><strong>Leadership (CHR):** The on-field coach and system guardian.</li>
+          <li><strong>Press Evasion (TEC):** Used intelligence and control, not pace, to beat pressure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+    <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents require qualitative assessment based on extensive historical accounts, available footage, goal/award records, and confidence level.</p>
+
+    <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+    <ul class="small">
+      <li>Deploy as the central, "dictating" midfielder (No. 6 or No. 8).</li>
+      <li>Build the *entire tactical system* ("Tiki-Taka") around his intelligence and passing.</li>
+      <li>Requires technically proficient and intelligent teammates who can interchange positions.</li>
+      <li>Do NOT ask him to play in a physical, direct, or counter-attacking system.</li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="psych-profile">
+    <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+    <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+    <ul class="small">
+      <li><strong>Genius-Level IQ:** A footballing "philosopher" (high POI/DMA).</li>
+      <li><strong>Leader (The Guardian):** The guardian of the "Barca/Cruyff" philosophy (high CHR).</li>
+      <li><strong>Humble & Team-First:** The ultimate team player; made others (Messi, Iniesta) better.</li>
+      <li><strong>Perfectionist:** Obsessed with possession, angles, and "the system."</li>
+      <li><strong>Winner:** Driven by a desire to win, but only in his specific, beautiful style.</li>
+    </ul>
+
+    <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+    <ul class="small">
+      <li>Generational football intelligence (POI 10.0)</li>
+      <li>Unshakeable self-confidence in "the system."</li>
+      <li>Handles pressure of being the team's "brain" (CRS 9.5)</li>
+      <li>Winning mentality (WC, 2x Euro, 4x CL)</li>
+    </ul>
+
+    <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+    <ul class="small">
+      <li>(N/A - On the field, was the epitome of mental strength).</li>
+      <li>His physical limitations meant he *had* to be perfect mentally, and he was.</li>
+    </ul>
+
+    <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+    <p class="small">The most important central midfielder of his generation. His experience is defined by being the "brain" of the 2008-2012 Spain and Barcelona dynasties. He won every single major trophy possible. He wasn't just a player; he was the on-field manifestation of a revolutionary footballing philosophy (Tiki-Taka).</p>
+  </section>
+
+  <section class="section" aria-labelledby="career-stats">
+    <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+    <p class="small">Populate the table below with season data from Transfermarkt/FBref/BeSoccer.</p>
+    <table>
+      <thead><tr><th>Season (Approx)</th><th>Club</th><th>Apps (All)</th><th>Goals</th><th>Assists</th><th>ERA‑FGA</th></tr></thead>
+      <tbody>
+        <tr><td>2008-09</td><td>FC Barcelona</td><td>54</td><td>10</td><td>11</td><td>99.5 (Treble Peak)</td></tr>
+        <tr><td>2009-10</td><td>FC Barcelona</td><td>53</td><td>7</td><td>14</td><td>100.0 (WC/Ballon d'Or Peak)</td></tr>
+        <tr><td>2010</td><td>Spain (WC)</td><td>7</td><td>0</td><td>1</td><td>100.0 (WC Peak)</td></tr>
+        <tr><td>2010-11</td><td>FC Barcelona</td><td>50</td><td>5</td><td>11</td><td>100.0 (CL Win Peak)</td></tr>
+        <tr><td>2011-12</td><td>FC Barcelona</td><td>51</td><td>14</td><td>11</td><td>99.0</td></tr>
+      </tbody>
+    </table>
+    <div class="muted-box small">Source: Transfermarkt, FBref, BeSoccer, Wikipedia. Stats are easily verifiable. "Assists" includes official assists.</div>
+  </section>
+
+  <section class="section" aria-labelledby="psych-leadership">
+    <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+    <table>
+      <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td>Leadership Presence</td><td>The on-field coach (CHR 9.5). Leads through intelligence and as the guardian of "the system."</td><td>Build the entire team and philosophy around his vision.</td></tr>
+        <tr><td>Pressure Handling</td><td>Thrived on the biggest stages (WC/Euro/CL Finals).</td><td>The team's tactical and mental focal point.</td></tr>
+        <tr><td>Development Focus (Historical)</td><td>(N/A - Mastered the game and reinvented his position).</td><td>(N/A).</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" aria-labelledby="relationships">
+    <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+    <table>
+      <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+      <tbody>
+        <tr><td>Coaching Relationship</td><td>Pep Guardiola (Barca)</td><td>Iconic player-coach duo; Xavi was the on-field execution of Pep's vision.</td></tr>
+        <tr><td>Coaching Relationship</td><td>L. Aragonés / V. del Bosque (Spain)</td><td>The coaches built the Spanish dynasty around Xavi's "Tiki-Taka."</td></tr>
+        <tr><td>Tactical Partner</td><td>Andrés Iniesta (Barca/Spain)</td><td>Formed the most iconic midfield partnership in modern history.</td></tr>
+        <tr><td>Tactical Partner</td><td>Lionel Messi (Barca)</td><td>Xavi was the "brain" and "provider" for Messi's genius.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" aria-labelledby="last5">
+    <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+    <p class="small">Source: Match reports/historical data (e.g., FIFA archives, BeSoccer, FBref).</p>
+    <table>
+      <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>G</th><th>A</th><th>Key Actions</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>2011-05-28</td><td>Man Utd (CL Final)</td><td>W 3-1</td><td>0</td><td>1</td><td>MOTM; Total midfield dominance, 1 assist</td><td>Iconic performance</td></tr>
+        <tr><td>2012-07-01</td><td>Italy (Euro Final)</td><td>W 4-0</td><td>0</td><td>2</td><td>2 assists, midfield masterclass</td><td>Iconic performance</td></tr>
+        <tr><td>2010-07-11</td><td>Netherlands (WC Final)</td><td>W 1-0 (AET)</td><td>0</td><td>0</td><td>100+ passes, controlled the game</td><td>World Cup Final</td></tr>
+        <tr><td>2010-11-29</td><td>Real Madrid (La Liga)</td><td>W 5-0</td><td>1</td><td>1</td><td>1 goal, 1 assist, passing masterclass</td><td>Iconic El Clásico</td></tr>
+        <tr><td>2009-05-02</td><td>Real Madrid (La Liga)</td><td>W 6-2</td><td>0</td><td>4</td><td>4 assists in a historic win at the Bernabéu</td><td>Iconic performance</td></tr>
+      </tbody>
+    </table>
+    <div class="muted-box small">Verify details via historical match reports. Matches chosen for significance.</div>
+  </section>
+
+  <section class="section" aria-labelledby="video-highlights">
+    <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+    <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2011 CL Final, 2012 Euro Final, and 5-0 / 6-2 El Clásicos.</p>
+    <table>
+      <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+      <tbody>
+        <tr><td>VH-XH-01</td><td>Barcelona vs Man Utd (CL Final)</td><td>2011</td><td>MOTM performance, "Tiki-Taka" masterclass</td><td>ARCH-XH-2011CLF-MUN (attach)</td></tr>
+        <tr><td>VH-XH-02</td><td>Spain vs Italy (Euro Final)</td><td>2012</td><td>2 assists, final domination</td><td>ARCH-XH-2012EURO-ITA (attach)</td></tr>
+        <tr><td>VH-XH-03</td><td>Barcelona vs Real Madrid (La Liga)</td><td>2010</td><td>"5-0" El Clásico, goal and masterclass</td><td>ARCH-XH-2010ECL-RMA (attach)</td></tr>
+        <tr><td>VH-XH-04</td><td>Various</td><td>Career</td><td>Compilation of "La Pausa," turns, and through-balls</td><td>ARCH-XH-GENIUS (attach)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" aria-labelledby="comparison">
+    <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (All-Time Greats)</h2>
+    <p class="small">Comparators: Andrés Iniesta, Michel Platini. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+    <div class="visual-canvas">
+      <canvas id="xaviRadar" aria-label="Radar comparing Xavi and comparators" width="720" height="420"></canvas>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="psych-app">
+    <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+    <ul class="small">
+      <li>The ultimate "systems" player; his brain *is* the system (POI 10.0).</li>
+      <li>His confidence comes from his intelligence and trust in the "philosophy."</li>
+      <li>A leader who inspires through his application of the team's tactical identity.</li>
+      <li>Thrived on the responsibility of being the team's "metronome" and "brain."</li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="sources">
+    <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+    <p class="small">Primary player data: FIFA/UEFA/RFEF records, Historical league archives (La Liga, QSL), Barcelona/Spain records, Transfermarkt, FBref, Sofascore, BeSoccer. ERA factors are minimal. Each PHILOSOPHY_SUBCOMP row requires extensive qualitative assessment based on historical accounts and available footage.</p>
+    <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate all major awards, trophy wins, and cap/goal records meticulously.</div>
+  </section>
+
+  <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Xavi Hernández expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+</main>
+</div>
+
+<script> const ctx = document.getElementById('xaviRadar')?.getContext('2d'); if (ctx) { new Chart(ctx, { type: 'radar', data: { labels: ['Intelligence (POI)','Passing (PAS)','Vision (DMA)','Creativity (KEY)','Control (TEC)','Leadership (CHR)'], datasets: [ { label: 'Xavi Hernández (Peak)', data: [10.0, 10.0, 10.0, 9.8, 9.9, 9.5], backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 }, { label: 'Andrés Iniesta (Peak)', data: [9.8, 9.7, 9.8, 9.9, 10.0, 9.2], backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 }, { label: 'Michel Platini (Peak)', data: [10.0, 9.8, 9.9, 9.9, 9.8, 9.8], backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 } ] }, options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } }, scales:{ r:{ beginAtZero:false, min: 9.0, max:10, ticks:{ color:'#cfe6ff', stepSize:0.2, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } } } }); } </script>
+
+</body> </html>

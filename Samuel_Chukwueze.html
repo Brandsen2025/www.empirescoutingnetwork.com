@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Samuel Chukwueze — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://sportal365images.com/process/smp-images-production/ringier.africa/24092025/f007d7e2-8100-479a-be8a-4f5a9d1a8be9.jpg?operations=fit(480:)" alt="Samuel Chukwueze photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Samuel Chukwueze</div>
+        <div class="sub">Right Winger · Nigeria · Born: 22 May 1999 · Height: 1.72 m</div>
+
+        <div>
+          <span class="pill"><strong>Current Club</strong> Fulham (loan from AC Milan)</span>
+          <span class="pill"><strong>Former Clubs</strong> Villarreal; AC Milan</span>
+          <span class="pill"><strong>Peak FGA</strong> 86.1</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Explosive inverted winger with elite dribbling, acceleration and direct line-breaking; combines high-volume successful take-ons with dangerous left-foot shooting and diagonal runs into the box. Strong fit for systems valuing quick transitions and half-space penetrations.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Progressive Carries (per 90)</td><td>3.6</td></tr>
+              <tr><td>Successful Take‑Ons (per 90)</td><td>3.8</td></tr>
+              <tr><td>Shot-Creating Actions (per 90)</td><td>2.4</td></tr>
+              <tr><td>Non-pen xG+xAG (per 90)</td><td>0.30</td></tr>
+              <tr><td>Touches in Box (per 90)</td><td>2.2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach FBref event extracts, Transfermarkt transfer records and Sofascore minute logs for every season row.</li>
+            <li>Confirm loan terms and contract expiry with club press releases before publishing transfer details.</li>
+            <li>Cross-validate key-match timestamps for any video evidence used in sub-component ratings.</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">85.4</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Expanded Player Overview</h2>
+        <p class="lead">Samuel Chukwueze is a direct, explosive winger who excels in one-on-one scenarios and transitional counter-attacks. Natural in half-spaces and on the right flank when inverted onto his left foot, he creates high-value shot opportunities through dribbles, diagonal runs and late arrivals. He pairs raw acceleration with refined ball manipulation to destabilise defensive lines in possession and quick-transition phases.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Detailed)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2017–2018</td><td>Villarreal B → First team</td><td>Promoted through youth; early senior breakthrough with technical explosiveness.</td></tr>
+            <tr><td>2018–2023</td><td>Villarreal (senior)</td><td>Established as a high-volume dribbler and incremental final-third creator; key European performances.</td></tr>
+            <tr><td>2023–Present</td><td>AC Milan → Loan to Fulham (2025)</td><td>Transferred to Milan; later loaned to Fulham to regain minutes and adapt to Premier League intensity.</td></tr>
+            <tr><td>2015–Present</td><td>Nigeria (senior)</td><td>Regular international contributor with tournament experience and direct goal involvement.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches & Milestones (Match-level details)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Match / Score</th><th>FGA Match Rating</th><th>Description / Tactical Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2022 — UEFA Champions League</td><td>Villarreal vs Bayern Munich — crucial equaliser</td><td>9.0</td><td>Late equaliser from dynamic run; showcased timing of late box arrival and composure on the left foot.</td></tr>
+            <tr><td>2023 — La Liga</td><td>Villarreal vs Real Madrid — 3–2</td><td>9.2</td><td>Brace + assist performance on the road; high-value dribbles and press-resistant finishing under pressure.</td></tr>
+            <tr><td>2024 — AC Milan Champions League</td><td>Milan vs Borussia Dortmund — scored in defeat</td><td>7.6</td><td>Delivered high-speed penetration and resilient shot under duress; demonstrated adaptability to new system.</td></tr>
+            <tr><td>2025 — International</td><td>Nigeria competitive fixtures</td><td>8.0</td><td>Consistent outlet for counter transitions and dangerous left-footed deliveries in international setups.</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Note: Match ratings are ERA‑adjusted estimates; publish only after attaching FBref event IDs and match logs for auditability.</div>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses (In-depth)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">In-Depth Strengths</h3>
+            <ul class="small">
+              <li><strong>Acceleration & Change of Pace:</strong> Elite first-step burst; consistently beats defenders in short spaces.</li>
+              <li><strong>Dribbling & Take‑Ons:</strong> High successful take-on rate and progressive carry profile into penalty area.</li>
+              <li><strong>Left-footed Finishing:</strong> Diagonal cut-ins produce high xG shots and clinical low-driven attempts.</li>
+              <li><strong>Transition Threat:</strong> Immediate impact on counters; fast in linking turnovers to high-leverage chances.</li>
+              <li><strong>Pressing Triggers:</strong> Effective in initiating press transitions with direct recovery runs and quick counters.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">In-Depth Weaknesses</h3>
+            <ul class="small">
+              <li><strong>End-Product Variance:</strong> Can lose composure in tight finishing sequences; conversion fluctuates by season.</li>
+              <li><strong>Aerial & Physical Duels:</strong> Below-average in sustained physical contests; limited effectiveness in aerial duels.</li>
+              <li><strong>Defensive Consistency:</strong> Requires tactical coaching to balance high offensive freedom with defensive responsibilities.</li>
+              <li><strong>Minute Continuity:</strong> Periodic dips in form when match minutes are fragmented; benefits from stable run of starts.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>ERA-Adj Value</th></tr></thead>
+              <tbody>
+                <tr><td>Progressive Carries / 90</td><td>3.6</td></tr>
+                <tr><td>Successful Take‑Ons / 90</td><td>3.8</td></tr>
+                <tr><td>Shot-Creating Actions / 90</td><td>2.4</td></tr>
+                <tr><td>Non-pen xG + xAG / 90</td><td>0.30</td></tr>
+                <tr><td>Touches in Box / 90</td><td>2.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Contextual & Percentiles</h3>
+            <ul class="small">
+              - Progressive carries percentile: Top 18% among wide attackers in comparable leagues (ERA‑adj).<br>
+              - Successful take‑ons percentile: Top 10%—elite dribbling frequency and effectiveness.<br>
+              - SCA percentile: Top 22%—consistent final-third creation from wide positions.<br>
+              - Durability index: Moderate; requires minute smoothing and medical verification.
+            </ul>
+          </div>
+        </div>
+        <p class="small">All ERA adjustments use league normalisation and Era_Adjustment coefficients stored in the FGA system; final release must include FBref event extracts and Sofascore minute verification for per-90 denominators.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Philosophies, Roles & Positional Use</h2>
+        <p class="small">Primary tactical fit: counter‑attacking and positional systems that allow inverted wide movement into half-spaces. Chukwueze thrives where quick vertical transitions are prioritised and space is available behind defensive lines for diagonal runs.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Position</th><th>Role</th><th>Scout Note</th></tr></thead>
+          <tbody>
+            <tr><td>Inverted Right Wing</td><td>Primary; cut-ins and left‑foot finishing</td><td>High-impact on counters; needs overlapping full-back to provide width.</td></tr>
+            <tr><td>Right Winger (Traditional)</td><td>Direct dribbler; hugging touchline</td><td>Effective when allowed to isolate full-backs one-vs-one.</td></tr>
+            <tr><td>Secondary Forward</td><td>Off-the-ball penetrator; late box arrival</td><td>Can complement a physical central striker to create overloads.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Chukwueze fits as an advanced playmaker in positional systems when inverted and as a counter-pressing outlet in transition-oriented structures; excels in teams that prioritise forward progression, half-space penetration and rapid overloads.</p>
+        <table style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit (0–10)</th><th>Scout Note</th></tr></thead>
+          <tbody>
+            <tr><td>Guardiola Positional</td><td>7.6</td><td>Good with positional rotation; benefits from structured possession phases</td></tr>
+            <tr><td>Mourinho Warfare</td><td>6.2</td><td>Less suited to low-block long-counter heavy systems</td></tr>
+            <tr><td>DeVisser Global</td><td>7.8</td><td>Scouting-friendly profile; adaptable to various modern systems</td></tr>
+            <tr><td>Bielsa Intensity</td><td>7.4</td><td>Can execute high-intensity phases but workload management needed</td></tr>
+            <tr><td>Klopp Intensity</td><td>8.0</td><td>Excellent fit for counter-press + rapid vertical transitions</td></tr>
+            <tr><td>Pep Hybrid Variants</td><td>7.5</td><td>Works when positional cover is provided and full-backs supply width</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Action: Attach PHILOSOPHY_SUBCOMP evidence rows for each philosophy score at publication.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile, Heritage & Cultural Context</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Heritage & Background</h3>
+            <p class="small">Born in Abia State, Nigeria; developed through local academies before moving to Europe. Represents Nigeria at senior level with tournament experience and strong national-team integration.</p>
+            <h3 class="accent-heading" style="margin-top:12px">Cultural Football Footprint</h3>
+            <ul class="small">
+              <li>Nigerian development: strong direct flair and attacking instincts.</li>
+              <li>Spanish professional grooming: tactical refinement and final-third intelligence.</li>
+              <li>English loan experience: adaptation under higher physical intensity environments.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Personality Traits & Recommendations</h3>
+            <ul class="small">
+              <li><strong>Work Ethic:</strong> High competitive drive; shows rapid improvement when trusted with minutes.</li>
+              <li><strong>Coachability:</strong> Responds well to targeted finishing and movement drills.</li>
+              <li><strong>Psychological Interventions:</strong> Periodic confidence and end-product training to stabilise finishing variance.</li>
+            </ul>
+            <h3 class="accent-heading" style="margin-top:12px">Practical Management</h3>
+            <ul class="small">
+              <li>Use targeted conditioning and recovery protocols to mitigate form dips when minutes are fragmented.</li>
+              <li>Implement repetition-based finishing and decision-making drills under pressure.</li>
+              <li>Align media strategy to protect confidence and maintain performance trajectory.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Publish-Ready)</h2>
+        <p class="small">Populate numeric cells with exports from FBref / Sofascore / Transfermarkt and include a source row per season for auditability.</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Appearances</th><th>Minutes</th><th>Goals</th><th>Assists</th><th>npxG</th><th>xAG</th><th>PrgC/90</th><th>SCA/90</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2018–19</td><td>Villarreal</td><td>20</td><td>900</td><td>4</td><td>3</td><td>0.70</td><td>0.40</td><td>2.0</td><td>1.6</td><td>75.2</td></tr>
+            <tr><td>2021–22</td><td>Villarreal</td><td>32</td><td>2100</td><td>8</td><td>8</td><td>4.10</td><td>3.20</td><td>3.4</td><td>2.9</td><td>82.5</td></tr>
+            <tr><td>2023–24</td><td>AC Milan</td><td>28</td><td>1200</td><td>4</td><td>3</td><td>1.75</td><td>1.20</td><td>2.8</td><td>2.1</td><td>78.0</td></tr>
+            <tr><td>2024–25</td><td>AC Milan</td><td>22</td><td>980</td><td>2</td><td>4</td><td>1.10</td><td>1.50</td><td>3.0</td><td>2.3</td><td>76.4</td></tr>
+            <tr><td>2025–26</td><td>Fulham (loan)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with source extracts. ERA‑FGA is calculated with system formulas: FGA_Rating_Base + Era_Adjustment + Context multipliers. Include source row linking to file name and extraction timestamp for each season.</div>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison & Visuals</h2>
+        <p class="small">Comparators: Bernardo Silva (positional IQ), Bukayo Saka (inverted wing movement), Samuel Chukwueze (self), Nicolas Pépé (inverted winger finishing), Héctor Bellerín-style directness. Visuals below are placeholders — ensure charts are generated from ERA‑adjusted per‑90 values before export.</p>
+        <div class="visual-canvas">
+          <canvas id="chukwuezeRadar" aria-label="Radar comparing Chukwueze and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video Extraction Guide (Detailed)</h2>
+        <ul class="small">
+          <li>Primary extraction sources: Wyscout, FBref event timestamps, Stats Perform clips, SkillCorner tracking for movement overlays.</li>
+          <li>Clip metadata template: Match ID; Competition; Date; Minute start; Minute end; Event tags (dribble-to-shot, progressive carry, assist); Scout note (1 line); Confidence (H/M/L).</li>
+          <li>3‑clip minimum per rated metric required for Tier‑3 validation; include at least one high-pressure example for finishing metrics.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">For publication attach per-season and per-event: FBref event export (CSV), Sofascore match logs, Transfermarkt transfer/contract sync, Wyscout/Stats Perform clip IDs, and official club press releases. All figures above are ERA‑adjusted estimates and must be backed by these source files before client delivery.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Samuel Chukwueze expanded scouting profile. Replace placeholders with source extracts for final publication and include per-metric evidence rows for auditability.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('chukwuezeRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Progressive Carries','Take‑Ons','SCA','Finishing','Pressing','Work Rate','Spatial IQ'],
+          datasets: [
+            { label: 'Samuel Chukwueze', data: [3.6,3.8,2.4,7.1,6.8,7.2,7.6],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Bernardo Silva', data: [4.0,2.0,3.8,7.2,5.0,7.0,8.4],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Bukayo Saka', data: [3.8,3.2,3.9,7.0,6.0,7.6,7.9],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
+            { label: 'Samuel Chukwueze (Comparator)', data: [4.6,3.8,4.0,7.5,7.0,7.2,7.1],
+              backgroundColor:'rgba(239,68,68,0.08)', borderColor:'#ef4444', pointBackgroundColor:'#ef4444', borderWidth:2 },
+            { label: 'Nicolas Pépé', data: [3.9,3.5,4.3,7.2,6.6,6.8,7.2],
+              backgroundColor:'rgba(147,51,234,0.08)', borderColor:'#9333ea', pointBackgroundColor:'#9333ea', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:2 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+```

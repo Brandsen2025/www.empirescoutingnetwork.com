@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Franz Beckenbauer — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAiGPHq97Vov-ivrVEPzIU-31pE0oUOGB_Y39UUzmccMjY0jxIe3EubSuQwifiUXki4Y&usqp=CAU" alt="Franz Beckenbauer photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Franz Beckenbauer</div>
+        <div class="sub">Libero / Centre-Back / Midfielder (Retired) · Germany · Born: 11 Sep 1945 (Died: 7 Jan 2024) · Height: 1.81 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Bayern Munich, New York Cosmos</span>
+          <span class="pill"><strong>Nickname</strong> Der Kaiser (The Emperor)</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Revolutionary footballer who defined the modern 'libero' role. An elegant, intelligent, and dominant figure who controlled games from defense with exceptional technique, vision, leadership, and attacking impetus. One of the greatest players in history.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>POI - Position Intelligence</td><td>9.9 (Generational)</td></tr>
+              <tr><td>LGP - Long Pass Precision</td><td>9.6</td></tr>
+              <tr><td>CPX - Composure</td><td>9.8</td></tr>
+              <tr><td>ELE - Elegance</td><td>9.9</td></tr>
+              <tr><td>CHR - Character</td><td>9.7 (Captaincy/Leadership)</td></tr>
+              <tr><td>Beckenbauer Libero (Philosophy 35)</td><td>10.0 (Archetype)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach historical match logs (Bundesliga, European Cup, WC) and detailed video analysis to verify metrics, particularly passing, interceptions, and progressive carries from deep.</li>
+            <li>Confirm exact trophy counts, Ballon d'Or wins, and World Cup participation via official FIFA/UEFA/DFB records.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from historical football databases, FIFA records, and club archives. Significant ERA adjustments applied.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">98.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Franz "Der Kaiser" Beckenbauer is synonymous with tactical intelligence, technical elegance, and leadership (elite POI, ELE, CHR). He revolutionized defensive play by transforming the sweeper role into an attacking launchpad, stepping into midfield with grace and purpose. His effortless control (CPX), pinpoint passing range (LGP), anticipation (INT), and commanding presence made him the dominant figure for Bayern Munich and West Germany during their most successful periods.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1964–1977</td><td>Bayern Munich</td><td>Legendary captain; Won 4 Bundesliga, 4 DFB-Pokal, 3 European Cups, 1 Cup Winners' Cup.</td></tr>
+            <tr><td>1977–1980</td><td>New York Cosmos</td><td>Pioneering NASL spell alongside Pelé; Won Soccer Bowls.</td></tr>
+            <tr><td>1980–1982</td><td>Hamburger SV</td><td>Returned to Germany; Won Bundesliga title.</td></tr>
+            <tr><td>1983</td><td>New York Cosmos</td><td>Final playing season.</td></tr>
+            <tr><td>1965–1977</td><td>West Germany National Team</td><td>Captain; 103 caps; Won World Cup ('74), EURO ('72); Runner-up WC ('66), EURO ('76).</td></tr>
+            <tr><td>1984–1990</td><td>West Germany (Manager)</td><td>Won World Cup ('90); Runner-up ('86).</td></tr>
+            <tr><td>Various</td><td>Bayern Munich (Manager/President)</td><td>Held key roles post-playing career.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1974</td><td>FIFA World Cup Winner (Captain)</td><td>Led West Germany to victory on home soil.</td></tr>
+            <tr><td>1972</td><td>UEFA European Championship Winner (Captain)</td><td>Dominated the tournament with West Germany.</td></tr>
+            <tr><td>1972, 1976</td><td>Ballon d'Or Winner</td><td>Only defender to win the award twice.</td></tr>
+            <tr><td>1974, 75, 76</td><td>European Cup Treble (Bayern Munich Captain)</td><td>Led Bayern to unprecedented European dominance.</td></tr>
+            <tr><td>1990</td><td>FIFA World Cup Winner (Manager)</td><td>One of three people to win WC as player and manager.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Tactical Intelligence & Reading Play (POI):</strong> Arguably unparalleled; always seemed steps ahead.</li>
+              <li><strong>Passing Range & Vision (LGP/KEY):</strong> Dictated play from deep with incisive passes.</li>
+              <li><strong>Elegance & Composure (ELE/CPX):</strong> Effortless style, supreme calmness on the ball.</li>
+              <li><strong>Leadership (CHR):</strong> Natural captain, commanded respect, organized teams.</li>
+              <li><strong>Technical Skill (DXT/STK):</strong> Superb control, dribbling ability for a defender.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace (SPR):</strong> Relied on anticipation and positioning rather than raw speed.</li>
+              <li><strong>Aggressive Tackling:</strong> Style based on interception/positioning, not forceful tackling (low TAC score relative to other metrics).</li>
+              <li>(Minimal weaknesses overall relative to his era and role).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Global icon; "Der Kaiser" brand transcended football. One of the game's most influential figures.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> The ultimate defensive/playmaking asset of his generation; defined a position.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Transcendent talent adaptable to any league, though thrived with tactical freedom.</td>
+            <p class="small"><strong>International Impact:</strong> Led West Germany through its most successful era as captain; World Cup winner as player and manager. Huge legacy.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>POI - Position Intelligence</td><td>9.9</td></tr>
+                <tr><td>LGP - Long Pass Precision</td><td>9.6</td></tr>
+                <tr><td>CPX - Composure</td><td>9.8</td></tr>
+                <tr><td>Progressive Carries/90</td><td>4.0+ (Elite for CB/Libero)</td></tr>
+                <tr><td>Interceptions/90</td><td>3.5+ (Elite)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Defenders/Liberos)</h3>
+            <ul class="small">
+              <li>Intelligence/Composure/Elegance: 99.9th percentile, defining attributes.</li>
+              <li>Progressive Passing/Carrying: Revolutionized role, setting 99th percentile benchmark.</li>
+              <li>Defensive Actions (INT): Elite due to reading play, not volume tackling.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Confirm detailed event data (carries, pass types) from historical archives. ERA Factor: ~1.28 (Significant adjustment for 70s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Beckenbauer IS the **Libero Perfected**. His DNA combines **Supreme Tactical Intelligence**, **Elegant Ball Progression from Deep**, and **Commanding Leadership**. Within the 60-Philosophy framework, he is the benchmark for Philosophy 35 and aligns with others valuing control, technique, and intelligence.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Beckenbauer Libero (Philosophy 35)</td><td>10.0</td><td>The defining player for this philosophy.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.8</td><td>Total football understanding, technical mastery, spatial awareness.</td></tr>
+                <tr><td>Guardiola Positional</td><td>9.5</td><td>Control, passing from deep, tactical intelligence.</td></tr>
+                <tr><td>Platini Elegance</td><td>9.4</td><td>Supreme technique, vision, composure, elegance.</td></tr>
+                <tr><td>Ancelotti Adaptation</td><td>9.0</td><td>Played multiple roles (CB/DM/CM), tactical leader.</td></tr>
+                <tr><td>Michels Total</td><td>8.8</td><td>Understanding of space, fluidity, technical base.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use iconic WC/European Cup moments showing runs from deep, passes, leadership.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Initiating Attacks from Deep (Libero Role):</strong> Countless examples of carrying ball into midfield.</li>
+              <li><strong>Pinpoint Long Passing (LGP):</strong> Signature outside-of-the-boot passes.</li>
+              <li><strong>Effortless Composure (CPX):</strong> Never looked rushed or pressured on the ball.</li>
+              <li><strong>Anticipatory Defending (POI/INT):</strong> Won ball through reading play, not just tackling.</li>
+              <li><strong>On-Field Leadership (CHR):</strong> Captaincy, organizing team structure.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, qualitative analysis based on historical context, and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a Libero/Sweeper with license to step into midfield.</li>
+          <li>Build the team's entire defensive and build-up structure around his intelligence.</li>
+          <li>Surround with hard-working midfielders to provide cover when he moves forward.</li>
+          <li>Utilize his vision to launch attacks from deep.</li>
+          <li>Natural captain and on-field tactical leader.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Supreme Confidence & Authority:</strong> Natural leader, commanded respect effortlessly ("Der Kaiser").</li>
+          <li><strong>Intelligent & Analytical:</strong> Deep understanding of the game's tactical nuances.</li>
+          <li><strong>Calm & Elegant:</strong> Played with an air of unshakeable composure.</li>
+          <li><strong>Ambitious & Driven:</strong> Achieved success at the highest level as player and manager.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Exceptional leadership (high CHR)</li>
+          <li>Unrivaled composure under pressure (high CPX)</li>
+          <li>Supreme tactical intelligence (high POI/DMA)</li>
+          <li>Winning mentality / Big game performer (high CRS)</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Could appear aloof or detached due to elegant style.</li>
+          <li>High standards could be demanding for teammates/subordinates.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">A defining figure of German and world football. Captained legendary Bayern Munich and West Germany teams, absorbing tactical knowledge from top coaches and developing his own unique interpretation of the game. Winning World Cups as both player and manager solidified his status as a footballing intellect.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives; apply ERA adjustments. ERA Factor: ~1.28</p>
+        <table>
+          <thead><tr><th>Season (Approx)</th><th>Club</th><th>Apps</th><th>Goals</th><th>Clean Sheet Contrib % (Est.)</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1971-72</td><td>Bayern Munich</td><td>~40</td><td>~6</td><td>High</td><td>96.0 (EURO Win/Ballon d'Or)</td></tr>
+            <tr><td>1973-74</td><td>Bayern Munich</td><td>~45</td><td>~5</td><td>Very High</td><td>98.5 (WC/European Cup Win - Peak)</td></tr>
+            <tr><td>1975-76</td><td>Bayern Munich</td><td>~40</td><td>~7</td><td>High</td><td>97.0 (European Cup/Ballon d'Or)</td></tr>
+            <tr><td>1977</td><td>NY Cosmos</td><td>~25</td><td>~8</td><td>N/A</td><td>N/A (Different context)</td></tr>
+            <tr><td>1974</td><td>West Germany (WC)</td><td>7</td><td>0</td><td>High</td><td>99.0 (WC Win Peak)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data where available. Stats highly estimated for era. Include source and ERA factor used.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>One of football's greatest captains; natural authority.</td><td>Automatic captain choice; build team identity around him.</td></tr>
+            <tr><td>Pressure Handling</td><td>Excelled consistently on the biggest stages (WC/Euro/EC Finals).</td><td>Ultimate big-game player and leader.</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Mastered his role early; focus was on team success.</td><td>Allow tactical freedom; trust his intelligence.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Helmut Schön (W. Germany Mgr)</td><td>Led team under Schön during WC '74 / EURO '72 wins.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Dettmar Cramer (Bayern Mgr)</td><td>Won European Cups together at Bayern.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Gerd Müller, Sepp Maier (Bayern/WG)</td><td>Core of legendary, dominant teams.</td></tr>
+            <tr><td>Rivalry</td><td>Johan Cruyff (Netherlands/Ajax/Barca)</td><td>Iconic player rivalry defining the era.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1974-07-07</td><td>Netherlands (WC Final)</td><td>W 2-1</td><td>Captained team, marshalled defense vs Cruyff</td><td>World Cup Final victory</td></tr>
+            <tr><td>1976-05-12</td><td>Saint-Étienne (EC Final)</td><td>W 1-0</td><td>Controlled game from back, led defense</td><td>Third consecutive European Cup</td></tr>
+            <tr><td>1972-06-18</td><td>Soviet Union (EURO Final)</td><td>W 3-0</td><td>Dominated midfield/defense, initiated attacks</td><td>EURO Final victory</td></tr>
+            <tr><td>1966-07-30</td><td>England (WC Final)</td><td>L 2-4 AET</td><td>Scored stunning goal from midfield role</td><td>Early career WC Final</td></tr>
+            <tr><td>1977</td><td>Seattle Sounders (Soccer Bowl - Cosmos)</td><td>W 2-1</td><td>Controlled game, elegant play</td><td>NASL Championship win</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries and video footage where available. ERA adjustments applied. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on runs from deep, long passes, defensive interceptions, leadership moments, and key goals.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-FB-01</td><td>WC 1974 Final vs Netherlands</td><td>1974</td><td>Sequence showing defensive organization & build-up</td><td>ARCH-FB-1974WC-NED (attach)</td></tr>
+            <tr><td>VH-FB-02</td><td>Bayern vs (Opp)</td><td>~1970s</td><td>Signature run carrying ball out of defense</td><td>ARCH-FB-BAYERN-RUN (attach)</td></tr>
+            <tr><td>VH-FB-03</td><td>West Germany vs (Opp)</td><td>~</td><td>Example of precise long pass</td><td>ARCH-FB-WG-PASS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legendary Defenders/Liberos)</h2>
+        <p class="small">Comparators: Franco Baresi, Bobby Moore. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="beckenbauerRadar" aria-label="Radar comparing Beckenbauer and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+        <ul class="small">
+          <li>Leverage his supreme confidence and tactical intelligence as the team's on-field brain.</li>
+          <li>Build team structure and mentality around his leadership and composure.</li>
+          <li>His presence inherently raised the standards and expectations of those around him.</li>
+          <li>Trust his decision-making implicitly in both defensive organization and initiating attacks.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA/UEFA/DFB records, historical league archives (Bundesliga, NASL), Transfermarkt, National-Football-Teams.com, contemporary news archives. ERA factors based on FGA historical league modeling for Europe/Germany in the 60s/70s. Each PHILOSOPHY_SUBCOMP row requires clip descriptions/IDs and qualitative assessments based on extensive available footage and historical analysis.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate all major awards, trophy wins, and cap records.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Franz Beckenbauer expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('beckenbauerRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Intelligence (POI)','Passing (LGP)','Composure (CPX)','Elegance (ELE)','Leadership (CHR)','Technique (DXT)'],
+          datasets: [
+            { label: 'Franz Beckenbauer', data: [9.9, 9.6, 9.8, 9.9, 9.7, 9.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Franco Baresi', data: [9.8, 8.8, 9.5, 9.0, 9.8, 8.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Bobby Moore', data: [9.7, 9.0, 9.6, 8.8, 9.9, 8.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 8.0, max:10, ticks:{ color:'#cfe6ff', stepSize:0.5, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

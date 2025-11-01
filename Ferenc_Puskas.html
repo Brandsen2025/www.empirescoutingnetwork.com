@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ferenc Puskás — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.csakfoci.hu/uploads/2016/08/puskasreal.jpg" alt="Ferenc Puskás photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Ferenc Puskás</div>
+        <div class="sub">Forward / Striker (Retired) · Hungary · Born: 1 April 1927 (Died: 17 Nov 2006) · Height: 1.72 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Real Madrid, Budapest Honvéd, Hungary NT</span>
+          <span class="pill"><strong>Nickname</strong> Galloping Major / Pancho</span>
+          <span class="pill"><strong>Primary Foot</strong> Left</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Legendary forward and one of the greatest goalscorers in history. Defined by a transcendent left foot, prolific finishing, and exceptional football intelligence. He led Hungary's "Magical Magyars" and was a cornerstone of Real Madrid's 5-time European Cup winning dynasty.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>STK - Shot Technique</td><td>10.0 (Generational)</td></tr>
+              <tr><td>GOL - Goals/90</td><td>0.90+ (Elite)</td></tr>
+              <tr><td>RDS - Renard des Surfaces</td><td>9.8</td></tr>
+              <tr><td>POI - Position Intelligence</td><td>9.6</td></tr>
+              <tr><td>KEY - Key Passes/90</td><td>(Est. 2.5+)</td></tr>
+              <tr><td>CHR - Character</td><td>9.5 (Captain)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach historical match logs (La Liga, European Cup, WC) from Transfermarkt/BeSoccer and video analysis to verify metrics. Detailed event data (SCA, xG) is unavailable.</li>
+            <li>Confirm exact goal tallies, trophies, and Ballon d'Or runner-up ('60) via official FIFA/UEFA/RFEF records.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from historical football databases (Transfermarkt, FBref, Sofascore, BeSoccer) and club archives. Very significant ERA adjustments applied.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">99.2</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Ferenc Puskás was one of the most intelligent and prolific forwards in football history. His game was defined by a left foot of unparalleled power and precision (STK 10.0), combined with a genius-level understanding of the game (POI). Despite a stocky build and lack of conventional pace (SPR), he was a clinical finisher (GOL, RDS) and a brilliant creator (KEY, LGP). He captained the "Magical Magyars" of Hungary and, after defecting, became a legend at Real Madrid, winning three European Cups and scoring 4 goals in one final.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1943–1956</td><td>Kispest / Budapest Honvéd</td><td>Legendary spell; 358 goals/349 apps (Transfermarkt); 5 Hungarian titles.</td></tr>
+            <tr><td>1958–1966</td><td>Real Madrid</td><td>Joined at 31; 242 goals/262 apps (Transfermarkt); Won 3 European Cups, 5 La Liga titles, 4 Pichichi trophies.</td></tr>
+            <tr><td>1945–1956</td><td>Hungary National Team ("Magical Magyars")</td><td>Captain; 84 goals in 85 caps; Olympic Gold ('52); World Cup Runner-Up ('54). (FBref)</td></tr>
+            <tr><td>1961–1962</td><td>Spain National Team</td><td>4 caps; Played in 1962 World Cup for Spain. (FBref)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1960</td><td>Ballon d'Or Runner-Up</td><td>Finished 2nd behind teammate Luis Suárez Miramontes.</td></tr>
+            <tr><td>1960-05-18</td><td>European Cup Final (Real Madrid vs E. Frankfurt)</td><td>Scored 4 goals in the iconic 7-3 victory. (BeSoccer)</td></tr>
+            <tr><td>1953-11-25</td><td>"Match of the Century" (Hungary vs England)</td><td>Scored 2 goals in historic 6-3 win at Wembley.</td></tr>
+            <tr><td>1954</td><td>FIFA World Cup Golden Ball</td><td>Named Best Player of the 1954 World Cup.</td></tr>
+            <tr><td>Multiple</td><td>Pichichi Trophy Winner (La Liga Top Scorer)</td><td>Won 4 times ('60, '61, '63, '64). (Transfermarkt)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (STK/GOL):</strong> Generational (10.0) finisher; legendary left foot with immense power and accuracy.</li>
+              <li><strong>Football IQ (POI/DMA):</strong> Genius-level understanding of space, timing, and link-up play.</li>
+              <li><strong>Playmaking (KEY/LGP):</strong> Exceptional vision and passing ability for a primary striker.</li>
+              <li><strong>Poaching (RDS):</strong> Elite box movement and finishing instincts.</li>
+              <li><strong>Leadership (CHR):</strong> Captained the "Magical Magyars"; respected leader.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace & Athleticism (SPR/PHY):</strong> Not a conventional athlete; relied on quickness and intelligence, not speed.</li>
+              <li><strong>Defensive Contribution (TPI/MRK):</strong> Minimal; a pure attacking player.</li>
+              <li><strong>Right Foot:</strong> Overwhelmingly left-footed.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Global icon; "The Galloping Major"; synonymous with Real Madrid's dynasty and Hungary's greatest era. FIFA award named after him.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> One of the greatest players of all time; the ultimate attacking signing of his generation.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Dominated Hungarian and Spanish leagues. His intelligence and finishing transcend any era or league.</td>
+            <p class="small"><strong>International Impact:</strong> Hungarian national hero; led the "Magical Magyars," one of the most dominant international teams in history.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>GOL - Goals/90</td><td>~0.90+ (Based on 84G/85 caps; 242G/262 apps)</td></tr>
+                <tr><td>STK - Shot Technique</td><td>10.0</td></tr>
+                <tr><td>RDS - Renard des Surfaces</td><td>9.8</td></tr>
+                <tr><td>POI - Position Intelligence</td><td>9.6</td></tr>
+                <tr><td>G+A/90</td><td>~1.10+ (Est.)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Legends)</h3>
+            <ul class="small">
+              <li>Goalscoring Rate (GOL): 99.9th percentile. (Transfermarkt, FBref)</li>
+              <li>Finishing Technique (STK): 99.9th percentile (Puskás Award).</li>
+              <li>Intelligence (POI): 99th percentile.</li>
+              <li>Pace (SPR): Low percentile; compensated with intelligence.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Detailed event data (xG, SCA) unavailable. ERA Factor: ~1.45 (Very significant adjustment for 50s/60s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Puskás's DNA is the **Intelligent Finisher**, a revolutionary **Deep-Lying Forward** of his time. He combined **Generational Finishing (STK)** with **Supreme Intelligence (POI)** and **Creative Passing (KEY)**. He is the archetype for philosophies valuing intelligence and technique over raw athleticism.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Fontaine Attack</td><td>9.9</td><td>Pure, relentless, and technically perfect goalscoring.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.6</td><td>Total Football principles, link-up play, technical genius.</td></tr>
+                <tr><td>Platini Elegance</td><td>9.5</td><td>Technical grace, vision, goal threat, set-piece skill.</td></tr>
+                <tr><td>Menotti Artistry</td><td>9.4</td><td>Flair, individual skill, creative and attacking genius.</td></tr>
+                <tr><td>Santana JogoBonito</td><td>9.0</td><td>Attacking freedom, "Golden Team" (Hungary) flair.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.2</td><td>Winning mentality, leadership, clutch goals.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use 1960 EC final, 1954 WC, and "Match of the Century" highlights.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Legendary Left Foot (STK):</strong> Countless powerful, accurate goals.</li>
+              <li><strong>Goalscoring Volume (GOL):</strong> ~1 goal per game ratio for club/country. (Transfermarkt, FBref)</li>
+              <li><strong>Deep-Lying Link-Up (POI/KEY):** Dropped deep to orchestrate play.</li>
+              <li>**Clutch Goals (CRS):** 4 goals in EC final, goals in WC final/Match of Century.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents require qualitative assessment based on extensive historical accounts, available footage, goal/award records, and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a deep-lying forward (SS) or inside-left, with freedom to roam.</li>
+          <li>System must be built around his intelligence and finishing.</li>
+          <li>Pair with another mobile striker (e.g., Di Stéfano, Kocsis).</li>
+          <li>Do not demand high pressing or defensive tracking; conserve energy for attack.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Genius-Level IQ:</strong> Saw the game with exceptional clarity (high POI/DMA).</li>
+          <li><strong>Leader:</strong> Captain of the "Magical Magyars"; respected leader at Real Madrid.</li>
+          <li><strong>Confident & Charming:</strong> "Galloping Major"; charismatic personality.</li>
+          <li><strong>Resilient:</strong> Defected from Hungary and rebuilt his career at 31 to conquer Europe again.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Supreme technical confidence (STK 10.0)</li>
+          <li>Exceptional resilience and adaptability (CHR)</li>
+          <li>Big-game performer (CRS)</li>
+          <li>Leadership by example and intelligence</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Managing fitness/weight, especially after his 2-year ban.</li>
+          <li>(Minimal psychological weaknesses in performance).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">A legend forged in two distinct, dominant teams: the revolutionary "Magical Magyars" of Hungary and the dynastic Real Madrid side. His experience winning 3 European Cups (after age 31) and an Olympic Gold, plus his near-miss at the 1954 World Cup, shaped one of the most complete attacking minds in history.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from Transfermarkt/BeSoccer/FBref.</p>
+        <table>
+          <thead><tr><th>Season (Approx)</th><th>Club</th><th>League</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1952-53</td><td>Budapest Honvéd</td><td>Hungarian NB I</td><td>26</td><td>39</td><td>N/A</td><td>98.0 (Peak)</td></tr>
+            <tr><td>1958-59</td><td>Real Madrid</td><td>La Liga</td><td>24</td><td>21</td><td>N/A</td><td>97.0</td></tr>
+            <tr><td>1959-60</td><td>Real Madrid</td><td>La Liga</td><td>24</td><td>25 (Pichichi)</td><td>N/A</td><td>99.5 (EC Final/Peak)</td></tr>
+            <tr><td>1960-61</td><td>Real Madrid</td><td>La Liga</td><td>28</td><td>28 (Pichichi)</td><td>N/A</td><td>99.0 (Peak)</td></tr>
+            <tr><td>1962-63</td><td>Real Madrid</td><td>La Liga</td><td>30</td><td>26 (Pichichi)</td><td>N/A</td><td>98.5 (Peak)</td></tr>
+            <tr><td>Career</td><td>Hungary NT</td><td>Int'l</td><td>85</td><td>84</td><td>N/A</td><td>99.8 (NT Peak)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Source: Transfermarkt, FBref, BeSoccer, Wikipedia. Stats (especially assists) from this era are estimates based on records.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Iconic captain and leader ("Galloping Major").</td><td>Natural on-field general; build team around his intelligence.</td></tr>
+            <tr><td>Pressure Handling</td><td>Scored in multiple WC and EC finals; thrived under pressure.</td><td>The ultimate big-game player (CRS 9.8).</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Maintaining fitness to allow his technical genius to flourish.</td><td>System must play to his strengths, minimizing athletic demands.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Teammate Partnership</td><td>Di Stéfano, Kopa, Gento (Real Madrid)</td><td>Formed one of the most dominant attacking forces in history.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Kocsis, Hidegkuti, Bozsik (Hungary)</td><td>Core of the legendary "Magical Magyars".</td></tr>
+            <tr><td>National Icon</td><td>Hungary / Real Madrid Fans</td><td>Revered as an all-time legend by two different fanbases.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <p class="small">Source: Match reports/historical data (e.g., FIFA archives, BeSoccer, Transfermarkt).</p>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>G</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1960-05-18</td><td>E. Frankfurt (EC Final)</td><td>W 7-3</td><td>4</td><td>4 goals in European Cup Final</td><td>Iconic performance</td></tr>
+            <tr><td>1962-05-02</td><td>Benfica (EC Final)</td><td>L 3-5</td><td>3</td><td>Hat-trick in European Cup Final loss</td><td>Incredible individual display</td></tr>
+            <tr><td>1954-07-04</td><td>West Germany (WC Final)</td><td>L 2-3</td><td>1</td><td>Scored in the final</td><td>"Miracle of Bern"</td></tr>
+            <tr><td>1953-11-25</td><td>England (Wembley)</td><td>W 6-3</td><td>2</td><td>Brace in "Match of the Century"</td><td>Historic victory</td></tr>
+            <tr><td>1964 (La Liga)</td><td>(Opponent)</td><td>W</td><td>~2-3</td><td>Pichichi-winning form</td><td>Typical league dominance</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Verify details via historical match reports. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 1960 EC Final (4 goals), 1953 vs England (dragback goal), and 1954 World Cup highlights.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-FP-01</td><td>Real Madrid vs E. Frankfurt</td><td>1960</td><td>4-goal European Cup Final</td><td>ARCH-FP-1960ECF-FRA (attach)</td></tr>
+            <tr><td>VH-FP-02</td><td>England vs Hungary</td><td>1953</td><td>Iconic dragback goal</td><td>ARCH-FP-1953-ENG (attach)</td></tr>
+            <tr><td>VH-FP-03</td><td>Hungary vs West Germany (WC Final)</td><td>1954</td><td>Goal in World Cup Final</td><td>ARCH-FP-1954WCF-GER (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legendary Forwards)</h2>
+        <p class="small">Comparators: Alfredo Di Stéfano, Pelé. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="puskasRadar" aria-label="Radar comparing Puskás and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+        <ul class="small">
+          <li>Leverage his supreme football intelligence (POI) as an on-field coach.</li>
+          <li>System must be built around his finishing (STK) and link-up play (KEY), not mobility.</li>
+          <li>His resilience (CHR) in restarting his career at 31 in a new country is a testament to his mental strength.</li>
+          <li>The ultimate big-game player (CRS); thrived on pressure.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA/UEFA/RFEF records, Historical league archives (Spain, Hungary), Real Madrid/Honvéd club records, IFFHS, Transfermarkt, FBref, Sofascore, BeSoccer. ERA factors based on FGA historical league modeling for 50s/60s. Each PHILOSOPHY_SUBCOMP row requires extensive qualitative assessment based on historical accounts and available footage.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate all major awards, trophy wins, and goal/cap records meticulously.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Ferenc Puskás expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('puskasRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (STK)','Goal Rate (GOL)','Intelligence (POI)','Passing (KEY)','Big Game (CRS)','Leadership (CHR)'],
+          datasets: [
+            { label: 'Ferenc Puskás', data: [10.0, 9.9, 9.6, 9.2, 9.8, 9.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Alfredo Di Stéfano', data: [9.5, 9.6, 9.8, 9.0, 9.7, 9.6],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Pelé', data: [9.8, 10.0, 9.7, 9.4, 9.9, 9.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 8.5, max:10, ticks:{ color:'#cfe6ff', stepSize:0.5, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

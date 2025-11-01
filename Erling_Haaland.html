@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Erling Haaland — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.goal.pl/wp-content/uploads/2025/09/haaland.jpg" alt="Erling Haaland photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Erling Haaland</div>
+        <div class="sub">Striker · Norway · Born: 21 July 2000 · Height: 1.95 m</div>
+
+        <div>
+          <span class="pill"><strong>Current Club</strong> Manchester City</span>
+          <span class="pill"><strong>Shirt</strong> 9</span>
+          <span class="pill"><strong>Primary Foot</strong> Left</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Generational goalscoring phenomenon defined by an elite combination of size, speed, power, and clinical finishing. A lethal presence in the penalty box with exceptional off-ball movement and an instinctive ability to find the net. Record-breaking scorer.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Recent Seasons Avg.)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (per 90)</th></tr></thead>
+            <tbody>
+              <tr><td>GOL - Goals/90</td><td>0.90+ (Elite)</td></tr>
+              <tr><td>Non-Penalty xG/90</td><td>0.80+ (Elite)</td></tr>
+              <tr><td>RDS - Renard des Surfaces</td><td>9.7</td></tr>
+              <tr><td>SPR - Sprint Performance</td><td>9.6</td></tr>
+              <tr><td>Physicality (PHY)</td><td>9.4</td></tr>
+              <tr><td>Touches (Att Pen)/90</td><td>7.0+ (High)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach FBref/Sofascore per-match event CSVs to verify current season G/90, xG, Touches in Box, and pressing data.</li>
+            <li>Confirm contract status, release clauses, and injury updates via official club statements or verified reports.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from football databases (Transfermarkt, FBref, Soccerway) and club sources (Man City/Dortmund/Salzburg).</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">97.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Erling Braut Haaland is a force of nature, arguably the most effective pure No. 9 in world football. His game is built upon a foundation of extraordinary physical attributes – towering height, blistering pace (SPR), and immense strength (PHY) – combined with world-class off-ball movement (POI) and ruthless finishing ability (GOL, RDS, STK). He excels at finding space in the box and converting chances at an astonishing rate, consistently outperforming his already high xG.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2017–2018</td><td>Molde FK</td><td>Early professional development under Solskjær.</td></tr>
+            <tr><td>2019</td><td>Red Bull Salzburg</td><td>Explosive breakout in Austria & Champions League group stage.</td></tr>
+            <tr><td>2020–2022</td><td>Borussia Dortmund</td><td>Prolific goalscorer in Bundesliga; DFB-Pokal winner ('21).</td></tr>
+            <tr><td>2022–Present</td><td>Manchester City</td><td>Record-breaking debut season; Won Treble (PL, FA Cup, CL '23); Multiple PL titles & Golden Boots.</td></tr>
+            <tr><td>2019–Present</td><td>Norway National Team</td><td>Key player and primary goalscorer.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2022-2023</td><td>Premier League Golden Boot & Record</td><td>Scored record 36 goals in debut PL season.</td></tr>
+            <tr><td>2023</td><td>UEFA Champions League Winner (Man City)</td><td>Won historic Treble. CL Top Scorer.</td></tr>
+            <tr><td>2020</td><td>Golden Boy Award</td><td>Recognized as best U21 player in Europe.</td></tr>
+            <tr><td>Multiple</td><td>Champions League Scoring Records</td><td>Fastest player to reach numerous CL goal milestones.</td></tr>
+            <tr><td>2022-23</td><td>UEFA Men's Player of the Year</td><td>Awarded after Treble-winning season.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (GOL/RDS/STK):</strong> Generational ability to score goals; clinical with both feet and head.</li>
+              <li><strong>Pace & Power (SPR/PHY):</strong> Unstoppable combination of speed and strength.</li>
+              <li><strong>Off-Ball Movement (POI):</strong> Elite anticipation and runs to create space and receive passes.</li>
+              <li><strong>Aerial Ability:</strong> Dominant in the air due to height and leap.</li>
+              <li><strong>Mentality (CHR):</strong> Focused, determined, confident goalscorer.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Link-up Play (Technical):</strong> Hold-up play and intricate passing still developing compared to finishing.</li>
+              <li><strong>Dribbling (CRK/FLA):</strong> Relies more on pace/power than technical dribbling skill in tight spaces.</li>
+              <li><strong>Right Foot Usage:</strong> Heavily left-footed, though capable with right.</li>
+              <li><strong>Occasional Injury Concerns:</strong> Has had periods sidelined with muscular issues.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Global superstar; face of major brands (Nike); one of the most recognizable and valuable players worldwide.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Elite No. 9 profile; commands highest tier transfer fees and wages. Future moves likely world record territory.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Proven dominant scorer in Austria, Bundesliga, Premier League. Physicality and goal instinct translate anywhere.</td>
+            <p class="small"><strong>International Impact:</strong> Norway's key player and record scorer in waiting; potential to lead them to major tournaments.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Recent Seasons)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (PL Averages)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>GOL - Goals/90</td><td>~0.90 - 1.00+</td></tr>
+                <tr><td>Non-Penalty xG/90</td><td>~0.80 - 0.90</td></tr>
+                <tr><td>Touches (Att Pen)/90</td><td>~7.0 - 8.0</td></tr>
+                <tr><td>Shots Total/90</td><td>~3.5 - 4.0</td></tr>
+                <tr><td>Aerials Won/90</td><td>~1.5 - 2.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Top 5 League Strikers)</h3>
+            <ul class="small">
+              <li>Goalscoring & xG Volume: Consistently 99th percentile+.</li>
+              <li>Touches in Att Pen: Elite percentile, reflects box presence.</li>
+              <li>Aerial Wins: Very high percentile for frequency and success rate.</li>
+              <li>Link-up Metrics (e.g., Assists, Key Passes): Lower percentile compared to goalscoring.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Verify current season data against FBref/Sofascore for precise percentile rankings.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Haaland's DNA is the **Generational Goalscorer**, characterized by **Physical Dominance**, **Elite Movement**, and **Clinical Finishing**. Within the 60-Philosophy framework, he aligns best with philosophies that prioritize a central attacking focal point, direct play, and maximizing goal output.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Fontaine Attack</td><td>9.9</td><td>Purest embodiment of goalscoring drive and efficiency.</td></tr>
+                <tr><td>Heynckes Efficiency</td><td>9.5</td><td>Directness, power, clinical finishing, fits transition play.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.2</td><td>Physical presence, winning mentality, big game goals.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.8</td><td>Pace, power, vertical threat, effective pressing when required.</td></tr>
+                <tr><td>Nagelsmann Evolution</td><td>8.5</td><td>Fits Red Bull school's emphasis on transitions and athleticism.</td></tr>
+                <tr><td>Guardiola Positional</td><td>8.0</td><td>Adapts movement excellently within Guardiola's system to find space.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use CL goals, record-breaking PL season, examples of pace/power/finishing.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Record Goal Output (GOL):</strong> Unprecedented scoring rates across leagues.</li>
+              <li><strong>Explosive Pace/Power (SPR/PHY):</strong> Consistently outruns/outmuscles defenders.</li>
+              <li><strong>Intelligent Box Movement (POI/RDS):</strong> Finds space for tap-ins and one-touch finishes.</li>
+              <li><strong>Varied Finishing (STK):</strong> Scores with left foot, right foot, head, power, finesse.</li>
+              <li><strong>Counter-Attack Threat:</strong> Devastating speed in transition moments.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include clip IDs, event IDs, detailed stat support (goal types, xG analysis), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA</h3>
+        <ul class="small">
+          <li>Deploy as the central striker (No. 9).</li>
+          <li>System must focus on providing consistent service into the box and space behind defense.</li>
+          <li>Utilize his movement to pin defenders and create space for others.</li>
+          <li>Key target for crosses and cut-backs.</li>
+          <li>Less reliant on intricate build-up through him, more on final actions.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Intensely Focused & Driven:</strong> Single-minded dedication to scoring goals and improving.</li>
+          <li><strong>Confident & Composed:</strong> Unshakeable self-belief, calm finisher.</li>
+          <li><strong>Professional:</strong> Meticulous approach to training, recovery, and diet.</li>
+          <li><strong>Direct & Pragmatic:</strong> Personality reflects efficient, powerful playing style.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Elite goalscorer mentality</li>
+          <li>Handles pressure and expectation exceptionally well</li>
+          <li>High levels of focus and concentration</li>
+          <li>Professionalism and dedication to craft</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Managing frustration during rare goal droughts or injury layoffs.</li>
+          <li>Dealing with intense media spotlight and constant performance demands.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Rapid development through Molde, Salzburg, and Dortmund prepared him for the elite level. Thriving under Guardiola at Man City showcases his ability to adapt his movement within a complex system while maintaining extraordinary goal output. Experience winning major trophies early builds winning habits.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from Transfermarkt/FBref.</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>League</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G/90</th><th>npxG/90</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2019-20</td><td>Salzburg/Dortmund</td><td>AUT BL/Bundesliga</td><td>14/15</td><td>16/13</td><td>6/2</td><td>~1.3+</td><td>~1.0+</td><td>92.0 (Breakout)</td></tr>
+            <tr><td>2020-21</td><td>Dortmund</td><td>Bundesliga</td><td>28</td><td>27</td><td>6</td><td>~1.00</td><td>~0.85</td><td>94.5</td></tr>
+            <tr><td>2021-22</td><td>Dortmund</td><td>Bundesliga</td><td>24</td><td>22</td><td>7</td><td>~0.95</td><td>~0.80</td><td>95.0</td></tr>
+            <tr><td>2022-23</td><td>Man City</td><td>Premier League</td><td>35</td><td>36 (Record)</td><td>8</td><td>~1.15</td><td>~0.90</td><td>98.0 (Treble Peak)</td></tr>
+            <tr><td>2023-24</td><td>Man City</td><td>Premier League</td><td>31</td><td>27 (Golden Boot)</td><td>5</td><td>~0.90</td><td>~0.85</td><td>97.0</td></tr>
+            <tr><td>2024-25*</td><td>Man City</td><td>Premier League</td><td>28</td><td>25</td><td>4</td><td>~0.95</td><td>~0.88</td><td>97.5</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Source: FBref/Transfermarkt data used. *25/26 data to be added. 24/25 data shown. G/90 & npxG/90 based on league performance primarily.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads through overwhelming performance and presence. Growing influence.</td><td>Central figure; team confidence built on his goal threat.</td></tr>
+            <tr><td>Pressure Handling</td><td>Performs consistently under intense spotlight and expectation.</td><td>Reliable performer in biggest games (though CL finals still area to dominate).</td></tr>
+            <tr><td>Development Focus</td><td>Refining link-up play, weaker foot usage, staying injury-free.</td><td>Tactical work on combinations; continued focus on physical maintenance.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Pep Guardiola (Man City)</td><td>Adapted movement to fit system; coach manages unique profile.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Kevin De Bruyne (Man City)</td><td>Formed arguably world's best creator-finisher duo.</td></tr>
+            <tr><td>Family Background</td><td>Alf-Inge Haaland (Father)</td><td>Ex-player father figure, closely involved in career management.</td></tr>
+            <tr><td>National Team</td><td>Martin Ødegaard (Norway)</td><td>Key partnership for Norway's attacking hopes.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative - Current Season Man City)</h2>
+        <p class="small">Source: Data primarily from Sofascore/FBref for recent matches (Oct 2025).</p>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Min</th><th>G</th><th>xG</th><th>Shots</th><th>Touches Att Pen</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025-10-26</td><td>Man Utd (A - PL)</td><td>90</td><td>1</td><td>1.2</td><td>4</td><td>9</td><td>Goal, constant threat</td></tr>
+            <tr><td>2025-10-22</td><td>Club Brugge (H - UCL)</td><td>90</td><td>2</td><td>1.8</td><td>6</td><td>12</td><td>Brace, dominant performance</td></tr>
+            <tr><td>2025-10-19</td><td>Arsenal (H - PL)</td><td>90</td><td>0</td><td>0.4</td><td>2</td><td>5</td><td>Well-marshalled by defense</td></tr>
+            <tr><td>2025-10-05</td><td>Aston Villa (H - PL)</td><td>90</td><td>1</td><td>1.5</td><td>5</td><td>10</td><td>Goal, multiple chances</td></tr>
+            <tr><td>2025-10-01</td><td>RB Leipzig (A - UCL)</td><td>90</td><td>0</td><td>0.6</td><td>3</td><td>7</td><td>Few clear opportunities</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Verify exact stats using Sofascore/FBref match reports for the specified dates.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on goals showcasing pace/power, movement, finishing variety, and CL performances.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-EH-01</td><td>Man City vs Man Utd</td><td>2022</td><td>Hat-trick goal sequence</td><td>ARCH-EH-2022-MUN (attach)</td></tr>
+            <tr><td>VH-EH-02</td><td>Dortmund vs PSG (UCL)</td><td>2020</td><td>Goals showcasing pace/power</td><td>ARCH-EH-2020-BVBPSG (attach)</td></tr>
+            <tr><td>VH-EH-03</td><td>Man City vs RB Leipzig (UCL)</td><td>2023</td><td>5-goal performance sequence</td><td>ARCH-EH-2023-MCI RBL (attach)</td></tr>
+            <tr><td>VH-EH-04</td><td>Various</td><td>Career</td><td>Compilation of off-ball movement leading to goals</td><td>ARCH-EH-MOVEMENT (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Elite Strikers)</h2>
+        <p class="small">Comparators: Kylian Mbappé, Robert Lewandowski (Peak). Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="haalandRadar" aria-label="Radar comparing Haaland and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes</h2>
+        <ul class="small">
+          <li>Leverage his intense focus and goalscoring obsession.</li>
+          <li>System must be geared towards maximizing his strengths; he is the focal point.</li>
+          <li>His confidence is extremely high; reinforce positive finishing actions.</li>
+          <li>Requires meticulous physical management due to explosive style.</li>
+          <li>Responds well to clear tactical instructions focused on movement and finishing zones.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Premier League/Bundesliga/UCL official stats, Manchester City club info, Transfermarkt, FBref, Sofascore. NFF/FIFA records for international data. Each PHILOSOPHY_SUBCOMP row requires clip descriptions/IDs and detailed statistical backing (goal records, xG, shot types).</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports prior to client delivery. Cross-validate all scoring records and awards.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Erling Haaland expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('haalandRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Goalscoring (GOL)','Pace (SPR)','Physicality (PHY)','Movement (POI)','Finishing (STK)','Aerials'],
+          datasets: [
+            { label: 'Erling Haaland', data: [9.9, 9.6, 9.4, 9.5, 9.6, 9.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Kylian Mbappé', data: [9.6, 10.0, 8.5, 9.0, 9.2, 7.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'R. Lewandowski (Peak)', data: [9.8, 8.0, 8.8, 9.6, 9.7, 8.5],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 6.0, max:10, ticks:{ color:'#cfe6ff', stepSize:1, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
