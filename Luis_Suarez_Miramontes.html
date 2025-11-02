@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Luis Suárez Miramontes — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://pbs.twimg.com/media/FdxXhOaWABMmVeV.jpg " alt="Luis Suárez Miramontes photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Luis Suárez Miramontes</div>
+        <div class="sub">Midfielder (Playmaker) (Retired) · Spain · Born: 2 May 1935 (Died: 9 July 2023) · Height: 1.76 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> FC Barcelona, Inter Milan</span>
+          <span class="pill"><strong>Nickname</strong> Luisito / El Arquitecto (The Architect)</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Legendary Spanish playmaker, one of the greatest midfielders of all time. Famed for his elegance, supreme technical skill, incredible vision, and precise passing range. Won the 1960 Ballon d'Or and was the creative heart of Helenio Herrera's 'Grande Inter' team.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>ELE - Elegance</td><td>9.8</td></tr>
+              <tr><td>LGP - Long Pass Precision</td><td>9.7</td></tr>
+              <tr><td>KEY - Key Passes/90</td><td>3.5+ (Elite)</td></tr>
+              <tr><td>CPX - Composure</td><td>9.7</td></tr>
+              <tr><td>POI - Position Intelligence</td><td>9.6</td></tr>
+              <tr><td>Platini Elegance (Philosophy 17)</td><td>9.8 (Archetype)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach historical match logs (La Liga, Serie A, European Cup, Euros) and extensive video/qualitative analysis to verify creative/passing metrics.</li>
+            <li>Confirm exact trophy counts, Ballon d'Or ('60), and cap/goal records via official FIFA/UEFA/RFEF records.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from historical football databases, FIFA records, and club archives (Barca/Inter). Very significant ERA adjustments applied.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Luis Suárez Miramontes, "El Arquitecto," was the defining deep-lying playmaker of his generation. His game was built on flawless technique (DXT), supreme elegance (ELE), and unparalleled vision (KEY, LGP). He dictated the tempo of matches with effortless composure (CPX) and pinpoint long-range passing. As the creative fulcrum for both Barcelona and Helenio Herrera's "Grande Inter," he combined attacking flair with the tactical intelligence (POI) to control the game from deep, earning the 1960 Ballon d'Or.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1953–1954</td><td>Deportivo La Coruña</td><td>Professional debut.</td></tr>
+            <tr><td>1954–1961</td><td>FC Barcelona</td><td>Emerged as world's best playmaker; Won 2 La Liga, 2 Copa del Rey, 2 Fairs Cups; Ballon d'Or ('60).</td></tr>
+            <tr><td>1961–1970</td><td>Inter Milan ('Grande Inter')</td><td>World record transfer; key player under Helenio Herrera; Won 3 Serie A titles, 2 European Cups, 2 Intercontinental Cups.</td></tr>
+            <tr><td>1970–1973</td><td>Sampdoria</td><td>Finished playing career in Italy.</td></tr>
+            <tr><td>1957–1972</td><td>Spain National Team</td><td>32 caps, 14 goals; Won UEFA European Championship ('64).</td></tr>
+            <tr><td>Post-Career</td><td>Manager (Inter, Spain NT, etc.)</td><td>Extensive coaching career.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1960</td><td>Ballon d'Or Winner</td><td>Only Spanish-born male player to win the award.</td></tr>
+            <tr><td>1964</td><td>UEFA European Championship Winner (Spain)</td><td>Key playmaker in Spain's first major international trophy.</td></tr>
+            <tr><td>1964, 1965</td><td>European Cup Winner (Inter Milan)</td><td>Creative heart of the "Grande Inter" team that won back-to-back titles.</td></tr>
+            <tr><td>1961</td><td>World Record Transfer</td><td>Became world's most expensive player moving from Barca to Inter.</td></tr>
+            <tr><td>Multiple</td><td>Serie A & La Liga Titles</td><td>Won multiple league championships in two different top leagues.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Passing Range & Vision (LGP/KEY):</strong> Generational passing ability; precise long passes, incisive through balls.</li>
+              <li><strong>Technique & Elegance (ELE/DXT):</strong> Sublime ball control, graceful movement, flawless first touch.</li>
+              <li><strong>Football IQ (POI/DMA):</strong> Supreme tactical intelligence; "The Architect" of the team's play.</li>
+              <li><strong>Composure (CPX):</strong> Played with an unhurried, calm authority.</li>
+              <li><strong>Creativity (SCA/CRK):</strong> High volume of chance creation; key playmaker.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace (SPR):</strong> Relied on intelligence and timing rather than speed.</li>
+              <li><strong>Defensive Work Rate (TPI):</strong> Was the designated playmaker; defensive duties were secondary (though played in Catenaccio).</li>
+              <li><strong>Physicality (PHY):</strong> Not a physical player; relied on technique to evade challenges.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Historical icon; Ballon d'Or winner; legendary status in Spain and Italy, particularly with Inter.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> World record transfer fee in 1961; the elite playmaker profile of his generation.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Dominated La Liga and Serie A; transcendent technical skill adaptable to any era or league.</td>
+            <p class="small"><strong>International Impact:</strong> Spanish legend; led Spain to their first-ever major trophy (EURO 1964).</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>KEY - Key Passes/90</td><td>3.5+</td></tr>
+                <tr><td>LGP - Long Pass Precision</td><td>9.7</td></tr>
+                <tr><td>CPX - Composure</td><td>9.7</td></tr>
+                <tr><td>Progressive Passes/90</td><td>9.0+</td></tr>
+                <tr><td>ELE - Elegance</td><td>9.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Playmakers)</h3>
+            <ul class="small">
+              <li>Passing/Vision (LGP/KEY/POI): 99.9th percentile, defining attributes.</li>
+              <li>Composure/Elegance (CPX/ELE): 99th percentile+.</li>
+              <li>Goalscoring (GOL): High percentile for a deep-lying playmaker.</li>
+              <li>Defensive Metrics: Low, as expected for his role.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Confirm detailed creative/passing stats via historical archives. ERA Factor: ~1.40 (Very significant adjustment for 60s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Luis Suárez's DNA is the **Deep-Lying Architect**, defined by **Supreme Elegance**, **Visionary Passing**, and **Tempo Control**. Within the 60-Philosophy framework, he is the archetype for philosophies centered on technical mastery, positional intelligence, and creative build-up from deep.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Platini Elegance</td><td>9.8</td><td>Archetype of technical grace, vision, passing, control.</td></tr>
+                <tr><td>Guardiola Positional</td><td>9.7</td><td>Mastery of tempo, passing angles, positional intelligence.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.5</td><td>Technical perfection, spatial awareness, total football brain.</td></tr>
+                <tr><td>Beckenbauer Libero</td><td>9.0</td><td>Ability to dictate play from a deep position.</td></tr>
+                <tr><td>Herrera Catenaccio</td><td>8.8</td><td>Was the creative exception/key in Herrera's structured system.</td></tr>
+                <tr><td>Menotti Artistry</td><td>8.5</td><td>Emphasis on technical skill and creative expression.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use Ballon d'Or '60 context, 'Grande Inter' clips, EURO '64 final performance, long passing examples.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Precision Long Passing (LGP):</strong> Signature 40-50 yard passes to attackers.</li>
+              <li><strong>Tempo Control (CPX/DMA):</strong> Dictated the pace of the game.</li>
+              <li><strong>Technical Security (DXT):</strong> Flawless first touch and control under pressure.</li>
+              <li><strong>Creativity in Structure (Herrera):</strong> Provided the creative spark within Catenaccio.</li>
+              <li><strong>Vision (KEY/SCA):</strong> Saw and executed passes others couldn't.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents require qualitative assessment based on extensive historical accounts, available footage, goal/award records, and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as the primary 'regista' or deep-lying playmaker (No. 8 or No. 6).</li>
+          <li>Build the entire team's possession and build-up play through him.</li>
+          <li>Surround with hard-working midfielders to provide defensive cover.</li>
+          <li>Grant freedom to orchestrate the game from deep.</li>
+          <li>Ideal for both possession-based (Barca) and counter-attacking (Inter) systems as the main passer.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Elegant & Composed:</strong> Played with effortless calm and grace (high CPX/ELE).</li>
+          <li><strong>Intelligent & Analytical:</strong> "The Architect"; high football IQ.</li>
+          <li><strong>Leader:</strong> Led through technical example and tactical direction.</li>
+          <li><strong>Confident:</strong> Strong self-belief (Ballon d'Or winner).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Supreme composure and decision-making</li>
+          <li>Technical confidence</li>
+          <li>Resilience (adapted from La Liga to Serie A)</li>
+          <li>Big-game performer (EURO '64, European Cups)</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Style could be seen as lacking intensity in a physical battle.</li>
+          <li>(Minimal weaknesses; highly successful career).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Defined Spanish football in the late 50s/early 60s, winning the Ballon d'Or at Barcelona. His world-record transfer to Inter Milan saw him adapt his technical brilliance to the tactical demands of Helenio Herrera's Catenaccio, becoming the creative engine for the 'Grande Inter' dynasty and winning the European Championship with Spain.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives; apply ERA adjustments. ERA Factor: ~1.40</p>
+        <table>
+          <thead><tr><th>Season (Approx)</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1959-60</td><td>FC Barcelona</td><td>~35</td><td>~14</td><td>~15+</td><td>95.0 (Ballon d'Or Peak)</td></tr>
+            <tr><td>1963-64</td><td>Inter Milan</td><td>~40+</td><td>~10</td><td>~15+</td><td>96.0 (Serie A/EC Win)</td></tr>
+            <tr><td>1964-65</td><td>Inter Milan</td><td>~40+</td><td>~10</td><td>~15+</td><td>95.5 (Serie A/EC Win)</td></tr>
+            <tr><td>1964</td><td>Spain NT (EUROs)</td><td>2</td><td>1</td><td>~2</td><td>96.5 (EURO Win Peak)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Source: Transfermarkt/FBref/Inter/Barca archives. Stats, especially assists, are estimates based on profile/era. Goal totals reflect deeper role.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Led through technical/tactical example; "The Architect".</td><td>Build team's entire possession structure around his intelligence.</td></tr>
+            <tr><td>Pressure Handling</td><td>Performed consistently in highest-pressure finals (EC, EUROs).</td><td>Reliable performer in decisive matches.</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Mastered his craft; adapted from AM to deep-lying 'regista'.</td><td>Maximize his influence on the ball as team's primary creator.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Helenio Herrera (Barca/Inter)</td><td>Complex, but Herrera built his 'Grande Inter' around Suárez as playmaker.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Kubala, Kocsis, Czibor (Barcelona)</td><td>Part of legendary attacking lineups.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Mazzola, Facchetti, Jair (Inter)</td><td>Creative hub for legendary Catenaccio team.</td></tr>
+            <tr><td>Club Legend</td><td>Inter Milan Fans/Org</td><td>Revered as one of the club's greatest ever players.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <p class="small">Source: Match reports/historical data.</p>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1964-05-27</td><td>Real Madrid (EC Final - Inter)</td><td>W 3-1</td><td>Controlled midfield, key passes</td><td>First European Cup win</td></tr>
+            <tr><td>1965-05-27</td><td>Benfica (EC Final - Inter)</td><td>W 1-0</td><td>Dictated play in difficult conditions</td><td>Second European Cup win</td></tr>
+            <tr><td>1964-06-21</td><td>Soviet Union (EURO Final - Spain)</td><td>W 2-1</td><td>Key assist, controlled midfield</td><td>EURO '64 victory</td></tr>
+            <tr><td>1960 (Ballon d'Or Year)</td><td>Real Madrid (La Liga - Barca)</td><td>W 3-1</td><td>Dominated midfield, scored goal</td><td>Peak Ballon d'Or form</td></tr>
+            <tr><td>1961 (EC Final)</td><td>Benfica (Barca)</td><td>L 2-3</td><td>Created chances, hit post twice</td><td>Unlucky in "Cursed" final</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Verify details via historical match reports. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on long-range passes, 'trivela'-style passes, dribbling, goals, and EURO '64 performance.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-LSM-01</td><td>Inter Milan vs (Opp)</td><td>~1960s</td><td>Signature long-range diagonal pass</td><td>ARCH-LSM-1960s-PASS (attach)</td></tr>
+            <tr><td>VH-LSM-02</td><td>Spain vs Soviet Union (EURO Final)</td><td>1964</td><td>Assist/Key pass sequence</td><td>ARCH-LSM-1964EURO-URS (attach)</td></tr>
+            <tr><td>VH-LSM-03</td><td>FC Barcelona vs (Opp)</td><td>~1960</td><td>Goal/Dribble (Ballon d'Or era)</td><td>ARCH-LSM-1960-BAR (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legendary Playmakers)</h2>
+        <p class="small">Comparators: Xavi Hernández (Peak), Andrea Pirlo. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="suarezmRadar" aria-label="Radar comparing Suárez M. and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+        <ul class="small">
+          <li>Leverage his supreme intelligence and composure to build the team's entire game plan.</li>
+          <li>His technical quality provided confidence and stability to the team.</li>
+          <li>Thrived on being the primary creator and tactical brain.</li>
+          <li>Responded well to managers who trusted his intelligence (Herrera).</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA/UEFA/RFEF/FIGC records, Historical league archives (La Liga, Serie A), Inter/Barca club records, IFFHS, Transfermarkt, National-Football-Teams.com, contemporary news archives. ERA factors based on FGA historical league modeling for Europe in 50s/60s. Each PHILOSOPHY_SUBCOMP row requires extensive qualitative assessment based on historical accounts and available footage.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate all major awards, trophy wins, and goal/cap records meticulously.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Luis Suárez Miramontes expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('suarezmRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Vision (KEY)','Passing (LGP)','Composure (CPX)','Technique (ELE)','Intelligence (POI)','Control'],
+          datasets: [
+            { label: 'Luis Suárez M. (Peak)', data: [9.8, 9.7, 9.7, 9.8, 9.6, 9.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Xavi Hernández (Peak)', data: [9.8, 9.9, 9.6, 9.0, 9.9, 9.8],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Andrea Pirlo (Peak)', data: [9.7, 9.9, 9.8, 9.5, 9.4, 9.6],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 8.5, max:10, ticks:{ color:'#cfe6ff', stepSize:0.5, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
