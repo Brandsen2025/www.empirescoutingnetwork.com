@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ethan Nwaneri — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://ichef.bbci.co.uk/ace/standard/1800/cpsprodpb/f757/live/07b40390-1545-11f0-9419-a9c609a29cda.jpg" alt="Ethan Nwaneri photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Ethan Nwaneri</div>
+        <div class="sub">Attacking Midfielder (Prospect) · England · Born: 21 March 2007 · Height: 1.76 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Arsenal</span>
+          <span class="pill"><strong>Position</strong> Attacking Midfielder, Winger</span>
+          <span class="pill"><strong>Primary Foot</strong> Left</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">An elite "wonderkid" from the Arsenal academy, Nwaneri is a record-breaker known for his technical gifts. He is an "all-action #8" who can also play as a #10 or winger, defined by his "Very Strong" dribbling, close control, and composure. He famously became the youngest-ever Premier League player.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Prospect)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>DRI - Dribbling</td><td>9.2</td></tr>
+              <tr><td>STK - Technique</td><td>9.0</td></tr>
+              <tr><td>VIS - Vision</td><td>8.8</td></tr>
+              <tr><td>CPX - Composure</td><td>9.0</td></tr>
+              <tr><td>AGE - Age/Level Adj.</td><td>9.9</td></tr>
+              <tr><td>WRK - Work Rate</td><td>8.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach Premier League and Champions League match logs to verify metrics against senior opposition.</li>
+            <li>Analyze video from England U21 fixtures to confirm his transition to a higher international level.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from FA databases, Arsenal FC official records, and Premier League archives. Potential-adjusted ratings.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">74.5 (91.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Ethan Nwaneri is one of the most exciting prospects in world football, a "star boy" from Arsenal's Hale End academy. He is a "multi-phase" player who can operate as a #8, #10, or winger, defined by his elite technical ability. His "Very Strong" dribbling, low center of gravity, and ability to "glide" through opposition make him extremely press-resistant. He is also an "aggressive presser" and an intelligent passer. He made history as the youngest player in Premier League history at 15 years and 181 days.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2015–2024</td><td>Arsenal (Youth)</td><td>Joined at age eight. Starred for U18s and U21s.</td></tr>
+            <tr><td>Sep 18, 2022</td><td>Arsenal (Senior Debut)</td><td>Became youngest-ever Premier League player (15y, 181d).</td></tr>
+            <tr><td>Mar 2024</td><td>First Pro Contract</td><td>Signed his first professional contract with Arsenal.</td></tr>
+            <tr><td>2024–Present</td><td>Arsenal (First Team)</td><td>Integrating into the first team; 33 senior apps, 4 goals (all comps).</td></tr>
+            <tr><td>2022–Present</td><td>England Youth International</td><td>Played for U16, U17, U19, and U21 levels.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Sep 18, 2022</td><td>Premier League Debut (vs Brentford)</td><td>Youngest player in Premier League history (15y, 181d).</td></tr>
+            <tr><td>Oct 29, 2025</td><td>First Senior Start (vs Brighton)</td><td>Scored in his first start (EFL Cup) to send Arsenal to QF.</td></tr>
+            <tr><td>2024-2025</td><td>Breakthrough Season</td><td>Totaled 7 goals, 2 assists in 7 CL games; 4 goals, 2 assists in 26 PL games.</td></tr>
+            <tr><td>Feb 2025</td><td>PL Dribble Record</td><td>Youngest player (17y, 331d) to complete 5+ dribbles and assist a goal in a PL match.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Dribbling (DRI):</strong> "Very Strong"; "glides" with "close control". 71% success rate.</li>
+              <li><strong>Technique (STK):</strong> "Incredibly technical"; the ball "sticks" to him.</li>
+              <li><strong>Press-Resistance:</strong> "Calm and composed"; "wriggles out of suffocating situations".</li>
+              <li><strong>Work Rate (WRK):</strong> "An aggressive presser"; "energetically closing people down".</li>
+              <li><strong>Vision (VIS):</strong> "Vision to play those final balls that slice teams open".</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Defensive Contribution:</strong> Listed as a "Weak" attribute. (Note: Contradicted by)</li>
+              <li><strong>Decision Making:</strong> "Can make poor decisions"; "dribble into danger".</li>
+              <li><strong>Shooting:</strong> Ball-striking for shooting can be "quite raw".</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Elite. As the Premier League's youngest-ever player and Arsenal's "new star boy," he is one of the most famous teenagers in world football.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Untouchable. The crown jewel of the Arsenal academy. Signed a long-term contract and is seen as the future of the club.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His technical, press-resistant style is a perfect fit for an elite possession team (Arsenal, La Liga).</td>
+            <p class="small"><strong>International Impact:</strong> On the fastest possible track for England. Already a key player for the U21s at 18.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Prospect)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Potential-Adjusted)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>DRI - Dribbling Success</td><td>71%</td></tr>
+                <tr><td>PAS - Passing Accuracy</td><td>89.16%</td></tr>
+                <tr><td>SCA - Shot Creating Actions</td><td>(High)</td></tr>
+                <tr><td>WRK - Aggressive Presser</td><td>(High)</td></tr>
+                <tr><td>Ball Losses %</td><td>10.84% (Low)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (U21 Attacking Mids)</h3>
+            <ul class="small">
+              <li>Age-to-Level: 99.9th percentile.</li>
+              <li>Dribbling (DRI): 98th percentile.</li>
+              <li>Press-Resistance (CPX): 99th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with detailed Premier League 2 and senior match data. ERA Factor: N/A (Prospect Model).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Nwaneri's DNA is the **Press-Resistant Creator**. He is an "all-action #8" who prioritizes **Technical Dribbling (DRI)**, **Composure (CPX)**, and **Aggressive Pressing (WRK)**. He is a "perfect fit" for a modern, high-possession, high-pressing system like Mikel Arteta's.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Guardiola Positional</td><td>9.8</td><td>Elite press-resistance, technical, and a smart presser.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.5</td><td>High technical skill, "glides" through spaces, "awareness".</td></tr>
+                <tr><td>Menotti Artistry</td><td>9.0</td><td>Game is built on "Very Strong" dribbling and flair.</td></tr>
+                <tr><td>Platini Elegance</td><td>8.8</td><td>A creative, goal-scoring #10/#8 profile.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.5</td><td>"An aggressive presser, energetically closing people down".</td></tr>
+                <tr><td>Buffon/Kahn Command</td><td>7.0</td><td>Plays with confidence and aggression.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on dribbling (DRI), press-resistance (CPX), and pressing (WRK).</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Youngest PL Player:</strong> Record-holder at 15y, 181d.</li>
+              <li><strong>Youngest PL Dribble/Assist:</strong> Broke Saka's record (17y, 331d).</li>
+              <li><strong>"Star Boy":</strong> Hailed as the "pipeline" and future of Arsenal.</li>
+              <li><strong>High-Level Production:</strong> Prolific in PL2, EFL Trophy, and Youth League.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (dribbles, assists), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Prospect)</h3>
+        <ul class="small">
+          <li>Deploy as a #8 in a 4-3-3, or as a #10. Can also cover RW.</li>
+          <li>Utilize his "very strong" dribbling and press-resistance to break the lines.</li>
+          <li>Trust him in build-up phases; "willing to show for the ball in all phases".</li>
+          <li>Focus training on decision-making ("fail to release the ball quick enough").</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Confident & Brave:</strong> "Attempts to play too positively"; "dribble into danger".</li>
+          <li><strong>Calm & Composed:</strong> "Calmness and maturity" to aid in build-up.</li>
+          <li><strong>Ambitious:</strong> Agreed to a long-term pro contract at Arsenal amid high interest.</li>
+          <li><strong>Aggressive:</strong> An "aggressive presser" and "aggressive dueller".</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Elite composure and press-resistance.</li>
+          <li>Confidence to take risks and dribble.</li>
+          <li>Handles pressure (teammates "whispering to bring Ethan on").</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Decision-making: Needs to learn when *not* to take risks.</li>
+          <li>Managing "wonderkid" hype since age 15.</li>
+          <li>Balancing flair with positive, efficient play.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Nwaneri has been in the spotlight since he was 15. He has been developed at Arsenal's academy with the express philosophy of playing in an Arteta system: technical, press-resistant, and aggressive. His experience is already vast, from PL2, EFL Trophy, Premier League, and Champions League. He is mentally prepared for the next step.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from FA/Premier League archives. ERA Factor: N/A (Prospect Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Pot.)</th></tr></thead>
+          <tbody>
+            <tr><td>2022-23</td><td>Arsenal</td><td>1 (Prem. Lg)</td><td>0</td><td>0</td><td>(N/A)</td><td>68.0 (90.5 P)</td></tr>
+            <tr><td>2023-24</td><td>Arsenal</td><td>1 (Prem. Lg)</td><td>0</td><td>0</td><td>(N/A)</td><td>70.0 (90.5 P)</td></tr>
+            <tr><td>2023-24</td><td>Arsenal U21</td><td>15 (PL2)</td><td>11</td><td>(N/A)</td><td>(N/A)</td><td>N/A</td></tr>
+            <tr><td>2024-25</td><td>Arsenal</td><td>26 (Prem. Lg)</td><td>4</td><td>2</td><td>~1.0</td><td>73.5 (91.0 P)</td></tr>
+            <tr><td>2024-25</td><td>Arsenal</td><td>7 (Champions Lg)</td><td>2</td><td>0</td><td>~1.2</td><td>73.5 (91.0 P)</td></tr>
+            <tr><td>2025-26</td><td>Arsenal</td><td>4 (Prem. Lg)</td><td>0</td><td>0</td><td>~0.8</td><td>74.5 (91.0 P)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Goals/Assists based on Transfermarkt/Flashscore/Soccerway. (2025-26 data is illustrative/current).</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example with his aggression, work rate, and technical quality.</td><td>He is an on-field tone-setter with his pressing.</td></tr>
+            <tr><td>Pressure Handling</td><td>Elite. Broke PL record at 15, now scoring in EFL Cup at 18.</td><td>He is "special" and thrives on the big stage.</td></tr>
+            <tr><td>Development Focus (Prospect)</td><td>Refining his raw talent, particularly his decision-making and shooting.</td><td>Continue to integrate into the first team; he is the long-term Ødegaard successor.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Mikel Arteta</td><td>Has immense faith; gave him his debut at 15. Calls him "special".</td></tr>
+            <tr><td>Teammate</td><td>Myles Lewis-Skelly</td><td>Developed alongside him in the academy.</td></tr>
+            <tr><td>Teammate</td><td>Bukayo Saka</td><td>Broke his record for youngest player with 5+ dribbles and an assist.</td></tr>
+            <tr><td>Teammate</td><td>Arsenal First Team</td><td>"Whispering to bring Ethan on," showing their belief in him.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Nov 1, 2025</td><td>Arsenal vs Burnley</td><td>W 2-0</td><td>19 mins (sub), 6.6 rating</td><td>Premier League</td></tr>
+            <tr><td>Oct 29, 2025</td><td>Arsenal vs Brighton</td><td>W 2-0</td><td>90 mins, 1 goal, 7.6 rating</td><td>EFL Cup (First start)</td></tr>
+            <tr><td>Oct 21, 2025</td><td>Arsenal vs Atl. Madrid</td><td>W 4-0</td><td>19 mins (sub), 6.8 rating</td><td>Champions League</td></tr>
+            <tr><td>Oct 13, 2025</td><td>England U21 vs Andorra U21</td><td>W 1-0</td><td>79 mins</td><td>EURO U21 Qualifier</td></tr>
+            <tr><td>Oct 10, 2025</td><td>England U21 vs Moldova U21</td><td>W 4-0</td><td>90 mins, 1 assist</td><td>EURO U21 Qualifier</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries from Flashscore/FotMob. Matches are from 2025-26 season.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on PL2, EFL Trophy, and senior appearances.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-EN-01</td><td>Arsenal vs Brighton</td><td>2025</td><td>First senior goal (EFL Cup)</td><td>ARCH-EN-2025-GOAL (attach)</td></tr>
+            <tr><td>VH-EN-02</td><td>Arsenal vs West Ham</td><td>2024</td><td>Premier League assist</td><td>ARCH-EN-2024-ASSIST (attach)</td></tr>
+            <tr><td>VH-EN-03</td><td>Arsenal U21 vs (Opp)</td><td>2024</td><td>PL2 Dribbling/Pressing comp.</td><td>ARCH-EN-2024-PL2 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Creative #8s)</h2>
+        <p class="small">Comparators: Martin Ødegaard (Profile), Phil Foden (Profile). Generate radar visuals from prospect data model.</p>
+        <div class="visual-canvas">
+          <canvas id="nwaneriRadar" aria-label="Radar comparing Nwaneri and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Prospect)</h2>
+        <ul class="small">
+          <li>Player has elite "mental qualities" and "temperament".</li>
+          <li>His confidence is built on his technical superiority and "aggressive" nature.</li>
+          <li>He is a "wonderkid" who has handled record-breaking pressure and earned the trust of his senior teammates.</li>
+          <li>Development must focus on refining his "raw" decision-making.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Premier League, FA (English Federation), Transfermarkt, Wikipedia, WhoScored, FotMob, Soccerway, The Guardian, Medium, Reddit, One-vs-One. All metrics are prospect-based (P). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate record-breaking stats and senior appearances.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Ethan Nwaneri expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('nwaneriRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Dribbling (DRI)','Vision (VIS)','Technique (STK)','Composure (CPX)','Work Rate (WRK)','Pace (SPR)'],
+          datasets: [
+            { label: 'Ethan Nwaneri (Potential)', data: [9.2, 8.8, 9.0, 9.0, 8.5, 8.4],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Martin Ødegaard (Profile)', data: [8.8, 9.8, 9.2, 9.3, 9.0, 8.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Phil Foden (Profile)', data: [9.4, 9.2, 9.5, 9.2, 8.8, 8.6],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

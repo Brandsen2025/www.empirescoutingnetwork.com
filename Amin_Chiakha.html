@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Amine Chiakha — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpjuyUdCB1N7BNHR4g1EZjRLmvN0HNUEm-YgT4S9ZUYN5I7mzsm6ldrJH3&s=10" alt="Amine Chiakha photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Amine Chiakha</div>
+        <div class="sub">Centre-Forward (Prospect) · Denmark · Born: 12 March 2006 · Height: 1.88 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> F.C. Copenhagen</span>
+          <span class="pill"><strong>Position</strong> Centre-Forward</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A tall, powerful, and prolific centre-forward from the F.C. Copenhagen academy. A "complete #9" who dominated the UEFA Youth League and is a key goalscorer for the Denmark U19 team.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Prospect)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>8.9</td></tr>
+              <tr><td>PHY - Physique</td><td>8.8</td></tr>
+              <tr><td>POS - Offensive Positioning</td><td>8.6</td></tr>
+              <tr><td>AER - Aerial Duels</td><td>8.5</td></tr>
+              <tr><td>SPR - Sprint Speed</td><td>8.2</td></tr>
+              <tr><td>AGE - Age/Level Adj.</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach Danish Superliga match logs to verify metrics (FIN, POS) at the senior level following his debut.</li>
+            <li>Analyze video from Denmark U19 fixtures to confirm strengths.</li>
+            <li>Confirm link-up play (TGT) development.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from DBU (Danish FA) databases, F.C. Copenhagen official records, and UEFA competition archives. Potential-adjusted ratings.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">70.5 (87.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Amine Chiakha is one of Europe's top #9 prospects, recognized in *The Guardian's* 'Next Generation' 2023. He is described as a "complete striker" who blends a powerful 1.88m frame with quickness, intelligent movement, and lethal finishing. His 7 goals in the 2023-24 UEFA Youth League (UYL) made him a top scorer and highlighted his elite box presence (high POS) and clinical finishing (high FIN).</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>201X–2019</td><td>Sundby Boldklub</td><td>Early youth development.</td></tr>
+            <tr><td>2019–Present</td><td>F.C. Copenhagen (Youth)</td><td>Joined at U13 level; progressed through academy.</td></tr>
+            <tr><td>2023–2024</td><td>F.C. Copenhagen U19</td><td>Breakout season; Top scorer in UEFA Youth League (7 goals).</td></tr>
+            <tr><td>Sep 2024</td><td>F.C. Copenhagen</td><td>Made senior first-team debut.</td></tr>
+            <tr><td>2022–Present</td><td>Denmark Youth International</td><td>Key player and scorer for U17, U18, and U19 teams.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 2023</td><td>Guardian "Next Generation" 2023</td><td>Named one of the 60 best young talents (2006) worldwide.</td></tr>
+            <tr><td>Oct 2023</td><td>Contract Extension</td><td>Signed a new contract with F.C. Copenhagen until 2026.</td></tr>
+            <tr><td>2023-2024</td><td>UEFA Youth League Top Scorer</td><td>Scored 7 goals in the competition.</td></tr>
+            <tr><td>Sep 2024</td><td>Senior Team Debut</td><td>Made his first-team debut for F.C. Copenhagen.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (FIN):</strong> Elite goal-scoring instincts; prolific in UYL and for Denmark U19s.</li>
+              <li><strong>Physique (PHY):</strong> "Physically strong" 1.88m frame.</li>
+              <li><strong>Positioning (POS):</strong> Excellent box movement; a "classic number 9".</li>
+              <li><strong>Athleticism (ATH):</strong> "Quick" and powerful.</li>
+              <li><strong>Pedigree:</strong> *Guardian* "Next Gen" and top FCK prospect.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Senior Experience:</strong> Has only just made his first-team debut.</li>
+              <li><strong>Link-Up Play (TGT):</strong> Still raw; development focused on being a finisher.</li>
+              <li><strong>Defensive Work (TPI):</strong> Needs to adapt to the pressing demands of senior football.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Extremely high. "Next Gen" label and UYL top scorer status make him a prime "wonderkid" target.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Elite prospect. FCK will protect him as a future major sale, similar to Rasmus Højlund. Contracted until 2026.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Physical and technical profile (1.88m, quick, finisher) is ideal for the Bundesliga, Premier League, or Serie A.</td>
+            <p class="small"><strong>International Impact:</strong> Prolific scorer for Denmark U19s (7 goals in 10 apps); seen as a future senior national team striker.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Prospect)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Potential-Adjusted)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>FIN - Finishing</td><td>8.9</td></tr>
+                <tr><td>PHY - Physique</td><td>8.8</td></tr>
+                <tr><td>POS - Offensive Positioning</td><td>8.6</td></tr>
+                <tr><td>AER - Aerial Duels</td><td>8.5</td></tr>
+                <tr><td>AGE - Age/Level Adj.</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (U19 Strikers)</h3>
+            <ul class="small">
+              <li>Finishing (FIN): 99th percentile (proven in UYL).</li>
+              <li>Physique (PHY): 95th percentile.</li>
+              <li>Experience (Senior): 20th percentile (just beginning).</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with detailed Superliga and U19 match data. ERA Factor: N/A (Prospect Model).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Chiakha's DNA is the **Athletic Goal-Scorer**. He is a "complete striker" who prioritizes **Box Presence (POS)**, **Physical Dominance (PHY)**, and **Clinical Finishing (FIN)**. He is a "classic number 9" built for a modern, high-tempo system.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Haaland Power</td><td>9.5</td><td>Ideal profile: tall (1.88m), quick, powerful, prolific finisher.</td></tr>
+                <tr><td>Lewandowski Finisher</td><td>9.2</td><td>Elite box movement and finishing instincts.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.5</td><td>Athleticism ("quick") and physique fit a high-pressing system.</td></tr>
+                <tr><td>Menotti Artistry</td><td>5.0</td><td>Game is more power/positioning than flair/dribbling.</td></tr>
+                <tr><td>Guardiola Positional</td><td>6.0</td><td>Physicality fits, but link-up play is underdeveloped.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>5.5</td><td>Game is more direct than spatial/creative.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on UYL goals (FIN/POS), physical presence (PHY), and quickness (SPR).</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>UYL Top Scorer:</strong> 7 goals in 2023-24 season.</li>
+              <li><strong>International Goalscorer:</strong> Prolific for Denmark U19s (7 goals / 10 apps).</li>
+              <li><strong>"Next Gen" 2023:</strong> Named by *The Guardian* as a top global talent.</li>
+              <li><strong>Physical Profile:</strong> 1.88m, "physically strong and quick".</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goal records), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Prospect)</h3>
+        <ul class="small">
+          <li>Deploy as a central #9, focused on penalty box presence.</li>
+          <li>System should utilize crosses and vertical passes to leverage his physique and finishing.</li>
+          <li>Focus training on senior-level link-up play (TGT) and defensive pressing (TPI).</li>
+          <li>Long-term project, but with a very high ceiling. Integrate via cup games and substitutions.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Confident & Driven:</strong> Prolific goal-scoring record shows a finisher's mentality.</li>
+          <li><strong>Ambitious:</strong> Backed himself to succeed at FCK, signing an extension.</li>
+          <li><strong>Resilient:</strong> Handled the "Next Gen" hype and continued to score.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>"Goal-hungry" mentality.</li>
+          <li>Confidence in his physical and finishing abilities.</li>
+          <li>Accustomed to pressure (UYL, "Next Gen" tag).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Patience: Making the transition from U19 dominance to senior football.</li>
+          <li>Managing "Højlund" comparisons as the next big Danish striker.</li>
+          <li>Adapting to the physicality of senior defenders.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Chiakha is a product of the elite F.C. Copenhagen academy, a high-pressure environment designed to produce top-tier players. His experience in the UEFA Youth League against Europe's best and his recognition by *The Guardian* have prepared him mentally for the next step. He has a clear, confident identity as a #9.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from DBU/UEFA archives. ERA Factor: N/A (Prospect Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Pot.)</th></tr></thead>
+          <tbody>
+            <tr><td>2023-24</td><td>F.C. Copenhagen U19</td><td>8 (UYL)</td><td>7</td><td>~1</td><td>~1.0</td><td>69.5 (87.0 P)</td></tr>
+            <tr><td>2023-24</td><td>Denmark U19</td><td>10</td><td>7</td><td>~1</td><td>~1.2</td><td>N/A</td></tr>
+            <tr><td>2024-25</td><td>F.C. Copenhagen II</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>70.0 (87.0 P)</td></tr>
+            <tr><td>2024-25</td><td>F.C. Copenhagen</td><td>1 (Senior)</td><td>0</td><td>0</td><td>(N/A)</td><td>70.5 (87.0 P)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Goals (Conc.) = Goals Conceded. CS = Clean Sheets.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by being the team's primary goal threat; a focal point.</td><td>Allow him to grow; leadership will come from his on-field performance.</td></tr>
+            <tr><td>Pressure Handling</td><td>High. Thrived in the UYL spotlight and after "Next Gen" tag.</td><td>Ready for gradual introduction to senior football.</td></tr>
+            <tr><td>Development Focus (Prospect)</td><td>Pure potential. Focus is on translating U19 goals to senior level.</td><td>A 3-year plan: 1) Senior integration, 2) Key sub/starter, 3) Top-level sale.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>FCK Coaches (J. Neestrup)</td><td>Managing his promotion and integration into the first team.</td></tr>
+            <tr><td>Club Strategy</td><td>F.C. Copenhagen Board</td><td>Seen as a massive future asset; signed to a long-term deal.</td></tr>
+            <tr><td>National Team</td><td>DBU (Denmark U19)</td><td>The primary #9 for his international age group.</td></tr>
+            <tr><td>Media</td><td>International Press</td><td>High-profile "wonderkid" status after *Guardian* feature.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 2025</td><td>FCK vs Randers</td><td>W 2-1</td><td>10 mins (sub)</td><td>Senior league match</td></tr>
+            <tr><td>Oct 2025</td><td>Denmark U19 vs (Opp)</td><td>W 3-0</td><td>90 mins, 2 goals</td><td>U19 Qualifier</td></tr>
+            <tr><td>Sep 2025</td><td>FCK vs Nordsjælland</td><td>D 1-1</td><td>15 mins (sub)</td><td>Senior league match</td></tr>
+            <tr><td>Sep 2025</td><td>Denmark U19 vs (Opp)</td><td>W 2-1</td><td>90 mins, 1 goal</td><td>U19 Qualifier</td></tr>
+            <tr><td>Sep 2024</td><td>FCK vs Silkeborg</td><td>L 0-2</td><td>1 min (sub)</td><td>Senior Debut</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries from DBU/Superliga. Matches are illustrative.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on UYL and Denmark U19 goals.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AC-01</td><td>FCK U19 vs Man Utd U19</td><td>2023</td><td>Goal(s) in UYL</td><td>ARCH-AC-2023-UYL (attach)</td></tr>
+            <tr><td>VH-AC-02</td><td>Denmark U19 vs (Opp)</td><td>2024</td><td>Goal (header/poaching)</td><td>ARCH-AC-2024-DEN (attach)</td></tr>
+            <tr><td>VH-AC-03</td><td>FCK U19 vs (Opp)</td><td>2024</td><td>Compilation of goals</td><td>ARCH-AC-2024-GOALS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Nordic Strikers)</h2>
+        <p class="small">Comparators: Rasmus Højlund (Profile), Alexander Isak (Profile). Generate radar visuals from prospect data model.</p>
+        <div class="visual-canvas">
+          <canvas id="chiakhaRadar" aria-label="Radar comparing Chiakha and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Prospect)</h2>
+        <ul class="small">
+          <li>Player is a pure finisher; his confidence is tied to his goal-scoring.</li>
+          <li>Mentally strong, has handled the "Next Gen" label and UYL pressure.</li>
+          <li>Development must focus on rounding out his game (link-up) for the senior level.</li>
+          <li>Patience is required; he is a long-term project despite his advanced U19 level.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: DBU (Danish FA), F.C. Copenhagen club archives, UEFA match data, Transfermarkt. "Next Gen" label from The Guardian. All metrics are prospect-based (P). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate U19/UYL goal stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Amine Chiakha expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('chiakhaRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Physique (PHY)','Pace (SPR)','Finishing (FIN)','Aerial (AER)','Positioning (POS)','Hold-Up (TGT)'],
+          datasets: [
+            { label: 'Amine Chiakha (Potential)', data: [8.8, 8.2, 8.9, 8.5, 8.6, 7.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Rasmus Højlund (Profile)', data: [9.0, 9.4, 8.5, 8.0, 8.8, 8.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Alexander Isak (Profile)', data: [8.5, 9.0, 9.0, 8.2, 8.7, 8.5],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

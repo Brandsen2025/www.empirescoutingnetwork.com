@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Leny Yoro — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://images.news9live.com/wp-content/uploads/2024/12/Leny-Yoro.jpg?w=1200&enlarge=true" alt="Leny Yoro photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Leny Yoro</div>
+        <div class="sub">Centre-Back (Prospect) · France · Born: 13 November 2005 · Height: 1.90 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Manchester United, Lille</span>
+          <span class="pill"><strong>Position</strong> Centre-Back</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">One of the most promising young defenders in world football, Leny Yoro is a modern centre-back known for his maturity, strong tackling, and excellent ability to read the game. After a breakthrough 2023-24 season at Lille, he secured a high-profile transfer to Manchester United in July 2024.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Prospect)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>POS - Positioning</td><td>9.2</td></tr>
+              <tr><td>TKL - Tackling</td><td>9.0</td></tr>
+              <tr><td>CPX - Composure</td><td>9.0</td></tr>
+              <tr><td>PAS - Passing</td><td>8.5</td></tr>
+              <tr><td>AER - Aerial Duels</td><td>8.4</td></tr>
+              <tr><td>AGE - Age/Level Adj.</td><td>9.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach Premier League match logs to verify duel success rates (AER, TKL) at the top level.</li>
+            <li>Analyze video from Manchester United and France U21 fixtures to confirm passing (PAS) and progressive metrics.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from FA/FFF databases, Manchester United/Lille official records, and league archives. Potential-adjusted ratings.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">78.5 (91.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Leny Yoro is a "modern defender" who combines a tall 1.90m frame with exceptional defensive intelligence and composure. Hailed as one of the best talents of his generation, his game is defined by his outstanding ability to read danger, make crucial interceptions, and his "strong" tackling. He is very calm in possession, preferring to play simple, accurate passes rather than just clearing the ball under pressure. After a breakout 2023-24 season at Lille where he was statistically one of the best duel-winners in Europe, he earned a major transfer to Manchester United.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2017–2022</td><td>Lille (Youth)</td><td>Joined the academy from Villeneuve-d'Ascq.</td></tr>
+            <tr><td>2022–2024</td><td>Lille</td><td>46 apps, 2 goals. Became a full-time starter at 18.</td></tr>
+            <tr><td>2022–2023</td><td>Lille B</td><td>13 apps.</td></tr>
+            <tr><td>Jul 2024–Present</td><td>Manchester United</td><td>Signed for a reported £42.8m + add-ons. Wears #15.</td></tr>
+            <tr><td>2023–Present</td><td>France Youth International</td><td>Represents France at U21 and U23 (Olympic) levels.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Jul 18, 2024</td><td>Transfer to Manchester United</td><td>Completed his high-profile transfer from Lille.</td></tr>
+            <tr><td>2023-2024</td><td>Breakthrough Season (Lille)</td><td>Played 32 Ligue 1 matches at age 18; became a full-time starter.</td></tr>
+            <tr><td>Aug 24, 2023</td><td>First European Goal (vs Rijeka)</td><td>Scored his first goal for Lille in a Conference League play-off.</td></tr>
+            <tr><td>2023</td><td>Top Duel Winner</td><td>Ranked as one of the best defenders in Europe for duel success rate (89%).</td></tr>
+            <tr><td>Sep 2024</td><td>Man Utd Debut (vs Arsenal - Est.)</td><td>Made his Premier League debut (Dec 2024 per one source).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Game Reading (POS):</strong> "Stands out because he can read the game well"; high interceptions.</li>
+              <li><strong>Tackling (TKL):</strong> "Strong" tackler; effective at prodding and winning the ball.</li>
+              <li><strong>Composure & Passing (CPX/PAS):</strong> "Calm" under pressure, plays "simple and consistent passes" with high accuracy.</li>
+              <li><strong>Duel Success:</strong> One of Europe's best in both ground and aerial duels (2023-24).</li>
+              <li><strong>Maturity:</strong> Impressive composure and spirit for his age.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Progressive Passing:</strong> Tends to play simple passes, needs to develop line-breaking ability.</li>
+              <li><strong>Progressive Carrying:</strong> Not yet a defender who consistently breaks lines with the ball.</li>
+              <li><strong>Discipline:</strong> Can be "Very Weak" in this area (per WhoScored).</li>
+              <li><strong>Aerial Duels (Context):</strong> Some sources list as a weakness, others a strength (70% win rate).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Extremely high. "NXGN 2024" top 50 wonderkid. His transfer to Man Utd makes him one of the most valuable young defenders globally.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Elite prospect. Man Utd's massive investment (£42.8m+) shows he is considered a future pillar for a top-3 club.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Modern, composed style fits any top league. His duel-winning ability is ideal for the Premier League.</td>
+            <p class="small"><strong>International Impact:</strong> A key player for the France U21 and Olympic (U23) teams. Seen as a future senior national team regular.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Prospect)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (2025/26 Season)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Pass Accuracy</td><td>87.3%</td></tr>
+                <tr><td>Aerial Duels Won</td><td>1.6 (70.0% success)</td></tr>
+                <tr><td>Tackles Won</td><td>~1.0 (62.5% success)</td></tr>
+                <tr><td>Interceptions</td><td>~1.2</td></tr>
+                <tr><td>Duels Won %</td><td>53.7%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Premier League CBs)</h3>
+            <ul class="small">
+              <li>Aerial Duel % (2025/26): High (70.0%).</li>
+              <li>Passing Accuracy (2025/26): High (87.3%).</li>
+              <li>Progressive Passing: Low (development area).</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with detailed Premier League match data. ERA Factor: N/A (Prospect Model).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Yoro's DNA is the **Composed Ball-Player**. He is a "modern defender" who prioritizes **Game Reading (POS)**, **Tackling (TKL)**, and **Composure in Possession (CPX)**. He is a proactive, intelligent defender rather than a purely physical one.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Guardiola Positional</td><td>9.2</td><td>Ideal "modern defender"; calm, high pass %</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.0</td><td>High football IQ, "reads the game well".</td></tr>
+                <tr><td>Beckenbauer Libero</td><td>8.8</td><td>Acts as the covering defender, high anticipation.</td></tr>
+                <tr><td>Klopp Intensity</td><td>7.5</td><td>Good duels/tackling, but game is control, not chaos.</td></tr>
+                <tr><td>Buffon/Kahn Command</td><td>7.0</td><td>Maturity, but not yet a vocal, aggressive leader.</td></tr>
+                <tr><td>Menotti Artistry</td><td>6.0</td><td>Technically sound, but not a primary "artist".</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on positioning (POS), passing % (PAS), and tackling (TKL).</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>High Duel % (2023-24):</strong> Ranked with Van Dijk in duel success.</li>
+              <li><strong>High Pass %:</strong> High accuracy in possession.</li>
+              <li><strong>"Reads the game well":</strong> Key attribute is anticipation.</li>
+              <li><strong>"NXGN 2024":</strong> Named one of the world's best wonderkids.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (duel %, pass %), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Prospect)</h3>
+        <ul class="small">
+          <li>Deploy as a right-sided centre-back in a back four.</li>
+          <li>Ideal as the "covering" defender, using his reading of the game.</li>
+          <li>System must value possession and building from the back.</li>
+          <li>Focus training on progressive passing and carrying to unlock his full potential.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Mature:</strong> Plays with a composure far beyond his 19 years.</li>
+          <li><strong>Calm & Composed:</strong> "Stays calm" under pressure.</li>
+          <li><strong>Concentrated:</strong> "Concentration" is a "Strong" attribute.</li>
+          <li><strong>Confident:</strong> Confident in his defensive duels and on the ball.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Elite composure under pressure.</li>
+          <li>High football intelligence and game-reading.</li>
+          <li>Handles pressure of a "wonderkid" tag and a £42.8m transfer.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Adapting to the pace and pressure of the Premier League.</li>
+          <li>Developing into a more vocal, authoritative leader.</li>
+          <li>Managing his on-field discipline.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Yoro is a remarkably mature 19-year-old. His experience is already significant, with a full starter's season in Ligue 1 and European competition. He is now adapting to the Premier League at one of the world's biggest clubs, indicating a strong, professional mentality.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from LFP/Premier League archives. ERA Factor: N/A (Prospect Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Pot.)</th></tr></thead>
+          <tbody>
+            <tr><td>2022-23</td><td>Lille</td><td>13 (Ligue 1)</td><td>0</td><td>0</td><td>~0.1</td><td>71.0 (89.0 P)</td></tr>
+            <tr><td>2023-24</td><td>Lille</td><td>32 (Ligue 1)</td><td>2</td><td>0</td><td>~0.2</td><td>77.0 (90.5 P)</td></tr>
+            <tr><td>2024-25</td><td>Manchester United</td><td>21 (Prem. Lg)</td><td>0</td><td>0</td><td>~0.1</td><td>78.0 (91.0 P)</td></tr>
+            <tr><td>2025-26</td><td>Manchester United</td><td>10 (Prem. Lg)</td><td>0</td><td>0</td><td>~0.1</td><td>78.5 (91.0 P)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Goals/Assists based on Transfermarkt/Soccerway. (2024-2026 data is illustrative/current).</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by calm example and composure; not a vocal "enforcer".</td><td>Allow him to grow into a technical, on-ball leader for the defense.</td></tr>
+            <tr><td>Pressure Handling</td><td>Exceptional. Handled a full Ligue 1 season at 18 and a £42.8m move.</td><td>Ready for a starting role; his composure is his main asset.</td></tr>
+            <tr><td>Development Focus (Prospect)</td><td>Translating his game-reading to the Premier League pace.</td><td>Focus on developing his progressive passing to become truly elite.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Man Utd Coaches</td><td>Tasked with developing a £42.8m teenager into a world-class CB.</td></tr>
+            <tr><td>National Team</td><td>France U21</td><td>A key player for the U21/U23 (Olympic) setup.</td></tr>
+            <tr><td>Club Strategy</td><td>Manchester United</td><td>A major long-term investment, signed until 2029.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Alexsandro (Lille)</td><td>Yoro acted as the covering defender, while Alexsandro was the primary dueler.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Nov 1, 2025</td><td>Man Utd vs Nottingham Forest</td><td>D 2-2</td><td>77 mins, 7.0 rating</td><td>Premier League</td></tr>
+            <tr><td>Oct 25, 2025</td><td>Man Utd vs Brighton</td><td>W 4-2</td><td>90 mins, 6.7 rating</td><td>Premier League</td></tr>
+            <tr><td>Oct 19, 2025</td><td>Man Utd vs Liverpool</td><td>W 2-1</td><td>6 mins (sub)</td><td>Premier League</td></tr>
+            <tr><td>Oct 13, 2025</td><td>France U21 vs Estonia U21</td><td>W 6-1</td><td>46 mins (sub)</td><td>EURO U21 Qualifier</td></tr>
+            <tr><td>Oct 10, 2025</td><td>France U21 vs Faroe Islands U21</td><td>W 6-0</td><td>90 mins, Clean Sheet</td><td>EURO U21 Qualifier</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries from FotMob/Soccerway. Matches are from 2025-26 season.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on Lille 2023-24 and Man Utd 2024-25.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-LY-01</td><td>Lille vs (Opp)</td><td>2024</td><td>Defensive duels compilation (Ligue 1)</td><td>ARCH-LY-2024-DUELS (attach)</td></tr>
+            <tr><td>VH-LY-02</td><td>Man Utd vs (Opp)</td><td>2025</td><td>Composed passing under pressure</td><td>ARCH-LY-2025-PASS (attach)</td></tr>
+            <tr><td>VH-LY-03</td><td>France U21 vs (Opp)</td><td>2025</td><td>Interceptions and positioning</td><td>ARCH-LY-2025-FRAU21 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Modern CBs)</h2>
+        <p class="small">Comparators: William Saliba (Profile), Virgil van Dijk (Profile). Generate radar visuals from prospect data model.</p>
+        <div class="visual-canvas">
+          <canvas id="yoroRadar" aria-label="Radar comparing Yoro and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Prospect)</h2>
+        <ul class="small">
+          <li>Player is exceptionally mature and calm for his age.</li>
+          <li>Confidence is built on his intelligence and technical security, not just aggression.</li>
+          <li>Has handled the pressure of a £42.8m transfer and is being integrated.</li>
+          <li>Focus development on being more authoritative and progressive.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Premier League, LFP (French League), Transfermarkt, Wikipedia, MUFCInfo, WhoScored, FotMob, Soccerway, Coaches' Voice. All metrics are prospect-based (P). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate transfer status and international caps.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Leny Yoro expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('yoroRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Positioning (POS)','Tackling (TKL)','Composure (CPX)','Passing (PAS)','Aerial (AER)','Pace (SPR)'],
+          datasets: [
+            { label: 'Leny Yoro (Potential)', data: [9.2, 9.0, 9.0, 8.5, 8.4, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'William Saliba (Profile)', data: [9.4, 9.2, 9.3, 9.0, 8.8, 9.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Virgil van Dijk (Profile)', data: [9.6, 9.3, 9.5, 9.0, 9.8, 8.7],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
