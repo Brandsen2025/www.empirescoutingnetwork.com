@@ -40,7 +40,7 @@
 </head>
 <body>
   <header>
-    <img src="https"//media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ctjEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
   </header>
 
   <div class="container" role="main" aria-labelledby="profile-name">
@@ -126,7 +126,7 @@
             <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
             <ul class="small">
               <li><strong>Physical Profile:</strong> Good height at 1.84m for a centre-forward.</li>
-              <li>**Goal Contribution:** Has shown promise with 5 goals and 3 assists in his 2025 season.</li>
+              <li><strong>Goal Contribution:</strong> Has shown promise with 5 goals and 3 assists in his 2025 season.</li>
               <li><strong>Availability:</strong> Has appeared in 32 matches, showing he is a key part of the squad.</li>
             </ul>
           </div>
@@ -317,8 +317,8 @@
       </section>
 
       <section class="section" aria-labelledby="comparison">
-        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Developing Strikers)</h2>
-        <p class="small">Comparators: (N/A - Player is at a domestic development level). Generate radar visuals from current/potential data.</p>
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Uruguayan Strikers)</h2>
+        <p class="small">Comparators: Abel Hernández (Profile), Nicolás López (Profile), Agustín Rodríguez (Profile). Generate radar visuals from current/potential data.</p>
         <div class="visual-canvas">
           <canvas id="sosaRadar" aria-label="Radar comparing Sosa and comparators" width="720" height="420"></canvas>
         </div>
@@ -352,7 +352,13 @@
           labels: ['Finishing (FIN)','Physique (PHY)','Aerial (AER)','Movement (MOV)','Pace (PAC)','Technique (TEC)'],
           datasets: [
             { label: 'Facundo Sosa (Potential)', data: [8.0, 8.0, 7.8, 7.5, 7.0, 6.8],
-              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Abel Hernández (Peak)', data: [9.2, 8.5, 8.4, 8.8, 7.5, 8.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Nicolás López (Peak)', data: [8.8, 7.5, 7.0, 8.5, 8.4, 8.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 },
+            { label: 'Agustín Rodríguez (Peak)', data: [8.6, 8.2, 8.0, 8.3, 7.5, 7.8],
+              backgroundColor:'rgba(239,68,68,0.08)', borderColor:'#ef4444', pointBackgroundColor:'#ef4444', borderWidth:2 }
           ]
         },
         options: {
