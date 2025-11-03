@@ -200,283 +200,8 @@
         </footer>
 
     <script>
-        // --- Full Player Database (ALL 86 Players) ---
+        // --- Full Player Database (ALL 93 Players) ---
         const playerData = [
-            // --- NEW 9 Players (Youth) ---
-            { name: "Eba Bekir Is", profileHtml: "Eba_Bekir_is.html", position: "AM", age: 17, nationality: "Germany", fga: 73.0, bestPhilosophy: "Guardiola Positional" },
-            { name: "Abdoulaye Camara", profileHtml: "Abdoulaye_Camara.html", position: "DM", age: 17, nationality: "France", fga: 74.0, bestPhilosophy: "Simeone Cholismo" },
-            { name: "Harry Howell", profileHtml: "Harry_Howell.html", position: "AM", age: 17, nationality: "England", fga: 74.5, bestPhilosophy: "Wenger Development" },
-            { name: "Wassim Slama", profileHtml: "Wissam_Slama.html", position: "AM", age: 17, nationality: "Tunisia", fga: 73.5, bestPhilosophy: "Guardiola Positional" },
-            { name: "Wisdom Mike", profileHtml: "Wisdom_Mike.html", position: "WG", age: 17, nationality: "Germany", fga: 74.0, bestPhilosophy: "Wenger Development" },
-            { name: "Roberto Scaglione", profileHtml: "Roberto_Scaglione.html", position: "AM", age: 15, nationality: "Italy", fga: 72.5, bestPhilosophy: "Cesarini Maquina" },
-            { name: "Djylian N'Guessan", profileHtml: "Djylian_Nguessan.html", position: "ST", age: 17, nationality: "France", fga: 74.8, bestPhilosophy: "Wenger Development" },
-            { name: "Brian Madjo", profileHtml: "Brian_Madjo.html", position: "ST", age: 16, nationality: "England", fga: 74.5, bestPhilosophy: "Ronaldo (R9) Power" },
-            { name: "Stephan Zagadou", profileHtml: "Stephan_Zagadou.html", position: "CB", age: 17, nationality: "France", fga: 71.0, bestPhilosophy: "Wenger Development" },
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Database - Empire Scouting Network</title>
-    <meta name="description" content="Search the Empire FGA database for players matching 779 metrics and 60 tactical philosophies.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: block; }
-
-        /* Table Styles */
-        .database-table th, .database-table td {
-             padding: 12px 15px;
-             border-bottom: 1px solid rgba(59, 130, 246, 0.2); /* border-blue-500/20 */
-             vertical-align: middle;
-        }
-         .database-table th {
-            background-color: rgba(30, 58, 138, 0.3); /* blue-800 with alpha */
-            color: #93c5fd; /* blue-300 */
-            text-align: left;
-            font-weight: 600;
-        }
-        .database-table tbody tr:hover {
-            background-color: rgba(59, 130, 246, 0.1); /* blue-600 with alpha */
-        }
-        .database-table a {
-            color: #60a5fa; /* blue-400 */
-            text-decoration: none;
-            font-weight: 500;
-        }
-         .database-table a:hover {
-             text-decoration: underline;
-         }
-         
-        /* Form Input Styles */
-        .form-input, .form-select {
-            background-color: #1e293b; /* slate-800 */
-            border-color: #334155; /* slate-700 */
-            color: #e2e8f0; /* slate-200 */
-            border-radius: 0.375rem; /* rounded-md */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-        }
-        .form-input:focus, .form-select:focus {
-            --tw-ring-color: #3b82f6; /* blue-600 */
-            border-color: #3b82f6; /* blue-600 */
-            box-shadow: 0 0 0 1px #3b82f6;
-        }
-        .form-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1.5em 1.5em;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 2.5rem;
-        }
-        
-    </style>
-</head>
-<body class="bg-slate-950 text-white">
-
-    <nav class="sticky top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
-                         alt="Empire Scouting Network" 
-                         class="h-10 w-auto">
-                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                    <a href="RBL_Demo_Full_Roster.html" class="hover:text-blue-400 transition">RBL Demo</a>
-                    <a href="scout_template_v2.html" class="hover:text-blue-400 transition">Scout Portal</a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        Login
-                    </a>
-                    <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
-                        Request Demo
-                    </a>
-                </div>
-                 <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
-             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block hover:text-blue-400">Home</a>
-                <a href="RBL_Demo_Full_Roster.html" class="block hover:text-blue-400">RBL Demo</a>
-                <a href="scout_template_v2.html" class="block hover:text-blue-400">Scout Portal</a>
-                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
-                <a href="index.html#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
-                    Request Demo
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="pt-12 pb-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center mb-12 p-8">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-                    ESN Player Database
-                </h1>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Search the global database using ESN's proprietary metrics and tactical profiles.
-                </p>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div>
-                    <label for="search-name" class="block text-sm font-medium text-slate-300 mb-2">Search by Name</label>
-                    <input type="text" id="search-name" onkeyup="filterAndRender()" placeholder="e.g., Johan Bakayoko" class="form-input w-full text-sm">
-                </div>
-                <div>
-                    <label for="filter-position" class="block text-sm font-medium text-slate-300 mb-2">Filter by Position</label>
-                    <select id="filter-position" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Positions</option>
-                        <option value="GK">GK (Goalkeeper)</option>
-                        <option value="CB">CB (Centre-Back)</option>
-                        <option value="FB">FB (Full-Back / Wing-Back)</option>
-                        <option value="DM">DM (Defensive Midfielder)</option>
-                        <option value="CM">CM (Central Midfielder)</option>
-                        <option value="AM">AM (Attacking Midfielder)</option>
-                        <option value="WG">WG (Winger)</option>
-                        <option value="ST">ST (Striker/Forward)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-age" class="block text-sm font-medium text-slate-300 mb-2">Filter by Age</label>
-                    <select id="filter-age" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ages</option>
-                        <option value="U21">21 & Under (U21)</option>
-                        <option value="22-26">22-26 (Peak)</option>
-                        <option value="27+">27 & Over (Veteran)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-fga" class="block text-sm font-medium text-slate-300 mb-2">Filter by FGA Rating</label>
-                    <select id="filter-fga" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ratings</option>
-                        <option value="90+">90.0+ (Generational)</option>
-                        <option value="85-90">85.0 - 89.9 (Elite)</option>
-                        <option value="80-85">80.0 - 84.9 (Strong)</option>
-                        <option value="75-80">75.0 - 79.9 (Good)</option>
-                        <option value="<75">< 75.0 (Developing)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-1 sm:p-4 overflow-x-auto">
-                <table class="database-table w-full text-sm text-left text-slate-300">
-                     <thead class="text-xs uppercase">
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Nationality</th>
-                            <th scope="col">FGA Rating (/100)</th>
-                            <th scope="col">Best Tactical Philosophy</th>
-                        </tr>
-                     </thead>
-                     <tbody id="database-table-body">
-                        </tbody>
-                 </table>
-            </div>
-            <p id="no-results-message" class="text-center text-slate-400 py-10 hidden">No players found matching your criteria.</p>
-
-        </div>
-    </main>
-
-    <footer class="bg-slate-950 py-12 px-4 border-t border-blue-500/20 mt-20">
-        </footer>
-
-    <script>
-        // --- Full Player Database (ALL 112 Players) ---
-        const playerData = [
-            // --- NEW 10 Players ---
-            { name: "Frank Lampard", profileHtml: "Frank_Lampard.html", position: "CM", age: 47, nationality: "England", fga: 98.5, bestPhilosophy: "Lampard/Gerrard Box-to-Box" },
-            { name: "Federico Steffanoni", profileHtml: "Federico_Steffanoni.html", position: "CM", age: 17, nationality: "Italy", fga: 74.5, bestPhilosophy: "Guardiola Positional" },
-            { name: "Francesco Camarda", profileHtml: "Francesco_Camarda.html", position: "ST", age: 17, nationality: "Italy", fga: 75.0, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Pedro Fernández (Dro)", profileHtml: "Dro_Fernandez.html", position: "AM", age: 17, nationality: "Spain", fga: 76.0, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Sofian Domoraud", profileHtml: "Sofian_Domoraud.html", position: "ST", age: 29, nationality: "France", fga: 68.0, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Maxima Goffi", profileHtml: "Maxima_Goffi.html", position: "CB", age: 17, nationality: "France", fga: 73.0, bestPhilosophy: "Wenger Development" },
-            { name: "Peter Schmeichel", profileHtml: "Peter_Schmeichel.html", position: "GK", age: 61, nationality: "Denmark", fga: 98.5, bestPhilosophy: "Schmeichel Presence" },
-            { name: "Max Dowman", profileHtml: "Max_Bowman.html", position: "AM", age: 15, nationality: "England", fga: 73.5, bestPhilosophy: "Wenger Development" },
-            { name: "Axel Bamba", profileHtml: "Axel_Bamba.html", position: "CB", age: 26, nationality: "Ivory Coast", fga: 80.5, bestPhilosophy: "Klopp Intensity" },
-            { name: "Ronald Koeman", profileHtml: "Ronald_Koeman.html", position: "CB", age: 62, nationality: "Netherlands", fga: 98.0, bestPhilosophy: "Beckenbauer Libero" },
-            // --- NEW 16 Players (Youth + Legends) ---
-            { name: "Wisdom Mike", profileHtml: "Wisdom_Mike.html", position: "WG", age: 17, nationality: "Germany", fga: 74.0, bestPhilosophy: "Wenger Development" },
-            { name: "Wassim Slama", profileHtml: "Wissam_Slama.html", position: "AM", age: 17, nationality: "Tunisia", fga: 73.5, bestPhilosophy: "Guardiola Positional" },
-            { name: "Harry Howell", profileHtml: "Harry_Howell.html", position: "AM", age: 17, nationality: "England", fga: 74.5, bestPhilosophy: "Wenger Development" },
-            { name: "Roberto Scaglione", profileHtml: "Roberto_Scaglione.html", position: "AM", age: 15, nationality: "Italy", fga: 72.5, bestPhilosophy: "Cesarini Maquina" },
-            { name: "Abdoulaye Camara", profileHtml: "Abdoulaye_Camara.html", position: "DM", age: 17, nationality: "France", fga: 74.0, bestPhilosophy: "Simeone Cholismo" },
-            { name: "Djylian N'Guessan", profileHtml: "Djylian_Nguessan.html", position: "ST", age: 17, nationality: "France", fga: 74.8, bestPhilosophy: "Wenger Development" },
-            { name: "Brian Madjo", profileHtml: "Brian_Madjo.html", position: "ST", age: 16, nationality: "England", fga: 74.5, bestPhilosophy: "Ronaldo (R9) Power" },
-            { name: "Stephan Zagadou", profileHtml: "Stephan_Zagadou.html", position: "CB", age: 17, nationality: "France", fga: 71.0, bestPhilosophy: "Wenger Development" },
-            { name: "Eba Bekir Is", profileHtml: "Eba_Bekir_is.html", position: "AM", age: 17, nationality: "Germany", fga: 73.0, bestPhilosophy: "Guardiola Positional" },
-            { name: "Francesco Camarda", profileHtml: "Francesco_Camara.html", position: "ST", age: 17, nationality: "Italy", fga: 75.0, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Raymond Kopa", profileHtml: "Raymond_Kopa.html", position: "AM", age: 94, nationality: "France", fga: 98.5, bestPhilosophy: "Menotti Artistry" },
-            { name: "Alessio Marcaccini", profileHtml: "Alessio_Marcaccini.html", position: "GK", age: 17, nationality: "Italy", fga: 71.5, bestPhilosophy: "Buffon Tradition" },
-            { name: "Dennis Bergkamp", profileHtml: "Dennis_Bergkamp.html", position: "ST", age: 56, nationality: "Netherlands", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Peter Schmeichel", profileHtml: "Peter_Schmeichel.html", position: "GK", age: 61, nationality: "Denmark", fga: 98.5, bestPhilosophy: "Schmeichel Presence" },
-            { name: "Gheorghe Hagi", profileHtml: "Gheorghe Hagi.html", position: "AM", age: 60, nationality: "Romania", fga: 98.5, bestPhilosophy: "Menotti Artistry" },
-            { name: "Luca Williams Barnett", profileHtml: "Luca_Williams_Barnett.html", position: "AM", age: 15, nationality: "England", fga: 76.0, bestPhilosophy: "Wenger Development" },
-
-            // --- Previous 18 Players (Legends) ---
-            { name: "Karl-Heinz Rummenigge", profileHtml: "KarlHeinz_Rumenigge.html", position: "ST", age: 70, nationality: "West Germany", fga: 98.0, bestPhilosophy: "Ronaldo (R9) Power" },
-            { name: "Ronaldo Nazário", profileHtml: "Ronaldo_Nazário.html", position: "ST", age: 49, nationality: "Brazil", fga: 98.8, bestPhilosophy: "Santana JogoBonito" },
-            { name: "Ruud Gullit", profileHtml: "Ruud_Gullit.html", position: "CM", age: 63, nationality: "Netherlands", fga: 98.5, bestPhilosophy: "Michels Total" },
-            { name: "Zico", profileHtml: "Zico.html", position: "AM", age: 72, nationality: "Brazil", fga: 99.0, bestPhilosophy: "Platini Elegance" },
-            { name: "Sir Stanley Matthews", profileHtml: "Stanley_Matthews.html", position: "WG", age: 110, nationality: "England", fga: 98.0, bestPhilosophy: "Menotti Artistry" },
-            { name: "Johan Neeskens", profileHtml: "Johan_Neeskens.html", position: "CM", age: 74, nationality: "Netherlands", fga: 98.0, bestPhilosophy: "Michels Total" },
-            { name: "Roberto Carlos", profileHtml: "Roberto_Carlos.html", position: "FB", age: 52, nationality: "Brazil", fga: 98.0, bestPhilosophy: "Cafu/Carlos Overlap" },
-            { name: "Raúl González", profileHtml: "Raul_Gonzalez.html", position: "ST", age: 48, nationality: "Spain", fga: 98.0, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Alessandro Del Piero", profileHtml: "Alessandro_Del_Piero.html", position: "ST", age: 51, nationality: "Italy", fga: 98.5, bestPhilosophy: "Platini Elegance" },
-            { name: "Andrés Iniesta", profileHtml: "Andres_Iniesta.html", position: "CM", age: 41, nationality: "Spain", fga: 99.0, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Thierry Henry", profileHtml: "Thierry_Henry.html", position: "ST", age: 48, nationality: "France", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Xavi Hernández", profileHtml: "Xavi_Hernandez.html", position: "CM", age: 45, nationality: "Spain", fga: 99.0, bestPhilosophy: "Guardiola Positional" },
-            { name: "Kenny Dalglish", profileHtml: "Kenny_Dalglish.html", position: "ST", age: 74, nationality: "Scotland", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Romário", profileHtml: "Romario.html", position: "ST", age: 59, nationality: "Brazil", fga: 98.5, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Paolo Rossi", profileHtml: "Paolo_Rossi.html", position: "ST", age: 69, nationality: "Italy", fga: 97.0, bestPhilosophy: "Inzaghi Poacher" },
-            { name: "Lothar Matthäus", profileHtml: "Lothar_Matthaus.html", position: "CM", age: 64, nationality: "Germany", fga: 98.5, bestPhilosophy: "Ferguson Mental" },
-            { name: "Nílton Santos", profileHtml: "Nilton_Santos.html", position: "FB", age: 99, nationality: "Brazil", fga: 98.0, bestPhilosophy: "Cafu Overlap" },
-            { name: "Gianluigi Buffon", profileHtml: "Gianluigi_Buffon.html", position: "GK", age: 47, nationality: "Italy", fga: 99.0, bestPhilosophy: "Buffon Presence" },
-            
-            // --- RB Leipzig Players (20) ---
-            { name: "Fisnik Asllani", profileHtml: "Fisnik_Asllani.html", position: "ST", age: 23, nationality: "Germany", fga: 81.5, bestPhilosophy: "Klopp Intensity" },
-            { name: "Ilyas Ansah", profileHtml: "Ilyas_Ansah.html", position: "ST", age: 20, nationality: "Germany", fga: 77.8, bestPhilosophy: "Ferguson Mental" },
-            { name: "Rômulo", profileHtml: "Romulo_Cardoso.html", position: "ST", age: 20, nationality: "Brazil", fga: 76.3, bestPhilosophy: "Menotti Artistry" },
-            { name: "Conrad Harder", profileHtml: "Conrad_Harder.html", position: "ST", age: 20, nationality: "Denmark", fga: 74.8, bestPhilosophy: "Klopp Intensity" },
-            { name: "Amadou Haidara", profileHtml: "Amadou_Haidara.html", position: "CM", age: 27, nationality: "Mali", fga: 78.4, bestPhilosophy: "Bielsa Intensity" },
-            { name: "Assan Ouedraogo", profileHtml: "Assan_Ouedraogo.html", position: "CM", age: 19, nationality: "Germany", fga: 79.1, bestPhilosophy: "Bielsa Intensity" },
-            { name: "Antonio Nusa", profileHtml: "Antonio_Nusa.html", position: "WG", age: 20, nationality: "Norway", fga: 82.9, bestPhilosophy: "Bielsa Intensity" },
-            { name: "Castello Lukeba", profileHtml: "Castello_Lukeba.html", position: "CB", age: 22, nationality: "France", fga: 86.1, bestPhilosophy: "Guardiola Positional" },
-            { name: "Christoph Baumgartner", profileHtml: "Christian_Baumgartner.html", position: "AM", age: 26, nationality: "Austria", fga: 84.2, bestPhilosophy: "Nagelsmann Evolution" },
-            { name: "David Raum", profileHtml: "David Raum.html", position: "FB", age: 27, nationality: "Germany", f
-
             // --- RB Leipzig Players (20) ---
             { name: "Fisnik Asllani", profileHtml: "Fisnik_Asllani.html", position: "ST", age: 23, nationality: "Germany", fga: 81.5, bestPhilosophy: "Klopp Intensity" },
             { name: "Ilyas Ansah", profileHtml: "Ilyas_Ansah.html", position: "ST", age: 20, nationality: "Germany", fga: 77.8, bestPhilosophy: "Ferguson Mental" },
@@ -498,121 +223,120 @@
             { name: "Timo Werner", profileHtml: "Timo_Werner.html", position: "ST", age: 29, nationality: "Germany", fga: 83.0, bestPhilosophy: "Klopp Intensity" },
             { name: "Xaver Schlager", profileHtml: "Xaver Schlager.html", position: "CM", age: 28, nationality: "Austria", fga: 78.0, bestPhilosophy: "Bielsa Intensity" },
             { name: "Yan Diomande", profileHtml: "Yan_Diomande.html", position: "WG", age: 19, nationality: "Ivory Coast", fga: 80.8, bestPhilosophy: "Bielsa Intensity" },
-            
-            // --- Batch 2 Players ---
-            { name: "Abdul Issahaku", profileHtml: "Abdul_Issahaku.html", position: "WG", age: 21, nationality: "Ghana", fga: 80.5, bestPhilosophy: "Bielsa Intensity" },
-            { name: "Andrea Pirlo", profileHtml: "Andrea_Pirlo.html", position: "DM", age: 46, nationality: "Italy", fga: 92.1, bestPhilosophy: "Guardiola Positional" },
-            { name: "Anthony Patti", profileHtml: "Anthony Patti.html", position: "CB", age: 30, nationality: "USA/Brazil", fga: 74.0, bestPhilosophy: "Heynckes Efficiency" },
 
-            // --- Batch 3 Players (8) ---
+            // --- Legends & Prospects (73) ---
+            { name: "Abdoulaye Camara", profileHtml: "Abdoulaye_Camara.html", position: "DM", age: 17, nationality: "France", fga: 74.0, bestPhilosophy: "Simeone Cholismo" },
+            { name: "Abdul Issahaku", profileHtml: "Abdul_Issahaku.html", position: "WG", age: 21, nationality: "Ghana", fga: 80.5, bestPhilosophy: "Bielsa Intensity" },
+            { name: "Agustín Rossi", profileHtml: "Agustin_Rossi.html", position: "GK", age: 30, nationality: "Argentina", fga: 84.0, bestPhilosophy: "Buffon/Kahn Command" },
+            { name: "Alessandro Del Piero", profileHtml: "Alessandro_Del_Piero.html", position: "SS/CF", age: 51, nationality: "Italy", fga: 98.5, bestPhilosophy: "Platini Elegance" },
+            { name: "Alfredo Di Stéfano", profileHtml: "Alfredo_Di_Stefano.html", position: "ST", age: 99, nationality: "Arg/Col/Spa", fga: 99.0, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Andrea Pirlo", profileHtml: "Andrea_Pirlo.html", position: "DM", age: 46, nationality: "Italy", fga: 92.1, bestPhilosophy: "Guardiola Positional" },
+            { name: "Andrés Iniesta", profileHtml: "Andres_Iniesta.html", position: "CM", age: 41, nationality: "Spain", fga: 99.0, bestPhilosophy: "Cruyff Intelligence" },
             { name: "Antoine Griezmann", profileHtml: "Antoine Griezmann.html", position: "ST", age: 34, nationality: "France", fga: 89.5, bestPhilosophy: "Simeone Cholismo" },
             { name: "Arnor Gudjohnsen", profileHtml: "Arnor_Gudjohnsen.html", position: "ST", age: 34, nationality: "Iceland", fga: 76.1, bestPhilosophy: "Wenger Development" },
-
-            
-            // --- Batch 4 Players (10) ---
+            { name: "Asilbek Aliev", profileHtml: "Asilbek_Aliev.html", position: "ST", age: 16, nationality: "Uzbekistan", fga: 68.0, bestPhilosophy: "Lewandowski Finisher" },
             { name: "Ben El Idrissi", profileHtml: "Ben_El_Idrissi.html", position: "FB", age: 26, nationality: "Switzerland/Morocco", fga: 75.4, bestPhilosophy: "Hiddink Adaptability" },
+            { name: "Bobby Moore", profileHtml: "Bobby_Moore.html", position: "CB", age: 84, nationality: "England", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Brian Madjo", profileHtml: "Brian_Madjo.html", position: "ST", age: 16, nationality: "England", fga: 74.5, bestPhilosophy: "Ronaldo (R9) Power" },
             { name: "Bruno Pezzey", profileHtml: "Bruno_Pezzey.html", position: "CB", age: 69, nationality: "Austria", fga: 88.8, bestPhilosophy: "Beckenbauer Libero" },
-
-            // --- Batch 5 Players (9) ---
             { name: "Bukayo Saka", profileHtml: "Bukayo Saka.html", position: "WG", age: 24, nationality: "England", fga: 89.8, bestPhilosophy: "Klopp Intensity" },
-            { name: "Emilio Butragueño", profileHtml: "Butragueño.html", position: "ST", age: 62, nationality: "Spain", fga: 90.3, bestPhilosophy: "Munoz Elegance" },
+            { name: "Cafu", profileHtml: "Cafu.html", position: "FB", age: 55, nationality: "Brazil", fga: 94.0, bestPhilosophy: "Michels Total" },
             { name: "Carlos Caszely", profileHtml: "Carlos_Caszely.html", position: "ST", age: 75, nationality: "Chile", fga: 87.6, bestPhilosophy: "Menotti Artistry" },
-           
-
-            // --- Players from HTML Content (Batch) ---
-           { name: "Roberto Palacios", profileHtml: "Roberto_Palacios.html", position: "AM", age: 52, nationality: "Peru", fga: 87.0, bestPhilosophy: "Menotti Artistry" },
-           { name: "Iván Zamorano", profileHtml: "Ivan_Zamorano.html", position: "ST", age: 58, nationality: "Chile", fga: 91.3, bestPhilosophy: "Ferguson Mental" },
-           { name: "Gilberto Yearwood", profileHtml: "Gilberto_Yearwood.html", position: "DM", age: 69, nationality: "Honduras", fga: 85.8, bestPhilosophy: "Beckenbauer Libero" },
-           { name: "Mohamed Salah", profileHtml: "Mohamed_Salah.html", position: "WG", age: 33, nationality: "Egypt", fga: 91.2, bestPhilosophy: "Klopp Intensity" },
-           { name: "Edgardo Bauza", profileHtml: "Edgardo_Bauza.html", position: "CB", age: 67, nationality: "Argentina", fga: 89.5, bestPhilosophy: "Bilardo Pragmatism" },
-           { name: "Marcus Rashford", profileHtml: "Marcus_Rashford.html", position: "WG", age: 28, nationality: "England", fga: 88.4, bestPhilosophy: "Klopp Intensity" },
-           { name: "Steven Berghuis", profileHtml: "Steven_Berghuis.html", position: "WG", age: 33, nationality: "Netherlands", fga: 83.0, bestPhilosophy: "Set Piece Specialist" }, 
-           { name: "Gabriel Batistuta", profileHtml: "Gabriel_Batistuta.html", position: "ST", age: 56, nationality: "Argentina", fga: 93.8, bestPhilosophy: "Ferguson Mental" },
-           { name: "Ian Wright", profileHtml: "Ian_Wright.html", position: "ST", age: 62, nationality: "England", fga: 90.2, bestPhilosophy: "Fontaine Attack" },
-           { name: "Stiven Valencia", profileHtml: "Stiven_Valencia.html", position: "CB", age: 25, nationality: "Colombia", fga: 68.5, bestPhilosophy: "Herrera Catenaccio" },
-           { name: "Rogério Ceni", profileHtml: "Rogerio_Ceni.html", position: "GK", age: 52, nationality: "Brazil", fga: 89.0, bestPhilosophy: "Ferguson Mental" },
-           { name: "Jacob Bruun Larsen", profileHtml: "Jacob_Bruun_Larsen.html", position: "WG", age: 27, nationality: "Denmark", fga: 79.2, bestPhilosophy: "Platini Elegance" },
-           { name: "Edgar Davids", profileHtml: "Edgar_Davids.html", position: "CM", age: 52, nationality: "Netherlands", fga: 92.5, bestPhilosophy: "Simeone Cholismo" },
-           { name: "Jimmy Floyd Hasselbaink", profileHtml: "Jimmy_Floyd_Hasselbaink.html", position: "ST", age: 53, nationality: "Netherlands", fga: 91.0, bestPhilosophy: "Fontaine Attack" },
-           { name: "Ryan Gravenberch", profileHtml: "Ryan_Gravenberch.html", position: "CM", age: 23, nationality: "Netherlands", fga: 86.5, bestPhilosophy: "Cruyff Intelligence" },
-           { name: "Xavi Simons", profileHtml: "Xavi_Simons.html", position: "AM", age: 22, nationality: "Netherlands", fga: 91.5, bestPhilosophy: "Cruyff Intelligence" },
-           { name: "Marco Antonio Catê", profileHtml: "Marco_Antonio_Cate.html", position: "WG", age: 52, nationality: "Brazil", fga: 79.5, bestPhilosophy: "Santana JogoBonito" }, 
-           { name: "Franz Beckenbauer", profileHtml: "Franz_Bekenbauer.html", position: "CB", age: 79, nationality: "Germany", fga: 98.0, bestPhilosophy: "Beckenbauer Libero" },
-        { name: "Cristiano Ronaldo", profileHtml: "Cristiano_Ronaldo.html", position: "ST", age: 40, nationality: "Portugal", fga: 98.8, bestPhilosophy: "Ferguson Mental" },
-        { name: "Alfredo Di Stéfano", profileHtml: "Alfredo_Di_Stefano.html", position: "ST", age: 99, nationality: "Arg/Col/Spa", fga: 99.0, bestPhilosophy: "Cruyff Intelligence" },
-        { name: "Franco Baresi", profileHtml: "Franco_Baresi.html", position: "CB", age: 65, nationality: "Italy", fga: 97.5, bestPhilosophy: "Sacchi Pressing" },
-        { name: "Kevin De Bruyne", profileHtml: "De_Bruyne.html", position: "AM", age: 34, nationality: "Belgium", fga: 96.5, bestPhilosophy: "Guardiola Positional" },
-        { name: "Cafu", profileHtml: "Cafu.html", position: "FB", age: 55, nationality: "Brazil", fga: 94.0, bestPhilosophy: "Michels Total" },
-        { name: "Diego Maradona", profileHtml: "Diego_Maradona.html", position: "AM", age: 65, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
-        { name: "Lionel Messi", profileHtml: "Lionel_Messi.html", position: "ST", age: 38, nationality: "Argentina", fga: 99.8, bestPhilosophy: "Guardiola Positional" }, 
-        { name: "Kylian Mbappé", profileHtml: "Kylian_Mbappe.html", position: "ST", age: 26, nationality: "France", fga: 98.2, bestPhilosophy: "Fontaine Attack" },
+            { name: "Cristiano Ronaldo", profileHtml: "Cristiano_Ronaldo.html", position: "ST", age: 40, nationality: "Portugal", fga: 98.8, bestPhilosophy: "Ferguson Mental" },
+            { name: "Denis Law", profileHtml: "Denis_Law.html", position: "ST", age: 84, nationality: "Scotland", fga: 95.0, bestPhilosophy: "Fontaine Attack" },
+            { name: "Diego Forlán", profileHtml: "Diego_Forlan.html", position: "ST", age: 46, nationality: "Uruguay", fga: 90.5, bestPhilosophy: "Lewandowski Finisher" },
+            { name: "Diego Maradona", profileHtml: "Diego_Maradona.html", position: "AM", age: 65, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
+            { name: "Djylian N'Guessan", profileHtml: "Djylian_Nguessan.html", position: "ST", age: 17, nationality: "France", fga: 74.8, bestPhilosophy: "Wenger Development" },
+            { name: "Eba Bekir Is", profileHtml: "Eba_Bekir_is.html", position: "AM", age: 17, nationality: "Germany", fga: 73.0, bestPhilosophy: "Guardiola Positional" },
+            { name: "Edgar Davids", profileHtml: "Edgar_Davids.html", position: "CM", age: 52, nationality: "Netherlands", fga: 92.5, bestPhilosophy: "Simeone Cholismo" },
+            { name: "Edgardo Bauza", profileHtml: "Edgardo_Bauza.html", position: "CB", age: 67, nationality: "Argentina", fga: 89.5, bestPhilosophy: "Bilardo Pragmatism" },
+            { name: "Emilio Butragueño", profileHtml: "Butragueño.html", position: "ST", age: 62, nationality: "Spain", fga: 90.3, bestPhilosophy: "Munoz Elegance" },
             { name: "Erling Haaland", profileHtml: "Erling_Haaland.html", position: "ST", age: 25, nationality: "Norway", fga: 97.0, bestPhilosophy: "Fontaine Attack" },
-            { name: "Paolo Maldini", profileHtml: "Paolo_Maldini.html", position: "FB", age: 57, nationality: "Italy", fga: 98.2, bestPhilosophy: "Sacchi Pressing" },
+            { name: "Franco Baresi", profileHtml: "Franco_Baresi.html", position: "CB", age: 65, nationality: "Italy", fga: 97.5, bestPhilosophy: "Sacchi Pressing" },
+            { name: "Franz Beckenbauer", profileHtml: "Franz_Bekenbauer.html", position: "CB", age: 79, nationality: "Germany", fga: 98.0, bestPhilosophy: "Beckenbauer Libero" },
+            { name: "Gabriel Batistuta", profileHtml: "Gabriel_Batistuta.html", position: "ST", age: 56, nationality: "Argentina", fga: 93.8, bestPhilosophy: "Ferguson Mental" },
+            { name: "Gary Lineker", profileHtml: "Gary_Lineker.html", position: "ST", age: 64, nationality: "England", fga: 91.0, bestPhilosophy: "Lewandowski Finisher" },
+            { name: "George Best", profileHtml: "George_Best.html", position: "WG", age: 70, nationality: "Northern Ireland", fga: 96.0, bestPhilosophy: "Menotti Artistry" },
+            { name: "Gianluigi Buffon", profileHtml: "Gianluigi_Buffon.html", position: "GK", age: 47, nationality: "Italy", fga: 99.0, bestPhilosophy: "Buffon Presence" },
+            { name: "Gilberto Yearwood", profileHtml: "Gilberto_Yearwood.html", position: "DM", age: 69, nationality: "Honduras", fga: 85.8, bestPhilosophy: "Beckenbauer Libero" },
+            { name: "Harry Howell", profileHtml: "Harry_Howell.html", position: "AM", age: 17, nationality: "England", fga: 74.5, bestPhilosophy: "Wenger Development" },
+            { name: "Ian Wright", profileHtml: "Ian_Wright.html", position: "ST", age: 62, nationality: "England", fga: 90.2, bestPhilosophy: "Fontaine Attack" },
+            { name: "Iván Zamorano", profileHtml: "Ivan_Zamorano.html", position: "ST", age: 58, nationality: "Chile", fga: 91.3, bestPhilosophy: "Ferguson Mental" },
+            { name: "Jacob Bruun Larsen", profileHtml: "Jacob_Bruun_Larsen.html", position: "WG", age: 27, nationality: "Denmark", fga: 79.2, bestPhilosophy: "Platini Elegance" },
+            { name: "Jamal Musiala", profileHtml: "Jamal_Musiala.html", position: "AM", age: 22, nationality: "Germany", fga: 93.0, bestPhilosophy: "Menotti Artistry" },
+            { name: "Jimmy Floyd Hasselbaink", profileHtml: "Jimmy_Floyd_Hasselbaink.html", position: "ST", age: 53, nationality: "Netherlands", fga: 91.0, bestPhilosophy: "Fontaine Attack" },
+            { name: "Johan Neeskens", profileHtml: "Johan_Neeskens.html", position: "CM", age: 74, nationality: "Netherlands", fga: 98.0, bestPhilosophy: "Michels Total" },
+            { name: "Jude Bellingham", profileHtml: "Jude_Bellingham.html", position: "CM", age: 22, nationality: "England", fga: 97.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Kalusha Bwalya", profileHtml: "Kalusha_Bwalya.html", position: "AM", age: 62, nationality: "Zambia", fga: 88.0, bestPhilosophy: "Platini Elegance" },
+            { name: "Karl-Heinz Rummenigge", profileHtml: "KarlHeinz_Rumenigge.html", position: "ST", age: 70, nationality: "West Germany", fga: 98.0, bestPhilosophy: "Ronaldo (R9) Power" },
+            { name: "Kenny Dalglish", profileHtml: "Kenny_Dalglish.html", position: "ST", age: 74, nationality: "Scotland", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Kevin De Bruyne", profileHtml: "De_Bruyne.html", position: "AM", age: 34, nationality: "Belgium", fga: 96.5, bestPhilosophy: "Guardiola Positional" },
+            { name: "Kylian Mbappé", profileHtml: "Kylian_Mbappe.html", position: "ST", age: 26, nationality: "France", fga: 98.2, bestPhilosophy: "Fontaine Attack" },
+            { name: "Lev Yashin", profileHtml: "Lev_Yashin.html", position: "GK", age: 96, nationality: "Soviet Union", fga: 99.0, bestPhilosophy: "Buffon Presence" },
+            { name: "Lionel Messi", profileHtml: "Lionel_Messi.html", position: "ST", age: 38, nationality: "Argentina", fga: 99.8, bestPhilosophy: "Guardiola Positional" },
+            { name: "Lothar Matthäus", profileHtml: "Lothar_Matthaus.html", position: "CM", age: 64, nationality: "Germany", fga: 98.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Luka Modrić", profileHtml: "Luka_Modric.html", position: "CM", age: 40, nationality: "Croatia", fga: 95.5, bestPhilosophy: "Guardiola Positional" },
-            { name: "Jamal Musiala", profileHtml: "Jamal_Musiala.html", position: "AM", age: 22, nationality: "Germany", fga: 93.0, bestPhilosophy: "Menotti Artistry" }, 
-        { name: "Pelé", profileHtml: "Pele.html", position: "ST", age: 85, nationality: "Brazil", fga: 99.8, bestPhilosophy: "Santana JogoBonito" },
+            { name: "Luís Suárez", profileHtml: "Luis_Suarez.html", position: "ST", age: 38, nationality: "Uruguay", fga: 88.5, bestPhilosophy: "Fontaine Attack" },
+            { name: "Luísito Suárez", profileHtml: "Luis_Suarez_Miramontes.html", position: "CM", age: 90, nationality: "Spain", fga: 94.5, bestPhilosophy: "Platini Elegance" },
+            { name: "Marco van Basten", profileHtml: "Marco_Van_Basten.html", position: "ST", age: 60, nationality: "Netherlands", fga: 97.8, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Marcus Rashford", profileHtml: "Marcus_Rashford.html", position: "WG", age: 28, nationality: "England", fga: 88.4, bestPhilosophy: "Klopp Intensity" },
+            { name: "Michel Platini", profileHtml: "Michel_Platini.html", position: "AM", age: 55, nationality: "France", fga: 99.0, bestPhilosophy: "Platini Elegance" },
+            { name: "Mohamed Salah", profileHtml: "Mohamed_Salah.html", position: "WG", age: 33, nationality: "Egypt", fga: 91.2, bestPhilosophy: "Klopp Intensity" },
+            { name: "Nílton Santos", profileHtml: "Nilton_Santos.html", position: "FB", age: 99, nationality: "Brazil", fga: 98.0, bestPhilosophy: "Cafu Overlap" },
+            { name: "Paolo Maldini", profileHtml: "Paolo_Maldini.html", position: "FB", age: 57, nationality: "Italy", fga: 98.2, bestPhilosophy: "Sacchi Pressing" },
+            { name: "Paolo Rossi", profileHtml: "Paolo_Rossi.html", position: "ST", age: 69, nationality: "Italy", fga: 97.0, bestPhilosophy: "Inzaghi Poacher" },
+            { name: "Paul Gascoigne", profileHtml: "Paul_Gascoigne.html", position: "AM", age: 58, nationality: "England", fga: 90.5, bestPhilosophy: "Menotti Artistry" },
+            { name: "Paul Scholes", profileHtml: "Paul_Scholes.html", position: "CM", age: 51, nationality: "England", fga: 91.2, bestPhilosophy: "Ferguson Mental" },
+            { name: "Pelé", profileHtml: "Pele.html", position: "ST", age: 85, nationality: "Brazil", fga: 99.8, bestPhilosophy: "Santana JogoBonito" },
+            { name: "Raúl González", profileHtml: "Raul_Gonzalez.html", position: "ST", age: 48, nationality: "Spain", fga: 98.0, bestPhilosophy: "Inzaghi Poacher" },
+            { name: "Robert Lewandowski", profileHtml: "Robert_Lewandowski.html", position: "ST", age: 37, nationality: "Poland", fga: 94.0, bestPhilosophy: "Lewandowski Finisher" },
+            { name: "Roberto Carlos", profileHtml: "Roberto_Carlos.html", position: "FB", age: 52, nationality: "Brazil", fga: 98.0, bestPhilosophy: "Cafu/Carlos Overlap" },
+            { name: "Roberto Palacios", profileHtml: "Roberto_Palacios.html", position: "AM", age: 52, nationality: "Peru", fga: 87.0, bestPhilosophy: "Menotti Artistry" },
+            { name: "Roberto Scaglione", profileHtml: "Roberto_Scaglione.html", position: "AM", age: 15, nationality: "Italy", fga: 72.5, bestPhilosophy: "Cesarini Maquina" },
+            { name: "Rogério Ceni", profileHtml: "Rogerio_Ceni.html", position: "GK", age: 52, nationality: "Brazil", fga: 89.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Romário", profileHtml: "Romario.html", position: "ST", age: 59, nationality: "Brazil", fga: 98.5, bestPhilosophy: "Inzaghi Poacher" },
+            { name: "Ronaldo Nazário", profileHtml: "Ronaldo_Nazário.html", position: "ST", age: 49, nationality: "Brazil", fga: 98.8, bestPhilosophy: "Santana JogoBonito" },
+            { name: "Ruud Gullit", profileHtml: "Ruud_Gullit.html", position: "CM", age: 63, nationality: "Netherlands", fga: 98.5, bestPhilosophy: "Michels Total" },
+            { name: "Ruud van Nistelrooy", profileHtml: "Ruud-van_Nistelrooy.html", position: "ST", age: 49, nationality: "Netherlands", fga: 92.5, bestPhilosophy: "Van Nistelrooy Finisher" },
+            { name: "Ryan Gravenberch", profileHtml: "Ryan_Gravenberch.html", position: "CM", age: 23, nationality: "Netherlands", fga: 86.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Sergio Ramos", profileHtml: "Sergio_Ramos.html", position: "CB", age: 41, nationality: "Spain", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Sir Stanley Matthews", profileHtml: "Stanley_Matthews.html", position: "WG", age: 110, nationality: "England", fga: 98.0, bestPhilosophy: "Menotti Artistry" },
+            { name: "Stephan Zagadou", profileHtml: "Stephan_Zagadou.html", position: "CB", age: 17, nationality: "France", fga: 71.0, bestPhilosophy: "Wenger Development" },
+            { name: "Steven Berghuis", profileHtml: "Steven_Berghuis.html", position: "WG", age: 33, nationality: "Netherlands", fga: 83.0, bestPhilosophy: "Set Piece Specialist" },
+            { name: "Thierry Henry", profileHtml: "Thierry_Henry.html", position: "ST", age: 48, nationality: "France", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Vinnie Jones", profileHtml: "Vinnie_Jones.html", position: "DM", age: 60, nationality: "Wales", fga: 82.0, bestPhilosophy: "Buffon/Kahn Command" },
+            { name: "Wassim Slama", profileHtml: "Wissam_Slama.html", position: "AM", age: 17, nationality: "Tunisia", fga: 73.5, bestPhilosophy: "Guardiola Positional" },
+            { name: "Wisdom Mike", profileHtml: "Wisdom_Mike.html", position: "WG", age: 17, nationality: "Germany", fga: 74.0, bestPhilosophy: "Wenger Development" },
+            { name: "Xavi Hernández", profileHtml: "Xavi_Hernandez.html", position: "CM", age: 45, nationality: "Spain", fga: 99.0, bestPhilosophy: "Guardiola Positional" },
+            { name: "Xavi Simons", profileHtml: "Xavi_Simons.html", position: "AM", age: 22, nationality: "Netherlands", fga: 91.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Zico", profileHtml: "Zico.html", position: "AM", age: 72, nationality: "Brazil", fga: 99.0, bestPhilosophy: "Platini Elegance" },
+            { name: "Zinedine Zidane", profileHtml: "Zinedine_Zidane.html", position: "CM", age: 53, nationality: "France", fga: 98.0, bestPhilosophy: "Platini Elegance" },
+
+            // --- Misc / Placeholders (from previous file, functionality may be limited) ---
+            { name: "Filipe Aguiar", profileHtml: "Filipe_Aguiar.html", position: "AM", age: 34, nationality: "Portugal", fga: 58.5, bestPhilosophy: "Menotti Artistry" },
             { name: "Samuel Mbangula", profileHtml: "Samuel_Mbangula.html", position: "WG", age: 21, nationality: "Belgium / Congo DR", fga: 77.0, bestPhilosophy: "Wenger Development" },
             { name: "Josha Vagnoman", profileHtml: "Josha_Vagnoman.html", position: "FB", age: 25, nationality: "Germany", fga: 82.0, bestPhilosophy: "Klopp Intensity" },
             { name: "Youcef Belaïli", profileHtml: "Youcef_Belaili.html", position: "WG", age: 33, nationality: "Algeria", fga: 86.4, bestPhilosophy: "Pellegrini Elegance" },
             { name: "Yan Sasse", profileHtml: "Yan_Sasse.html", position: "AM", age: 28, nationality: "Brazil", fga: 78.4, bestPhilosophy: "Pellegrini Elegance" },
-        { name: "Marco van Basten", profileHtml: "Marco_Van_Basten.html", position: "ST", age: 60, nationality: "Netherlands", fga: 97.8, bestPhilosophy: "Cruyff Intelligence" },
-           { name: "Filipe Aguiar", profileHtml: "Filipe_Aguiar.html", position: "AM", age: 34, nationality: "Portugal", fga: 58.5, bestPhilosophy: "Menotti Artistry" },
-           { name: "Denis Law", profileHtml: "Denis_Law.html", position: "ST", age: 84, nationality: "Scotland", fga: 95.0, bestPhilosophy: "Fontaine Attack" },
-           { name: "Jude Bellingham", profileHtml: "Jude_Bellingham.html", position: "CM", age: 22, nationality: "England", fga: 97.5, bestPhilosophy: "Ferguson Mental" },
-           { name: "Zinedine Zidane", profileHtml: "Zinedine_Zidane.html", position: "CM", age: 53, nationality: "France", fga: 98.0, bestPhilosophy: "Platini Elegance" },
-           { name: "George Best", profileHtml: "George_Best.html", position: "RW", age: 70, nationality: "Northern Ireland", fga: 96.0, bestPhilosophy: "Menotti Artistry" },
-           { name: "Sergio Ramos", profileHtml: "Sergio_Ramos.html", position: "CB", age: 41, nationality: "Spain", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
-           { name: "Luís Suárez", profileHtml: "Luis_Suarez.html", position: "ST", age: 38, nationality: "Uruguay", fga: 88.5, bestPhilosophy: "Fontaine Attack" },
-           { name: "Luísito Suárez", profileHtml: "Luis_Suarez_Miramontes.html", position: "CM", age: 90, nationality: "Spain", fga: 94.5, bestPhilosophy: "Platini Elegance" },
-           { name: "Franco Fagúndez", profileHtml: "Franco_Fagundez.html", position: "AM", age: 25, nationality: "Uruguay", fga: 78.8, bestPhilosophy: "Menotti Artistry" },
-           { name: "Aníbal Chalà", profileHtml: "Anibal_Chala.html", position: "LB", age: 29, nationality: "Ecuador", fga: 76.5, bestPhilosophy: "Klopp Intensity" },
-           { name: "Roberto Rojas", profileHtml: "Roberto_Rojas.html", position: "GK", age: 68, nationality: "Chile", fga: 86.0, bestPhilosophy: "Yashin Revolution" },
-           { name: "Frankie Westfield", profileHtml: "Frankie_Westfield.html", position: "RB", age: 19, nationality: "USA", fga: 72.0, bestPhilosophy: "Guardiola Positional" },
-           { name: "Nathan Harriel", profileHtml: "Nathan_Harriel.html", position: "RB", age: 24, nationality: "USA", fga: 77.5, bestPhilosophy: "Simeone Cholismo" },
-           { name: "Jozy Altidore", profileHtml: "Jozy_Altidore.html", position: "ST", age: 36, nationality: "USA", fga: 84.0, bestPhilosophy: "Ferguson Mental" },
-           { name: "Gilberto Mora", profileHtml: "Caden_Clark.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-           { name: "Jared Borgetti", profileHtml: "Caden_Clark.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-           { name: "Hugo Camberos", profileHtml: "Caden_Clark.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-           { name: "Iker Fimbres", profileHtml: "Iker_Fimbres.html", position: "AM", age: 20, nationality: "Mexico", fga: 73.5, bestPhilosophy: "Wenger Development" },
-{ name: "Alphonso Davies", profileHtml: "Alphonso_davies.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Frank Yallop", profileHtml: "Frank_Yallop.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Jonathan David", profileHtml: "Jonathan_David.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Carlos Ruiz", profileHtml: "Carlos_Ruiz_Gutierrez.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Mágico González", profileHtml: "Jorge_Gonzalez_Barillas.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Keylor Navas", profileHtml: "Keylor_Navas.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Bryan Ruiz", profileHtml: "Bryan_Ruiz.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Roberth Patiño", profileHtml: "Roberth_Patino.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Bianneider Tamayo", profileHtml: "Bianneider_Tamayo.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Jefferson Savarino", profileHtml: "Jefferson_Savarino.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Telasco Segovia", profileHtml: "Telasco_Segovia.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Alessandro Milani", profileHtml: "Alessandro_Milani.html", position: "AM", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Ivo Basay", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Uwe Kamps", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Andreas Möller", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Salomon Rondón", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Juan Arango", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Rafael Dudamel", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Roberto Baggio", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Rivaldo", profileHtml: "Rivaldo.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Ronaldinho Gaúcho", profileHtml: "JRonaldinho.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Ferenc Puskás", profileHtml: "Ferenc_Puskas.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Garrincha", profileHtml: "Garrincha.html", position: "GK", age: 22, nationality: "USA", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Eusebio", profileHtml: "Eusebio.html", position: "ST", age: 22, nationality: "Portugal", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Gerd Müller", profileHtml: "Juan_Rojas.html", position: "GK", age: 22, nationality: "West Germany", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Carlos Alberto", profileHtml: "Juan_Rojas.html", position: "RB", age: 22, nationality: "Brazil", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Johan Cruyff", profileHtml: "Johan_Cruyff.html", position: "ST", age: 22, nationality: "Netherlands", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Mario Kempes", profileHtml: "Mario_Kempes.html", position: "ST", age: 22, nationality: "Argentina", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
-{ name: "Michel Platini", profileHtml: "Michel_Platini.html", position: "AM", age: 55, nationality: "France", fga: 99.0, bestPhilosophy: "Platini Elegance" },
-{ name: "Bobby Moore", profileHtml: "Bobby_Moore.html", position: "CB", age: 84, nationality: "England", fga: 98.5, bestPhilosophy: "Cruyff Intelligence" },
-{ name: "Lev Yashin", profileHtml: "Lev_Yashin.html", position: "GK", age: 96, nationality: "Soviet Union", fga: 99.0, bestPhilosophy: "Buffon Presence" },
+            { name: "Franco Fagúndez", profileHtml: "Franco_Fagundez.html", position: "AM", age: 25, nationality: "Uruguay", fga: 78.8, bestPhilosophy: "Menotti Artistry" },
+            { name: "Aníbal Chalà", profileHtml: "Anibal_Chala.html", position: "FB", age: 29, nationality: "Ecuador", fga: 76.5, bestPhilosophy: "Klopp Intensity" },
+            { name: "Roberto Rojas", profileHtml: "Roberto_Rojas.html", position: "GK", age: 68, nationality: "Chile", fga: 86.0, bestPhilosophy: "Yashin Revolution" },
+            { name: "Frankie Westfield", profileHtml: "Frankie_Westfield.html", position: "FB", age: 19, nationality: "USA", fga: 72.0, bestPhilosophy: "Guardiola Positional" },
+            { name: "Nathan Harriel", profileHtml: "Nathan_Harriel.html", position: "FB", age: 24, nationality: "USA", fga: 77.5, bestPhilosophy: "Simeone Cholismo" },
+            { name: "Jozy Altidore", profileHtml: "Jozy_Altidore.html", position: "ST", age: 36, nationality: "USA", fga: 84.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Iker Fimbres", profileHtml: "Iker_Fimbres.html", position: "AM", age: 20, nationality: "Mexico", fga: 73.5, bestPhilosophy: "Wenger Development" },
         ];
 
         // --- Helper: Position Mapping ---
         const positionMap = {
-            "GK": "GK", "CB": "CB", "LWB/LB": "FB", "RB/CB": "FB", "FB": "FB", "RB": "FB", "LB": "FB",
-            "DM": "DM", "CM": "CM", "CM/DM": "CM", "AM": "AM", 
-            "LW/RW": "WG", "RW": "WG", "Winger": "WG", "WG": "WG", "LW": "WG",
-            "ST": "ST", "FW": "ST", "ST/FW": "ST", "SS/CF": "ST"
+            "GK": "GK",
+            "CB": "CB", "CB/DM": "CB",
+            "FB": "FB", "LWB/LB": "FB", "RB/CB": "FB", "RB": "FB", "LB": "FB",
+            "DM": "DM",
+            "CM": "CM", "CM/DM": "CM",
+            "AM": "AM", "CAM/DM": "AM", "AM/CM": "AM", "AM/RW": "AM", "Att. Midfielder": "AM", "Att. Midfielder / Forward": "AM",
+            "WG": "WG", "LW/RW": "WG", "RW": "WG", "Winger": "WG", "LW": "WG",
+            "ST": "ST", "FW": "ST", "ST/FW": "ST", "SS/CF": "ST", "CF/LW/RW": "ST", "Forward (CF/LW/RW)": "ST", "Forward / Winger": "ST", "Striker / Left-Winger": "ST", "Striker / Second Striker": "ST"
         };
         
         // --- Helper: FGA Color ---
@@ -720,413 +444,3 @@
     </script>
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Database - Empire Scouting Network</title>
-    <meta name="description" content="Search the Empire FGA database for players matching 779 metrics and 60 tactical philosophies.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: block; }
-
-        /* Table Styles */
-        .database-table th, .database-table td {
-             padding: 12px 15px;
-             border-bottom: 1px solid rgba(59, 130, 246, 0.2); /* border-blue-500/20 */
-             vertical-align: middle;
-        }
-         .database-table th {
-            background-color: rgba(30, 58, 138, 0.3); /* blue-800 with alpha */
-            color: #93c5fd; /* blue-300 */
-            text-align: left;
-            font-weight: 600;
-        }
-        .database-table tbody tr:hover {
-            background-color: rgba(59, 130, 246, 0.1); /* blue-600 with alpha */
-        }
-        .database-table a {
-            color: #60a5fa; /* blue-400 */
-            text-decoration: none;
-            font-weight: 500;
-        }
-         .database-table a:hover {
-             text-decoration: underline;
-         }
-         
-        /* Form Input Styles */
-        .form-input, .form-select {
-            background-color: #1e293b; /* slate-800 */
-            border-color: #334155; /* slate-700 */
-            color: #e2e8f0; /* slate-200 */
-            border-radius: 0.375rem; /* rounded-md */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-        }
-        .form-input:focus, .form-select:focus {
-            --tw-ring-color: #3b82f6; /* blue-600 */
-            border-color: #3b82f6; /* blue-600 */
-            box-shadow: 0 0 0 1px #3b82f6;
-        }
-        .form-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1.5em 1.5em;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 2.5rem;
-        }
-        
-    </style>
-</head>
-<body class="bg-slate-950 text-white">
-
-    <nav class="sticky top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
-                         alt="Empire Scouting Network" 
-                         class="h-10 w-auto">
-                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                    <a href="RBL_Demo_Full_Roster.html" class="hover:text-blue-400 transition">RBL Demo</a>
-                    <a href="scout_template_v2.html" class="hover:text-blue-400 transition">Scout Portal</a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        Login
-                    </a>
-                    <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
-                        Request Demo
-                    </a>
-                </div>
-                 <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
-             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block hover:text-blue-400">Home</a>
-                <a href="RBL_Demo_Full_Roster.html" class="block hover:text-blue-400">RBL Demo</a>
-                <a href="scout_template_v2.html" class_("block hover:text-blue-400")>Scout Portal</a>
-                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
-                <a href="index.html#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
-                    Request Demo
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="pt-12 pb-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center mb-12 p-8">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-                    ESN Player Database
-                </h1>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Search the global database using ESN's proprietary metrics and tactical profiles.
-                </p>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div>
-                    <label for="search-name" class="block text-sm font-medium text-slate-300 mb-2">Search by Name</label>
-                    <input type="text" id="search-name" onkeyup="filterAndRender()" placeholder="e.g., Johan Bakayoko" class="form-input w-full text-sm">
-                </div>
-                <div>
-                    <label for="filter-position" class="block text-sm font-medium text-slate-300 mb-2">Filter by Position</label>
-                    <select id="filter-position" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Positions</option>
-                        <option value="GK">GK (Goalkeeper)</option>
-                        <option value="CB">CB (Centre-Back)</option>
-                        <option value="FB">FB (Full-Back / Wing-Back)</option>
-                        <option value="DM">DM (Defensive Midfielder)</option>
-                        <option value="CM">CM (Central Midfielder)</option>
-                        <option value="AM">AM (Attacking Midfielder)</option>
-                        <option value="WG">WG (Winger)</option>
-                        <option value="ST">ST (Striker/Forward)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-age" class="block text-sm font-medium text-slate-300 mb-2">Filter by Age</label>
-                    <select id="filter-age" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ages</option>
-                        <option value="U21">21 & Under (U21)</option>
-                        <option value="22-26">22-26 (Peak)</option>
-                        <option value="27+">27 & Over (Veteran)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-fga" class="block text-sm font-medium text-slate-300 mb-2">Filter by FGA Rating</label>
-                    <select id="filter-fga" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ratings</option>
-                        <option value="90+">90.0+ (Generational)</option>
-                        <option value="85-90">85.0 - 89.9 (Elite)</option>
-                        <option value="80-85">80.0 - 84.9 (Strong)</option>
-                        <option value="75-80">75.0 - 79.9 (Good)</option>
-                        <option value="<75">< 75.0 (Developing)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-1 sm:p-4 overflow-x-auto">
-                <table class="database-table w-full text-sm text-left text-slate-300">
-                     <thead class="text-xs uppercase">
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Nationality</th>
-                            <th scope="col">FGA Rating (/100)</th>
-                            <th scope="col">Best Tactical Philosophy</th>
-                        </tr>
-                     </thead>
-                     <tbody id="database-table-body">
-                        </tbody>
-                 </table>
-            </div>
-            <p id="no-results-message" class="text-center text-slate-400 py-10 hidden">No players found matching your criteria.</p>
-
-        </div>
-    </main>
-
-    <footer class="bg-slate-950 py-12 px-4 border-t border-blue-500/20 mt-20">
-        </footer>
-
-    <script>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Database - Empire Scouting Network</title>
-    <meta name="description" content="Search the Empire FGA database for players matching 779 metrics and 60 tactical philosophies.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: block; }
-
-        /* Table Styles */
-        .database-table th, .database-table td {
-             padding: 12px 15px;
-             border-bottom: 1px solid rgba(59, 130, 246, 0.2); /* border-blue-500/20 */
-             vertical-align: middle;
-        }
-         .database-table th {
-            background-color: rgba(30, 58, 138, 0.3); /* blue-800 with alpha */
-            color: #93c5fd; /* blue-300 */
-            text-align: left;
-            font-weight: 600;
-        }
-        .database-table tbody tr:hover {
-            background-color: rgba(59, 130, 246, 0.1); /* blue-600 with alpha */
-        }
-        .database-table a {
-            color: #60a5fa; /* blue-400 */
-            text-decoration: none;
-            font-weight: 500;
-        }
-         .database-table a:hover {
-             text-decoration: underline;
-         }
-         
-        /* Form Input Styles */
-        .form-input, .form-select {
-            background-color: #1e293b; /* slate-800 */
-            border-color: #334155; /* slate-700 */
-            color: #e2e8f0; /* slate-200 */
-            border-radius: 0.375rem; /* rounded-md */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-        }
-        .form-input:focus, .form-select:focus {
-            --tw-ring-color: #3b82f6; /* blue-600 */
-            border-color: #3b82f6; /* blue-600 */
-            box-shadow: 0 0 0 1px #3b82f6;
-        }
-        .form-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1.5em 1.5em;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 2.5rem;
-        }
-        
-    </style>
-</head>
-<body class="bg-slate-950 text-white">
-
-    <nav class="sticky top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
-                         alt="Empire Scouting Network" 
-                         class="h-10 w-auto">
-                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                    <a href="RBL_Demo_Full_Roster.html" class="hover:text-blue-400 transition">RBL Demo</a>
-                    <a href="scout_template_v2.html" class="hover:text-blue-400 transition">Scout Portal</a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        Login
-                    </a>
-                    <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
-                        Request Demo
-                    </a>
-                </div>
-                 <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
-             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block hover:text-blue-400">Home</a>
-                <a href="RBL_Demo_Full_Roster.html" class="block hover:text-blue-400">RBL Demo</a>
-                <a href="scout_template_v2.html" class="block hover:text-blue-400">Scout Portal</a>
-                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
-                <a href="index.html#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
-                    Request Demo
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="pt-12 pb-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center mb-12 p-8">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-                    ESN Player Database
-                </h1>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Search the global database using ESN's proprietary metrics and tactical profiles.
-                </p>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div>
-                    <label for="search-name" class="block text-sm font-medium text-slate-300 mb-2">Search by Name</label>
-                    <input type="text" id="search-name" onkeyup="filterAndRender()" placeholder="e.g., Johan Bakayoko" class="form-input w-full text-sm">
-                </div>
-                <div>
-                    <label for="filter-position" class="block text-sm font-medium text-slate-300 mb-2">Filter by Position</label>
-                    <select id="filter-position" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Positions</option>
-                        <option value="GK">GK (Goalkeeper)</option>
-                        <option value="CB">CB (Centre-Back)</option>
-                        <option value="FB">FB (Full-Back / Wing-Back)</option>
-                        <option value="DM">DM (Defensive Midfielder)</option>
-                        <option value="CM">CM (Central Midfielder)</option>
-                        <option value="AM">AM (Attacking Midfielder)</option>
-                        <option value="WG">WG (Winger)</option>
-                        <option value="ST">ST (Striker/Forward)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-age" class="block text-sm font-medium text-slate-300 mb-2">Filter by Age</label>
-                    <select id="filter-age" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ages</option>
-                        <option value="U21">21 & Under (U21)</option>
-                        <option value="22-26">22-26 (Peak)</option>
-                        <option value="27+">27 & Over (Veteran)</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-fga" class="block text-sm font-medium text-slate-300 mb-2">Filter by FGA Rating</label>
-                    <select id="filter-fga" onchange="filterAndRender()" class="form-select w-full text-sm">
-                        <option value="All">All Ratings</option>
-                        <option value="90+">90.0+ (Generational)</option>
-                        <option value="85-90">85.0 - 89.9 (Elite)</option>
-                        <option value="80-85">80.0 - 84.9 (Strong)</option>
-                        <option value="75-80">75.0 - 79.9 (Good)</option>
-                        <option value="<75">< 75.0 (Developing)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-1 sm:p-4 overflow-x-auto">
-                <table class="database-table w-full text-sm text-left text-slate-300">
-                     <thead class="text-xs uppercase">
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Nationality</th>
-                            <th scope="col">FGA Rating (/100)</th>
-                            <th scope="col">Best Tactical Philosophy</th>
-                        </tr>
-                     </thead>
-                     <tbody id="database-table-body">
-                        </tbody>
-                 </table>
-            </div>
-            <p id="no-results-message" class="text-center text-slate-400 py-10 hidden">No players found matching your criteria.</p>
-
-        </div>
-    </main>
-
-    <footer class="bg-slate-950 py-12 px-4 border-t border-blue-500/20 mt-20">
-        </footer>
-
-    <script>
-        // --- Full Player Database (ALL 96 Players) ---
-        const playerData = [
-            
-
-         
