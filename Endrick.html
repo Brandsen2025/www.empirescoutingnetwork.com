@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Endrick — Empire FGA Profile (Legend)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 30%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://img.allfootballapp.com/www1/M00/05/50/720x-/-/-/rBARMGkGqeyAUhTpAAi7ObcB9NI845.png.webp" alt="Endrick photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Endrick</div>
+        <div class="sub">Centre-Forward (Legend) · Brazil · Born: 21 Jul 2006 (19) · Height: 1.73 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Real Madrid, Palmeiras</span>
+          <span class="pill"><strong>Position</strong> Centre-Forward (Striker)</span>
+          <span class="pill"><strong>Full Name</strong> Endrick Felipe Moreira de Sousa</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A generational Brazilian striker, considered one of the biggest talents in world football. Famed for his explosive power, low center of gravity, and lethal left-footed shot. A two-time Brazilian champion with Palmeiras, he moved to Real Madrid in 2024 and is a key player for the Brazil national team.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Legend)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.2 (9.6 P)</td></tr>
+              <tr><td>POW - Shot Power</td><td>9.3 (9.7 P)</td></tr>
+              <tr><td>PAC - Pace / Acceleration</td><td>9.4 (9.6 P)</td></tr>
+              <tr><td>PHY - Physique</td><td>8.8 (9.2 P)</td></tr>
+              <tr><td>WRK - Work Rate</td><td>9.0 (9.2 P)</td></tr>
+              <tr><td>BGP - Big Game Player</td><td>9.0 (9.5 P)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for a currently active player, rated as a "Legend" prospect.</li>
+            <li>Analyze 2024-25 Real Madrid season and Brazil NT (Copa América) footage.</li>
+            <li>Struggling for minutes in late 2025 due to injury and competition (Mbappé).</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Real Madrid/Palmeiras records, FIFA/CONMEBOL records, Wikipedia, and Transfermarkt.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">88.0 (95.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Endrick is a Brazilian "wonderkid" widely compared to legends like Romário and Ronaldo Nazário. He is a complete forward who blends explosive pace (high PAC), a stocky, powerful physique (high PHY), and a devastatingly powerful left-footed shot (high FIN, high POW). After smashing youth records (165 goals in 169 games) and winning two league titles with Palmeiras, he joined Real Madrid in July 2024. He is already a star for Brazil, famously becoming the youngest player to score at Wembley in 2024.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2016–2022</td><td>Palmeiras (Youth)</td><td>165 goals in 169 academy games.</td></tr>
+            <tr><td>2022–2024</td><td>Palmeiras</td><td>Won 2x Brazilian Série A titles (2022, 2023). 18 league goals (66 apps).</td></tr>
+            <tr><td>2024–Present</td><td>Real Madrid</td><td>Joined July 2024 for €64M fee. Won Uefa Supercup & Intercontinental Cup.</td></tr>
+            <tr><td>2024–Present</td><td>Brazil National Team</td><td>Senior international. Scored at Wembley & Bernabéu. Played in Copa América.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 2022</td><td>Palmeiras Debut & First Goal</td><td>Youngest-ever player and goal-scorer for the club.</td></tr>
+            <tr><td>2022 & 2023</td><td>Brazilian Champion</td><td>Won back-to-back league titles with Palmeiras.</td></tr>
+            <tr><td>Mar 2024</td><td>Brazil vs England (Wembley)</td><td>Became the youngest-ever male player to score an international goal at Wembley.</td></tr>
+            <tr><td>Jul 2024</td><td>Transfer to Real Madrid</td><td>Completed a high-profile, €64M move.</td></tr>
+            <tr><td>2024–2025</td><td>First Season at Real Madrid</td><td>Scored 7 goals in 37 appearances (mostly in Copa del Rey).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (FIN):</strong> A lethal, instinctive, and powerful finisher with his left foot.</li>
+              <li><strong>Power & Pace (PHY/PAC):</strong> Explosive acceleration and a stocky, strong build with a low center of gravity.</li>
+              <li><strong>Work Rate (WRK):</strong> A relentless presser who "never gives up" and chases lost causes.</li>
+              <li><strong>Dribbling (DRI):</strong> Exceptional ability to maneuver in tight spaces and beat players 1-v-1.</li>
+              <li><strong>Movement (MOV):</strong> Intelligent off-ball runs to hunt space.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Height / Aerial Ability:</strong> At 1.73m, he is not a traditional aerial target man.</li>
+              <li><strong>Current Status:</strong> Struggling for minutes in late 2025 due to injury and intense competition (Mbappé).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Immense. Signed by New Balance. One of the faces of the next generation of football, alongside Yamal.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> One of the most expensive teenagers in history (€64M). A "Galáctico" signing for Real Madrid.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His blend of power, pace, and work rate is suited to any league. His pressing ability is ideal for modern tactics.</td>
+            <p class="small"><strong>International Impact:</strong> Already a star for Brazil. Seen as the future #9 for the Seleção and a contender for the 2026 World Cup squad.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Legend)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (2024-25 Season)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Total Mins</td><td>847</td></tr>
+                <tr><td>Total Apps</td><td>37</td></tr>
+                <tr><td>Goals</td><td>7</td></tr>
+                <tr><td>Assists</td><td>1</td></tr>
+                <tr><td>Copa del Rey Goals</td><td>5 (in 6 starts)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Legend Strikers)</h3>
+            <ul class="small">
+              <li>Finishing Power: 99th percentile.</li>
+              <li>Acceleration: 98th percentile.</li>
+              <li>Defensive Work Rate (for ST): 97th percentile.</li>
+              <li>Aerial Ability: 20th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with La Liga and UEFA data. ERA Factor: Applied (Legend Model).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Endrick's DNA is the **Explosive Power-Striker**. He is a "Total Football" attacker in the mold of Romário or Ronaldo. He combines **Lethal Finishing (FIN)** and **Power (POW)** with **Explosive Pace (PAC)** and a relentless **Work Rate (WRK)**. He is a modern, all-action No. 9.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Haaland Power</td><td>9.5</td><td>A dominant, powerful, and explosive central forward.</td></tr>
+                <tr><td>Klopp Intensity</td><td>9.4</td><td>His high-octane pressing and "never give up" attitude are perfect.</td></tr>
+                <tr><td>Lewandowski Finisher</td><td>9.2</td><td>A clinical, all-around goal-scorer.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.0</td><td>A fierce competitor who scores in big moments (e.g., Wembley).</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>8.5</td><td>Creative, intelligent movement, and versatile.</td></tr>
+                <tr><td>Menotti Artistry</td><td>8.0</td><td>High flair, dribbling, and 1v1 confidence.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on Wembley goal, Palmeiras titles, and 24/25 Copa del Rey run.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>€64M Transfer:</strong> One of the most expensive teenagers ever.</li>
+              <li><strong>2x Brazilian Champion:</strong> Won two titles as a key player for Palmeiras.</li>
+              <li><strong>Wembley Record-Breaker:</strong> Youngest-ever scorer at the iconic stadium.</li>
+              <li><strong>High Work Rate:</strong> Known for relentless pressing and fighting for the team.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (titles, goals), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Legend)</h3>
+        <ul class="small">
+          <li>Deploy as a central striker in a 4-3-3 or as part of a two-striker system.</li>
+          <li>Utilize his pace to run in behind and his power in 1-v-1s.</li>
+          <li>Build the team's press around his energy as the first line of defense.</li>
+          <li>Ideal as an "inside-right" forward in a front three (Vini, Mbappé, Endrick).</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Relentless:</strong> "I'll always fight... I never give up".</li>
+          <li><strong>Confident:</strong> "Very strong in 1v1 situations, unpredictable".</li>
+          <li><strong>Ambitious:</strong> Wants to make the 2026 World Cup squad and is willing to go on loan for it.</li>
+          <li><strong>Humble:</strong> Has rejected comparisons to Pelé. Inspired by Cristiano Ronaldo.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Exceptional work ethic and defensive contribution for a striker.</li>
+          <li>Ability to handle the pressure of being a "wonderkid" and a "Galáctico".</li>
+          <li>Clutch performer (e.g., Brazil vs England at Wembley).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Handling the lack of playing time at Real Madrid (as of Nov 2025).</li>
+          <li>Competing for a spot against Kylian Mbappé.</li>
+          <li>Living up to the hype and comparisons to Ronaldo and Romário.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Endrick is a modern-day phenomenon. His philosophy is one of relentless effort, persistence, and explosive power. His experience winning multiple titles as a teenager in Brazil and his seamless transition to the Brazil NT prove his elite mentality. He is currently (Nov 2025) facing his first major career challenge: fighting for minutes at Real Madrid.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: Applied (Legend Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Legend)</th></tr></thead>
+          <tbody>
+            <tr><td>2025-26 (Current)</td><td>Real Madrid</td><td>1 (11 mins)</td><td>0</td><td>0</td><td>~0.0</td><td>88.0 (P)</td></tr>
+            <tr><td>2024-25</td><td>Real Madrid</td><td>37</td><td>7</td><td>1</td><td>~0.8</td><td>87.0 (P)</td></tr>
+            <tr><td>2024</td><td>Palmeiras</td><td>(N/A)</td><td>4</td><td>(N/A)</td><td>(N/A)</td><td>86.0 (P)</td></tr>
+            <tr><td>2023</td><td>Palmeiras</td><td>53</td><td>14</td><td>(N/A)</td><td>(N/A)</td><td>85.0 (P)</td></tr>
+            <tr><td>2022</td><td>Palmeiras</td><td>13</td><td>3</td><td>(N/A)</td><td>(N/A)</td><td>82.0 (P)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are based on available public data.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example with his incredible work rate and pressing.</td><td>N/A (Legend)</td></tr>
+            <tr><td>Pressure Handling</td><td>Exceptional. Scored at Wembley/Bernabéu on debut, won 2 titles as a teen.</td><td>N/A (Legend)</td></tr>
+            <tr><td>Development Focus (Legend)</td><td>Handling the current (Nov 2025) lack of minutes and competition.</td><td>N/A (Legend)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club Legend</td><td>Palmeiras</td><td>The club's greatest-ever youth product.</td></tr>
+            <tr><td>Club</td><td>Real Madrid</td><td>His "dream club," but facing intense competition from Mbappé.</td></tr>
+            <tr><td>National Hero</td><td>Brazil NT</td><td>Seen as the future #9 and a key player for the 2026 World Cup.</td></tr>
+            <tr><td>Inspiration</td><td>Cristiano Ronaldo</td><td>His father stated he is inspired by Ronaldo.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Nov 1, 2025</td><td>Valencia</td><td>W 4-0</td><td>11' sub appearance</td><td>Return from injury (2025-26)</td></tr>
+            <tr><td>2024-25</td><td>(Various)</td><td>(W)</td><td>Scored 5 goals in 6 starts</td><td>Copa del Rey (2024-25)</td></tr>
+            <tr><td>Aug 2024</td><td>Atalanta</td><td>W 2-0</td><td>Sub appearance</td><td>Won Uefa Supercup</td></tr>
+            <tr><td>Mar 26, 2024</td><td>Spain (Bernabéu)</td><td>D 3-3</td><td>1 goal</td><td>First goal at his new home stadium</td></tr>
+            <tr><td>Mar 23, 2024</td><td>England (Wembley)</td><td>W 1-0</td><td>1 goal (Winning goal)</td><td>Youngest-ever Wembley scorer</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on Brazil NT goals and Palmeiras highlights.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-EN-01</td><td>Brazil vs England</td><td>2024</td><td>Winning goal at Wembley</td><td>ARCH-EN-ENG-GOAL (attach)</td></tr>
+            <tr><td>VH-EN-02</td><td>Palmeiras</td><td>2022-24</td><td>Goal compilation (Série A)</td><td>ARCH-EN-PAL-GOALS (attach)</td></tr>
+            <tr><td>VH-EN-03</td><td>Real Madrid</td><td>2024-25</td><td>Copa del Rey goal compilation</td><td>ARCH-EN-RMC-COPA (attach)</td></tr>
+            <tr><td>VH-EN-04</td><td>(Various)</td><td>(Various)</td><td>Pressing & work rate compilation</td><td>ARCH-EN-PRESSING (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legend Strikers)</h2>
+        <p class="small">Comparators: Romário (Profile), Ronaldo Nazário (Profile). Generate radar visuals from legend data model.</p>
+        <div class="visual-canvas">
+          <canvas id="endrickRadar" aria-label="Radar comparing Endrick and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Legend)</h2>
+        <ul class="small">
+          <li>Player has a "warrior" mentality ("I'll always fight") combined with elite talent.</li>
+          <li>His work rate and pressing are genuine, not just for show.</li>
+          <li>Currently facing his first major career adversity (lack of minutes at Real Madrid, Nov 2025).</li>
+          <li>His response (e.g., a successful loan) will be critical for his 2026 World Cup ambitions.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, InfotechSports, Football Talent Scout, Goal.com, The Daily Targum, beIN SPORTS. All metrics are legend-level (L). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate senior appearance/goal/Brazil stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Endrick expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('endrickRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)','Power (POW)','Pace (PAC)','Physique (PHY)','Work Rate (WRK)','Dribbling (DRI)'],
+          datasets: [
+            { label: 'Endrick (Legend)', data: [9.2, 9.3, 9.4, 8.8, 9.0, 9.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Romário (Profile)', data: [9.9, 8.8, 9.2, 8.5, 7.0, 9.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Ronaldo Nazário (Profile)', data: [9.8, 9.4, 9.8, 9.0, 7.5, 9.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

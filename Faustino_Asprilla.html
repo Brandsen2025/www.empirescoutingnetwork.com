@@ -1,238 +1,391 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Faustino Asprilla — Empire FGA Profile (Updated)</title>
+  <title>Faustino Asprilla — Empire FGA Profile (Legend)</title>
   <style>
     :root{
-      --bg:#071226; --card:#0b1220; --accent:#7c3aed; --accent2:#00d1ff; --muted:#9fb0c8; --white:#e6eef8;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
     }
     html,body{height:100%;margin:0;padding:0;background:
-      radial-gradient(900px 500px at 8% 12%, rgba(124,58,237,0.06), transparent 10%),
-      radial-gradient(800px 400px at 92% 88%, rgba(0,209,255,0.03), transparent 8%), var(--bg);
-      color:var(--white);-webkit-font-smoothing:antialiased;}
-    header{display:flex;align-items:center;justify-content:space-between;max-width:1320px;margin:12px auto;padding:0 22px;}
-    header img{height:50px;width:auto;object-fit:contain;}
-    .container{max-width:1320px;margin:22px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px;}
-    .card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative;}
-    .photo{width:100%;height:520px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);}
-    .bigname{font-size:40px;font-weight:900;margin:16px 0;color:#fff;line-height:1;}
-    .sub{font-size:14px;color:var(--muted);margin-bottom:10px;}
-    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 0 0;}
-    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;color:var(--white)}
-    th,td{padding:12px;border:1px solid rgba(255,255,255,0.08);text-align:left;vertical-align:top}
-    th{background:var(--accent);font-weight:800}
-    .metrics-table th,.metrics-table td{text-align:center}
-    .rating-badge{position:absolute;right:22px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:14px 20px;border-radius:18px;font-size:30px;box-shadow:0 10px 30px rgba(0,209,255,0.12)}
-    .section{margin-top:26px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    pre{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;color:var(--muted);overflow:auto}
-    .visuals{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .visual{background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;min-width:260px;flex:1}
-    .video-wrap{margin-top:14px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,0.02);padding:8px}
-    @media (max-width:1000px){.container{grid-template-columns:1fr}.photo{height:300px}}
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <header aria-label="Empire FGA header">
-    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network Logo">
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
   </header>
 
-  <div class="container" role="main" aria-labelledby="profile-title">
-    <aside class="card" aria-label="Player summary">
-      <img class="photo" src="https://auctions.thedreamauctions.com/img/load/real/001-34-23_03.jpg" alt="Faustino Asprilla photo">
-      <div class="bigname" id="profile-title">Faustino Hernán Asprilla Hinestroza</div>
-      <div class="sub">Forward · Winger · Colombia · Born: 10 November 1969 · Height: 1.76 m</div>
-
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.forzaparma.it/wp-content/uploads/2021/12/Faustino_Asprilla_-_Parma_AC_1992-93-1.jpg" alt="Faustino Asprilla photo">
       <div style="margin-top:12px">
-        <span class="pill"><strong>Primary</strong> Centre‑Forward / Winger</span>
-        <span class="pill"><strong>Caps</strong> 57</span>
-        <span class="pill"><strong>Goals</strong> 20</span>
-      </div>
+        <div id="profile-name" class="title">Faustino Asprilla</div>
+        <div class="sub">Forward (Legend) · Colombia · Born: 10 Nov 1969 (55)</div>
 
-      <div class="section">
-        <h3 style="margin:12px 0 6px;color:var(--accent2)">Physical & Mental Snapshot</h3>
-        <table class="metrics-table" aria-describedby="physical snapshot">
-          <thead><tr><th>Metric</th><th>Score (0-10)</th></tr></thead>
-          <tbody>
-            <tr><td>Pace / Acceleration</td><td>8.9</td></tr>
-            <tr><td>Agility / Balance</td><td>9.2</td></tr>
-            <tr><td>Dribbling</td><td>9.6</td></tr>
-            <tr><td>Finishing</td><td>8.1</td></tr>
-            <tr><td>Creativity / Flair</td><td>9.4</td></tr>
-            <tr><td>Composure</td><td>7.0</td></tr>
-            <tr><td>Work Rate</td><td>7.2</td></tr>
-          </tbody>
-        </table>
-      </div>
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Parma, Newcastle Utd, Atl. Nacional, Colombia NT</span>
+          <span class="pill"><strong>Position</strong> Second Striker, Forward</span>
+          <span class="pill"><strong>Nickname</strong> "Tino," "El Pulpo" (The Octopus)</span>
+        </div>
 
-      <div class="section">
-        <h3 style="margin:12px 0 6px;color:var(--accent2)">Audit Flags</h3>
-        <ul style="color:var(--muted);margin:0;padding-left:18px">
-          <li>All numeric rows are provisional and flagged for Empire FGA 3‑source verification (FBref, Transfermarkt, club minute logs).</li>
-          <li>Match-level event coding requires curated video timestamps; recommend Parma (1992–95), Newcastle (1996–98), Colombia (1994/1998 WC) reels.</li>
-        </ul>
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">"Tino" was a legendary Colombian forward, a "maverick" famed for his explosive pace, chaotic dribbling, and unpredictable flair. A global icon of the 1990s "golden generation," he starred at Parma (winning 3 European titles) and Newcastle (famed hat-trick vs. Barcelona), and was a key part of the 5-0 win vs. Argentina.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Legend)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>PAC - Pace</td><td>9.7</td></tr>
+              <tr><td>FLA - Flair</td><td>9.8</td></tr>
+              <tr><td>DRI - Dribbling</td><td>9.6</td></tr>
+              <tr><td>FIN - Finishing</td><td>8.8</td></tr>
+              <tr><td>BGP - Big Game Player</td><td>9.0</td></tr>
+              <tr><td>AGI - Agility</td><td>9.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical; player retired in 2004.</li>
+            <li>Analyze 1993-95 Parma, 1997 Newcastle (vs. Barça), and 1994 World Cup.</li>
+            <li>Metrics reflect his status as an unpredictable "chaos agent" with world-class talent.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from FIFA/UEFA archives, Wikipedia, and historical reports.</div>
       </div>
     </aside>
 
-    <main class="card" aria-label="Main profile">
-      <div class="rating-badge" aria-hidden="false">88</div>
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">91.0 (91.0 P)</div>
 
-      <section class="section" aria-labelledby="overview-title">
-        <h2 id="overview-title">Player Overview</h2>
-        <p style="color:var(--muted)">Faustino "Tino" Asprilla is a Colombian forward celebrated for electric dribbling, sudden acceleration, unpredictable creativity and a high‑ceiling shot from range. His career peak at Parma and cultural impact at Newcastle United combine technical brilliance with a mercurial temperament that produced moments of match‑winning genius and intermittent availability issues.</p>
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Faustino "Tino" Asprilla was one of the most electric, talented, and unpredictable forwards of his generation. His game was a whirlwind of explosive pace (high PAC), gangly yet unstoppable dribbling (high DRI), and pure, audacious flair (high FLA). He was a true "maverick" who could produce moments of impossible genius. He was a key member of Colombia's 1990s "golden generation" (57 caps, 20 goals), starring in the 5-0 win over Argentina and at two World Cups. At club level, he was an icon at Parma, winning the UEFA Cup Winners' Cup and two UEFA Cups, and is famously remembered at Newcastle for his hat-trick against Barcelona in the Champions League.</p>
       </section>
 
-      <section class="section" aria-labelledby="career-timeline-title">
-        <h2 id="career-timeline-title">Career Timeline</h2>
-        <p style="color:var(--muted)">1988–1989: Cúcuta Deportivo (breakthrough). 1989–1992: Atlético Nacional (domestic star). 1992–1996: Parma (European success). 1996–1998: Newcastle United (iconic Premier League figure). 1999–2004: Series of returns across South America and Mexico; final retirement 2004.</p>
-      </section>
-
-      <section class="section" aria-labelledby="season-stats-title">
-        <h2 id="season-stats-title">Select Season & Club Stats</h2>
-        <table aria-describedby="season stats">
-          <thead><tr><th>Years</th><th>Club</th><th>Competition</th><th>Apps (league)</th><th>Goals (league)</th></tr></thead>
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>1988–1989</td><td>Cúcuta Deportivo</td><td>Colombia</td><td>36</td><td>17</td></tr>
-            <tr><td>1989–1992</td><td>Atlético Nacional</td><td>Colombia</td><td>75</td><td>32</td></tr>
-            <tr><td>1992–1996</td><td>Parma</td><td>Serie A</td><td>84</td><td>25</td></tr>
-            <tr><td>1996–1998</td><td>Newcastle United</td><td>Premier League</td><td>48</td><td>9</td></tr>
-            <tr><td>1999–2001</td><td>Palmeiras / Fluminense</td><td>Brazil</td><td>24</td><td>10</td></tr>
-            <tr><td>2003</td><td>Universidad de Chile</td><td>Chile</td><td>13</td><td>5</td></tr>
-          </tbody>
-        </table>
-        <p style="color:var(--muted);margin-top:8px">Totals and season breakdowns are consolidated from public records; full match logs recommended for per‑90 calculations.</p>
-      </section>
-
-      <section class="section" aria-labelledby="international-title">
-        <h2 id="international-title">International Career</h2>
-        <p style="color:var(--muted)">Colombia (1993–2001): 57 caps, 20 goals. Featured at FIFA World Cups 1994 and 1998 and played a defining role in Colombia's 1990s golden generation.</p>
-      </section>
-
-      <section class="section" aria-labelledby="honours-title">
-        <h2 id="honours-title">Honours & Trophies</h2>
-        <table aria-describedby="trophies">
-          <thead><tr><th>Year</th><th>Team</th><th>Trophy</th></tr></thead>
-          <tbody>
-            <tr><td>1992–93</td><td>Parma</td><td>European Cup Winners' Cup (squad)</td></tr>
-            <tr><td>1993</td><td>Parma</td><td>UEFA Super Cup</td></tr>
-            <tr><td>1994–95</td><td>Parma</td><td>UEFA Cup</td></tr>
-            <tr><td>1990–91</td><td>Atlético Nacional</td><td>Colombian League</td></tr>
-            <tr><td>1993</td><td>Colombia</td><td>Copa América third place (squad)</td></tr>
+            <tr><td>1989–1992</td><td>Atlético Nacional</td><td>Won 1989 Copa Libertadores & 1991 Colombian Championship.</td></tr>
+            <tr><td>1992–1995</td><td>Parma</td><td>Won UEFA Cup Winners' Cup (1993) & UEFA Super Cup (1993).</td></tr>
+            <tr><td>1996–1998</td><td>Newcastle United</td><td>Premier League runner-up. Scored iconic hat-trick vs. Barcelona.</td></tr>
+            <tr><td>1998–1999</td><td>Parma</td><td>Returned to win his second UEFA Cup (1999).</td></tr>
+            <tr><td>(Various)</td><td>Journeyman Career</td><td>Played in Brazil (Palmeiras, Fluminense), Mexico, and Chile.</td></tr>
+            <tr><td>1993–1998</td><td>Colombia National Team</td><td>57 caps, 20 goals. Played in 1994 & 1998 World Cups.</td></tr>
           </tbody>
         </table>
       </section>
 
-      <section class="section" aria-labelledby="match-highlights-title">
-        <h2 id="match-highlights-title">Representative Match Highlights</h2>
-        <table aria-describedby="match highlights">
-          <thead><tr><th>Date</th><th>Fixture</th><th>Competition</th><th>Highlight</th></tr></thead>
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
           <tbody>
-            <tr><td>1993</td><td>Parma vs AC Milan</td><td>Serie A</td><td>27‑yard free‑kick winner at San Siro, ended Milan's 58‑match unbeaten run</td></tr>
-            <tr><td>1997</td><td>Newcastle vs Barcelona</td><td>UEFA Champions League</td><td>Hat‑trick performance that entered club folklore</td></tr>
-            <tr><td>1994</td><td>Colombia vs Romania</td><td>FIFA World Cup</td><td>Key group stage appearance; tournament impact well documented</td></tr>
+            <tr><td>Sep 5, 1993</td><td>Colombia vs Argentina (WCQ)</td><td>Scored 2 goals in the legendary 5-0 victory.</td></tr>
+            <tr><td>1993</td><td>Cup Winners' Cup Final</td><td>Key player as Parma won the European title.</td></tr>
+            <tr><td>1995 & 1999</td><td>UEFA Cup Winner</td><td>Won the UEFA Cup twice with Parma.</td></tr>
+            <tr><td>Sep 17, 1997</td><td>Newcastle vs Barcelona (UCL)</td><td>Scored an iconic hat-trick in a 3-2 victory.</td></tr>
+            <tr><td>1994 & 1998</td><td>FIFA World Cups</td><td>Key striker for Colombia in both tournaments.</td></tr>
           </tbody>
         </table>
       </section>
 
-      <section class="section" aria-labelledby="video-title">
-        <h2 id="video-title">Video — Recommended & Winners Cup Final</h2>
-        <div class="video-wrap">
-          <p style="color:var(--muted);margin:0 0 8px 0">Winners Cup Final: Arsenal vs Parma (1996) — full match clip for event coding and tactical sequences.</p>
-          <video controls crossorigin playsinline style="width:100%;height:auto;border-radius:8px;background:#000" src="https://www.dropbox.com/scl/fi/i5huz22vhmfkrlwhdwq4k/Arsenal-Football-Club-Parma-Associazione-Calcio.mp4?rlkey=5nhkcs7yyjq5h8i0xi0tra5d6&st=jgiltkek&raw=1"></video>
-          <p style="color:var(--muted);font-size:13px;margin-top:8px">Note: Use this clip to extract timestamps for Asprilla's positional heat, high‑impact shots and transition runs.</p>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="advanced-metrics-title">
-        <h2 id="advanced-metrics-title">Advanced Metrics (Era‑Adjusted)</h2>
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
         <div class="two-col">
           <div>
-            <h3 style="color:var(--accent2);margin:0 0 8px 0">Technical / Physical</h3>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Pace & Acceleration (PAC):</strong> Possessed blistering, explosive speed.</td></tr>
+              <li><strong>Dribbling (DRI):</strong> A chaotic, unorthodox, and highly effective 1-v-1 dribbler.</li>
+              <li><strong>Flair (FLA):</strong> Unpredictable, audacious, and technically brilliant. "A maverick."</li>
+              <li><strong>Big Game Player (BGP):</strong> Scored in historic wins (5-0) and iconic matches (UCL hat-trick).</li>
+              <li><strong>Finishing (FIN):</strong> Capable of spectacular, powerful finishes from all angles.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Inconsistency:</strong> His form could be erratic; known for "on" and "off" days.</li>
+              <li><strong>Discipline:</strong> A "maverick" temperament; could be difficult to manage.</li>
+              <li><strong>Defensive Contribution:</strong> A pure attacker with virtually zero defensive work rate.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Immense. "Tino" was one of the most recognizable and exciting football personalities of the 1990s.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A marquee player. His move to Parma was a blockbuster, and his transfer to Newcastle was a major event.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His raw talent was universal. He was a star in Italy's tactical Serie A and England's physical Premier League.</td>
+            <p class="small"><strong>International Impact:</strong> Legendary. A national hero and a symbol of the "golden generation" that qualified for two World Cups and beat Argentina 5-0.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Legend)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Legend)</h3>
             <table>
               <thead><tr><th>Metric</th><th>Value</th></tr></thead>
               <tbody>
-                <tr><td>Dribbling (1v1)</td><td>9.6</td></tr>
-                <tr><td>Progressive Runs</td><td>8.9</td></tr>
-                <tr><td>Pace Impact</td><td>8.9</td></tr>
-                <tr><td>Shot Impact (xG influence)</td><td>8.6</td></tr>
-                <tr><td>Set Piece Threat</td><td>7.2</td></tr>
+                <tr><td>G/90 (NT)</td><td>0.35 (20 goals / 57 caps)</td></tr>
+                <tr><td>G/90 (Parma)</td><td>0.25 (26 goals / 104 apps)</td></tr>
+                <tr><td>PAC - Pace</td><td>9.7</td></tr>
+                <tr><td>DRI - Dribbles</td><td>9.6</td></tr>
+                <tr><td>FLA - Flair</td><td>9.8</td></tr>
               </tbody>
             </table>
           </div>
           <div>
-            <h3 style="color:var(--accent2);margin:0 0 8px 0">Mental / Scout Metrics</h3>
-            <table>
-              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
-              <tbody>
-                <tr><td>Creativity</td><td>9.4</td></tr>
-                <tr><td>Decision Making</td><td>8.3</td></tr>
-                <tr><td>Flair / Risk</td><td>9.6</td></tr>
-                <tr><td>Composure</td><td>7.0</td></tr>
-                <tr><td>Temperament</td><td>6.8</td></tr>
-              </tbody>
-            </table>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Legend Forwards)</h3>
+            <ul class="small">
+              <li>Pace & Dribbling: 99th percentile.</li>
+              <li>Flair & Unpredictability: 99th percentile.</li>
+              <li>Discipline & Consistency: 10th percentile.</li>
+            </ul>
           </div>
         </div>
-        <p style="color:var(--muted);margin-top:10px">Scores are era‑adjusted estimates from match footage, event logs and scouting narratives; flagged for formal event coding and 3‑source verification.</p>
+        <p class="small">Before publication, cross-reference estimates with archival Serie A, UCL, and FIFA data. ERA Factor: Applied (Legend Model).</p>
       </section>
 
-      <section class="section" aria-labelledby="tactical-title">
-        <h2 id="tactical-title">Tactical Philosophies & DNA — Selected Trio</h2>
-        <p style="color:var(--muted)">Selected philosophies: César Luis Menotti, Jürgen Klopp, Arrigo Sacchi. These three provide complementary tactical vectors: creative roaming freedom (Menotti), explosive counter/gegenpressing transitions (Klopp), and disciplined collective attacking structure (Sacchi). Below is a compact mapping and actionable deployment notes.</p>
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
 
-        <table aria-describedby="tactical mapping" style="margin-top:12px">
-          <thead><tr><th>Philosophy</th><th>Fit (0–10)</th><th>Why it fits Asprilla</th></tr></thead>
-          <tbody>
-            <tr><td>César Luis Menotti</td><td>9.4</td><td>Grants roaming license and creative freedom; rewards flair and long‑range shooting</td></tr>
-            <tr><td>Jürgen Klopp</td><td>8.9</td><td>Exploits Asprilla's acceleration and counter runs; immediate vertical attacks maximise impact</td></tr>
-            <tr><td>Arrigo Sacchi</td><td>7.8</td><td>Provides structured attacking movements where Asprilla's runs are timed and supported by coordinated pressing</td></tr>
-          </tbody>
-        </table>
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Asprilla's DNA was **The Maverick**. He was a pure "chaos agent" who embodied the **Menotti Artistry** philosophy (total flair, freedom, and individual genius) and the **Klopp Intensity** (raw, vertical pace). His game was based on **Dribbling (DRI)**, **Pace (PAC)**, and **Unpredictability (FLA)**.</p>
 
-        <h3 style="color:var(--accent2);margin-top:12px">Deployment Notes</h3>
-        <ul style="color:var(--muted);padding-left:18px">
-          <li><strong>Menotti deployment:</strong> Secondary striker/roaming wide forward with freedom to drift into half‑spaces and attempt long shots; limited defensive pressing responsibilities.</li>
-          <li><strong>Klopp deployment:</strong> Use Asprilla as a transition trigger; pair him with a high‑work partner who covers spaces he vacates; exploit immediate vertical passes after turnover.</li>
-          <li><strong>Sacchi deployment:</strong> Integrate Asprilla into a front‑three with synchronized lateral movement; reduce unchecked dribbling to planned high‑value moments.</li>
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Menotti Artistry</td><td>9.9</td><td>The ultimate artist; pure, unpredictable, individual brilliance.</td></tr>
+                <tr><td>Klopp Intensity</td><td>9.4</td><td>A devastating, high-pace, vertical counter-attacking weapon.</td></tr>
+                <tr><td>Haaland Power</td><td>9.0</td><td>His pace and directness were his power.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>8.5</td><td>A technical, intelligent forward who loved 1-v-1s.</td></tr>
+                <tr><td>Ferguson Mental</td><td>8.0</td><td>A big-game player, but lacked the Ferguson-style discipline.</td></tr>
+                <tr><td>Lewandowski Finisher</td><td>8.5</td><td>A great goal-scorer, but of spectacular, not poacher's, goals.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on the 5-0 vs Argentina, UCL hat-trick, and Parma highlights.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>5-0 vs Argentina:</strong> Scored two goals in the historic victory.</li>
+              <li><strong>Newcastle vs Barcelona:</strong> Scored a world-famous UCL hat-trick.</li>
+              <li><strong>3x European Trophies:</strong> Won 3 UEFA titles with Parma.</li>
+              <li><strong>"Golden Generation":</strong> The star forward of Colombia's most iconic team.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goals, titles), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Legend)</h3>
+        <ul class="small">
+          <li>Deploy as a Second Striker or a wide Forward with a 100% "free role."</li>
+          <li>Do not give him any defensive responsibilities.</li>
+          <li>Build the system to get him the ball in space, 1-v-1.</li>
+          <li>Accept his inconsistency, as his peak moments will win you trophies.</li>
         </ul>
       </section>
 
-      <section class="section" aria-labelledby="comparison-title">
-        <h2 id="comparison-title">Player Comparison & Visuals</h2>
-        <p style="color:var(--muted)">Suggested comparison axes: Dribbling; Creativity; Shot Impact; Progressive Runs; Press Resistance; Position Fluidity.</p>
-        <div class="visuals">
-          <div class="visual" id="radarPlaceholder">[Radar chart placeholder — Chart.js config ready]</div>
-          <div class="visual" id="heatmapPlaceholder">[Heatmap placeholder — positional density ready]</div>
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Maverick:</strong> Famous for his undisciplined, wild, and carefree personality.</li>
+          <li><strong>Confident:</strong> Played with an audacious flair and arrogance.</li>
+          <li><strong>Inconsistent:</strong> Prone to brilliant highs and anonymous lows.</li>
+          <li><strong>"Tino":</strong> A "big kid" personality who played with pure, uncoached joy.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Fearless. Not intimidated by any opponent or stadium (e.g., Barcelona, Argentina).</li>
+          <li>A "big game" player who delivered on the biggest stages.</li>
+          <li>Supreme confidence in his own (unorthodox) ability.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>A complete lack of professional discipline.</li>
+          <li>His form was entirely dependent on his mood and motivation.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">"Tino" was a pure, unfiltered talent. His philosophy was one of impulse, flair, and speed. His experience is defined by legendary moments: he was the star of the 1989 Libertadores-winning Nacional, the hero of Parma's European triumphs, a legend at Newcastle, and the unstoppable force behind Colombia's 5-0 humiliation of Argentina. He was pure, chaotic genius.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: Applied (Legend Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Legend)</th></tr></thead>
+          <tbody>
+            <tr><td>1993-94</td><td>Colombia (WC/WCQ)</td><td>~10</td><td>4</td><td>~3</td><td>~2.5</td><td>92.0 (Peak)</td></tr>
+            <tr><td>1997-98</td><td>Newcastle (UCL)</td><td>~6</td><td>4</td><td>~2</td><td>~2.8</td><td>91.5 (Peak)</td></tr>
+            <tr><td>1994-95</td><td>Parma (UEFA Cup)</td><td>~8</td><td>3</td><td>~3</td><td>~2.2</td><td>91.0 (Peak)</td></tr>
+            <tr><td>1993-94</td><td>Parma (Serie A)</td><td>~25</td><td>8</td><td>~5</td><td>~2.0</td><td>90.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are based on available public data.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>A charismatic "talisman," but not a traditional leader. A maverick.</td><td>N/A (Retired)</td></tr>
+            <tr><td>Pressure Handling</td><td>World-class. Thrived in the biggest moments (5-0, UCL hat-trick).</td><td>N/A (Retired)</td></tr>
+            <tr><td>Development Focus (Legend)</td><td>His game was untamable. His greatness came from his lack of structure.</td><td>N/A (Retired)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club Legend</td><td>Parma Fans</td><td>An all-time club hero, winning three European trophies.</td></tr>
+            <tr><td>Club Icon</td><td>Newcastle Fans</td><td>Beloved for his flair and the legendary hat-trick vs. Barcelona.</td></tr>
+            <tr><td>National Hero</td><td>Colombia</td><td>The star forward of the "golden generation" and the 5-0 win.</td></tr>
+            <tr><td>Iconic Partnership</td><td>Valderrama, Rincón, etc.</td><td>The chaotic, brilliant focal point of Colombia's legendary attack.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Sep 17, 1997</td><td>Barcelona (UCL)</td><td>W 3-2</td><td>3 goals (Hat-trick)</td><td>Newcastle (Peak)</td></tr>
+            <tr><td>Sep 5, 1993</td><td>Argentina (WCQ)</td><td>W 5-0</td><td>2 goals, 1 assist</td><td>Colombia (Peak)</td></tr>
+            <tr><td>1999</td><td>Marseille (UEFA Cup Final)</td><td>W 3-0</td><td>Started</td><td>Parma (Won Trophy)</td></tr>
+            <tr><td>1995</td><td>Juventus (UEFA Cup Final)</td><td>W 1-0 / D 1-1</td><td>Started both legs</td><td>Parma (Won Trophy)</td></tr>
+            <tr><td>1993</td><td>R. Antwerp (CWC Final)</td><td>W 3-1</td><td>Started</td><td>Parma (Won Trophy)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on his iconic goals.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-FA-01</td><td>Newcastle vs Barcelona</td><td>1997</td><td>Iconic Champions League hat-trick</td><td>ARCH-FA-NEW-BAR (attach)</td></tr>
+            <tr><td>VH-FA-02</td><td>Colombia vs Argentina</td><td>1993</td><td>Goals in the 5-0 victory</td><td>ARCH-FA-COL-ARG (attach)</td></tr>
+            <tr><td>VH-FA-03</td><td>Parma</td><td>(Various)</td><td>"Best Goals & Skills" compilation</td><td>ARCH-FA-PARMA-COMP (attach)</td></tr>
+            <tr><td>VH-FA-04</td><td>(Various)</td><td>1989-2003</td><td>"El Tino" skills compilation</td><td>ARCH-FA-SKILLS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Maverick Forwards)</h2>
+        <p class="small">Comparators: Eric Cantona (Profile), Hristo Stoichkov (Profile). Generate radar visuals from legend data model.</p>
+        <div class="visual-canvas">
+          <canvas id="asprillaRadar" aria-label="Radar comparing Asprilla and comparators" width="720" height="420"></canvas>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="video-highlights-title">
-        <h2 id="video-highlights-title">Additional Video Highlights (recommended)</h2>
-        <ul style="color:var(--muted)">
-          <li>Parma highlights 1992–95 (Cup Winners' Cup & UEFA Cup footage).</li>
-          <li>Newcastle compilations 1996–98 (Premier League & European moments).</li>
-          <li>Colombia World Cup 1994 & 1998 full matches for international event coding.</li>
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Legend)</h2>
+        <ul class="small">
+          <li>A "chaos agent" who cannot be systemized.</li>
+          <li>His game was 100% reliant on flair, confidence, and emotion.</li>
+          <li>Mentally, he was a big-game player who was fearless.</li>
+          <li>To get the best from him, a manager had to accept the total lack of discipline.</li>
         </ul>
       </section>
 
-      <section class="section" aria-labelledby="sources-title">
-        <h2 id="sources-title">Sources & Audit Notes</h2>
-        <p style="color:var(--muted)">Primary public sources used: Wikipedia; Transfermarkt; FBref; Premier League archives; UEFA media; match footage. All provisional metrics require 3‑source verification (match logs, official club minute sheets, match video) before final FGA ingestion.</p>
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, Wikipedia, FIFA archives, UEFA archives, Premier League records. All metrics are legend-level (L). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate senior appearance/goal/Colombia stats.</div>
       </section>
 
-      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Faustino Asprilla scouting profile. Numeric fields provisional; flag rows for final event coding and CSV export.</footer>
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Faustino Asprilla expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
     </main>
   </div>
 
   <script>
-    // Placeholder data objects for quick chart injection after audit
-    window.fga_asprilla_placeholders = {
-      radar: { labels:['Dribbling','Creativity','Shot Impact','Progressive Runs','Pace','Finishing','Work Rate','Press Resistance'], data:[9.6,9.4,8.6,8.9,8.9,8.1,7.2,7.2] },
-      heatmap: { series:[{name:'Defensive Third',data:[{x:'Left',y:2},{x:'Center',y:1},{x:'Right',y:2}]},{name:'Middle Third',data:[{x:'Left',y:5},{x:'Center',y:6},{x:'Right',y:5}]},{name:'Attacking Third',data:[{x:'Left',y:9},{x:'Center',y:8},{x:'Right',y:8}]}] }
-    };
+    const ctx = document.getElementById('asprillaRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Pace (PAC)','Flair (FLA)','Dribbling (DRI)','Big Game (BGP)','Finishing (FIN)','Agility (AGI)'],
+          datasets: [
+            { label: 'Faustino Asprilla (Legend)', data: [9.7, 9.8, 9.6, 9.0, 8.8, 9.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Eric Cantona (Profile)', data: [8.5, 9.8, 9.2, 9.6, 9.3, 8.8],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Hristo Stoichkov (Profile)', data: [9.2, 9.5, 9.0, 9.4, 9.3, 8.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Martín Morel — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center top; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://cdn-images-3.listennotes.com/podcasts/ataque-futbolero/mart%C3%ADn-morel-La_TCe7pfPF-7cl-1KukwsT.1400x1400.jpg" alt="Martín Morel photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Martín Morel</div>
+        <div class="sub">Attacking Midfielder (Retired) · Argentina · Born: 05 Nov 1980 (44)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Tigre, Deportivo Cali</span>
+          <span class="pill"><strong>Position</strong> Attacking Midfielder (#10)</span>
+          <span class="pill"><strong>Full Name</strong> Martín Gerardo Morel</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A classic Argentine "enganche," Morel was a late bloomer who became a legend at Tigre, leading them to the Primera División and a runner-up finish. He was a prolific goal-scoring #10, scoring 13 goals in the 2008 Apertura and 11 goals in just 14 games for Deportivo Cali.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.0</td></tr>
+              <tr><td>VIS - Vision</td><td>8.8</td></tr>
+              <tr><td>TEC - Technique</td><td>9.0</td></tr>
+              <tr><td>FLA - Flair</td><td>8.7</td></tr>
+              <tr><td>LSH - Long Shots</td><td>8.5</td></tr>
+              <tr><td>PAS - Passing</td><td>8.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical; player retired in 2017.</li>
+            <li>Analyze 2008 Apertura (Tigre) and 2010 (Deportivo Cali) footage.</li>
+            <li>Metrics reflect his unique status as a high-scoring #10.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Transfermarkt, Wikipedia, and OneFootball.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">83.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Martín Morel was a technical and prolific attacking midfielder. He was a "late developer," joining Tigre at 25 and becoming the creative engine that led them to promotion and an improbable runner-up finish in the 2008 Apertura, where he scored 13 goals. He was renowned for his finishing (high FIN), vision (high VIS), and technical flair (high TEC). His peak continued with a spectacular, short-lived spell at Deportivo Cali in 2010, where he scored 11 goals in 14 games, including a hat-trick (with a bicycle kick) in the derby vs. América de Cali.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2006</td><td>Sportivo Las Parejas</td><td>Discovered at age 25.</td></tr>
+            <tr><td>2006–2010</td><td>Tigre</td><td>Club legend. Gained promotion to Primera. Runner-up 2008 Apertura (13 goals).</td></tr>
+            <tr><td>2010</td><td>Deportivo Cali</td><td>Iconic short-term spell. 14 matches, 11 goals.</td></tr>
+            <tr><td>2011–2012</td><td>Universitario de Deportes</td><td>Played for the Peruvian giants.</td></tr>
+            <tr><td>2012–2013</td><td>All Boys</td><td>Returned to the Argentine Primera División.</td></tr>
+            <tr><td>2013–2017</td><td>Journeyman Career</td><td>Played for Atlético Tucumán, Cúcuta Deportivo, and others before retiring.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2007</td><td>Promotion to Primera (Tigre)</td><td>Helped Tigre reach the top flight for the first time since 1980.</td></tr>
+            <tr><td>2008 Apertura</td><td>Tigre vs. Boca Juniors</td><td>Key player as Tigre finished runner-up, just behind Boca. Scored 13 goals.</td></tr>
+            <tr><td>Oct 10, 2010</td><td>Deportivo Cali vs América de Cali</td><td>Scored a famous hat-trick, including a bicycle kick, in a 6-2 derby win.</td></tr>
+            <tr><td>2010</td><td>Deportivo Cali Season</td><td>Prolific spell with 11 goals in 14 matches.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (FIN):</strong> Exceptional goal-scoring record for an attacking midfielder.</li>
+              <li><strong>Technique (TEC):</strong> A classic "enganche" with high technical skill, flair, and creativity.</li>
+              <li><strong>Vision (VIS):</strong> The primary playmaker for his teams.</li>
+              <li><strong>Big Game Player:</strong> Scored 13 goals in a title-challenging season and a hat-trick in a major derby.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace & Athleticism:</strong> Relied on intelligence and skill, not physical attributes.</li>
+              <li><strong>Defensive Contribution:</strong> A classic #10, exempt from heavy defensive duties.</li>
+              <li><strong>Consistency (Career):</strong> Was a "late bloomer" and his peak, while high, was relatively short.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> A cult hero and legend at Tigre. Also highly regarded at Deportivo Cali for his brief, brilliant spell.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> His peak 2008-2010 form made him a valuable asset, securing moves to top clubs in Colombia and Peru.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His "enganche" style was perfectly suited for South American football (Argentina, Colombia, Peru).</td>
+            <p class="small"><strong>International Impact:</strong> None. His late development meant he was never a candidate for the Argentine national team.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Peak Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>G/90 (Cali 2010)</td><td>0.79</td></tr>
+                <tr><td>G/90 (Tigre 08-09)</td><td>~0.40</td></tr>
+                <tr><td>FIN - Finishing</td><td>9.0</td></tr>
+                <tr><td>VIS - Vision</td><td>8.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (S. American AMs)</h3>
+            <ul class="small">
+              <li>Finishing (FIN): 98th percentile.</li>
+              <li>Vision & Technique: 90th percentile.</li>
+              <li>Pace & Athleticism: 20th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival Argentine and Colombian league data. ERA Factor: ~1.05 (2010s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Morel's DNA was the **Goal-Scoring Enganche**. He was a classic Argentine #10 who functioned as a secondary striker. He prioritized **Finishing (FIN)** and **Technique (TEC)** over all else, with the vision to create but the instinct to score.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Menotti Artistry</td><td>9.2</td><td>The classic, artistic, intelligent South American #10.</td></tr>
+                <tr><td>Lewandowski Finisher</td><td>8.8</td><td>Had the finishing stats of an elite striker.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>8.5</td><td>A "late bloomer" who relied on pure football IQ.</td></tr>
+                <tr><td>Guardiola Positional</td><td>7.0</td><td>Good technical base, but a "free role" player.</td></tr>
+                <tr><td>Ferguson Mental</td><td>7.0</td><td>A leader for Tigre in their historic season.</td></tr>
+                <tr><td>Klopp Intensity</td><td>3.0</td><td>The antithesis of his "enganche" style.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on 2008 Apertura, 2010 Cali season, and his technical skills.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>13 goals in 2008 Apertura:</strong> Elite scoring season from midfield.</li>
+              <li><strong>11 goals in 14 games:</strong> Unprecedented scoring rate at Deportivo Cali.</li>
+              <li><strong>Derby Hat-Trick:</strong> Scored a hat-trick vs. América de Cali, including a bicycle kick.</li>
+              <li><strong>"Enganche" Role:</strong> A classic #10 playmaker.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goals, titles), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a "free role" #10 (Enganche) with no defensive responsibilities.</li>
+          <li>Build the offense around his vision and goal-scoring.</li>
+          <li>Pair with hard-working #8s and a solid #6.</li>
+          <li>Encourage him to arrive late in the box and shoot on sight.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>"Late Bloomer":</strong> Showed extreme perseverance, not turning pro until 25.</li>
+          <li><strong>Confident & "Caliente":</strong> Played with flair. His quick exit from Cali was reportedly an emotional decision.</li>
+          <li><strong>Talisman:</strong> Thrived on being the main creative and scoring force.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Clinical composure in front of goal.</li>
+          <li>Confidence to lead a newly-promoted team (Tigre) to a runner-up finish.</li>
+          <li>Ability to perform in high-pressure derbies.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>His status as a "late bloomer" meant his peak was shorter.</li>
+          <li>Reportedly made an impulsive ("en caliente") decision to leave Deportivo Cali.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Morel was a pure artist. His philosophy was that of the classic, goal-scoring #10. His experience is unique, proving that talent can blossom late. His peak years (2007-2010) were spectacular, leading Tigre to historic heights and having one of the most efficient scoring campaigns ever seen in Colombia.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.05 (2010s)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2010</td><td>Deportivo Cali</td><td>14</td><td>11</td><td>5</td><td>~2.5</td><td>84.0 (Peak)</td></tr>
+            <tr><td>2008-09</td><td>Tigre</td><td>~35</td><td>13+</td><td>~4</td><td>~2.2</td><td>83.0 (Peak)</td></tr>
+            <tr><td>2007-08</td><td>Tigre</td><td>~30</td><td>5+</td><td>~3</td><td>~1.8</td><td>80.0</td></tr>
+            <tr><td>2011-12</td><td>Universitario</td><td>17</td><td>1</td><td>2</td><td>~1.5</td><td>78.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are based on available public data.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>A technical leader. The team's offensive "talisman."</td><td>N/A (Retired)</td></tr>
+            <tr><td>Pressure Handling</td><td>Excelled. Led Tigre's title challenge and starred in a major derby.</td><td>N/A (Retired)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>His late blossoming shows his game was built on pure, refined skill.</td><td>N/A (Retired)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club Legend</td><td>Tigre Fans</td><td>Idolized as the leader of their "golden era" and promotion.</td></tr>
+            <tr><td>Cult Hero</td><td>Deportivo Cali Fans</td><td>Remembered for his brief, prolific, and magical 2010 season.</td></tr>
+            <tr><td>Conflict</td><td>Ernesto Roa (Cali Staff)</td><td>Morel publicly blamed Roa for his "in the heat of the moment" exit from Cali.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 10, 2010</td><td>América de Cali</td><td>W 6-2</td><td>3 goals (hat-trick)</td><td>Deportivo Cali (Peak)</td></tr>
+            <tr><td>2010</td><td>(Opp)</td><td>W</td><td>2 goals</td><td>Deportivo Cali (Peak)</td></tr>
+            <tr><td>2008</td><td>Boca Juniors</td><td>(N/A)</td><td>1 goal</td><td>Tigre (Apertura '08)</td></tr>
+            <tr><td>2008</td><td>(Opp)</td><td>W</td><td>2 goals</td><td>Tigre (Apertura '08)</td></tr>
+            <tr><td>2007</td><td>(Opp)</td><td>W</td><td>1 goal</td><td>Tigre (Primera debut season)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2008 Tigre and 2010 Cali goals.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-MM-01</td><td>Deportivo Cali vs América</td><td>2010</td><td>Hat-trick, including bicycle kick</td><td>ARCH-MM-CALI-HAT (attach)</td></tr>
+            <tr><td>VH-MM-02</td><td>Tigre</td><td>2008</td><td>Apertura 2008 goal compilation</td><td>ARCH-MM-TIGRE-08 (attach)</td></tr>
+            <tr><td>VH-MM-03</td><td>Tigre</td><td>2007-09</td><td>Skills and free-kick compilation</td><td>ARCH-MM-TIGRE-SKILL (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (S. American AMs)</h2>
+        <p class="small">Comparators: Juan R. Riquelme (Profile), Macnelly Torres (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="morelRadar" aria-label="Radar comparing Morel and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player was a "confidence" player who thrived on being the central star.</li>
+          <li>His game was built on pure talent, proving skill can blossom at any age.</li>
+          <li>Could be emotional, as shown by his "heat of the moment" departure from Cali.</li>
+          <li>A classic "fantasista" who required tactical freedom.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, Wikipedia, OneFootball, BeSoccer, Zerozero. All metrics are based on his historical peak (circa 2007-2010). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate senior appearance/goal stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Martín Morel expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('morelRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)','Vision (VIS)','Technique (TEC)','Flair (FLA)','Long Shots (LSH)','Pace (PAC)'],
+          datasets: [
+            { label: 'Martín Morel (Peak)', data: [9.0, 8.8, 9.0, 8.7, 8.5, 5.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Macnelly Torres (Profile)', data: [8.0, 9.6, 9.2, 8.5, 8.0, 6.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Miguel Caneo (Profile)', data: [8.5, 9.0, 9.2, 8.7, 8.2, 6.5],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

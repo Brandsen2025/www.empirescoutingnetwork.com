@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Leonel Álvarez — Empire FGA Profile (Player)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 30%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src= "https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://staticprd.minuto30.com/wp-content/uploads/2023/02/Leonel-Alvarez-fue-campeon-de-la-Copa-Libertadores-con-Atletico-Nacional-en-1989.jpg" alt="Leonel Álvarez photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Leonel Álvarez</div>
+        <div class="sub">Defensive Midfielder (Legend) · Colombia · Born: 29 Jul 1965 (60) · Height: 1.77 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Atlético Nacional, América de Cali, Colombia NT</span>
+          <span class="pill"><strong>Position</strong> Defensive Midfielder</span>
+          <span class="pill"><strong>Full Name</strong> Leonel de Jesús Álvarez Zuleta</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A legendary Colombian defensive midfielder and a key member of the "golden generation." Álvarez was the tough-tackling, relentless engine room for the 1989 Copa Libertadores-winning Atlético Nacional and the Colombia NT (101 caps). Famed for his tireless energy, tactical discipline, and leadership.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Legend)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>STA - Stamina</td><td>9.6</td></tr>
+              <tr><td>TKL - Tackling</td><td>9.2</td></tr>
+              <tr><td>WRK - Work Rate</td><td>9.5</td></tr>
+              <tr><td>AGG - Aggression</td><td>9.3</td></tr>
+              <tr><td>IQ - Tactical IQ</td><td>9.0</td></tr>
+              <tr><td>LDR - Leadership</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical, based on peak performance (c. 1989-1995).</li>
+            <li>Analyze 1989 Copa Libertadores Final and 1990/1994 World Cup footage.</li>
+            <li>Metrics reflect his status as a pure "destroyer" and midfield anchor.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from FIFA/CONMEBOL archives, Dimayor databases, and historical media reports.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">89.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Leonel de Jesús Álvarez Zuleta was the quintessential "Volante de Marca," a defensive midfielder who defined his era. He was the heart and lungs of Colombia's golden generation, providing the defensive foundation that allowed creative players like Valderrama to flourish. His game was built on relentless energy (high STA, high WRK), ferocious tackling (high TKL, high AGG), and superb tactical discipline (high IQ). He was a key player in Atlético Nacional's 1989 Copa Libertadores victory and earned 101 caps for Colombia.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1983–1987</td><td>Independiente Medellín</td><td>Began his professional career.</td></tr>
+            <tr><td>1987–1990</td><td>Atlético Nacional</td><td>Club icon. Won the 1989 Copa Libertadores.</td></tr>
+            <tr><td>1990–1992</td><td>América de Cali</td><td>Won two Colombian league titles (1990, 1992).</td></tr>
+            <tr><td>1992–1993</td><td>Real Valladolid</td><td>Played in Spain's La Liga.</td></tr>
+            <tr><td>1996–1998</td><td>Dallas Burn (MLS)</td><td>Inaugural MLS Best XI (1996). MLS All-Star (1996, 1998).</td></tr>
+            <tr><td>1999–2001</td><td>New England Revolution</td><td>Continued as a top player in MLS.</td></tr>
+            <tr><td>1985–1997</td><td>Colombia National Team</td><td>101 caps, 1 goal. Played in 2 World Cups (1990, 1994) and 5 Copa Américas.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>May 31, 1989</td><td>Copa Libertadores Final (vs Olimpia)</td><td>W (Pens). Anchored the midfield as Nacional won Colombia's first Libertadores.</td></tr>
+            <tr><td>1990</td><td>FIFA World Cup</td><td>Played in all 4 matches, helping Colombia reach the Round of 16.</td></tr>
+            <tr><td>1993</td><td>Colombia vs Argentina (WC Qualifier)</td><td>Started in midfield for the iconic 5-0 victory in Buenos Aires.</td></tr>
+            <tr><td>1996</td><td>MLS Best XI</td><td>Named to the league's first-ever Best XI with the Dallas Burn.</td></tr>
+            <tr><td>1987, 1993, 1995</td><td>S. American Team of The Year</td><td>Named to the continent's best XI three times.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Stamina & Work Rate (STA/WRK):</strong> A tireless engine; covered every blade of grass.</li>
+              <li><strong>Tackling & Aggression (TKL/AGG):</strong> A ferocious and effective ball-winner.</li>
+              <li><strong>Tactical Intelligence (IQ):</strong> Superb positional sense; the perfect defensive anchor.</li>
+              <li><strong>Leadership (LDR):</strong> A natural leader who led by example and commanded respect.</li>
+              <li><strong>Passing:</strong> A simple, intelligent, and precise distributor; linked defense to attack.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Offensive Contribution:</strong> Purely a defensive player; scored only 1 goal in 101 caps.</li>
+              <li><strong>Creativity:</strong> Lacked the flair or vision of his attacking teammates.</li>
+              <li><strong>Disciplinary Record:</strong> His aggressive style led to frequent bookings.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> A national icon in Colombia, synonymous with the 1990s "golden generation" and the first Libertadores win.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A top-tier defensive midfielder who earned moves to Spain (La Liga) and was an inaugural star in MLS.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His all-action, defensive style translated well, making him a star in Colombia and one of the best players in the early years of MLS.</td>
+            <p class="small"><strong>International Impact:</strong> Legendary. A centurion (101 caps) and the defensive "balance" for one of the most famous teams in World Cup history.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Legend)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Legend)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>TKL - Tackles Won</td><td>4.5</td></tr>
+                <tr><td>INT - Interceptions</td><td>3.0</td></tr>
+                <tr><td>WRK - Work Rate</td><td>9.5</td></tr>
+                <tr><td>STA - Stamina</td><td>9.6</td></tr>
+                <tr><td>PAS - Pass Accuracy</td><td>90%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Legend DMs)</h3>
+            <ul class="small">
+              <li>Stamina & Work Rate: 98th percentile.</li>
+              <li>Tackling & Ball-Winning: 95th percentile.</li>
+              <li>Tactical Discipline: 94th percentile.</li>
+              <li>Offensive Output: 10th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival World Cup and Libertadores data. ERA Factor: Applied (Legend Model).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Álvarez's DNA was the **Pure Destroyer / Anchor Man**. He was the "balance" for his teams, a specialist who prioritized **Relentless Stamina (STA)**, **Aggressive Ball-Winning (TKL/AGG)**, and **Tactical Discipline (IQ)**. He was the quintessential water-carrier for his more famous attacking teammates.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Klopp Intensity</td><td>9.5</td><td>The perfect high-stamina, aggressive pressing engine.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.2</td><td>A fierce competitor, leader, and proven winner.</td></tr>
+                <tr><td>Beckenbauer Libero</td><td>8.5</td><td>A defensive specialist with high intelligence.</td></tr>
+                <tr><td>Buffon/Kahn Command</td><td>8.8</td><td>The commanding general of the midfield.</td></tr>
+                <tr><td>Guardiola Positional</td><td>7.5</td><td>Had the IQ and simple passing, but not the technical flair.</td></tr>
+                <tr><td>Menotti Artistry</td><td>3.0</td><td>The complete opposite; a pure destroyer.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on 1989 Libertadores, 1990 WC, and 1993 WCQ (5-0) matches.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Copa Libertadores Winner:</strong> The defensive anchor of the 1989 team.</li>
+              <li><strong>101 Caps for Colombia:</strong> A centurion and pillar of the "golden generation."</li>
+              <li><strong>MLS Best XI:</strong> One of the league's original and best defensive midfielders.</li>
+              <li><strong>3x S. American Team of Year:</strong> Recognized as one of the best DMs on the continent.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (caps, titles), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Legend)</h3>
+        <ul class="small">
+          <li>Deploy as a "ball-winning midfielder" (Defend) or "anchor man."</li>
+          <li>Use as a lone #6 to provide a defensive shield for two #8s or a #10.</li>
+          <li>Task him with man-marking the opponent's best creative player.</li>
+          <li>Rely on his engine to cover the lateral space in a 4-4-2.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Relentless & Tenacious:</strong> A "fighter" personality on the pitch.</li>
+          <li><strong>Leader:</strong> A natural leader who commanded respect through his work ethic.</li>
+          <li><strong>Disciplined:</strong> Understood his tactical role perfectly and executed it.</li>
+          <li><strong>Resilient:</strong> Fought back from a career-threatening injury in 1995.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Immense stamina and pain threshold.</li>
+          <li>Unwavering focus on his defensive responsibilities.</li>
+          <li>Calm and stabilizing presence in midfield.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>His aggression could border on recklessness.</li>
+          <li>Handled the immense pressure of the 1994 World Cup.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Álvarez was a true "worker bee" whose philosophy was built on sacrifice, hard work, and tactical intelligence. His experience winning the Copa Libertadores, playing in two World Cups, and being a star in multiple leagues (Colombia, MLS, Spain) gave him a warrior's pedigree.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: Applied (Legend Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Legend)</th></tr></thead>
+          <tbody>
+            <tr><td>1989</td><td>Atl. Nacional (Lib.)</td><td>~12</td><td>0</td><td>0</td><td>~0.2</td><td>90.0 (Peak)</td></tr>
+            <tr><td>1990</td><td>Colombia (World Cup)</td><td>4</td><td>0</td><td>0</td><td>~0.3</td><td>89.0</td></tr>
+            <tr><td>1993</td><td>Colombia (WCQ)</td><td>~8</td><td>0</td><td>0</td><td>~0.2</td><td>89.5 (Peak)</td></tr>
+            <tr><td>1996</td><td>Dallas Burn (MLS)</td><td>~25</td><td>~2</td><td>~3</td><td>~0.8</td><td>88.0 (MLS Best XI)</td></tr>
+            <tr><td>1990</td><td>América de Cali</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>89.0 (Title Win)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his peak.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>A natural leader who led by example, work ethic, and dedication.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>A key player in the highest-pressure matches (Libertadores Final, World Cup).</td><td>N/A (Historical)</td></tr>
+            <tr><td>Development Focus (Legend)</td><td>His game was fully formed early; he was the master of the DM role.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Iconic Partnership</td><td>Valderrama, Rincón, Asprilla</td><td>Was the defensive "balance" (el equilibrio) that allowed the "golden generation" to attack freely.</td></tr>
+            <tr><td>Club Legend</td><td>Atlético Nacional Fans</td><td>Revered as a hero of the 1989 Libertadores-winning team.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Francisco Maturana</td><td>The trusted midfield general for Maturana's historic Nacional and Colombia teams.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>May 31, 1989</td><td>Olimpia (Lib. Final)</td><td>W 2-0 (Pens)</td><td>120 mins, defensive dominance</td><td>Won 1989 Copa Libertadores</td></tr>
+            <tr><td>Jun 19, 1990</td><td>West Germany (WC)</td><td>D 1-1</td><td>90 mins, midfield battle</td><td>Iconic World Cup match</td></tr>
+            <tr><td>Jun 23, 1990</td><td>Cameroon (WC R16)</td><td>L 1-2 (AET)</td><td>120 mins</td><td>World Cup Round of 16</td></tr>
+            <tr><td>Sep 5, 1993</td><td>Argentina (WCQ)</td><td>W 5-0</td><td>90 mins, midfield dominance</td><td>Historic 5-0 victory</td></tr>
+            <tr><td>Jul 1996</td><td>(Various)</td><td>(Various)</td><td>90 mins, 1 goal</td><td>MLS Best XI season</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 1989 Libertadores and 1990/1994 World Cups.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-LA-01</td><td>Atl. Nacional (Lib.)</td><td>1989</td><td>Libertadores Final highlights</td><td>ARCH-LA-1989-LIB (attach)</td></tr>
+            <tr><td>VH-LA-02</td><td>Colombia vs Argentina</td><td>1993</td><td>Tackling/Passing in 5-0 win</td><td>ARCH-LA-1993-ARG (attach)</td></tr>
+            <tr><td>VH-LA-03</td><td>Colombia (WC)</td><td>1990</td><td>World Cup defensive compilation</td><td>ARCH-LA-1990-WC (attach)</td></tr>
+            <tr><td>VH-LA-04</td><td>(Various)</td><td>(Various)</td><td>Tackling & work rate compilation</td><td>ARCH-LA-TACKLES (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legend DMs)</h2>
+        <p class="small">Comparators: Dunga (Profile), Javier Mascherano (Profile). Generate radar visuals from legend data model.</p>
+        <div class="visual-canvas">
+          <canvas id="alvarezRadar" aria-label="Radar comparing Álvarez and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Legend)</h2>
+        <ul class="small">
+          <li>Player was a "warrior" who thrived on defensive battles and hard work.</li>
+          <li>A selfless team player who understood his role was to sacrifice for the team's stars.</li>
+          <li>His leadership came from his incredible stamina and relentless example.</li>
+          <li>Mentally tough and resilient, evidenced by his 101 caps and recovery from injury.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA official records, CONMEBOL archives, MLS archives, Transfermarkt, Wikipedia. All metrics are legend-level (L). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate senior appearance/goal/Colombia stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Leonel Álvarez expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('alvarezRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Stamina (STA)','Tackling (TKL)','Work Rate (WRK)','Aggression (AGG)','Tactical IQ (IQ)','Passing (PAS)'],
+          datasets: [
+            { label: 'Leonel Álvarez (Legend)', data: [9.6, 9.2, 9.5, 9.3, 9.0, 8.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Dunga (Profile)', data: [9.4, 9.3, 9.4, 9.4, 9.2, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'J. Mascherano (Profile)', data: [9.5, 9.6, 9.6, 9.5, 9.0, 8.0],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
