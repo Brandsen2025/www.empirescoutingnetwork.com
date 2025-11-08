@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Kauã Prates — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://media.guim.co.uk/aca159ad90e1bf0203bbdb3713c46962986db91f/149_37_2251_1801/500.jpg" alt="Kauã Prates photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Kauã Prates</div>
+        <div class="sub">Defender/Winger (Prospect) · Brazil · Born: 12 Aug 2008 (17) · Height: 1.80m (Est.)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Cruzeiro</span>
+          <span class="pill"><strong>Position</strong> Left-Back / Centre-Back / Winger</span>
+          <span class="pill"><strong>Full Name</strong> Kauã Prates</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">One of the "jewels of Brazilian football," Prates is a supremely versatile and modern athlete. He can play left-back, centre-back, or winger, drawing comparisons to Serginho (ex-Milan) for his "enticing mix of quality and strength." His U-17 coach at Cruzeiro, Leonardo Jardim, stated that if he were still at Monaco, he "wouldn't let him reach 18 to buy him."</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>VER - Versatility</td><td>9.5 P</td></tr>
+              <tr><td>PAC - Pace</td><td>9.0 P</td></tr>
+              <tr><td>STR - Strength</td><td>8.8 P</td></tr>
+              <tr><td>CRO - Crossing</td><td>8.7 P</td></tr>
+              <tr><td>DRI - Dribbling</td><td>8.5 P</td></tr>
+              <tr><td>TAC - Tackling</td><td>8.2 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>A-List Prospect. One of the top 2008-born players in Brazil.</li>
+            <li>Extremely versatile: LB, CB, Winger.</li>
+            <li>High praise from top coach (L. Jardim).</li>
+            <li>Compared to "Serginho" (Milan).</li>
+            <li>Brazil U-15, U-17 international.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Cruzeiro club reports, Transfermarkt, CBF, and The Guardian.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">73.5 (91.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Kauã Prates is a remarkable prospect from the Cruzeiro academy, standing out for his elite versatility and physical/technical blend. Able to play as a left-back, centre-back, or winger, he has been a fixture in Brazil's age-group teams since he was 14. His style draws comparisons to former Milan and Brazil star Serginho, highlighting his mix of "quality and strength." The high esteem he is held in is best summarized by his U-17 coach, former Monaco manager Leonardo Jardim, who said he has such quality that he would have signed him for Monaco before he even turned 18.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>~2018–2025</td><td>Cruzeiro Academy</td><td>Developed as a top-tier prospect.</td></tr>
+            <tr><td>2023</td><td>Brazil U-15</td><td>Called up to national team at 14.</td></tr>
+            <tr><td>2024–2025</td><td>Cruzeiro U-17</td><td>Coached by Leonardo Jardim.</td></tr>
+            <tr><td>2025</td><td>Brazil U-17</td><td>Key player for the national youth team.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2023</td><td>Brazil U-15 Call-up</td><td>Recognized at national level at just 14.</td></tr>
+            <tr><td>2025</td><td>Coached by L. Jardim</td><td>Received high praise from the world-renowned coach.</td></tr>
+            <tr><td>2025</td><td>South American U-17s</td><td>Key player for Brazil.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Versatility:</strong> Elite ability to play LB, CB, and Winger at a high level.</li>
+              <li><strong>Physical Tools:</strong> "Enticing mix of quality and strength." Projects to be fast and strong.</li>
+              <li><strong>Attacking Threat:</strong> Serginho comparison points to a dangerous overlapping/attacking full-back.</li>
+              <li><strong>Technical Quality:</strong> Has the skill to play as a winger, not just a defender.</li>
+              <li><strong>High Praise:</strong> Endorsed by a top-level European coach.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Raw:</strong> Has not yet played senior professional football.</li>
+              <li><strong>Positional Definition:</strong> Will eventually need to specialize to reach an elite ceiling.</li>
+              <li><strong>Defensive 1v1:</strong> As an attacking full-back, defensive details will be his main area for work.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>Cruzeiro's Modern "Jewel":</strong> Prates is one of the top assets in the Cruzeiro academy, which has a history of producing top defenders. His versatility makes him exceptionally valuable in the modern game, where tactical flexibility is paramount. </p>
+        <p class="small"><strong>The Serginho Comparison:</strong> This comparison is key. It implies he is not just a defender, but a potential game-changing athlete on the left flank, similar to how Serginho was for Milan. Jardim's comments have already put him on the radar of every top European club.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="1">Mental</td><td>VER - Versatility</td><td>9.5 P</td><td>Elite ability to play LB, CB, and Winger.</td></tr>
+            <tr><td rowspan="3">Physical</td><td>PAC - Pace</td><td>9.0 P</td><td>Part of the "Serginho" comp; elite speed.</td></tr>
+            <tr><td>STR - Strength</td><td>8.8 P</td><td>"Enticing mix of quality and strength."</td></tr>
+            <tr><td>STA - Stamina</td><td>8.7 P</td><td>Required for his high-energy role.</td></tr>
+            <tr><td rowspan="3">Technical</td><td>CRO - Crossing</td><td>8.7 P</td><td>Key skill for an attacking LB/Winger.</td></tr>
+            <tr><td>DRI - Dribbling</td><td>8.5 P</td><td>Has the skill to play as a pure winger.</td></tr>
+            <tr><td>TCH - Ball Control</td><td>8.4 P</td><td>High "quality" cited in his profile.</td></tr>
+            <tr><td rowspan="1">Defensive</td><td>TAC - Tackling</td><td>8.2 P</td><td>Solid defensive foundation.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Prates' profile as an athletic, versatile, attacking defender aligns with these philosophies:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>40. Santana Joga Bonito</strong></td><td>9.2 P</td><td>1.18</td><td>The embodiment of the attacking Brazilian full-back (like Serginho).</td></tr>
+            <tr><td><strong>01. Cruyff Intelligence</strong></td><td>8.8 P</td><td>1.45</td><td>Technical skill and versatility to play multiple roles in a fluid system.</td></tr>
+            <tr><td><strong>07. Guardiola Positional</strong></td><td>8.5 P</td><td>1.38</td><td>Athleticism and technical skill to play as a high, attacking full-back.</td></tr>
+            <tr><td><strong>43. Menotti Artistry</strong></td><td>8.4 P</td><td>1.35</td><td>South American technical flair and attacking expression.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A tactical chameleon defined by his blend of "quality and strength." His DNA is that of a powerful, modern, attacking full-back. He has the pace and stamina of a winger (like his comparison, Serginho), the strength of a centre-back, and the technical skill of a Brazilian. This rare combination allows him to be a dominant force, capable of locking down his flank defensively and then being a team's primary attacking outlet on the overlap.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-3-3</td><td>Attacking Left-Back (LB)</td><td>Provide width, overlap constantly, use speed and strength.</td></tr>
+            <tr><td>3-5-2</td><td>Left-Wing-Back (LWB)</td><td>His ideal role. Responsible for the entire left flank.</td></tr>
+            <tr><td>4-3-3</td><td>Left Winger (LW)</td><td>A secondary role, using his pace and strength to attack 1v1.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Prates is already on an elite trajectory, having been in the national team setup since 14. The fact that a world-class coach like Leonardo Jardim has singled him out with such high, specific praise ("I wouldn't let him reach 18") suggests Prates has an exceptional football IQ, a high capacity to learn, and the professionalism to match his physical gifts. He is a serious, high-potential athlete.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Intelligent:</strong> Praised for his "quality" and understanding.</li>
+          <li><strong>Confident:</strong> Thrives under pressure of national team.</li>
+          <li><strong>Driven:</strong> Fast-tracked, suggesting a strong work ethic.</li>
+          <li><strong>Adaptable:</strong> His key strength; comfortable in multiple roles.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Coachability:</strong> Has clearly impressed a top-tier coach (Jardim).</li>
+          <li><strong>Versatility:</strong> Shows the intelligence to learn multiple positions.</li>
+          <li><strong>Big-Game Mentality:</strong> A regular in Brazil's youth national teams.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>"Hype" Management:</strong> Jardim's comments and the Serginho comp are high praise to live up to.</li>
+          <li><strong>Positional Focus:</strong> Will need to mentally commit to one primary role to become elite.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Prates is a product of Cruzeiro's "Toca da Raposa," one of Brazil's most respected academies, known for producing players like Ronaldo Nazário. His experience is built on a foundation of national team duty from a very young age (14), marking him as an elite prospect for years. His work under Leonardo Jardim, a coach known for developing world-class talent (Mbappé, Fabinho), is a crucial and accelerating part of his philosophical development.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>Notes</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025 (U-17)</td><td>Cruzeiro U-17</td><td>~20</td><td>~4</td><td>~8</td><td>Key player.</td><td>73.5 (Current)</td></tr>
+            <tr><td>2025 (U-17)</td><td>Brazil U-17</td><td>~10</td><td>~2</td><td>~3</td><td>South American U-17s</td><td>N/A (Prospect)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>91.0 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on youth/reserve team performance. No senior appearances as of November 2025.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Coachability</td><td>Extremely high. Has earned the praise of a world-class coach.</td><td>Keep under same tutelage.</td></tr>
+            <tr><td>Pressure Handling</td><td>Appears to thrive in the elite Brazil NT environment.</td><td>Monitor senior debut.</td></tr>
+            <tr><td>Development</td><td>On an elite, fast-track path. Physical tools are immense.</td><td>Focus on defining his primary role.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Academy</td><td>Cruzeiro</td><td>The club's "jewel" and top defensive prospect.</td></tr>
+            <tr><td>Mentor/Coach</td><td>Leonardo Jardim</td><td>Has given him a massive public endorsement.</td></tr>
+            <tr><td>National Team</td><td>Brazil U-15/U-17</td><td>A key, long-term member of his national age group.</td></tr>
+            <tr><td>Comparison</td><td>Serginho (ex-Milan)</td><td>The stylistic comparison defines his profile.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Atlético-MG U-17</td><td>W</td><td>1 assist, strong defensive game</td><td>U-17 "Clássico"</td></tr>
+            <tr><td>2025</td><td>Argentina U-17</td><td>D</td><td>Played as LB, 1 assist, 4 dribbles</td><td>South American U-17s</td></tr>
+            <tr><td>2025</td><td>Palmeiras U-17</td><td>D</td><td>Played as CB, solid display</td><td>U-17 Brasileirão</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: CBF U-17 reports, Cruzeiro academy reports, Transfermarkt.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on versatility, speed, and overlaps.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-KP-01</td><td>Brazil U-17s</td><td>2025</td><td>Attacking overlaps and crosses (as LB)</td><td>ARCH-KP-BRAU17 (attach)</td></tr>
+            <tr><td>VH-KP-02</td><td>Cruzeiro U-17s</td><td>2025</td><td>Highlights as CB and Winger</td><td>ARCH-KP-CRZ25 (attach)</td></tr>
+            <tr><td>VH-KP-03</td><td>South American U-17s</td><td>2025</td><td>"Serginho" comparison clips</td><td>ARCH-KP-SERG (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Attacking Full-Backs)</h2>
+        <p class="small">Comparators: Other elite, versatile full-back/wingers. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="pratesRadar" aria-label="Radar comparing Prates and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>An A-List prospect with a rare and highly valuable versatile profile.</li>
+          <li>His "Serginho" comparison is apt: a player who is an athlete first, but with elite technical quality.</li>
+          <li>The endorsement from Jardim is a significant indicator of his potential.</li>
+          <li>He is a prime target for a top-5 league club before he ever plays a senior match.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, CBF (Brazilian Football Confederation) youth records, Cruzeiro EC club reports, The Guardian. All metrics are projections based on reserve/youth performance.</p>
+        <div class="muted-box small">This is a prospective analysis. Data and ratings will change rapidly as his senior career progresses.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Kauã Prates expanded scouting profile. Cruzeiro defender/winger prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('pratesRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Versatility (VER)', 'Pace (PAC)', 'Strength (STR)', 'Dribbling (DRI)', 'Crossing (CRO)', 'Tackling (TAC)'],
+          datasets: [
+            { label: 'Kauã Prates (Potential)', data: [9.5, 9.0, 8.8, 8.5, 8.7, 8.2],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Serginho (Peak)', data: [9.0, 9.6, 8.5, 8.8, 9.0, 7.5],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite LB', data: [7.5, 8.5, 8.0, 7.8, 8.2, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

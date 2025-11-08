@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Matías Satas — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://media.tycsports.com/files/2025/10/15/892639/matias-satas.webp" alt="Matías Satas photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Matías Satas</div>
+        <div class="sub">Defender (Prospect) · Argentina · Born: 28 Feb 2008 (17) · Height: 1.85 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Boca Juniors</span>
+          <span class="pill"><strong>Position</strong> Centre-Back</span>
+          <span class="pill"><strong>Full Name</strong> Matías Gabriel Satas</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A highly-touted centre-back from the Boca Juniors academy, Satas is the captain of the Argentina Under-17 team. He is the first player born in 2008 to sign a professional contract with Boca. A strong, left-footed defender, he is praised for his leadership, hard-working attitude, and embodying the "typical Boca defender" mentality.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>TAC - Tackling</td><td>8.8 P</td></tr>
+              <tr><td>LED - Leadership</td><td>9.0 P</td></tr>
+              <tr><td>HEA - Heading</td><td>8.6 P</td></tr>
+              <tr><td>STR - Strength</td><td>8.7 P</td></tr>
+              <tr><td>PAS - Passing</td><td>8.0 P</td></tr>
+              <tr><td>INT - Intelligence</td><td>8.4 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for a current youth prospect.</li>
+            <li>Captain of Argentina U-17 National Team.</li>
+            <li>First 2008-born to sign pro contract at Boca.</li>
+            <li>Analyze Boca youth, Argentina U-17, and COTIF 2025 footage.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Boca Juniors club reports, Transfermarkt, AFA, and TyC Sports.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">72.0 (89.5 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Matías Satas is one of the premier defensive prospects in South America. A product of the "Boca Predio" since age five, he embodies the club's famous defensive grit. His coach, Antonio Barijho, describes him as a "typical Boca defender" who "fights for every ball like it is the last one in his life." This mentality, combined with a strong 1.85m frame, a good left foot, and natural leadership (captain of Argentina U-17s), led him to become the first player born in 2008 to sign a professional contract with the club. He is a high-ceiling prospect with the technical and mental tools to succeed at the highest level.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2013–2025</td><td>Boca Juniors Academy</td><td>Joined at age 5, developed by Luís Lúquez.</td></tr>
+            <tr><td>2024–2025</td><td>Boca Juniors Reserva</td><td>Integrated into the reserve team.</td></tr>
+            <tr><td>2025</td><td>Argentina U-17</td><td>Captain of the national youth team.</td></tr>
+            <tr><td>2025</td><td>Boca Juniors</td><td>Signed first professional contract (first of 2008 cohort).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Signed Pro Contract</td><td>First player born in 2008 to sign with Boca.</td></tr>
+            <tr><td>2025</td><td>Argentina U-17 Captaincy</td><td>Named captain of his national team.</td></tr>
+            <tr><td>2025</td><td>COTIF Tournament</td><td>Played well at the 2025 youth tournament.</td></tr>
+            <tr><td>2025</td><td>First Team Call-up</td><td>Has been called up to train with the senior squad.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Leadership:</strong> Natural leader, captain of Argentina U-17s.</li>
+              <li><strong>Mentality:</strong> "Boca DNA" - aggressive, fights for every ball, hard-working.</li>
+              <li><strong>Aerial Ability:</strong> Good height (1.85m) and timing, a threat on set pieces.</li>
+              <li><strong>Tackling:</strong> A strong, traditional defender who values the defensive side.</li>
+              <li><strong>Passing:</strong> Possesses a good left foot, capable of starting attacks.</li>
+              <li><strong>Attitude:</strong> Praised as respectful and professional.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Professional Experience:</strong> Zero senior matches played.</li>
+              <li><strong>Top-End Pace:</strong> Likely not a "burner"; relies on positioning and strength.</li>
+              <li><strong>Senior Physicality:</strong> Needs to adapt his strength to the professional level.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>"Boca DNA" Defender:</strong> Satas is being molded in the image of iconic Boca defenders. His coach, Barijho, even compared the style to the one that impressed Pep Guardiola at the Club World Cup. This identity is a powerful brand.</p>
+        <p class="small"><strong>Future Prospect:</strong> As the first 2008-born pro at Boca and the U-17 national captain, he is one of the highest-value defensive prospects in Argentina. He represents a significant future asset for Boca, either as a first-team pillar or a high-value transfer to Europe.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="4">Defensive</td><td>TAC - Tackling</td><td>8.8 P</td><td>Aggressive, "fights for every ball".</td></tr>
+            <tr><td>MRK - Marking</td><td>8.5 P</td><td>Good defensive intelligence.</td></tr>
+            <tr><td>HEA - Heading</td><td>8.6 P</td><td>Strong aerial presence (1.85m), set piece threat.</td></tr>
+            <tr><td>STR - Strength</td><td>8.7 P</td><td>Projected to be a physically strong CB.</td></tr>
+            <tr><td rowspan="2">Technical</td><td>PAS - Passing</td><td>8.0 P</td><td>"Good left foot," able to play out.</td></tr>
+            <tr><td>TCH - Ball Control</td><td>7.8 P</td><td>Solid technical base for a CB.</td></tr>
+            <tr><td rowspan="2">Mental</td><td>LED - Leadership</td><td>9.0 P</td><td>Elite trait. Captain of Argentina U-17s.</td></tr>
+            <tr><td>COM - Composure</td><td>8.2 P</td><td>Mature, good attitude.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Satas's profile as a tough, left-footed, leading CB aligns perfectly with these philosophies:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>47. Bianchi Passion</strong></td><td>9.0 P</td><td>1.20</td><td>Embodiment of Boca DNA, grit, leadership, and defensive-first.</td></tr>
+            <tr><td><strong>46. Simeone Cholismo</strong></td><td>8.8 P</td><td>1.25</td><td>"Fights for every ball like it's the last," warrior mentality.</td></tr>
+            <tr><td><strong>44. Bilardo Pragmatism</strong></td><td>8.5 P</td><td>1.28</td><td>A no-nonsense, effective defender who prioritizes winning.</td></tr>
+            <tr><td><strong>14. Herrera Catenaccio</strong></td><td>8.2 P</td><td>1.30</td><td>A pure defender who values the art of stopping the opponent.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A modern, left-footed centre-back with old-school "Boca DNA". His foundation is built on aggression, leadership, and a relentless defensive desire. He is not just a "stopper"; his good left foot provides technical balance, allowing him to contribute to build-up play. As Argentina's U-17 captain, he is a natural organizer and leader on the pitch. He projects as a dominant, well-rounded central defender.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-4-2 / 4-2-3-1</td><td>Centre-Back (LCB)</td><td>Act as the aggressive defender, win duels, organize the backline.</td></tr>
+            <tr><td>3-5-2</td><td>Left Centre-Back</td><td>Use his left foot for build-up play and cover the wing-back.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Satas is noted for his exemplary attitude. With a policeman father and teacher mother, he is grounded and hard-working. His status as U-17 captain confirms his natural leadership and maturity. He is described as respectful and driven, a mentality that is essential for surviving the "Boca Predio" and making the leap to the first team. He has the ideal psychological profile for a top-tier defender.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Leader:</strong> Natural captain material.</li>
+          <li><strong>Hard-Working:</strong> Grounded, strong work ethic.</li>
+          <li><strong>Aggressive:</strong> "Fights for every ball," high competitiveness.</li>
+          <li><strong>Respectful:</strong> Praised for his off-pitch attitude.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Leadership:</strong> His standout mental trait.</li>
+          <li><strong>Boca DNA:</strong> The mental toughness required by the club.</li>
+          <li><strong>Work Ethic:</strong> Professionalism and drive to improve.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>Handling "Hype":</strong> Enormous pressure as the first 2008 pro and U-17 captain.</li>
+          <li><strong>"La Bombonera":</strong> Making the leap from youth football to the pressure of the Boca first team.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Satas is a pure product of the Boca Juniors defensive philosophy, which demands a non-negotiable level of aggression, commitment, and toughness. His experience as captain of the Argentina U-17s has supplemented this with tactical and leadership experience at the international level, making him one of the most well-rounded defensive prospects in his age group.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025 (Reserve)</td><td>Boca Juniors Reserves</td><td>~20</td><td>~2</td><td>~0</td><td>~0.1</td><td>72.0 (Current)</td></tr>
+            <tr><td>2025 (U-17)</td><td>Argentina U-17</td><td>~10</td><td>~1</td><td>~0</td><td>~0.1</td><td>N/A (Captain)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>89.5 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on youth/reserve team performance. No senior appearances as of November 2025.</li>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Elite. Captain of Argentina U-17s. Natural leader.</td><td>Foster this trait.</td></tr>
+            <tr><td>Pressure Handling</td><td>Thrives in his environment. Pro contract and captaincy show trust.</td><td>Test at senior level is next.</td></tr>
+            <tr><td>Development</td><td>On a fast track. Needs to be challenged against senior pros.</td><td>A 2026 senior debut is likely.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Academy</td><td>Boca Predio</td><td>Joined at age 5. Embodies the club's values.</td></tr>
+            <tr><td>National Team</td><td>Argentina U-17s</td><td>Team captain, leader of his age group.</td></tr>
+            <tr><td>Coach (Youth)</td><td>Luís Lúquez</td><td>Brought him to the club at age 5.</td></tr>
+            <tr><td>Coach (Reserve)</td><td>Antonio Barijho</td><td>Praises his "Boca DNA" and mentality.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Brazil U-17</td><td>N/A</td><td>Captained team, strong defensive performance.</td><td>South American U-17s</td></tr>
+            <tr><td>2025</td><td>COTIF Tournament</td><td>N/A</td><td>Key player and captain.</td><td>COTIF 2025</td></tr>
+            <tr><td>Oct 2025</td><td>River Plate (Reserve)</td><td>W</td><td>Solid defensive game.</td><td>Reserve Superclásico</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: Argentine Reserve League database, AFA U-17 reports, Transfermarkt.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on defensive duels, aerials, and leadership.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-MS-01</td><td>Argentina U-17s</td><td>2025</td><td>Defensive highlights, captaincy</td><td>ARCH-MS-U17 (attach)</td></tr>
+            <tr><td>VH-MS-02</td><td>Boca Juniors Reserves</td><td>2025</td><td>Tackles and aerial duels</td><td>ARCH-MS-BOCARES (attach)</td></tr>
+            <tr><td>VH-MS-03</td><td>COTIF Tournament</td><td>2025</td><td>Highlights from tournament</td><td>ARCH-MS-COTIF25 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (CB Prospects)</h2>
+        <p class="small">Comparators: Other top South American / European CB prospects. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="satasRadar" aria-label="Radar comparing Satas and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>A prospect with an ideal "intangibles" profile: leadership, work ethic, and "Boca DNA".</li>
+          <li>His development will be about refining his technical and physical game to match his elite mentality.</li>
+          <li>A-list prospect. Monitor very closely for senior debut.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, AFA (Argentine Football Association) youth/reserve records, Boca Juniors club reports, TyC Sports, BeSoccer, El Gráfico. All metrics are projections based on reserve/youth performance.</p>
+        <div class="muted-box small">This is a prospective analysis. All ratings are subject to change upon professional debut.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Matías Satas expanded scouting profile. Boca Juniors defender prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('satasRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Tackling (TAC)', 'Leadership (LED)', 'Heading (HEA)', 'Strength (STR)', 'Passing (PAS)', 'Intelligence (INT)'],
+          datasets: [
+            { label: 'Matías Satas (Potential)', data: [8.8, 9.0, 8.6, 8.7, 8.0, 8.4],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'A. Bastoni (Prospect)', data: [8.5, 8.2, 8.4, 8.5, 9.0, 8.8],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Top CB', data: [8.4, 8.0, 8.5, 8.6, 7.8, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

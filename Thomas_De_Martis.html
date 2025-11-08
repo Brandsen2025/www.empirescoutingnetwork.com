@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Thomás de Martis — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 500px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://elmarplatensecdn.eleco.com.ar/media/2025/08/thomas_de_martis_debut_profesional_copa_sudamericana_lanus.jpeg" alt="Thomas de Martis photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Thomás de Martis</div>
+        <div class="sub">Striker (Prospect) · Argentina / Italy · Born: 26 Jun 2008 (17) · Height: 1.76 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Lanús</span>
+          <span class="pill"><strong>Position</strong> Striker</span>
+          <span class="pill"><strong>Full Name</strong> Thomás de Martis</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Considered one of the most exciting prospects in Argentina, De Martis is a prolific striker compared to "the new Lautaro Martínez." A "killer" in front of goal, he has 11 goals in 13 games for the Argentina U-17s, starred at the COTIF 2025 tournament, and has already made his professional debut for Lanús.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.2 P</td></tr>
+              <tr><td>POS - Positioning</td><td>9.0 P</td></tr>
+              <tr><td>COM - Composure</td><td>8.8 P</td></tr>
+              <tr><td>TCH - Ball Control</td><td>8.5 P</td></tr>
+              <tr><td>AGI - Agility</td><td>8.5 P</td></tr>
+              <tr><td>PAC - Pace</td><td>8.4 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for an A-List youth prospect.</li>
+            <li>Compared to "the new Lautaro Martínez."</li>
+            <li>Prolific for Argentina U-17s (11 goals in 13 games).</li>
+            <li>Analyze U-17 World Cup (Nov 2025), COTIF 2025, and Lanús debut.</li>
+            <li>Dual citizen (Argentina/Italy) - EU passport.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Lanús club reports, Transfermarkt, AFA, El Gráfico, and TyC Sports.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">74.0 (90.5 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Thomás de Martis is arguably the most exciting striking prospect in Argentine football. Born in Mar del Plata, his life is "all about goals," earning him the nickname "killer" and comparisons to a young Lautaro Martínez. His 2025 has been explosive: he starred at the prestigious COTIF tournament (scoring against Chile, Brazil, and Valencia) and has a phenomenal record of 11 goals in 13 games for the Argentina U-17 national team. Already training with the first team under Mauricio Pellegrino and having made his top-flight debut, he is on a fast track to stardom. As Lanús president Nicolás Russo stated, "Thomás is the most exciting prospect in Argentinian football."</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2018–2025</td><td>Lanús Academy</td><td>Developed through the club's youth ranks.</td></tr>
+            <tr><td>2025</td><td>Argentina U-17</td><td>Key player and prolific scorer (11 goals in 13 games).</td></tr>
+            <tr><td>2025</td><td>Lanús</td><td>Trains with first team (M. Pellegrino), made pro debut.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>COTIF Tournament</td><td>Scored against Chile, Brazil, and Valencia.</td></tr>
+            <tr><td>2025</td><td>Argentina U-17 National Team</td><td>Prolific scoring record (11 goals in 13 games).</td></tr>
+            <tr><td>Aug 2025</td><td>Professional Debut</td><td>Made top-flight debut for Lanús.</td></tr>
+            <tr><td>Nov 2025</td><td>U-17 World Cup (Qatar)</td><td>Set to be a key player for Argentina.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Finishing:</strong> Elite "killer" instinct. Prolific goalscorer at every level.</li>
+              <li><strong>Composure:</strong> Does not panic in front of goal, calm under pressure.</li>
+              <li><strong>Big-Game Player:</strong> Proven scorer against top opposition (Brazil, Valencia) at youth level.</li>
+              <li><strong>Positioning:</strong> Natural poacher's movement in and around the box.</li>
+              <li><strong>Technical Skill:</strong> Good first touch and control, supports the "Lautaro" comparison.</li>
+              <li><strong>EU Passport:</strong> Holds Italian citizenship, a massive asset for a European move.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Professional Experience:</strong> Minimal. Has just made his debut.</li>
+              <li><strong>Physical Strength:</strong> At 1.76m, he is not a target man and will need to adapt to senior physicality.</li>
+              <li><strong>Aerial Ability:</strong> Not a primary part of his game.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>"The New Lautaro Martínez":</strong> This comparison, combined with the Lanús president calling him "the most exciting prospect in Argentinian football," places enormous hype and value on him. He is seen as the next major striker export from Argentina.</p>
+        <p class="small"><strong>Future Prospect:</strong> He is an A-List prospect. His performance at the U-17 World Cup in November 2025 will be a major inflection point for his global valuation. He is a high-potential, high-value asset for Lanús.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">Attacking</td><td>FIN - Finishing</td><td>9.2 P</td><td>"Killer" in front of goal. Elite potential.</td></tr>
+            <tr><td>POS - Positioning</td><td>9.0 P</td><td>Instinctive, prolific goal-poacher.</td></tr>
+            <tr><td>COM - Composure</td><td>8.8 P</td><td>Big-game goals at COTIF show mental strength.</td></tr>
+            <tr><td rowspan="2">Technical</td><td>TCH - Ball Control</td><td>8.5 P</td><td>Technically clean, fitting "Lautaro" comp.</td></tr>
+            <tr><td>PAS - Passing</td><td>7.5 P</td><td>More of a finisher than a creator.</td></tr>
+            <tr><td rowspan="2">Mental</td><td>INT - Intelligence</td><td>8.4 P</td><td>Movement and positioning are key strengths.</td></tr>
+            <tr><td>AGI - Agility</td><td>8.5 P</td><td>Quick, sharp movements in the box.</td></tr>
+            <tr><td rowspan="2">Physical</td><td>PAC - Pace</td><td>8.4 P</td><td>Good burst of acceleration.</td></tr>
+            <tr><td>STR - Strength</td><td>7.5 P</td><td>Will need significant development.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">De Martis's profile as a "killer" #9 aligns with these frameworks:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>43. Menotti Artistry</strong></td><td>8.8 P</td><td>1.35</td><td>Technical, creative, and clinical Argentine forward.</td></tr>
+            <tr><td><strong>46. Simeone Cholismo</strong></td><td>8.5 P</td><td>1.25</td><td>"Killer" instinct, single-minded focus on scoring.</td></tr>
+            <tr><td><strong>44. Bilardo Pragmatism</strong></td><td>8.2 P</td><td>1.28</td><td>A pure goalscorer, the ultimate pragmatic tool.</td></tr>
+            <tr><td><strong>17. Lippi Sophistication</strong></td><td>8.0 P</td><td>1.29</td><td>Italian dual-nationality, technical and intelligent striker.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A modern Argentine striker in the mold of Lautaro Martínez or Julián Álvarez. His DNA is that of a "killer" - his game is built on intelligent movement in the final third, anticipation, and clinical finishing. He is not a physical target man but a mobile, agile forward who uses his technical ability and composure to score goals. He is a pure #9 whose "life is all about goals."</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-3-3</td><td>Centre-Forward (ST)</td><td>Lead the line, focus on box movement, be the main goal threat.</td></tr>
+            <tr><td>4-4-2</td><td>Poacher (ST)</td><td>Play off a partner, focus on finishing chances, find space in box.</td></tr>
+            <tr><td>4-2-3-1</td><td>Lone Striker (ST)</td><td>Use movement to stretch defense, be the target for final passes.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">De Martis is profiled as a player with a single-minded focus: scoring. His "killer" description from the Lanús president and his prolific U-17 record point to a player with supreme confidence and composure. He is ambitious, dreaming of success at the U-17 World Cup as a stepping stone. He appears driven and mentally strong, thriving in big moments at the youth level (COTIF).</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Killer Instinct:</strong> His defining mental trait.</li>
+          <li><strong>Confident:</strong> High belief in his finishing ability.</li>
+          <li><strong>Ambitious:</strong> Aims for the biggest stages (U-17 World Cup).</li>
+          <li><strong>Composed:</strong> Proven finisher in high-stakes youth games.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Big-Game Mentality:</strong> Goals against Brazil, Chile, and Valencia.</li>
+          <li><strong>Composure:</strong> "Killer" in front of goal.</li>
+          - <strong>Single-Minded Focus:</strong> "His life is all about goals."
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>Handling "Hype":</strong> The "new Lautaro Martínez" tag is an enormous burden.</li>
+          <li><strong>Physicality:</strong> Must mentally and physically adapt to senior defenders.</li>
+          <li><strong>Professional Consistency:</strong> Must now prove it at the senior level.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">De Martis is a product of the Lanús attacking philosophy, which encourages technical expression. His experience, however, is most defined by his prolific success at the international U-17 level. He is already accustomed to representing his country and being the "go-to" player for goals in high-stakes tournaments, a crucial part of his development.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025 (U-17)</td><td>Argentina U-17</td><td>13</td><td>11</td><td>~2</td><td>~0.5</td><td>N/A (Prospect)</td></tr>
+            <tr><td>2025 (Senior)</td><td>Lanús</td><td>1</td><td>0</td><td>0</td><td>N/A</td><td>74.0 (Current)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>90.5 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on youth/reserve team performance. All ratings are projections.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example as the team's primary goalscorer.</td><td>Monitor.</td></tr>
+            <tr><td>Pressure Handling</td><td>Excellent at youth international level (COTIF).</td><td>U-17 World Cup is next major test.</td></tr>
+            <tr><td>Development</td><td>On an aggressive fast track. Training with first team.</td><td>Manage hype and integrate carefully.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Academy</td><td>Lanús</td><td>Product of the club's "Cantera Granate".</td></tr>
+            <tr><td>National Team</td><td>Argentina U-17s</td><td>The team's star player and "killer" #9.</td></tr>
+            <tr><td>First Team Coach</td><td>Mauricio Pellegrino</td><td>Has integrated him into first-team training.</td></tr>
+            <tr><td>Club President</td><td>Nicolás Russo</td><td>Has publicly praised him as the "most exciting prospect."</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 2025</td><td>Lanús Sr. Team</td><td>N/A</td><td>Made professional top-flight debut.</td><td>Argentine Primera</td></tr>
+            <tr><td>2025</td><td>Brazil U-17 (COTIF)</td><td>N/A</td><td>1 goal</td><td>COTIF Tournament</td></tr>
+            <tr><td>2025</td><td>Chile U-17 (COTIF)</td><td>N/A</td><td>1 goal</td><td>COTIF Tournament</td></tr>
+            <tr><td>2025</td><td>Valencia U-19 (COTIF)</td><td>N/A</td><td>1 goal</td><td>COTIF Tournament</td></tr>
+            <tr><td>2025</td><td>Argentina U-17</td><td>N/A</td><td>Prolific scoring</td><td>11 goals in 13 games</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: Argentine Reserve League database, CONMEBOL match reports, Transfermarkt, El Gráfico.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on U-17 goals and Lanús debut.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-TDM-01</td><td>Argentina U-17s (COTIF)</td><td>2025</td><td>Goals compilation (vs Brazil, Chile, etc.)</td><td>ARCH-TDM-COTIF25 (attach)</td></tr>
+            <tr><td>VH-TDM-02</td><td>Argentina U-17s</td><td>2025</td><td>11 goals in 13 games compilation</td><td>ARCH-TDM-U17 (attach)</td></tr>
+            <tr><td>VH-TDM-03</td><td>Lanús</td><td>Aug 2025</td><td>Professional Debut</td><td>ARCH-TDM-DEBUT (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Striker Prospects)</h2>
+        <p class="small">Comparators: Other top Argentine striker prospects. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="demartisRadar" aria-label="Radar comparing de Martis and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>An A-List prospect, one of the top strikers in his age group globally.</li>
+          <li>His development must be managed to handle the "Lautaro" hype.</li>
+          <li>His "killer" instinct is his primary tool; he is a specialist.</li>
+          <li>U-17 World Cup (Nov 2025) will be the key validation point.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, AFA (Argentine Football Association) youth records, Lanús club reports, CONMEBOL, El Gráfico, TyC Sports. All metrics are projections based on youth/reserve performance.</p>
+        <div class="muted-box small">This is a prospective analysis. Data and ratings will change rapidly as his senior career progresses.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Thomás de Martis expanded scouting profile. Lanús striker prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('demartisRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)', 'Positioning (POS)', 'Composure (COM)', 'Control (TCH)', 'Agility (AGI)', 'Pace (PAC)'],
+          datasets: [
+            { label: 'De Martis (Potential)', data: [9.2, 9.0, 8.8, 8.5, 8.5, 8.4],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Lautaro Martínez (Prospect)', data: [9.0, 8.8, 8.6, 8.7, 8.8, 8.5],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite Striker', data: [8.8, 8.5, 8.2, 8.0, 8.0, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

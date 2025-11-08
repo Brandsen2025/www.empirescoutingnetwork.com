@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Angelo Candido — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://media.guim.co.uk/8d1ba3c4b44e4b343ccafd9b476cbf54797e41ab/442_155_1511_1210/500.jpg" alt="Angelo Candido photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Angelo Candido</div>
+        <div class="sub">Right-Back (Prospect) · Brazil · Born: 20 Oct 2008 (17) · Height: 1.80m (Est.)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> São Paulo</span>
+          <span class="pill"><strong>Position</strong> Right-Back</span>
+          <span class="pill"><strong>Full Name</strong> Angelo Candido</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A complete, modern full-back from São Paulo's academy who breaks the Brazilian mold by being strong defensively. Possesses enviable physical strength, speed, and positioning. Praised by U-17 coach Mário Ramalho for his immense "personality" and intelligence. Already sold to Strasbourg for €5m (move in Jan 2027).</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>STR - Strength</td><td>9.0 P</td></tr>
+              <tr><td>PAC - Pace</td><td>8.8 P</td></tr>
+              <tr><td>POS - Positioning</td><td>8.7 P</td></tr>
+              <tr><td>TAC - Tackling</td><td>8.5 P</td></tr>
+              <tr><td>INT - Intelligence</td><td>8.6 P</td></tr>
+              <tr><td>COM - Composure</td><td>8.8 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>A-List Prospect. One of the top 2008-born defenders in Brazil.</li>
+            <li>Breaks mold of "attacking full-back" with strong defense.</li>
+            <li>Analyze São Paulo U-17 and Brazil U-17 footage.</li>
+            <li>Pre-agreed transfer to Strasbourg (€5m) for Jan 2027.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from São Paulo club reports, Transfermarkt, CBF, and The Guardian.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">73.0 (90.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Angelo Candido is a rare prospect in Brazilian football: a full-back whose game is built on defensive completeness. While many Brazilian full-backs are known for attacking flair and defensive lapses, Angelo stands out for his "enviable physical strength," strong positioning, and speed. He is described by his São Paulo U-17 coach, Mário Ramalho, as a "complete player" with "a lot of personality." This intelligence and confidence was shown when he took and scored a free-kick he wasn't assigned to, a move Ramalho praised as smart improvisation, not irresponsibility. His high potential was confirmed by a €5m pre-arranged sale to Strasbourg.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>~2018–2025</td><td>São Paulo Academy</td><td>Developed at the "CFA Cotia" academy.</td></tr>
+            <tr><td>2024–2025</td><td>São Paulo U-17</td><td>Key player and standout defender.</td></tr>
+            <tr><td>2025</td><td>Brazil U-17</td><td>Represents the national youth team.</td></tr>
+            <tr><td>2025</td><td>Strasbourg (Future)</td><td>Sold for €5m, will move in Jan 2027.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Pre-agreement with Strasbourg</td><td>Secured €5m transfer to Europe.</td></tr>
+            <tr><td>2025</td><td>São Paulo U-17s</td><td>Key match with "free-kick" incident showing personality.</td></tr>
+            <tr><td>2025</td><td>Brazil U-17s</td><td>Called up to represent his national age group.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Physical Strength:</strong> "Enviable" strength, rare for his age/position.</li>
+              <li><strong>Defensive Completeness:</strong> Strong positioning and tackling ability.</li>
+              <li><strong>Pace:</strong> Possesses high-end speed for recovery and attacks.</li>
+              <li><strong>Personality & Intelligence:</strong> Confident, intelligent, and understands risk.</li>
+              <li><strong>Improvisation:</strong> Willing to make decisive, intelligent plays (e.g., free-kick).</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Senior Experience:</strong> No senior professional appearances yet.</li>
+              <li><strong>Final Third Output:</strong> Profiled more as a defender; attacking output is secondary.</li>
+              <li><strong>Hype:</strong> €5m price tag at 16/17 creates pressure.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>The Anti-Cafu:</strong> Angelo represents a fascinating shift in Brazilian development. He is a "defender-first" full-back, making him a valuable commodity for European clubs who are often wary of the defensive liabilities of Brazilian counterparts. </p>
+        <p class="small"><strong>Strasbourg/BlueCo Project:</strong> His €5m sale to Strasbourg is a classic BlueCo (Chelsea) model: acquire elite South American youth talent early, place them at Strasbourg for development, and create a pathway to the Premier League. He is a high-value, long-term asset.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="4">Physical</td><td>STR - Strength</td><td>9.0 P</td><td>Elite, "enviable" physical strength.</td></tr>
+            <tr><td>PAC - Pace</td><td>8.8 P</td><td>High-level speed for a full-back.</td></tr>
+            <tr><td>STA - Stamina</td><td>8.5 P</td><td>Projects to have a strong engine.</td></tr>
+            <tr><td>HEA - Heading</td><td>8.0 P</td><td>Good size and strength for aerial duels.</td></tr>
+            <tr><td rowspan="2">Defensive</td><td>TAC - Tackling</td><td>8.5 P</td><td>Strong 1v1 defender.</td></tr>
+            <tr><td>POS - Positioning</td><td>8.7 P</td><td>"Good positioning" is a key cited strength.</td></tr>
+            <tr><td rowspan="2">Mental</td><td>INT - Intelligence</td><td>8.6 P</td><td>Praised by coach as "intelligent."</td></tr>
+            <tr><td>COM - Composure</td><td>8.8 P</td><td>"Personality" to take risks; not irresponsible.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Angelo's profile as a strong, complete, intelligent full-back aligns with these frameworks:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>57. Mourinho Warfare</strong></td><td>8.8 P</td><td>1.22</td><td>Values physically dominant, defensively reliable, strong-willed full-backs.</td></tr>
+            <tr><td><strong>44. Bilardo Pragmatism</strong></td><td>8.5 P</td><td>1.28</td><td>A pragmatic, "complete" player who understands risk and prioritizes defensive solidity.</td></tr>
+            <tr><td><strong>46. Simeone Cholismo</strong></td><td>8.2 P</td><td>1.25</td><td>Physicality, defensive work rate, and strong personality.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A modern, athletic, two-way full-back. His DNA is built on a foundation of elite physical tools (strength and speed) and high football intelligence. Unlike traditional Brazilian full-backs, he excels in his defensive duties first, using his positioning and strength to lock down the flank. He is also a capable attacker, with the personality and intelligence to make decisive, improvised contributions in the final third.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-3-3</td><td>Right-Back (RB)</td><td>Balanced role. Prioritize 1v1 defending, join attack with overlaps.</td></tr>
+            <tr><td>4-4-2</td><td>Right-Back (RB)</td><td>Provide width and defensive cover for the wide midfielder.</td></tr>
+            <tr><td>3-5-2</td><td>Right-Wing-Back (RWB)</td><td>Use speed and stamina to cover the entire flank.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Angelo's profile is defined by "personality." His coach's story of the free-kick highlights a player who is confident, intelligent, and understands calculated risks. He is not "irresponsible" but rather an "intelligent player who understands the risks he takes." This points to a mature, high-composure individual who trusts his own ability and is willing to improvise, a key trait for an elite player.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Confident:</strong> "A lot of personality," willing to take charge.</li>
+          <li><strong>Intelligent:</strong> Understands risk vs. reward.</li>
+          <li><strong>Improviser:</strong> Can deviate from the plan successfully.</li>
+          <li><strong>Driven:</strong> Physically imposing, suggesting strong work ethic.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Personality:</strong> His defining mental trait.</li>
+          <li><strong>Intelligence:</strong> Coach praise for his smart risk-taking.</li>
+          <li><strong>Composure:</strong> Does not shy away from big moments.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>Moving to Europe:</strong> Will need to adapt to a new country and culture at 18.</li>
+          <li><strong>Expectation:</strong> The €5m fee is a significant weight for a teenager.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Angelo is a product of the world-famous São Paulo academy at Cotia, known for producing technically gifted and physically robust players (like Casemiro, Militão). His experience is currently limited to the highest levels of Brazilian youth football and the Brazil U-17s. His 2027 move to Strasbourg is part of a clear, modern development philosophy: secure top talent, and develop them in a competitive European league (Ligue 1) before a potential move to the Premier League (Chelsea).</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>Notes</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025 (U-17)</td><td>São Paulo U-17</td><td>~25</td><td>~3</td><td>~5</td><td>Key player, U-17 standou.</td><td>73.0 (Current)</td></tr>
+            <tr><td>2025 (U-17)</td><td>Brazil U-17</td><td>~10</td><td>~1</td><td>~1</td><td>National team duty.</td><td>N/A (Prospect)</td></tr>
+            <tr><td>Jan 2027</td><td>Strasbourg</td><td colspan="4">Pre-agreed transfer (€5m)</td><td>N/A (Future)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>90.0 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on youth/reserve team performance. No senior appearances as of November 2025.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Strong "personality." Leads by example and decisive action.</td><td>Monitor.</td></tr>
+            <tr><td>Pressure Handling</td><td>Confident in his own abilities (e.g., free-kick).</td><td>Future transfer fee will be a new test.</td></tr>
+            <tr><td>Development</td><td>On an elite path. Physical tools are already advanced.</td><td>Focus on technical/attacking refinement.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Academy</td><td>São Paulo (Cotia)</td><td>Product of one of Brazil's top academies.</td></tr>
+            <tr><td>Coach</td><td>Mário Ramalho (U-17)</td><td>Admires his intelligence and personality.</td></tr>
+            <tr><td>National Team</td><td>Brazil U-17s</td><td>Represents his national age group.</td></tr>
+            <tr><td>Future Club</td><td>Strasbourg (BlueCo)</td><td>Part of a long-term strategic asset plan.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Palmeiras U-17</td><td>D</td><td>Strong defensive game, 1 assist</td><td>U-17 Derby</td></tr>
+            <tr><td>2025</td><td>Flamengo U-17</td><td>W</td><td>1 goal (free-kick)</td><td>"Personality" game</td></tr>
+            <tr><td>2025</td><td>Colombia U-17</td><td>W</td><td>90 mins, clean sheet</td><td>Brazil U-17s</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: CBF U-17 reports, São Paulo academy reports, Transfermarkt.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 1v1 defending, recovery speed, and strength.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AC-01</td><td>São Paulo U-17s</td><td>2025</td><td>Defensive duels & recovery speed</td><td>ARCH-AC-SP25 (attach)</td></tr>
+            <tr><td>VH-AC-02</td><td>São Paulo U-17s</td><td>2025</td><td>Free-kick goal</td><td>ARCH-AC-FK25 (attach)</td></tr>
+            <tr><td>VH-AC-03</td><td>Brazil U-17s</td><td>2025</td><td>International highlights</td><td>ARCH-AC-BRAU17 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Full-Back Prospects)</h2>
+        <p class="small">Comparators: Other elite, physically dominant full-back prospects. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="candidoRadar" aria-label="Radar comparing Candido and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>An A-List prospect whose physical and mental tools are already advanced.</li>
+          <li>His "personality" suggests he will adapt well to the pressures of European football.</li>
+          <li>He is a player who actively seeks responsibility.</li>
+          <li>Projects as a future senior international and a high-value asset.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, CBF (Brazilian Football Confederation) youth records, São Paulo FC club reports, The Guardian. All metrics are projections based on reserve/youth performance.</p>
+        <div class="muted-box small">This is a prospective analysis. Data and ratings will change rapidly as he develops and moves to Europe.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Angelo Candido expanded scouting profile. São Paulo defender prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('candidoRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Strength (STR)', 'Pace (PAC)', 'Positioning (POS)', 'Tackling (TAC)', 'Intelligence (INT)', 'Composure (COM)'],
+          datasets: [
+            { label: 'Angelo Candido (Potential)', data: [9.0, 8.8, 8.7, 8.5, 8.6, 8.8],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Kyle Walker (Prospect)', data: [8.8, 9.8, 8.2, 8.4, 8.0, 8.0],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite RB', data: [8.0, 8.5, 8.2, 8.2, 8.3, 8.1],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
