@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Stefan Bajcetic — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.thisisanfield.com/wp-content/uploads/2024-07-26-514-Liverpool_Real_Betis.jpg" alt="Stefan Bajcetic playing for Liverpool">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Stefan Bajcetic</div>
+        <div class="sub">Defensive Midfielder · Spain · Born: 22 Oct 2004 (21)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Liverpool</span>
+          <span class="pill"><strong>Position</strong> Defensive Midfielder (#6), Centre-Back</span>
+          <span class="pill"><strong>Nickname</strong> "Stef"</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A highly composed and technically gifted defensive midfielder, Stefan Bajcetic is one of Liverpool's most prized young talents. Signed from Celta Vigo as a centre-back, he was converted to a #6 and enjoyed a stunning breakout campaign in 2022-23, showcasing maturity beyond his years. His game is defined by elite press resistance, clean tackling, and intelligent, progressive passing. After a long-term injury, he is working to recapture the form that saw him lauded as the future of Liverpool's midfield.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>CMP - Composure</td><td>9.5</td></tr>
+              <tr><td>IQ - Football IQ</td><td>9.2</td></tr>
+              <tr><td>TEC - Technique</td><td>9.0</td></tr>
+              <tr><td>PAS - Passing</td><td>8.8</td></tr>
+              <tr><td>TAC - Tackling</td><td>8.7</td></tr>
+              <tr><td>POI - Positioning</td><td>8.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for an active player; data is current as of Nov 2025.</li>
+            <li>Analyze 2022-23 breakout season for peak metrics.</li>
+            <li>Player's primary value is composure and tactical intelligence.</li>
+            <li>Long-term adductor injury (2023-24) is a major career data point.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, Transfermarkt, and Liverpool FC.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">87.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Stefan Bajcetic is a Spanish-Serbian footballer who represents the modern, technical "pivot" midfielder. Signed by Liverpool from Celta Vigo's academy in 2020 as a centre-back, his football intelligence saw him retrained as a defensive midfielder. He made a stunning breakthrough at just 18 in the 2022-23 season, becoming a regular starter and a rare bright spot in a difficult campaign for the team. His ability to receive the ball under pressure, combined with clean tackling and sharp passing, drew comparisons to Sergio Busquets. A complex adductor injury sidelined him for nearly all of the 2023-24 season, and he is now focused on rebuilding his fitness to fulfill his world-class potential.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describeby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2013–2020</td><td>Celta Vigo Academy</td><td>Developed as a centre-back.</td></tr>
+            <tr><td>2020–2022</td><td>Liverpool Academy</td><td>Signed for £224,000. Converted to defensive midfield.</td></tr>
+            <tr><td>2022–2023</td><td>Liverpool (Breakthrough)</td><td>Senior debut Aug 2022. First start Jan 2023. First goal Dec 2022.</td></tr>
+            <tr><td>2023–2024</td><td>Liverpool (Injured)</td><td>Missed almost the entire season with a complex adductor injury.</td></tr>
+            <tr><td>2024–Present</td><td>Liverpool (Return)</td><td>Re-integrating into the first team under new manager.</td></tr>
+            <tr><td>2023–Present</td><td>Spain U21 National Team</td><td>Made his debut in 2023.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describeby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Dec 26, 2022</td><td>Liverpool vs. Aston Villa</td><td>Scored his first senior goal just two minutes after coming on.</td></tr>
+            <tr><td>Feb 13, 2023</td><td>Liverpool vs. Everton</td><td>Man of the Match performance in the Merseyside derby at age 18.</td></tr>
+            <tr><td>Feb 21, 2023</td><td>Liverpool vs. Real Madrid</td><td>Became Liverpool's youngest-ever Champions League starter.</td></tr>
+            <tr><td>Feb 2023</td><td>Liverpool FC</td><td>Voted LFC's Player of the Month by fans.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Composure / Press Resistance:</strong> "Elite." His standout trait. Never panics on the ball.</li>
+              <li><strong>Football IQ:</strong> "Very Strong." Converted CB with a high understanding of space and danger.</li>
+              <li><strong>Tackling:</strong> "Strong." Clean, efficient, and well-timed in his challenges.</li>
+              <li><strong>Technique:</strong> Excellent first touch and ability to play quick, progressive passes.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Durability:</strong> "Major Concern." Long-term adductor injury raises flags.</li>
+              <li><strong>Physicality:</strong> "Average." Still growing into his frame; can be outmuscled.</li>
+              <li><strong>Aerial Duels:</strong> "Weak." Not a dominant physical presence.</li>
+              <li><strong>Experience:</strong> "Very Low." Has fewer than 30 senior appearances.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> High Potential. Seen as a future star and a fan favorite due to his breakout story and on-field elegance.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A high-value, long-term asset for Liverpool. Not on the market; seen as a future pillar of the team.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His technical, high-IQ style is perfectly suited for La Liga (his origin) or Serie A, as well as the Premier League.</td>
+            <p class="small"><strong>International Impact:</strong> A prized prospect for Spain, he is expected to be a key part of their senior national team's next generation.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Liverpool 2022-23)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>TAC - Tackles Won (p90)</td><td>~2.8 (90th pctl)</td></tr>
+                <tr><td>INT - Interceptions (p90)</td><td>~1.9 (92nd pctl)</td></tr>
+                <tr><td>PAS - Pass Completion</td><td>~88%</td></tr>
+                <tr><td>CMP - Composure</td><td>9.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Midfielders)</h3>
+            <ul class="small">
+              <li>Tackles: 90th percentile.</li>
+              <li>Interceptions: 92nd percentile.</li>
+              <li>Press Resistance: 95th percentile (Est.)</li>
+              <li>Progressive Passes: 70th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival Premier League data. ERA Factor: ~0.99 (2020s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Bajcetic's DNA is the **Composed Controller**. He is a "Modern Pivot" who blends the defensive instincts of a centre-back with the **Composure (CMP)** and **Technique (TEC)** of an elite #6. His game is defined by **Football IQ (IQ)**, allowing him to be press-resistant and dictate play from deep.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Guardiola Positional</td><td>9.6</td><td>The perfect modern single-pivot. Intelligent, technical, press-resistant.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.2</td><td>His game is based entirely on his brain, composure, and technique.</td></tr>
+                <tr><td>Wenger Development</td><td>9.0</td><td>A classic "Wenger" project: young, intelligent, technical, positional.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.5</td><td>Has the engine and tackling for a pressing system, but is a controller first.</td></tr>
+                <tr><td>Ancelotti Adaptation</td><td>8.2</td><td>Versatile; has adapted from CB to DM seamlessly.</td></tr>
+                <tr><td>Platini Elegance</td><td>8.0</td><td>Plays with a calm, composed, "elegant" style.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on 2022-23 breakout matches (Everton, Real Madrid).</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Merseyside Derby MOTM:</strong> 2023.</li>
+              <li><strong>Youngest CL Starter (LFC):</strong> 2023.</li>
+              <li><strong>CB to DM Conversion:</strong> Highlights his high Football IQ.</li>
+              <li><strong>LFC Player of the Month:</strong> Feb 2023.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (tackles, pass %), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a single-pivot (#6) in a 4-3-3 or 4-2-3-1.</li>
+          <li>System must be built around playing through him from the back.</li>
+          <li>Pair with more physical #8s to allow him to control the tempo.</li>
+          <li>Manage his minutes and physical load carefully post-injury.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Composed:</strong> His defining trait. Plays with an unnaturally low heart rate.</li>
+          <li><strong>Intelligent:</strong> A quick learner who adapted to a new position at the highest level.</li>
+          <li><strong>Confident:</strong> Showed no fear when starting against Real Madrid at 18.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Handles pressure and big occasions with extreme calm.</li>
+          <li>Resilient; has endured a significant, complex injury setback.</li>
+          <li>Mature beyond his years; praised by senior players.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>The mental recovery from a year-long injury.</li>
+          <li>Handling the "next big thing" expectation level set by his breakout.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Stefan Bajcetic is a "Guardiola Positional" player in the making. His game is not built on "Cholismo" grit or "Klopp" chaos; it is built on the "Cruyff" principles of intelligence, composure, and technical security. His breakout season showed he has the mental fortitude to handle the biggest stage. His primary challenge is not tactical, but physical: proving his body can handle the demands of his elite footballing brain.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~0.99 (2020s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2022-23</td><td>Liverpool (All Comps)</td><td>19</td><td>1</td><td>0</td><td>1</td><td>87.5 (Peak)</td></tr>
+            <tr><td>2024-25</td><td>Liverpool (All Comps)</td><td>10</td><td>0</td><td>1</td><td>1</td><td>86.0 (Return)</td></tr>
+            <tr><td>2023-24</td><td>Liverpool (All Comps)</td><td>2</td><td>0</td><td>0</td><td>0</td><td>N/A (Injured)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his breakout.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example with his composure and courage on the ball.</td><td>N/A (Active)</td></tr>
+            <tr><td>Pressure Handling</td><td>Elite. Showed no fear in his breakout season (Merseyside derby, Real Madrid).</td><td>N/A (Active)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Focused on tactical conversion (CB to DM) and physical recovery.</td><td>N/A (Active)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Jürgen Klopp</td><td>Klopp and his staff (Pep Lijnders) trusted him and fast-tracked his development.</td></tr>
+            <tr><td>Mentorship</td><td>Thiago Alcântara</td><td>Looked up to and learned from the veteran Spanish midfielder.</td></tr>
+            <tr><td>Family</td><td>Srđan Bajčetić</td><td>His father was a professional footballer, providing a strong background.</td></tr>
+            <tr><td>Club Medical</td><td>LFC Medical Staff</td><td>Worked closely with them for over a year to recover from his injury.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Feb 13, 2023</td><td>Everton (PL)</td><td>W 2-0</td><td>90 mins, Man of the Match.</td><td>Breakout performance</td></tr>
+            <tr><td>Feb 21, 2023</td><td>Real Madrid (UCL)</td><td>L 2-5</td><td>85 mins, held his own.</td><td>Youngest LFC CL starter</td></tr>
+            <tr><td>Dec 26, 2022</td><td>Aston Villa (PL)</td><td>W 3-1</td><td>11 mins (sub), 1 goal.</td><td>First senior goal</td></tr>
+            <tr><td>Oct 22, 2025</td><td>RB Salzburg (UCL)</td><td>W 2-0</td><td>75 mins.</td><td>Rep. 2025-26 return</td></tr>
+            <tr><td>Nov 01, 2025</td><td>Nott'm Forest (PL)</td><td>W 3-0</td><td>30 mins (sub).</td><td>Rep. 2025-26 return</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2022-23 breakout season.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-SB-01</td><td>Liverpool</td><td>2022-23</td><td>"Breakout Season" compilation (tackles, composure)</td><td>ARCH-SB-2023-LIV (attach)</td></tr>
+            <tr><td>VH-SB-02</td><td>Liverpool vs Everton</td><td>2023</td><td>Man of the Match performance</td><td>ARCH-SB-2023-EVE (attach)</td></tr>
+            <tr><td>VH-SB-03</td><td>Liverpool vs Aston Villa</td><td>2022</td><td>First senior goal</td><td>ARCH-SB-2022-AVL (attach)</td></tr>
+            <tr><td>VH-SB-04</td><td>Liverpool</td><td>2022-23</td><td>Press resistance & passing highlights</td><td>ARCH-SB-2023-COMP (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Modern #6 Midfielders)</h2>
+        <p class="small">Comparators: Sergio Busquets (Profile), Rodri (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="stefanBajceticRadar" aria-label="Radar comparing Stefan Bajcetic and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player is exceptionally calm and should be trusted on the ball.</li>
+          <li>Motivated by tactical instruction and understanding his role.</li>
+          <li>His mental resilience will be high after recovering from a major injury.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, FotMob, Sofascore, and LFC. All metrics are based on his breakout 2022-23 season. Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Durability is the primary question mark.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Stefan Bajcetic expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx_stefan = document.getElementById('stefanBajceticRadar')?.getContext('2d');
+    if (ctx_stefan) {
+      new Chart(ctx_stefan, {
+        type: 'radar',
+        data: {
+          labels: ['Composure (CMP)','Football IQ (IQ)','Technique (TEC)','Tackling (TAC)','Positioning (POI)','Press Resist. (PRE)'],
+          datasets: [
+            { label: 'S. Bajcetic (Peak)', data: [9.5, 9.2, 9.0, 8.7, 8.5, 9.4],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'S. Busquets (Profile)', data: [9.9, 9.9, 9.2, 8.8, 9.8, 9.9],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Rodri (Profile)', data: [9.6, 9.7, 9.0, 9.2, 9.5, 9.6],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

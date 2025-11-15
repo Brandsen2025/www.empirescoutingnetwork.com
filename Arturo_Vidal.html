@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Arturo Vidal — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://media.gqitalia.it/photos/5c06702af0c58fee2fccb5b5/16:9/w_2560%2Cc_limit/1406648765_vidal-rett-Immagine-JPEG-1280x628-pixel.jpg" alt="Arturo Vidal in Juventus kit">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Arturo Vidal</div>
+        <div class="sub">Box-to-Box Midfielder · Chile · Born: 22 May 1987 (38)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Juventus, Bayern Munich, Barcelona, Inter Milan</span>
+          <span class="pill"><strong>Position</strong> Central Midfielder (Box-to-Box)</span>
+          <span class="pill"><strong>Nickname</strong> "El Rey" (The King), "Il Guerriero" (The Warrior)</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Arturo Vidal is the quintessential modern warrior midfielder, blending elite defensive aggression with technical quality and a relentless engine. A serial winner, he has won 9 top-flight league titles across four different countries (Italy, Germany, Spain, Brazil). His peak at Juventus established him as the world's best box-to-box midfielder. A national hero, he was the heart of Chile's "Golden Generation" that won back-to-back Copa América titles in 2015 and 2016.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>WRK - Work Rate</td><td>9.9</td></tr>
+              <tr><td>AGG - Aggression</td><td>9.8</td></tr>
+              <tr><td>TAC - Tackling</td><td>9.7</td></tr>
+              <tr><td>STA - Stamina</td><td>9.6</td></tr>
+              <tr><td>MEN - Mentality</td><td>9.5</td></tr>
+              <tr><td>CRS - Clutch Response</td><td>9.2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for an active player; data is current as of Nov 2025.</li>
+            <li>Analyze 2012-2015 Juventus (Serie A titles) and 2015-2016 Chile (Copa América wins) for peak metrics.</li>
+            <li>Player is a high-volume tackler and card risk.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, Transfermarkt, and official club histories.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">93.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Arturo "El Rey" Vidal is a Chilean professional footballer defined by his warrior-like presence on the pitch. He is a complete box-to-box midfielder who combines relentless tackling and stamina with impressive technical skill, passing range, and a consistent goal threat. After developing at Colo-Colo and Bayer Leverkusen, he became a global superstar at Juventus, forming a legendary midfield and winning four consecutive Serie A titles. He continued his success at Bayern Munich and Barcelona, becoming one of the few players to win titles in Italy, Germany, and Spain. His legacy is cemented by his role as the engine of Chile's Golden Generation, leading them to historic victories in the 2015 and 2016 Copa América finals.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2005–2007</td><td>Colo-Colo</td><td>Professional debut; won 3 Chilean titles.</td></tr>
+            <tr><td>2007–2011</td><td>Bayer Leverkusen</td><td>Emerged as a top Bundesliga midfielder.</td></tr>
+            <tr><td>2011–2015</td><td>Juventus</td><td>Peak career. 4x Serie A titles. Became world's best box-to-box.</td></tr>
+            <tr><td>2015–2018</td><td>Bayern Munich</td><td>3x Bundesliga titles. Key player under Ancelotti & Heynckes.</td></tr>
+            <tr><td>2018–2020</td><td>Barcelona</td><td>Won La Liga, providing grit to a technical side.</td></tr>
+            <tr><td>2020–2022</td><td>Inter Milan</td><td>Won Serie A, completing trifecta of titles in Italy, Germany, Spain.</td></tr>
+            <tr><td>2022–Present</td><td>Flamengo / Ath. Paranaense / Colo-Colo</td><td>Returned to South America; won Copa Libertadores.</td></tr>
+            <tr><td>2007–Present</td><td>Chile National Team</td><td>142 caps. Leader of the "Golden Generation."</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2011–2015</td><td>Juventus</td><td>Won 4 consecutive Serie A titles.</td></tr>
+            <tr><td>Jul 4, 2015</td><td>Chile vs. Argentina</td><td>Won Chile's first-ever Copa América (Man of the Match in Final).</td></tr>
+            <tr><td>Jun 26, 2016</td><td>Chile vs. Argentina</td><td>Won second consecutive Copa América title.</td></tr>
+            <tr><td>2012–13</td><td>Juventus</td><td>Scored 15 goals (all comps), named Juve's Player of the Year.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Work Rate / Stamina (WRK/STA):</strong> "Elite." A true box-to-box engine who never stops running.</li>
+              <li><strong>Tackling / Aggression (TAC/AGG):</strong> "World Class." One of the most fearsome ball-winners of his era.</li>
+              <li><strong>Mentality (MEN):</strong> A "warrior" and natural leader; thrives on pressure.</li>
+              <li><strong>Versatility:</strong> Can play as a #6, #8, or even a #10. Also a reliable penalty taker.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Discipline:</strong> "Very Poor." His aggression leads to a high number of yellow and red cards.</li>
+              <li><strong>Positional Risk:</strong> His desire to attack and defend everywhere can leave gaps.</li>
+              <li><strong>Pace:</strong> Relies on anticipation and strength over foot speed.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Elite. His distinctive look (mohawk, tattoos) and "El Rey" moniker make him a globally recognized "warrior" brand.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A serial winner. Clubs signed him to add immediate toughness, experience, and a winning mentality.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> The ultimate "plug-and-play" midfielder. Has proven he can win in Italy, Germany, Spain, and Brazil. His style is league-proof.</td>
+            <p class="small"><strong>International Impact:</strong> A national icon. Alongside Sánchez, he is the most important player in Chile's history, defining their era of success.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Juventus 2013-14)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>G+A - Goals+Assists (p90)</td><td>0.50 (League)</td></tr>
+                <tr><td>TAC - Tackles Won (p90)</td><td>~4.5 (99th pctl)</td></tr>
+                <tr><td>PRE - Pressures (p90)</td><td>~28.0 (98th pctl)</td></tr>
+                <tr><td>CRD - Cards (p90)</td><td>~0.4 (99th pctl)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Midfielders)</h3>
+            <ul class="small">
+              <li>Tackles Won: 99th percentile.</li>
+              <li>Pressures: 98th percentile.</li>
+              <li>Goals (from Mid): 90th percentile.</li>
+              <li>Fouls Committed: 99th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival Serie A data. ERA Factor: ~0.97 (2010s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Vidal's DNA is the **Complete Warrior Midfielder**. He is the ultimate "Guerriero" who combines the relentless defensive **Aggression (AGG)** and **Work Rate (WRK)** of a destroyer with the technical quality and goal threat of an attacking midfielder. He is the engine and the enforcer of any team he plays for.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Simeone Cholismo</td><td>10.0</td><td>The perfect "Cholismo" player: grit, tenacity, work rate, aggression.</td></tr>
+                <tr><td>Klopp Intensity</td><td>9.7</td><td>His "Gegenpressing" engine and box-to-box nature are ideal.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.5</td><td>A serial winner, a dominant personality, and a leader.</td></tr>
+                <tr><td>Mourinho Tactical</td><td>9.2</td><td>A "soldier" who combines defensive duty with attacking power.</td></tr>
+                <tr><td>Ancelotti Adaptation</td><td>9.0</td><td>Has adapted his game to win titles under numerous elite managers.</td></tr>
+                <tr><td>Guardiola Positional</td><td>8.5</td><td>Played for Pep at Bayern, but is more chaotic than positional.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on 2013-14 Juventus season and 2015/2016 Copa América wins.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Copa América Winner:</strong> 2015, 2016.</li>
+              <li><strong>4x Serie A Winner</strong> (Juventus).</li>
+              <li><strong>3x Bundesliga Winner</strong> (Bayern).</li>
+              <li><strong>1x La Liga Winner</strong> (Barcelona).</li>
+              <li><strong>1x Copa Libertadores Winner</strong> (Flamengo).</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (tackles, goals, pressures), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a box-to-box #8 in a midfield three.</li>
+          <li>System must tolerate his high aggression and card risk.</li>
+          <li>Utilize his engine to lead the press.</li>
+          <li>Encourage his late runs into the box; he is a major goal threat.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Aggressive:</strong> Plays on the absolute edge of the rules.</li>
+          <li><strong>Fearless:</strong> A true "warrior" who never shies from a battle.</li>
+          <li><strong>Winner:</strong> Has an elite mentality and expects to win every match and trophy.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Performs in high-pressure finals (Copa América, Champions League).</li>
+          <li>A dominant, intimidating presence in the dressing room and on the pitch.</li>
+          <li>Immense self-confidence in his own ability.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>A major liability for red cards due to lack of emotional control.</li>
+          <li>Can be a disruptive influence if not managed correctly.</li>
+          <li>Off-field discipline has been a recurring issue.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Arturo Vidal is the embodiment of the "Ferguson Mental" and "Simeone Cholismo" philosophies. He is a player who drags his team to victory through sheer force of will. His aggression is both his greatest strength and his greatest weakness, but it is the core of his identity. He is a born winner who has collected trophies at nearly every club he has played for, imposing his "warrior" style on the game.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~0.97 (2010s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2013-14</td><td>Juventus (All Comps)</td><td>46</td><td>18</td><td>5</td><td>23</td><td>93.5 (Peak)</td></tr>
+            <tr><td>2012-13</td><td>Juventus (All Comps)</td><td>45</td><td>15</td><td>12</td><td>27</td><td>92.0</td></tr>
+            <tr><td>2016-17</td><td>Bayern Munich (All Comps)</td><td>41</td><td>9</td><td>4</td><td>13</td><td>91.5</td></tr>
+            <tr><td>2015-16</td><td>Bayern Munich (All Comps)</td><td>48</td><td>7</td><td>9</td><td>16</td><td>91.0</td></tr>
+            <tr><td>2018-19</td><td>Barcelona (All Comps)</td><td>53</td><td>3</td><td>7</td><td>10</td><td>89.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his peak.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Alpha personality. A vocal, aggressive, on-field general.</td><td>N/A (Active)</td></tr>
+            <tr><td>Pressure Handling</td><td>Elite. Demands the ball in big moments. Proven clutch performer.</td><td>N/A (Active)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Harnessed raw aggression into a complete, title-winning game.</td><td>N/A (Active)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Antonio Conte</td><td>Conte unlocked his world-class potential at Juventus and later signed him at Inter.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Jorge Sampaoli</td><td>His high-pressing system with Chile perfectly suited Vidal's "warrior" style.</td></tr>
+            <tr><td>Partnership</td><td>Andrea Pirlo / Paul Pogba</td><td>Formed one of the 21st century's most balanced and dominant midfields.</td></tr>
+            <tr><td>Partnership</td><td>Alexis Sánchez</td><td>The two pillars of Chile's "Golden Generation."</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Jul 4, 2015</td><td>Argentina (Copa Final)</td><td>D 0-0 (W 4-1p)</td><td>120 mins. Named Man of the Match.</td><td>Won Copa América</td></tr>
+            <tr><td>Jun 6, 2015</td><td>Juventus vs Barcelona</td><td>L 1-3</td><td>90 mins, 1 yellow.</td><td>Champions League Final</td></tr>
+            <tr><td>Mar 10, 2013</td><td>Juventus vs Catania</td><td>W 1-0</td><td>90 mins, 1 yellow.</td><td>Rep. dominant Serie A season</td></tr>
+            <tr><td>Apr 18, 2017</td><td>Bayern vs Real Madrid</td><td>L 2-4 (AET)</td><td>Sent off (controversial red card).</td><td>Rep. UCL knockout</td></tr>
+            <tr><td>Oct 13, 2023</td><td>Chile vs Peru</td><td>W 2-0</td><td>90 mins.</td><td>Rep. 2026 WCQ</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2012-2015 Juventus and 2015/2016 Copa América.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AV-01</td><td>Juventus</td><td>2012-15</td><td>"Il Guerriero" highlights (tackles, goals)</td><td>ARCH-AV-2015-JUV (attach)</td></tr>
+            <tr><td>VH-AV-02</td><td>Chile vs Argentina</td><td>2015</td><td>Copa América Final - Man of the Match performance</td><td>ARCH-AV-2015-CHL (attach)</td></tr>
+            <tr><td>VH-AV-03</td><td>Chile</td><td>2015-16</td><td>"Golden Generation" highlights</td><td>ARCH-AV-2016-CHL (attach)</td></tr>
+            <tr><td>VH-AV-04</td><td>Bayern Munich</td><td>2015-17</td><td>Bundesliga goal & tackle compilation</td><td>ARCH-AV-2017-BAY (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Peak Warrior Midfielders)</h2>
+        <p class="small">Comparators: Steven Gerrard (Profile), N'Golo Kanté (Peak Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="arturoVidalRadar" aria-label="Radar comparing Arturo Vidal and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player must be managed with a strong hand to control his aggression.</li>
+          <li>Motivated by conflict and "us vs. the world" mentality.</li>
+          <li>His presence automatically raises the team's intensity and confidence.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, FotMob, and Juventus FC. All metrics are based on his career peak (circa 2012-2016). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate 2013-14 Juventus stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Arturo Vidal expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx_vidal = document.getElementById('arturoVidalRadar')?.getContext('2d');
+    if (ctx_vidal) {
+      new Chart(ctx_vidal, {
+        type: 'radar',
+        data: {
+          labels: ['Work Rate (WRK)','Tackling (TAC)','Stamina (STA)','Aggression (AGG)','Finishing (FIN)','Clutch (CRS)'],
+          datasets: [
+            { label: 'A. Vidal (Peak)', data: [9.9, 9.7, 9.6, 9.8, 9.0, 9.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'S. Gerrard (Profile)', data: [9.5, 8.8, 9.4, 9.0, 9.2, 9.7],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'N. Kanté (Peak)', data: [9.9, 9.9, 9.8, 8.5, 7.0, 8.2],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
