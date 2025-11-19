@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Emilio Butragueño — Empire FGA Profile (Historical)</title>
+  <style>
+    :root{
+      /* Real Madrid Theme */
+      --bg:#071026; --card:#071622; --accent:#54008B; --accent2:#FEBE10;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(84,0,139,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(254,190,16,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(84,0,139,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(254,190,16,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(84,0,139,0.85), rgba(254,190,16,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#FEBE10,#54008B);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(84,0,139,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(254,190,16,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://madridistareal.com/wp-content/uploads/2023/11/Butragueno.jpg" alt="Emilio Butragueño">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Emilio Butragueño</div>
+        <div class="sub">Forward · Spain · Born: 22 Jul 1963 (62)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs:</strong> Real Madrid, Spain</span>
+          <span class="pill"><strong>Position:</strong> Second Striker, Centre-Forward</span>
+          <span class="pill"><strong>Nickname:</strong> "El Buitre" (The Vulture)</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">The namesake of the legendary "Quinta del Buitre," Emilio Butragueño was one of the most intelligent and clinical strikers of his generation. A "gentleman" forward, he was not fast or strong, but "ghosted" past defenders with sublime dribbling, body feints, and an opportunistic instinct for goal. He led Real Madrid to 6 La Liga titles and 2 UEFA Cups.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Historical Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.6</td></tr>
+              <tr><td>MOV - Movement</td><td>9.8</td></tr>
+              <tr><td>FLA - Flair</td><td>9.5</td></tr>
+              <tr><td>TEC - Technique</td><td>9.4</td></tr>
+              <tr><td>VIS - Vision</td><td>9.2</td></tr>
+              <tr><td>CRS - Clutch Response</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for a historical player.</li>
+            <li>Analyze 1985-1991 (Real Madrid / Spain) period for peak metrics.</li>
+            <li>Player is the leader/namesake of "La Quinta del Buitre."</li>
+            <li>ERA Factor: ~0.90 (1980s/90s).</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">92.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Emilio "El Buitre" Butragueño was the symbol of Real Madrid's return to dominance in the 1980s. He was an unconventional striker who relied on pure intelligence. He had a sixth sense for being in the right place, an unpredictable "stop-start" dribbling style that froze defenders, and a clinical, almost surgical, finishing ability. He was the star of the Real Madrid team that won 5 consecutive La Liga titles and 2 UEFA Cups. He famously announced himself to the world by scoring 4 goals against Denmark in the 1986 World Cup.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1982–1984</td><td>Real Madrid Castilla</td><td>Led the reserve team to the Segunda División title.</td></tr>
+            <tr><td>1984–1995</td><td>Real Madrid</td><td>Legendary era. 463 apps, 171 goals. 6x La Liga, 2x UEFA Cup.</td></tr>
+            <tr><td>1995–1998</td><td>Atlético Celaya (Mexico)</td><td>Finished his career, playing alongside Míchel and Hugo Sánchez.</td></tr>
+            <tr><td>1984–1992</td><td>Spain National Team</td><td>69 caps, 26 goals (former national record).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Jun 18, 1986</td><td>Spain vs. Denmark (World Cup)</td><td>Iconic performance. Scored 4 goals in a 5-1 Round of 16 win.</td></tr>
+            <tr><td>1985-1990</td><td>La Liga</td><td>Won 5 consecutive league titles with Real Madrid.</td></tr>
+            <tr><td>1985 & 1986</td><td>UEFA Cup</td><td>Won back-to-back UEFA Cups.</td></tr>
+            <tr><td>1990-1991</td><td>Pichichi Trophy</td><td>Won the La Liga top scorer award.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Movement (MOV):</strong> "World Class." 10/10. "Ghosted" into space; his movement was his primary weapon.</li>
+              <li><strong>Finishing (FIN):</strong> "Elite." A clinical, opportunistic, and creative finisher.</li>
+              <li><strong>Flair (FLA):</strong> "Elite." His "stop-start" dribbling and body feints were un-defendable.</li>
+              <li><strong>Intelligence (VIS):</strong> A "genius" level football brain. He out-thought everyone.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace (PAC):</strong> "Average." Was not a "speed" merchant; relied on quickness of thought.</li>
+              <li><strong>Physicality (STR):</strong> "Weak." Avoided physical contact, preferring to use guile.</li>
+              <li><strong>Aerial Duels:</strong> "Weak." Not a part of his game.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Legendary. The face of "La Quinta," a Real Madrid icon, and now a high-level club executive.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> N/A. A "one-club man" (in Europe). One of the world's best #9s at his peak.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His brain would translate, but he was a poor fit for physical leagues (EPL/Serie A). A "La Liga" player.</td>
+            <p class="small"><strong>International Impact:</strong> High. 69 caps, 26 goals. A legend for his 4-goal game in the 1986 World Cup.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <p class="small">Advanced metrics for the 1980s are limited. The following are historical estimates based on reports.</p>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Core (Real Madrid 1985-90)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>G - Goals (p90)</td><td>~0.45 (Est.)</td></tr>
+                <tr><td>FIN - Finishing</td><td>9.6</td></tr>
+                <tr><td>MOV - Movement</td><td>9.8</td></tr>
+                <tr><td>DRI - Dribbles (p90)</td><td>N/A (Est. High)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Strikers)</h3>
+            <ul class="small">
+              <li>Intelligence: 99th percentile.</li>
+              <li>Movement: 99th percentile.</li>
+              <li>Finishing: 95th percentile.</li>
+              <li>Pace/Strength: 30th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival match reports. ERA Factor: ~0.90 (1980s/90s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">"El Buitre's" DNA was the **Intelligent Ghost**. He was a "Cruyff Total Football" player in a striker's body. He was a "philosopher-king" who killed you with his **Movement (MOV)**, **Intelligence (VIS)**, and **Flair (FLA)**. He was the brain and the stiletto of Real Madrid's dynasty.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 4)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Cruyff Total Football</td><td>10.0</td><td>The perfect "Cruyff" forward. Pure intelligence, technique, and creative movement.</td></tr>
+                <tr><td>Guardiola Positional</td><td>9.5</td><td>His brain and "false 9" movement would be perfect in a Guardiola system.</td></tr>
+                <tr><td>Ancelotti Adaptation</td><td>9.0</td><td>A "big game" player who could adapt his style to win (e.g., WC '86).</td></tr>
+                <tr><td>Ferguson Mental</td><td>8.8</td><td>A serial winner (5x La Liga) and the leader of a generation.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on the 1986 WC (vs. Denmark) and 5x La Liga wins.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>"El Buitre" / "La Quinta."</strong></li>
+              <li><strong>1986 WC 4-Goal Game.</strong></li>
+              <li><strong>5 Consecutive La Liga Titles.</strong></li>
+              <li><strong>2x UEFA Cup Winner.</strong></li>
+              <li><strong>"Ghosting" Dribble Style.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goals, xG, aerials), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a second striker or "false 9."</li>
+          <li>System must NOT rely on physical duels or long balls.</li>
+          <li>Build the attack around his intelligent movement in and around the box.</li>
+          <li>Pair with a powerful #9 (like Hugo Sánchez).</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>"Gentleman":</strong> Famously calm, professional, and "cold-blooded." Never booked.</li>
+          <li><strong>Intelligent:</strong> A "thinking man's" player. His brain was his main weapon.</li>
+          <li><strong>Leader:</strong> A quiet, "lead by example" captain. The face of the new Real Madrid.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>The ability to handle being the "namesake" of a generation at Real Madrid.</li>
+          <li>"Cold-blooded" in front of goal; a clinical, high-pressure finisher.</li>
+          <li>Elite concentration and in-game "processing" speed.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>His "calm" demeanor was sometimes mistaken for a lack of passion.</li>
+          <li>The failure to win the European Cup was the one shadow on his career.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Emilio Butragueño is a "Cruyff Total Football" icon. He proved that a striker could dominate with his brain, not his body. His "Ferguson Mental" strength was evident in his leadership of a 5-time league winning team and his "ice in the veins" finishing in the biggest moments (1986 World Cup).</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~0.90 (1980s/90s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1986-87</td><td>Real Madrid (All Comps)</td><td>54</td><td>17</td><td>~10</td><td>27</td><td>92.0 (Peak)</td></tr>
+            <tr><td>1988-89</td><td>Real Madrid (All Comps)</td><td>50</td><td>23</td><td>~12</td><td>35</td><td>92.5 (Peak)</td></tr>
+            <tr><td>1989-90</td><td>Real Madrid (All Comps)</td><td>43</td><td>14</td><td>~10</td><td>24</td><td>91.5</td></tr>
+            <tr><td>1990-91</td><td>Real Madrid (All Comps)</td><td>44</td><td>21</td><td>~8</td><td>29</td><td>91.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative. Assists are estimates.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Elite. The "face" and "leader" of the Quinta del Buitre. Led by example.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>World-class. 4 goals in a WC knockout game. 5x league winner.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>A "genius" archetype. His game was built on his unique footballing brain.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Team</td><td>"La Quinta del Buitre"</td><td>The namesake and leader of the legendary group (Sanchís, Míchel, Vázquez, Pardeza).</td></tr>
+            <tr><td>Partnership</td><td>Hugo Sánchez</td><td>Formed one of the most famous "brain and brawn" strike partnerships in history.</td></tr>
+            <tr><td>Club</td><td>Real Madrid</td><td>An eternal club icon. Now serves as the club's Director of Institutional Relations.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <p class="small">Matches are representative of his peak and career milestones.</p>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Jun 18, 1986</td><td>Denmark (World Cup)</td><td>W 5-1</td><td>90 mins, 4 goals.</td><td>Iconic WC performance</td></tr>
+            <tr><td>Feb 5, 1984</td><td>Cádiz (La Liga)</td><td>W 3-2</td><td>90 mins, 2 goals, 1 assist.</td><td>Real Madrid Debut</td></tr>
+            <tr><td>(Various)</td><td>Real Madrid vs Barcelona</td><td>W 3-2</td><td>90 mins, 1 goal.</td><td>Rep. "El Clásico"</td></tr>
+            <tr><td>(Various)</td><td>Real Madrid vs Bayern</td><td>W 2-0</td><td>90 mins, 1 goal.</td><td>Rep. European Cup peak</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-EB-01</td><td>Spain vs Denmark</td><td>1986</td><td>4-goal World Cup match highlights</td><td>ARCH-EB-1986-DEN (attach)</td></tr>
+            <tr><td>VH-EB-02</td><td>Real Madrid</td><td>1980s</td><td>"El Buitre" skills & goals compilation</td><td>ARCH-EB-1980S-COMP (attach)</td></tr>
+            <tr><td>VH-EB-03</td><td>Real Madrid</td><td>1985-86</td><td>UEFA Cup winning highlights</td><td>ARCH-EB-1986-UEFA (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legendary Strikers)</h2>
+        <p class="small">Comparators: Raúl (Profile), Paolo Rossi (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="emilioButraguenoRadar" aria-label="Radar comparing Emilio Butragueño and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player archetype was "The Gentleman" / "The Genius."</li>
+          <li>Motivated by intellectual superiority and creative freedom, not physical confrontation.</li>
+          <li>His "cold" demeanor was a sign of his elite concentration and clinical mindset.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, BDFutbol, and Real Madrid archives. All metrics are based on his historical peak (circa 1985-1991) and are ERA-adjusted estimates. Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate 1986 World Cup and 5x La Liga stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Emilio Butragueño expanded scouting profile (Historical). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx_eb = document.getElementById('emilioButraguenoRadar')?.getContext('2d');
+    if (ctx_eb) {
+      new Chart(ctx_eb, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)','Movement (MOV)','Flair (FLA)','Technique (TEC)','Vision (VIS)','Pace (PAC)'],
+          datasets: [
+            { label: 'E. Butragueño (Peak)', data: [9.6, 9.8, 9.5, 9.4, 9.2, 7.0],
+              backgroundColor:'rgba(254,190,16,0.10)', borderColor:'#FEBE10', pointBackgroundColor:'#FEBE10', borderWidth:2 },
+            { label: 'Raúl (Profile)', data: [9.5, 9.6, 9.0, 9.0, 9.3, 8.0],
+              backgroundColor:'rgba(84,0,139,0.10)', borderColor:'#54008B', pointBackgroundColor:'#54008B', borderWidth:2 },
+            { label: 'P. Rossi (Profile)', data: [9.8, 9.5, 8.5, 8.5, 8.8, 8.5],
+              backgroundColor:'rgba(255,255,255,0.10)', borderColor:'#eef6ff', pointBackgroundColor:'#eef6ff', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

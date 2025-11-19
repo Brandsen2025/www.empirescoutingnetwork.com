@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Malte Pahlsson — Empire FGA Profile (Active)</title>
+  <style>
+    :root{
+      /* Sweden / Varbergs BoIS Theme */
+      --bg:#071026; --card:#071622; --accent:#0067B1; --accent2:#FFCD00;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(0,103,177,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,205,0,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(0,103,177,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,205,0,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(0,103,177,0.85), rgba(255,205,0,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#FFCD00,#0067B1);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(0,103,177,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,205,0,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://static.bonniernews.se/ba/9f8aa366-6b05-4bb0-9172-207f104e8134.jpeg?crop=4366%2C2456%2Cx0%2Cy0&width=1400&format=pjpg&auto=avif" alt="Malte Pahlsson">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Malte Pahlsson</div>
+        <div class="sub">Goalkeeper · Sweden · Born: 25 Oct 1999 (26)</div>
+
+        <div>
+          <span class="pill"><strong>Clubs:</strong> Varbergs BoIS, Halmstads BK, Helsingborgs IF</span>
+          <span class="pill"><strong>Position:</strong> Goalkeeper</span>
+          <span class="pill"><strong>Nationality:</strong> Swedish</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Malte Pahlsson is a Swedish goalkeeper known for his solid fundamentals and experience in the Allsvenskan and Superettan. A tall keeper with good reflexes, he has built a reputation as a reliable professional, serving as both a dependable backup and a capable starter for clubs like Halmstads BK and his current team, Varbergs BoIS.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>GK-REF - Reflexes</td><td>8.2</td></tr>
+              <tr><td>GK-AGI - Agility</td><td>8.0</td></tr>
+              <tr><td>GK-POS - Positioning</td><td>8.3</td></tr>
+              <tr><td>CON - Consistency</td><td>8.5</td></tr>
+              <tr><td>GK-HAN - Handling</td><td>8.2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for an active player; data is current as of Nov 2025.</li>
+            <li>Analyze 2021-2024 (Halmstad / Varbergs) period for peak metrics.</li>
+            <li>Player is a solid domestic professional.</li>
+            <li>ERA Factor: ~1.00 (2020s).</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">78.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Malte Pahlsson is a Swedish goalkeeper who has forged a solid professional career in his home country. After coming up through the ranks at Helsingborgs IF, he gained valuable experience at Östers IF before moving to Halmstads BK, where he was part of the squad that competed in the Allsvenskan. In 2024, he signed with Varbergs BoIS, where he competes for the starting position. He is a traditional goalkeeper, valued for his shot-stopping, consistent positioning, and professional attitude.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2018–2019</td><td>Helsingborgs IF</td><td>Youth product; backup keeper.</td></tr>
+            <tr><td>2019</td><td>→ Östers IF (Loan)</td><td>Loan for first-team experience.</td></tr>
+            <tr><td>2020–2023</td><td>Halmstads BK</td><td>Backup and starter; played in both Allsvenskan and Superettan.</td></tr>
+            <tr><td>2024–Present</td><td>Varbergs BoIS</td><td>Joined to compete for the #1 spot.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 8, 2021</td><td>Debut vs. Djurgårdens IF</td><td>Made his Allsvenskan debut for Halmstads BK.</td></tr>
+            <tr><td>2020</td><td>Superettan</td><td>Part of the Halmstads BK squad that won promotion to Allsvenskan.</td></tr>
+            <tr><td>Dec 2023</td><td>Transfer to Varbergs BoIS</td><td>Signed as a key domestic goalkeeper.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Shot-Stopping (GK-REF):</strong> "Strong." Good reflexes and agility to make key saves.</li>
+              <li><strong>Positioning (GK-POS):</strong> "Strong." Reads the game well and maintains good angles.</li>
+              <li><strong>Frame:</strong> Good height (1.89m / 6'2") for a goalkeeper.</li>
+              <li><strong>Professionalism:</strong> A reliable and consistent team player.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Distribution (GK-DIS):</strong> "Average." Not a "ball-playing" specialist; more of a traditional keeper.</li>
+              <li><strong>Top-Level Experience:</strong> Has primarily been a backup or played in the second tier.</li>
+              <li><strong>Command of Area:</strong> Can be inconsistent on crosses.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Domestic. A recognizable face within the Swedish leagues.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A solid, reliable domestic free agent or low-fee transfer for Allsvenskan/Superettan level.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His style is best suited for Scandinavian leagues or lower-tier European divisions.</td>
+            <p class="small"><strong>International Impact:</strong> None. Has not represented Sweden at the senior level.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Allsvenskan)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Saves %</td><td>~68-72% (League Avg)</td></tr>
+                <tr><td>PSxG +/-</td><td>~ -0.10 (Est.)</td></tr>
+                <tr><td>Crosses Stopped %</td><td>~5.0% (Est.)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Allsvenskan GKs)</h3>
+            <ul class="small">
+              <li>Shot Stopping: 50th percentile.</li>
+              <li>Distribution: 35th percentile.</li>
+              <li>Command of Area: 40th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival Allsvenskan data. ERA Factor: ~1.00 (2020s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Malte Pahlsson's DNA is the **Domestic Professional**. He is a "classic" goalkeeper who relies on **Solid Positioning (GK-POS)** and **Reflexes (GK-REF)**. He is a low-risk, steady-performing keeper, a valuable and consistent presence for his team.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 4)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Mourinho Tactical</td><td>8.5</td><td>A "no-nonsense" keeper. Prioritizes saving the ball over risky distribution.</td></tr>
+                <tr><td>Simeone Cholismo</td><td>8.0</td><td>A hard-worker who understands his role and limitations. A team player.</td></tr>
+                <tr><td>Ferguson Mental</td><td>7.5</td><td>A reliable professional, trusted by his managers.</td></tr>
+                <tr><td>Guardiola Positional</td><td>5.0</td><td>Not a "ball-playing" keeper suited for a high-line, possession-heavy system.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on his Allsvenskan appearances.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Allsvenskan Debut:</strong> 2021.</li>
+              <li><strong>Superettan Promotion:</strong> 2020.</li>
+              <li><strong>Solid Save %:</strong> A "save-what-you-should-save" keeper.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goals, xG, aerials), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a traditional "on-the-line" goalkeeper.</li>
+          <li>System should not rely on the keeper as a primary distributor.</li>
+          <li>Best suited for a mid-table or defensive-minded team.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Professional:</strong> A "good pro" who is a reliable and steady teammate.</li>
+          <li><strong>Resilient:</strong> Has handled being both a starter and a backup in his career.</li>
+          <li><strong>Composed:</strong> A calm and steady presence in goal.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Ability to maintain focus as a backup and be ready when called upon.</li>
+          <li>Handles the pressure of domestic league competition well.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Has not yet proven to be a dominant, undisputed #1 at the top level.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Malte Pahlsson's career is a study in "Mourinho Tactical" professionalism. He is a reliable keeper who understands his strengths, focuses on fundamentals, and provides a safe, consistent option for his manager. He is a "what you see is what you get" player in the best sense.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.00 (2020s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Clean Sheets</th><th>Trophies</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2021</td><td>Halmstads BK (Allsvenskan)</td><td>10</td><td>3</td><td></td><td>78.0 (Peak)</td></tr>
+            <tr><td>2022</td><td>Halmstads BK (Superettan)</td><td>11</td><td>3</td><td></td><td>77.5</td></tr>
+            <tr><td>2024</td><td>Varbergs BoIS (Superettan)</td><td>12</td><td>2</td><td></td><td>77.0</td></tr>
+            <tr><td>2025</td><td>Varbergs BoIS (Superettan)</td><td>25</td><td>7</td><td></td><td>78.0 (Current)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative. 2025 stats are partial (as of Nov 2025).</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example with professionalism, not a vocal "captain" type.</td><td>N/A (Active)</td></tr>
+            <tr><td>Pressure Handling</td><td>Good. A reliable performer in domestic league play.</td><td>N/A (Active)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Focused on fundamental shot-stopping and positioning.</td><td>N/A (Active)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club</td><td>Halmstads BK</td><td>Longest-serving club; achieved top-flight promotion.</td></tr>
+            <tr><td>Club</td><td>Varbergs BoIS</td><td>Current club; competing for the #1 role.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <p class="small">Matches are representative of his recent form with Varbergs.</p>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 28, 2025</td><td>Östersund (Superettan)</td><td>W 2-0</td><td>90 mins, Clean sheet.</td><td>Rep. 2025 season</td></tr>
+            <tr><td>Oct 21, 2025</td><td>Degerfors (Superettan)</td><td>L 1-3</td><td>90 mins, 3 goals conc.</td><td>Rep. 2025 season</td></tr>
+            <tr><td>Oct 15, 2025</td><td>Helsingborg (Superettan)</td><td>D 1-1</td><td>90 mins, 4 saves.</td><td>Rep. 2025 season</td></tr>
+            <tr><td>Aug 8, 2021</td><td>Djurgårdens IF (Allsvenskan)</td><td>L 0-1</td><td>90 mins, 5 saves.</td><td>Allsvenskan Debut</td></tr>
+            <tr><td>(Various)</td><td>Halmstad (Superettan)</td><td>W 1-0</td><td>90 mins, Clean sheet.</td><td>Rep. 2020 promotion</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-MP-01</td><td>(Various)</td><td>2020-2024</td><td>Player Highlights (Provided)</td><td><a href="https://player.mux.com/CSGi7X5r4bE9Ue2fsuWyuzmyYEM9hcCfLn9TPtZU018s" target="_blank">ARCH-MP-2024-COMP (attach)</a></td></tr>
+            <tr><td>VH-MP-02</td><td>Halmstads BK</td><td>2021</td><td>Allsvenskan save compilation</td><td>ARCH-MP-2021-HBK (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Scandinavian GKs)</h2>
+        <p class="small">Comparators: Patrik Carlgren (Profile), Hannes Halldórsson (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="maltePahlssonRadar" aria-label="Radar comparing Malte Pahlsson and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player is a "steady professional" archetype.</li>
+          <li>Motivated by stability and a clear role within the team.</li>
+          <li>Reliable and composed, making him a good "squad player."</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, Fotbollskanalen, and user-provided video. All metrics are based on his current/recent form (circa 2021-2025). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate Allsvenskan/Superettan stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Malte Pahlsson expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx_mp = document.getElementById('maltePahlssonRadar')?.getContext('2d');
+    if (ctx_mp) {
+      new Chart(ctx_mp, {
+        type: 'radar',
+        data: {
+          labels: ['Reflexes (REF)','Positioning (POS)','Consistency (CON)','Handling (HAN)','Agility (AGI)','Distribution (DIS)'],
+          datasets: [
+            { label: 'M. Pahlsson (Peak)', data: [8.2, 8.3, 8.5, 8.2, 8.0, 6.0],
+              backgroundColor:'rgba(0,103,177,0.10)', borderColor:'#0067B1', pointBackgroundColor:'#0067B1', borderWidth:2 },
+            { label: 'P. Carlgren (Profile)', data: [8.4, 8.5, 8.8, 8.3, 8.2, 7.0],
+              backgroundColor:'rgba(255,205,0,0.10)', borderColor:'#FFCD00', pointBackgroundColor:'#FFCD00', borderWidth:2 },
+            { label: 'H. Halldórsson (Profile)', data: [8.8, 8.2, 8.5, 8.4, 8.0, 7.5],
+              backgroundColor:'rgba(255,255,255,0.10)', borderColor:'#eef6ff', pointBackgroundColor:'#eef6ff', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

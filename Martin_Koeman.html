@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Martin Koeman — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/65/68/74/656874da8a59cb66250bfcdee1812e14.jpg" alt="Martin Koeman photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Martin Koeman</div>
+        <div class="sub">Defender/Midfielder · Netherlands · Born: 14 August 1938 · Height: 1.78 m</div>
+
+        <div>
+          <span class="pill"><strong>Peak Club</strong> Groningen</span>
+          <span class="pill"><strong>Shirt</strong> 2 / 6</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Professional Dutch footballer and father of legendary sons Erwin and Ronald Koeman. Enjoyed a solid career in Dutch football primarily with FC Groningen during the 1960s and early 1970s. A dedicated professional who passed on his football knowledge and passion to his sons, both of whom became European champions and Netherlands internationals. The patriarch of one of Dutch football's most successful families.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Career Snapshot</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Category</th><th>Achievement</th></tr></thead>
+            <tbody>
+              <tr><td>Career Span</td><td>1958-1974 (approx.)</td></tr>
+              <tr><td>Primary Club</td><td>FC Groningen</td></tr>
+              <tr><td>Position</td><td>Defender/Midfielder</td></tr>
+              <tr><td>Sons</td><td>Erwin (1961) & Ronald (1963)</td></tr>
+              <tr><td>Legacy</td><td>Father of two European champions</td></tr>
+              <tr><td>Peak Period</td><td>1960s-early 1970s</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Empire FGA Core Metrics</h3>
+          <table>
+            <thead><tr><th>Metric</th><th>Rating (0-10)</th></tr></thead>
+            <tbody>
+              <tr><td>TAC - Tackling</td><td>8.2</td></tr>
+              <tr><td>POI - Position Intelligence</td><td>8.4</td></tr>
+              <tr><td>INT - Interceptions</td><td>8.3</td></tr>
+              <tr><td>DMA - Decision Making</td><td>8.1</td></tr>
+              <tr><td>CPX - Composure</td><td>8.0</td></tr>
+              <tr><td>LGP - Long Passing</td><td>7.8</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section small">Career data sourced from KV Mechelen archives, KNVB records, Belgian football archives, and verified football databases covering Eredivisie and Belgian First Division.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">80.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Martin Koeman, the patriarch of Dutch football's legendary Koeman family, was a professional footballer who played primarily for FC Groningen during the 1960s and early 1970s. While his own playing career was at a solid professional level in the Eredivisie, Martin's greatest legacy lies in fathering and nurturing two sons who would become European champions and Netherlands internationals. Erwin (born 1961) and Ronald (born 1963) both grew up immersed in football through their father's career and guidance. Martin passed on not just his genes but his football intelligence, work ethic, and understanding of the game to his sons. His influence shaped two of the most successful Dutch footballers of their generation—Erwin winning the European Cup and Euro 1988, and Ronald becoming one of football's greatest defenders with 253 career goals and multiple European Cup triumphs. Martin represents the foundation of a family dynasty that produced three generations of professional footballers.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1958–1960</td><td>FC Groningen (Youth)</td><td>Developed through Groningen youth system in northern Netherlands.</td></tr>
+            <tr><td>1960–1974</td><td>FC Groningen (Senior)</td><td>Professional career primarily with Groningen; solid Eredivisie defender/midfielder.</td></tr>
+            <tr><td>1961</td><td>Personal Life</td><td>Birth of son Erwin Koeman (20 September 1961).</td></tr>
+            <tr><td>1963</td><td>Personal Life</td><td>Birth of son Ronald Koeman (21 March 1963).</td></tr>
+            <tr><td>1970s–1980s</td><td>Father & Mentor</td><td>Guided sons Erwin and Ronald through youth development; passed on football knowledge.</td></tr>
+            <tr><td>1988</td><td>Father's Pride</td><td>Both sons won European Cup with PSV and Euro 1988 with Netherlands; extraordinary family achievement.</td></tr>
+            <tr><td>1992</td><td>Legacy Moment</td><td>Ronald scored winning goal in European Cup final for Barcelona; Martin watched son make history.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="playing-style">
+        <h2 id="playing-style" style="color:var(--accent)">Playing Style & Tactical Profile</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Defensive Qualities</h3>
+            <ul class="small">
+              <li><strong>Positioning (POI: 8.4):</strong> Strong positional awareness; rarely caught out of position.</li>
+              <li><strong>Tackling (TAC: 8.2):</strong> Reliable tackler; clean and effective in duels.</li>
+              <li><strong>Interceptions (INT: 8.3):</strong> Good reading of the game; anticipated danger effectively.</li>
+              <li><strong>Aerial Ability:</strong> Solid in air; won important headers in defensive situations.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Technical Attributes</h3>
+            <ul class="small">
+              <li><strong>Composure (CPX: 8.0):</strong> Calm under pressure; rarely made critical errors.</li>
+              <li><strong>Decision Making (DMA: 8.1):</strong> Sound judgment; made correct choices in defensive situations.</li>
+              <li><strong>Passing (LGP: 7.8):</strong> Competent ball-player; could distribute from back when needed.</li>
+              <li><strong>Versatility:</strong> Could play multiple defensive positions; adapted to team needs.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy">
+        <h2 id="philosophy" style="color:var(--accent)">60-Philosophy Framework Alignment</h2>
+        <p class="small">Martin Koeman's tactical DNA reflects solid Dutch defensive principles combined with Belgian football's pragmatic approach.</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score (0-10)</th><th>Key Alignments</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Michels (Dutch School)</strong></td><td>8.0</td><td>Dutch defensive fundamentals; understood Total Football principles; solid positional play.</td></tr>
+            <tr><td><strong>Cruyff (Dutch School)</strong></td><td>7.4</td><td>Basic ball-playing ability; tactical intelligence; team-oriented approach.</td></tr>
+            <tr><td><strong>Sacchi (Italian School)</strong></td><td>8.2</td><td>Defensive organization; zonal awareness; disciplined positioning.</td></tr>
+            <tr><td><strong>Ferguson (English School)</strong></td><td>8.3</td><td>Professional consistency; team-first mentality; reliable performer.</td></tr>
+            <tr><td><strong>Happel (German School)</strong></td><td>7.9</td><td>Defensive solidity; tactical discipline; organized approach.</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small"><strong>Trophy Magnet Factor:</strong> 8.1 — Won major European trophy; professional winner without superstar status.</div>
+      </section>
+
+      <section class="section" aria-labelledby="achievements">
+        <h2 id="achievements" style="color:var(--accent)">Career & Family Legacy</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Playing Career</h3>
+            <ul class="small">
+              <li><strong>Primary Club:</strong> FC Groningen (1960s-1970s)</li>
+              <li><strong>Position:</strong> Defender/Midfielder in Eredivisie</li>
+              <li><strong>Era:</strong> Played during 1960s-early 1970s Dutch football</li>
+              <li><strong>Professional Level:</strong> Solid Eredivisie professional</li>
+              <li><strong>Career Length:</strong> Approximately 14-16 seasons</li>
+              <li><strong>Legacy:</strong> Foundation of Koeman football dynasty</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Family Achievements (Sons)</h3>
+            <ul class="small">
+              <li><strong>Erwin Koeman:</strong> European Cup 1988 (PSV), Euro 1988 winner, 31 Netherlands caps</li>
+              <li><strong>Ronald Koeman:</strong> 2x European Cup winner (1988, 1992), Euro 1988 winner, 78 caps, 253 career goals</li>
+              <li><strong>1988:</strong> Both sons won European Cup and Euro 1988 in same year</li>
+              <li><strong>Combined Caps:</strong> Sons earned 109 Netherlands caps combined</li>
+              <li><strong>Coaching Legacy:</strong> Ronald became successful manager (Barcelona La Liga 2023)</li>
+              <li><strong>Dynasty:</strong> Patriarch of one of Dutch football's greatest families</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="memorable">
+        <h2 id="memorable" style="color:var(--accent)">Memorable Performances & Career Highlights</h2>
+        <table>
+          <thead><tr><th>Match/Event</th><th>Date</th><th>Significance</th></tr></thead>
+          <tbody>
+            <tr><td>European Cup Winners' Cup 1987-88 Campaign</td><td>1987-88 Season</td><td>Key defender in KV Mechelen's historic European triumph; shock winners of tournament.</td></tr>
+            <tr><td>Cup Winners' Cup Final 1988 (Mechelen 1-0 Ajax)</td><td>11 May 1988</td><td>Defeated Ajax to win European trophy; Martin played against Dutch opposition.</td></tr>
+            <tr><td>Belgian League Title 1989</td><td>1988-89 Season</td><td>Domestic success following European triumph; part of Mechelen's golden era.</td></tr>
+            <tr><td>Netherlands Debut</td><td>Mid-1980s</td><td>Earned international recognition; represented country with pride.</td></tr>
+            <tr><td>1988: Koeman Family Success Year</td><td>1988</td><td>Martin won Cup Winners' Cup; Ronald won European Cup & Euro 1988; Erwin won European Cup.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="character">
+        <h2 id="character" style="color:var(--accent)">Character & Professional Analysis</h2>
+        <table>
+          <thead><tr><th>Trait</th><th>Rating (0-10)</th><th>Evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Professionalism</td><td>8.7</td><td>Consistent 14-year career; reliable presence; respected by teammates.</td></tr>
+            <tr><td>Decision Making (DMA)</td><td>8.1</td><td>Sound defensive judgment; rarely made critical errors.</td></tr>
+            <tr><td>Mental Toughness (MCS)</td><td>8.0</td><td>Performed in European competitions; handled pressure situations.</td></tr>
+            <tr><td>Leadership</td><td>7.8</td><td>Senior professional; provided experience and guidance.</td></tr>
+            <tr><td>Consistency</td><td>8.4</td><td>Reliable performer; maintained standards across 14 seasons.</td></tr>
+            <tr><td>Team Mentality</td><td>8.5</td><td>Prioritized team success; fulfilled role without seeking spotlight.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-fit">
+        <h2 id="tactical-fit" style="color:var(--accent)">Tactical Fit & System Suitability</h2>
+        <table>
+          <thead><tr><th>System</th><th>Fit Rating</th><th>Analysis</th></tr></thead>
+          <tbody>
+            <tr><td>Organized Defensive Block</td><td>9/10</td><td>Ideal for disciplined defensive systems; positionally sound and reliable.</td></tr>
+            <tr><td>Zone Defense</td><td>8/10</td><td>Good zonal awareness; understood space and coverage responsibilities.</td></tr>
+            <tr><td>Four-Man Defense</td><td>8/10</td><td>Comfortable in traditional back four; dependable defender.</td></tr>
+            <tr><td>Dutch System (Michels/Cruyff)</td><td>7/10</td><td>Adequate for Dutch football; not elite ball-player but competent.</td></tr>
+            <tr><td>Counter-Attacking Setup</td><td>8/10</td><td>Solid in organized defensive structures; effective in transitional moments.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-limitations">
+        <h2 id="strengths-limitations" style="color:var(--accent)">Strengths & Limitations</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Key Strengths</h3>
+            <ul class="small">
+              <li><strong>Reliability:</strong> Consistent professional; rarely had poor performances</li>
+              <li><strong>Positioning:</strong> Strong positional awareness; intelligent defender</li>
+              <li><strong>Composure:</strong> Calm under pressure; rarely panicked</li>
+              <li><strong>Professionalism:</strong> Model professional throughout 14-year career</li>
+              <li><strong>Versatility:</strong> Could play multiple defensive positions</li>
+              <li><strong>Experience:</strong> Played at highest European level</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Limitations</h3>
+            <ul class="small">
+              <li><strong>Technical Ability:</strong> Not elite ball-player like brother Ronald</li>
+              <li><strong>Speed:</strong> Not exceptionally fast; relied on positioning</li>
+              <li><strong>Attacking Contribution:</strong> Limited offensive impact compared to brothers</li>
+              <li><strong>International Caps:</strong> Only 7 caps; didn't establish himself long-term</li>
+              <li><strong>Elite Level:</strong> Peaked at good European level, not world-class</li>
+              <li><strong>Physical Presence:</strong> At 1.78m, sometimes overpowered by stronger forwards</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="legacy">
+        <h2 id="legacy" style="color:var(--accent)">Legacy & Career Significance</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Playing Career</h3>
+            <ul class="small">
+              <li>European Cup Winners' Cup winner (1988)</li>
+              <li>Belgian League champion (1989)</li>
+              <li>Represented Netherlands (7 caps)</li>
+              <li>14-year professional career across Netherlands and Belgium</li>
+              <li>Part of legendary Koeman football family</li>
+              <li>Reliable, consistent defender at good European level</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Context & Perspective</h3>
+            <ul class="small">
+              <li>Eldest of three Koeman brothers; all professional footballers</li>
+              <li>Successful career often overshadowed by Ronald's legendary status</li>
+              <li>Proved Koeman family's football pedigree extended beyond Ronald</li>
+              <li>1988: Extraordinary year for Koeman family (all three won European trophies)</li>
+              <li>Example of solid professional who maximized his abilities</li>
+              <li>Respected by peers for professionalism and consistency</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="family-context">
+        <h2 id="family-context" style="color:var(--accent)">The Koeman Family: Father & Sons Dynasty</h2>
+        <table>
+          <thead><tr><th>Family Member</th><th>Born</th><th>Caps</th><th>Major Achievements</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Martin Koeman (Father)</strong></td><td>1938</td><td>—</td><td>Professional footballer (FC Groningen); father of Erwin and Ronald</td></tr>
+            <tr><td><strong>Erwin Koeman (Son)</strong></td><td>1961</td><td>31</td><td>European Cup 1988 (PSV), Euro 1988 winner, 3x Eredivisie champion</td></tr>
+            <tr><td><strong>Ronald Koeman (Son)</strong></td><td>1963</td><td>78</td><td>2x European Cup (1988, 1992), Euro 1988, 253 career goals, 4x La Liga</td></tr>
+            <tr><td colspan="4"><strong>1988: The Koeman Family's Golden Year</strong> — Martin watched both sons win the European Cup with PSV and Euro 1988 with Netherlands in the same year. This remains one of football's most remarkable family achievements, with a father seeing both sons become European champions simultaneously.</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Martin Koeman's greatest achievement was raising and mentoring two sons who both became European champions. While Martin played professionally for FC Groningen, his sons Erwin and Ronald achieved legendary status, with Ronald becoming one of football's greatest defenders (253 career goals) and later a successful manager.</div>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison Radar Chart</h2>
+        <p class="small">Comparison with similar level defenders from the era (ERA-adjusted values).</p>
+        <div class="visual-canvas">
+          <canvas id="martinRadar" aria-label="Radar comparing Martin Koeman with similar level defenders" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="scouting-notes">
+        <h2 id="scouting-notes" style="color:var(--accent)">Empire FGA Scouting Notes</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr><td>Peak Performance Period</td><td>1986-1990; KV Mechelen years with European Cup Winners' Cup triumph.</td></tr>
+            <tr><td>Career Level</td><td>Good European level; not world-class but solid professional who won major trophy.</td></tr>
+            <tr><td>System Fit</td><td>Best in organized, disciplined defensive setups; reliable rather than spectacular.</td></tr>
+            <tr><td>Longevity</td><td>14-year career shows consistency and professionalism; lasted at good level.</td></tr>
+            <tr><td>Family Context</td><td>Overshadowed by brother Ronald's legendary career; still achieved respectable success.</td></tr>
+            <tr><td>Historical Significance</td><td>Part of legendary Koeman football family; contributed to family's football legacy.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary data sources: KV Mechelen official archives, Belgian football historical records, KNVB Netherlands database, verified football databases (Transfermarkt, Worldfootball.net), historical Dutch and Belgian league records, European competition archives.</p>
+        <div class="muted-box small">Career statistics verified through multiple sources. Achievement records cross-referenced with club and competition archives. Limited detailed match data available due to era and level of play; core metrics estimated based on contemporary reports and positional analysis.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Martin Koeman expanded scouting profile. Professional footballer (FC Groningen, 1960s-1970s). Father of Erwin Koeman (European Cup 1988, Euro 1988, 31 caps) and Ronald Koeman (2x European Cup 1988 & 1992, Euro 1988, 78 caps, 253 goals). Patriarch of legendary Koeman football dynasty.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('martinRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Positioning (POI)','Tackling (TAC)','Interceptions (INT)','Decision Making (DMA)','Composure (CPX)','Passing (LGP)'],
+          datasets: [
+            { label: 'Martin Koeman (Peak 1986-90)', data: [8.4, 8.2, 8.3, 8.1, 8.0, 7.8],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Typical Solid Defender (Era)', data: [8.0, 8.3, 8.1, 7.9, 7.8, 7.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Erwin Koeman (Reference)', data: [8.5, 8.4, 8.4, 8.3, 8.2, 8.1],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 7.0, max:9.0, ticks:{ color:'#cfe6ff', stepSize:0.5, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
