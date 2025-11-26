@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilfred Agbonavbare — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --card: #242424;
+            --white: #f0f6fc;
+            --muted: #9ca3af;
+            --accent1: #ce1126; /* Rayo Red */
+            --accent2: #ffffff; /* White */
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            height: 100%; margin: 0; padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(206, 17, 38, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 255, 255, 0.05), transparent 8%), var(--bg);
+            color: var(--white); -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif;
+        }
+        header { max-width: 1300px; margin: 18px auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; }
+        header img { height: 48px; object-fit: contain; }
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .header-title { font-size: 20px; font-weight: 800; color: var(--accent1); }
+        .container { max-width: 1300px; margin: 18px auto; padding: 22px; display: grid; grid-template-columns: 360px 1fr; gap: 26px; }
+        .card { background: var(--card); padding: 18px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); position: relative; margin-bottom: 18px; }
+        .photo { width: 100%; height: 520px; object-fit: cover; object-position: top center; border-radius: 10px; border: 3px solid var(--accent1); background: #0b1624; }
+        .title { font-size: 34px; font-weight: 900; margin: 14px 0; color: var(--white); }
+        .sub { color: var(--muted); margin-bottom: 10px; font-size: 14px; }
+        .pill { display: inline-block; background: rgba(206, 17, 38, 0.12); padding: 7px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--white); margin: 6px 8px 6px 0; border: 1px solid rgba(255, 255, 255, 0.18); }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; color: var(--white); font-size: 14px; }
+        th, td { padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); vertical-align: top; text-align: left; }
+        th { background: linear-gradient(90deg, var(--accent1), #880e1d); font-weight: 800; color: #fff; }
+        .rating-badge { position: absolute; right: 18px; top: 18px; background: linear-gradient(90deg, var(--accent1), #fff); color: #071122; font-weight: 900; padding: 12px 18px; border-radius: 16px; font-size: 26px; box-shadow: 0 10px 30px rgba(206, 17, 38, 0.2); }
+        .section { margin-top: 18px; }
+        .section h2::before { content: ""; margin-right: 8px; }
+        .section h2 { font-size: 24px; font-weight: 800; color: var(--accent1); margin-bottom: 16px; }
+        .section h3 { font-size: 18px; font-weight: 700; color: var(--accent1); margin: 16px 0 12px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .small { color: var(--muted); font-size: 14px; line-height: 1.6; }
+        .lead { color: var(--white); font-size: 16px; line-height: 1.5; }
+        .visual-canvas { background: transparent; border-radius: 8px; padding: 12px; height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255, 255, 255, 0.1); }
+        .muted-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.03); padding: 12px; border-radius: 8px; margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+        .info-row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: var(--white); font-size: 14px; }
+        .info-label { font-weight: 600; color: var(--muted); }
+        .info-value { font-weight: 700; color: var(--accent1); }
+        .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+        .trophy-box { background: rgba(206, 17, 38, 0.05); border: 1px solid rgba(206, 17, 38, 0.2); padding: 14px; border-radius: 10px; text-align: center; transition: all 0.2s; }
+        .trophy-box:hover { background: rgba(206, 17, 38, 0.1); transform: translateY(-2px); }
+        .trophy-icon { font-size: 42px; font-weight: 900; margin-bottom: 8px; }
+        .trophy-title { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+        .trophy-year { font-size: 11px; color: var(--muted); }
+        .timeline-item { padding: 14px; border-left: 3px solid var(--accent1); margin-bottom: 12px; background: rgba(255, 255, 255, 0.01); border-radius: 4px; }
+        .timeline-date { font-weight: 700; color: var(--accent1); font-size: 13px; margin-bottom: 6px; }
+        .timeline-event { color: var(--white); font-size: 14px; line-height: 1.5; }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQku-XMus3H-GcuELe6HtpSxtO43rlcazxHMTzlYxlWoML2uc3Kt9Y7UdfMw9y4BZSRKHc&usqp=CAU" alt="Wilfred Agbonavbare" class="photo">
+                <div class="rating-badge">86.5</div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Player Info</h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Wilfred Agbonavbare</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">October 5, 1966 (Lagos, Nigeria)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Goalkeeper (GK)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.79m (5'10")</span></div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                <div class="info-row"><span class="info-label">Career Span</span><span class="info-value">1983-1997</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Nigeria (1983-1994, 15 caps)</span></div>
+                <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"Willy"</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Physical Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span class="info-value">8.2/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span class="info-value">9.5/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">FGA Scores</h2>
+                <div class="info-row"><span class="info-label">RFX (Reflexes)</span><span class="info-value">9.4/10</span></div>
+                <div class="info-row"><span class="info-label">HAN (Handling)</span><span class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">ONE (1v1)</span><span class="info-value">9.2/10</span></div>
+                <div class="info-row"><span class="info-label">AGL (Agility)</span><span class="info-value">9.5/10</span></div>
+                <div class="info-row"><span class="info-label">CMD (Command)</span><span class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">CHR (Charisma)</span><span class="info-value">9.9/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Philosophy Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇪🇸 Camacho (9.8/10)</span>
+                <span class="pill">🇳🇬 Westerhof (9.7/10)</span>
+                <span class="pill">🇮🇹 Trapattoni (9.0/10)</span>
+                <span class="pill">🇪🇸 Flores (8.9/10)</span>
+                <span class="pill">🇦🇷 Simeone (8.8/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> An explosive, reactive goalkeeper defined by instinct and bravery rather than technical purity. Perfect for counter-attacking teams (like Rayo) that face high shot volumes. A "Cult Hero" archetype whose connection with the fans elevates his performance. Mentally unbreakable in relegation battles.
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Wilfred Agbonavbare</strong> remains one of the most iconic figures in the history of Rayo Vallecano and Nigerian football. A goalkeeper of modest height but extraordinary agility and reflexes, "Willy" overcame racial prejudice and skepticism to become a legend in Vallecas. His career began in Nigeria before a pivotal move to Spain in 1990, where he helped Rayo secure promotion to La Liga.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Though often the backup for the "Super Eagles" behind Peter Rufai, Wilfred was a key squad member during Nigeria's Golden Generation, winning the 1994 African Cup of Nations and participating in the 1994 World Cup. At club level, his acrobatics, penalty-stopping ability, and infectious personality made him a beloved figure. He sadly passed away in 2015, but his legacy lives on at the gate of the Vallecas stadium which bears his mosaic.
+                </p>
+            </div>
+            <div class="card">
+                <h2>▲ Peak Season Statistics (1991-92 Segunda Division)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Clean Sheets</th>
+                        <th>Penalties Saved</th>
+                        <th>Key Achievement</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Segunda División</strong></td>
+                        <td>38</td>
+                        <td>16</td>
+                        <td>4</td>
+                        <td>Promotion to La Liga</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copa del Rey</strong></td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>Quarter-Finals</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td>42</td>
+                        <td>18</td>
+                        <td>5</td>
+                        <td>Zamora Trophy Contender</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Peak Performance Context:</strong> The 1991-92 season defined Wilfred's legacy. He conceded only 27 goals in 38 league games, anchoring Rayo Vallecano's defense to finish 2nd and earn automatic promotion to La Liga. His acrobatic saves in the final weeks of the season were directly responsible for the club's return to the elite.
+                </div>
+            </div>
+            <div class="card">
+                <h2>⟲ Evolution Through Career</h2>
+                <div class="section">
+                    <h3>Nigerian Roots (1983-1990)</h3>
+                    <p class="lead">Started with New Nigeria Bank and BCC Lions. Quickly gained a reputation for feline reflexes. Won the Nigerian Premier League and earned early caps for the national team. Developed a fearless style of goalkeeping on rough pitches.</p>
+                </div>
+                <div class="section">
+                    <h3>The Vallecas Icon (1990-1996)</h3>
+                    <p class="lead">Moved to Rayo Vallecano in Segunda División. Initially faced racism from opposition fans, but his performances won universal respect. Key to the 1992 promotion. Played 76 La Liga matches, producing highlight-reel saves against giants like Real Madrid and Barcelona. Became the soul of the team.</p>
+                </div>
+                <div class="section">
+                    <h3>International Stage (1994)</h3>
+                    <p class="lead">Member of the legendary 1994 Super Eagles squad. Won the African Cup of Nations in Tunisia. Backup GK at the USA '94 World Cup, providing experience and morale to the squad that charmed the world.</p>
+                </div>
+                <div class="section">
+                    <h3>Final Years (1996-1997)</h3>
+                    <p class="lead">Moved to Écija Balompié for one season in Segunda. retired in 1997 at age 31. Stayed in Spain working manual jobs, showcasing his humility until his untimely passing.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Reflexes</span><span class="info-value">9.4/10</span></div>
+                        <div class="info-row"><span class="info-label">Agility</span><span class="info-value">9.5/10</span></div>
+                        <div class="info-row"><span class="info-label">Bravery</span><span class="info-value">9.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Penalty Stopping</span><span class="info-value">9.0/10</span></div>
+                        <div class="info-row"><span class="info-label">Personality</span><span class="info-value">10/10</span></div>
+                        <div class="info-row"><span class="info-label">1v1s</span><span class="info-value">9.2/10</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Shot-Stopper / Line Keeper<br><br>
+                            <strong>Key Attributes:</strong> Explosive spring from a standing start, unorthodox but effective parrying, fearlessness in diving at feet, emotional leadership.<br><br>
+                            <strong>Tactical Fit:</strong> Ideal for teams that sit deep and absorb pressure, allowing him to rely on reflexes rather than sweeping. A goalkeeper who wins points on his own in tight games.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club</th>
+                        <th>Apps</th>
+                        <th>Clean Sheets</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>1983-1989</td>
+                        <td><strong>New Nigeria Bank</strong></td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>Nigerian League Champion</td>
+                    </tr>
+                    <tr>
+                        <td>1990-1996</td>
+                        <td><strong>Rayo Vallecano</strong></td>
+                        <td>177</td>
+                        <td>50+</td>
+                        <td>La Liga Promotion, Club Legend</td>
+                    </tr>
+                    <tr>
+                        <td>1996-1997</td>
+                        <td><strong>Écija</strong></td>
+                        <td>23</td>
+                        <td>5</td>
+                        <td>Segunda Division</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Totals:</strong> Over 200 professional appearances. 15 caps for Nigeria. Best known for his 6-year spell at Rayo Vallecano (177 matches), where he is considered the greatest goalkeeper in the club's history.
+                </div>
+            </div>
+            <div class="card">
+                <h2>★ Honors & Trophies</h2>
+                <h3>International</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">AFCON</div>
+                        <div class="trophy-year">1994</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">World Cup Squad</div>
+                        <div class="trophy-year">USA 1994</div>
+                    </div>
+                </div>
+                <h3>Club & Individual</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">▲</div>
+                        <div class="trophy-title">La Liga Promotion</div>
+                        <div class="trophy-year">1992</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">Nigerian League</div>
+                        <div class="trophy-year">1985</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">♥</div>
+                        <div class="trophy-title">Rayo Cult Hero</div>
+                        <div class="trophy-year">Eternal</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▶ Key Matches & Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">1983 | Professional Debut</div>
+                    <div class="timeline-event">Started career with New Nigeria Bank, quickly establishing himself as a top prospect.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Summer 1990 | Arrival in Vallecas</div>
+                    <div class="timeline-event">Signed for Rayo Vallecano. The beginning of a love affair between the player and the working-class neighborhood of Madrid.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 24, 1992 | Rayo Vallecano Promotion</div>
+                    <div class="timeline-event">kept a crucial clean sheet to secure 2nd place in Segunda and automatic promotion to La Liga.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">April 10, 1994 | African Cup of Nations Final</div>
+                    <div class="timeline-event">Part of the squad that defeated Zambia 2-1 to win Nigeria's second continental title.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 6, 1993 | Rayo 2-0 Real Madrid</div>
+                    <div class="timeline-event">Legendary performance against the giants at Vallecas, keeping a clean sheet against Zamorano and Butragueño.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▭ Player Comparison (GK Style)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Wilfred vs Iconic 90s Shot Stoppers
+                </p>
+            </div>
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Rayo Appearances</span><span class="info-value">177</span></div>
+                        <div class="info-row"><span class="info-label">Nigeria Caps</span><span class="info-value">15</span></div>
+                        <div class="info-row"><span class="info-label">La Liga Seasons</span><span class="info-value">4</span></div>
+                        <div class="info-row"><span class="info-label">Penalties Saved</span><span class="info-value">12 (approx)</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy & Impact</h3>
+                        <div class="info-row"><span class="info-label">Era</span><span class="info-value">90s La Liga</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Acrobatic</span></div>
+                        <div class="info-row"><span class="info-label">Symbolism</span><span class="info-value">Anti-Racism Icon</span></div>
+                        <div class="info-row"><span class="info-label">Memorial</span><span class="info-value">Gate 1 (Vallecas)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework
+        </p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Reflexes', 'Handling', 'Kicking', 'Aerial Reach', 'Agility', '1v1', 'Command', 'Bravery'],
+                datasets: [{
+                    label: 'Wilfred (1992)',
+                    data: [9.4, 8.6, 6.5, 8.1, 9.5, 9.2, 8.7, 9.8],
+                    borderColor: '#ce1126',
+                    backgroundColor: 'rgba(206, 17, 38, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ce1126',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Thomas N\'Kono',
+                    data: [9.2, 8.8, 7.0, 9.0, 9.1, 8.9, 9.0, 9.0],
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Peter Rufai',
+                    data: [8.9, 8.5, 6.8, 9.2, 8.5, 8.7, 9.1, 8.8],
+                    borderColor: '#228B22',
+                    backgroundColor: 'rgba(34, 139, 34, 0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true, max: 10,
+                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } },
+                    tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ce1126', bodyColor: '#f0f6fc', borderColor: '#ce1126', borderWidth: 2, padding: 12 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

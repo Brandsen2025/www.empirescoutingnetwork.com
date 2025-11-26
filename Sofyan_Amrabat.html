@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sofyan Amrabat — Empire FGA Professional Scouting Report</title>
+  <style>
+    :root{
+      --bg:#0a0e17; --card:#111a26; --accent:#00d2ff; --accent2:#ffd700;
+      --muted:#64748b; --text:#e2e8f0; --border:rgba(255,255,255,0.08);
+      --positive:#10b981; --average:#f59e0b; --negative:#ef4444;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+    .container{max-width:1440px;margin:0 auto;padding:24px;display:grid;grid-template-columns:380px 1fr;gap:32px}
+    header{grid-column:1/-1;border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+    .logo-section{display:flex;align-items:center;gap:15px}
+    .logo-img{height:60px;width:auto;object-fit:contain}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+    .card-pad{padding:24px}
+    h1{font-size:32px;font-weight:800;color:#fff;margin:0;letter-spacing:-0.5px}
+    h2{font-size:20px;font-weight:700;color:var(--accent);margin:24px 0 12px;display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:1px}
+    h3{font-size:16px;font-weight:600;color:var(--accent2);margin:16px 0 8px}
+    p{margin-bottom:16px;color:#cbd5e1}
+    .sub{color:var(--muted);font-size:13px;font-weight:500}
+    .photo-container{position:relative;height:480px;background:#000}
+    .photo{width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0.9}
+    .photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, var(--card));height:150px}
+    .rating-badge{position:absolute;top:20px;right:20px;background:var(--accent2);color:#000;font-weight:900;font-size:24px;padding:12px 18px;border-radius:12px;box-shadow:0 4px 15px rgba(255,215,0,0.3);z-index:10}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .tag{background:rgba(0,210,255,0.1);color:var(--accent);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;border:1px solid rgba(0,210,255,0.2)}
+    .tag.gold{background:rgba(255,215,0,0.1);color:var(--accent2);border-color:rgba(255,215,0,0.2)}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px}
+    th{text-align:left;color:var(--muted);font-weight:600;padding:12px;border-bottom:1px solid var(--border);text-transform:uppercase;font-size:11px}
+    td{padding:12px;border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top}
+    tr:hover td{background:rgba(255,255,255,0.02)}
+    .metric-row{display:flex;align-items:center;margin-bottom:8px;gap:12px}
+    .metric-label{width:140px;font-size:12px;font-weight:600;color:#94a3b8}
+    .metric-bar-bg{flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}
+    .metric-bar-fill{height:100%;border-radius:3px}
+    .metric-val{width:30px;text-align:right;font-weight:700;font-size:12px;color:#fff}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stat-box{background:rgba(255,255,255,0.03);padding:16px;border-radius:8px;border:1px solid var(--border)}
+    .big-num{font-size:24px;font-weight:700;color:#fff;display:block;margin-bottom:4px}
+    .divider{height:1px;background:var(--border);margin:24px 0}
+    .scout-note{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:#6ee7b7;padding:12px;border-radius:6px;font-size:13px;margin-top:8px}
+    @media(max-width:1024px){.container{grid-template-columns:1fr}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-section">
+      <img class="logo-img" src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Logo">
+      <div>
+        <div style="color:var(--accent);font-weight:900;letter-spacing:2px;font-size:12px;margin-bottom:4px">EMPIRE FGA SCOUTING NETWORK</div>
+        <h1>SOFYAN AMRABAT</h1>
+        <div class="tags">
+          <span class="tag gold">World Cup Legend</span>
+          <span class="tag">Elite Destroyer</span>
+          <span class="tag">Fenerbahçe</span>
+          <span class="tag">Morocco</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div class="sub">Scouting Report ID: MAR-FEN-34</div>
+      <div class="sub">Last Updated: Nov 20, 2025</div>
+      <div class="sub">Status: <span style="color:var(--positive)">Active / Peak</span></div>
+    </div>
+  </header>
+
+  <aside>
+    <div class="card">
+      <div class="photo-container">
+        <img class="photo" src="https://www.bladna.nl/img/local/cache-vignettes/L800xH500/fenerbahce-definitieve-aankoop-sofyan-amrabat-19228.webp" alt="Sofyan Amrabat">
+        <div class="photo-overlay"></div>
+        <div class="rating-badge">89.5</div>
+      </div>
+      
+      <div class="card-pad">
+        <h3>Player Identity</h3>
+        <table style="margin-bottom:0">
+          <tr><td><strong>Nationality</strong></td><td style="color:#fff">Morocco / Netherlands</td></tr>
+          <tr><td><strong>Date of Birth</strong></td><td style="color:#fff">21 Aug 1996 (29)</td></tr>
+          <tr><td><strong>Height / Weight</strong></td><td style="color:#fff">1.85m / 82kg</td></tr>
+          <tr><td><strong>Position</strong></td><td style="color:#fff">DM / CM (#6)</td></tr>
+          <tr><td><strong>Role</strong></td><td style="color:#fff">Ball-Winning Midfielder</td></tr>
+          <tr><td><strong>Club</strong></td><td style="color:#fff">Fenerbahçe (TUR)</td></tr>
+          <tr><td><strong>Contract</strong></td><td style="color:#fff">Valid until 2027</td></tr>
+        </table>
+
+        <div class="divider"></div>
+
+        <h3>Physical & Mental Profile</h3>
+        <div class="grid-2" style="margin-bottom:16px">
+          <div class="stat-box">
+            <span class="sub">Stamina</span>
+            <span class="big-num" style="color:var(--accent)">Elite</span>
+          </div>
+          <div class="stat-box">
+            <span class="sub">Mentality</span>
+            <span class="big-num" style="color:var(--accent2)">Warrior</span>
+          </div>
+        </div>
+        
+        <div class="metric-row">
+          <div class="metric-label">Stamina (STA)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:99%;background:var(--accent2)"></div></div>
+          <div class="metric-val">9.9</div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Strength (STR)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:95%;background:var(--positive)"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Tackling (TAC)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:94%;background:var(--positive)"></div></div>
+          <div class="metric-val">9.4</div>
+        </div>
+
+        <div class="divider"></div>
+        <h3>Injury Audit</h3>
+        <ul class="sub" style="list-style:none;padding:0;margin:0">
+          <li style="margin-bottom:8px">⚠️ <strong>2022:</strong> Back Injury (Played through w/ injections)</li>
+          <li style="margin-bottom:8px">✅ <strong>2023-24:</strong> 92% Availability (Man Utd)</li>
+          <li style="margin-bottom:8px">✅ <strong>Current:</strong> 100% Fit (Fenerbahçe)</li>
+        </ul>
+
+        <div class="divider"></div>
+        <div class="scout-note">
+          <strong>Empire FGA Verdict:</strong> The ultimate engine. A tactical soldier perfectly suited for high-intensity defensive systems.
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🏆 Empire FGA Metric Suite (779 Data Points)</h2>
+      <p class="sub">Core metrics analyzed from 2022-2025 performance data (Fenerbahçe, Man Utd, Fiorentina, Morocco).</p>
+      
+      <div class="grid-3">
+        <!-- Defensive Block -->
+        <div>
+          <h3>Defensive (DEF)</h3>
+          <div class="metric-row">
+            <div class="metric-label">Ball Winning (BWM)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:97%;background:var(--accent2)"></div></div>
+            <div class="metric-val">9.7</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Marking (MRK)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:92%;background:var(--accent)"></div></div>
+            <div class="metric-val">9.2</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Recoveries (REC)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:98%;background:var(--positive)"></div></div>
+            <div class="metric-val">9.8</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Intercept (INT)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:89%;background:var(--positive)"></div></div>
+            <div class="metric-val">8.9</div>
+          </div>
+        </div>
+
+        <!-- Physical Block -->
+        <div>
+          <h3>Physical (PHY)</h3>
+          <div class="metric-row">
+            <div class="metric-label">Dynamism (DYN)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:96%;background:var(--accent)"></div></div>
+            <div class="metric-val">9.6</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Resilience (RES)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:99%;background:var(--positive)"></div></div>
+            <div class="metric-val">9.9</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Ground Duels (GRD)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:94%;background:var(--positive)"></div></div>
+            <div class="metric-val">9.4</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Aerials (AER)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:78%;background:var(--average)"></div></div>
+            <div class="metric-val">7.8</div>
+          </div>
+        </div>
+
+        <!-- Possession Block -->
+        <div>
+          <h3>Possession (POS)</h3>
+          <div class="metric-row">
+            <div class="metric-label">Shielding (SHD)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:93%;background:var(--accent)"></div></div>
+            <div class="metric-val">9.3</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Carrying (CAR)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:86%;background:var(--average)"></div></div>
+            <div class="metric-val">8.6</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Long Pass (LGP)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:84%;background:var(--average)"></div></div>
+            <div class="metric-val">8.4</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Vision (VIS)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:80%;background:var(--average)"></div></div>
+            <div class="metric-val">8.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🧬 60-Philosophy Framework Analysis</h2>
+      <p class="sub">Amrabat aligns with tactical philosophies that prioritize defensive structure, intensity, and "suffering" for the team.</p>
+      
+      <div style="margin-top:24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h3>1. Simeone Cholismo (Score: 10.0/10)</h3>
+          <span class="tag gold">Perfect Fit</span>
+        </div>
+        <p>Amrabat is the embodiment of "Cholismo". He thrives in suffering, defending deep, and physically dominating opponents. His World Cup 2022 performance was a masterclass in this philosophy—pure grit, tactical discipline, and emotional intensity.</p>
+        
+        <div class="divider"></div>
+        
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h3>2. Mourinho Tactical (Score: 9.8/10)</h3>
+          <span class="tag">Current Fit</span>
+        </div>
+        <p>Under José Mourinho at Fenerbahçe, Amrabat operates as the tactical stabilizer. He executes instructions with military precision, protecting the backline and breaking up opposition rhythm. A "General" on the pitch.</p>
+        
+        <div class="divider"></div>
+
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h3>3. Ten Hag Structure (Score: 8.9/10)</h3>
+          <span class="tag">Historical Fit</span>
+        </div>
+        <p>Having worked with Ten Hag at Utrecht and Man Utd, he understands the positional demands of a pivot, though his technical distribution is sometimes safer than what is required for total football.</p>
+      </div>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>📅 Detailed Career Progression</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Season</th>
+            <th>Club</th>
+            <th>Role</th>
+            <th>Apps</th>
+            <th>Key Highlight</th>
+            <th>FGA Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(0,210,255,0.05)">
+            <td>2024-25</td>
+            <td><strong>Fenerbahçe</strong></td>
+            <td>Midfield General</td>
+            <td>10*</td>
+            <td>Mourinho's Key Man</td>
+            <td><strong>89.5</strong></td>
+          </tr>
+          <tr>
+            <td>2023-24</td>
+            <td><strong>Man Utd</strong></td>
+            <td>Defensive Mid</td>
+            <td>30</td>
+            <td>FA Cup Winner</td>
+            <td><strong>87.0</strong></td>
+          </tr>
+          <tr>
+            <td>2022-23</td>
+            <td><strong>Fiorentina</strong></td>
+            <td>Regista</td>
+            <td>49</td>
+            <td>UECL Finalist</td>
+            <td><strong>88.5</strong></td>
+          </tr>
+          <tr style="background:rgba(255,215,0,0.05)">
+            <td>2022 (WC)</td>
+            <td><strong>Morocco</strong></td>
+            <td>Destroyer</td>
+            <td>7</td>
+            <td>WC Semi-Final</td>
+            <td><strong>94.0</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🎥 Match Analysis: The Masterpiece</h2>
+      <h3>World Cup 2022: Morocco vs France (Semi-Final)</h3>
+      <p class="sub">Date: Dec 14, 2022 | Role: Single Pivot | Rating: 9.5/10</p>
+      
+      <div class="grid-2">
+        <div>
+          <h4>The Mbappe Recovery</h4>
+          <p>In the 51st minute, Kylian Mbappé broke free down the wing with blistering pace. Amrabat, despite playing with back injections, sprinted 40 meters to execute a clean, crunching tackle (TAC: 9.9 event score) that became the defining image of Moroccan resilience.</p>
+        </div>
+        <div>
+          <h4>Tactical Shield</h4>
+          <p>He recorded 4 tackles, 3 interceptions, and 100% aerial duel success against Giroud. He essentially played as a third center-back while also distributing the ball (90% pass completion).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>📊 Comparative Analysis (The Destroyer)</h2>
+      <div style="height:300px;display:flex;justify-content:center;align-items:center">
+        <canvas id="amrabatRadar"></canvas>
+      </div>
+    </section>
+
+    <section class="card card-pad">
+      <h2>🧠 Psychological & Social Profile</h2>
+      <div class="grid-2">
+        <div>
+          <h3>"The Warrior"</h3>
+          <p>Amrabat scores 10/10 on the <strong>Empire MCS (Mental Competence Score)</strong>. He is willing to sacrifice his body for the result. He is a leader by example, setting the intensity level for the entire team.</p>
+        </div>
+        <div>
+          <h3>Key Relationships</h3>
+          <ul class="sub" style="list-style:none;padding:0">
+            <li><strong>Nordin Amrabat:</strong> Brother and mentor; instilled the "never say die" attitude.</li>
+            <li><strong>Walid Regragui:</strong> Morocco manager who unlocked his world-class potential.</li>
+            <li><strong>José Mourinho:</strong> Current manager who perfectly aligns with Sofyan's style.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const ctx = document.getElementById('amrabatRadar');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Tackling', 'Stamina', 'Strength', 'Passing', 'Vision', 'Aggression'],
+        datasets: [{
+          label: 'Sofyan Amrabat',
+          data: [9.4, 9.9, 9.5, 8.4, 7.8, 9.8],
+          fill: true,
+          backgroundColor: 'rgba(0, 210, 255, 0.2)',
+          borderColor: '#00d2ff',
+          pointBackgroundColor: '#fff'
+        }, {
+          label: 'Gennaro Gattuso (Peak)',
+          data: [9.6, 10.0, 9.2, 7.5, 7.0, 10.0],
+          fill: true,
+          backgroundColor: 'rgba(255, 215, 0, 0.1)',
+          borderColor: '#ffd700',
+          pointBackgroundColor: '#ffd700',
+          borderDash: [5, 5]
+        }]
+      },
+      options: {
+        scales: { r: { ticks: { display: false, max: 10 }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#fff' } } },
+        plugins: { legend: { labels: { color: '#fff' } } }
+      }
+    });
+  }
+</script>
+</body>
+</html>

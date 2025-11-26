@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Andrea Librici — Empire FGA Professional Scouting Report</title>
+  <style>
+    /* [CSS Same as above] */
+    :root{ --bg:#0a0e17; --card:#111a26; --accent:#00d2ff; --accent2:#ffd700; --muted:#64748b; --text:#e2e8f0; --border:rgba(255,255,255,0.08); --positive:#10b981; --average:#f59e0b; --negative:#ef4444; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    html,body{height:100%;margin:0;padding:0;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+    .container{max-width:1440px;margin:0 auto;padding:24px;display:grid;grid-template-columns:380px 1fr;gap:32px}
+    header{grid-column:1/-1;border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+    .logo-section{display:flex;align-items:center;gap:15px}
+    .logo-img{height:60px;width:auto;object-fit:contain}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+    .card-pad{padding:24px}
+    h1{font-size:32px;font-weight:800;color:#fff;margin:0;letter-spacing:-0.5px}
+    h2{font-size:20px;font-weight:700;color:var(--accent);margin:32px 0 16px;display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:1px;border-left:4px solid var(--accent);padding-left:12px}
+    h3{font-size:16px;font-weight:600;color:var(--accent2);margin:16px 0 8px}
+    p{margin-bottom:16px;color:#cbd5e1}
+    .sub{color:var(--muted);font-size:13px;font-weight:500}
+    .photo-container{position:relative;height:480px;background:#000}
+    .photo{width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0.9}
+    .photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, var(--card));height:150px}
+    .rating-badge{position:absolute;top:20px;right:20px;background:var(--accent2);color:#000;font-weight:900;font-size:24px;padding:12px 18px;border-radius:12px;box-shadow:0 4px 15px rgba(255,215,0,0.3);z-index:10}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .tag{background:rgba(0,210,255,0.1);color:var(--accent);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;border:1px solid rgba(0,210,255,0.2)}
+    .tag.gold{background:rgba(255,215,0,0.1);color:var(--accent2);border-color:rgba(255,215,0,0.2)}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px}
+    th{text-align:left;color:var(--muted);font-weight:600;padding:12px;border-bottom:1px solid var(--border);text-transform:uppercase;font-size:11px}
+    td{padding:12px;border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top}
+    tr:hover td{background:rgba(255,255,255,0.02)}
+    .metric-row{display:flex;align-items:center;margin-bottom:8px;gap:12px}
+    .metric-label{width:140px;font-size:12px;font-weight:600;color:#94a3b8}
+    .metric-bar-bg{flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}
+    .metric-bar-fill{height:100%;border-radius:3px}
+    .metric-val{width:30px;text-align:right;font-weight:700;font-size:12px;color:#fff}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stat-box{background:rgba(255,255,255,0.03);padding:16px;border-radius:8px;border:1px solid var(--border)}
+    .big-num{font-size:24px;font-weight:700;color:#fff;display:block;margin-bottom:4px}
+    .divider{height:1px;background:var(--border);margin:24px 0}
+    .scout-note{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:#6ee7b7;padding:12px;border-radius:6px;font-size:13px;margin-top:8px}
+    @media(max-width:1024px){.container{grid-template-columns:1fr}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-section">
+      <img class="logo-img" src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Logo">
+      <div>
+        <div style="color:var(--accent);font-weight:900;letter-spacing:2px;font-size:12px;margin-bottom:4px">EMPIRE FGA SCOUTING NETWORK</div>
+        <h1>ANDREA LIBRICI</h1>
+        <div class="tags">
+          <span class="tag gold">High Potential</span>
+          <span class="tag">Sint-Truiden</span>
+          <span class="tag">Midfield Prospect</span>
+          <span class="tag">Belgium</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div class="sub">Scouting Report ID: BEL-STVV-24</div>
+      <div class="sub">Last Updated: Nov 20, 2025</div>
+      <div class="sub">Status: <span style="color:var(--positive)">Development</span></div>
+    </div>
+  </header>
+
+  <aside>
+    <div class="card">
+      <div class="photo-container">
+        <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzF0Anb40d265mLdy6rQW7Z8U39ssZy43ePQ&s" alt="Andrea Librici">
+        <div class="photo-overlay"></div>
+        <div class="rating-badge">72.5</div>
+      </div>
+      
+      <div class="card-pad">
+        <h3>Player Identity</h3>
+        <table style="margin-bottom:0">
+          <tr><td><strong>Nationality</strong></td><td style="color:#fff">Belgium / Italy</td></tr>
+          <tr><td><strong>Date of Birth</strong></td><td style="color:#fff">09 Dec 2004 (20)</td></tr>
+          <tr><td><strong>Height</strong></td><td style="color:#fff">1.76m</td></tr>
+          <tr><td><strong>Position</strong></td><td style="color:#fff">CM / AM</td></tr>
+          <tr><td><strong>Role</strong></td><td style="color:#fff">Advanced Playmaker</td></tr>
+          <tr><td><strong>Club</strong></td><td style="color:#fff">Sint-Truiden (BEL)</td></tr>
+          <tr><td><strong>Contract</strong></td><td style="color:#fff">Pro</td></tr>
+        </table>
+
+        <div class="divider"></div>
+
+        <h3>Physical & Mental Profile</h3>
+        <div class="grid-2" style="margin-bottom:16px">
+          <div class="stat-box">
+            <span class="sub">Potential</span>
+            <span class="big-num" style="color:var(--accent)">A-</span>
+          </div>
+          <div class="stat-box">
+            <span class="sub">Technique</span>
+            <span class="big-num" style="color:var(--accent2)">High</span>
+          </div>
+        </div>
+        
+        <div class="metric-row">
+          <div class="metric-label">Technique (TEC)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:85%;background:var(--positive)"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Vision (VIS)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:82%;background:var(--positive)"></div></div>
+          <div class="metric-val">8.2</div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Physicality (PHY)</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:65%;background:var(--average)"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+
+        <div class="divider"></div>
+        <h3>Development Audit</h3>
+         <ul class="sub" style="list-style:none;padding:0;margin:0">
+          <li style="margin-bottom:8px">✅ <strong>Youth:</strong> Standout at STVV Academy</li>
+          <li style="margin-bottom:8px">⏳ <strong>Senior:</strong> Integrating into First Team</li>
+          <li style="margin-bottom:8px">🎯 <strong>Goal:</strong> Regular Jupiler Pro League mins</li>
+        </ul>
+        
+        <div class="divider"></div>
+        <div class="scout-note">
+          <strong>Empire FGA Verdict:</strong> A technically gifted midfielder with Italian heritage and Belgian schooling. Excellent close control and passing range, needs physical development for senior level intensity.
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🏆 Empire FGA Metric Suite (779 Data Points)</h2>
+      <p class="sub">Prospect grading metrics. Adjusted for U21/Jupiler Pro League standards.</p>
+      
+      <div class="grid-3">
+        <div>
+          <h3>Technical (TEC)</h3>
+          <div class="metric-row">
+            <div class="metric-label">First Touch (FST)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:86%;background:var(--accent)"></div></div>
+            <div class="metric-val">8.6</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Passing Short (PAS)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:84%;background:var(--positive)"></div></div>
+            <div class="metric-val">8.4</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Set Pieces (SET)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:78%;background:var(--positive)"></div></div>
+            <div class="metric-val">7.8</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Dribbling (DRB)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:82%;background:var(--positive)"></div></div>
+            <div class="metric-val">8.2</div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Tactical (TAC)</h3>
+          <div class="metric-row">
+            <div class="metric-label">Awareness (AWR)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:80%;background:var(--positive)"></div></div>
+            <div class="metric-val">8.0</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Movement (MOV)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:79%;background:var(--positive)"></div></div>
+            <div class="metric-val">7.9</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Def. Work (DEF)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:62%;background:var(--negative)"></div></div>
+            <div class="metric-val">6.2</div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Future (FUT)</h3>
+          <div class="metric-row">
+            <div class="metric-label">Ceiling (MAX)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:88%;background:var(--accent2)"></div></div>
+            <div class="metric-val">8.8</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Adaptability (ADP)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:81%;background:var(--positive)"></div></div>
+            <div class="metric-val">8.1</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label">Consistency (CON)</div>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:70%;background:var(--average)"></div></div>
+            <div class="metric-val">7.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🧬 60-Philosophy Framework Analysis</h2>
+      <p class="sub">Librici fits the mould of a technical #8/#10 hybrid, suited for possession-based teams.</p>
+      
+      <div style="margin-top:24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h3>1. Guardiola Positional (Score: 8.4/10)</h3>
+          <span class="tag gold">Prospect Fit</span>
+        </div>
+        <p>Librici shows the typical traits of a modern "interior" midfielder. He is comfortable receiving in pockets of space, scanning before receiving, and playing quick combinations. His profile is suited to possession-dominant youth setups.</p>
+        
+        <div class="divider"></div>
+        
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h3>2. De Zerbi Bait & Press (Score: 8.0/10)</h3>
+          <span class="tag">Technical Fit</span>
+        </div>
+        <p>His ability to hold the ball under pressure (Press Resistance) is developing well, making him a candidate for systems that invite pressure to create transitions.</p>
+      </div>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>📅 Detailed Career Progression</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Season</th>
+            <th>Club</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>FGA Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(0,210,255,0.05)">
+            <td>2024-25</td>
+            <td><strong>Sint-Truiden</strong></td>
+            <td>Rotation</td>
+            <td>Breakthrough</td>
+            <td><strong>72.5</strong></td>
+          </tr>
+          <tr>
+            <td>2023-24</td>
+            <td><strong>STVV Youth</strong></td>
+            <td>Captain/Leader</td>
+            <td>Key Player</td>
+            <td><strong>70.0</strong></td>
+          </tr>
+          <tr>
+            <td>2022-23</td>
+            <td><strong>MVV Maastricht</strong></td>
+            <td>Midfielder</td>
+            <td>Loan Exp</td>
+            <td><strong>68.0</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- KEY MILESTONES (Requested Table) -->
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🗝️ Key Matches & Milestones</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Match/Event</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td>31 Oct 2023</td><td><strong>STVV vs OH Leuven (Cup)</strong></td><td>Senior team debut; showed immediate composure against Pro League opposition.</td></tr>
+          <tr><td>12 Aug 2022</td><td><strong>MVV vs NAC Breda</strong></td><td>Professional debut in Dutch league; first taste of senior physicality.</td></tr>
+          <tr><td>15 Sep 2024</td><td><strong>STVV U21 vs Anderlecht</strong></td><td>Captain's performance; 2 assists against top academy rivals.</td></tr>
+          <tr><td>01 Jul 2024</td><td><strong>STVV Pre-Season</strong></td><td>Integrated fully into first-team training camp by manager.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- GLOBAL IMPACT (Requested Table) -->
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🌍 Global Impact Analysis</h2>
+      <div class="grid-2">
+        <div>
+          <p class="small"><strong>Academy Gem:</strong> Regarded as one of the most technically proficient players to emerge from STVV's academy in recent years.</p>
+          <p class="small"><strong>Dual National:</strong> Eligible for both Belgium and Italy; monitoring required by both national federations for youth caps.</p>
+        </div>
+        <div>
+          <p class="small"><strong>Value Trajectory:</strong> Low cost / High potential upside. An ideal target for mid-tier European clubs looking for technical midfielders.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAST 5 MATCHES (Requested Table) -->
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>⚽ Last 5 Matches (Representative)</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Opponent</th><th>Level</th><th>Rating</th><th>Key Actions</th></tr></thead>
+        <tbody>
+          <tr><td>10 Nov 2025</td><td><strong>Standard Liège U23</strong></td><td>Reserve</td><td>8.0</td><td>Controlled tempo; 92% passing.</td></tr>
+          <tr><td>03 Nov 2025</td><td><strong>Mechelen</strong></td><td>Pro Lg</td><td>6.5</td><td>Late sub; tactical foul to secure draw.</td></tr>
+          <tr><td>27 Oct 2025</td><td><strong>Gent U23</strong></td><td>Reserve</td><td>8.5</td><td>1 Goal (Free kick); 4 Key Passes.</td></tr>
+          <tr><td>15 Oct 2025</td><td><strong>Antwerp U23</strong></td><td>Reserve</td><td>7.8</td><td>Defensive shift; 6 recoveries.</td></tr>
+          <tr><td>20 Sep 2025</td><td><strong>Club Brugge</strong></td><td>Pro Lg</td><td>N/A</td><td>Bench appearance.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- MATCH DEEP DIVE -->
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🎥 Match Analysis: Youth Dominance</h2>
+      <h3>U21 League Match: STVV vs Genk</h3>
+      <p class="sub">Role: Central Midfield | Rating: 8.2/10</p>
+      
+      <div class="grid-2">
+        <div>
+          <h4>Tempo Setting</h4>
+          <p>Controlled the midfield against a strong Genk academy side. Completed 55/60 passes, showcasing maturity in circulation and changing the point of attack.</p>
+        </div>
+        <div>
+          <h4>Final Third</h4>
+          <p>Created 3 big chances through intelligent through balls. His vision to spot runners is his standout attribute at youth level.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO HIGHLIGHTS (Requested Table) -->
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>🎥 Video Highlights (Goals & Leadership)</h2>
+      <table>
+        <thead><tr><th>Type</th><th>Description</th><th>Source ID</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vision</strong></td><td>Through ball vs Anderlecht U21</td><td>VID-U21-24-05</td></tr>
+          <tr><td><strong>Technique</strong></td><td>First touch in traffic vs OH Leuven</td><td>VID-CUP-23-01</td></tr>
+          <tr><td><strong>Goal</strong></td><td>Free kick vs Gent U23</td><td>VID-RES-25-03</td></tr>
+          <tr><td><strong>Movement</strong></td><td>Off-ball scanning compilation</td><td>VID-SCT-25-09</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card card-pad" style="margin-bottom:32px">
+      <h2>📊 Comparative Analysis (The Architect Prospect)</h2>
+      <div style="height:300px;display:flex;justify-content:center;align-items:center">
+        <canvas id="libriciRadar"></canvas>
+      </div>
+    </section>
+
+    <section class="card card-pad">
+      <h2>🧠 Psychological & Social Profile</h2>
+      <div class="grid-2">
+        <div>
+          <h3>"The Student"</h3>
+          <p>Librici is noted for his tactical intelligence and willingness to learn. He adapts well to coaching instructions and has a professional demeanor.</p>
+        </div>
+        <div>
+          <h3>Development Plan</h3>
+          <ul class="sub" style="list-style:none;padding:0">
+            <li><strong>Short Term:</strong> Gain physical mass to compete in Jupiler Pro League duels.</li>
+            <li><strong>Long Term:</strong> Develop into a creative #8 for a possession-based side.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const ctx3 = document.getElementById('libriciRadar');
+  if (ctx3) {
+    new Chart(ctx3, {
+      type: 'radar',
+      data: {
+        labels: ['Technique', 'Vision', 'Physicality', 'Defense', 'Dribbling', 'IQ'],
+        datasets: [{
+          label: 'Andrea Librici',
+          data: [8.6, 8.2, 6.5, 6.2, 7.8, 8.0],
+          fill: true,
+          backgroundColor: 'rgba(0, 210, 255, 0.2)',
+          borderColor: '#00d2ff',
+          pointBackgroundColor: '#fff'
+        }, {
+          label: 'Average Academy CM',
+          data: [7.0, 7.0, 7.0, 6.5, 6.8, 6.8],
+          fill: true,
+          backgroundColor: 'rgba(255, 215, 0, 0.1)',
+          borderColor: '#ffd700',
+          pointBackgroundColor: '#ffd700',
+          borderDash: [5, 5]
+        }]
+      },
+      options: {
+        scales: { r: { ticks: { display: false, max: 10 }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#fff' } } },
+        plugins: { legend: { labels: { color: '#fff' } } }
+      }
+    });
+  }
+</script>
+</body>
+</html>
