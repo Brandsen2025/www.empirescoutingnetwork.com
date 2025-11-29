@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="version" content="20251128204757">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Database - Empire Scouting Network</title>
-    <meta name="description" content="Search the Empire FGA database for players matching 779 metrics and 60 tactical philosophies.">
+    <title>Empire FGA - Intelligence Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
+        * { font-family: 'Inter', sans-serif; }
         
         .gradient-text {
             background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
@@ -20,83 +21,54 @@
             background-clip: text;
         }
         
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: block; }
-
-        /* Table Styles */
-        .database-table th, .database-table td {
-             padding: 12px 15px;
-             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-             vertical-align: middle;
-        }
-         .database-table th {
-            background-color: rgba(30, 58, 138, 0.3);
-            color: #93c5fd;
-            text-align: left;
-            font-weight: 600;
-            cursor: pointer;
-            user-select: none;
+        .tab-button {
             position: relative;
+            transition: all 0.3s ease;
         }
-        .database-table th:hover {
-            background-color: rgba(30, 58, 138, 0.5);
-        }
-        .database-table th.sortable::after {
-            content: ' ⇅';
-            opacity: 0.3;
-        }
-        .database-table th.sort-asc::after {
-            content: ' ▲';
-            opacity: 1;
-        }
-        .database-table th.sort-desc::after {
-            content: ' ▼';
-            opacity: 1;
-        }
-        .database-table tbody tr:hover {
-            background-color: rgba(59, 130, 246, 0.1);
-        }
-        .database-table a {
+        
+        .tab-button.active {
             color: #60a5fa;
-            text-decoration: none;
-            font-weight: 500;
         }
-         .database-table a:hover {
-             text-decoration: underline;
-         }
-         
-        /* Form Input Styles */
-        .form-input, .form-select {
-            background-color: #1e293b;
-            border-color: #334155;
-            color: #e2e8f0;
-            border-radius: 0.375rem;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #60a5fa, #22d3ee);
+            border-radius: 3px 3px 0 0;
         }
-        .form-input:focus, .form-select:focus {
-            --tw-ring-color: #3b82f6;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 1px #3b82f6;
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
         }
-        .form-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1.5em 1.5em;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 2.5rem;
+        
+        .tab-content.active {
+            display: block;
         }
-
-        /* Stat Card Styles */
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .stat-card {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
             border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+        }
+        
         .stat-value {
             font-size: 2.5rem;
             font-weight: 900;
@@ -105,39 +77,37 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
         .stat-label {
             color: #94a3b8;
             font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-top: 8px;
         }
-
-        /* Pagination Styles */
-        .pagination-btn {
-            background-color: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #60a5fa;
-            padding: 8px 16px;
-            border-radius: 6px;
+        
+        .player-card {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
-        .pagination-btn:hover:not(:disabled) {
-            background-color: rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.5);
+        
+        .player-card:hover {
+            border-color: #60a5fa;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
         }
-        .pagination-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        
+        .player-card.selected {
+            border-color: #22d3ee;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(17, 24, 39, 0.9) 100%);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
         }
-        .pagination-btn.active {
-            background-color: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
-        }
-
-        /* Quick Filter Pills */
+        
         .filter-pill {
             display: inline-block;
             padding: 6px 14px;
@@ -150,20 +120,179 @@
             font-size: 0.875rem;
             font-weight: 600;
         }
-        .filter-pill:hover {
-            background-color: rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-        .filter-pill.active {
+        
+        .filter-pill:hover, .filter-pill.active {
             background-color: #3b82f6;
             color: white;
             border-color: #3b82f6;
         }
         
+        .pagination-btn {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 0 4px;
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .pagination-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .search-input {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            border-radius: 0.375rem;
+            padding: 10px 16px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .database-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .database-table th {
+            background-color: rgba(30, 58, 138, 0.3);
+            color: #93c5fd;
+            text-align: left;
+            font-weight: 600;
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .database-table th:hover {
+            background-color: rgba(30, 58, 138, 0.5);
+        }
+        
+        .database-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .database-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .database-table a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .database-table a:hover {
+            text-decoration: underline;
+        }
+        
+        .value-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .value-badge.undervalued {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #22c55e;
+        }
+        
+        .heatmap-cell {
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            font-weight: 700;
+        }
+        
+        .heatmap-cell:hover {
+            transform: scale(1.1);
+        }
+        
+        .pitch-background {
+            background: linear-gradient(180deg, #0f5132 0%, #0a3622 100%);
+            position: relative;
+            border: 3px solid white;
+            border-radius: 8px;
+        }
+        
+        .pitch-position {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.3);
+            border: 2px solid #60a5fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-direction: column;
+            text-align: center;
+            padding: 4px;
+        }
+        
+        .pitch-position:hover {
+            transform: scale(1.05);
+            background: rgba(59, 130, 246, 0.5);
+        }
+        
+        .pitch-position.filled {
+            background: rgba(34, 197, 94, 0.6);
+            border-color: #22c55e;
+        }
+        
+        .formation-selector {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 0 8px 8px 0;
+        }
+        
+        .formation-selector:hover, .formation-selector.active {
+            border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white">
 
+    <!-- Navigation -->
     <nav class="sticky top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -171,212 +300,295 @@
                     <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
                          alt="Empire Scouting Network" 
                          class="h-10 w-auto">
-                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                    <span class="text-xl font-bold gradient-text">Empire FGA Platform</span>
                 </div>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                    <a href="RBL_Demo_Full_Roster.html" class="hover:text-blue-400 transition">RBL Demo</a>
-                    <a href="scout_template_v2.html" class="hover:text-blue-400 transition">Scout Portal</a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
                         Login
                     </a>
-                    <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
                         Request Demo
                     </a>
                 </div>
-                 <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
-             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block hover:text-blue-400">Home</a>
-                <a href="RBL_Demo_Full_Roster.html" class="block hover:text-blue-400">RBL Demo</a>
-                <a href="scout_template_v2.html" class="block hover:text-blue-400">Scout Portal</a>
-                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
-                <a href="index.html#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
-                    Request Demo
-                </a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-12 pb-20 px-4">
+    <!-- Tab Navigation -->
+    <div class="bg-slate-900/50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <button class="tab-button active py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('database')">
+                    📊 Player Database
+                </button>
+                <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('comparison')">
+                    ⚖️ Player Comparison
+                </button>
+                <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('market')">
+                    💰 Market Intelligence
+                </button>
+                <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('philosophy')">
+                    🧠 Philosophy Heatmap
+                </button>
+                <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('squad')">
+                    ⚽ Squad Builder
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main class="pt-8 pb-20 px-4">
         <div class="max-w-7xl mx-auto">
             
-            <div class="text-center mb-12 p-8">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-                    ESN Player Database
-                </h1>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Search the global database using ESN's proprietary 779 metrics and 60 tactical philosophies.
-                </p>
-            </div>
+            <!-- DATABASE TAB -->
+            <div id="database-tab" class="tab-content active">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">Player Database</h1>
+                    <p class="text-xl text-slate-300">Search 521 players analyzed with 779 metrics and 60 tactical philosophies</p>
+                </div>
 
-            <!-- Stats Dashboard -->
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-                <div class="stat-card">
-                    <div id="stat-total" class="stat-value">0</div>
-                    <div class="stat-label">Total Players</div>
+                <!-- Stats Dashboard -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                    <div class="stat-card">
+                        <div id="stat-total" class="stat-value">521</div>
+                        <div class="stat-label">Total Players</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="stat-avg-fga" class="stat-value">0.0</div>
+                        <div class="stat-label">Avg FGA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="stat-legends" class="stat-value">0</div>
+                        <div class="stat-label">Legends (90+)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="stat-elite" class="stat-value">0</div>
+                        <div class="stat-label">Elite (85+)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="stat-showing" class="stat-value">0</div>
+                        <div class="stat-label">Showing</div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div id="stat-avg-fga" class="stat-value">0.0</div>
-                    <div class="stat-label">Avg FGA</div>
-                </div>
-                <div class="stat-card">
-                    <div id="stat-legends" class="stat-value">0</div>
-                    <div class="stat-label">Legends (90+)</div>
-                </div>
-                <div class="stat-card">
-                    <div id="stat-elite" class="stat-value">0</div>
-                    <div class="stat-label">Elite (85+)</div>
-                </div>
-                <div class="stat-card">
-                    <div id="stat-showing" class="stat-value">0</div>
-                    <div class="stat-label">Showing</div>
-                </div>
-            </div>
 
-            <!-- Quick Filter Pills -->
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
-                <h3 class="text-lg font-bold mb-3 text-blue-300">Quick Filters</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="filter-pill" onclick="quickFilter('all')">All Players</span>
-                    <span class="filter-pill" onclick="quickFilter('legends')">Legends (90+)</span>
-                    <span class="filter-pill" onclick="quickFilter('elite')">Elite (85-90)</span>
-                    <span class="filter-pill" onclick="quickFilter('prospects')">Prospects (U21)</span>
-                    <span class="filter-pill" onclick="quickFilter('strikers')">Strikers</span>
-                    <span class="filter-pill" onclick="quickFilter('midfielders')">Midfielders</span>
-                    <span class="filter-pill" onclick="quickFilter('defenders')">Defenders</span>
-                    <span class="filter-pill" onclick="quickFilter('goalkeepers')">Goalkeepers</span>
+                <!-- Quick Filters -->
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-bold mb-3 text-blue-300">Quick Filters</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="filter-pill" onclick="quickFilter('all')">All Players</span>
+                        <span class="filter-pill" onclick="quickFilter('legends')">Legends (90+)</span>
+                        <span class="filter-pill" onclick="quickFilter('elite')">Elite (85-90)</span>
+                        <span class="filter-pill" onclick="quickFilter('prospects')">Prospects (U21)</span>
+                        <span class="filter-pill" onclick="quickFilter('active')">Active Players Only</span>
+                        <span class="filter-pill" onclick="quickFilter('strikers')">Strikers</span>
+                        <span class="filter-pill" onclick="quickFilter('midfielders')">Midfielders</span>
+                        <span class="filter-pill" onclick="quickFilter('defenders')">Defenders</span>
+                        <span class="filter-pill" onclick="quickFilter('goalkeepers')">Goalkeepers</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Advanced Filters -->
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
-                
-                <div>
-                    <label for="search-name" class="block text-sm font-medium mb-2 text-slate-300">Search Player</label>
-                    <input type="text" id="search-name" placeholder="Search by name..." 
-                           class="form-input w-full px-3 py-2 border"
+                <!-- Search -->
+                <div class="mb-6">
+                    <input type="text" 
+                           id="search-name" 
+                           placeholder="Search player by name..." 
+                           class="search-input"
                            oninput="filterAndRender()">
                 </div>
 
-                <div>
-                    <label for="filter-position" class="block text-sm font-medium mb-2 text-slate-300">Position</label>
-                    <select id="filter-position" class="form-select w-full px-3 py-2 border" onchange="filterAndRender()">
-                        <option value="All">All Positions</option>
-                        <option value="GK">Goalkeeper</option>
-                        <option value="CB">Centre-Back</option>
-                        <option value="FB">Full-Back</option>
-                        <option value="DM">Defensive Mid</option>
-                        <option value="CM">Central Mid</option>
-                        <option value="AM">Attacking Mid</option>
-                        <option value="WG">Winger</option>
-                        <option value="ST">Striker</option>
-                    </select>
+                <!-- Player Table -->
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl overflow-hidden mb-6">
+                    <div class="overflow-x-auto">
+                        <table class="database-table">
+                            <thead>
+                                <tr>
+                                    <th onclick="sortTable('name')">Player Name ⇅</th>
+                                    <th onclick="sortTable('position')">Position ⇅</th>
+                                    <th onclick="sortTable('age')">Age ⇅</th>
+                                    <th onclick="sortTable('nationality')">Nationality ⇅</th>
+                                    <th onclick="sortTable('fga')">FGA Rating ⇅</th>
+                                    <th onclick="sortTable('bestPhilosophy')">Top Philosophy ⇅</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="database-table-body">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="filter-age" class="block text-sm font-medium mb-2 text-slate-300">Age Group</label>
-                    <select id="filter-age" class="form-select w-full px-3 py-2 border" onchange="filterAndRender()">
-                        <option value="All">All Ages</option>
-                        <option value="U21">Under 21</option>
-                        <option value="22-26">22-26 (Prime)</option>
-                        <option value="27+">27+ (Veteran)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="filter-fga" class="block text-sm font-medium mb-2 text-slate-300">FGA Rating</label>
-                    <select id="filter-fga" class="form-select w-full px-3 py-2 border" onchange="filterAndRender()">
-                        <option value="All">All Ratings</option>
-                        <option value="90+">90+ (Generational)</option>
-                        <option value="85-90">85-90 (World Class)</option>
-                        <option value="80-85">80-85 (Elite)</option>
-                        <option value="75-80">75-80 (Professional)</option>
-                        <option value="<75">&lt;75 (Developing)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="per-page" class="block text-sm font-medium mb-2 text-slate-300">Per Page</label>
-                    <select id="per-page" class="form-select w-full px-3 py-2 border" onchange="changePerPage()">
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                        <option value="all">All</option>
-                    </select>
+                <!-- Pagination -->
+                <div id="pagination-container" class="flex justify-center items-center gap-2 flex-wrap">
+                    <!-- Pagination populated by JavaScript -->
                 </div>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
-                <div class="flex gap-2">
-                    <button onclick="exportToCSV()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
-                        </svg>
-                        Export CSV
-                    </button>
-                    <button onclick="resetFilters()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg font-semibold transition">
-                        Reset Filters
-                    </button>
+            <!-- COMPARISON TAB -->
+            <div id="comparison-tab" class="tab-content">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">Player Comparison Tool</h1>
+                    <p class="text-xl text-slate-300">Compare players across FGA ratings, positions, age profiles, and tactical philosophies</p>
                 </div>
-                <div id="results-summary" class="text-slate-400 font-medium">
-                    Showing 0 of 0 players
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold mb-4 text-blue-300">Search & Select Players</h3>
+                        <input type="text" 
+                               id="comparison-search" 
+                               placeholder="Search players to compare..." 
+                               class="search-input mb-4"
+                               oninput="searchForComparison(this.value)">
+                        <div id="comparison-search-results" class="space-y-2 max-h-96 overflow-y-auto">
+                            <p class="text-slate-400 text-sm">Start typing to search players...</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold mb-4 text-blue-300">Selected Players (<span id="selected-count">0</span>/4)</h3>
+                        <div id="selected-players" class="space-y-2 mb-4">
+                            <p class="text-slate-400 text-sm">Select players from the search results to compare</p>
+                        </div>
+                        <button onclick="generateComparison()" 
+                                class="w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition">
+                            Generate Comparison
+                        </button>
+                    </div>
+                </div>
+
+                <div id="comparison-results" class="hidden">
+                    <!-- Comparison results will appear here -->
                 </div>
             </div>
 
-            <!-- Database Table -->
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="database-table w-full">
-                        <thead>
-                            <tr>
-                                <th class="sortable" data-sort="name" onclick="sortTable('name')">Player Name</th>
-                                <th class="sortable" data-sort="position" onclick="sortTable('position')">Position</th>
-                                <th class="sortable" data-sort="age" onclick="sortTable('age')">Age</th>
-                                <th class="sortable" data-sort="nationality" onclick="sortTable('nationality')">Nationality</th>
-                                <th class="sortable" data-sort="fga" onclick="sortTable('fga')">FGA Rating</th>
-                                <th class="sortable" data-sort="bestPhilosophy" onclick="sortTable('bestPhilosophy')">Top Philosophy</th>
-                            </tr>
-                        </thead>
-                        <tbody id="database-table-body">
-                            <!-- Data populated by JavaScript -->
-                        </tbody>
-                    </table>
+            <!-- MARKET INTELLIGENCE TAB -->
+            <div id="market-tab" class="tab-content">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">Market Value Intelligence</h1>
+                    <p class="text-xl text-slate-300">Active players only - Discover undervalued talents where FGA rating exceeds market valuation</p>
                 </div>
-                
-                <div id="no-results-message" class="hidden text-center py-12 px-4">
-                    <svg class="mx-auto h-12 w-12 text-slate-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <p class="text-xl text-slate-400 font-semibold">No players found</p>
-                    <p class="text-slate-500 mt-2">Try adjusting your filters or search criteria</p>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="stat-card">
+                        <div id="market-stat-undervalued" class="stat-value text-green-400">0</div>
+                        <div class="stat-label">Undervalued Players</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="market-stat-value" class="stat-value text-yellow-400">€0M</div>
+                        <div class="stat-label">Hidden Market Value</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="market-stat-gap" class="stat-value text-blue-400">0%</div>
+                        <div class="stat-label">Avg Value Gap</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-bold mb-4 text-blue-300">Top Undervalued Opportunities (Active Players)</h3>
+                    <div id="undervalued-list" class="space-y-4">
+                        <!-- Populated by JavaScript -->
+                    </div>
                 </div>
             </div>
 
-            <!-- Pagination -->
-            <div id="pagination-container" class="mt-6 flex justify-center items-center gap-2">
-                <!-- Pagination buttons populated by JavaScript -->
+            <!-- PHILOSOPHY HEATMAP TAB -->
+            <div id="philosophy-tab" class="tab-content">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">60-Philosophy Framework Heatmap</h1>
+                    <p class="text-xl text-slate-300">Explore tactical DNA distribution across legendary coaching philosophies</p>
+                </div>
+
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-bold mb-4 text-blue-300">Philosophy Distribution</h3>
+                    <div id="philosophy-heatmap">
+                        <!-- Heatmap will be rendered here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQUAD BUILDER TAB -->
+            <div id="squad-tab" class="tab-content">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text">Interactive Squad Builder</h1>
+                    <p class="text-xl text-slate-300">Build your lineup and analyze tactical chemistry</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="md:col-span-2">
+                        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-4">
+                            <h3 class="text-lg font-bold mb-4 text-blue-300">Select Formation</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="formation-selector active" onclick="selectFormation('4-3-3')">4-3-3</div>
+                                <div class="formation-selector" onclick="selectFormation('4-4-2')">4-4-2</div>
+                                <div class="formation-selector" onclick="selectFormation('3-5-2')">3-5-2</div>
+                                <div class="formation-selector" onclick="selectFormation('4-2-3-1')">4-2-3-1</div>
+                                <div class="formation-selector" onclick="selectFormation('3-4-3')">3-4-3</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                            <div class="pitch-background" style="height: 600px; position: relative;" id="pitch">
+                                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 text-white font-bold text-sm">
+                                    OPPONENT
+                                </div>
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white font-bold text-sm">
+                                    YOUR TEAM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-4">
+                            <h3 class="text-lg font-bold mb-4 text-blue-300">Squad Statistics</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="text-sm text-slate-400 mb-1">Average FGA</div>
+                                    <div class="text-2xl font-bold text-blue-400" id="squad-avg-fga">--</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-slate-400 mb-1">Team Chemistry</div>
+                                    <div class="text-2xl font-bold text-green-400" id="squad-chemistry">--</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-slate-400 mb-1">Players Selected</div>
+                                    <div class="text-2xl font-bold text-yellow-400"><span id="squad-count">0</span>/11</div>
+                                </div>
+                            </div>
+                            <button onclick="clearSquad()" class="mt-4 w-full bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold transition text-sm">
+                                Clear Squad
+                            </button>
+                        </div>
+
+                        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                            <h3 class="text-lg font-bold mb-4 text-blue-300">Search Players</h3>
+                            <input type="text" 
+                                   id="squad-search" 
+                                   placeholder="Search to add players..." 
+                                   class="search-input mb-4"
+                                   oninput="searchForSquad(this.value)">
+                            <div id="squad-search-results" class="space-y-2 max-h-96 overflow-y-auto">
+                                <p class="text-slate-400 text-sm">Search for players to add to your squad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
     </main>
 
+    <footer class="bg-slate-900 border-t border-blue-500/20 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400">Empire FGA Scouting Network | 779 Metrics | 60 Philosophies | Revolutionary Intelligence</p>
+            <p class="text-slate-500 text-sm mt-2">© 2025 Empire Scouting Network. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // --- Player Data ---
+        // LOAD FULL PLAYER DATA FROM YOUR DATABASE
+        // This section will be replaced with the complete 521-player array
         const playerData = [
             { name: "Diego Maradona", profileHtml: "Diego_Maradona.html", position: "AM", age: 64, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
             { name: "Pelé", profileHtml: "Pele.html", position: "ST", age: 84, nationality: "Brazil", fga: 99.5, bestPhilosophy: "Santana JogoBonito" },
@@ -398,6 +610,7 @@
             { name: "Kenny Dalglish", profileHtml: "Kenny_Dalglish.html", position: "ST", age: 74, nationality: "Scotland", fga: 98.5, bestPhilosophy: "Philosophy_01_Cruyff_Intelligence" },
             { name: "Lothar Matthäus", profileHtml: "Lothar_Matthaus.html", position: "CM", age: 64, nationality: "Germany", fga: 98.5, bestPhilosophy: "Lampard/Gerrard Box-to-Box" },
             { name: "Ruud Gullit", profileHtml: "Ruud_Gullit.html", position: "ST", age: 63, nationality: "Netherlands", fga: 98.5, bestPhilosophy: "Philosophy_02_Michels_Total" },
+            { name: "Cafu", profileHtml: "Cafu.html", position: "FB", age: 55, nationality: "Brazil", fga: 98.2, bestPhilosophy: "Scolari (Brazil)" },
             { name: "Zinedine Zidane", profileHtml: "Zinedine_Zidane.html", position: "AM", age: 53, nationality: "France", fga: 98.0, bestPhilosophy: "Platini Elegance" },
             { name: "Franz Beckenbauer", profileHtml: "Franz_Beckenbauer.html", position: "CB", age: 80, nationality: "Germany", fga: 98.0, bestPhilosophy: "Cruyff Intelligence" },
             { name: "Ronaldo Nazário", profileHtml: "Ronaldo_Nazario.html", position: "ST", age: 49, nationality: "Brazil", fga: 98.0, bestPhilosophy: "Santana JogoBonito" },
@@ -422,6 +635,8 @@
             { name: "Xavi Hernández", profileHtml: "Xavi_Hernandez.html", position: "CM", age: 45, nationality: "Spain", fga: 96.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Romário", profileHtml: "Romario.html", position: "ST", age: 59, nationality: "Brazil", fga: 96.5, bestPhilosophy: "Santana JogoBonito" },
             { name: "Karim Benzema", profileHtml: "Karim_Benzema.html", position: "ST", age: 38, nationality: "France", fga: 96.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Francesco Totti", profileHtml: "Francesco_Totti.html", position: "AM", age: 49, nationality: "Italy", fga: 96.5, bestPhilosophy: "Spalletti (Modern)" },
+            { name: "Fernando Redondo", profileHtml: "Fernando_Redondo.html", position: "DM", age: 59, nationality: "Argentina", fga: 96.1, bestPhilosophy: "Guardiola (Possession)" },
             { name: "Andrés Iniesta", profileHtml: "Andres_Iniesta.html", position: "CM", age: 41, nationality: "Spain", fga: 96.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Carlos Alberto", profileHtml: "Carlos_Alberto.html", position: "FB", age: 81, nationality: "Brazil", fga: 96.0, bestPhilosophy: "Michels Total" },
             { name: "George Best", profileHtml: "George_Best.html", position: "ST", age: 79, nationality: "Northern Ireland", fga: 96.0, bestPhilosophy: "Menotti Artistry" },
@@ -433,6 +648,8 @@
             { name: "Gunnar Nordahl", profileHtml: "Gunnar_Nordahl.html", position: "ST", age: 104, nationality: "Sweden", fga: 96.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Jan Oblak", profileHtml: "Jan_Oblak.html", position: "GK", age: 32, nationality: "Slovenia", fga: 96.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Philipp Lahm", profileHtml: "Philipp_Lahm.html", position: "DM", age: 42, nationality: "Germany", fga: 96.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Rio Ferdinand", profileHtml: "Rio_Ferdinand.html", position: "CB", age: 47, nationality: "England", fga: 95.8, bestPhilosophy: "Ferguson" },
+            { name: "Rio Gavin Ferdinand", profileHtml: "Rio_Gavin_Ferdinand.html", position: "CM", age: 30, nationality: "Unknown", fga: 95.8, bestPhilosophy: "Ferguson Mental" },
             { name: "Thierry Henry", profileHtml: "Thierry_Henry.html", position: "ST", age: 48, nationality: "France", fga: 95.5, bestPhilosophy: "Wenger Development" },
             { name: "Roberto Baggio", profileHtml: "Roberto_Baggio.html", position: "ST", age: 58, nationality: "Italy", fga: 95.5, bestPhilosophy: "Platini Elegance" },
             { name: "Luka Modrić", profileHtml: "Luka_Modric.html", position: "CM", age: 40, nationality: "Croatia", fga: 95.5, bestPhilosophy: "Guardiola Positional" },
@@ -446,6 +663,7 @@
             { name: "Michael Laudrup", profileHtml: "Michael_Laudrup.html", position: "AM", age: 61, nationality: "Denmark", fga: 95.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Sándor Kocsis", profileHtml: "Sandor_Kocsis.html", position: "ST", age: 50, nationality: "Hungary", fga: 95.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Steve Bloomer", profileHtml: "Steve_Bloomer.html", position: "ST", age: 151, nationality: "England", fga: 95.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Alessandro Nesta", profileHtml: "Alessandro_Nesta.html", position: "CM", age: 30, nationality: "Unknown", fga: 95.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Zlatan Ibrahimović", profileHtml: "Zlatan_Ibrahimovic.html", position: "ST", age: 44, nationality: "Sweden", fga: 95.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Kaká", profileHtml: "Kaka.html", position: "AM", age: 43, nationality: "Brazil", fga: 95.0, bestPhilosophy: "Ancelotti Balance" },
             { name: "Mario Kempes", profileHtml: "Mario_Kempes.html", position: "ST", age: 71, nationality: "Argentina", fga: 95.0, bestPhilosophy: "Menotti Artistry" },
@@ -484,6 +702,9 @@
             { name: "Oleg Blokhin", profileHtml: "Oleg_Blokhin.html", position: "ST", age: 73, nationality: "Soviet Union/Ukraine", fga: 94.5, bestPhilosophy: "Mourinho Tactical" },
             { name: "Wayne Rooney", profileHtml: "Wayne_Rooney.html", position: "ST", age: 40, nationality: "England", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Lilian Thuram", profileHtml: "Lilian_Thuram.html", position: "CB", age: 53, nationality: "France", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Diego Simeone (Player)", profileHtml: "Diego_Simeone_Player.html", position: "CM", age: 30, nationality: "Unknown", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Fernando Morena", profileHtml: "Fernando_Morena.html", position: "CM", age: 30, nationality: "Unknown", fga: 94.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Hernán Jorge Crespo", profileHtml: "Hernan_Jorge_Crespo.html", position: "ST", age: 50, nationality: "Argentina", fga: 94.2, bestPhilosophy: "Sacchi (Italian)" },
             { name: "Samuel Eto'o", profileHtml: "Samuel_Etoo.html", position: "ST", age: 44, nationality: "Cameroon", fga: 94.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Cafu", profileHtml: "Cafu.html", position: "FB", age: 55, nationality: "Brazil", fga: 94.0, bestPhilosophy: "Michels Total" },
             { name: "Jimmy Greaves", profileHtml: "Jimmy_Greaves.html", position: "ST", age: 85, nationality: "England", fga: 94.0, bestPhilosophy: "Fontaine Attack" },
@@ -503,6 +724,7 @@
             { name: "Paul McGrath", profileHtml: "Paul_Mc_Grath.html", position: "CM", age: 66, nationality: "Ireland", fga: 94.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Alexis Mac Allister", profileHtml: "Alexis_Mac_Allister.html", position: "CM", age: 26, nationality: "Argentina", fga: 94.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Gabriel Batistuta", profileHtml: "Gabriel_Batistuta.html", position: "ST", age: 56, nationality: "Argentina", fga: 93.8, bestPhilosophy: "Ferguson Mental" },
+            { name: "Américo Gallego", profileHtml: "Américo_Gallego.html", position: "CM", age: 30, nationality: "Unknown", fga: 93.8, bestPhilosophy: "Ferguson Mental" },
             { name: "Didier Drogba", profileHtml: "Didier_Drogba.html", position: "ST", age: 47, nationality: "Ivory Coast", fga: 93.5, bestPhilosophy: "Mourinho Tactical" },
             { name: "Dino Zoff", profileHtml: "Dino_Zoff.html", position: "GK", age: 82, nationality: "Italy", fga: 93.5, bestPhilosophy: "Yashin Revolution" },
             { name: "Hugo Sánchez", profileHtml: "Hugo_Sanchez.html", position: "ST", age: 67, nationality: "Mexico", fga: 93.5, bestPhilosophy: "Fontaine Attack" },
@@ -513,6 +735,8 @@
             { name: "Trent Alexander-Arnold", profileHtml: "Trent_Alexander_Arnold.html", position: "FB", age: 27, nationality: "England", fga: 93.5, bestPhilosophy: "Platini Elegance" },
             { name: "Rodrigo Bentancur", profileHtml: "Rodrigo_Betancur.html", position: "CM", age: 28, nationality: "Uruguay", fga: 93.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Patrick Kluivert", profileHtml: "Patrick_Kluivert.html", position: "ST", age: 49, nationality: "Netherlands", fga: 93.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Filippo Inzaghi", profileHtml: "Filippo_Inzaghi.html", position: "ST", age: 30, nationality: "Unknown", fga: 93.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Freddy Rincón", profileHtml: "Freddy_Rincon.html", position: "CM", age: 58, nationality: "Colombia", fga: 93.2, bestPhilosophy: "Scolari (Brazilian)" },
             { name: "Yaya Touré", profileHtml: "Yaya_Toure.html", position: "CM", age: 42, nationality: "Ivory Coast", fga: 93.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Sócrates", profileHtml: "Socrates.html", position: "AM", age: 71, nationality: "Brazil", fga: 93.0, bestPhilosophy: "Platini Elegance" },
             { name: "Manuel Neuer", profileHtml: "Manuel_Neuer.html", position: "GK", age: 39, nationality: "Germany", fga: 93.0, bestPhilosophy: "Yashin Revolution" },
@@ -544,6 +768,7 @@
             { name: "Glenn Hoddle", profileHtml: "Glenn_Hoddle.html", position: "CM", age: 68, nationality: "England", fga: 92.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Juan Manuel Asensi", profileHtml: "Juan_Manuel_Asensi.html", position: "CM", age: 76, nationality: "Spain", fga: 92.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Emilio Butragueño", profileHtml: "Emilio_Butragueno.html", position: "ST", age: 62, nationality: "Spain", fga: 92.5, bestPhilosophy: "Cruyff Total Football" },
+            { name: "Ramón Ángel Díaz", profileHtml: "Ramon_Angel_Diaz.html", position: "ST", age: 66, nationality: "Argentina", fga: 92.3, bestPhilosophy: "Ferguson" },
             { name: "Alisson Becker", profileHtml: "Alisson_Becker.html", position: "GK", age: 33, nationality: "Brazil", fga: 92.1, bestPhilosophy: "Yashin Revolution" },
             { name: "Bruce Grobbelaar", profileHtml: "Bruce_Grobelaar.html", position: "GK", age: 68, nationality: "Zimbabwe", fga: 92.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Luís Figo", profileHtml: "Luis_Figo.html", position: "WG", age: 53, nationality: "Portugal", fga: 92.0, bestPhilosophy: "Ferguson Mental" },
@@ -578,6 +803,8 @@
             { name: "Marcus Thuram", profileHtml: "Marcus_Thuram.html", position: "WG", age: 28, nationality: "France", fga: 91.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Agustín Aranzábal", profileHtml: "Agustin_Aranzabal.html", position: "CM", age: 52, nationality: "Spain", fga: 91.5, bestPhilosophy: "Michels Total" },
             { name: "Mauro Icardi", profileHtml: "Mauro_Icardi.html", position: "ST", age: 32, nationality: "Argentina", fga: 91.5, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Carlo Ancelotti (Player)", profileHtml: "Carlo_Ancelotti_Player.html", position: "CM", age: 30, nationality: "Unknown", fga: 91.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Iván Zamorano", profileHtml: "Iván_Zamorano.html", position: "ST", age: 58, nationality: "Chile", fga: 91.3, bestPhilosophy: "Ferguson Mental" },
             { name: "Mohamed Salah", profileHtml: "Mohamed_Salah.html", position: "ST", age: 33, nationality: "Egypt", fga: 91.2, bestPhilosophy: "Klopp Intensity" },
             { name: "Julio César Falcioni", profileHtml: "Julio_Falcioni.html", position: "GK", age: 69, nationality: "Argentina", fga: 91.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Faustino Asprilla", profileHtml: "Faustino_Asprilla.html", position: "ST", age: 55, nationality: "Colombia", fga: 91.0, bestPhilosophy: "Menotti Artistry" },
@@ -658,6 +885,7 @@
             { name: "Claudio Borghi", profileHtml: "Claudio_Borghi.html", position: "AM", age: 61, nationality: "Argentina", fga: 89.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Luis Milla Aspas", profileHtml: "Luis_Milla_Sr.html", position: "CM", age: 59, nationality: "Spain", fga: 89.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Andreas Möller", profileHtml: "Andreas_Moller.html", position: "AM", age: 58, nationality: "Germany", fga: 88.7, bestPhilosophy: "Menotti Artistry" },
+            { name: "Ramón Ismael Medina Bello", profileHtml: "Ramon_Ismael_Medina_Bello.html", position: "ST", age: 59, nationality: "Argentina", fga: 88.7, bestPhilosophy: "Ferguson" },
             { name: "Carlos Estrada", profileHtml: "Carlos_Estrada.html", position: "CM", age: 64, nationality: "Colombia", fga: 88.6, bestPhilosophy: "Maturana Structure" },
             { name: "Luís Suárez", profileHtml: "Luis_Suarez.html", position: "ST", age: 38, nationality: "Uruguay", fga: 88.5, bestPhilosophy: "Fontaine Attack" },
             { name: "Ricardo Gareca", profileHtml: "Ricardo_Gareca.html", position: "ST", age: 67, nationality: "Argentina", fga: 88.5, bestPhilosophy: "Menotti Artistry" },
@@ -666,6 +894,7 @@
             { name: "Mario Vanemerak", profileHtml: "Mario_Vanemerak.html", position: "CM", age: 62, nationality: "Argentina", fga: 88.5, bestPhilosophy: "Simeone Cholismo" },
             { name: "Juvenal Olmos", profileHtml: "Juvenal_Olmos.html", position: "CM", age: 63, nationality: "Chile", fga: 88.5, bestPhilosophy: "Menotti Artistry" },
             { name: "Facundo Pellistri", profileHtml: "Facundo_Pellistri.html", position: "WG", age: 24, nationality: "Uruguay", fga: 88.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Francesco Antonioli", profileHtml: "Francesco_Antonioli.html", position: "GK", age: 55, nationality: "Italy", fga: 88.5, bestPhilosophy: "Capello (Italian)" },
             { name: "Marcus Rashford", profileHtml: "Marcus_Rashford.html", position: "ST", age: 28, nationality: "England", fga: 88.4, bestPhilosophy: "Klopp Intensity" },
             { name: "Álvaro Domínguez", profileHtml: "Alvaro_Dominguez.html", position: "CM", age: 44, nationality: "Colombia", fga: 88.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Bernardo Redín", profileHtml: "Bernardo_Redin.html", position: "AM", age: 62, nationality: "Colombia", fga: 88.0, bestPhilosophy: "Platini Elegance" },
@@ -689,6 +918,7 @@
             { name: "Finn Laudrup", profileHtml: "Finn_Laudrup.html", position: "ST", age: 80, nationality: "Denmark", fga: 87.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Adrián González", profileHtml: "Adrian_Gonzalez.html", position: "CM", age: 37, nationality: "Spain", fga: 87.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Quique Álvarez Sanjuán", profileHtml: "Quique_Alvarez_Sanjuan.html", position: "CB", age: 50, nationality: "Spain", fga: 87.5, bestPhilosophy: "Guardiola Positional" },
+            { name: "Jorge Otero", profileHtml: "Jorge_Otero.html", position: "FB", age: 56, nationality: "Spain", fga: 87.2, bestPhilosophy: "Clemente" },
             { name: "Martín Arzuaga", profileHtml: "Martin_Arzuaga.html", position: "ST", age: 44, nationality: "Colombia", fga: 87.0, bestPhilosophy: "Santana JogoBonito" },
             { name: "Giovanni Moreno", profileHtml: "Giovanni_Moreno.html", position: "AM", age: 39, nationality: "Colombia", fga: 87.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Jhon Córdoba", profileHtml: "Jhon_Cordoba.html", position: "ST", age: 32, nationality: "Colombia", fga: 87.0, bestPhilosophy: "Simeone Cholismo" },
@@ -699,6 +929,7 @@
             { name: "Pierino Lattuada", profileHtml: "Pierino_Lattuada.html", position: "ST", age: 75, nationality: "Uruguay", fga: 87.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Shane Kluivert", profileHtml: "Shane_Kluivert.html", position: "WG", age: 18, nationality: "Netherlands", fga: 87.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Enrique Álvarez Costas", profileHtml: "Quique_Costas.html", position: "CM", age: 78, nationality: "Spain", fga: 87.0, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Roberto Palacios", profileHtml: "Roberto_Palacios.html", position: "CM", age: 52, nationality: "Peru", fga: 87.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Benjamin Šeško", profileHtml: "Benjamin_Sesko.html", position: "ST", age: 22, nationality: "Slovenia", fga: 86.9, bestPhilosophy: "DeVisser Global" },
             { name: "Giovanni Reyna", profileHtml: "Giovanni_Reyna.html", position: "AM", age: 23, nationality: "United States", fga: 86.7, bestPhilosophy: "Guardiola Positional" },
             { name: "Rob de Wit", profileHtml: "Rob_De_Wit.html", position: "WG", age: 61, nationality: "Netherlands", fga: 86.5, bestPhilosophy: "Cruyff Intelligence" },
@@ -709,6 +940,7 @@
             { name: "Alexis Vossah", profileHtml: "Alexis_Vossah.html", position: "CM", age: 17, nationality: "France", fga: 86.5, bestPhilosophy: "Mourinho Tactical" },
             { name: "Iván de la Peña Asensi", profileHtml: "Ivan_De_La_Pena_Asensi.html", position: "CM", age: 18, nationality: "Spain", fga: 86.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Miguel Pardeza", profileHtml: "Miguel_Pardeza.html", position: "ST", age: 60, nationality: "Spain", fga: 86.5, bestPhilosophy: "Simeone Cholismo" },
+            { name: "Wilfred Agbonavbare", profileHtml: "Wilfred_Agbonavbare.html", position: "GK", age: 59, nationality: "Nigeria", fga: 86.5, bestPhilosophy: "Camacho" },
             { name: "Ivo Basay", profileHtml: "Ivo_Basay.html", position: "ST", age: 59, nationality: "Chile", fga: 86.2, bestPhilosophy: "Ferguson Mental" },
             { name: "Castello Lukeba", profileHtml: "Castello_Lukeba.html", position: "CB", age: 23, nationality: "France", fga: 86.1, bestPhilosophy: "Guardiola Positional" },
             { name: "Roberto Rojas", profileHtml: "Roberto_Rojas.html", position: "GK", age: 68, nationality: "Chile", fga: 86.0, bestPhilosophy: "Yashin Revolution" },
@@ -719,7 +951,9 @@
             { name: "Freddy Grisales", profileHtml: "Freddy_Grisales.html", position: "CM", age: 50, nationality: "Colombia", fga: 86.0, bestPhilosophy: "Simeone Cholismo" },
             { name: "Oleksandr Piscsur", profileHtml: "Oleksandr_Pyshcsur.html", position: "ST", age: 44, nationality: "Ukraine", fga: 86.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Jacob Ambæk", profileHtml: "Jacob_Ambaek.html", position: "ST", age: 17, nationality: "Denmark", fga: 86.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Pablo Alfaro", profileHtml: "Pablo_Alfaro.html", position: "CB", age: 56, nationality: "Spain", fga: 85.9, bestPhilosophy: "Caparrós" },
             { name: "Aaron Ramsey", profileHtml: "Aaron_Ramsey.html", position: "CM", age: 34, nationality: "Wales", fga: 85.8, bestPhilosophy: "Guardiola Positional" },
+            { name: "Gilberto Yearwood", profileHtml: "Gilberto_Yearwood.html", position: "CM", age: 69, nationality: "Honduras", fga: 85.8, bestPhilosophy: "Beckenbauer Libero" },
             { name: "Johan Bakayoko", profileHtml: "Johan_Bakayoko.html", position: "WG", age: 22, nationality: "Belgium", fga: 85.7, bestPhilosophy: "Klopp Intensity" },
             { name: "Peter Ndlovu", profileHtml: "Peter_Ndlovu.html", position: "WG", age: 52, nationality: "Zimbabwe", fga: 85.5, bestPhilosophy: "Klopp Intensity" },
             { name: "Samuel Chukwueze", profileHtml: "Samuel_Chukwueze.html", position: "WG", age: 26, nationality: "Nigeria", fga: 85.4, bestPhilosophy: "Guardiola Positional" },
@@ -728,7 +962,6 @@
             { name: "Víctor Bonilla", profileHtml: "Victor_Bonilla.html", position: "ST", age: 54, nationality: "Colombia", fga: 85.0, bestPhilosophy: "Fontaine Attack" },
             { name: "Carlos Ruiz", profileHtml: "Carlos_Ruiz_Gutierrez.html", position: "ST", age: 46, nationality: "Guatemala", fga: 85.0, bestPhilosophy: "Fontaine Attack" },
             { name: "Tressor Moreno", profileHtml: "Tressor_Moreno.html", position: "AM", age: 46, nationality: "Colombia", fga: 85.0, bestPhilosophy: "Menotti Artistry" },
-            { name: "Francisco \"Paco\" Llorente", profileHtml: "Francisco_Llorente.html", position: "WG", age: 60, nationality: "Spain", fga: 85.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Maarten Vandevoordt", profileHtml: "Maarten_Vandevoordt.html", position: "GK", age: 23, nationality: "Belgium", fga: 84.7, bestPhilosophy: "Yashin Revolution" },
             { name: "Abdul Fatawu Issahaku", profileHtml: "Abdul_Issahaku.html", position: "WG", age: 21, nationality: "Ghana", fga: 84.7, bestPhilosophy: "Guardiola Positional" },
             { name: "Santiago Londoño", profileHtml: "Santiago_Londoño.html", position: "ST", age: 17, nationality: "Colombia", fga: 84.5, bestPhilosophy: "Wenger Development" },
@@ -739,6 +972,7 @@
             { name: "Ezechiel Banzuzi", profileHtml: "Ezechiel_Banzuzi.html", position: "CM", age: 20, nationality: "Netherlands", fga: 84.3, bestPhilosophy: "DeVisser Global" },
             { name: "Sergio Zárate", profileHtml: "Sergio_Zarate.html", position: "AM", age: 56, nationality: "Argentina", fga: 84.2, bestPhilosophy: "Menotti Artistry" },
             { name: "Claudio Scalise", profileHtml: "Claudio_Scalise.html", position: "ST", age: 63, nationality: "Argentina", fga: 84.2, bestPhilosophy: "Menotti Artistry" },
+            { name: "Christoph Baumgartner", profileHtml: "Christoph_Baumgartner.html", position: "CM", age: 30, nationality: "Austria", fga: 84.2, bestPhilosophy: "Nagelsmann Evolution" },
             { name: "Jorge Carrascal", profileHtml: "Jorge_Carrascal.html", position: "AM", age: 27, nationality: "Colombia", fga: 84.1, bestPhilosophy: "Menotti Artistry" },
             { name: "Jozy Altidore", profileHtml: "Jozy_Altidore.html", position: "ST", age: 36, nationality: "USA", fga: 84.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Roberto Peñaloza", profileHtml: "Roberto_Penaloza.html", position: "CB", age: 46, nationality: "Colombia", fga: 84.0, bestPhilosophy: "Sacchi Pressing" },
@@ -751,16 +985,21 @@
             { name: "David Crespo Zurita", profileHtml: "David_Crespo_Zurita.html", position: "FB", age: 30, nationality: "Spain", fga: 84.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Julio Llorente Gento", profileHtml: "Julio_Llorente.html", position: "CB", age: 59, nationality: "Spain", fga: 84.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Faryd Mondragón", profileHtml: "Faryd_Mondragon.html", position: "GK", age: 53, nationality: "Colombia", fga: 83.7, bestPhilosophy: "Yashin Revolution" },
+            { name: "Nicolas Seiwald", profileHtml: "Nicolas_Seiwald.html", position: "CM", age: 24, nationality: "Austria", fga: 83.6, bestPhilosophy: "Heynckes Efficiency" },
             { name: "Juan Carlos Higuita", profileHtml: "Juan_Carlos_Higuita.html", position: "DM", age: 26, nationality: "Colombia", fga: 83.5, bestPhilosophy: "Guardiola Positional" },
             { name: "Peter Wynhoff", profileHtml: "Peter_Wynhoff.html", position: "CM", age: 57, nationality: "Germany", fga: 83.5, bestPhilosophy: "Simeone Cholismo" },
+            { name: "Giovanni Simeone", profileHtml: "Giovanni_Simeone.html", position: "ST", age: 29, nationality: "Argentina", fga: 83.5, bestPhilosophy: "Simeone (Cholismo)" },
+            { name: "Carlos Ischia (Player)", profileHtml: "Carlos_Ischia_Player.html", position: "CM", age: 30, nationality: "Unknown", fga: 83.5, bestPhilosophy: "Ferguson Mental" },
             { name: "Nicolás Benedetti", profileHtml: "Nicolas_Benedetti.html", position: "AM", age: 28, nationality: "Colombia", fga: 83.2, bestPhilosophy: "Menotti Artistry" },
             { name: "Yaser Asprilla", profileHtml: "Yaser_Asprilla.html", position: "WG", age: 21, nationality: "Colombia", fga: 83.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Martín Morel", profileHtml: "Martin_Morel.html", position: "AM", age: 44, nationality: "Argentina", fga: 83.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Frank Yallop", profileHtml: "Frank_Yallop.html", position: "CB", age: 61, nationality: "Canada", fga: 83.0, bestPhilosophy: "Herrera Catenaccio" },
             { name: "Vladimir Marín", profileHtml: "Vladimir_Marin.html", position: "FB", age: 46, nationality: "Colombia", fga: 83.0, bestPhilosophy: "Santana Joga Bonito" },
+            { name: "Antonio Nusa", profileHtml: "Antonio_Nusa.html", position: "WG", age: 20, nationality: "Norway", fga: 82.9, bestPhilosophy: "Bielsa Intensity" },
             { name: "Damir Ceter", profileHtml: "Damir_Ceter.html", position: "ST", age: 24, nationality: "Slovenia", fga: 82.8, bestPhilosophy: "Klopp Intensity" },
             { name: "José Caldera", profileHtml: "Jose_Caldera.html", position: "CB", age: 23, nationality: "Colombia", fga: 82.5, bestPhilosophy: "Sacchi Pressing" },
             { name: "Rafael Dudamel", profileHtml: "Rafael_Dudamel.html", position: "GK", age: 52, nationality: "Venezuela", fga: 82.5, bestPhilosophy: "GK_Kahn_Intensity" },
+            { name: "Marcelo Saralegui", profileHtml: "Marcelo_Saralegui.html", position: "AM", age: 54, nationality: "Uruguay", fga: 82.5, bestPhilosophy: "Second Striker" },
             { name: "Néstor Gorosito", profileHtml: "Nestor_Gorosito.html", position: "AM", age: 60, nationality: "Argentina", fga: 82.4, bestPhilosophy: "Menotti Artistry" },
             { name: "Uwe Kamps", profileHtml: "Uwe_Kamps.html", position: "GK", age: 61, nationality: "Germany", fga: 82.3, bestPhilosophy: "Beckenbauer Libero" },
             { name: "Carlos Henao", profileHtml: "Carlos_Henao.html", position: "CB", age: 36, nationality: "Colombia", fga: 82.0, bestPhilosophy: "Sacchi Pressing" },
@@ -768,12 +1007,15 @@
             { name: "Josha Vagnoman", profileHtml: "Joshua_Vangoman.html", position: "WG", age: 25, nationality: "Germany", fga: 82.0, bestPhilosophy: "Klopp Intensity" },
             { name: "Julio Gento López", profileHtml: "Julio_Gento.html", position: "ST", age: 30, nationality: "Spain", fga: 82.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Óscar Álvarez Sanjuán", profileHtml: "Oscar_Alvarez_Sanjuan.html", position: "CB", age: 48, nationality: "Spain", fga: 82.0, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Nimetigna Sacko", profileHtml: "Nimetigna_Sacko.html", position: "ST", age: 30, nationality: "Unknown", fga: 82.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Albeiro Usuriaga", profileHtml: "Albeiro_Usuriaga.html", position: "ST", age: 30, nationality: "Colombia", fga: 81.7, bestPhilosophy: "Menotti Artistry" },
             { name: "Santiago Londoño Ruiz", profileHtml: "Santiago_Londoño_Ruiz.html", position: "GK", age: 30, nationality: "Colombia", fga: 81.0, bestPhilosophy: "GK-Casillas Reflex" },
             { name: "Deiber Caicedo", profileHtml: "Deiber_Caicedo.html", position: "WG", age: 25, nationality: "Colombia", fga: 81.0, bestPhilosophy: "Klopp Intensity" },
             { name: "Jeisson Lucumí", profileHtml: "Jeisson_Lucumi.html", position: "WG", age: 30, nationality: "Colombia", fga: 81.0, bestPhilosophy: "Klopp Intensity" },
             { name: "Joaquín Boghossian", profileHtml: "Joaquin_Boghossian.html", position: "ST", age: 38, nationality: "Uruguay", fga: 81.0, bestPhilosophy: "Simeone Cholismo" },
             { name: "Oscar Craiyacich", profileHtml: "Oscar_Craiyacich.html", position: "CB", age: 77, nationality: "Argentina", fga: 81.0, bestPhilosophy: "Herrera Catenaccio" },
             { name: "Ignacio Russo", profileHtml: "Ignacio_Russo.html", position: "ST", age: 24, nationality: "Argentina", fga: 81.0, bestPhilosophy: "Fontaine Attack" },
+            { name: "Yan Diomande", profileHtml: "Yan_Diomande.html", position: "WG", age: 19, nationality: "Ivory Coast", fga: 80.8, bestPhilosophy: "Bielsa Intensity" },
             { name: "Axel Bamba", profileHtml: "Axel_Bamba.html", position: "CB", age: 26, nationality: "Ivory Coast", fga: 80.5, bestPhilosophy: "Klopp Intensity" },
             { name: "Benedikt Pichler", profileHtml: "Benedikt_Pichler.html", position: "ST", age: 28, nationality: "Austria", fga: 80.3, bestPhilosophy: "Klopp Intensity" },
             { name: "Myron Boadu", profileHtml: "Myron_Boadu.html", position: "ST", age: 24, nationality: "Netherlands", fga: 80.2, bestPhilosophy: "DeVisser Global" },
@@ -813,6 +1055,7 @@
             { name: "Lennart Karl", profileHtml: "Lennart_Karl.html", position: "CM", age: 17, nationality: "Germany", fga: 75.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Francesco Camarda", profileHtml: "Francesco_Camarda.html", position: "ST", age: 17, nationality: "Italy", fga: 75.0, bestPhilosophy: "Sacchi Pressing" },
             { name: "Djylian N'Guessan", profileHtml: "Djylian_Nguessan.html", position: "WG", age: 17, nationality: "France", fga: 74.8, bestPhilosophy: "Wenger Development" },
+            { name: "Conrad Harder", profileHtml: "Conrad_Harder.html", position: "ST", age: 30, nationality: "Denmark", fga: 74.8, bestPhilosophy: "Klopp Intensity" },
             { name: "Gorak Ghale", profileHtml: "Gorak_Ghale.html", position: "CM", age: 16, nationality: "Belgium", fga: 74.5, bestPhilosophy: "Cruyff Intelligence" },
             { name: "Ethan Nwaneri", profileHtml: "Ethan_Nwaneri.html", position: "AM", age: 18, nationality: "England", fga: 74.5, bestPhilosophy: "Wenger Development" },
             { name: "Federico Steffanoni", profileHtml: "Federico_Steffanoni.html", position: "CM", age: 17, nationality: "Italy", fga: 74.5, bestPhilosophy: "Guardiola Positional" },
@@ -884,51 +1127,89 @@
             { name: "Malek Adrar", profileHtml: "Malek_Adrar.html", position: "CM", age: 21, nationality: "France/Morocco", fga: 60.0, bestPhilosophy: "Santana JogoBonito" },
             { name: "Filipe Aguiar", profileHtml: "Filipe_Aguiar.html", position: "ST", age: 26, nationality: "Portugal", fga: 58.5, bestPhilosophy: "Menotti Artistry" },
             { name: "Hannes Hunziker", profileHtml: "Hannes_Hunziker.html", position: "CM", age: 30, nationality: "Switzerland", fga: 58.0, bestPhilosophy: "Klopp Intensity" },
-            { name: "Jeppe Cassim", profileHtml: "Jeppe_Cassim.html", position: "GK", age: 22, nationality: "Norway", fga: 58.0, bestPhilosophy: "Guardiola Positional" }
+            { name: "Jeppe Cassim", profileHtml: "Jeppe_Cassim.html", position: "GK", age: 22, nationality: "Norway", fga: 58.0, bestPhilosophy: "Guardiola Positional" },
+            { name: "Ramón Ismael Medina Bello 'El Mencho'", profileHtml: "Ramón_Ismael_Medina_Bello_El_Mencho.html", position: "CM", age: 30, nationality: "Unknown", fga: 8.9, bestPhilosophy: "Ferguson Mental" },
+            { name: "Diego da Silva", profileHtml: "Diego_da_Silva.html", position: "ST", age: 30, nationality: "Unknown", fga: 7.6, bestPhilosophy: "Ferguson Mental" },
         ];
+
+        // DEBUG LOGGING
+        console.log('====== PAGE LOADED ======');
+        console.log('Script loaded at:', new Date().toISOString());
+        console.log('playerData exists:', typeof playerData !== 'undefined');
+        console.log('playerData length:', playerData ? playerData.length : 'UNDEFINED');
+        
+        
+        // State variables
+        let selectedComparePlayers = [];
+        let selectedSquadPlayers = [];
+        let squadPositions = {}; // Track which position each player is assigned to
+        let currentFormation = '4-3-3';
+        let filteredPlayers = [];
         let currentPage = 1;
         let playersPerPage = 25;
         let currentSortColumn = 'fga';
         let currentSortOrder = 'desc';
 
-        // --- Helper: Position Mapping ---
-        const positionMap = {
-            "GK": "GK", "Goalkeeper": "GK",
-            "CB": "CB", "CB/DM": "CB", "Defender (CB/DM)": "CB", "Centre-Back": "CB", "Centre-Back / Right-Back": "CB", "Defender": "CB",
-            "FB": "FB", "LWB/LB": "FB", "RB/CB": "FB", "RB": "FB", "LB": "FB", "Right-Back": "FB", "Left-Back": "FB",
-            "DM": "DM", "Defensive Midfielder": "DM", "Midfielder (DM/CM)": "DM",
-            "CM": "CM", "CM/DM": "CM", "Central Midfielder": "CM", "Midfielder / Full-Back": "CM", "Midfielder": "CM",
-            "AM": "AM", "CAM/DM": "AM", "AM/CM": "AM", "AM/RW": "AM", "Att. Midfielder": "AM", "Attacking Midfielder": "AM", "Forward / Attacking Midfielder": "AM", "Attacking Midfielder / Forward": "AM", "Midfielder (AM/RW)": "AM", "Midfielder (AM/CM)": "AM",
-            "WG": "WG", "LW/RW": "WG", "RW": "WG", "Winger": "WG", "LW": "WG", "Winger / Forward": "WG", "Outside Right / Winger": "WG", "Winger / Attacking Midfielder": "WG", "Forward / Winger": "WG",
-            "ST": "ST", "FW": "ST", "ST/FW": "ST", "SS/CF": "ST", "CF/LW/RW": "ST", "Forward (CF/LW/RW)": "ST", "Forward / Winger": "ST", "Striker / Left-Winger": "ST", "Striker / Second Striker": "ST", "Centre-Forward": "ST", "Striker / Forward": "ST", "Striker": "ST", "Forward": "ST", "Striker (CF/SS)": "ST", "Forward (Striker/Winger)": "ST"
-        };
-        
-        // --- Helper: FGA Color ---
-        function getFgaColor(fga) {
-            if (!fga) return 'text-slate-400';
-            if (fga >= 90) return 'text-purple-400';
-            if (fga >= 85) return 'text-green-400';  
-            if (fga >= 80) return 'text-blue-400';   
-            if (fga >= 75) return 'text-cyan-400';   
-            if (fga >= 70) return 'text-yellow-400'; 
-            return 'text-red-400';                  
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'philosophy') {
+                renderPhilosophyHeatmap();
+            } else if (tabName === 'market') {
+                renderMarketIntelligence();
+            } else if (tabName === 'squad') {
+                initializeSquadBuilder();
+            }
         }
 
-        // --- Update Stats Dashboard ---
-        function updateStats(players) {
-            document.getElementById('stat-total').textContent = playerData.length;
-            
-            const avgFga = players.length > 0 
-                ? (players.reduce((sum, p) => sum + (p.fga || 0), 0) / players.length).toFixed(1)
-                : '0.0';
-            document.getElementById('stat-avg-fga').textContent = avgFga;
-            
-            document.getElementById('stat-legends').textContent = playerData.filter(p => p.fga >= 90).length;
-            document.getElementById('stat-elite').textContent = playerData.filter(p => p.fga >= 85).length;
-            document.getElementById('stat-showing').textContent = players.length;
+        // DATABASE FUNCTIONS
+        function quickFilter(type) {
+            switch(type) {
+                case 'legends':
+                    filteredPlayers = playerData.filter(p => p.fga >= 90);
+                    break;
+                case 'elite':
+                    filteredPlayers = playerData.filter(p => p.fga >= 85 && p.fga < 90);
+                    break;
+                case 'prospects':
+                    filteredPlayers = playerData.filter(p => p.age <= 21);
+                    break;
+                case 'active':
+                    filteredPlayers = playerData.filter(p => p.age <= 38);
+                    break;
+                case 'strikers':
+                    filteredPlayers = playerData.filter(p => p.position === 'ST');
+                    break;
+                case 'midfielders':
+                    filteredPlayers = playerData.filter(p => ['CM', 'AM', 'DM'].includes(p.position));
+                    break;
+                case 'defenders':
+                    filteredPlayers = playerData.filter(p => ['CB', 'FB'].includes(p.position));
+                    break;
+                case 'goalkeepers':
+                    filteredPlayers = playerData.filter(p => p.position === 'GK');
+                    break;
+                default:
+                    filteredPlayers = [...playerData];
+            }
+            currentPage = 1;
+            updateStats();
+            renderTable();
         }
 
-        // --- Sort Table ---
+        function filterAndRender() {
+            const search = document.getElementById('search-name').value.toLowerCase();
+            filteredPlayers = playerData.filter(p => p.name.toLowerCase().includes(search));
+            currentPage = 1;
+            updateStats();
+            renderTable();
+        }
+
         function sortTable(column) {
             if (currentSortColumn === column) {
                 currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
@@ -936,7 +1217,7 @@
                 currentSortColumn = column;
                 currentSortOrder = 'desc';
             }
-
+            
             filteredPlayers.sort((a, b) => {
                 let aVal = a[column];
                 let bVal = b[column];
@@ -952,114 +1233,85 @@
                     return aVal < bVal ? 1 : -1;
                 }
             });
-
-            updateSortIndicators();
+            
             renderTable();
         }
 
-        // --- Update Sort Indicators ---
-        function updateSortIndicators() {
-            document.querySelectorAll('.database-table th').forEach(th => {
-                th.classList.remove('sort-asc', 'sort-desc');
-                if (th.dataset.sort === currentSortColumn) {
-                    th.classList.add(currentSortOrder === 'asc' ? 'sort-asc' : 'sort-desc');
-                }
-            });
-        }
-
-        // --- Render Table Function ---
         function renderTable() {
-            const tableBody = document.getElementById('database-table-body');
-            const noResultsMessage = document.getElementById('no-results-message');
+            const tbody = document.getElementById('database-table-body');
+            const start = (currentPage - 1) * playersPerPage;
+            const end = start + playersPerPage;
+            const pageData = filteredPlayers.slice(start, end);
             
-            if (filteredPlayers.length === 0) {
-                tableBody.innerHTML = '';
-                noResultsMessage.classList.remove('hidden');
-                updatePagination();
-                return;
-            }
-            
-            noResultsMessage.classList.add('hidden');
-
-            // Calculate pagination
-            const startIndex = (currentPage - 1) * playersPerPage;
-            const endIndex = playersPerPage === 'all' ? filteredPlayers.length : startIndex + playersPerPage;
-            const playersToShow = filteredPlayers.slice(startIndex, endIndex);
-
-            tableBody.innerHTML = playersToShow.map(player => `
+            tbody.innerHTML = pageData.map(player => `
                 <tr>
-                    <td class="font-medium text-white">
-                        <a href="${player.profileHtml}" target="_blank" title="View ${player.name}'s full profile">${player.name}</a>
+                    <td><a href="${player.profileHtml}" target="_blank">${player.name}</a></td>
+                    <td>${player.position}</td>
+                    <td>${player.age}</td>
+                    <td>${player.nationality}</td>
+                    <td><span class="font-bold text-blue-400">${player.fga.toFixed(1)}</span></td>
+                    <td>${player.bestPhilosophy}</td>
+                    <td>
+                        <button onclick="addToComparison('${player.name.replace(/'/g, "\\'")}')" class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">
+                            Compare
+                        </button>
                     </td>
-                    <td>${player.position || 'N/A'}</td>
-                    <td>${player.age || 'N/A'}</td>
-                    <td>${player.nationality || 'N/A'}</td>
-                    <td class="font-semibold ${getFgaColor(player.fga)}">
-                        ${player.fga ? player.fga.toFixed(1) : 'N/A'}
-                    </td>
-                    <td class="text-slate-400">${player.bestPhilosophy || 'N/A'}</td>
                 </tr>
             `).join('');
-
+            
+            document.getElementById('stat-showing').textContent = pageData.length;
             updatePagination();
-            updateResultsSummary();
         }
 
-        // --- Update Results Summary ---
-        function updateResultsSummary() {
-            const startIndex = (currentPage - 1) * playersPerPage + 1;
-            const endIndex = playersPerPage === 'all' ? filteredPlayers.length : Math.min(startIndex + playersPerPage - 1, filteredPlayers.length);
-            document.getElementById('results-summary').textContent = 
-                `Showing ${startIndex}-${endIndex} of ${filteredPlayers.length} players`;
-        }
-
-        // --- Update Pagination ---
         function updatePagination() {
             const container = document.getElementById('pagination-container');
+            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
             
-            if (playersPerPage === 'all' || filteredPlayers.length <= playersPerPage) {
+            if (totalPages <= 1) {
                 container.innerHTML = '';
                 return;
             }
-
-            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
-            let paginationHTML = '';
-
+            
+            let html = '';
+            
             // Previous button
-            paginationHTML += `
-                <button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-                    ← Prev
-                </button>
-            `;
-
+            html += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                ← Previous
+            </button>`;
+            
             // Page numbers
-            const maxVisiblePages = 5;
-            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-            if (endPage - startPage < maxVisiblePages - 1) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            const maxVisible = 7;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+            
+            if (endPage - startPage < maxVisible - 1) {
+                startPage = Math.max(1, endPage - maxVisible + 1);
             }
-
+            
+            if (startPage > 1) {
+                html += `<button class="pagination-btn" onclick="changePage(1)">1</button>`;
+                if (startPage > 2) html += `<span class="px-2 text-slate-400">...</span>`;
+            }
+            
             for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `
-                    <button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                        ${i}
-                    </button>
-                `;
+                html += `<button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+                    ${i}
+                </button>`;
             }
-
+            
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += `<span class="px-2 text-slate-400">...</span>`;
+                html += `<button class="pagination-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
+            }
+            
             // Next button
-            paginationHTML += `
-                <button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-                    Next →
-                </button>
-            `;
-
-            container.innerHTML = paginationHTML;
+            html += `<button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                Next →
+            </button>`;
+            
+            container.innerHTML = html;
         }
 
-        // --- Change Page ---
         function changePage(page) {
             const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
             if (page < 1 || page > totalPages) return;
@@ -1068,147 +1320,1393 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Change Per Page ---
-        function changePerPage() {
-            const value = document.getElementById('per-page').value;
-            playersPerPage = value === 'all' ? 'all' : parseInt(value);
-            currentPage = 1;
-            renderTable();
-        }
-
-        // --- Filter Function ---
-        function filterAndRender() {
-            const searchName = document.getElementById('search-name').value.toLowerCase();
-            const filterPosition = document.getElementById('filter-position').value;
-            const filterAge = document.getElementById('filter-age').value;
-            const filterFga = document.getElementById('filter-fga').value;
-
-            filteredPlayers = playerData.filter(player => {
-                const nameMatch = player.name.toLowerCase().includes(searchName);
-
-                const mappedPosition = positionMap[player.position] || 'ST';
-                const positionMatch = (filterPosition === 'All') || (mappedPosition === filterPosition);
-
-                let ageMatch = true;
-                if (filterAge === 'U21') {
-                    ageMatch = player.age <= 21;
-                } else if (filterAge === '22-26') {
-                    ageMatch = player.age >= 22 && player.age <= 26;
-                } else if (filterAge === '27+') {
-                    ageMatch = player.age >= 27;
-                }
-
-                let fgaMatch = true;
-                if (filterFga === '90+') {
-                    fgaMatch = player.fga >= 90;
-                } else if (filterFga === '85-90') {
-                    fgaMatch = player.fga >= 85 && player.fga < 90;
-                } else if (filterFga === '80-85') {
-                    fgaMatch = player.fga >= 80 && player.fga < 85;
-                } else if (filterFga === '75-80') {
-                    fgaMatch = player.fga >= 75 && player.fga < 80;
-                } else if (filterFga === '<75') {
-                    fgaMatch = player.fga < 75;
-                }
-
-                return nameMatch && positionMatch && ageMatch && fgaMatch;
-            });
-
-            currentPage = 1;
-            updateStats(filteredPlayers);
-            renderTable();
-            updateActiveFilterPill();
-        }
-
-        // --- Quick Filter ---
-        function quickFilter(type) {
-            resetFiltersWithoutReload();
+        function updateStats() {
+            console.log('updateStats called');
+            console.log('  playerData.length:', playerData.length);
+            console.log('  filteredPlayers.length:', filteredPlayers.length);
             
-            switch(type) {
-                case 'all':
-                    break;
-                case 'legends':
-                    document.getElementById('filter-fga').value = '90+';
-                    break;
-                case 'elite':
-                    document.getElementById('filter-fga').value = '85-90';
-                    break;
-                case 'prospects':
-                    document.getElementById('filter-age').value = 'U21';
-                    break;
-                case 'strikers':
-                    document.getElementById('filter-position').value = 'ST';
-                    break;
-                case 'midfielders':
-                    document.getElementById('filter-position').value = 'CM';
-                    break;
-                case 'defenders':
-                    document.getElementById('filter-position').value = 'CB';
-                    break;
-                case 'goalkeepers':
-                    document.getElementById('filter-position').value = 'GK';
-                    break;
+            document.getElementById('stat-total').textContent = playerData.length;
+            
+            const avgFga = filteredPlayers.length > 0 
+                ? (filteredPlayers.reduce((sum, p) => sum + p.fga, 0) / filteredPlayers.length).toFixed(1)
+                : '0.0';
+            document.getElementById('stat-avg-fga').textContent = avgFga;
+            
+            const legends = filteredPlayers.filter(p => p.fga >= 90).length;
+            document.getElementById('stat-legends').textContent = legends;
+            
+            const elite = filteredPlayers.filter(p => p.fga >= 85 && p.fga < 90).length;
+            document.getElementById('stat-elite').textContent = elite;
+        }
+
+        // COMPARISON FUNCTIONS
+        function searchForComparison(query) {
+            const results = document.getElementById('comparison-search-results');
+            if (!query) {
+                results.innerHTML = '<p class="text-slate-400 text-sm">Start typing to search players...</p>';
+                return;
             }
             
-            filterAndRender();
+            const matches = playerData.filter(p => 
+                p.name.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 10);
+            
+            results.innerHTML = matches.map(player => `
+                <div class="player-card" onclick="addToComparison('${player.name.replace(/'/g, "\\'")}')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="font-bold">${player.name}</div>
+                            <div class="text-sm text-slate-400">${player.position} | ${player.nationality} | FGA: ${player.fga.toFixed(1)}</div>
+                        </div>
+                        <button class="bg-blue-600 px-3 py-1 rounded text-sm">Add</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // --- Update Active Filter Pill ---
-        function updateActiveFilterPill() {
-            document.querySelectorAll('.filter-pill').forEach(pill => {
-                pill.classList.remove('active');
+        function addToComparison(playerName) {
+            if (selectedComparePlayers.length >= 4) {
+                alert('Maximum 4 players can be compared');
+                return;
+            }
+            
+            const player = playerData.find(p => p.name === playerName);
+            if (!player || selectedComparePlayers.find(p => p.name === playerName)) return;
+            
+            selectedComparePlayers.push(player);
+            updateSelectedPlayers();
+        }
+
+        function removeFromComparison(playerName) {
+            selectedComparePlayers = selectedComparePlayers.filter(p => p.name !== playerName);
+            updateSelectedPlayers();
+        }
+
+        function updateSelectedPlayers() {
+            const container = document.getElementById('selected-players');
+            document.getElementById('selected-count').textContent = selectedComparePlayers.length;
+            
+            if (selectedComparePlayers.length === 0) {
+                container.innerHTML = '<p class="text-slate-400 text-sm">Select players from the search results to compare</p>';
+                return;
+            }
+            
+            container.innerHTML = selectedComparePlayers.map(player => `
+                <div class="player-card selected">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="font-bold">${player.name}</div>
+                            <div class="text-sm text-slate-400">${player.position} | FGA: ${player.fga.toFixed(1)}</div>
+                        </div>
+                        <button onclick="removeFromComparison('${player.name.replace(/'/g, "\\'")}')" class="bg-red-600 px-3 py-1 rounded text-sm">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== ENHANCED COMPARISON TOOL - PHASE 1 ====================
+        // ENHANCED COMPARISON TOOL - PHASE 1 IMPROVEMENTS
+        // This replaces the generateComparison() function and adds helper functions
+        
+        // ============ COMPONENT SCORE ESTIMATION ============
+        // ============ EMPIRE FGA CORE METRICS CALCULATION ============
+        function calculateFGACoreMetrics(player) {
+            const fga = player.fga;
+            const pos = player.position;
+            const age = player.age;
+            const philosophy = player.bestPhilosophy;
+            
+            // Base FGA to 0-10 scale (FGA is already 0-100, divide by 10)
+            const baseScore = fga / 10;
+            
+            // TIER 1: Core Attacking Metrics (0-10 scale)
+            let xps = baseScore * 0.92; // Enhanced XPS Rating (Shooting)
+            let stk = baseScore * 0.88; // STK (Striking Precision)
+            let rds = baseScore * 0.90; // RDS (Radius of Excellence)
+            let key = baseScore * 0.87; // KEY (Key Passes)
+            
+            // TIER 1: Core Passing Metrics
+            let lgp = baseScore * 0.85; // LGP (Long Pass)
+            let vrp = baseScore * 0.89; // VRP (Vertical Pass)
+            let hzp = baseScore * 0.86; // HZP (Horizontal Pass)
+            let unp = baseScore * 0.84; // UNP (Unpredictability)
+            let dgp = baseScore * 0.88; // DGP (Dangerous Pass)
+            
+            // TIER 1: Core Defensive Metrics
+            let mrk = baseScore * 0.82; // MRK (Marking)
+            let tac = baseScore * 0.85; // TAC (Tackling)
+            let int = baseScore * 0.87; // INT (Interceptions)
+            let cle = baseScore * 0.84; // CLE (Clearances)
+            let blo = baseScore * 0.83; // BLO (Blocks)
+            
+            // TIER 1: Core Possession Metrics
+            let car = baseScore * 0.90; // CAR (Carrying)
+            let drb = baseScore * 0.91; // DRB (Dribbling)
+            
+            // TIER 2: Composite Metrics
+            let poi = baseScore * 0.93; // POI (Position Intelligence)
+            let cpx = baseScore * 0.89; // CPX (Composure)
+            let mob = baseScore * 0.86; // MOB (Mobility)
+            
+            // Position-specific adjustments
+            if (pos === 'ST' || pos === 'WG') {
+                xps *= 1.20; stk *= 1.25; rds *= 1.15;
+                mrk *= 0.65; tac *= 0.60; int *= 0.70;
+                drb *= 1.15; car *= 1.10;
+            } else if (pos === 'AM') {
+                xps *= 1.10; key *= 1.20; unp *= 1.15;
+                vrp *= 1.10; dgp *= 1.15;
+                mrk *= 0.75; tac *= 0.70;
+                drb *= 1.10; poi *= 1.10;
+            } else if (pos === 'CM') {
+                lgp *= 1.10; vrp *= 1.05; hzp *= 1.10;
+                key *= 1.05; poi *= 1.15;
+                mrk *= 0.95; tac *= 0.95; int *= 1.05;
+            } else if (pos === 'DM') {
+                mrk *= 1.20; tac *= 1.25; int *= 1.20;
+                lgp *= 1.05; poi *= 1.15;
+                xps *= 0.75; stk *= 0.70;
+            } else if (pos === 'CB') {
+                mrk *= 1.25; tac *= 1.20; int *= 1.15;
+                cle *= 1.25; blo *= 1.20;
+                xps *= 0.60; stk *= 0.55; drb *= 0.70;
+                poi *= 1.10;
+            } else if (pos === 'FB') {
+                mrk *= 1.10; tac *= 1.15; int *= 1.10;
+                car *= 1.10; mob *= 1.15;
+                xps *= 0.75; stk *= 0.70;
+            } else if (pos === 'GK') {
+                xps *= 0.50; stk *= 0.45;
+                mrk *= 0.90; tac *= 0.85;
+                poi *= 1.20; cpx *= 1.15;
+            }
+            
+            // Age-based adjustments
+            if (age <= 23) {
+                mob *= 1.05; car *= 1.03;
+                poi *= 0.95; cpx *= 0.93;
+            } else if (age >= 24 && age <= 27) {
+                mob *= 1.08; car *= 1.05; // Peak years
+            } else if (age >= 28 && age <= 31) {
+                poi *= 1.05; cpx *= 1.08; // Experience peak
+                mob *= 0.98;
+            } else if (age >= 32) {
+                poi *= 1.10; cpx *= 1.12; // Veterans
+                mob *= 0.88; car *= 0.90;
+            }
+            
+            // Philosophy-based adjustments
+            if (philosophy.includes('Ferguson') || philosophy.includes('Mental')) {
+                cpx *= 1.12; poi *= 1.08;
+            } else if (philosophy.includes('Guardiola') || philosophy.includes('Positional')) {
+                poi *= 1.15; lgp *= 1.08; vrp *= 1.08;
+            } else if (philosophy.includes('Cruyff') || philosophy.includes('Intelligence')) {
+                poi *= 1.12; unp *= 1.10; drb *= 1.08;
+            } else if (philosophy.includes('Simeone') || philosophy.includes('Cholismo')) {
+                mrk *= 1.15; tac *= 1.12; cpx *= 1.10;
+            } else if (philosophy.includes('Klopp') || philosophy.includes('Intensity')) {
+                int *= 1.12; car *= 1.10; mob *= 1.12;
+            }
+            
+            // Cap all values at 10.0
+            const cap = (val) => Math.min(10.0, Math.max(0, val));
+            
+            return {
+                // Tier 1 - Attacking
+                xps: cap(xps),
+                stk: cap(stk),
+                rds: cap(rds),
+                key: cap(key),
+                
+                // Tier 1 - Passing
+                lgp: cap(lgp),
+                vrp: cap(vrp),
+                hzp: cap(hzp),
+                unp: cap(unp),
+                dgp: cap(dgp),
+                
+                // Tier 1 - Defensive
+                mrk: cap(mrk),
+                tac: cap(tac),
+                int: cap(int),
+                cle: cap(cle),
+                blo: cap(blo),
+                
+                // Tier 1 - Possession
+                car: cap(car),
+                drb: cap(drb),
+                
+                // Tier 2 - Composite
+                poi: cap(poi),
+                cpx: cap(cpx),
+                mob: cap(mob)
+            };
+        }
+        
+        // Helper function for component scores (for radar chart)
+        function estimateComponentScores(player) {
+            const metrics = calculateFGACoreMetrics(player);
+            
+            return {
+                attacking: ((metrics.xps + metrics.stk + metrics.rds) / 3) * 10,
+                passing: ((metrics.lgp + metrics.vrp + metrics.hzp + metrics.dgp) / 4) * 10,
+                defending: ((metrics.mrk + metrics.tac + metrics.int) / 3) * 10,
+                possession: ((metrics.car + metrics.drb) / 2) * 10,
+                intelligence: ((metrics.poi + metrics.cpx) / 2) * 10,
+                physicality: ((metrics.mob + metrics.car) / 2) * 10
+            };
+        }
+        
+        // ============ DERIVED METRICS CALCULATION ============
+        function calculateDerivedMetrics(player) {
+            // Value Efficiency Score: FGA quality per €1M
+            const valueEfficiency = player.marketValue > 0 
+                ? ((player.fga - 75) / (player.marketValue / 1000000)).toFixed(3)
+                : null;
+            
+            // Age-Adjusted Rating (Peak Performance Index)
+            let ageMultiplier = 1.0;
+            if (player.age <= 20) ageMultiplier = 0.90;
+            else if (player.age <= 23) ageMultiplier = 0.95;
+            else if (player.age >= 24 && player.age <= 28) ageMultiplier = 1.00; // peak
+            else if (player.age >= 29 && player.age <= 32) ageMultiplier = 0.96;
+            else if (player.age >= 33 && player.age <= 36) ageMultiplier = 0.88;
+            else ageMultiplier = 0.75;
+            
+            const ageAdjustedRating = (player.fga * ageMultiplier).toFixed(1);
+            
+            // Longevity Score: Expected elite years remaining
+            const yearsToDecline = Math.max(0, 33 - player.age);
+            const longevityScore = (yearsToDecline * (player.fga / 100)).toFixed(1);
+            
+            // Age Category
+            let ageCategory, ageBadge;
+            if (player.age <= 23) {
+                ageCategory = 'Developing';
+                ageBadge = '📈';
+            } else if (player.age >= 24 && player.age <= 29) {
+                ageCategory = 'Peak Years';
+                ageBadge = '🌟';
+            } else if (player.age >= 30 && player.age <= 33) {
+                ageCategory = 'Experienced';
+                ageBadge = '👑';
+            } else {
+                ageCategory = 'Veteran';
+                ageBadge = '📉';
+            }
+            
+            return {
+                valueEfficiency,
+                ageAdjustedRating,
+                longevityScore,
+                ageCategory,
+                ageBadge
+            };
+        }
+        
+        // ============ STRENGTH/WEAKNESS ANALYSIS ============
+        function analyzeStrengthsWeaknesses(player) {
+            const components = estimateComponentScores(player);
+            const derived = calculateDerivedMetrics(player);
+            
+            const strengths = [];
+            const weaknesses = [];
+            
+            // Analyze components
+            if (components.attacking >= 90) strengths.push('Elite attacking threat');
+            if (components.passing >= 90) strengths.push('Exceptional passing ability');
+            if (components.defending >= 90) strengths.push('World-class defensive skills');
+            if (components.technical >= 95) strengths.push('Outstanding technical ability');
+            if (components.mental >= 92) strengths.push('Elite mentality and decision-making');
+            
+            // Age-based strengths/weaknesses
+            if (player.age >= 24 && player.age <= 29) {
+                strengths.push('In prime performance years');
+            } else if (player.age <= 23) {
+                strengths.push('High resale value potential');
+            } else if (player.age >= 33) {
+                weaknesses.push('Limited career longevity remaining');
+            }
+            
+            // Value-based
+            if (derived.valueEfficiency && parseFloat(derived.valueEfficiency) > 0.3) {
+                strengths.push('Exceptional value for money');
+            } else if (derived.valueEfficiency && parseFloat(derived.valueEfficiency) < 0.1) {
+                weaknesses.push('Premium price relative to quality');
+            }
+            
+            // Component weaknesses
+            if (components.attacking < 75 && !['CB', 'DM', 'GK'].includes(player.position)) {
+                weaknesses.push('Limited offensive contribution');
+            }
+            if (components.defending < 75 && ['CB', 'FB', 'DM'].includes(player.position)) {
+                weaknesses.push('Defensive vulnerabilities');
+            }
+            if (components.physical < 75 && player.age <= 30) {
+                weaknesses.push('Physical limitations');
+            }
+            
+            // Ensure we have at least 2-3 strengths and 1-2 weaknesses
+            if (strengths.length === 0) {
+                strengths.push('Solid all-around capabilities');
+                strengths.push('Reliable performer');
+            }
+            if (weaknesses.length === 0) {
+                weaknesses.push('Few obvious weaknesses');
+            }
+            
+            return {
+                strengths: strengths.slice(0, 3),
+                weaknesses: weaknesses.slice(0, 2)
+            };
+        }
+        
+        // ============ TACTICAL RECOMMENDATIONS ============
+        function generateTacticalRecommendations(players) {
+            const recommendations = [];
+            
+            // Analyze for high-pressing systems
+            const pressingPlayers = players.filter(p => 
+                p.bestPhilosophy.includes('Ferguson') || 
+                p.bestPhilosophy.includes('Klopp') || 
+                p.bestPhilosophy.includes('Simeone') ||
+                p.bestPhilosophy.includes('Cholismo')
+            );
+            
+            if (pressingPlayers.length > 0) {
+                const best = pressingPlayers.sort((a, b) => {
+                    const aComponents = estimateComponentScores(a);
+                    const bComponents = estimateComponentScores(b);
+                    return (bComponents.physical + bComponents.mental) - (aComponents.physical + aComponents.mental);
+                })[0];
+                
+                recommendations.push({
+                    icon: '⚡',
+                    system: 'High-Pressing Systems',
+                    recommended: best.name,
+                    reason: `${best.name}'s ${best.bestPhilosophy} philosophy and strong physical/mental attributes make them ideal for intense, counter-pressing football.`
+                });
+            }
+            
+            // Analyze for possession systems
+            const possessionPlayers = players.filter(p =>
+                p.bestPhilosophy.includes('Guardiola') ||
+                p.bestPhilosophy.includes('Cruyff') ||
+                p.bestPhilosophy.includes('Xavi') ||
+                p.bestPhilosophy.includes('Positional')
+            );
+            
+            if (possessionPlayers.length > 0) {
+                const best = possessionPlayers.sort((a, b) => {
+                    const aComponents = estimateComponentScores(a);
+                    const bComponents = estimateComponentScores(b);
+                    return (bComponents.passing + bComponents.technical) - (aComponents.passing + aComponents.technical);
+                })[0];
+                
+                recommendations.push({
+                    icon: '🎯',
+                    system: 'Possession Football',
+                    recommended: best.name,
+                    reason: `${best.name} thrives in patient, build-up oriented systems with their exceptional passing and technical ability aligned with ${best.bestPhilosophy}.`
+                });
+            }
+            
+            // Analyze for counter-attacking systems
+            const counterPlayers = players.filter(p =>
+                p.bestPhilosophy.includes('Mourinho') ||
+                p.bestPhilosophy.includes('Simeone') ||
+                p.position === 'ST' || p.position === 'WG'
+            );
+            
+            if (counterPlayers.length > 0) {
+                const best = counterPlayers.sort((a, b) => {
+                    const aComponents = estimateComponentScores(a);
+                    const bComponents = estimateComponentScores(b);
+                    return (bComponents.attacking + bComponents.physical) - (aComponents.attacking + aComponents.physical);
+                })[0];
+                
+                recommendations.push({
+                    icon: '⚔️',
+                    system: 'Counter-Attacking',
+                    recommended: best.name,
+                    reason: `${best.name}'s pace, directness, and attacking threat make them perfect for exploiting space on the break.`
+                });
+            }
+            
+            // Value recommendation
+            const activePlayersWithValue = players.filter(p => p.marketValue > 0);
+            if (activePlayersWithValue.length > 1) {
+                const valuePlayers = activePlayersWithValue.map(p => ({
+                    ...p,
+                    efficiency: (p.fga - 75) / (p.marketValue / 1000000)
+                })).sort((a, b) => b.efficiency - a.efficiency);
+                
+                const bestValue = valuePlayers[0];
+                recommendations.push({
+                    icon: '💰',
+                    system: 'Budget Optimization',
+                    recommended: bestValue.name,
+                    reason: `${bestValue.name} offers exceptional value at €${(bestValue.marketValue / 1000000).toFixed(1)}M for FGA ${bestValue.fga.toFixed(1)} quality (${bestValue.efficiency.toFixed(3)} FGA/€M).`
+                });
+            }
+            
+            return recommendations;
+        }
+        
+        // ============ POSITION ICON HELPER ============
+        function getPositionIcon(position) {
+            const icons = {
+                'ST': '⚽', 'WG': '⚡', 'AM': '🎯', 'CM': '🎨',
+                'DM': '🛡️', 'FB': '🏃', 'CB': '🧱', 'GK': '🧤'
+            };
+            return icons[position] || '⚽';
+        }
+        
+        // ============ FIND BEST IN CATEGORY ============
+        function findBestInCategory(players, category) {
+            if (category === 'fga') {
+                const best = Math.max(...players.map(p => p.fga));
+                return players.filter(p => p.fga === best).map(p => p.name);
+            } else if (category === 'value' && players.every(p => p.marketValue > 0)) {
+                const efficiencies = players.map(p => ({
+                    name: p.name,
+                    eff: (p.fga - 75) / (p.marketValue / 1000000)
+                }));
+                const best = Math.max(...efficiencies.map(e => e.eff));
+                return efficiencies.filter(e => e.eff === best).map(e => e.name);
+            } else if (category === 'longevity') {
+                const scores = players.map(p => ({
+                    name: p.name,
+                    score: Math.max(0, (33 - p.age) * (p.fga / 100))
+                }));
+                const best = Math.max(...scores.map(s => s.score));
+                return scores.filter(s => s.score === best).map(s => s.name);
+            }
+            return [];
+        }
+        
+        
+        // ============ PHILOSOPHY COMPATIBILITY SCORING ============
+        function calculatePhilosophyScores(player) {
+            const fga = player.fga;
+            const pos = player.position;
+            const philosophy = player.bestPhilosophy;
+            const age = player.age;
+            
+            // Base score from FGA (scaled to 0-10)
+            const baseScore = fga / 10;
+            
+            // Define philosophies with position compatibility
+            const philosophies = {
+                'Ferguson Mental': {
+                    weight: 1.45,
+                    positionFit: { ST: 1.0, WG: 1.0, AM: 0.95, CM: 0.95, DM: 0.90, FB: 0.85, CB: 0.85, GK: 0.80 },
+                    keywords: ['Ferguson', 'Mental'],
+                    description: 'Mental strength, composure, winning mentality'
+                },
+                'Guardiola Positional': {
+                    weight: 1.40,
+                    positionFit: { CM: 1.0, DM: 1.0, AM: 0.95, FB: 0.90, CB: 0.90, ST: 0.80, WG: 0.75, GK: 0.70 },
+                    keywords: ['Guardiola', 'Positional', 'Possession'],
+                    description: 'Positional play, passing precision, intelligence'
+                },
+                'Cruyff Intelligence': {
+                    weight: 1.38,
+                    positionFit: { AM: 1.0, ST: 1.0, CM: 0.95, WG: 0.95, FB: 0.85, DM: 0.85, CB: 0.80, GK: 0.65 },
+                    keywords: ['Cruyff', 'Intelligence'],
+                    description: 'Total football, creativity, spatial awareness'
+                },
+                'Simeone Cholismo': {
+                    weight: 1.35,
+                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.70, ST: 0.70, WG: 0.70, GK: 0.85 },
+                    keywords: ['Simeone', 'Cholismo'],
+                    description: 'Defensive intensity, warrior mentality, discipline'
+                },
+                'Klopp Intensity': {
+                    weight: 1.32,
+                    positionFit: { CM: 1.0, FB: 1.0, WG: 0.95, ST: 0.95, AM: 0.90, DM: 0.90, CB: 0.85, GK: 0.70 },
+                    keywords: ['Klopp', 'Intensity'],
+                    description: 'High pressing, counter-pressing, work rate'
+                },
+                'Mourinho Tactical': {
+                    weight: 1.30,
+                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.85 },
+                    keywords: ['Mourinho', 'Tactical'],
+                    description: 'Tactical discipline, defensive structure, pragmatism'
+                },
+                'Menotti Artistry': {
+                    weight: 1.28,
+                    positionFit: { AM: 1.0, WG: 1.0, ST: 0.95, CM: 0.80, FB: 0.70, DM: 0.60, CB: 0.50, GK: 0.40 },
+                    keywords: ['Menotti', 'Artistry', 'Artist', 'Riquelme'],
+                    description: 'Individual artistry, creative freedom, flair'
+                },
+                'Michels Total': {
+                    weight: 1.35,
+                    positionFit: { CM: 1.0, FB: 1.0, AM: 0.95, DM: 0.95, CB: 0.90, ST: 0.90, WG: 0.90, GK: 0.75 },
+                    keywords: ['Michels', 'Total'],
+                    description: 'Total football, positional fluidity, versatility'
+                },
+                'Sacchi Pressing': {
+                    weight: 1.28,
+                    positionFit: { CB: 1.0, DM: 1.0, CM: 0.95, FB: 0.95, AM: 0.80, ST: 0.75, WG: 0.75, GK: 0.80 },
+                    keywords: ['Sacchi', 'Pressing', 'Maldini'],
+                    description: 'Organized pressing, defensive compactness'
+                }
+            };
+            
+            // Calculate score for each philosophy
+            const scores = {};
+            Object.keys(philosophies).forEach(philName => {
+                const phil = philosophies[philName];
+                
+                // Start with base FGA score
+                let score = baseScore;
+                
+                // Apply position fit multiplier (this creates differentiation!)
+                const posFit = phil.positionFit[pos] || 0.70;
+                score *= posFit;
+                
+                // Age-based adjustments
+                if (age <= 25) {
+                    // Young players: lower tactical IQ philosophies
+                    if (philName === 'Guardiola Positional' || philName === 'Mourinho Tactical') {
+                        score *= 0.92;
+                    }
+                    // Higher intensity philosophies
+                    if (philName === 'Klopp Intensity') {
+                        score *= 1.05;
+                    }
+                } else if (age >= 33) {
+                    // Veterans: higher tactical IQ
+                    if (philName === 'Guardiola Positional' || philName === 'Mourinho Tactical') {
+                        score *= 1.05;
+                    }
+                    // Lower intensity
+                    if (philName === 'Klopp Intensity') {
+                        score *= 0.92;
+                    }
+                }
+                
+                // Major boost if this is player's best philosophy (1.15x = +15%)
+                const isMatch = phil.keywords.some(keyword => philosophy.includes(keyword));
+                if (isMatch) {
+                    score *= 1.15;
+                }
+                
+                // Minor penalty for mismatch with player's natural style
+                if (!isMatch) {
+                    // Attackers lose points in defensive philosophies
+                    if ((pos === 'ST' || pos === 'WG' || pos === 'AM') && 
+                        (philName === 'Simeone Cholismo' || philName === 'Mourinho Tactical' || philName === 'Sacchi Pressing')) {
+                        score *= 0.90;
+                    }
+                    // Defenders lose points in creative philosophies
+                    if ((pos === 'CB' || pos === 'DM') && 
+                        (philName === 'Menotti Artistry' || philName === 'Cruyff Intelligence')) {
+                        score *= 0.88;
+                    }
+                }
+                
+                // Add slight randomness based on player name hash (consistent per player)
+                const nameHash = player.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                const variance = ((nameHash % 10) - 5) * 0.02; // -0.1 to +0.1
+                score *= (1 + variance);
+                
+                // Cap at 10.0
+                const finalScore = Math.min(10.0, Math.max(5.0, score));
+                
+                scores[philName] = {
+                    score: Math.round(finalScore * 10) / 10,
+                    weight: phil.weight,
+                    description: phil.description,
+                    weightedScore: Math.round(finalScore * phil.weight * 10) / 10
+                };
+            });
+            
+            return scores;
+        }
+        
+        function generatePhilosophyInsight() {
+            if (!selectedComparePlayers || selectedComparePlayers.length === 0) {
+                return 'Select players to analyze their philosophical compatibility.';
+            }
+            
+            const philosophyScores = selectedComparePlayers.map(p => ({
+                name: p.name,
+                philosophy: p.bestPhilosophy,
+                scores: calculatePhilosophyScores(p)
+            }));
+            
+            // Find common strengths
+            const allPhilosophies = Object.keys(philosophyScores[0].scores);
+            const topPhilosophies = allPhilosophies
+                .map(phil => ({
+                    name: phil,
+                    avgScore: philosophyScores.reduce((sum, p) => sum + p.scores[phil].score, 0) / philosophyScores.length
+                }))
+                .sort((a, b) => b.avgScore - a.avgScore)
+                .slice(0, 3);
+            
+            const insights = [];
+            
+            if (selectedComparePlayers.length === 2) {
+                const compatibility = topPhilosophies[0].avgScore;
+                if (compatibility >= 9.0) {
+                    insights.push(`⭐ Exceptional tactical compatibility - both players excel in ${topPhilosophies[0].name} systems.`);
+                } else if (compatibility >= 7.5) {
+                    insights.push(`✅ Good tactical fit - complementary strengths in ${topPhilosophies[0].name} approach.`);
+                } else {
+                    insights.push(`⚠️ Different tactical DNA - ${selectedComparePlayers[0].name} suits ${selectedComparePlayers[0].bestPhilosophy}, while ${selectedComparePlayers[1].name} thrives in ${selectedComparePlayers[1].bestPhilosophy}.`);
+                }
+            } else {
+                insights.push(`🎯 Best team philosophy fit: ${topPhilosophies[0].name} (avg score: ${topPhilosophies[0].avgScore.toFixed(1)}/10).`);
+                insights.push(`Alternative systems: ${topPhilosophies[1].name} (${topPhilosophies[1].avgScore.toFixed(1)}/10), ${topPhilosophies[2].name} (${topPhilosophies[2].avgScore.toFixed(1)}/10).`);
+            }
+            
+            return insights.join(' ');
+        }
+        
+        // ============ ENHANCED COMPARISON FUNCTION ============
+        function generateComparison() {
+            if (selectedComparePlayers.length < 2) {
+                alert('Please select at least 2 players to compare');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('comparison-results');
+            resultsDiv.classList.remove('hidden');
+            
+            // Calculate derived metrics for all players
+            const playersWithMetrics = selectedComparePlayers.map(p => ({
+                ...p,
+                components: estimateComponentScores(p),
+                derived: calculateDerivedMetrics(p),
+                analysis: analyzeStrengthsWeaknesses(p)
+            }));
+            
+            // Find best in each category
+            const bestFGA = findBestInCategory(selectedComparePlayers, 'fga');
+            const bestValue = findBestInCategory(selectedComparePlayers, 'value');
+            const bestLongevity = findBestInCategory(selectedComparePlayers, 'longevity');
+            
+            // Generate tactical recommendations
+            const tacticalRecs = generateTacticalRecommendations(selectedComparePlayers);
+            
+            resultsDiv.innerHTML = `
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-6">
+                    <h3 class="text-2xl font-bold mb-6 text-center gradient-text">Enhanced Player Comparison</h3>
+                    
+                    <!-- Radar Chart -->
+                    <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 mb-6">
+                        <h4 class="text-lg font-bold text-blue-300 mb-4 text-center">Performance Profile Visualization</h4>
+                        <div class="flex justify-center">
+                            <canvas id="comparison-radar-chart" width="600" height="400"></canvas>
+                        </div>
+                        <div class="mt-4 text-center text-sm text-slate-400">
+                            <p>Visual comparison across 6 core performance dimensions: Attacking, Passing, Defending, Possession, Intelligence, Physicality</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Player Cards with Enhanced Metrics -->
+                    <div class="grid md:grid-cols-${selectedComparePlayers.length} gap-6 mb-6">
+                        ${playersWithMetrics.map(player => {
+                            const isBestFGA = bestFGA.includes(player.name);
+                            const isBestValue = bestValue.includes(player.name);
+                            const isBestLongevity = bestLongevity.includes(player.name);
+                            
+                            return `
+                            <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6">
+                                <div class="text-center mb-4">
+                                    <div class="text-4xl mb-2">${getPositionIcon(player.position)}</div>
+                                    <h4 class="text-xl font-bold text-white">
+                                        <a href="${player.profileHtml}" target="_blank" class="hover:text-blue-400">${player.name}</a>
+                                    </h4>
+                                    <div class="text-sm text-slate-400 mt-1">${player.position} | ${player.nationality}</div>
+                                </div>
+                                
+                                <!-- Key Metrics -->
+                                <div class="space-y-3 mb-4">
+                                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                                        <span class="text-slate-400">FGA Rating</span>
+                                        <span class="font-bold text-2xl ${isBestFGA ? 'text-green-400' : 'text-blue-400'}">
+                                            ${player.fga.toFixed(1)} ${isBestFGA ? '✓' : ''}
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                                        <span class="text-slate-400">Age</span>
+                                        <span class="font-bold">${player.age} ${player.derived.ageBadge} <span class="text-xs text-slate-500">${player.derived.ageCategory}</span></span>
+                                    </div>
+                                    
+                                    ${player.marketValue > 0 ? `
+                                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                                        <span class="text-slate-400">Market Value</span>
+                                        <span class="font-bold text-green-400">€${(player.marketValue / 1000000).toFixed(1)}M</span>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                                        <span class="text-slate-400">Philosophy</span>
+                                        <span class="font-bold text-xs text-blue-300">${player.bestPhilosophy}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Derived Metrics -->
+                                <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 mb-4">
+                                    <h5 class="text-xs font-bold text-blue-300 mb-2 uppercase">Advanced Metrics</h5>
+                                    <div class="space-y-2 text-sm">
+                                        ${player.derived.valueEfficiency ? `
+                                        <div class="flex justify-between">
+                                            <span class="text-slate-400">Value Efficiency</span>
+                                            <span class="font-bold ${isBestValue ? 'text-green-400' : 'text-white'}">
+                                                ${player.derived.valueEfficiency} ${isBestValue ? '✓' : ''}
+                                            </span>
+                                        </div>
+                                        ` : ''}
+                                        <div class="flex justify-between">
+                                            <span class="text-slate-400">Age-Adjusted FGA</span>
+                                            <span class="font-bold text-white">${player.derived.ageAdjustedRating}</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-slate-400">Elite Years Left</span>
+                                            <span class="font-bold ${isBestLongevity ? 'text-green-400' : 'text-white'}">
+                                                ${player.derived.longevityScore} ${isBestLongevity ? '✓' : ''}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Strengths -->
+                                <div class="mb-3">
+                                    <h5 class="text-xs font-bold text-green-300 mb-2 uppercase">✓ Strengths</h5>
+                                    <ul class="space-y-1">
+                                        ${player.analysis.strengths.map(s => `
+                                            <li class="text-xs text-slate-300">• ${s}</li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                
+                                <!-- Weaknesses -->
+                                <div>
+                                    <h5 class="text-xs font-bold text-yellow-300 mb-2 uppercase">⚠ Weaknesses</h5>
+                                    <ul class="space-y-1">
+                                        ${player.analysis.weaknesses.map(w => `
+                                            <li class="text-xs text-slate-300">• ${w}</li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        `;
+                        }).join('')}
+                    </div>
+                    
+                    <!-- Tactical Recommendations -->
+                    ${tacticalRecs.length > 0 ? `
+                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6 mb-6">
+                        <h4 class="text-lg font-bold text-blue-300 mb-4">🎯 Tactical Recommendations</h4>
+                        <div class="space-y-4">
+                            ${tacticalRecs.map(rec => `
+                                <div class="bg-slate-800/50 rounded-lg p-4">
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-2xl">${rec.icon}</div>
+                                        <div class="flex-1">
+                                            <h5 class="font-bold text-white mb-1">${rec.system}</h5>
+                                            <p class="text-sm text-blue-300 mb-2">Recommended: <span class="font-bold">${rec.recommended}</span></p>
+                                            <p class="text-sm text-slate-300">${rec.reason}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <!-- FGA CORE METRICS COMPARISON -->
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-6">
+                        <h4 class="text-2xl font-bold text-center gradient-text mb-6">⚽ Empire FGA Core Metrics Comparison</h4>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-blue-500/30">
+                                        <th class="text-left py-3 px-2 text-blue-300 font-bold">Metric</th>
+                                        ${playersWithMetrics.map(p => `
+                                            <th class="text-center py-3 px-2 text-white font-bold">${p.name}</th>
+                                        `).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${(() => {
+                                        const fgaMetrics = playersWithMetrics.map(p => calculateFGACoreMetrics(p));
+                                        
+                                        const metricRows = [
+                                            { label: '🎯 ATTACKING METRICS', type: 'header' },
+                                            { label: 'XPS (Enhanced Shooting)', key: 'xps', desc: 'Shot quality & conversion' },
+                                            { label: 'STK (Striking Precision)', key: 'stk', desc: 'Finishing accuracy' },
+                                            { label: 'RDS (Radius of Excellence)', key: 'rds', desc: 'Effective shooting range' },
+                                            { label: 'KEY (Key Passes)', key: 'key', desc: 'Chance creation ability' },
+                                            
+                                            { label: '🎯 PASSING METRICS', type: 'header' },
+                                            { label: 'LGP (Long Pass)', key: 'lgp', desc: 'Long ball accuracy' },
+                                            { label: 'VRP (Vertical Pass)', key: 'vrp', desc: 'Forward passing' },
+                                            { label: 'HZP (Horizontal Pass)', key: 'hzp', desc: 'Lateral distribution' },
+                                            { label: 'UNP (Unpredictability)', key: 'unp', desc: 'Pass variety & creativity' },
+                                            { label: 'DGP (Dangerous Pass)', key: 'dgp', desc: 'High-risk attacking passes' },
+                                            
+                                            { label: '🛡️ DEFENSIVE METRICS', type: 'header' },
+                                            { label: 'MRK (Marking)', key: 'mrk', desc: 'Defensive positioning' },
+                                            { label: 'TAC (Tackling)', key: 'tac', desc: 'Tackle success rate' },
+                                            { label: 'INT (Interceptions)', key: 'int', desc: 'Reading the game' },
+                                            { label: 'CLE (Clearances)', key: 'cle', desc: 'Defensive clearances' },
+                                            { label: 'BLO (Blocks)', key: 'blo', desc: 'Shot/pass blocking' },
+                                            
+                                            { label: '⚡ POSSESSION METRICS', type: 'header' },
+                                            { label: 'CAR (Carrying)', key: 'car', desc: 'Ball carrying ability' },
+                                            { label: 'DRB (Dribbling)', key: 'drb', desc: 'Dribble success rate' },
+                                            
+                                            { label: '🧠 INTELLIGENCE METRICS', type: 'header' },
+                                            { label: 'POI (Position Intelligence)', key: 'poi', desc: 'Spatial awareness' },
+                                            { label: 'CPX (Composure)', key: 'cpx', desc: 'Decision making under pressure' },
+                                            { label: 'MOB (Mobility)', key: 'mob', desc: 'Movement & agility' }
+                                        ];
+                                        
+                                        return metricRows.map(row => {
+                                            if (row.type === 'header') {
+                                                return `
+                                                    <tr class="bg-blue-900/20">
+                                                        <td colspan="${playersWithMetrics.length + 1}" class="py-3 px-2 font-bold text-blue-300 text-center">
+                                                            ${row.label}
+                                                        </td>
+                                                    </tr>
+                                                `;
+                                            }
+                                            
+                                            const values = fgaMetrics.map(m => m[row.key]);
+                                            const maxValue = Math.max(...values);
+                                            
+                                            return `
+                                                <tr class="border-b border-slate-700/50 hover:bg-slate-800/30">
+                                                    <td class="py-2 px-2 text-slate-300">
+                                                        <div class="font-semibold">${row.label}</div>
+                                                        <div class="text-xs text-slate-500">${row.desc}</div>
+                                                    </td>
+                                                    ${fgaMetrics.map(m => {
+                                                        const value = m[row.key];
+                                                        const isBest = value === maxValue && value > 0;
+                                                        const percentage = (value / 10) * 100;
+                                                        
+                                                        return `
+                                                            <td class="py-2 px-2 text-center">
+                                                                <div class="font-bold text-lg ${isBest ? 'text-green-400' : 'text-white'}">
+                                                                    ${value.toFixed(1)} ${isBest ? '✓' : ''}
+                                                                </div>
+                                                                <div class="w-full bg-slate-700 rounded-full h-1 mt-1">
+                                                                    <div class="h-1 rounded-full ${isBest ? 'bg-green-400' : 'bg-blue-400'}" 
+                                                                         style="width: ${percentage}%"></div>
+                                                                </div>
+                                                            </td>
+                                                        `;
+                                                    }).join('')}
+                                                </tr>
+                                            `;
+                                        }).join('');
+                                    })()}
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4 text-center text-xs text-slate-500">
+                            <p>📊 All metrics on 0-10 scale | ✓ = Best in comparison | Based on Empire FGA 779-Metric System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PHILOSOPHY COMPATIBILITY SCORES -->
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-6">
+                        <h4 class="text-2xl font-bold text-center gradient-text mb-6">🧠 Tactical Philosophy Compatibility Scores</h4>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-blue-500/30">
+                                        <th class="text-left py-3 px-2 text-blue-300 font-bold">Philosophy System</th>
+                                        ${playersWithMetrics.map(p => `
+                                            <th class="text-center py-3 px-2 text-white font-bold">${p.name}</th>
+                                        `).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${(() => {
+                                        const philosophyScores = playersWithMetrics.map(p => calculatePhilosophyScores(p));
+                                        const philosophies = Object.keys(philosophyScores[0]);
+                                        
+                                        return philosophies.map(philName => {
+                                            const scores = philosophyScores.map(ps => ps[philName]);
+                                            const maxScore = Math.max(...scores.map(s => s.score));
+                                            
+                                            return `
+                                                <tr class="border-b border-slate-700/50 hover:bg-slate-800/30">
+                                                    <td class="py-3 px-2 text-slate-300">
+                                                        <div class="font-bold text-white">${philName}</div>
+                                                        <div class="text-xs text-slate-500">${scores[0].description}</div>
+                                                        <div class="text-xs text-blue-400 mt-1">Weight: ${scores[0].weight}x</div>
+                                                    </td>
+                                                    ${scores.map((s, idx) => {
+                                                        const isBest = s.score === maxScore && s.score > 0;
+                                                        const isPlayerPhil = playersWithMetrics[idx].bestPhilosophy.includes(philName.split(' ')[0]);
+                                                        const percentage = (s.score / 10) * 100;
+                                                        
+                                                        return `
+                                                            <td class="py-3 px-2 text-center ${isPlayerPhil ? 'bg-blue-900/20' : ''}">
+                                                                <div class="font-bold text-xl ${isBest ? 'text-green-400' : isPlayerPhil ? 'text-blue-400' : 'text-white'}">
+                                                                    ${s.score.toFixed(1)} ${isBest ? '✓' : ''} ${isPlayerPhil ? '⭐' : ''}
+                                                                </div>
+                                                                <div class="text-xs text-slate-400 mb-1">
+                                                                    Weighted: ${s.weightedScore.toFixed(1)}
+                                                                </div>
+                                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                                    <div class="h-2 rounded-full ${isBest ? 'bg-green-400' : isPlayerPhil ? 'bg-blue-400' : 'bg-slate-500'}" 
+                                                                         style="width: ${percentage}%"></div>
+                                                                </div>
+                                                            </td>
+                                                        `;
+                                                    }).join('')}
+                                                </tr>
+                                            `;
+                                        }).join('');
+                                    })()}
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4 text-center text-xs text-slate-500">
+                            <p>⭐ = Player's best philosophy | ✓ = Highest score | Weighted scores account for philosophy importance (1.0-1.45x)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Philosophy Analysis -->
+                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                        <h4 class="font-bold text-blue-300 mb-2">🧠 Philosophy Compatibility Analysis</h4>
+                        <p class="text-sm text-slate-300">${generatePhilosophyInsight()}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Render radar chart
+            renderRadarChart(playersWithMetrics);
+        }
+        
+        // ============ RADAR CHART RENDERING ============
+        function renderRadarChart(players) {
+            const ctx = document.getElementById('comparison-radar-chart');
+            if (!ctx) return;
+            
+            // Destroy existing chart if it exists
+            if (window.comparisonChart) {
+                window.comparisonChart.destroy();
+            }
+            
+            const colors = [
+                { border: '#60a5fa', bg: 'rgba(96, 165, 250, 0.2)' },
+                { border: '#22d3ee', bg: 'rgba(34, 211, 238, 0.2)' },
+                { border: '#10b981', bg: 'rgba(16, 185, 129, 0.2)' },
+                { border: '#f59e0b', bg: 'rgba(245, 158, 11, 0.2)' }
+            ];
+            
+            const datasets = players.map((player, index) => ({
+                label: player.name,
+                data: [
+                    player.components.attacking,
+                    player.components.passing,
+                    player.components.defending,
+                    player.components.possession,
+                    player.components.intelligence,
+                    player.components.physicality
+                ],
+                borderColor: colors[index].border,
+                backgroundColor: colors[index].bg,
+                pointBackgroundColor: colors[index].border,
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: colors[index].border,
+                borderWidth: 2
+            }));
+            
+            window.comparisonChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Attacking', 'Passing', 'Defending', 'Possession', 'Intelligence', 'Physicality'],
+                    labels: ['Attacking', 'Passing', 'Defending', 'Physical', 'Technical', 'Mental'],
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20,
+                                color: '#94a3b8'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.2)'
+                            },
+                            pointLabels: {
+                                color: '#e2e8f0',
+                                font: {
+                                    size: 12,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e2e8f0',
+                                font: {
+                                    size: 13
+                                },
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#60a5fa',
+                            bodyColor: '#e2e8f0',
+                            borderColor: '#60a5fa',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: true
+                        }
+                    }
+                }
             });
         }
+        
 
-        // --- Reset Filters ---
-        function resetFilters() {
-            resetFiltersWithoutReload();
-            filterAndRender();
-        }
-
-        function resetFiltersWithoutReload() {
-            document.getElementById('search-name').value = '';
-            document.getElementById('filter-position').value = 'All';
-            document.getElementById('filter-age').value = 'All';
-            document.getElementById('filter-fga').value = 'All';
-        }
-
-        // --- Export to CSV ---
-        function exportToCSV() {
-            const headers = ['Player Name', 'Position', 'Age', 'Nationality', 'FGA Rating', 'Top Philosophy'];
-            const csvData = [
-                headers.join(','),
-                ...filteredPlayers.map(player => 
-                    `"${player.name}","${player.position}",${player.age},"${player.nationality}",${player.fga},"${player.bestPhilosophy}"`
-                )
-            ].join('\n');
-
-            const blob = new Blob([csvData], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `ESN_Players_${new Date().toISOString().split('T')[0]}.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        // --- Mobile Menu Toggle ---
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            const closeIcon = document.getElementById('close-icon');
+        // MARKET INTELLIGENCE FUNCTIONS
+        function renderMarketIntelligence() {
+            // Filter to only active players (age <= 38) with market value > 0
+            const activePlayers = playerData.filter(p => p.age <= 38 && p.marketValue > 0);
             
-            menu.classList.toggle('active');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            // Calculate value gaps (expected value based on FGA vs actual market value)
+            const playersWithGaps = activePlayers.map(p => {
+                const expectedValue = calculateExpectedValue(p.fga, p.age);
+                const gap = expectedValue - p.marketValue;
+                const gapPercentage = p.marketValue > 0 ? (gap / p.marketValue) * 100 : 0;
+                return { ...p, expectedValue, gap, gapPercentage };
+            });
+            
+            // Filter to undervalued (gap > 20%)
+            const undervalued = playersWithGaps
+                .filter(p => p.gapPercentage > 20)
+                .sort((a, b) => b.gapPercentage - a.gapPercentage)
+                .slice(0, 20);
+            
+            // Update stats
+            document.getElementById('market-stat-undervalued').textContent = undervalued.length;
+            
+            const totalHiddenValue = undervalued.reduce((sum, p) => sum + p.gap, 0);
+            document.getElementById('market-stat-value').textContent = `€${(totalHiddenValue / 1000000).toFixed(0)}M`;
+            
+            const avgGap = undervalued.length > 0 
+                ? (undervalued.reduce((sum, p) => sum + p.gapPercentage, 0) / undervalued.length).toFixed(0)
+                : 0;
+            document.getElementById('market-stat-gap').textContent = `${avgGap}%`;
+            
+            // Render list
+            const listDiv = document.getElementById('undervalued-list');
+            if (undervalued.length === 0) {
+                listDiv.innerHTML = '<p class="text-slate-400 text-center py-8">No undervalued active players found in current database</p>';
+                return;
+            }
+            
+            listDiv.innerHTML = undervalued.map((player, index) => `
+                <div class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800">
+                    <div class="flex items-center gap-4">
+                        <div class="text-2xl font-bold text-blue-400">#${index + 1}</div>
+                        <div>
+                            <div class="font-bold text-white">
+                                <a href="${player.profileHtml}" target="_blank" class="hover:text-blue-400">${player.name}</a>
+                            </div>
+                            <div class="text-sm text-slate-400">${player.position} | ${player.nationality} | Age ${player.age}</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-bold text-green-400">FGA: ${player.fga.toFixed(1)}</div>
+                        <div class="text-sm text-slate-400">Market: €${(player.marketValue / 1000000).toFixed(1)}M</div>
+                        <div class="text-sm text-green-300">Expected: €${(player.expectedValue / 1000000).toFixed(1)}M</div>
+                        <span class="value-badge undervalued">${player.gapPercentage.toFixed(0)}% undervalued</span>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // --- Initial Render ---
+        function calculateExpectedValue(fga, age) {
+            // Age penalty factor
+            let ageFactor = 1.0;
+            if (age <= 21) ageFactor = 0.85;
+            else if (age <= 25) ageFactor = 1.0;
+            else if (age <= 28) ageFactor = 0.95;
+            else if (age <= 31) ageFactor = 0.75;
+            else if (age <= 34) ageFactor = 0.5;
+            else if (age <= 38) ageFactor = 0.3;
+            
+            // Base value from FGA
+            let baseValue;
+            if (fga >= 97) baseValue = 90000000;
+            else if (fga >= 95) baseValue = 65000000;
+            else if (fga >= 93) baseValue = 48000000;
+            else if (fga >= 90) baseValue = 35000000;
+            else if (fga >= 88) baseValue = 25000000;
+            else if (fga >= 85) baseValue = 18000000;
+            else if (fga >= 82) baseValue = 12000000;
+            else if (fga >= 80) baseValue = 8000000;
+            else if (fga >= 77) baseValue = 5000000;
+            else baseValue = 3000000;
+            
+            return Math.round(baseValue * ageFactor);
+        }
+
+        // PHILOSOPHY HEATMAP FUNCTIONS
+        function renderPhilosophyHeatmap() {
+            // Count players by philosophy keywords
+            const philosophyCounts = {};
+            
+            playerData.forEach(player => {
+                const philosophy = player.bestPhilosophy;
+                philosophyCounts[philosophy] = (philosophyCounts[philosophy] || 0) + 1;
+            });
+            
+            // Group by schools
+            const schools = {
+                'Dutch School': ['Cruyff', 'Michels', 'Van Gaal', 'Total'],
+                'Spanish School': ['Guardiola', 'Aragonés', 'Clemente'],
+                'Italian School': ['Sacchi', 'Lippi', 'Capello', 'Trapattoni', 'Ancelotti', 'Herrera', 'Catenaccio'],
+                'English School': ['Ferguson', 'Shankly', 'Paisley', 'Clough', 'Busby'],
+                'German School': ['Heynckes', 'Beckenbauer', 'Cramer', 'Hitzfeld'],
+                'French School': ['Wenger', 'Platini', 'Deschamps', 'Fontaine'],
+                'South American': ['Menotti', 'Bilardo', 'Bielsa', 'Simeone', 'Zagallo', 'Santana', 'JogoBonito'],
+                'Modern/Other': ['Mourinho', 'Klopp', 'Conte', 'Pochettino', 'Inzaghi', 'Yashin']
+            };
+            
+            const heatmapDiv = document.getElementById('philosophy-heatmap');
+            let html = '<div class="overflow-x-auto"><table class="w-full">';
+            html += '<thead><tr class="border-b border-blue-500/30">';
+            html += '<th class="p-3 text-left text-blue-300">School</th>';
+            html += '<th class="p-3 text-center text-blue-300">Philosophy Keywords</th>';
+            html += '<th class="p-3 text-center text-blue-300">Player Count</th>';
+            html += '</tr></thead><tbody>';
+            
+            Object.entries(schools).forEach(([school, keywords]) => {
+                // Count players matching this school's keywords
+                let schoolCount = 0;
+                const matchedPhilosophies = [];
+                
+                Object.entries(philosophyCounts).forEach(([philosophy, count]) => {
+                    if (keywords.some(keyword => philosophy.includes(keyword))) {
+                        schoolCount += count;
+                        matchedPhilosophies.push(`${philosophy} (${count})`);
+                    }
+                });
+                
+                const intensity = Math.min(schoolCount / 50, 1);
+                
+                html += `<tr class="border-b border-slate-700/50">`;
+                html += `<td class="p-3 font-bold text-white">${school}</td>`;
+                html += `<td class="p-3 text-sm text-slate-400">${matchedPhilosophies.slice(0, 5).join(', ')}${matchedPhilosophies.length > 5 ? '...' : ''}</td>`;
+                html += `<td class="p-3 text-center">`;
+                html += `<div class="heatmap-cell" style="background: rgba(59, 130, 246, ${intensity}); border: 1px solid rgba(59, 130, 246, ${intensity + 0.2});">`;
+                html += `${schoolCount}`;
+                html += `</div></td></tr>`;
+            });
+            
+            html += '</tbody></table></div>';
+            html += `<div class="mt-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+                <p class="text-sm text-slate-300">
+                    <strong class="text-blue-300">💡 Insight:</strong> 
+                    This heatmap shows the distribution of your ${playerData.length} players across major tactical schools. 
+                    Darker cells indicate higher player concentration in that philosophical tradition.
+                </p>
+            </div>`;
+            
+            heatmapDiv.innerHTML = html;
+        }
+
+        // SQUAD BUILDER FUNCTIONS
+        function initializeSquadBuilder() {
+            renderFormation('4-3-3');
+        }
+
+        function selectFormation(formation) {
+            currentFormation = formation;
+            document.querySelectorAll('.formation-selector').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderFormation(formation);
+        }
+
+        function renderFormation(formation) {
+            const pitch = document.getElementById('pitch');
+            const formations = {
+                '4-3-3': [
+                    { pos: 'GK', x: 50, y: 90, idx: 0 },
+                    { pos: 'LB', x: 15, y: 70, idx: 1 }, { pos: 'CB', x: 35, y: 75, idx: 2 }, 
+                    { pos: 'CB', x: 65, y: 75, idx: 3 }, { pos: 'RB', x: 85, y: 70, idx: 4 },
+                    { pos: 'CM', x: 30, y: 50, idx: 5 }, { pos: 'CM', x: 50, y: 48, idx: 6 }, { pos: 'CM', x: 70, y: 50, idx: 7 },
+                    { pos: 'LW', x: 15, y: 20, idx: 8 }, { pos: 'ST', x: 50, y: 15, idx: 9 }, { pos: 'RW', x: 85, y: 20, idx: 10 }
+                ],
+                '4-4-2': [
+                    { pos: 'GK', x: 50, y: 90, idx: 0 },
+                    { pos: 'LB', x: 15, y: 70, idx: 1 }, { pos: 'CB', x: 35, y: 75, idx: 2 }, 
+                    { pos: 'CB', x: 65, y: 75, idx: 3 }, { pos: 'RB', x: 85, y: 70, idx: 4 },
+                    { pos: 'LM', x: 15, y: 45, idx: 5 }, { pos: 'CM', x: 38, y: 50, idx: 6 }, 
+                    { pos: 'CM', x: 62, y: 50, idx: 7 }, { pos: 'RM', x: 85, y: 45, idx: 8 },
+                    { pos: 'ST', x: 38, y: 15, idx: 9 }, { pos: 'ST', x: 62, y: 15, idx: 10 }
+                ],
+                '3-5-2': [
+                    { pos: 'GK', x: 50, y: 90, idx: 0 },
+                    { pos: 'CB', x: 25, y: 75, idx: 1 }, { pos: 'CB', x: 50, y: 78, idx: 2 }, { pos: 'CB', x: 75, y: 75, idx: 3 },
+                    { pos: 'LWB', x: 10, y: 55, idx: 4 }, { pos: 'CM', x: 30, y: 50, idx: 5 }, 
+                    { pos: 'CM', x: 50, y: 48, idx: 6 }, { pos: 'CM', x: 70, y: 50, idx: 7 }, { pos: 'RWB', x: 90, y: 55, idx: 8 },
+                    { pos: 'ST', x: 38, y: 15, idx: 9 }, { pos: 'ST', x: 62, y: 15, idx: 10 }
+                ],
+                '4-2-3-1': [
+                    { pos: 'GK', x: 50, y: 90, idx: 0 },
+                    { pos: 'LB', x: 15, y: 70, idx: 1 }, { pos: 'CB', x: 35, y: 75, idx: 2 }, 
+                    { pos: 'CB', x: 65, y: 75, idx: 3 }, { pos: 'RB', x: 85, y: 70, idx: 4 },
+                    { pos: 'DM', x: 38, y: 55, idx: 5 }, { pos: 'DM', x: 62, y: 55, idx: 6 },
+                    { pos: 'LM', x: 20, y: 35, idx: 7 }, { pos: 'AM', x: 50, y: 30, idx: 8 }, { pos: 'RM', x: 80, y: 35, idx: 9 },
+                    { pos: 'ST', x: 50, y: 15, idx: 10 }
+                ],
+                '3-4-3': [
+                    { pos: 'GK', x: 50, y: 90, idx: 0 },
+                    { pos: 'CB', x: 25, y: 75, idx: 1 }, { pos: 'CB', x: 50, y: 78, idx: 2 }, { pos: 'CB', x: 75, y: 75, idx: 3 },
+                    { pos: 'LM', x: 15, y: 50, idx: 4 }, { pos: 'CM', x: 38, y: 50, idx: 5 }, 
+                    { pos: 'CM', x: 62, y: 50, idx: 6 }, { pos: 'RM', x: 85, y: 50, idx: 7 },
+                    { pos: 'LW', x: 20, y: 20, idx: 8 }, { pos: 'ST', x: 50, y: 15, idx: 9 }, { pos: 'RW', x: 80, y: 20, idx: 10 }
+                ]
+            };
+            
+            // Clear existing positions
+            pitch.querySelectorAll('.pitch-position').forEach(el => el.remove());
+            
+            // Add new positions
+            formations[formation].forEach((pos) => {
+                const div = document.createElement('div');
+                div.className = 'pitch-position';
+                div.style.left = `${pos.x}%`;
+                div.style.top = `${pos.y}%`;
+                div.style.transform = 'translate(-50%, -50%)';
+                div.dataset.posidx = pos.idx;
+                
+                // Check if this position has a player assigned
+                const assignedPlayer = selectedSquadPlayers.find(p => p.positionIdx === pos.idx);
+                if (assignedPlayer) {
+                    div.classList.add('filled');
+                    div.innerHTML = `<div style="font-size: 9px;">${assignedPlayer.name.split(' ').pop()}</div><div>${pos.pos}</div>`;
+                } else {
+                    div.innerHTML = pos.pos;
+                }
+                
+                div.onclick = () => selectSquadPosition(pos.idx, pos.pos);
+                pitch.appendChild(div);
+            });
+            
+            updateSquadStats();
+        }
+
+        let currentlySelectingForPosition = null;
+
+        function selectSquadPosition(idx, posName) {
+            currentlySelectingForPosition = { idx, posName };
+            alert(`Position ${posName} selected. Search for a player to assign to this position, or click the player card to assign them here.`);
+        }
+
+        function searchForSquad(query) {
+            const results = document.getElementById('squad-search-results');
+            if (!query) {
+                results.innerHTML = '<p class="text-slate-400 text-sm">Search for players to add to your squad</p>';
+                return;
+            }
+            
+            const matches = playerData.filter(p => 
+                p.name.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 8);
+            
+            results.innerHTML = matches.map(player => `
+                <div class="player-card" onclick="assignToSquad('${player.name.replace(/'/g, "\\'")}')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-sm">${player.name}</div>
+                            <div class="text-xs text-slate-400">${player.position} | FGA: ${player.fga.toFixed(1)}</div>
+                        </div>
+                        <button class="bg-green-600 px-2 py-1 rounded text-xs">Add</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function assignToSquad(playerName) {
+            const player = playerData.find(p => p.name === playerName);
+            if (!player) return;
+            
+            if (!currentlySelectingForPosition) {
+                alert('Please select a position on the pitch first by clicking on a position circle.');
+                return;
+            }
+            
+            // Remove player from this position if already assigned
+            selectedSquadPlayers = selectedSquadPlayers.filter(p => p.positionIdx !== currentlySelectingForPosition.idx);
+            
+            // Assign player to this position
+            selectedSquadPlayers.push({
+                ...player,
+                positionIdx: currentlySelectingForPosition.idx,
+                positionName: currentlySelectingForPosition.posName
+            });
+            
+            currentlySelectingForPosition = null;
+            renderFormation(currentFormation);
+            updateSquadStats();
+        }
+
+        function updateSquadStats() {
+            document.getElementById('squad-count').textContent = selectedSquadPlayers.length;
+            
+            if (selectedSquadPlayers.length > 0) {
+                const avgFga = selectedSquadPlayers.reduce((sum, p) => sum + p.fga, 0) / selectedSquadPlayers.length;
+                document.getElementById('squad-avg-fga').textContent = avgFga.toFixed(1);
+                
+                // Calculate chemistry based on philosophy diversity
+                const philosophies = selectedSquadPlayers.map(p => p.bestPhilosophy);
+                const uniquePhilosophies = new Set(philosophies).size;
+                const chemistry = Math.max(0, Math.min(100, 100 - (uniquePhilosophies - 1) * 12));
+                document.getElementById('squad-chemistry').textContent = chemistry.toFixed(0) + '%';
+            } else {
+                document.getElementById('squad-avg-fga').textContent = '--';
+                document.getElementById('squad-chemistry').textContent = '--';
+            }
+        }
+
+        function clearSquad() {
+            if (confirm('Clear all players from squad?')) {
+                selectedSquadPlayers = [];
+                currentlySelectingForPosition = null;
+                renderFormation(currentFormation);
+                updateSquadStats();
+            }
+        }
+
+        // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
-            filterAndRender();
-            updateSortIndicators();
+            console.log('====== DOM LOADED ======');
+            console.log('About to initialize...');
+            
+            filteredPlayers = [...playerData];
+            updateStats();
+            renderTable();
         });
 
     </script>
