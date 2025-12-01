@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanel Saljic — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+            margin-top: 16px
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        @media (max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://fk-austria.at/uploads/News-Titelbilder/2025/10/_800x418_crop_center-center_82_none/Sanel-Saljic.jpg?mtime=1761058181"
+                    alt="Sanel Saljic" class="photo">
+                <div class="title">Sanel Saljic</div>
+                <div class="sub">FK Austria Wien • Midfielder #20 • Bosnia-Herzegovina • Youth Prospect</div>
+                <div class="rating-badge">84.0</div>
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom:10px"><span class="stat-value">⭐ U19</span><span
+                            class="stat-label">Youth Talent</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Nov 27,
+                            2005 (19)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span
+                            class="info-value">Bosnia-Herzegovina</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Midfielder
+                            (CM)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.77m
+                            (5'10")</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                    <div class="info-row"><span class="info-label">Jersey Number</span><span
+                            class="info-value">#20</span></div>
+                </div>
+                <div class="section">
+                    <h3>2024-25 Season Status</h3>
+                    <div class="info-row"><span class="info-label">Club</span><span class="info-value">FK Austria
+                            Wien</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Central
+                            Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Injury (Nov
+                            2025)</span></div>
+                    <div class="info-row"><span class="info-label">Squad Role</span><span class="info-value">2024-25
+                            Squad Member</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Sanel Saljic, born November 27, 2005 (19 years old), is FK Austria Wien's promising
+                    central midfielder wearing jersey #20. Standing 1.77m (5'10") and favoring his left foot, he
+                    represents Bosnia-Herzegovina's emerging midfield talent. Currently part of Austria Wien's 2024-25
+                    Bundesliga squad, the teenager plays as a central midfielder (CM) and is developing within one of
+                    Austria's most prestigious clubs. His journey to Austria Wien showcases dedication to reaching elite
+                    level, while his youth (just 19) indicates significant development runway ahead. Notably listed with
+                    a knee injury in November 2025, which temporarily interrupted his progression. Despite the setback,
+                    his inclusion in Austria Wien's senior squad during his teenage years demonstrates the club's faith
+                    in his potential. As a left-footed central midfielder, he offers technical quality and tactical
+                    versatility rare for his age. The Bosnian international pathway opens as he continues development.
+                    At 19, in Austria Wien's system with jersey #20, Saljic represents the next generation of Balkans
+                    midfield talent aiming to make their mark in European football.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Key Strengths:</strong> Young Prospect (19
+                    Years Old) • FK Austria Wien Squad • Left-Footed Midfielder • Jersey #20 • Central Midfield
+                    Specialist • Bosnian Talent • Austrian Bundesliga Experience • Development Potential</div>
+            </div>
+            <div class="card">
+                                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77.3%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Strike Quality)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Radar Shot)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75.6%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76.7%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78.5%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78.5%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 79.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">7.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 70.6%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">6.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 65.4%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">6.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 67.8%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76.7%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">7.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 70.6%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 69.7%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carrying)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77.9%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76.4%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85.3%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 69.5%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                </div>
+            <div class="card">
+                                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom: 12px;">Sanel Saljic's tactical DNA mapped across legendary coaching philosophies.</p>
+
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Guardiola Positional 10.0/10</span>
+                    <span class="pill">Michels Total 8.9/10</span>
+                    <span class="pill">Cruyff Intelligence 8.3/10</span>
+                    <span class="pill">Ferguson Mental 7.4/10</span>
+                    <span class="pill">Klopp Intensity 7.1/10</span>
+                    <span class="pill">Sacchi Pressing 6.5/10</span>
+                    <span class="pill">Menotti Artistry 6.4/10</span>
+                    <span class="pill">Simeone Cholismo 6.3/10</span>
+                    <span class="pill">Mourinho Tactical 5.7/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">INFP (Mediator)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Technical
+                                Midfielder</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Potential</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Learning Ability</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">Young technical midfielder (19) developing at FK Austria Wien. Left-footed
+                            central midfielder with strong technique (8.3) and passing (8.2). Jersey #20 representing
+                            emerging status. Knee injury in November 2025 temporary setback. Bosnia-Herzegovina
+                            international pathway open. High potential (8.7) suggests bright future if development
+                            continues. At critical age for progression.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Relationships & Dynamics</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">FK Austria Wien (Current)</div>
+                    <div class="timeline-event">Part of FK Austria Wien's 2024-25 Austrian Bundesliga squad. Jersey #20.
+                        Central midfielder developing in one of Austria's most prestigious clubs.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Bosnia-Herzegovina Pathway</div>
+                    <div class="timeline-event">Bosnian nationality opens international pathway. At 19, positioned for
+                        potential youth and senior national team call-ups as career progresses.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2025 | Injury</div>
+                    <div class="timeline-event">Suffered knee injury interrupting 2024-25 season progression. Temporary
+                        setback in development but part of learning process for young professional.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Development Focus</div>
+                    <div class="timeline-event">At just 19, in critical development phase. Austria Wien providing
+                        platform to progress technical and tactical abilities in competitive Bundesliga environment.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Development</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Current Club</strong></td>
+                            <td>FK Austria Wien</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Position</strong></td>
+                            <td>Central Midfielder (CM)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jersey Number</strong></td>
+                            <td>#20</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Season</strong></td>
+                            <td>2024-25 Austrian Bundesliga</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status</strong></td>
+                            <td>Knee Injury (November 2025)</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Profile:</strong> 19-year-old Bosnian midfielder, 1.77m,
+                                left-footed, developing at prestigious Austrian club</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Development Focus</h3>
+                <div class="two-col">
+                    <div class="stat-box"><span class="stat-value">19</span><span class="stat-label">Years Old</span>
+                    </div>
+                    <div class="stat-box"><span class="stat-value">8.7</span><span class="stat-label">Potential
+                            Rating</span></div>
+                    <div class="stat-box"><span class="stat-value">#20</span><span class="stat-label">Jersey
+                            Number</span></div>
+                    <div class="stat-box"><span class="stat-value">🇧🇦</span><span
+                            class="stat-label">Bosnia-Herzegovina</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚡ Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 27, 2005 | Birth (Bosnia-Herzegovina)</div>
+                    <div class="timeline-event">Born in Bosnia-Herzegovina. Future central midfielder with left-footed
+                        technical quality.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Development</div>
+                    <div class="timeline-event">Progressed through youth football system, developing technical skills
+                        and tactical understanding as left-footed central midfielder.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">FK Austria Wien Arrival</div>
+                    <div class="timeline-event">Joined FK Austria Wien, one of Austria's most prestigious clubs.
+                        Assigned jersey #20. Opportunity to develop in Austrian Bundesliga environment.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024-25 Season | Bundesliga Squad</div>
+                    <div class="timeline-event">Part of FK Austria Wien's 2024-25 Austrian Bundesliga squad. At 19,
+                        gaining professional experience in competitive league.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2025 | Knee Injury</div>
+                    <div class="timeline-event">Suffered knee injury that temporarily interrupted 2024-25 season.
+                        Learning resilience and professional rehabilitation process.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Austrian Bundesliga Midfielders)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width:100%;max-height:100%"></canvas>
+                </div>
+                <p class="small" style="text-align:center;margin-top:12px">Comparing Saljic vs Austrian Bundesliga Young
+                    Midfielders</p>
+            </div>
+            <div class="card">
+                <h2>🎥 Development Highlights</h2>
+                <p class="small">FK Austria Wien midfielder development.</p>
+                <div class="muted-box" style="margin-top:12px;padding:24px">
+                    <h3 style="color:var(--accent2);margin-bottom:16px">Development Profile</h3>
+                    <div style="margin-bottom:16px">
+                        <p style="color:var(--white);font-weight:700;margin-bottom:8px">🎯 Technical Quality</p>
+                        <p class="small">Left-footed central midfielder with strong passing (8.2) and technique (8.3).
+                            Technical foundation for higher levels.</p>
+                    </div>
+                    <div style="margin-bottom:16px">
+                        <p style="color:var(--white);font-weight:700;margin-bottom:8px">⚽ Position & Style</p>
+                        <p class="small">Central midfielder (CM) wearing #20 jersey. Versatile midfield operator capable
+                            of playing multiple roles.</p>
+                    </div>
+                    <div style="margin-bottom:16px">
+                        <p style="color:var(--white);font-weight:700;margin-bottom:8px">📈 Potential</p>
+                        <p class="small">High potential rating (8.7) at just 19 years old. Critical development phase in
+                            Austrian Bundesliga environment.</p>
+                    </div>
+                    <div>
+                        <p style="color:var(--white);font-weight:700;margin-bottom:8px">🇧🇦 International Pathway</p>
+                        <p class="small">Bosnia-Herzegovina international pathway open. Potential youth and senior
+                            call-ups as career develops.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">19 (Nov 27,
+                                2005)</span></div>
+                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.77m
+                                (5'10")</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Midfielder (CM)</span></div>
+                        <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Status</h3>
+                        <div class="info-row"><span class="info-label">Club</span><span class="info-value">FK Austria
+                                Wien</span></div>
+                        <div class="info-row"><span class="info-label">Jersey</span><span class="info-value">#20</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">Bosnia-Herzegovina 🇧🇦</span></div>
+                        <div class="info-row"><span class="info-label">Potential</span><span
+                                class="info-value">8.7/10</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Data validated from FK Austria Wien sources</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Passing', 'Technique', 'Dribbling', 'Work Rate', 'Vision', 'Creativity', 'Potential', 'Learning'],
+                datasets: [{
+                    label: 'S. Saljic',
+                    data: [8.2, 8.3, 8.1, 8.2, 8.0, 8.0, 8.7, 8.4],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } },
+                    tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
