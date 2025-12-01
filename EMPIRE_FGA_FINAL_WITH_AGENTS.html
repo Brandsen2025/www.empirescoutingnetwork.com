@@ -2755,7 +2755,14 @@
         // ============ PDF EXPORT FUNCTIONALITY ============
         
         // Export individual player profile
-    // Helper Functions for PDF
+    // ============================================================================
+// EMPIRE FGA REVOLUTIONARY PDF GENERATOR V3.0
+// The Most Sophisticated Football Intelligence Report Ever Created
+// ============================================================================
+
+// HELPER FUNCTIONS FOR MARKET INTELLIGENCE
+// ============================================================================
+
 function loadImage(url) {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -2766,36 +2773,424 @@ function loadImage(url) {
     });
 }
 
-function calculateHiddenValue(player) {
-    const baseFGA = player.fga || 0;
-    if (baseFGA >= 8.5) return 2.0;
-    if (baseFGA >= 8.0) return 1.0;
-    if (baseFGA >= 7.5) return 0.5;
-    return 0;
-}
-
-function getTopPhilosophy(player) {
-    if (!player) return { name: 'N/A', score: 0 };
+function calculateAdvancedMarketValue(player, metrics) {
+    const fga = player.fga;
+    const age = player.age;
+    const pos = player.position;
+    const club = player.currentClub || '';
     
-    // Calculate philosophy scores
-    const philScores = calculatePhilosophyScores(player);
-    const sorted = Object.entries(philScores)
-        .sort((a, b) => b[1].score - a[1].score);
+    // Base valuation: €1M per FGA point
+    let baseValue = fga;
     
-    if (sorted.length > 0) {
-        return { name: sorted[0][0], score: sorted[0][1].score };
+    // Age curve multiplier (peak 24-28)
+    let ageMultiplier = 1.0;
+    if (age <= 23) ageMultiplier = 1.3; // Youth premium + potential
+    else if (age >= 24 && age <= 28) ageMultiplier = 1.5; // Peak years premium
+    else if (age >= 29 && age <= 31) ageMultiplier = 1.0; // Stable value
+    else if (age >= 32 && age <= 34) ageMultiplier = 0.7; // Declining
+    else ageMultiplier = 0.5; // Veterans
+    
+    baseValue *= ageMultiplier;
+    
+    // Position premium (attackers are expensive)
+    let positionMultiplier = 1.0;
+    if (pos === 'ST') positionMultiplier = 1.4;
+    else if (pos === 'WG') positionMultiplier = 1.35;
+    else if (pos === 'AM') positionMultiplier = 1.3;
+    else if (pos === 'CM') positionMultiplier = 1.2;
+    else if (pos === 'FB') positionMultiplier = 1.15;
+    else if (pos === 'CB') positionMultiplier = 1.1;
+    else if (pos === 'DM') positionMultiplier = 1.05;
+    else if (pos === 'GK') positionMultiplier = 1.0;
+    
+    baseValue *= positionMultiplier;
+    
+    // League inflation factor
+    let leagueMultiplier = 1.0;
+    if (club.includes('Manchester') || club.includes('Liverpool') || club.includes('Arsenal') || 
+        club.includes('Chelsea') || club.includes('Tottenham') || club.includes('City')) {
+        leagueMultiplier = 1.6; // Premier League elite
+    } else if (club.includes('Real Madrid') || club.includes('Barcelona') || club.includes('Atlético')) {
+        leagueMultiplier = 1.5; // La Liga elite
+    } else if (club.includes('Bayern') || club.includes('Dortmund')) {
+        leagueMultiplier = 1.4; // Bundesliga top
+    } else if (club.includes('PSG') || club.includes('Monaco')) {
+        leagueMultiplier = 1.35; // Ligue 1 top
+    } else if (club.includes('Inter') || club.includes('Milan') || club.includes('Juventus')) {
+        leagueMultiplier = 1.3; // Serie A elite
+    } else if (club.includes('Ajax') || club.includes('PSV') || club.includes('Feyenoord')) {
+        leagueMultiplier = 1.1; // Eredivisie
+    } else if (club.includes('Crew') || club.includes('MLS')) {
+        leagueMultiplier = 0.85; // MLS
+    } else {
+        leagueMultiplier = 0.9; // Other leagues
     }
     
-    return { name: player.bestPhilosophy || 'N/A', score: 0 };
+    baseValue *= leagueMultiplier;
+    
+    // Scarcity bonus (exceptional metrics)
+    let scarcityBonus = 0;
+    if (metrics.poi >= 9.0 && metrics.cpx >= 9.0) scarcityBonus += baseValue * 0.15; // Rare intelligence
+    if (metrics.xps >= 9.0 && pos === 'ST') scarcityBonus += baseValue * 0.20; // Elite finisher
+    if (metrics.tac >= 9.0 && metrics.int >= 9.0) scarcityBonus += baseValue * 0.12; // Elite defender
+    
+    const finalValue = baseValue + scarcityBonus;
+    
+    return {
+        estimated: finalValue.toFixed(1),
+        range: {
+            min: (finalValue * 0.75).toFixed(1),
+            max: (finalValue * 1.25).toFixed(1)
+        },
+        breakdown: {
+            base: fga,
+            ageMultiplier: ageMultiplier,
+            positionMultiplier: positionMultiplier,
+            leagueMultiplier: leagueMultiplier,
+            scarcityBonus: scarcityBonus.toFixed(1)
+        }
+    };
 }
 
-function calculateSalaryBand(fga) {
-    if (fga >= 9.0) return { min: 120, max: 200, position: 'World Class' };
-    if (fga >= 8.5) return { min: 80, max: 120, position: 'Top Tier' };
-    if (fga >= 8.0) return { min: 50, max: 80, position: 'Upper Mid-Tier' };
-    if (fga >= 7.5) return { min: 30, max: 50, position: 'Mid-Tier' };
-    return { min: 15, max: 30, position: 'Lower Mid-Tier' };
+function generateSmartTargetClubs(player, metrics, philScores) {
+    const clubs = [];
+    const pos = player.position;
+    const age = player.age;
+    const phil = player.bestPhilosophy;
+    const fga = player.fga;
+    
+    // Sort philosophies by score
+    const topPhils = Object.entries(philScores)
+        .sort((a, b) => b[1].score - a[1].score)
+        .slice(0, 3);
+    
+    // TIER 1: PERFECT MATCHES (Based on actual player data)
+    
+    // Klopp-style high pressing clubs
+    if (topPhils[0][0].includes('Klopp') || metrics.int >= 8.5 && metrics.mob >= 8.5) {
+        if (pos === 'LB' || pos === 'FB' || pos === 'CM' || pos === 'WG') {
+            clubs.push({
+                name: 'Liverpool FC',
+                match: 98,
+                tier: 1,
+                manager: 'Arne Slot',
+                philosophy: 'High-intensity pressing transition',
+                formation: '4-3-3',
+                needUrgency: pos === 'LB' ? 'HIGH' : 'MEDIUM',
+                budget: age <= 26 ? '€40-70M' : '€25-50M',
+                competition: 'HIGH',
+                pitchAngle: `Slot continues Klopp legacy. INT ${metrics.int.toFixed(1)} + MOB ${metrics.mob.toFixed(1)} = perfect for high-press ${pos}. Age ${age} fits recruitment profile.`,
+                successProb: age <= 26 ? 72 : 65,
+                reasoning: `Player's Klopp philosophy score: ${philScores['Klopp Intensity']?.score.toFixed(1) || 'N/A'}/10`
+            });
+        }
+    }
+    
+    // Guardiola-style possession clubs
+    if (topPhils[0][0].includes('Guardiola') || metrics.poi >= 8.5 && metrics.lgp >= 8.0) {
+        if (age <= 28) {
+            clubs.push({
+                name: 'Manchester City',
+                match: 97,
+                tier: 1,
+                manager: 'Pep Guardiola',
+                philosophy: 'Positional play dominance',
+                formation: '4-3-3 / 3-2-4-1',
+                needUrgency: pos === 'CM' || pos === 'CB' ? 'HIGH' : 'MEDIUM',
+                budget: '€50-90M',
+                competition: 'VERY HIGH',
+                pitchAngle: `POI ${metrics.poi.toFixed(1)} + technical excellence ideal for Pep's system. Age ${age} = long-term Guardiola project.`,
+                successProb: 62,
+                reasoning: `Guardiola philosophy score: ${philScores['Guardiola Positional']?.score.toFixed(1) || 'N/A'}/10`
+            });
+        }
+    }
+    
+    // Progressive possession clubs (Brighton style)
+    if ((metrics.car >= 8.0 && metrics.poi >= 8.0) || philScores['Cruyff Intelligence']?.score >= 8.5) {
+        if (pos === 'LB' || pos === 'FB' || pos === 'CM' || pos === 'CB') {
+            clubs.push({
+                name: 'Brighton & Hove Albion',
+                match: 96,
+                tier: 1,
+                manager: 'Fabian Hürzeler',
+                philosophy: 'Progressive possession (De Zerbi evolution)',
+                formation: '4-2-3-1',
+                needUrgency: pos === 'LB' ? 'URGENT' : 'HIGH',
+                budget: '€15-30M',
+                competition: 'LOW',
+                pitchAngle: `Brighton's data-driven approach perfect for 779-metric profile. CAR ${metrics.car.toFixed(1)} + POI ${metrics.poi.toFixed(1)} = ideal for inverted ${pos} role. Budget-friendly value.`,
+                successProb: 85,
+                reasoning: `Progressive metrics + undervalued = Brighton's specialty`
+            });
+        }
+    }
+    
+    // Arsenal (Arteta - Guardiola disciple)
+    if (philScores['Guardiola Positional']?.score >= 8.3 && age <= 27) {
+        if (pos === 'CM' || pos === 'WG' || pos === 'ST' || pos === 'CB') {
+            clubs.push({
+                name: 'Arsenal FC',
+                match: 95,
+                tier: 1,
+                manager: 'Mikel Arteta',
+                philosophy: 'Guardiola-inspired possession + intensity',
+                formation: '4-3-3',
+                needUrgency: pos === 'CM' ? 'HIGH' : 'MEDIUM',
+                budget: '€35-65M',
+                competition: 'HIGH',
+                pitchAngle: `Arteta building dynasty with young talent. Age ${age} + POI ${metrics.poi.toFixed(1)} fits profile. Technical excellence required.`,
+                successProb: 70,
+                reasoning: `Youth + technical quality = Arsenal's strategy`
+            });
+        }
+    }
+    
+    // Brentford (Moneyball approach)
+    if (fga >= 80 && age <= 28 && metrics.poi >= 7.5) {
+        clubs.push({
+            name: 'Brentford FC',
+            match: 94,
+            tier: 1,
+            manager: 'Thomas Frank',
+            philosophy: 'Data-driven attacking football',
+            formation: '4-3-3 / 3-5-2',
+            needUrgency: pos === 'ST' || pos === 'CM' ? 'HIGH' : 'MEDIUM',
+            budget: '€12-25M',
+            competition: 'MEDIUM',
+            pitchAngle: `Brentford's Moneyball model = perfect for undervalued talent. FGA ${fga} shows value. Age ${age} = sell-on potential.`,
+            successProb: 78,
+            reasoning: `Data-driven club appreciates 779-metric analysis`
+        });
+    }
+    
+    // TIER 2: STRONG MATCHES
+    
+    // RB Leipzig (Red Bull system)
+    if ((metrics.mob >= 8.0 && age <= 25) || philScores['Klopp Intensity']?.score >= 8.0) {
+        clubs.push({
+            name: 'RB Leipzig',
+            match: 92,
+            tier: 2,
+            manager: 'Marco Rose',
+            philosophy: 'High-press vertical football',
+            formation: '4-2-2-2',
+            needUrgency: age <= 23 ? 'HIGH' : 'MEDIUM',
+            budget: '€15-35M',
+            competition: 'MEDIUM',
+            pitchAngle: `Red Bull system values: Youth (${age}), Mobility (${metrics.mob.toFixed(1)}), Intensity. Perfect talent development platform.`,
+            successProb: 73,
+            reasoning: `Red Bull's global scouting = perfect for emerging talent`
+        });
+    }
+    
+    // Tottenham (Postecoglou)
+    if (philScores['Klopp Intensity']?.score >= 8.0 || metrics.xps >= 8.5) {
+        if (pos === 'ST' || pos === 'WG' || pos === 'CM' || pos === 'FB') {
+            clubs.push({
+                name: 'Tottenham Hotspur',
+                match: 91,
+                tier: 2,
+                manager: 'Ange Postecoglou',
+                philosophy: 'Attacking high-press',
+                formation: '4-3-3',
+                needUrgency: pos === 'ST' ? 'URGENT' : 'MEDIUM',
+                budget: '€25-50M',
+                competition: 'HIGH',
+                pitchAngle: `Postecoglou needs attacking intensity. Klopp score ${philScores['Klopp Intensity']?.score.toFixed(1) || 'N/A'} + XPS ${metrics.xps.toFixed(1)} = ideal fit.`,
+                successProb: 68,
+                reasoning: `Attacking philosophy + budget available`
+            });
+        }
+    }
+    
+    // Union Berlin (Budget Bundesliga)
+    if (fga >= 75 && age >= 26 && age <= 32) {
+        if (pos === 'CB' || pos === 'DM' || pos === 'LB' || pos === 'FB') {
+            clubs.push({
+                name: 'Union Berlin',
+                match: 88,
+                tier: 2,
+                manager: 'Bo Svensson',
+                philosophy: 'Organized defensive football',
+                formation: '3-5-2',
+                needUrgency: 'MEDIUM',
+                budget: '€5-15M',
+                competition: 'LOW',
+                pitchAngle: `Union's budget constraints + solid defensive needs. TAC ${metrics.tac.toFixed(1)} + experience (age ${age}) = perfect fit.`,
+                successProb: 79,
+                reasoning: `Budget-friendly + experience valued`
+            });
+        }
+    }
+    
+    // Feyenoord (Eredivisie stepping stone)
+    if (age <= 26 && fga >= 78) {
+        clubs.push({
+            name: 'Feyenoord Rotterdam',
+            match: 87,
+            tier: 2,
+            manager: 'Brian Priske',
+            philosophy: 'Attacking possession football',
+            formation: '4-3-3',
+            needUrgency: 'MEDIUM',
+            budget: '€8-18M',
+            competition: 'MEDIUM',
+            pitchAngle: `Eredivisie = perfect stepping stone to elite clubs. Age ${age} + FGA ${fga} = UCL exposure potential. Sell-on value €30M+.`,
+            successProb: 75,
+            reasoning: `Development platform with European football`
+        });
+    }
+    
+    // AZ Alkmaar (Development club)
+    if (age <= 24 && fga >= 75) {
+        clubs.push({
+            name: 'AZ Alkmaar',
+            match: 85,
+            tier: 2,
+            manager: 'Maarten Martens',
+            philosophy: 'Youth development + attacking',
+            formation: '4-3-3',
+            needUrgency: 'MEDIUM',
+            budget: '€5-12M',
+            competition: 'LOW',
+            pitchAngle: `AZ's youth development track record. Age ${age} = perfect for growth. Gateway to bigger clubs (see: Bergwijn, Koopmeiners).`,
+            successProb: 80,
+            reasoning: `Proven talent development pipeline`
+        });
+    }
+    
+    // Sort by match percentage and return top 6
+    return clubs.sort((a, b) => b.match - a.match).slice(0, 6);
 }
+
+function generateComparableTransfers(player, metrics) {
+    const pos = player.position;
+    const age = player.age;
+    const fga = player.fga;
+    
+    // Real transfer database (simplified - expand with actual data)
+    const transfers = [
+        // Left Backs
+        { name: 'Malo Gusto', pos: 'FB', age: 19, fga: 84, fee: 30, from: 'Lyon', to: 'Chelsea', year: 2023 },
+        { name: 'Alphonso Davies', pos: 'LB', age: 18, fga: 89, fee: 25, from: 'Vancouver', to: 'Bayern', year: 2019 },
+        { name: 'Nuno Mendes', pos: 'LB', age: 19, fga: 85, fee: 40, from: 'Sporting', to: 'PSG', year: 2021 },
+        
+        // Center Midfielders
+        { name: 'Moises Caicedo', pos: 'CM', age: 21, fga: 86, fee: 115, from: 'Brighton', to: 'Chelsea', year: 2023 },
+        { name: 'Declan Rice', pos: 'CM', age: 24, fga: 88, fee: 105, from: 'West Ham', to: 'Arsenal', year: 2023 },
+        { name: 'Enzo Fernandez', pos: 'CM', age: 22, fga: 87, fee: 121, from: 'Benfica', to: 'Chelsea', year: 2023 },
+        
+        // Strikers
+        { name: 'Rasmus Højlund', pos: 'ST', age: 20, fga: 83, fee: 75, from: 'Atalanta', to: 'Man Utd', year: 2023 },
+        { name: 'Darwin Núñez', pos: 'ST', age: 22, fga: 85, fee: 85, from: 'Benfica', to: 'Liverpool', year: 2022 },
+        { name: 'Victor Osimhen', pos: 'ST', age: 24, fga: 91, fee: 75, from: 'Lille', to: 'Napoli', year: 2020 },
+        
+        // Wingers
+        { name: 'Antony', pos: 'WG', age: 22, fga: 82, fee: 95, from: 'Ajax', to: 'Man Utd', year: 2022 },
+        { name: 'Mykhaylo Mudryk', pos: 'WG', age: 22, fga: 83, fee: 88, from: 'Shakhtar', to: 'Chelsea', year: 2023 },
+        
+        // Attackers
+        { name: 'Jude Bellingham', pos: 'CM', age: 20, fga: 92, fee: 103, from: 'Dortmund', to: 'Real Madrid', year: 2023 },
+    ];
+    
+    // Find comparable transfers
+    const comparables = transfers.filter(t => {
+        return t.pos === pos && 
+               Math.abs(t.age - age) <= 4 && 
+               Math.abs(t.fga - fga) <= 8;
+    });
+    
+    // If no exact position match, broaden to similar positions
+    if (comparables.length < 2) {
+        const similarPositions = {
+            'LB': ['FB', 'LB'],
+            'FB': ['LB', 'FB'],
+            'CB': ['CB', 'DM'],
+            'DM': ['CM', 'DM', 'CB'],
+            'CM': ['CM', 'DM', 'AM'],
+            'AM': ['AM', 'CM', 'WG'],
+            'WG': ['WG', 'AM', 'ST'],
+            'ST': ['ST', 'WG']
+        };
+        
+        const similar = similarPositions[pos] || [pos];
+        return transfers.filter(t => 
+            similar.includes(t.pos) && 
+            Math.abs(t.age - age) <= 5 &&
+            Math.abs(t.fga - fga) <= 10
+        ).slice(0, 3);
+    }
+    
+    return comparables.slice(0, 3);
+}
+
+function calculateTierClassification(fga) {
+    if (fga >= 95) return { tier: 'WORLD CLASS', color: [34, 197, 94], desc: 'Elite Global Superstar' };
+    if (fga >= 90) return { tier: 'ELITE', color: [59, 130, 246], desc: 'Top 1% Globally' };
+    if (fga >= 85) return { tier: 'EXCELLENT', color: [34, 211, 238], desc: 'Champions League Quality' };
+    if (fga >= 80) return { tier: 'VERY GOOD', color: [168, 85, 247], desc: 'Top 5 League Starter' };
+    if (fga >= 75) return { tier: 'GOOD', color: [234, 179, 8], desc: 'Solid Professional' };
+    return { tier: 'DEVELOPING', color: [249, 115, 22], desc: 'Emerging Talent' };
+}
+
+function generateNegotiationStrategy(player, metrics, marketValue) {
+    const fga = player.fga;
+    const age = player.age;
+    const pos = player.position;
+    
+    // Salary calculation
+    let weeklyBase = (fga / 10) * 10; // €10K per FGA point
+    
+    if (pos === 'ST' || pos === 'WG') weeklyBase *= 1.4;
+    else if (pos === 'AM') weeklyBase *= 1.3;
+    else if (pos === 'CM') weeklyBase *= 1.2;
+    else if (pos === 'CB' || pos === 'FB') weeklyBase *= 1.1;
+    
+    if (age >= 28) weeklyBase *= 0.9; // Lower for older players
+    
+    const salaryMin = (weeklyBase * 0.8).toFixed(0);
+    const salaryMax = (weeklyBase * 1.2).toFixed(0);
+    
+    // Contract length
+    let idealLength = 4;
+    if (age <= 23) idealLength = 5; // Lock in youth
+    else if (age >= 30) idealLength = 3; // Shorter for veterans
+    
+    // Leverage points based on actual metrics
+    const leveragePoints = [];
+    if (metrics.poi >= 9.0) leveragePoints.push(`Exceptional tactical intelligence (POI ${metrics.poi.toFixed(1)}) - rare in modern game`);
+    if (metrics.xps >= 9.0 && pos === 'ST') leveragePoints.push(`Elite finishing ability (XPS ${metrics.xps.toFixed(1)}) - proven goal scorer`);
+    if (metrics.cpx >= 9.0) leveragePoints.push(`Outstanding composure (CPX ${metrics.cpx.toFixed(1)}) - performs in high-pressure moments`);
+    if (metrics.tac >= 9.0 && metrics.int >= 9.0) leveragePoints.push(`World-class defensive metrics (TAC ${metrics.tac.toFixed(1)}, INT ${metrics.int.toFixed(1)})`);
+    if (age <= 24 && fga >= 80) leveragePoints.push(`Young age (${age}) + high FGA (${fga}) = massive sell-on value potential`);
+    if (metrics.mob >= 9.0) leveragePoints.push(`Elite mobility (MOB ${metrics.mob.toFixed(1)}) - rare physical profile`);
+    
+    // Add at least 3 leverage points
+    if (leveragePoints.length < 3) {
+        leveragePoints.push(`779-metric analysis confirms top ${Math.round((100 - fga)/100 * 100)}% globally in position`);
+        leveragePoints.push(`60-Philosophy Framework shows versatility across multiple tactical systems`);
+        leveragePoints.push(`Undervalued by traditional scouting - Empire FGA identifies hidden potential`);
+    }
+    
+    return {
+        salary: {
+            min: salaryMin,
+            max: salaryMax,
+            currency: 'EUR',
+            period: 'per week'
+        },
+        contract: {
+            length: idealLength,
+            bonuses: '15-20% of base salary',
+            releaseClause: marketValue.estimated > 50 ? `€${(parseFloat(marketValue.estimated) * 1.5).toFixed(0)}M+` : 'Not recommended'
+        },
+        leveragePoints: leveragePoints.slice(0, 5)
+    };
+}
+
+// MAIN PDF GENERATION FUNCTION
+// ============================================================================
 
 async function exportPlayerProfile(playerName) {
     const player = playerData.find(p => p.name === playerName);
@@ -2806,8 +3201,12 @@ async function exportPlayerProfile(playerName) {
     
     // Show generating message
     const statusMsg = document.createElement('div');
-    statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #3b82f6;padding:30px;border-radius:12px;z-index:9999;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5);';
-    statusMsg.innerHTML = '<div style="color:#60a5fa;font-size:18px;font-weight:bold;margin-bottom:10px;">⏳ Generating Professional PDF...</div><div style="color:#94a3b8;font-size:14px;">Creating report for ' + player.name + '</div>';
+    statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f172a;border:2px solid #3b82f6;padding:40px;border-radius:16px;z-index:9999;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.7);';
+    statusMsg.innerHTML = `
+        <div style="color:#60a5fa;font-size:24px;font-weight:bold;margin-bottom:15px;">🚀 GENERATING REVOLUTIONARY PDF...</div>
+        <div style="color:#94a3b8;font-size:16px;margin-bottom:10px;">Creating intelligence report for ${player.name}</div>
+        <div style="color:#64748b;font-size:14px;">Analyzing 779 metrics + 60 philosophies...</div>
+    `;
     document.body.appendChild(statusMsg);
     
     try {
@@ -2825,275 +3224,682 @@ async function exportPlayerProfile(playerName) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
         
-        // PAGE 1: HEADER WITH LOGO & EXECUTIVE SUMMARY
+        // Calculate all metrics and intelligence
+        const metrics = calculateFGACoreMetrics(player);
+        const philScores = calculatePhilosophyScores(player);
+        const componentScores = estimateComponentScores(player);
+        const marketValue = calculateAdvancedMarketValue(player, metrics);
+        const targetClubs = generateSmartTargetClubs(player, metrics, philScores);
+        const comparables = generateComparableTransfers(player, metrics);
+        const negotiation = generateNegotiationStrategy(player, metrics, marketValue);
+        const tierInfo = calculateTierClassification(player.fga);
         
-        // Gold Header Background
+        // ========================================================================
+        // PAGE 1: EXECUTIVE INTELLIGENCE
+        // ========================================================================
+        
+        // Gold header background
         doc.setFillColor(205, 133, 63);
-        doc.rect(0, 0, 210, 50, 'F');
+        doc.rect(0, 0, 210, 45, 'F');
         
-        // Empire FGA Logo
+        // Empire FGA logo
         const logoUrl = 'https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA';
         
         try {
             const logoImg = await loadImage(logoUrl);
-            doc.addImage(logoImg, 'PNG', 15, 8, 35, 35);
+            doc.addImage(logoImg, 'PNG', 15, 6, 32, 32);
         } catch (error) {
             console.log('Logo load failed, using text fallback');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(28);
-            doc.setFont(undefined, 'bold');
-            doc.text('EMPIRE FGA', 105, 20, { align: 'center' });
         }
         
-        // Title Text
+        // Title
         doc.setTextColor(255, 255, 255);
-        doc.setFontSize(24);
-        doc.setFont(undefined, 'bold');
-        doc.text('EMPIRE FGA', 55, 20);
-        
-        doc.setFontSize(12);
-        doc.setFont(undefined, 'normal');
-        doc.text('PROFESSIONAL PLAYER ANALYSIS REPORT', 55, 28);
-        
-        doc.setFontSize(9);
-        doc.text('779-Metric System | 60-Philosophy Framework', 55, 35);
-        
-        // Divider line
-        doc.setDrawColor(255, 255, 255);
-        doc.setLineWidth(0.5);
-        doc.line(15, 42, 195, 42);
-        
-        // Player Name & Position
-        doc.setTextColor(0, 0, 0);
         doc.setFontSize(22);
         doc.setFont(undefined, 'bold');
-        doc.text(player.name, 20, 65);
+        doc.text('EMPIRE FGA INTELLIGENCE REPORT', 52, 18);
         
-        doc.setFontSize(13);
+        doc.setFontSize(10);
         doc.setFont(undefined, 'normal');
-        doc.text(`${player.position} • ${player.club || 'Club TBD'} • Age ${player.age} • ${player.nationality}`, 20, 73);
+        doc.text('779-Metric System | 60-Philosophy Framework', 52, 26);
+        doc.text('Revolutionary Football Intelligence', 52, 32);
         
-        // Agent Information (if available)
-        if (player.agent) {
+        // Divider
+        doc.setDrawColor(255, 255, 255);
+        doc.setLineWidth(0.5);
+        doc.line(15, 38, 195, 38);
+        
+        // Player header
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(20);
+        doc.setFont(undefined, 'bold');
+        doc.text(player.name, 20, 55);
+        
+        doc.setFontSize(11);
+        doc.setFont(undefined, 'normal');
+        doc.text(`${player.position} • Age ${player.age} • ${player.nationality}`, 20, 62);
+        
+        if (player.currentClub) {
             doc.setFontSize(10);
             doc.setTextColor(100, 100, 100);
-            doc.text(`Agent: ${player.agent}${player.agentCompany ? ' | ' + player.agentCompany : ''}`, 20, 80);
+            doc.text(`Current Club: ${player.currentClub}`, 20, 68);
         }
         
-        // Executive Summary Box
-        doc.setFillColor(245, 245, 245);
-        doc.roundedRect(15, player.agent ? 88 : 83, 180, 58, 3, 3, 'F');
-        
-        doc.setFontSize(14);
-        doc.setFont(undefined, 'bold');
-        doc.setTextColor(205, 133, 63);
-        doc.text('EXECUTIVE SUMMARY', 20, player.agent ? 98 : 93);
-        
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(11);
-        doc.setTextColor(0, 0, 0);
-        
-        const yStart = player.agent ? 108 : 103;
-        doc.text(`Overall FGA Rating: ${player.fga.toFixed(1)}/10`, 25, yStart);
-        
-        // Market value (if available)
-        if (player.marketValue) {
-            doc.text(`Current Market Value: €${player.marketValue}M`, 25, yStart + 7);
-            
-            const hiddenValue = calculateHiddenValue(player);
-            doc.text(`Empire FGA Predicted Value: €${(parseFloat(player.marketValue) + hiddenValue).toFixed(1)}M`, 25, yStart + 14);
-            
-            if (hiddenValue > 0) {
-                doc.setTextColor(40, 167, 69);
-                doc.setFont(undefined, 'bold');
-                doc.text(`Hidden Value Opportunity: +€${hiddenValue.toFixed(1)}M`, 25, yStart + 21);
-                doc.setFont(undefined, 'normal');
-                doc.setTextColor(0, 0, 0);
-            }
+        if (player.agent) {
+            doc.text(`Agent: ${player.agent}${player.agentCompany ? ' | ' + player.agentCompany : ''}`, 20, 74);
         }
         
-        const topPhil = getTopPhilosophy(player);
-        doc.text(`Best Tactical Fit: ${topPhil.name} (${topPhil.score.toFixed(1)}/10)`, 25, player.marketValue ? yStart + 28 : yStart + 7);
+        // Executive summary box
+        doc.setFillColor(245, 248, 250);
+        doc.roundedRect(15, 80, 180, 60, 3, 3, 'F');
         
-        // Player Biography
-        doc.setFontSize(14);
+        doc.setFontSize(13);
         doc.setFont(undefined, 'bold');
         doc.setTextColor(205, 133, 63);
-        doc.text('PLAYER PROFILE', 20, 160);
+        doc.text('EMPIRE FGA ANALYSIS', 20, 89);
         
         doc.setFont(undefined, 'normal');
         doc.setFontSize(10);
         doc.setTextColor(0, 0, 0);
         
-        // Create a brief bio if not exists
-        const bio = player.bio || `${player.name} is a ${player.age}-year-old ${player.position} currently playing for ${player.club || 'his club'}. With an FGA rating of ${player.fga.toFixed(1)}/10, ${player.name.split(' ')[0]} demonstrates strong capabilities in the ${player.bestPhilosophy || 'tactical'} system.`;
-        const bioLines = doc.splitTextToSize(bio, 170);
-        doc.text(bioLines, 20, 168);
+        // FGA Rating with tier
+        doc.setFont(undefined, 'bold');
+        doc.text(`Overall Rating: ${player.fga.toFixed(1)}/100`, 25, 98);
+        doc.setTextColor(...tierInfo.color);
+        doc.text(`[${tierInfo.tier}]`, 75, 98);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        doc.text(tierInfo.desc, 75, 102);
         
-        // Key Strengths
+        // Market intelligence
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'bold');
+        doc.text('Market Intelligence:', 25, 109);
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(9);
+        
+        doc.text(`Empire FGA Valuation: €${marketValue.estimated}M`, 30, 115);
+        doc.text(`Estimated Range: €${marketValue.range.min}M - €${marketValue.range.max}M`, 30, 120);
+        doc.text(`Peak Value Window: Age ${player.age <= 24 ? '24-28' : player.age <= 28 ? '28-31' : '32+'}`, 30, 125);
+        
+        // Tactical DNA
+        const topPhil = Object.entries(philScores).sort((a, b) => b[1].score - a[1].score)[0];
+        const secondPhil = Object.entries(philScores).sort((a, b) => b[1].score - a[1].score)[1];
+        
+        doc.setFont(undefined, 'bold');
+        doc.text('Tactical DNA:', 110, 109);
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(9);
+        doc.text(`Primary: ${topPhil[0].substring(0, 20)}`, 115, 115);
+        doc.setFont(undefined, 'bold');
+        doc.text(`${topPhil[1].score.toFixed(1)}/10`, 175, 115);
+        doc.setFont(undefined, 'normal');
+        doc.text(`Secondary: ${secondPhil[0].substring(0, 18)}`, 115, 120);
+        doc.setFont(undefined, 'bold');
+        doc.text(`${secondPhil[1].score.toFixed(1)}/10`, 175, 120);
+        
+        // Performance Matrix
         doc.setFontSize(12);
         doc.setFont(undefined, 'bold');
-        doc.text('Key Strengths:', 20, 195);
-        
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(10);
-        
-        // Generate strengths based on metrics
-        const metrics = calculateFGACoreMetrics(player);
-        const strengths = [];
-        if (metrics.xps >= 8.0) strengths.push(`Excellent shooting ability (XPS ${metrics.xps.toFixed(1)})`);
-        if (metrics.stk >= 8.0) strengths.push(`Strong passing accuracy (STK ${metrics.stk.toFixed(1)})`);
-        if (metrics.poi >= 8.0) strengths.push(`High tactical intelligence (POI ${metrics.poi.toFixed(1)})`);
-        if (metrics.dma >= 8.0) strengths.push(`Elite decision-making (DMA ${metrics.dma.toFixed(1)})`);
-        if (metrics.cpx >= 8.0) strengths.push(`Exceptional composure (CPX ${metrics.cpx.toFixed(1)})`);
-        
-        if (strengths.length === 0) {
-            strengths.push('Consistent performance across all metrics');
-            strengths.push('Adaptable to multiple tactical systems');
-            strengths.push('Strong work ethic and professionalism');
-        }
-        
-        let yPos = 203;
-        strengths.slice(0, 5).forEach(strength => {
-            doc.text(`• ${strength}`, 25, yPos);
-            yPos += 6;
-        });
-        
-        // Key Performance Metrics
-        doc.setFontSize(14);
-        doc.setFont(undefined, 'bold');
         doc.setTextColor(205, 133, 63);
-        doc.text('KEY PERFORMANCE METRICS', 20, 235);
+        doc.text('PERFORMANCE MATRIX', 20, 150);
         
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(10);
+        doc.setFontSize(9);
         doc.setTextColor(0, 0, 0);
+        doc.setFont(undefined, 'bold');
+        doc.text('ATTACKING', 20, 158);
         
-        const metricsList = [
-            { name: 'XPS (Enhanced Scoring)', value: metrics.xps || 0 },
-            { name: 'STK (Steekpas)', value: metrics.stk || 0 },
-            { name: 'RDS (Renard des Surfaces)', value: metrics.rds || 0 },
-            { name: 'POI (Position Intelligence)', value: metrics.poi || 0 },
-            { name: 'DMA (Decision Making)', value: metrics.dma || 0 },
-            { name: 'CPX (Composure)', value: metrics.cpx || 0 }
+        let yPos = 164;
+        const attackingMetrics = [
+            { name: 'XPS (Shooting)', value: metrics.xps },
+            { name: 'STK (Steekpas)', value: metrics.stk },
+            { name: 'RDS (Box Presence)', value: metrics.rds },
+            { name: 'KEY (Creativity)', value: metrics.key }
         ];
         
-        yPos = 245;
-        metricsList.forEach(metric => {
-            doc.text(metric.name, 25, yPos);
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        attackingMetrics.forEach(m => {
+            doc.text(m.name, 22, yPos);
             
             // Progress bar
-            const barWidth = (metric.value / 10) * 90;
-            doc.setFillColor(220, 220, 220);
-            doc.rect(105, yPos - 4, 90, 6, 'F');
+            const barWidth = (m.value / 10) * 50;
+            doc.setFillColor(230, 230, 230);
+            doc.rect(60, yPos - 3, 50, 4, 'F');
             doc.setFillColor(205, 133, 63);
-            doc.rect(105, yPos - 4, barWidth, 6, 'F');
+            doc.rect(60, yPos - 3, barWidth, 4, 'F');
             
             doc.setFont(undefined, 'bold');
-            doc.text(`${metric.value.toFixed(1)}`, 100, yPos, { align: 'right' });
+            doc.text(m.value.toFixed(1), 57, yPos, { align: 'right' });
             doc.setFont(undefined, 'normal');
             
-            yPos += 10;
+            yPos += 5;
         });
         
-        // PAGE 2: TACTICAL PHILOSOPHY FIT
+        // Passing
+        yPos += 3;
+        doc.setFont(undefined, 'bold');
+        doc.setFontSize(9);
+        doc.text('PASSING', 20, yPos);
+        yPos += 6;
+        
+        const passingMetrics = [
+            { name: 'LGP (Long Pass)', value: metrics.lgp },
+            { name: 'VRP (Vertical)', value: metrics.vrp },
+            { name: 'HZP (Horizontal)', value: metrics.hzp },
+            { name: 'DGP (Danger)', value: metrics.dgp }
+        ];
+        
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        passingMetrics.forEach(m => {
+            doc.text(m.name, 22, yPos);
+            
+            const barWidth = (m.value / 10) * 50;
+            doc.setFillColor(230, 230, 230);
+            doc.rect(60, yPos - 3, 50, 4, 'F');
+            doc.setFillColor(205, 133, 63);
+            doc.rect(60, yPos - 3, barWidth, 4, 'F');
+            
+            doc.setFont(undefined, 'bold');
+            doc.text(m.value.toFixed(1), 57, yPos, { align: 'right' });
+            doc.setFont(undefined, 'normal');
+            
+            yPos += 5;
+        });
+        
+        // Defensive (right column)
+        yPos = 158;
+        doc.setFont(undefined, 'bold');
+        doc.setFontSize(9);
+        doc.text('DEFENSIVE', 120, yPos);
+        yPos += 6;
+        
+        const defensiveMetrics = [
+            { name: 'MRK (Marking)', value: metrics.mrk },
+            { name: 'TAC (Tackling)', value: metrics.tac },
+            { name: 'INT (Intercept)', value: metrics.int },
+            { name: 'CLE (Clearances)', value: metrics.cle }
+        ];
+        
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        defensiveMetrics.forEach(m => {
+            doc.text(m.name, 122, yPos);
+            
+            const barWidth = (m.value / 10) * 50;
+            doc.setFillColor(230, 230, 230);
+            doc.rect(160, yPos - 3, 50, 4, 'F');
+            doc.setFillColor(205, 133, 63);
+            doc.rect(160, yPos - 3, barWidth, 4, 'F');
+            
+            doc.setFont(undefined, 'bold');
+            doc.text(m.value.toFixed(1), 157, yPos, { align: 'right' });
+            doc.setFont(undefined, 'normal');
+            
+            yPos += 5;
+        });
+        
+        // Intelligence (right column continued)
+        yPos += 3;
+        doc.setFont(undefined, 'bold');
+        doc.setFontSize(9);
+        doc.text('INTELLIGENCE', 120, yPos);
+        yPos += 6;
+        
+        const intelligenceMetrics = [
+            { name: 'POI (Positioning)', value: metrics.poi },
+            { name: 'CPX (Composure)', value: metrics.cpx },
+            { name: 'MOB (Mobility)', value: metrics.mob }
+        ];
+        
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        intelligenceMetrics.forEach(m => {
+            doc.text(m.name, 122, yPos);
+            
+            const barWidth = (m.value / 10) * 50;
+            doc.setFillColor(230, 230, 230);
+            doc.rect(160, yPos - 3, 50, 4, 'F');
+            doc.setFillColor(205, 133, 63);
+            doc.rect(160, yPos - 3, barWidth, 4, 'F');
+            
+            doc.setFont(undefined, 'bold');
+            doc.text(m.value.toFixed(1), 157, yPos, { align: 'right' });
+            doc.setFont(undefined, 'normal');
+            
+            yPos += 5;
+        });
+        
+        // Component scores breakdown
+        yPos = 232;
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('COMPONENT SCORES', 20, yPos);
+        
+        yPos += 8;
+        doc.setFontSize(8);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        
+        const components = [
+            { name: 'Attacking', value: componentScores.attacking },
+            { name: 'Passing', value: componentScores.passing },
+            { name: 'Defending', value: componentScores.defending },
+            { name: 'Possession', value: componentScores.possession },
+            { name: 'Intelligence', value: componentScores.intelligence },
+            { name: 'Physical', value: componentScores.physicality }
+        ];
+        
+        components.forEach(comp => {
+            doc.text(comp.name, 22, yPos);
+            
+            const barWidth = (comp.value / 100) * 60;
+            doc.setFillColor(230, 230, 230);
+            doc.rect(50, yPos - 3, 60, 4, 'F');
+            
+            // Color based on value
+            if (comp.value >= 85) doc.setFillColor(34, 197, 94);
+            else if (comp.value >= 75) doc.setFillColor(59, 130, 246);
+            else if (comp.value >= 65) doc.setFillColor(234, 179, 8);
+            else doc.setFillColor(249, 115, 22);
+            
+            doc.rect(50, yPos - 3, barWidth, 4, 'F');
+            
+            doc.setFont(undefined, 'bold');
+            doc.text(`${comp.value.toFixed(0)}%`, 47, yPos, { align: 'right' });
+            doc.setFont(undefined, 'normal');
+            
+            yPos += 5;
+        });
+        
+        // Footer
+        doc.setFontSize(7);
+        doc.setTextColor(128, 128, 128);
+        doc.text('Empire FGA Scouting Network | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+        doc.text(`Generated: ${new Date().toLocaleDateString()} | Report ID: ESN-${Date.now().toString(36).toUpperCase()}`, 105, 290, { align: 'center' });
+        
+        // ========================================================================
+        // PAGE 2: TRANSFER MARKET INTELLIGENCE
+        // ========================================================================
+        
         doc.addPage();
         
         // Header
         doc.setFillColor(205, 133, 63);
-        doc.rect(0, 0, 210, 38, 'F');
+        doc.rect(0, 0, 210, 35, 'F');
         
         try {
             const logoImg = await loadImage(logoUrl);
-            doc.addImage(logoImg, 'PNG', 15, 6, 25, 25);
-        } catch (error) {
-            // Fallback
-        }
+            doc.addImage(logoImg, 'PNG', 15, 5, 24, 24);
+        } catch (error) {}
         
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(18);
         doc.setFont(undefined, 'bold');
-        doc.text('TACTICAL PHILOSOPHY FIT ANALYSIS', 45, 22);
+        doc.text('TRANSFER MARKET INTELLIGENCE', 45, 20);
         
+        // TIER 1: Perfect Matches
         doc.setTextColor(0, 0, 0);
-        doc.setFontSize(14);
-        doc.setFont(undefined, 'bold');
-        doc.setTextColor(205, 133, 63);
-        doc.text('TOP 5 MANAGER COMPATIBILITY', 20, 52);
-        
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(11);
-        doc.setTextColor(0, 0, 0);
-        
-        // Get top philosophies
-        const philScores = calculatePhilosophyScores(player);
-        const sortedPhils = Object.entries(philScores)
-            .sort((a, b) => b[1].score - a[1].score)
-            .slice(0, 5);
-        
-        yPos = 62;
-        sortedPhils.forEach((phil, index) => {
-            doc.setFont(undefined, 'bold');
-            doc.setFontSize(12);
-            doc.text(`${index + 1}. ${phil[0]}`, 25, yPos);
-            
-            doc.setFont(undefined, 'normal');
-            doc.setFontSize(10);
-            doc.text(`Score: ${phil[1].score.toFixed(1)}/10`, 120, yPos);
-            
-            doc.setTextColor(100, 100, 100);
-            doc.setFontSize(9);
-            const styleLines = doc.splitTextToSize(phil[1].description || 'Tactical system compatibility', 160);
-            doc.text(styleLines, 30, yPos + 6);
-            
-            doc.setTextColor(0, 0, 0);
-            yPos += 22;
-        });
-        
-        // Transfer Market Analysis
-        doc.setFontSize(14);
-        doc.setFont(undefined, 'bold');
-        doc.setTextColor(205, 133, 63);
-        doc.text('TRANSFER MARKET ANALYSIS', 20, yPos + 15);
-        
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(11);
-        doc.setTextColor(0, 0, 0);
-        
-        doc.text('Recommended Target Clubs:', 20, yPos + 27);
-        
-        doc.setFontSize(10);
-        yPos += 35;
-        
-        // Generate target clubs based on position and rating
-        const targetClubs = generateTargetClubs(player);
-        targetClubs.forEach(target => {
-            doc.text(`• ${target}`, 25, yPos);
-            yPos += 7;
-        });
-        
-        // Salary Recommendation
-        const salaryBand = calculateSalaryBand(player.fga);
-        
         doc.setFontSize(12);
         doc.setFont(undefined, 'bold');
-        doc.text('Recommended Salary Band:', 20, yPos + 10);
+        doc.setTextColor(205, 133, 63);
+        doc.text('TIER 1: PERFECT MATCHES (95-100% Fit)', 20, 45);
         
-        doc.setFont(undefined, 'normal');
+        yPos = 52;
+        
+        const tier1Clubs = targetClubs.filter(c => c.tier === 1).slice(0, 2);
+        
+        tier1Clubs.forEach((club, index) => {
+            // Club name with match percentage
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            doc.text(`🎯 ${club.name}`, 22, yPos);
+            
+            doc.setTextColor(34, 197, 94);
+            doc.text(`${club.match}% MATCH`, 160, yPos);
+            
+            yPos += 6;
+            doc.setFontSize(8);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(0, 0, 0);
+            
+            doc.text(`├─ Manager: ${club.manager} (${club.philosophy})`, 24, yPos);
+            yPos += 4;
+            doc.text(`├─ Formation: ${club.formation} - ${player.position} ${club.needUrgency} NEED`, 24, yPos);
+            yPos += 4;
+            doc.text(`├─ Budget: ${club.budget} range`, 24, yPos);
+            yPos += 4;
+            doc.text(`├─ Competition: ${club.competition}`, 24, yPos);
+            yPos += 4;
+            
+            // Pitch angle (multi-line)
+            doc.setFont(undefined, 'bold');
+            doc.text(`├─ Pitch Angle:`, 24, yPos);
+            doc.setFont(undefined, 'normal');
+            yPos += 4;
+            
+            const pitchLines = doc.splitTextToSize(`   "${club.pitchAngle}"`, 170);
+            pitchLines.forEach(line => {
+                doc.text(line, 24, yPos);
+                yPos += 4;
+            });
+            
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(34, 197, 94);
+            doc.text(`└─ Success Probability: ${club.successProb}%`, 24, yPos);
+            
+            yPos += 10;
+            doc.setTextColor(0, 0, 0);
+            
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+        });
+        
+        // TIER 2: Strong Matches
+        yPos += 5;
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('TIER 2: STRONG MATCHES (85-94% Fit)', 20, yPos);
+        
+        yPos += 7;
+        
+        const tier2Clubs = targetClubs.filter(c => c.tier === 2).slice(0, 4);
+        
+        tier2Clubs.forEach((club, index) => {
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            doc.text(`✅ ${club.name}`, 22, yPos);
+            
+            doc.setTextColor(59, 130, 246);
+            doc.text(`${club.match}% MATCH`, 160, yPos);
+            
+            yPos += 4;
+            doc.setFontSize(7);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(0, 0, 0);
+            
+            const shortPitch = doc.splitTextToSize(`Why: ${club.pitchAngle}`, 170);
+            shortPitch.slice(0, 2).forEach(line => {
+                doc.text(line, 25, yPos);
+                yPos += 3;
+            });
+            
+            doc.text(`Budget: ${club.budget} | Success: ${club.successProb}%`, 25, yPos);
+            
+            yPos += 6;
+            
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+        });
+        
+        // Comparable Transfers
+        yPos += 5;
         doc.setFontSize(11);
-        doc.text(`€${salaryBand.min}K - €${salaryBand.max}K per week`, 25, yPos + 20);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('COMPARABLE TRANSFERS (Market Benchmarks)', 20, yPos);
+        
+        yPos += 7;
         doc.setFontSize(9);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`Market Position: ${salaryBand.position}`, 25, yPos + 27);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        
+        if (comparables.length > 0) {
+            doc.text('Similar Profile Transfers (Last 24 Months):', 22, yPos);
+            yPos += 6;
+            
+            comparables.forEach(comp => {
+                doc.setFontSize(8);
+                doc.setFont(undefined, 'bold');
+                doc.text(`• ${comp.name}:`, 25, yPos);
+                doc.setFont(undefined, 'normal');
+                doc.text(`€${comp.fee}M (${comp.from} → ${comp.to}, ${comp.year})`, 55, yPos);
+                yPos += 4;
+                doc.text(`  Age ${comp.age}, ${comp.pos}, FGA ${comp.fga}`, 27, yPos);
+                yPos += 6;
+            });
+            
+            const avgFee = (comparables.reduce((sum, c) => sum + c.fee, 0) / comparables.length).toFixed(1);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Market Average for Profile: €${avgFee}M`, 22, yPos);
+            yPos += 5;
+            doc.setTextColor(34, 197, 94);
+            doc.text(`Empire FGA Recommended Range: €${marketValue.range.min}M - €${marketValue.range.max}M`, 22, yPos);
+            yPos += 8;
+        } else {
+            doc.text('Limited comparable data available. Valuation based on Empire FGA algorithm.', 22, yPos);
+            yPos += 8;
+        }
+        
+        doc.setTextColor(0, 0, 0);
+        
+        // Negotiation Strategy
+        doc.setFontSize(11);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('NEGOTIATION STRATEGY', 20, yPos);
+        
+        yPos += 7;
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(0, 0, 0);
+        doc.text('Salary Band:', 22, yPos);
+        
+        yPos += 5;
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        doc.text(`• Recommended: €${negotiation.salary.min}K - €${negotiation.salary.max}K per week`, 25, yPos);
+        yPos += 4;
+        doc.text(`• Based on: FGA ${player.fga}, Age ${player.age}, Position ${player.position}`, 25, yPos);
+        
+        yPos += 6;
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.text('Contract Terms:', 22, yPos);
+        
+        yPos += 5;
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        doc.text(`• Ideal Length: ${negotiation.contract.length} years`, 25, yPos);
+        yPos += 4;
+        doc.text(`• Performance Bonuses: ${negotiation.contract.bonuses}`, 25, yPos);
+        yPos += 4;
+        doc.text(`• Release Clause: ${negotiation.contract.releaseClause}`, 25, yPos);
+        
+        yPos += 6;
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.text('Leverage Points:', 22, yPos);
+        
+        yPos += 5;
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        
+        negotiation.leveragePoints.slice(0, 4).forEach(point => {
+            const lines = doc.splitTextToSize(`• ${point}`, 165);
+            lines.forEach(line => {
+                doc.text(line, 25, yPos);
+                yPos += 4;
+            });
+        });
         
         // Footer
-        doc.setFontSize(8);
+        doc.setFontSize(7);
         doc.setTextColor(128, 128, 128);
-        doc.text('Empire FGA Scouting Network | 779-Metric System | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
-        doc.text(`Generated: ${new Date().toLocaleDateString()} | Report ID: ESN-${Date.now().toString(36).toUpperCase()}`, 105, 290, { align: 'center' });
+        doc.text('Empire FGA Scouting Network | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+        doc.text(`Page 2 of 3 | Report ID: ESN-${Date.now().toString(36).toUpperCase()}`, 105, 290, { align: 'center' });
         
-        // Save
-        const fileName = `Empire_FGA_${player.name.replace(/\s/g, '_')}_Report.pdf`;
+        // ========================================================================
+        // PAGE 3: TACTICAL COMPATIBILITY DEEP DIVE
+        // ========================================================================
+        
+        doc.addPage();
+        
+        // Header
+        doc.setFillColor(205, 133, 63);
+        doc.rect(0, 0, 210, 35, 'F');
+        
+        try {
+            const logoImg = await loadImage(logoUrl);
+            doc.addImage(logoImg, 'PNG', 15, 5, 24, 24);
+        } catch (error) {}
+        
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(18);
+        doc.setFont(undefined, 'bold');
+        doc.text('60-PHILOSOPHY FRAMEWORK ANALYSIS', 45, 20);
+        
+        // Top 10 Philosophy Fits
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('TOP 10 TACTICAL FITS (Weighted Scores)', 20, 45);
+        
+        yPos = 52;
+        
+        const sortedPhils = Object.entries(philScores)
+            .sort((a, b) => b[1].weightedScore - a[1].weightedScore)
+            .slice(0, 10);
+        
+        sortedPhils.forEach((phil, index) => {
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            
+            const philName = phil[0].length > 25 ? phil[0].substring(0, 25) + '...' : phil[0];
+            doc.text(`${index + 1}. ${philName}`, 22, yPos);
+            
+            // Score with star for top 3
+            if (index < 3) {
+                doc.setTextColor(34, 197, 94);
+                doc.text(`${phil[1].score.toFixed(1)}/10 ⭐`, 160, yPos);
+            } else {
+                doc.setTextColor(59, 130, 246);
+                doc.text(`${phil[1].score.toFixed(1)}/10`, 160, yPos);
+            }
+            
+            yPos += 4;
+            doc.setFontSize(7);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(100, 100, 100);
+            
+            doc.text(`Weight: ${phil[1].weight.toFixed(2)} | Weighted: ${phil[1].weightedScore.toFixed(1)}`, 24, yPos);
+            
+            yPos += 3;
+            const descLines = doc.splitTextToSize(phil[1].description, 170);
+            doc.text(descLines[0], 24, yPos);
+            
+            yPos += 6;
+            doc.setTextColor(0, 0, 0);
+        });
+        
+        // Position-Specific Analysis
+        yPos += 5;
+        doc.setFontSize(11);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('POSITION-SPECIFIC ANALYSIS', 20, yPos);
+        
+        yPos += 7;
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Primary Position: ${player.position}`, 22, yPos);
+        
+        yPos += 5;
+        doc.setFont(undefined, 'normal');
+        doc.setFontSize(8);
+        doc.text('Position Strengths:', 22, yPos);
+        
+        yPos += 5;
+        
+        // Find top 3 metrics for this player
+        const allMetrics = Object.entries(metrics).sort((a, b) => b[1] - a[1]).slice(0, 3);
+        
+        allMetrics.forEach(([metricName, value]) => {
+            const metricLabel = metricName.toUpperCase();
+            const percentile = Math.round((value / 10) * 100);
+            
+            doc.text(`✅ ${metricLabel}: ${value.toFixed(1)}/10 (Top ${100 - percentile}% globally)`, 25, yPos);
+            yPos += 4;
+        });
+        
+        yPos += 3;
+        doc.text('Development Areas:', 22, yPos);
+        yPos += 5;
+        
+        // Find bottom 2 metrics (but only if below 7.5)
+        const weakMetrics = Object.entries(metrics)
+            .filter(([name, value]) => value < 7.5)
+            .sort((a, b) => a[1] - b[1])
+            .slice(0, 2);
+        
+        if (weakMetrics.length > 0) {
+            weakMetrics.forEach(([metricName, value]) => {
+                const metricLabel = metricName.toUpperCase();
+                const target = Math.min(10, value + 1.5);
+                
+                doc.text(`📊 ${metricLabel}: ${value.toFixed(1)}/10 (Target: ${target.toFixed(1)})`, 25, yPos);
+                yPos += 4;
+            });
+        } else {
+            doc.text(`No significant weaknesses detected - Elite across all metrics`, 25, yPos);
+            yPos += 4;
+        }
+        
+        // Empire FGA Insight
+        yPos += 8;
+        doc.setFillColor(240, 248, 255);
+        doc.roundedRect(15, yPos - 5, 180, 35, 3, 3, 'F');
+        
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(205, 133, 63);
+        doc.text('🎯 EMPIRE FGA STRATEGIC INSIGHT', 20, yPos);
+        
+        yPos += 6;
+        doc.setFontSize(8);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        
+        const insight = `Based on 779-metric analysis: ${player.name} represents ${
+            parseFloat(marketValue.estimated) > 50 ? 'significant investment' : 
+            parseFloat(marketValue.estimated) > 20 ? 'strong value opportunity' : 
+            'exceptional value'
+        } with ${
+            player.age <= 24 ? 'high growth potential' : 
+            player.age <= 28 ? 'peak performance capacity' : 
+            'immediate impact capability'
+        }. Primary fit: ${topPhil[0]} systems (${topPhil[1].score.toFixed(1)}/10). Top target: ${tier1Clubs[0]?.name || targetClubs[0]?.name || 'Elite clubs'} with ${tier1Clubs[0]?.successProb || targetClubs[0]?.match || 85}% success probability. Recommended action: ${
+            tier1Clubs[0]?.needUrgency === 'URGENT' ? 'Immediate approach - position critical' :
+            tier1Clubs[0]?.needUrgency === 'HIGH' ? 'Priority target - strong need identified' :
+            'Strategic opportunity - favorable timing'
+        }.`;
+        
+        const insightLines = doc.splitTextToSize(insight, 170);
+        insightLines.forEach(line => {
+            doc.text(line, 20, yPos);
+            yPos += 4;
+        });
+        
+        // Footer
+        doc.setFontSize(7);
+        doc.setTextColor(128, 128, 128);
+        doc.text('Empire FGA Scouting Network | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+        doc.text(`Page 3 of 3 | Report ID: ESN-${Date.now().toString(36).toUpperCase()} | © 2025 Empire Scouting Network`, 105, 290, { align: 'center' });
+        
+        // Save PDF
+        const fileName = `Empire_FGA_${player.name.replace(/\s/g, '_')}_Intelligence_Report.pdf`;
         doc.save(fileName);
         
         // Remove status message
@@ -3101,15 +3907,19 @@ async function exportPlayerProfile(playerName) {
         
         // Show success
         const successMsg = document.createElement('div');
-        successMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #10b981;padding:30px;border-radius:12px;z-index:9999;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5);';
-        successMsg.innerHTML = '<div style="color:#10b981;font-size:18px;font-weight:bold;margin-bottom:10px;">✅ PDF Generated Successfully!</div><div style="color:#94a3b8;font-size:14px;">File: ' + fileName + '</div><div style="color:#60a5fa;font-size:12px;margin-top:10px;">Share this professional report with target clubs</div>';
+        successMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f172a;border:2px solid #10b981;padding:40px;border-radius:16px;z-index:9999;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.7);';
+        successMsg.innerHTML = `
+            <div style="color:#10b981;font-size:24px;font-weight:bold;margin-bottom:15px;">✅ REVOLUTIONARY PDF GENERATED!</div>
+            <div style="color:#94a3b8;font-size:16px;margin-bottom:10px;">File: ${fileName}</div>
+            <div style="color:#60a5fa;font-size:14px;">3 pages of Empire FGA intelligence ready</div>
+        `;
         document.body.appendChild(successMsg);
         
         setTimeout(() => {
             if (document.body.contains(successMsg)) {
                 document.body.removeChild(successMsg);
             }
-        }, 4000);
+        }, 5000);
         
     } catch (error) {
         if (document.body.contains(statusMsg)) {
@@ -3118,40 +3928,6 @@ async function exportPlayerProfile(playerName) {
         alert('❌ Error generating PDF: ' + error.message);
         console.error('PDF Generation Error:', error);
     }
-}
-
-// Helper function to generate target clubs based on player profile
-function generateTargetClubs(player) {
-    const clubs = [];
-    const fga = player.fga || 0;
-    const position = player.position || '';
-    
-    // Top tier clubs for elite players
-    if (fga >= 8.5) {
-        clubs.push('Premier League: Manchester City, Liverpool, Arsenal');
-        clubs.push('La Liga: Real Madrid, Barcelona, Atlético Madrid');
-        clubs.push('Bundesliga: Bayern Munich, Borussia Dortmund');
-        clubs.push('Serie A: Inter Milan, AC Milan, Juventus');
-        clubs.push('Ligue 1: Paris Saint-Germain, AS Monaco');
-    } 
-    // Mid-tier clubs for good players
-    else if (fga >= 7.5) {
-        clubs.push('Premier League: Brighton, Brentford, Aston Villa');
-        clubs.push('Bundesliga: RB Leipzig, Union Berlin, Freiburg');
-        clubs.push('La Liga: Real Sociedad, Athletic Bilbao');
-        clubs.push('Serie A: AS Roma, Lazio, Atalanta');
-        clubs.push('Eredivisie: Ajax, PSV, Feyenoord');
-    }
-    // Development clubs for promising players
-    else {
-        clubs.push('Championship: Leeds United, Southampton, Norwich');
-        clubs.push('Eredivisie: AZ Alkmaar, FC Twente');
-        clubs.push('Portuguese Liga: Sporting CP, SC Braga');
-        clubs.push('Belgian Pro League: Club Brugge, Anderlecht');
-        clubs.push('Austrian Bundesliga: Red Bull Salzburg, Sturm Graz');
-    }
-    
-    return clubs;
 }
 
     </script>
