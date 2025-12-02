@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therence Koudou —Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://www.voetbalkrant.com/media/cache/full/images/2025/10/25/full/therence-koudou.webp"
+                    alt="Therence Koudou" class="photo">
+                <div class="title">Therence Koudou</div>
+                <div class="sub">KV Mechelen • France • Attacking Right-Back</div>
+                <div class="rating-badge">76.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇫🇷 France</span><span class="stat-label">13 Apps •
+                            2 Goals This Season • 4-Year Contract</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">DOB</span><span class="info-value">1999 (Age
+                            26)</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Right-Back</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">France
+                            🇫🇷</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">KV Mechelen</span><span
+                            class="info-value">2025-Present</span></div>
+                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until 2029 (4
+                            years)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Thére Koudou is a **French right-back** making an immediate impact in Belgian football.
+                    Approximately **Age 26** (born 1999). **KV Mechelen (2025-Present)**: Joined on **July 23, 2025**
+                    with a **4-year contract** until 2029. **Instant Impact**: Made **13 Jupiler Pro League
+                    appearances** and scored **2 goals** in his debut season. **Impressive Stats**: Played **1,477
+                    minutes**, averaging **78% pass completion**. Contributing **1 key pass per match** and **0.9
+                    successful dribbles** per game. **Defensive Contribution**: **0.7 interceptions per match**, showing
+                    he's solid defensively as well. Received **2 yellow cards** in the Belgian Pro League. **Playing
+                    Style**: Modern attacking right-back who contributes going forward (2 goals already) while
+                    maintaining defensive responsibilities. Good on the ball with excellent passing accuracy. Can create
+                    chances and take on opponents in 1v1 situations.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> 2 Goals in Debut
+                    Season • 13 Pro League Apps • 78% Pass Completion • 4-Year Contract @ KV Mechelen</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">6.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:68.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Koudou's tactical profile across coaching styles.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 7.2/10</span>
+                    <span class="pill">Guardiola Positional 7.4/10</span>
+                    <span class="pill">Cruyff Intelligence 7.4/10</span>
+                    <span class="pill">Menotti Artistry 7.2/10</span>
+                    <span class="pill">Michels Total 7.6/10</span>
+                    <span class="pill">Simeone Cholismo 7.0/10</span>
+                    <span class="pill">Mourinho Tactical 7.4/10</span>
+                    <span class="pill">Sacchi Pressing 7.6/10</span>
+                    <span class="pill">Klopp Intensity 7.8/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESTP (Entrepreneur)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Dynamic
+                                Attacker</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Attacking Intent</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Technical Quality</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**Attacking full-back with goal threat**. Already scored 2 goals in his debut
+                            Belgian season, showing his offensive mentality (8.2 Attacking Intent). Good technical
+                            quality (7.8) with 78% pass completion. Mobile (8.0) and willing to carry the ball forward.
+                            Strong dribbling (7.6) helps him beat opponents.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 23, 2025 | KV Mechelen Signing</div>
+                    <div class="timeline-event">✍️ **SIGNED 4-YEAR CONTRACT** - Joined KV Mechelen on a long-term deal
+                        until 2029,committing his future to Belgian football.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | First Goals</div>
+                    <div class="timeline-event">⚽ **SCORED 2 GOALS** - Made instant impact by scoring 2 goals as a
+                        right-back in his debut season in the Jupiler Pro League.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | Regular Starter</div>
+                    <div class="timeline-event">🛡️ **13 APPEARANCES** - Quickly established himself as a regular in KV
+                        Mechelen's starting XI, playing 1,477 minutes.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>KV Mechelen</strong></td>
+                            <td>2025/26</td>
+                            <td>13</td>
+                            <td>2</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Current Season:</strong> 13 Apps • 2 Goals • 1,477 Mins • 78% Pass
+                                Accuracy</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>2025/26 Season Stats</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">2 Goals</div>
+                        <div class="trophy-year">13 Matches</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🎯</div>
+                        <div class="trophy-title">78% Passing</div>
+                        <div class="trophy-year">1,477 Mins</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✍️</div>
+                        <div class="trophy-title">Contract 2029</div>
+                        <div class="trophy-year">4 Years</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <p class="small" style="margin-bottom:12px;">Belgian football journey.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Achievement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>KV Mechelen</strong></td>
+                            <td>2025-</td>
+                            <td>13</td>
+                            <td>2 Goals, Instant Impact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Early highlights in Belgium.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | First Goal</div>
+                    <div class="timeline-event">⚽ **DEBUT GOAL FOR KV MECHELEN** - Scored his first goal for the club in
+                        the Jupiler Pro League, announcing his arrival in style.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | Second Goal</div>
+                    <div class="timeline-event">⚽ **SECOND GOAL** - Added another goal to his tally, showing he's a
+                        genuine attacking threat from right-back.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | Consistent Starter</div>
+                    <div class="timeline-event">🛡️ **ESTABLISHED REGULAR** - Made 13 consecutive appearances, becoming
+                        a key player for KV Mechelen in his first season.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Attacking Full-Backs)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Thé Koudou vs Offensive Full-Backs</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">1999 (Age
+                                26)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Right-Back</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">France
+                                🇫🇷</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Club</span><span class="info-value">KV
+                                Mechelen</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Jupiler Pro
+                                League</span></div>
+                        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until
+                                2029</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">76.5 -
+                                Promising</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Thérence Koudou - KV Mechelen • France • 2 Goals in
+            Debut Season • Attacking Right-Back</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Attacking', 'Dribbling', 'Passing', 'Mobility', 'Key Passes', 'Technique', 'Defending', 'Stamina'], datasets: [{ label: 'Koudou', data: [8.2, 7.6, 7.8, 8.0, 7.6, 7.8, 7.2, 7.8], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
