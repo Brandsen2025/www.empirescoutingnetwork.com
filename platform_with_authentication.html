@@ -289,9 +289,140 @@
             border-color: #60a5fa;
             background: rgba(59, 130, 246, 0.1);
         }
+        
+        /* Login Modal Styles */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .login-modal {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+        }
+        
+        .login-input {
+            background: #0f172a;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .login-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .login-button {
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .login-button:hover {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+        
+        .login-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        
+        .platform-content {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white">
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-modal">
+            <div class="text-center mb-8">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                     alt="Empire FGA" 
+                     class="h-16 w-auto mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Empire FGA Platform</h1>
+                <p class="text-slate-400">Secure Access Required</p>
+            </div>
+            
+            <div id="loginError" class="login-error">
+                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please try again.
+            </div>
+            
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="mb-4">
+                    <label class="block text-slate-300 mb-2 font-semibold">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        class="login-input" 
+                        placeholder="Enter username" 
+                        required
+                        autocomplete="username">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-slate-300 mb-2 font-semibold">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="login-input" 
+                        placeholder="Enter password" 
+                        required
+                        autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <i class="fas fa-sign-in-alt"></i> Access Platform
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center text-slate-500 text-sm">
+                <i class="fas fa-shield-alt"></i> Secured by Empire FGA
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Content (Hidden until login) -->
+    <div id="platformContent" class="platform-content">
 
     <!-- Navigation -->
     <nav class="sticky top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
@@ -309,7 +440,7 @@
                         <i class="fas fa-file-pdf"></i> Export PDF
                     </button>
                     <a href="#" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        <a href="https://www.empirescoutingnetwork.com/login">Login</a>
+                        Login
                     </a>
                     <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
                         Request Demo
@@ -621,8 +752,119 @@
             <p class="text-slate-500 text-sm mt-2">© 2025 Empire Scouting Network. All rights reserved.</p>
         </div>
     </footer>
+    
+    </div> <!-- End Platform Content -->
 
     <script>
+        // ===================================================================
+        // AUTHENTICATION SYSTEM
+        // ===================================================================
+        
+        let isAuthenticated = false;
+        let currentUser = null;
+        
+        // Platform Credentials
+        const VALID_CREDENTIALS = {
+            'admin': 'empire2025',
+            'jimdejong': 'empirefga123',
+            'agent': 'agent2025'
+        };
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('loginError');
+            
+            // Check credentials
+            if (VALID_CREDENTIALS[username] && VALID_CREDENTIALS[username] === password) {
+                isAuthenticated = true;
+                currentUser = username;
+                
+                // Hide login overlay
+                document.getElementById('loginOverlay').style.display = 'none';
+                
+                // Show platform content
+                document.getElementById('platformContent').style.display = 'block';
+                
+                // Initialize platform
+                initializePlatform();
+                
+                // Show success message
+                showNotification('✅ Access Granted', 'Welcome to Empire FGA Platform', 'success');
+            } else {
+                // Show error
+                loginError.style.display = 'block';
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+                
+                setTimeout(() => {
+                    loginError.style.display = 'none';
+                }, 3000);
+            }
+        }
+        
+        function showNotification(title, message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                z-index: 10001;
+                font-weight: 600;
+            `;
+            notification.innerHTML = `<div style="font-size:16px;">${title}</div><div style="font-size:14px;opacity:0.9;margin-top:4px;">${message}</div>`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.3s';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+        
+        function requireAuth(action) {
+            if (!isAuthenticated) {
+                showNotification('⚠️ Authentication Required', 'Please login to access this feature', 'error');
+                return false;
+            }
+            return true;
+        }
+        
+        function initializePlatform() {
+            // Initialize all platform features after login
+            console.log('Platform initialized for user:', currentUser);
+            
+            // Set database tab as active by default
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            
+            const databaseTab = document.getElementById('database-tab');
+            if (databaseTab) {
+                databaseTab.classList.add('active');
+            }
+            
+            const databaseButton = document.querySelector('[onclick="switchTab(\'database\')"]');
+            if (databaseButton) {
+                databaseButton.classList.add('active');
+            }
+            
+            // Load initial data
+            if (typeof renderDatabase === 'function') {
+                renderDatabase();
+            }
+        }
+        
+        // ===================================================================
+        // PLATFORM DATA AND FUNCTIONALITY
+        // ===================================================================
+        
         // LOAD FULL PLAYER DATA FROM YOUR DATABASE
         // This section will be replaced with the complete 521-player array
         const playerData = [
@@ -672,20 +914,6 @@
             { name: "Aleksandar Stanković", profileHtml: "Aleksandar_Stankovic.html", position: "CM", age: 20, nationality: "Serbia", fga: 79.5, bestPhilosophy: "Mourinho Tactical", currentClub: "Inter Milan" },
             { name: "Axel Disasi", profileHtml: "Axel_Disasi.html", position: "CB", age: 27, nationality: "France", fga: 87.5, bestPhilosophy: "Mourinho Tactical", currentClub: "Chelsea" },
             { name: "Mehdi Mchakhchekh", profileHtml: "Mehdi_Mchakhchekh.html", position: "CM", age: 22, nationality: "Morocco", fga: 76.0, bestPhilosophy: "Guardiola Positional" },
-            
-            // === NEW PLAYERS BATCH 4 (Dec 1, 2025 - Fourth Upload) ===
-            { name: "Justin Rasmussen", profileHtml: "Justin_Rasmussen.html", position: "LB", age: 25, nationality: "USA", fga: 76.5, bestPhilosophy: "Klopp Intensity", currentClub: "MLS" },
-            { name: "Mauricio Pineda", profileHtml: "Mauricio_Pineda.html", position: "CB", age: 27, nationality: "El Salvador", fga: 79.0, bestPhilosophy: "Mourinho Tactical", currentClub: "MLS" },
-            { name: "Memo Rodriguez", profileHtml: "Memo_Rodriguez.html", position: "CM", age: 28, nationality: "USA", fga: 78.5, bestPhilosophy: "Guardiola Positional", currentClub: "Houston Dynamo" },
-            { name: "Kemar Lawrence", profileHtml: "Kemar_Lawrence.html", position: "LB", age: 32, nationality: "Jamaica", fga: 81.5, bestPhilosophy: "Ferguson Mental", currentClub: "MLS" },
-            { name: "Abner", profileHtml: "Abner.html", position: "LB", age: 24, nationality: "Brazil", fga: 83.5, bestPhilosophy: "Ancelotti Balance", currentClub: "Lyon" },
-            { name: "Mathis Abline", profileHtml: "Mathis_Abline.html", position: "ST", age: 22, nationality: "France", fga: 79.0, bestPhilosophy: "Fontaine Attack", currentClub: "Ligue 1" },
-            { name: "Laurent Abergel", profileHtml: "Laurent_Abergel.html", position: "CM", age: 31, nationality: "France", fga: 80.5, bestPhilosophy: "Guardiola Positional", currentClub: "Lorient" },
-            { name: "Saud Abdelhamid", profileHtml: "Saud_Abdelhamid.html", position: "CB", age: 25, nationality: "Saudi Arabia", fga: 81.0, bestPhilosophy: "Mourinho Tactical", currentClub: "Al-Nassr" },
-            { name: "Salis Abdul Samed", profileHtml: "Salis_Abdul_Samed.html", position: "DM", age: 24, nationality: "Ghana", fga: 84.5, bestPhilosophy: "Klopp Intensity", currentClub: "Lens" },
-            { name: "Ali Abdi", profileHtml: "Ali_Abdi.html", position: "LB", age: 27, nationality: "Tunisia", fga: 82.0, bestPhilosophy: "Guardiola Positional", currentClub: "Lorient" },
-            { name: "Jones El Abdellaoui", profileHtml: "Jones_El_Abdellaoui.html", position: "WG", age: 18, nationality: "France", fga: 79.5, bestPhilosophy: "Klopp Intensity", currentClub: "Youth" },
-            { name: "Himad Abdelli", profileHtml: "Himad_Abdelli.html", position: "CM", age: 18, nationality: "France", fga: 83.0, bestPhilosophy: "Guardiola Positional", currentClub: "Angers" },
             
             // === EXISTING LEGENDS (continue) ===
             { name: "Diego Maradona", profileHtml: "Diego_Maradona.html", position: "AM", age: 64, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
@@ -1263,6 +1491,11 @@
 
         // Tab Switching
         function switchTab(tabName) {
+            // Check authentication for Agent Dashboard
+            if (tabName === 'agents' && !requireAuth()) {
+                return;
+            }
+            
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
             
@@ -1275,6 +1508,8 @@
                 renderMarketIntelligence();
             } else if (tabName === 'squad') {
                 initializeSquadBuilder();
+            } else if (tabName === 'agents') {
+                renderAgentDashboard();
             }
         }
 

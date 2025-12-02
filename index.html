@@ -55,7 +55,17 @@
         .animate-fadeInUp {
             animation: fadeInUp 0.8s ease-out;
         }
-    </style>
+    /* Add scrollbar styling for chat messages if desired */
+#chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+#chat-messages::-webkit-scrollbar-track {
+    background: #1e293b; /* slate-800 */
+}
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #3b82f6; /* blue-600 */
+    border-radius: 3px;
+}</style>
 </head>
 <body class="bg-slate-950 text-white">
 
@@ -77,8 +87,8 @@
                 </div>
 
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        Login
+                    <a href="platform_with_authentication.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
+                        Platform Access
                     </a>
                     <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
                         Request Demo
@@ -102,7 +112,7 @@
                 <a href="#pricing" class="block hover:text-blue-400">Pricing</a>
                 <a href="#roi" class="block hover:text-blue-400">ROI Calculator</a>
                 <a href="#testimonials" class="block hover:text-blue-400">Testimonials</a>
-                <a href="login.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Login</a> 
+                <a href="platform_with_authentication.html" class="block hover:text-blue-400 border border-blue-500 rounded-lg py-2 text-center mt-2">Platform Access</a> 
                 <a href="#contact" class="block w-full bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold text-center mt-2">
                     Request Demo
                 </a>
@@ -112,11 +122,6 @@
 
     <section class="hero-gradient pt-32 pb-20 px-4">
         <div class="max-w-7xl mx-auto text-center animate-fadeInUp">
-            <div class="mb-8 flex justify-center">
-                <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1" 
-                     alt="Empire FGA" 
-                     class="h-24 w-auto">
-            </div>
             
             <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
                 The Future of Football Intelligence
@@ -127,6 +132,12 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="platform_with_authentication.html" class="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 px-8 py-4 rounded-lg font-bold text-lg transition inline-flex items-center justify-center shadow-lg shadow-blue-500/50 border border-blue-400/50">
+                    <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    Access Platform
+                </a>
                 <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition inline-flex items-center justify-center">
                     Start Free Trial
                     <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -598,10 +609,10 @@
                 Join 50+ professional clubs using Empire FGA to gain competitive advantage
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:contact@empirescoutingnetwork.com" class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-bold text-lg transition">
+                <a href="/cdn-cgi/l/email-protection#f4979b9a80959780b49199849d869187979b81809d9a939a9180839b869fda979b99" class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-bold text-lg transition">
                     Start 30-Day Free Trial
                 </a>
-                <a href="mailto:demo@empirescoutingnetwork.com" class="bg-slate-900 hover:bg-slate-800 px-8 py-4 rounded-lg font-bold text-lg transition border border-white/30">
+                <a href="/cdn-cgi/l/email-protection#442021292b042129342d362137272b31302d2a232a2130332b362f6a272b29" class="bg-slate-900 hover:bg-slate-800 px-8 py-4 rounded-lg font-bold text-lg transition border border-white/30">
                     Schedule Demo Call
                 </a>
             </div>
@@ -639,7 +650,7 @@
                         <li><a href="#" class="hover:text-blue-400">About Us</a></li>
                         <li><a href="#testimonials" class="hover:text-blue-400">Testimonials</a></li>
                         <li><a href="#" class="hover:text-blue-400">Case Studies</a></li>
-                        <li><a href="mailto:contact@empirescoutingnetwork.com" class="hover:text-blue-400">Contact</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#31525e5f4550524571545c4158435442525e4445585f565f5445465e435a1f525e5c" class="hover:text-blue-400">Contact</a></li>
                     </ul>
                 </div>
 
@@ -659,7 +670,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');

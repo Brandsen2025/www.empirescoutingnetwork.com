@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Kevin Weinress Dashboard | Prosport Management</title>
+    <meta name="description" content="Kevin Weinress Agent Dashboard - Prosport Management. 779 proprietary metrics, player analysis, market intelligence.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .player-card.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+
+        .roster-table th, .roster-table td {
+             padding: 12px 15px;
+             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+             vertical-align: middle; 
+        }
+         .roster-table th {
+            background-color: rgba(30, 58, 138, 0.3);
+            color: #93c5fd;
+            text-align: left;
+            font-weight: 600;
+        }
+        .roster-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nav-button {
+             background: none;
+             border: none;
+             color: #cbd5e0;
+             padding: 0.5rem 1rem;
+             cursor: pointer;
+             font-weight: 500;
+             transition: color 0.2s ease;
+        }
+        .nav-button:hover {
+             color: #60a5fa;
+        }
+        .nav-button.active {
+             color: #3b82f6;
+             font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                         alt="Empire Scouting Network" 
+                         class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button data-section="dashboard" class="nav-button active">Dashboard</button>
+                    <button data-section="roster" class="nav-button">My Players</button>
+                    <button data-section="comparison" class="nav-button">Compare</button>
+                    <button data-section="market" class="nav-button">Market Intelligence</button>
+                    <span class="text-sm text-slate-400"> | Kevin Weinress</span>
+                    <button onclick="logout()" class="text-sm text-red-400 hover:text-red-300">Logout</button>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
+            <div class="px-4 py-4 space-y-3">
+                 <button data-section="dashboard" class="nav-button block w-full text-left">Dashboard</button>
+                 <button data-section="roster" class="nav-button block w-full text-left">My Players</button>
+                 <button data-section="comparison" class="nav-button block w-full text-left">Compare</button>
+                 <button data-section="market" class="nav-button block w-full text-left">Market Intelligence</button>
+                 <button onclick="logout()" class="text-red-400 hover:text-red-300 block w-full text-left">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- DASHBOARD SECTION -->
+            <section id="dashboard" class="section">
+                <div class="text-center mb-12 p-8 bg-slate-900/50 rounded-xl border border-blue-500/20">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                        Welcome to Your Agent Dashboard
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-4">
+                        Kevin Weinress • Prosport Management
+                    </p>
+                    <p class="text-sm text-slate-400 mb-8">
+                        Lifetime Access • 779 Metrics • 60 Philosophies • Priority Support
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                         <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">5</div>
+                            <div class="text-sm text-slate-400">Active Players</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">779</div>
+                            <div class="text-sm text-slate-400">Total Metrics</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-green-400 mb-2">60</div>
+                            <div class="text-sm text-slate-400">Philosophies</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">80.3</div>
+                            <div class="text-sm text-slate-400">Avg. FGA Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Player List -->
+                    <div class="md:col-span-1 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">My Players</h3>
+                        <div id="player-list" class="space-y-4">
+                            <!-- DeJuan Jones Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover selected bg-slate-700/50 border-blue-400" 
+                                 onclick="selectPlayer(1)" 
+                                 id="player-1">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">DeJuan Jones</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 82.3
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>LB • 27 years</span>
+                                    <span>🇺🇸 USA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ Columbus Crew • MLS
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Mauricio Pineda Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(2)" 
+                                 id="player-2">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Mauricio Pineda</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 79.0
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CB • 27 years</span>
+                                    <span>🇺🇸 USA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ Chicago Fire • MLS
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Tristan Blackmon Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(3)" 
+                                 id="player-3">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Tristan Blackmon</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 80.0
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CB • 29 years</span>
+                                    <span>🇺🇸 USA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ Vancouver Whitecaps
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Memo Rodriguez Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(4)" 
+                                 id="player-4">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Memo Rodriguez</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 78.5
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CM • 28 years</span>
+                                    <span>🇺🇸 USA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ Houston Dynamo
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Kemar Lawrence Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(5)" 
+                                 id="player-5">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Kemar Lawrence</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 81.5
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>LB • 32 years</span>
+                                    <span>🇯🇲 Jamaica</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ MLS
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="addPlayerRequest()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                            + Add Player
+                        </button>
+                    </div>
+                    
+                    <!-- Player Analysis -->
+                    <div class="md:col-span-2 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Player Analysis</h3>
+                        <div id="player-analysis">
+                            <!-- DeJuan Jones Analysis -->
+                            <div class="player-analysis-content" id="analysis-1">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">DeJuan Jones</h4>
+                                        <button onclick="exportPDF(1)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Left Back • 27 years • Columbus Crew (MLS) • 🇺🇸 USA
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">82.3</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.8</div>
+                                            <div class="text-xs text-slate-400">STK (Steekpas)</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.4</div>
+                                            <div class="text-xs text-slate-400">RDS</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€1.5M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">9.1</div>
+                                            <div class="text-xs text-slate-400">Klopp Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Klopp Intensity</span>
+                                                    <span class="text-blue-400 font-bold">9.1/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 91%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Guardiola Positional</span>
+                                                    <span class="text-blue-400 font-bold">8.7/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 87%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ferguson Mental</span>
+                                                    <span class="text-blue-400 font-bold">8.3/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 83%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Elite defensive left back</strong> with exceptional tactical intelligence. Perfect for high-pressing systems (Klopp 9.1/10). Strong in 1v1 situations, excellent positioning, and capable of inverting into midfield. MLS experience shows adaptability and leadership qualities.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Premier League (Brighton, Brentford), Bundesliga (Union Berlin, Freiburg), Eredivisie (AZ, Feyenoord)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Strong fit for mid-table Premier League clubs seeking defensive reinforcement
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mauricio Pineda Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-2">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Mauricio Pineda</h4>
+                                        <button onclick="exportPDF(2)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Center Back • 27 years • Chicago Fire (MLS) • 🇺🇸 USA
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">79.0</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.3</div>
+                                            <div class="text-xs text-slate-400">Defensive Solidity</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">7.9</div>
+                                            <div class="text-xs text-slate-400">Aerial</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€1.2M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.5</div>
+                                            <div class="text-xs text-slate-400">Mourinho Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Tactical</span>
+                                                    <span class="text-blue-400 font-bold">8.5/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ferguson Mental</span>
+                                                    <span class="text-blue-400 font-bold">8.0/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 80%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ancelotti Adaptable</span>
+                                                    <span class="text-blue-400 font-bold">7.8/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 78%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Solid defensive center back</strong> with strong tactical discipline. Ideal for defensive-minded systems (Mourinho 8.5/10). Excellent in organized low-block defenses, strong aerial presence, and reliable positioning. Chicago Fire homegrown player with strong MLS experience and proven defensive capabilities.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> MLS (mid-tier expansion clubs), Liga MX (Tijuana, Monterrey), Championship (defensive-oriented teams)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Ideal for teams needing defensive stability and leadership
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tristan Blackmon Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-3">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Tristan Blackmon</h4>
+                                        <button onclick="exportPDF(3)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Center Back • 29 years • Vancouver Whitecaps • 🇺🇸 USA
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">80.0</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.5</div>
+                                            <div class="text-xs text-slate-400">Mental Strength</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.2</div>
+                                            <div class="text-xs text-slate-400">Leadership</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€1.8M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.6</div>
+                                            <div class="text-xs text-slate-400">Ferguson Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ferguson Mental</span>
+                                                    <span class="text-blue-400 font-bold">8.6/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 86%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Tactical</span>
+                                                    <span class="text-blue-400 font-bold">8.2/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 82%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Klopp Intensity</span>
+                                                    <span class="text-blue-400 font-bold">7.9/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 79%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Experienced center back with exceptional mental strength</strong> and leadership qualities. Perfect for systems requiring defensive organization and resilience (Ferguson 8.6/10). Proven track record in MLS, capable of marshaling defensive lines and providing stability. Strong communicator.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Championship (promotion contenders), MLS (playoff teams), Bundesliga 2 (defensive-minded clubs)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Ready for step up to top-tier European second divisions
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memo Rodriguez Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-4">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Memo Rodriguez</h4>
+                                        <button onclick="exportPDF(4)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Central Midfielder • 28 years • Houston Dynamo • 🇺🇸 USA
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">78.5</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.4</div>
+                                            <div class="text-xs text-slate-400">Passing Vision</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.0</div>
+                                            <div class="text-xs text-slate-400">Technical</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€1.0M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.7</div>
+                                            <div class="text-xs text-slate-400">Guardiola Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Guardiola Positional</span>
+                                                    <span class="text-blue-400 font-bold">8.7/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 87%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Cruyff Total Football</span>
+                                                    <span class="text-blue-400 font-bold">8.1/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 81%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ancelotti Adaptable</span>
+                                                    <span class="text-blue-400 font-bold">7.7/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 77%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Technical central midfielder with excellent positional awareness</strong> and passing range. Perfect for possession-based systems (Guardiola 8.7/10). Strong in tight spaces, capable of dictating tempo, and intelligent off-ball movement. Versatile midfielder who can play multiple roles.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Eredivisie (possession-based teams), Championship (technical clubs), Liga MX (top clubs)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Ideal for teams playing possession-dominant football
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kemar Lawrence Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-5">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Kemar Lawrence</h4>
+                                        <button onclick="exportPDF(5)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Left Back • 32 years • MLS • 🇯🇲 Jamaica
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">81.5</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.7</div>
+                                            <div class="text-xs text-slate-400">Experience</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.4</div>
+                                            <div class="text-xs text-slate-400">Defensive IQ</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€800K</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.8</div>
+                                            <div class="text-xs text-slate-400">Ferguson Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ferguson Mental</span>
+                                                    <span class="text-blue-400 font-bold">8.8/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 88%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Tactical</span>
+                                                    <span class="text-blue-400 font-bold">8.3/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 83%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ancelotti Adaptable</span>
+                                                    <span class="text-blue-400 font-bold">8.1/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 81%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Veteran left back with exceptional mental strength</strong> and leadership. Perfect for systems requiring experience and stability (Ferguson 8.8/10). Jamaica international with 50+ caps, proven winner in MLS, and capable of mentoring younger players. Still maintains physical attributes at 32.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Championship (playoff contenders), MLS (expansion/rebuilding teams), USL Championship (top clubs)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Short-term signing for teams needing experience and leadership
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </section>
+
+             <!-- ROSTER SECTION -->
+             <section id="roster" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                     <div class="flex justify-between items-center mb-8">
+                        <h1 class="text-4xl md:text-5xl font-bold gradient-text">
+                            My Player Roster
+                        </h1>
+                        <button onclick="exportAllPDFs()" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Export All PDFs
+                        </button>
+                    </div>
+                     <div class="overflow-x-auto">
+                        <table class="roster-table w-full text-sm text-left text-slate-300">
+                             <thead class="text-xs uppercase">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Age</th>
+                                    <th>Current Club</th>
+                                    <th>Nationality</th>
+                                    <th>FGA Rating</th>
+                                    <th>Market Value</th>
+                                    <th>Actions</th>
+                                </tr>
+                             </thead>
+                             <tbody>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="DeJuan_Jones.html" target="_blank" class="hover:underline">DeJuan Jones</a>
+                                    </td>
+                                    <td>LB</td>
+                                    <td>27</td>
+                                    <td>Columbus Crew</td>
+                                    <td>🇺🇸 USA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">82.3</span></td>
+                                    <td>€1.5M</td>
+                                    <td>
+                                        <button onclick="exportPDF(1)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Mauricio_Pineda.html" target="_blank" class="hover:underline">Mauricio Pineda</a>
+                                    </td>
+                                    <td>CB</td>
+                                    <td>27</td>
+                                    <td>Chicago Fire</td>
+                                    <td>🇺🇸 USA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">79.0</span></td>
+                                    <td>€1.2M</td>
+                                    <td>
+                                        <button onclick="exportPDF(2)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Tristan_Blackmon.html" target="_blank" class="hover:underline">Tristan Blackmon</a>
+                                    </td>
+                                    <td>CB</td>
+                                    <td>29</td>
+                                    <td>Vancouver Whitecaps</td>
+                                    <td>🇺🇸 USA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">80.0</span></td>
+                                    <td>€1.8M</td>
+                                    <td>
+                                        <button onclick="exportPDF(3)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Memo_Rodriguez.html" target="_blank" class="hover:underline">Memo Rodriguez</a>
+                                    </td>
+                                    <td>CM</td>
+                                    <td>28</td>
+                                    <td>Houston Dynamo</td>
+                                    <td>🇺🇸 USA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">78.5</span></td>
+                                    <td>€1.0M</td>
+                                    <td>
+                                        <button onclick="exportPDF(4)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Kemar_Lawrence.html" target="_blank" class="hover:underline">Kemar Lawrence</a>
+                                    </td>
+                                    <td>LB</td>
+                                    <td>32</td>
+                                    <td>MLS</td>
+                                    <td>🇯🇲 Jamaica</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">81.5</span></td>
+                                    <td>€800K</td>
+                                    <td>
+                                        <button onclick="exportPDF(5)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <p class="text-xs text-slate-500 mt-4">
+                        Click "Export PDF" to generate professional scouting reports for clubs. Need to add more players? Email us at info@empirescoutingnetwork.com
+                    </p>
+                </div>
+            </section>
+
+            <!-- COMPARISON SECTION -->
+            <section id="comparison" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+                        Player Comparison Tool
+                    </h1>
+                    
+                    <div class="text-center py-20">
+                        <svg class="w-24 h-24 text-blue-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4">Compare Players Side-by-Side</h3>
+                        <p class="text-slate-400 mb-6 max-w-2xl mx-auto">
+                            Advanced comparison features now available! Compare up to 4 players across 779 metrics, philosophy compatibility, and market positioning.
+                        </p>
+                        <button onclick="alert('Comparison tool coming soon!')" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition">
+                            Launch Comparison Tool
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKET INTELLIGENCE SECTION -->
+            <section id="market" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+                        Market Intelligence Hub
+                    </h1>
+
+                    <!-- Market Overview Cards -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">€18.5M</div>
+                                    <div class="text-sm text-slate-400">Avg. LB Transfer Fee</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Premier League 2024/25 average</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-green-400">€6.3M</div>
+                                    <div class="text-sm text-slate-400">Portfolio Est. Value</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Total 5 players combined value</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-purple-400">23</div>
+                                    <div class="text-sm text-slate-400">Active Clubs Interested</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Based on FGA compatibility matching</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Trends -->
+                    <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-blue-400">Market Trends & Insights</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">🔥 Hot Market: Left Backs</h3>
+                                <p class="text-slate-300 text-sm">
+                                    Premier League clubs showing increased interest in MLS left backs. DeJuan Jones and Kemar Lawrence positioned perfectly for mid-season moves.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">📊 Value Opportunity: Center Backs</h3>
+                                <p class="text-slate-300 text-sm">
+                                    Championship and Bundesliga 2 clubs actively seeking defensive reinforcement. Mauricio Pineda and Tristan Blackmon represent excellent value.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">⚡ Emerging Market: Technical Midfielders</h3>
+                                <p class="text-slate-300 text-sm">
+                                    Eredivisie and Liga MX showing strong demand for possession-oriented midfielders. Memo Rodriguez fits the profile perfectly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.getAttribute('data-section');
+                
+                // Update active nav button
+                document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show selected section
+                document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById(section).classList.remove('hidden');
+                
+                // Close mobile menu if open
+                closeMobileMenu();
+            });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        }
+
+        function selectPlayer(id) {
+            // Update selected card
+            document.querySelectorAll('.player-card').forEach(card => {
+                card.classList.remove('selected', 'bg-slate-700/50', 'border-blue-400');
+            });
+            document.getElementById(`player-${id}`).classList.add('selected', 'bg-slate-700/50', 'border-blue-400');
+            
+            // Show selected player analysis
+            document.querySelectorAll('.player-analysis-content').forEach(analysis => {
+                analysis.classList.add('hidden');
+            });
+            document.getElementById(`analysis-${id}`).classList.remove('hidden');
+        }
+
+        // Player Database
+        const playersDB = {
+            1: {
+                name: 'DeJuan Jones',
+                position: 'LB',
+                club: 'Columbus Crew',
+                age: 27,
+                nationality: 'USA',
+                fgaOverall: 8.23,
+                marketValue: 1.5,
+                bio: 'Elite defensive left back with exceptional tactical intelligence and positioning. Proven in MLS with consistent high-level performances. Strong 1v1 defender with excellent recovery speed and ability to invert into midfield when required.',
+                strengths: [
+                    'Exceptional defensive positioning (STK 8.8/10)',
+                    'High-intensity pressing suitable for Klopp systems (9.1/10)',
+                    'Strong tactical intelligence and game reading',
+                    'Consistent performance level across full season',
+                    'Physical attributes ideal for Premier League'
+                ],
+                xps: 8.4,
+                trophyMagnet: 8.2,
+                dma: 8.5,
+                poi: 8.8,
+                chr: 8.3,
+                cpx: 8.6,
+                guardiola: 8.7,
+                klopp: 9.1,
+                ancelotti: 8.3,
+                mourinho: 8.5,
+                cruyff: 8.2,
+                transferTargets: [
+                    'Brighton & Hove Albion (94% match)',
+                    'Brentford FC (91% match)',
+                    'Union Berlin (88% match)',
+                    'AZ Alkmaar (85% match)',
+                    'Feyenoord (83% match)'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Kevin Weinress',
+                agentCompany: 'Prosport Management'
+            },
+            2: {
+                name: 'Mauricio Pineda',
+                position: 'CB',
+                club: 'Chicago Fire',
+                age: 27,
+                nationality: 'USA',
+                fgaOverall: 7.90,
+                marketValue: 1.2,
+                bio: 'Solid defensive center back with strong tactical discipline and organizational skills. Chicago Fire homegrown player with excellent MLS experience. Excellent in defensive systems requiring disciplined positioning and aerial dominance.',
+                strengths: [
+                    'Strong defensive organization (8.3/10)',
+                    'Excellent aerial ability (7.9/10)',
+                    'Tactical discipline in low-block systems',
+                    'Chicago Fire homegrown - strong MLS pedigree',
+                    'Leadership qualities on the pitch'
+                ],
+                xps: 7.8,
+                trophyMagnet: 7.5,
+                dma: 8.1,
+                poi: 7.9,
+                chr: 8.0,
+                cpx: 7.7,
+                guardiola: 7.4,
+                klopp: 7.6,
+                ancelotti: 7.8,
+                mourinho: 8.5,
+                cruyff: 7.3,
+                transferTargets: [
+                    'MLS Mid-Tier Clubs (92% match)',
+                    'Liga MX Teams (89% match)',
+                    'Championship Defensive Sides (85% match)',
+                    'USL Championship Top Clubs (83% match)'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Kevin Weinress',
+                agentCompany: 'Prosport Management'
+            },
+            3: {
+                name: 'Tristan Blackmon',
+                position: 'CB',
+                club: 'Vancouver Whitecaps',
+                age: 29,
+                nationality: 'USA',
+                fgaOverall: 8.00,
+                marketValue: 1.8,
+                bio: 'Experienced center back with exceptional mental strength and leadership capabilities. Proven track record in MLS with Vancouver Whitecaps. Strong communicator who excels at organizing defensive lines and maintaining concentration throughout matches.',
+                strengths: [
+                    'Exceptional mental strength (8.5/10)',
+                    'Strong leadership and communication (8.2/10)',
+                    'Defensive organization and positioning',
+                    'Experienced in playoff and pressure situations',
+                    'Versatile - can play right-sided CB or RB'
+                ],
+                xps: 8.1,
+                trophyMagnet: 7.9,
+                dma: 8.3,
+                poi: 8.0,
+                chr: 8.2,
+                cpx: 8.0,
+                guardiola: 7.6,
+                klopp: 7.9,
+                ancelotti: 8.0,
+                mourinho: 8.2,
+                cruyff: 7.5,
+                transferTargets: [
+                    'Championship Promotion Teams (91% match)',
+                    'MLS Playoff Contenders (88% match)',
+                    'Bundesliga 2 Clubs (86% match)',
+                    'Scottish Premiership (84% match)'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Kevin Weinress',
+                agentCompany: 'Prosport Management'
+            },
+            4: {
+                name: 'Memo Rodriguez',
+                position: 'CM',
+                club: 'Houston Dynamo',
+                age: 28,
+                nationality: 'USA',
+                fgaOverall: 7.85,
+                marketValue: 1.0,
+                bio: 'Technical central midfielder with excellent positional awareness and passing range. Thrives in possession-based systems with ability to dictate tempo and control midfield. Versatile midfielder capable of playing multiple roles in the center.',
+                strengths: [
+                    'Excellent passing vision and range (8.4/10)',
+                    'Strong positional awareness (8.0/10)',
+                    'Technical ability in tight spaces',
+                    'Intelligent off-ball movement',
+                    'Versatile - can play as 6, 8, or 10'
+                ],
+                xps: 7.9,
+                trophyMagnet: 7.6,
+                dma: 7.8,
+                poi: 8.0,
+                chr: 7.7,
+                cpx: 8.2,
+                guardiola: 8.7,
+                klopp: 7.5,
+                ancelotti: 7.7,
+                mourinho: 7.3,
+                cruyff: 8.1,
+                transferTargets: [
+                    'Eredivisie Possession Teams (93% match)',
+                    'Championship Technical Clubs (88% match)',
+                    'Liga MX Top Clubs (86% match)',
+                    'MLS Playoff Teams (84% match)'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Kevin Weinress',
+                agentCompany: 'Prosport Management'
+            },
+            5: {
+                name: 'Kemar Lawrence',
+                position: 'LB',
+                club: 'MLS',
+                age: 32,
+                nationality: 'Jamaica',
+                fgaOverall: 8.15,
+                marketValue: 0.8,
+                bio: 'Veteran left back with exceptional mental strength, experience and leadership. Jamaica international with 50+ caps. Proven winner in MLS with championship experience. Despite age, maintains strong physical attributes and provides invaluable experience for younger squads.',
+                strengths: [
+                    'Exceptional experience and mental strength (8.7/10)',
+                    'Strong defensive IQ (8.4/10)',
+                    'Leadership and mentoring abilities',
+                    'Jamaica international - 50+ caps',
+                    'MLS championship winner'
+                ],
+                xps: 8.3,
+                trophyMagnet: 8.4,
+                dma: 8.2,
+                poi: 8.1,
+                chr: 8.5,
+                cpx: 7.9,
+                guardiola: 7.7,
+                klopp: 8.0,
+                ancelotti: 8.1,
+                mourinho: 8.3,
+                cruyff: 7.6,
+                transferTargets: [
+                    'Championship Playoff Teams (90% match)',
+                    'MLS Expansion/Rebuilding (88% match)',
+                    'USL Championship Top Clubs (86% match)',
+                    'Jamaica National Team Role (95% match)'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Kevin Weinress',
+                agentCompany: 'Prosport Management'
+            }
+        };
+
+        // Helper Functions
+        function calculateHiddenValue(player) {
+            const baseFGA = player.fgaOverall;
+            if (baseFGA >= 8.0) return 1.0;
+            if (baseFGA >= 7.5) return 0.5;
+            return 0;
+        }
+
+        function getTopPhilosophy(player) {
+            const philosophies = [
+                { name: 'Klopp Intensity', score: player.klopp },
+                { name: 'Guardiola Positional', score: player.guardiola },
+                { name: 'Ancelotti Adaptable', score: player.ancelotti },
+                { name: 'Mourinho Defensive', score: player.mourinho },
+                { name: 'Cruyff Total Football', score: player.cruyff }
+            ];
+            philosophies.sort((a, b) => b.score - a.score);
+            return philosophies[0];
+        }
+
+        function calculateSalaryBand(fga) {
+            if (fga >= 8.5) return { min: 80, max: 120, position: 'Top Tier' };
+            if (fga >= 8.0) return { min: 50, max: 80, position: 'Upper Mid-Tier' };
+            if (fga >= 7.5) return { min: 30, max: 50, position: 'Mid-Tier' };
+            return { min: 15, max: 30, position: 'Lower Mid-Tier' };
+        }
+
+        function loadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+
+        async function exportPDF(playerId) {
+            const player = playersDB[playerId];
+            if (!player) {
+                alert('Player data not found');
+                return;
+            }
+            
+            // Show generating message
+            const statusMsg = document.createElement('div');
+            statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #3b82f6;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+            statusMsg.innerHTML = '<div style="color:#60a5fa;font-size:18px;font-weight:bold;margin-bottom:10px;">⏳ Generating PDF Report...</div><div style="color:#94a3b8;font-size:14px;">Please wait, creating professional report for ' + player.name + '</div>';
+            document.body.appendChild(statusMsg);
+            
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // PAGE 1: HEADER WITH LOGO & EXECUTIVE SUMMARY
+                
+                // Gold Header Background
+                doc.setFillColor(205, 133, 63);
+                doc.rect(0, 0, 210, 50, 'F');
+                
+                // Empire FGA Logo
+                const logoUrl = 'https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ';
+                
+                try {
+                    const logoImg = await loadImage(logoUrl);
+                    doc.addImage(logoImg, 'PNG', 15, 8, 35, 35);
+                } catch (error) {
+                    // Fallback
+                }
+                
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(22);
+                doc.setFont(undefined, 'bold');
+                doc.text('EMPIRE FGA SCOUTING REPORT', 55, 22);
+                
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'normal');
+                doc.text('Kevin Weinress • Prosport Management', 55, 32);
+                doc.text('779-Metric Analysis System', 55, 39);
+                
+                // Player Basic Info Section
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(18);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text(player.name, 20, 65);
+                
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.setFont(undefined, 'normal');
+                doc.text(`${player.position} • ${player.age} years • ${player.club} • ${player.nationality}`, 20, 73);
+                
+                // FGA Rating Badge
+                doc.setFillColor(59, 130, 246);
+                doc.roundedRect(150, 58, 40, 18, 3, 3, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.text(`FGA: ${player.fgaOverall.toFixed(1)}`, 170, 70, { align: 'center' });
+                
+                // Executive Summary
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text('EXECUTIVE SUMMARY', 20, 88);
+                
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(10);
+                doc.setTextColor(0, 0, 0);
+                
+                const bioLines = doc.splitTextToSize(player.bio, 170);
+                let yPos = 96;
+                bioLines.forEach(line => {
+                    doc.text(line, 20, yPos);
+                    yPos += 5;
+                });
+                
+                // Key Metrics
+                yPos += 8;
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text('KEY PERFORMANCE METRICS', 20, yPos);
+                
+                yPos += 8;
+                const metrics = [
+                    { label: 'XPS (Experience)', value: player.xps },
+                    { label: 'Trophy Magnet', value: player.trophyMagnet },
+                    { label: 'DMA (Decision Making)', value: player.dma },
+                    { label: 'POI (Positioning)', value: player.poi },
+                    { label: 'CHR (Character)', value: player.chr },
+                    { label: 'CPX (Complexity)', value: player.cpx }
+                ];
+                
+                metrics.forEach((metric, index) => {
+                    const xOffset = (index % 2) * 95;
+                    const yOffset = Math.floor(index / 2) * 10;
+                    
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(0, 0, 0);
+                    doc.text(metric.label, 20 + xOffset, yPos + yOffset);
+                    
+                    doc.setFont(undefined, 'bold');
+                    doc.setTextColor(59, 130, 246);
+                    doc.text(`${metric.value.toFixed(1)}/10`, 75 + xOffset, yPos + yOffset);
+                    
+                    // Progress bar
+                    doc.setFillColor(226, 232, 240);
+                    doc.rect(90 + xOffset, yPos + yOffset - 3, 30, 4, 'F');
+                    doc.setFillColor(59, 130, 246);
+                    doc.rect(90 + xOffset, yPos + yOffset - 3, (metric.value / 10) * 30, 4, 'F');
+                });
+                
+                yPos += 40;
+                
+                // Strengths Section
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text('KEY STRENGTHS', 20, yPos);
+                
+                yPos += 8;
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                doc.setTextColor(0, 0, 0);
+                
+                player.strengths.forEach(strength => {
+                    const strengthLines = doc.splitTextToSize(`• ${strength}`, 170);
+                    strengthLines.forEach(line => {
+                        doc.text(line, 25, yPos);
+                        yPos += 5;
+                    });
+                });
+                
+                // Market Value
+                yPos += 5;
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Estimated Market Value:', 20, yPos);
+                doc.setTextColor(34, 197, 94);
+                doc.text(`€${player.marketValue}M`, 80, yPos);
+                
+                // Footer
+                doc.setFontSize(8);
+                doc.setTextColor(128, 128, 128);
+                doc.text('Empire FGA Scouting Network | 779-Metric System | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+                doc.text(`Generated: ${new Date().toLocaleDateString()} | Report ID: ESN-${Date.now().toString(36).toUpperCase()}`, 105, 290, { align: 'center' });
+                
+                // PAGE 2: TACTICAL PHILOSOPHY FIT ANALYSIS
+                doc.addPage();
+                
+                // Header
+                doc.setFillColor(205, 133, 63);
+                doc.rect(0, 0, 210, 35, 'F');
+                
+                try {
+                    const logoImg = await loadImage(logoUrl);
+                    doc.addImage(logoImg, 'PNG', 15, 5, 24, 24);
+                } catch (error) {
+                    // Fallback
+                }
+                
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(18);
+                doc.setFont(undefined, 'bold');
+                doc.text('TACTICAL PHILOSOPHY FIT ANALYSIS', 45, 22);
+                
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text('TOP 5 MANAGER COMPATIBILITY', 20, 52);
+                
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(11);
+                doc.setTextColor(0, 0, 0);
+                
+                const philosophies = [
+                    { name: 'Pep Guardiola', score: player.guardiola, style: 'Possession-based, technical excellence' },
+                    { name: 'Jurgen Klopp', score: player.klopp, style: 'High-intensity pressing, counter-attack' },
+                    { name: 'Carlo Ancelotti', score: player.ancelotti, style: 'Adaptable, man-management focused' },
+                    { name: 'Jose Mourinho', score: player.mourinho, style: 'Defensive solidity, tactical discipline' },
+                    { name: 'Johan Cruyff', score: player.cruyff, style: 'Total Football, positional fluidity' }
+                ];
+                
+                philosophies.sort((a, b) => b.score - a.score);
+                
+                yPos = 62;
+                philosophies.forEach((phil, index) => {
+                    doc.setFont(undefined, 'bold');
+                    doc.setFontSize(12);
+                    doc.text(`${index + 1}. ${phil.name}`, 25, yPos);
+                    
+                    doc.setFont(undefined, 'normal');
+                    doc.setFontSize(10);
+                    doc.text(`Score: ${phil.score.toFixed(1)}/10`, 120, yPos);
+                    
+                    doc.setTextColor(100, 100, 100);
+                    doc.setFontSize(9);
+                    const styleLines = doc.splitTextToSize(phil.style, 160);
+                    doc.text(styleLines, 30, yPos + 6);
+                    
+                    doc.setTextColor(0, 0, 0);
+                    yPos += 22;
+                });
+                
+                // Transfer Market Analysis
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(205, 133, 63);
+                doc.text('TRANSFER MARKET ANALYSIS', 20, yPos + 15);
+                
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(11);
+                doc.setTextColor(0, 0, 0);
+                
+                doc.text('Ideal Target Clubs:', 20, yPos + 27);
+                
+                doc.setFontSize(10);
+                yPos += 35;
+                player.transferTargets.forEach(target => {
+                    doc.text(`• ${target}`, 25, yPos);
+                    yPos += 7;
+                });
+                
+                // Salary Recommendation
+                const salaryBand = calculateSalaryBand(player.fgaOverall);
+                
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Recommended Salary Band:', 20, yPos + 10);
+                
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(11);
+                doc.text(`€${salaryBand.min}K - €${salaryBand.max}K per week`, 25, yPos + 20);
+                doc.setFontSize(9);
+                doc.setTextColor(100, 100, 100);
+                doc.text(`Market Position: ${salaryBand.position}`, 25, yPos + 27);
+                
+                // Video Highlights Badge
+                if (player.hasVideoHighlights) {
+                    doc.setFillColor(40, 167, 69);
+                    doc.roundedRect(15, yPos + 35, 60, 12, 2, 2, 'F');
+                    doc.setTextColor(255, 255, 255);
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'bold');
+                    doc.text('✓ VIDEO HIGHLIGHTS AVAILABLE', 45, yPos + 43, { align: 'center' });
+                }
+                
+                // Footer
+                doc.setFontSize(8);
+                doc.setTextColor(128, 128, 128);
+                doc.text('Empire FGA Scouting Network | 779-Metric System | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+                doc.text(`Generated: ${new Date().toLocaleDateString()} | Report ID: ESN-${Date.now().toString(36).toUpperCase()}`, 105, 290, { align: 'center' });
+                
+                // Save
+                const fileName = `Empire_FGA_${player.name.replace(/\s/g, '_')}_Report.pdf`;
+                doc.save(fileName);
+                
+                // Remove status message
+                document.body.removeChild(statusMsg);
+                
+                // Show success
+                const successMsg = document.createElement('div');
+                successMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #10b981;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+                successMsg.innerHTML = '<div style="color:#10b981;font-size:18px;font-weight:bold;margin-bottom:10px;">✅ PDF Generated Successfully!</div><div style="color:#94a3b8;font-size:14px;">File: ' + fileName + '</div><div style="color:#60a5fa;font-size:12px;margin-top:10px;">Share this professional report with target clubs</div>';
+                document.body.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    document.body.removeChild(successMsg);
+                }, 4000);
+                
+            } catch (error) {
+                document.body.removeChild(statusMsg);
+                alert('❌ Error generating PDF: ' + error.message);
+                console.error(error);
+            }
+        }
+
+        async function exportAllPDFs() {
+            const statusMsg = document.createElement('div');
+            statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #3b82f6;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+            statusMsg.innerHTML = '<div style="color:#60a5fa;font-size:18px;font-weight:bold;margin-bottom:10px;">⏳ Generating All PDFs...</div><div style="color:#94a3b8;font-size:14px;">Processing 5 players</div>';
+            document.body.appendChild(statusMsg);
+            
+            try {
+                for (let i = 1; i <= 5; i++) {
+                    await exportPDF(i);
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // Delay between exports
+                }
+                
+                document.body.removeChild(statusMsg);
+                
+                const successMsg = document.createElement('div');
+                successMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #10b981;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+                successMsg.innerHTML = '<div style="color:#10b981;font-size:18px;font-weight:bold;margin-bottom:10px;">✅ All PDFs Generated!</div><div style="color:#94a3b8;font-size:14px;">5 reports created successfully</div>';
+                document.body.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    document.body.removeChild(successMsg);
+                }, 3000);
+            } catch (error) {
+                if (document.body.contains(statusMsg)) {
+                    document.body.removeChild(statusMsg);
+                }
+                alert('❌ Error generating PDFs: ' + error.message);
+            }
+        }
+
+        function addPlayerRequest() {
+            alert('📧 Add More Players to Your Roster\n\nAs a Lifetime member, you can add unlimited players FREE!\n\nJust email us:\ninfo@empirescoutingnetwork.com\n\nInclude:\n• Player name\n• Current club\n• Position\n• Date of birth\n\nWe\'ll create their complete FGA profile within 48 hours!');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.clear();
+                window.location.href = 'https://www.empirescoutingnetwork.com';
+            }
+        }
+    </script>
+</body>
+</html>
