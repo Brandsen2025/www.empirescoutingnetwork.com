@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipe Luís (Player) — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://assets.goal.com/images/v3/bltb88d177818c2efc3/1859466af29d110c3ed68fb9c2cc9dd9a1309d40.jpg?auto=webp&format=pjpg&width=3840&quality=60"
+                    alt="Filipe Luís (Player)" class="photo">
+                <div class="title">Filipe Luís (Player)</div>
+                <div class="sub">Atlético Madrid • Flamengo • Technical Master</div>
+                <div class="rating-badge">89.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇧🇷 Brazil</span><span class="stat-label">44 Caps •
+                            Copa América Winner • 21 Major Trophies</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">DOB</span><span class="info-value">August 9,
+                            1985</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Left-Back</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Brazil
+                            🇧🇷</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Atlético Madrid</span><span
+                            class="info-value">2010-19 (333 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Flamengo</span><span class="info-value">2019-2023
+                            (176 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Chelsea</span><span class="info-value">2014-2015 (26
+                            apps)</span></div>
+                    <div class="info-row"><span class="info-label">Deportivo</span><span class="info-value">2006-2010
+                            (136 apps)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Filipe Luís was one of the most **technically gifted and intelligent left-backs** of the
+                    modern era. Born **August 9, 1985**. **Atlético Madrid (2010-2019)**: A key pillar of Diego
+                    Simeone's golden era. Won **La Liga (2014)**, **2 Europa Leagues**, and reached **2 Champions League
+                    finals**. Renowned for his exceptional defensive positioning and ability to play as a playmaker from
+                    the flank. **Flamengo (2019-2023)**: Returned to Brazil to lead Flamengo to historic dominance. Won
+                    **2 Copa Libertadores** (2019, 2022) and **2 Brasileirão titles**. **Chelsea (2014-15)**: Won the
+                    **Premier League** and League Cup in his single season in England. **Brazil National Team**: **44
+                    caps**, **Copa América winner (2019)**. **Playing Style**: Elegant, composed, tactically astute.
+                    Unlike traditional explosive Brazilian full-backs, he relied on superior technique, passing (9.2
+                    Vision), and reading of the game.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> La Liga Champion
+                    • Premier League Champion • 2x Copa Libertadores • 2x Europa League • Copa América Winner • 2x UCL
+                    Finalist</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">6.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:65.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">9.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:96.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Filipe Luís's tactical profile mapped across legendary
+                    coaching philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 8.5/10</span>
+                    <span class="pill">Guardiola Positional 9.2/10</span>
+                    <span class="pill">Cruyff Intelligence 9.5/10</span>
+                    <span class="pill">Menotti Artistry 8.8/10</span>
+                    <span class="pill">Michels Total 9.0/10</span>
+                    <span class="pill">Simeone Cholismo 9.8/10</span>
+                    <span class="pill">Mourinho Tactical 9.5/10</span>
+                    <span class="pill">Sacchi Pressing 9.0/10</span>
+                    <span class="pill">Klopp Intensity 8.2/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">INFJ (Advocate)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">The
+                                Thinker</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Tactical IQ</span><span
+                                    class="metric-score">9.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Professionalism</span><span
+                                    class="metric-score">9.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:99%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**A coach on the pitch**. Even as a player, he possessed a manager's
+                            understanding of space and tactics. Extremely professional and composed. Simeone's most
+                            trusted lieutenant on the left flank. His high Tactical IQ (9.8) allowed him to excel
+                            defensively without relying solely on pace.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 17, 2014 | La Liga Champion</div>
+                    <div class="timeline-event">🏆 **WON LA LIGA AT CAMP NOU**. Helped Atlético Madrid secure the title
+                        with a draw against Barcelona. A historic achievement breaking the Real/Barça duopoly.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 23, 2019 | Libertadores Glory</div>
+                    <div class="timeline-event">👑 **WON COPA LIBERTADORES**. Key part of the Flamengo "Dream Team" that
+                        beat River Plate in Lima. His first continental title in South America.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2015 | Premier League Winner</div>
+                    <div class="timeline-event">🦁 **WON PREMIER LEAGUE** with Chelsea. Added the English title to his
+                        collection under Jose Mourinho.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 7, 2019 | Copa América Winner</div>
+                    <div class="timeline-event">🇧🇷 **WON COPA AMÉRICA** with Brazil on home soil. Started in the final
+                        vs Peru. A major international honor.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2012 & 2018 | Europa League King</div>
+                    <div class="timeline-event">🇪🇺 **2x EUROPA LEAGUE WINNER**. Dominated Europe's second tier with
+                        Atlético Madrid, showcasing his continental pedigree.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Atlético Madrid</strong></td>
+                            <td>2010-2019</td>
+                            <td>333</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flamengo</strong></td>
+                            <td>2019-2023</td>
+                            <td>176</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deportivo</strong></td>
+                            <td>2006-2010</td>
+                            <td>136</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chelsea</strong></td>
+                            <td>2014-2015</td>
+                            <td>26</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brazil</strong></td>
+                            <td>2009-2019</td>
+                            <td>44</td>
+                            <td>2</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career Total:</strong> 700+ Apps • 21 Major Trophies • 44 Caps</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Key Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">La Liga</div>
+                        <div class="trophy-year">2014</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🦁</div>
+                        <div class="trophy-title">Premier League</div>
+                        <div class="trophy-year">2015</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">👑</div>
+                        <div class="trophy-title">2x Libertadores</div>
+                        <div class="trophy-year">2019, 2022</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇪🇺</div>
+                        <div class="trophy-title">2x Europa League</div>
+                        <div class="trophy-year">2012, 2018</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇧🇷</div>
+                        <div class="trophy-title">2x Brasileirão</div>
+                        <div class="trophy-year">2019, 2020</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🌎</div>
+                        <div class="trophy-title">Copa América</div>
+                        <div class="trophy-year">2019</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <p class="small" style="margin-bottom:12px;">A career of excellence in Spain, England, and Brazil.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Achievement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Atlético</strong></td>
+                            <td>2010-19</td>
+                            <td>333</td>
+                            <td>La Liga, 2x UEL, Copa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flamengo</strong></td>
+                            <td>2019-23</td>
+                            <td>176</td>
+                            <td>2x Libertadores, 2x League</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chelsea</strong></td>
+                            <td>2014-15</td>
+                            <td>26</td>
+                            <td>Premier League, League Cup</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deportivo</strong></td>
+                            <td>2006-10</td>
+                            <td>136</td>
+                            <td>Breakout Star</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Masterclasses in defense and possession.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 17, 2013 | Real Madrid 1-2 Atlético</div>
+                    <div class="timeline-event">🏆 **COPA DEL REY FINAL** - Defeated Real Madrid at the Bernabéu. A
+                        colossal defensive performance to end a 14-year winless streak vs rivals.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 23, 2019 | Flamengo 2-1 River Plate</div>
+                    <div class="timeline-event">👑 **LIBERTADORES FINAL** - Orchestrated the play from the back as
+                        Flamengo staged a dramatic late comeback to win the title.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 27, 2016 | Atlético 1-0 Bayern</div>
+                    <div class="timeline-event">🛡️ **UCL SEMI-FINAL** - Part of the defensive wall that shut out
+                        Guardiola's Bayern Munich. A tactical masterclass in defending narrow.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 17, 2015 | Brazil 3-0 Peru</div>
+                    <div class="timeline-event">⚽ **GOAL FOR BRAZIL** - Scored his first international goal in a World
+                        Cup qualifier. A composed finish.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Technical Full-Backs)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Filipe Luís vs Elite Technical Left-Backs</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Aug 9,
+                                1985</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Left-Back</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Brazil
+                                🇧🇷</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy Status</h3>
+                        <div class="info-row"><span class="info-label">Club Legend</span><span
+                                class="info-value">Atlético & Flamengo</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Technical
+                                Defensive</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">89.0 -
+                                Elite</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Filipe Luís (Player) - Atlético Madrid • Flamengo •
+            La Liga & Libertadores Winner</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Technique', 'Passing', 'Tackling', 'Positioning', 'Intelligence', 'Crossing', 'Pace', 'Composure'], datasets: [{ label: 'Filipe Luís', data: [9.5, 9.2, 9.3, 9.6, 9.8, 8.2, 7.5, 9.5], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
