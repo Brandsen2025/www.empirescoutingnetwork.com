@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve McManaman — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3nVbROgP9vlEL0cQSNWTz28jM_7Si5d7ZKm0NYN6uRFRn1dkdGDKU2fNAuouqjfVeFdA&usqp=CAU"
+                    alt="Steve McManaman" class="photo">
+                <div class="title">Steve McManaman</div>
+                <div class="sub">England Legend • Liverpool • Real Madrid • 2x Champions League</div>
+                <div class="rating-badge">90.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span><span
+                            class="stat-label">First English Player to Win UCL with Non-English Club</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Winger /
+                            Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Famous For</span><span class="info-value">Stamina,
+                            Dribbling, 2 CLs</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">England
+                            🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Liverpool</span><span class="info-value">1990-1999
+                            (364 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Real Madrid</span><span class="info-value">1999-2003
+                            (158 apps)</span></div>
+                    <div class="info-row"><span class="info-label">England NT</span><span class="info-value">37
+                            Caps</span></div>
+                    <div class="info-row"><span class="info-label">UCL Legacy</span><span class="info-value">2x Winner
+                            (2000, 2002)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Steve McManaman is an **English winger legend** who became one of the **most successful
+                    English footballers abroad**, winning **2 UEFA Champions Leagues with Real Madrid**. **Liverpool
+                    (1990-1999)**: **364 appearances, 66 goals** over 9 seasons. Signed professional in 1990. **FA Cup
+                    1992, League Cup 1995**. **PFA Team of the Year 1996-97**. **Premier League top assist provider
+                    1995-96**. Known for exceptional stamina and ability to run with the ball from right wing. **Real
+                    Madrid (1999-2003)**: **Free transfer in 1999** - one of first major Bosman moves. **158 competitive
+                    matches, 14 goals** over 4 seasons. **2 UEFA Champions Leagues (2000, 2002)** - **FIRST English
+                    player to win Champions League with non-English club**. Also **FIRST to win it twice** with
+                    non-English club. **2 La Liga titles, 1 European Super Cup, 1 Intercontinental Cup, 1 Supercopa de
+                    España**. **2000 Champions League Final**: Scored memorable **volley vs Valencia**. Crucial
+                    component of Galácticos, known for versatility in midfield. **Champions League Career**: **43
+                    appearances, 5 goals** total. **England**: 37 caps. Elite stamina (9.2), dribbling (9.0), and work
+                    rate (9.1). Gifted playmaker and influential attacking force. One of England's most decorated
+                    players abroad.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> 2x Champions
+                    League (2000, 2002) • First English Player to Win UCL with Non-English Club • 2x La Liga • 364
+                    Liverpool Apps • 66 Goals • Real Madrid Galáctico</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:75.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">McManaman's tactical DNA mapped across legendary coaching
+                    philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 8.9/10</span>
+                    <span class="pill">Guardiola Positional 8.6/10</span>
+                    <span class="pill">Cruyff Intelligence 8.8/10</span>
+                    <span class="pill">Menotti Artistry 9.0/10</span>
+                    <span class="pill">Michels Total 8.9/10</span>
+                    <span class="pill">Simeone Cholismo 8.5/10</span>
+                    <span class="pill">Mourinho Tactical 8.7/10</span>
+                    <span class="pill">Sacchi Pressing 8.8/10</span>
+                    <span class="pill">Klopp Intensity 9.2/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESTP (Entrepreneur)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Tireless
+                                Winger</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Stamina</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Carries</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**2x Champions League winner** (2000, 2002) - **first English player to win UCL
+                            with non-English club**. **2x La Liga**. **364 Liverpool apps, 66 goals**. Elite stamina
+                            (9.2), dribbling (9.0), carries (9.1). Galáctico at Real Madrid. One of England's most
+                            successful abroad.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">1990 | Liverpool Professional</div>
+                    <div class="timeline-event">🔴 Signed professional at **Liverpool**. Youth system graduate. Would
+                        spend 9 years at Anfield.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1990-1999 | Liverpool Era</div>
+                    <div class="timeline-event">🔴⚽ <strong>364 APPS, 66 GOALS</strong> - 9 seasons. **FA Cup 1992,
+                        League Cup 1995**. **PFA Team of Year 1996-97**. **PL top assist provider 1995-96**.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1999 | Real Madrid - Free Transfer</div>
+                    <div class="timeline-event">⚪💰 **FREE TRANSFER to REAL MADRID** - Major Bosman move. Joined
+                        Galácticos. High-profile international transfer.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 24, 2000 | Champions League Final - Volley Goal</div>
+                    <div class="timeline-event">🏆⚽ <strong>CHAMPIONS LEAGUE 2000 FINAL - SCORED MEMORABLE VOLLEY vs
+                            VALENCIA</strong> - Real Madrid won 3-0. McManaman's stunning volley. **FIRST English player
+                        to win UCL with non-English club**.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2002 | Second Champions League</div>
+                    <div class="timeline-event">🏆🏆 <strong>CHAMPIONS LEAGUE 2002</strong> - Won second UCL with Real
+                        Madrid (came on as substitute in final). **FIRST English player to win it TWICE with non-English
+                        club**.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1999-2003 | Real Madrid Galáctico</div>
+                    <div class="timeline-event">⚪⚡ <strong>158 MATCHES, 14 GOALS</strong> - 4 seasons. **2x UCL, 2x La
+                        Liga, European Super Cup, Intercontinental Cup**. Versatile midfielder. Galáctico era.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Career Legacy | UCL Pioneer</div>
+                    <div class="timeline-event">🏆🏴󠁧󠁢󠁥󠁮󠁧󠁿 **HISTORIC ACHIEVEMENT** - First English player to win
+                        Champions League with non-English club (2000). First to win it twice abroad (2002). **43 UCL
+                        apps, 5 goals**. English pioneer.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Country</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Liverpool</strong></td>
+                            <td>1990-1999</td>
+                            <td>364</td>
+                            <td>66 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Real Madrid</strong></td>
+                            <td>1999-2003</td>
+                            <td>158</td>
+                            <td>14 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Champions League</strong></td>
+                            <td>Career</td>
+                            <td>43</td>
+                            <td>5 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>England NT</strong></td>
+                            <td>Career</td>
+                            <td>37</td>
+                            <td>Caps</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> 522 Club Apps • 2x UCL (First English Player with
+                                Non-English Club) • 2x La Liga</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Major Honors</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">2x Champions League</div>
+                        <div class="trophy-year">2000, 2002</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇪🇸</div>
+                        <div class="trophy-title">2x La Liga</div>
+                        <div class="trophy-year">Real Madrid</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🔴</div>
+                        <div class="trophy-title">FA Cup</div>
+                        <div class="trophy-year">Liverpool 1992</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                        <div class="trophy-title">UCL Pioneer</div>
+                        <div class="trophy-year">First English Abroad</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">2000 Final Volley</div>
+                        <div class="trophy-year">Iconic Goal</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                        <div class="trophy-title">37 England Caps</div>
+                        <div class="trophy-year">International</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <p class="small" style="margin-bottom:12px;">Steve McManaman's legendary career journey.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Achievement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Liverpool</strong></td>
+                            <td>1990-1999</td>
+                            <td>364</td>
+                            <td>FA Cup, League Cup</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Real Madrid</strong></td>
+                            <td>1999-2003</td>
+                            <td>158</td>
+                            <td>2x UCL, 2x LaLiga</td>
+                        </tr>
+                        <tr>
+                            <td><strong>England</strong></td>
+                            <td>Career</td>
+                            <td>37 caps</td>
+                            <td>International</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining performances of an English pioneer abroad.
+                </p>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 24, 2000 | Champions League Final - THE VOLLEY</div>
+                    <div class="timeline-event">🏆⚽⚽ <strong>UCL FINAL 2000 - REAL MADRID 3-0 VALENCIA</strong> -
+                        **McManaman scored STUNNING VOLLEY**. Real won 3-0. **FIRST English player to win Champions
+                        League with non-English club**. Historic achievement.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2002 | Second Champions League</div>
+                    <div class="timeline-event">🏆🏆 <strong>CHAMPIONS LEAGUE 2002</strong> - Won second UCL with Madrid
+                        (substitute in final). **FIRST English player to win UCL TWICE with non-English club**.
+                        Unprecedented for English footballer abroad.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1990-1999 | Liverpool Career</div>
+                    <div class="timeline-event">🔴⚽ <strong>364 APPS, 66 GOALS for LIVERPOOL</strong> - 9 seasons at
+                        Anfield. **FA Cup 1992, League Cup 1995**. **PFA Team of Year 1996-97**. **PL top assist
+                        provider 1995-96**.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1999-2003 | Real Madrid Galáctico</div>
+                    <div class="timeline-event">⚪⚡ <strong>158 MATCHES, 14 GOALS at REAL MADRID</strong> - 4 seasons as
+                        Galáctico. **2x UCL, 2x La Liga, European Super Cup, Intercontinental Cup**. Versatile
+                        midfielder. Elite stamina and dribbling.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Elite Wingers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Steve McManaman vs Elite Wingers - Stamina &
+                    Skill</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Winger /
+                                Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Famous For</span><span
+                                class="info-value">Stamina, Dribbling, UCLs</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">England 🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy</h3>
+                        <div class="info-row"><span class="info-label">England Caps</span><span
+                                class="info-value">37</span></div>
+                        <div class="info-row"><span class="info-label">Champions Leagues</span><span
+                                class="info-value">2 (2000, 2002)</span></div>
+                        <div class="info-row"><span class="info-label">Pioneer</span><span class="info-value">First
+                                English UCL Abroad</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">90.5 -
+                                Legend</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Steve McManaman - 2x Champions League • First
+            English Player to Win UCL with Non-English Club</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Stamina', 'Carries', 'Dribbling', 'Danger Gen', 'Key Pass', 'Vision', 'Composure', 'Positioning'], datasets: [{ label: 'McManaman', data: [9.2, 9.1, 9.0, 8.9, 8.9, 8.8, 8.8, 8.7], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
