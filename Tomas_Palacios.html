@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomás Palacios — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div>
+            <div class="card">
+                <img src="https://pictures.tribuna.com/image/2e3cdc3e-4c11-4137-8487-56a197229159?width=1920&quality=70"
+                    alt="Tomás Palacios" class="photo">
+                <div class="rating-badge">84.7</div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Tomás Ezequiel
+                        Palacios</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">April 28, 2003 (Bahía
+                        Blanca, Argentina)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre-Back
+                        (CB)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.96m (6'5")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">21 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Monza (on
+                        loan from Inter Milan)</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Argentina
+                        U20 (5 caps)</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">9.1/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.3/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.2/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">8.4/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">AER (Aerial Dominance)</span><span
+                        class="info-value">9.3/10</span></div>
+                <div class="info-row"><span class="info-label">PHY (Physical Presence)</span><span
+                        class="info-value">9.2/10</span></div>
+                <div class="info-row"><span class="info-label">TAC (Tackling)</span><span
+                        class="info-value">8.4/10</span></div>
+                <div class="info-row"><span class="info-label">POS (Positioning)</span><span
+                        class="info-value">8.3/10</span></div>
+                <div class="info-row"><span class="info-label">PSS (Passing)</span><span
+                        class="info-value">8.1/10</span></div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">8.9/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇮🇹 Inzaghi (8.6/10)</span>
+                <span class="pill">🇮🇹 Conte (8.5/10)</span>
+                <span class="pill">🇪🇸 Simeone (8.4/10)</span>
+                <span class="pill">🇮🇹 Allegri (8.3/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Dyche (8.2/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Imposing young centre-back with exceptional physical
+                    attributes—standing at 1.96m (6'5"), he offers commanding aerial presence and physicality. Perfect
+                    for defensive-minded systems requiring dominant central defenders. Ideal for Italian tactical
+                    approaches emphasizing organized defending and defensive solidity. Left-footed centre-backs are rare
+                    and valuable, particularly for three-man defensive systems. Young age (21) with significant
+                    development potential. Inter Milan investment demonstrates belief in future elite status. Needs
+                    consistent playing time to refine tactical understanding.
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div>
+            <!-- Career Summary -->
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Tomás Ezequiel Palacios</strong> is a towering 21-year-old Argentine centre-back who
+                    represents the modern prototype of a physically dominant defender. Born in Bahía Blanca, Argentina
+                    on April 28, 2003, Palacios's imposing 1.96m (6'5") frame combined with his left-footed profile
+                    makes him a valuable commodity in contemporary football, where left-footed centre-backs are
+                    increasingly sought after for tactical flexibility. His development through Talleres' academy in
+                    Córdoba led to a breakthrough in Argentine football before securing a €6.5M transfer to Inter Milan
+                    in August 2024.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Palacios's career trajectory accelerated rapidly in 2024. After limited appearances for Talleres (4
+                    matches), a loan spell at Independiente Rivadavia (9 matches) provided crucial first-team
+                    experience. His performances attracted Inter Milan, one of Europe's elite clubs, who secured his
+                    signature and immediately loaned him to Monza (January 2025) for Serie A development. With 5
+                    Argentina U20 caps already earned, Palacios represents a significant investment in future defensive
+                    quality. His physical dominance, aerial prowess (9.3/10), and left-footed versatility position him
+                    as a high-potential defender who could develop into a Serie A regular and potentially join
+                    Argentina's senior national team setup.
+                </p>
+            </div>
+
+            <!-- Current Season Stats -->
+            <div class="card">
+                <h2>▲ Current Season Statistics (2024-25 Monza Loan)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Clean Sheets</th>
+                        <th>Key Stats</th>
+                        <th>Development Stage</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Serie A 2024-25</strong></td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>Gaining experience</td>
+                        <td>First European season</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inter Milan</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>Limited appearances</td>
+                        <td>Future prospect</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total 2024-25</strong></td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>Serie A adaptation</td>
+                        <td>Development season</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Development Context:</strong> 2024-25 represents Palacios's crucial adaptation year to
+                    European football. Monza loan provides regular Serie A exposure essential for development. At 21,
+                    gaining experience at top-tier Italian league critical for growth. Physical attributes immediately
+                    evident but tactical refinement ongoing. 8 Monza appearances demonstrate trust from coaching staff.
+                    Left-footed profile valuable for tactical flexibility. Inter Milan monitoring progress closely for
+                    potential 2025-26 first-team integration.
+                </div>
+            </div>
+
+            <!-- Evolution Through Career -->
+            <div class="card">
+                <h2>⟲ Career Development Path</h2>
+                <div class="section">
+                    <h3>Early Development - CA Costa Brava (2016-2019)</h3>
+                    <p class="lead">Youth career began at Club Atlético Costa Brava in Bahía Blanca. Three years
+                        developing fundamental skills and physical attributes. Exceptional height evident from young
+                        age. Progressed through youth levels demonstrating defensive potential.</p>
+                </div>
+                <div class="section">
+                    <h3>Talleres Academy & Professional Debut (2019-2024)</h3>
+                    <p class="lead">Joined prestigious Talleres academy in Córdoba in 2019. Signed first professional
+                        contract November 2021 at age 18. Professional debut April 9, 2022 in Copa de la Liga
+                        Profesional. Limited first-team opportunities (4 appearances total) at Talleres first team.
+                        Consistent development in reserve system. Physical presence and left-footed profile attracted
+                        attention.</p>
+                </div>
+                <div class="section">
+                    <h3>Independiente Rivadavia Loan (2024)</h3>
+                    <p class="lead">Loaned to Independiente Rivadavia January 2024 seeking regular playing time. 9
+                        appearances provided crucial first-team experience. Demonstrated aerial dominance and physical
+                        qualities. Performances increased market value and European interest. Proved capability at
+                        senior professional level.</p>
+                </div>
+                <div class="section">
+                    <h3>Inter Milan Transfer & Development (2024-Present)</h3>
+                    <p class="lead">€6.5M transfer to Inter Milan (August 30, 2024) plus €4.5M potential bonuses.
+                        Significant investment from Italian giants. 2 Inter appearances demonstrated trust. January 2025
+                        loan to Monza for Serie A experience. 8 Monza matches gaining valuable top-league experience.
+                        Learning Italian defensive tactics and organizational principles. Current FGA rating: 8.4/10
+                        with potential 8.9/10.</p>
+                </div>
+            </div>
+
+            <!-- Technical Profile -->
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Aerial Ability</span><span
+                                class="info-value">9.3/10</span></div>
+                        <div class="info-row"><span class="info-label">Physical Presence</span><span
+                                class="info-value">9.2/10</span></div>
+                        <div class="info-row"><span class="info-label">Height (1.96m)</span><span
+                                class="info-value">Exceptional</span></div>
+                        <div class="info-row"><span class="info-label">Tackling</span><span
+                                class="info-value">8.4/10</span></div>
+                        <div class="info-row"><span class="info-label">Left-Footed</span><span class="info-value">Rare
+                                asset</span></div>
+                        <div class="info-row"><span class="info-label">Age (21)</span><span class="info-value">High
+                                potential</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Physical Centre-Back / Left Centre-Back<br><br>
+                            <strong>Key Attributes:</strong> Commanding 6'5" presence dominating aerial duels, physical
+                            strength in defensive challenges, left-footed profile valuable for left-sided CB or LCB in
+                            three-man defense, developing ball-playing ability suitable for Serie A, young age allows
+                            significant tactical development.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for teams requiring physical defensive presence.
+                            Ideal for Italian defensive systems emphasizing organization. Excellent for three-man
+                            defenses needing left-footed LCB. Developing suitability for possession systems as passing
+                            improves.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Club History -->
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Level</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>2016-2019</td>
+                        <td><strong>CA Costa Brava</strong></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Youth</td>
+                        <td>Early development, Bahía Blanca</td>
+                    </tr>
+                    <tr>
+                        <td>2019-2024</td>
+                        <td><strong>Talleres</strong></td>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>Primera División</td>
+                        <td>Professional debut, contract Nov 2021</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td><strong>Independiente Rivadavia (loan)</strong></td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>Primera División</td>
+                        <td>First-team experience, development</td>
+                    </tr>
+                    <tr>
+                        <td>2024-Present</td>
+                        <td><strong>Inter Milan</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>Serie A</td>
+                        <td>€6.5M transfer, future investment</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td><strong>Monza (loan)</strong></td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>Serie A</td>
+                        <td>Regular playing time, development</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Summary:</strong> 23 senior appearances across Argentina and Italy. Rapid progression
+                    from Talleres academy to Inter Milan within 3 years. Argentina U20: 5 caps (2022). €6.5M transfer
+                    fee demonstrates significant potential. Left-footed CB rarity increases market value. Currently
+                    gaining crucial Serie A experience at Monza. Path suggests future Inter Milan first-team integration
+                    or permanent move to Serie A club. At 21, career trajectory extremely positive.
+                </div>
+            </div>
+
+            <!-- Recognition & Development -->
+            <div class="card">
+                <h2>★ Recognition & Achievements</h2>
+                <h3>Club Level</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Inter Milan</div>
+                        <div class="trophy-year">2024-Present</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">€6.5M Transfer</div>
+                        <div class="trophy-year">Aug 2024</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Serie A Experience</div>
+                        <div class="trophy-year">2024-25</div>
+                    </div>
+                </div>
+                <h3>International & Individual</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">☆</div>
+                        <div class="trophy-title">Argentina U20</div>
+                        <div class="trophy-year">5 caps (2022)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Talleres Academy</div>
+                        <div class="trophy-year">Graduate</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">◉</div>
+                        <div class="trophy-title">Height: 1.96m</div>
+                        <div class="trophy-year">Physical asset</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Potential 8.9/10</div>
+                        <div class="trophy-year">High ceiling</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Milestones -->
+            <div class="card">
+                <h2>▶ Career Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016-2019 | CA Costa Brava Youth</div>
+                    <div class="timeline-event">Began football development in hometown Bahía Blanca. Physical attributes
+                        evident from early age at 1.96m height. Foundation years developing defensive fundamentals.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 | Talleres Academy</div>
+                    <div class="timeline-event">Joined prestigious Talleres youth academy in Córdoba. Moved to
+                        higher-level development environment. Began refinement under professional coaching structure.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2021 | First Professional Contract</div>
+                    <div class="timeline-event"><strong>Signed professional contract with Talleres at age 18</strong>.
+                        Recognition of potential and physical attributes. Pathway to first-team football established.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">April 9, 2022 | Professional Debut</div>
+                    <div class="timeline-event">Professional debut for Talleres in Copa de la Liga Profesional. First
+                        taste of senior football at age 18. Beginning of professional career journey.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 | Argentina U20 Selection</div>
+                    <div class="timeline-event">Called up to Argentina U20 national team. 5 caps earned representing
+                        country at youth level. International recognition of developing talent.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024 | Independiente Rivadavia Loan</div>
+                    <div class="timeline-event">Loaned out for first-team playing time. 9 appearances provided crucial
+                        senior experience. Demonstrated aerial dominance and physical presence. Performances attracted
+                        European attention.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">August 30, 2024 | Inter Milan Transfer</div>
+                    <div class="timeline-event"><strong>€6.5M transfer to Inter Milan (plus €4.5M bonuses)</strong>.
+                        Career breakthrough move to Serie A giant. Recognition as significant prospect. Massive
+                        opportunity for development with elite club.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025 | Monza Loan</div>
+                    <div class="timeline-event">Loaned to Monza for Serie A experience. 8 appearances gaining regular
+                        top-tier football. Learning Italian defensive organization and tactics. Development season
+                        crucial for future Inter integration.</div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>▭ Player Comparison (Young Defenders 2025)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Palacios vs young Serie A centre-backs across key metrics
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Senior Appearances</span><span
+                                class="info-value">23 matches</span></div>
+                        <div class="info-row"><span class="info-label">Argentina U20 Caps</span><span
+                                class="info-value">5 caps</span></div>
+                        <div class="info-row"><span class="info-label">Transfer Value</span><span
+                                class="info-value">€6.5M + bonuses</span></div>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">21
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Inter
+                                until 2029</span></div>
+                        <div class="info-row"><span class="info-label">Current Rating</span><span
+                                class="info-value">84.7/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Physical CB</span></div>
+                        <div class="info-row"><span class="info-label">Best Position</span><span class="info-value">LCB
+                                / CB</span></div>
+                        <div class="info-row"><span class="info-label">Key Attribute</span><span
+                                class="info-value">Aerial dominance</span></div>
+                        <div class="info-row"><span class="info-label">Development Stage</span><span
+                                class="info-value">Emerging talent</span></div>
+                        <div class="info-row"><span class="info-label">Potential Rating</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇦🇷
+                                Argentina</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from Serie A Records, Inter Milan, AFA & Expert Scout Assessment
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Aerial', 'Physical', 'Tackling', 'Positioning', 'Passing', 'Speed', 'Potential', 'Strength'],
+                datasets: [{
+                    label: 'Tomás Palacios (2025)',
+                    data: [9.3, 9.2, 8.4, 8.3, 8.1, 8.0, 8.9, 9.1],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Alessandro Bastoni (at 21)',
+                    data: [8.5, 8.3, 8.6, 8.9, 9.1, 8.2, 9.3, 8.4],
+                    borderColor: '#0066CC',
+                    backgroundColor: 'rgba(0,102,204,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Lisandro Martínez (at 21)',
+                    data: [8.7, 8.8, 9.0, 8.7, 8.5, 8.4, 8.8, 8.6],
+                    borderColor: '#DA291C',
+                    backgroundColor: 'rgba(218,41,28,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Giorgio Scalvini',
+                    data: [8.6, 8.5, 8.4, 8.5, 8.8, 8.3, 9.1, 8.5],
+                    borderColor: '#0b5bb0',
+                    backgroundColor: 'rgba(11,91,176,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#ffd24d',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

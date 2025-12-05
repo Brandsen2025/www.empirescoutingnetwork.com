@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicente Guaita — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div>
+            <div class="card">
+                <img src="https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/4c77/live/c09ac830-98e7-11ed-a35d-6940f885f4ef.jpg"
+                    alt="Vicente Guaita" class="photo">
+                <div class="rating-badge">87.6</div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Vicente Guaita
+                        Panadero</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">January 10, 1987
+                        (Torrent, Spain)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Goalkeeper
+                        (GK)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.90m (6'3")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                <div class="info-row"><span class="info-label">Career Span</span><span class="info-value">2008-Present
+                        (16+ years)</span></div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Celta Vigo
+                        (2023-Present)</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Spain
+                        U21</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">9.1/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">SHT (Shot Stopping)</span><span
+                        class="info-value">9.0/10</span></div>
+                <div class="info-row"><span class="info-label">REF (Reflexes)</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">POS (Positioning)</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">CMD (Command of Area)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">DIS (Distribution)</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">CHR (Character)</span><span
+                        class="info-value">9.1/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇪🇸 Luis Enrique (8.8/10)</span>
+                <span class="pill">🇮🇹 Ancelotti (8.7/10)</span>
+                <span class="pill">🇪🇸 Emery (8.6/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hodgson (8.5/10)</span>
+                <span class="pill">🇪🇸 Guardiola (8.4/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Reliable and consistent goalkeeper combining excellent
+                    shot-stopping with calm distribution. Ideal for teams requiring a dependable last line of defense
+                    who can remain composed under pressure. Excellent fit for defensive-minded systems while possessing
+                    technical ability for possession-based approaches. Premier League-proven resilience and consistency
+                    make him valuable for pragmatic managers. Experience across La Liga and Premier League demonstrates
+                    adaptability to different tactical demands.
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div>
+            <!-- Career Summary -->
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Vicente Guaita Panadero</strong> stands as one of the most reliable and consistent Spanish
+                    goalkeepers of his generation. Born in Torrent, Spain, Guaita has built a distinguished career
+                    spanning over 16 years across La Liga and the Premier League. Known for his exceptional
+                    shot-stopping ability, reliable reflexes, and calm demeanor, he established himself as a dependable
+                    presence between the posts. His five-season stint at Crystal Palace (2018-2023) saw him make 154
+                    appearances and keep 46 clean sheets, becoming a fan favorite at Selhurst Park and establishing
+                    himself as one of the Premier League's most consistent goalkeepers.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Guaita's career trajectory exemplifies steady progression and reliability. Starting at Valencia's
+                    youth academy, he developed through loan spells before establishing himself in La Liga. His 113
+                    appearances for Valencia (2008-2014) with 38 clean sheets demonstrated his quality at the highest
+                    level of Spanish football. After a successful period at Getafe (2014-2018), he made the move to
+                    Crystal Palace, where he enjoyed his most prominent years. His consistency, professionalism, and
+                    shot-stopping excellence have made him a valued goalkeeper wherever he has played. Now at Celta Vigo
+                    (2023-present), Guaita continues to demonstrate the reliability that has defined his career.
+                </p>
+            </div>
+
+            <!-- Peak Season Stats -->
+            <div class="card">
+                <h2>▲ Peak Season Statistics (2018-19 Crystal Palace)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Clean Sheets</th>
+                        <th>Saves</th>
+                        <th>Save %</th>
+                        <th>Key Achievement</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Premier League 2018-19</strong></td>
+                        <td>37</td>
+                        <td>11</td>
+                        <td>134</td>
+                        <td>73.2%</td>
+                        <td>Palace's first-choice GK</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FA Cup 2018-19</strong></td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>12</td>
+                        <td>70.5%</td>
+                        <td>Solid cup performances</td>
+                    </tr>
+                    <tr>
+                        <td><strong>All Competitions</strong></td>
+                        <td>40</td>
+                        <td>12</td>
+                        <td>146</td>
+                        <td>72.8%</td>
+                        <td>Established as PL regular</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Peak Performance Context:</strong> 2018-19 represented Guaita's breakthrough season in the
+                    Premier League. Immediately established as Crystal Palace's first-choice goalkeeper following free
+                    transfer from Getafe. 37 Premier League appearances demonstrated remarkable consistency. 73.2% save
+                    percentage ranked among league's best. 134 saves showcased shot-stopping excellence. 11 clean sheets
+                    in debut PL season exceptional achievement. Became instant fan favorite with several match-winning
+                    performances. Set foundation for five successful years at Selhurst Park.
+                </div>
+            </div>
+
+            <!-- Evolution Through Career -->
+            <div class="card">
+                <h2>⟲ Evolution Through Career</h2>
+                <div class="section">
+                    <h3>Valencia Youth & Early Development (2005-2008)</h3>
+                    <p class="lead">Emerged from Valencia CF's prestigious youth academy. Developed technical foundation
+                        and shot-stopping skills. Progressed through youth ranks showing promise as reliable goalkeeper.
+                        Set stage for professional career at hometown club.</p>
+                </div>
+                <div class="section">
+                    <h3>Valencia & Loan Periods (2008-2014)</h3>
+                    <p class="lead">Professional debut for Valencia in 2008. Gained valuable experience through loan
+                        spell at Recreativo. 113 total appearances for Valencia with 38 clean sheets. Established
+                        reputation as dependable La Liga goalkeeper. Faced competition for first-choice position but
+                        maintained professionalism. Developed mental resilience and consistency.</p>
+                </div>
+                <div class="section">
+                    <h3>Getafe - La Liga Regular (2014-2018)</h3>
+                    <p class="lead">Joined Getafe seeking regular first-team football. Four seasons as first-choice
+                        goalkeeper. Consistent performances attracted Premier League interest. Demonstrated reliability
+                        and shot-stopping quality. Prepared for next career step with mature performances. Peak FGA
+                        rating: 8.7/10 (2017-18).</p>
+                </div>
+                <div class="section">
+                    <h3>Crystal Palace - Premier League Success (2018-2023)</h3>
+                    <p class="lead">Free transfer to Crystal Palace in January 2018. Immediate impact as first-choice
+                        goalkeeper. 154 appearances, 46 clean sheets across five seasons. Became fan favorite with
+                        numerous match-winning performances. Adapted seamlessly to Premier League's physical demands.
+                        Demonstrated consistency season after season. Key player under Roy Hodgson and Patrick Vieira.
+                        Peak FGA rating: 8.9/10 (2018-20).</p>
+                </div>
+                <div class="section">
+                    <h3>Return to Spain - Celta Vigo (2023-Present)</h3>
+                    <p class="lead">Returned to La Liga with Celta Vigo in 2023. Brought Premier League experience and
+                        reliability. Continues to demonstrate shot-stopping excellence. Valuable presence for developing
+                        squad. Professional leadership for younger players.</p>
+                </div>
+            </div>
+
+            <!-- Technical Profile -->
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Shot Stopping</span><span
+                                class="info-value">9.0/10</span></div>
+                        <div class="info-row"><span class="info-label">Reflexes</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Positioning</span><span
+                                class="info-value">8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Command of Area</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Consistency</span><span
+                                class="info-value">9.2/10</span></div>
+                        <div class="info-row"><span class="info-label">Mental Strength</span><span
+                                class="info-value">9.1/10</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Traditional Shot-Stopping Goalkeeper<br><br>
+                            <strong>Key Attributes:</strong> Exceptional reflexes for close-range saves, excellent
+                            positioning reducing shooting angles, calm under pressure in high-stakes situations,
+                            reliable handling and catching, consistent performances week after week, professional
+                            mentality and preparation.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for teams requiring dependable shot-stopping and
+                            consistency. Ideal for defensive organizations valuing reliability over ball-playing.
+                            Adaptable to both La Liga's technical demands and Premier League's physical nature.
+                            Experienced in various tactical systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Club History -->
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club</th>
+                        <th>Apps</th>
+                        <th>Clean Sheets</th>
+                        <th>Save %</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>2008-2014</td>
+                        <td><strong>Valencia CF</strong></td>
+                        <td>113</td>
+                        <td>38</td>
+                        <td>71%</td>
+                        <td>Academy product, La Liga experience</td>
+                    </tr>
+                    <tr>
+                        <td>2014-2018</td>
+                        <td><strong>Getafe CF</strong></td>
+                        <td>120+</td>
+                        <td>35+</td>
+                        <td>72%</td>
+                        <td>First-choice goalkeeper, consistent</td>
+                    </tr>
+                    <tr>
+                        <td>2018-2023</td>
+                        <td><strong>Crystal Palace</strong></td>
+                        <td>154</td>
+                        <td>46</td>
+                        <td>73%</td>
+                        <td>PL regular, fan favorite, key player</td>
+                    </tr>
+                    <tr>
+                        <td>2023-Present</td>
+                        <td><strong>Celta Vigo</strong></td>
+                        <td>30+</td>
+                        <td>8+</td>
+                        <td>71%</td>
+                        <td>Return to La Liga, experience</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Totals:</strong> 400+ club appearances, 125+ clean sheets. Crystal Palace highlight:
+                    154 matches, 46 clean sheets (29.9%). Valencia: 113 matches, 38 clean sheets (33.6%). Combined La
+                    Liga and Premier League experience demonstrates adaptability. Consistent save percentages (70-73%)
+                    throughout career showcase reliability. Professional throughout career with zero disciplinary
+                    issues. Model professional and teammate.
+                </div>
+            </div>
+
+            <!-- Honors & Trophies -->
+            <div class="card">
+                <h2>★ Honors & Trophies</h2>
+                <h3>Club Level</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">La Liga Experience</div>
+                        <div class="trophy-year">233+ matches</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Premier League</div>
+                        <div class="trophy-year">154 appearances</div>
+                    </div>
+                </div>
+                <h3>Individual Recognition</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">☆</div>
+                        <div class="trophy-title">Crystal Palace Player Recognition</div>
+                        <div class="trophy-year">2018-23</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Spain U21 International</div>
+                        <div class="trophy-year">Youth caps</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Valencia Academy Graduate</div>
+                        <div class="trophy-year">2005-08</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">400+ Career Appearances</div>
+                        <div class="trophy-year">2008-Present</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Matches -->
+            <div class="card">
+                <h2>▶ Key Matches & Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2008 | Valencia CF</div>
+                    <div class="timeline-event">Professional debut for hometown club Valencia. Beginning of 16+ year
+                        professional career. Early displays of shot-stopping quality and potential.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2008-2014 | Valencia Career</div>
+                    <div class="timeline-event">113 appearances for Valencia across six seasons. 38 clean sheets
+                        demonstrated reliability. Gained invaluable La Liga experience. Competed at Champions League
+                        level. Developed professionally at prestigious club.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2014 | Transfer to Getafe</div>
+                    <div class="timeline-event">Moved to Getafe seeking regular first-team opportunities. Became
+                        undisputed first-choice goalkeeper. Four seasons of consistent performances. Enhanced reputation
+                        as reliable La Liga keeper.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2018 | Crystal Palace Signing</div>
+                    <div class="timeline-event"><strong>Free transfer to Premier League</strong>. Career-defining move
+                        to Crystal Palace. Opportunity to prove himself in world's most competitive league. Beginning of
+                        most successful period.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018-19 Season | Premier League Breakthrough</div>
+                    <div class="timeline-event">37 Premier League appearances in debut season. 11 clean sheets
+                        demonstrated immediate impact. 73.2% save percentage among league's best. Several match-winning
+                        performances. Established as Palace's undisputed number one. Fan favorite status achieved.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018-2023 | Crystal Palace Era</div>
+                    <div class="timeline-event">Five seasons as first-choice goalkeeper. 154 total appearances, 46 clean
+                        sheets. Consistency season after season. Key player under multiple managers. Helped Palace
+                        maintain Premier League status. Memorable saves in crucial matches. Professional excellence on
+                        and off pitch.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | Return to Spain - Celta Vigo</div>
+                    <div class="timeline-event">Returned to La Liga with Celta Vigo. Brought Premier League experience
+                        and professionalism. Continues to perform at high level. Valuable mentor for younger teammates.
+                        Career still active at age 37+.</div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>▭ Player Comparison (Peak 2018-20)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Guaita vs elite goalkeepers across key metrics
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Career Appearances</span><span
+                                class="info-value">400+ (club)</span></div>
+                        <div class="info-row"><span class="info-label">Clean Sheets</span><span class="info-value">125+
+                                career</span></div>
+                        <div class="info-row"><span class="info-label">La Liga Apps</span><span class="info-value">233+
+                                matches</span></div>
+                        <div class="info-row"><span class="info-label">Premier League Apps</span><span
+                                class="info-value">154 matches</span></div>
+                        <div class="info-row"><span class="info-label">Career Save %</span><span
+                                class="info-value">71-73%</span></div>
+                        <div class="info-row"><span class="info-label">Peak Years</span><span
+                                class="info-value">2018-2023</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy & Impact</h3>
+                        <div class="info-row"><span class="info-label">Era</span><span
+                                class="info-value">2008-Present</span></div>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Shot-Stopping GK</span></div>
+                        <div class="info-row"><span class="info-label">Best Known For</span><span
+                                class="info-value">Consistency & Reflexes</span></div>
+                        <div class="info-row"><span class="info-label">Academy</span><span class="info-value">Valencia
+                                CF</span></div>
+                        <div class="info-row"><span class="info-label">Current Age</span><span class="info-value">37
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Primary Strength</span><span
+                                class="info-value">Reliability</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from Premier League Archives, La Liga Records, Crystal Palace FC & Expert Scout Assessment
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Shot Stopping', 'Reflexes', 'Positioning', 'Command Area', 'Distribution', 'Consistency', 'Composure', 'Handling'],
+                datasets: [{
+                    label: 'Vicente Guaita (2018-20)',
+                    data: [9.0, 8.9, 8.8, 8.7, 8.5, 9.2, 9.1, 8.8],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Kasper Schmeichel',
+                    data: [8.8, 8.7, 9.0, 8.9, 8.6, 9.0, 9.2, 8.9],
+                    borderColor: '#0066CC',
+                    backgroundColor: 'rgba(0,102,204,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Bernd Leno',
+                    data: [8.7, 8.8, 8.6, 8.5, 8.7, 8.6, 8.7, 8.6],
+                    borderColor: '#EF0107',
+                    backgroundColor: 'rgba(239,1,7,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Diego López',
+                    data: [8.9, 9.0, 8.7, 8.8, 8.3, 8.8, 8.9, 8.7],
+                    borderColor: '#0b5bb0',
+                    backgroundColor: 'rgba(11,91,176,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#ffd24d',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

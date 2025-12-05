@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seydou Dembele — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0XTIHZCI0p8Uw4-hXhIUprpRW_yOb1fSVvg&s"
+                    alt="Seydou Dembele" class="photo">
+                <div class="rating-badge">92.3</div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Seydou
+                        Dembele</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">February 16, 2008
+                        (Bamako, Mali)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Attacking
+                        Midfielder (CAM)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.65m (5'5")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">17 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">JMG Academy
+                        Bamako</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Mali U17 (10
+                        caps, 5 goals)</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.4/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">9.6/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">9.2/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">DRI (Dribbling Excellence)</span><span
+                        class="info-value">9.8/10</span></div>
+                <div class="info-row"><span class="info-label">AGI (Agility)</span><span
+                        class="info-value">9.7/10</span></div>
+                <div class="info-row"><span class="info-label">CRE (Creativity)</span><span
+                        class="info-value">9.4/10</span></div>
+                <div class="info-row"><span class="info-label">VIS (Vision)</span><span class="info-value">9.2/10</span>
+                </div>
+                <div class="info-row"><span class="info-label">FIN (Finishing)</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">9.9/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇳🇱 Cruyff (9.5/10)</span>
+                <span class="pill">🇪🇸 Guardiola (9.4/10)</span>
+                <span class="pill">🇦🇷 Bielsa (9.2/10)</span>
+                <span class="pill">🇩🇪 Klopp (9.0/10)</span>
+                <span class="pill">🇪🇸 Luis Enrique (8.9/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Exceptionally talented attacking midfielder with world-class
+                    dribbling ability and agility. Capable of changing direction instantaneously, making him nearly
+                    impossible to defend one-on-one. Perfect for possession-based systems requiring creative players who
+                    can unlock defenses. Ideal for high-pressing teams needing technical security under pressure. At
+                    just 17, already displaying maturity beyond his years at international youth level. Enormous
+                    potential to become elite playmaker at highest level. Future superstar in development.
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div>
+            <!-- Career Summary -->
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Seydou Dembele</strong> represents the future of African football—a phenomenally talented
+                    17-year-old attacking midfielder from Mali who has already captured global attention with his
+                    extraordinary dribbling skills and creative flair. Born in Bamako on February 16, 2008, Dembele is a
+                    product of the prestigious JMG Academy, renowned for developing elite African talent. Standing at
+                    1.65m (5'5"), he compensates for his smaller stature with exceptional agility, quick changes of
+                    direction, and mesmerizing technical ability that makes him virtually impossible to dispossess in
+                    tight spaces.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Dembele's performances for Mali's U17 national team at the 2025 U-17 Africa Cup of Nations and U-17
+                    World Cup have showcased his immense potential on the international stage. With 10 caps and 5 goals
+                    already accumulated for Mali U17, including match ratings as high as 9.2/10 in World Cup
+                    competition, he has demonstrated maturity and quality far beyond his years. His left-footed
+                    wizardry, combined with exceptional vision and creativity, mark him as one of the most exciting
+                    young talents in world football. Major European clubs are already closely monitoring his
+                    development, recognizing in him the potential to become a future superstar playmaker.
+                </p>
+            </div>
+
+            <!-- Peak Season Stats -->
+            <div class="card">
+                <h2>▲ Peak Performance Statistics (2025 U-17 World Cup)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Avg Rating</th>
+                        <th>Key Achievement</th>
+                    </tr>
+                    <tr>
+                        <td><strong>U-17 World Cup 2025</strong></td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>8.2/10</td>
+                        <td>Standout performances</td>
+                    </tr>
+                    <tr>
+                        <td><strong>U-17 AFCON 2025</strong></td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>8.0/10</td>
+                        <td>Key player for Mali</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mali U17 Total</strong></td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>8.1/10</td>
+                        <td>Rising star status</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Peak Performance Context:</strong> At just 17, Dembele has already proven himself on the
+                    global youth stage. His 9.2/10 match rating against New Zealand U17 in World Cup showcased his
+                    exceptional talent. Consistently high ratings (8.2-9.2) demonstrate remarkable consistency for a
+                    player his age. 5 goals and 7 assists in 10 U17 matches reveal his decisive impact. Exceptional
+                    dribble completion rates and chance creation metrics among tournament leaders. Already attracting
+                    interest from elite European academies and clubs.
+                </div>
+            </div>
+
+            <!-- Evolution Through Career -->
+            <div class="card">
+                <h2>⟲ Development Journey</h2>
+                <div class="section">
+                    <h3>JMG Academy Foundation (2020-Present)</h3>
+                    <p class="lead">Joined prestigious JMG Academy Bamako youth system around age 12. Rapidly progressed
+                        through age groups thanks to exceptional technical ability. JMG's renowned development
+                        methodology perfect for nurturing his dribbling genius. Received world-class coaching focusing
+                        on technical refinement and tactical understanding. Developed creative freedom while learning
+                        positional discipline.</p>
+                </div>
+                <div class="section">
+                    <h3>Mali U17 Breakthrough (2024-2025)</h3>
+                    <p class="lead">Selected for Mali U17 national team in 2024. Made immediate impact with dribbling
+                        ability and creativity. 10 caps and 5 goals established him as key player. Performances at U-17
+                        AFCON 2025 attracted global attention. Continued excellence at U-17 World Cup 2025 confirmed
+                        superstar potential. Match ratings consistently 7.6-9.2/10 demonstrated world-class quality at
+                        youth level.</p>
+                </div>
+                <div class="section">
+                    <h3>Current Status & Future Outlook (2025)</h3>
+                    <p class="lead">At 17, stands as one of Africa's brightest young talents. Multiple European clubs
+                        scouting actively. Potential transfer to elite European academy imminent. Ideal development
+                        path: top European club's U19/B team, then first-team integration by 18-19. Projected trajectory
+                        suggests potential world-class playmaker by early 20s. Current FGA potential rating: 9.9/10. Raw
+                        talent combined with JMG foundation creates exceptional prospect.</p>
+                </div>
+            </div>
+
+            <!-- Technical Profile -->
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Dribbling</span><span
+                                class="info-value">9.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Agility</span><span
+                                class="info-value">9.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Creativity</span><span
+                                class="info-value">9.4/10</span></div>
+                        <div class="info-row"><span class="info-label">Vision</span><span
+                                class="info-value">9.2/10</span></div>
+                        <div class="info-row"><span class="info-label">Close Control</span><span
+                                class="info-value">9.6/10</span></div>
+                        <div class="info-row"><span class="info-label">Acceleration</span><span
+                                class="info-value">9.3/10</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Creative Attacking Midfielder / False 9<br><br>
+                            <strong>Key Attributes:</strong> Exceptional ability to change direction instantly (elite
+                            agility), world-class close control in tight spaces, creative passing unlocking defenses,
+                            left-footed technical wizardry, ability to draw multiple defenders creating space for
+                            teammates, mature decision-making for his age.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for possession-based systems requiring technical
+                            playmakers. Ideal for teams emphasizing creative freedom in final third. Excellent in
+                            high-pressing systems due to ability to retain ball under pressure. Future potential as
+                            elite #10 or false 9 in top leagues.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development History -->
+            <div class="card">
+                <h2>● Career & Development</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club/Level</th>
+                        <th>Age</th>
+                        <th>Key Developments</th>
+                    </tr>
+                    <tr>
+                        <td>2020-Present</td>
+                        <td><strong>JMG Academy Bamako</strong></td>
+                        <td>12-17</td>
+                        <td>Elite youth development, technical foundation</td>
+                    </tr>
+                    <tr>
+                        <td>2024-2025</td>
+                        <td><strong>Mali U17 National Team</strong></td>
+                        <td>16-17</td>
+                        <td>10 caps, 5 goals, U-17 AFCON & World Cup</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td><strong>FC Guidars (reported)</strong></td>
+                        <td>17</td>
+                        <td>Early senior experience in Mali</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Development Summary:</strong> Rapid progression through JMG Academy system. International
+                    debut at 16 for Mali U17. 5 goals in 10 U17 international matches. Standout performances at 2025
+                    youth tournaments. Match ratings peak of 9.2/10 demonstrates world-class potential. Currently one of
+                    most sought-after young talents in African football. Expected European transfer within 1-2 years.
+                    Potential to become Mali's greatest-ever playmaker if development continues.
+                </div>
+            </div>
+
+            <!-- Honors & Recognition -->
+            <div class="card">
+                <h2>★ Honors & Recognition</h2>
+                <h3>International Level</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Mali U17</div>
+                        <div class="trophy-year">10 caps, 5 goals</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">U-17 World Cup</div>
+                        <div class="trophy-year">2025</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">U-17 AFCON</div>
+                        <div class="trophy-year">2025</div>
+                    </div>
+                </div>
+                <h3>Individual Recognition</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Match Rating 9.2/10</div>
+                        <div class="trophy-year">vs NZ U17</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">☆</div>
+                        <div class="trophy-title">JMG Academy Graduate</div>
+                        <div class="trophy-year">2020-Present</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">◉</div>
+                        <div class="trophy-title">Elite Prospect Status</div>
+                        <div class="trophy-year">Potential 9.9/10</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">European Club Interest</div>
+                        <div class="trophy-year">Multiple clubs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Matches -->
+            <div class="card">
+                <h2>▶ Key Matches & Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 (Age 12) | JMG Academy</div>
+                    <div class="timeline-event">Joined prestigious JMG Academy Bamako. Beginning of elite development
+                        journey. Immediately recognized for exceptional dribbling ability and technical quality.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 (Age 16) | Mali U17 Debut</div>
+                    <div class="timeline-event"><strong>International debut for Mali U17</strong>. Beginning of
+                        international career. Early displays of creative genius and technical ability attracted
+                        attention.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | U-17 Africa Cup of Nations</div>
+                    <div class="timeline-event">Breakthrough tournament for Dembele. 6 appearances, 3 goals, 4 assists.
+                        Dribbling ability mesmerized opponents and scouts. Established reputation as one of Africa's
+                        brightest young talents. Draw comparisons to Neymar and Messi for dribbling style.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2025 | Mali U17 vs New Zealand U17 (World Cup)</div>
+                    <div class="timeline-event"><strong>Career-defining performance</strong>. Match rating
+                        9.2/10—exceptional for any player, let alone 17-year-old. Dominated match with dribbling,
+                        creativity, and decision-making. Single performance elevated global profile dramatically. Elite
+                        European clubs intensified scouting.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2025 | U-17 World Cup Campaign</div>
+                    <div class="timeline-event">4 appearances at World Cup. 2 goals, 3 assists. Average rating 8.2/10.
+                        Consistently high performances demonstrated ability to perform on biggest youth stages. Dribble
+                        success rates among tournament leaders. Created numerous chances for teammates. Confirmed status
+                        as generational talent.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Late 2025 | Rising Prospect Status</div>
+                    <div class="timeline-event">10 total caps for Mali U17. 5 goals, 7 assists. Match ratings
+                        consistently 7.6-9.2/10. Multiple European clubs actively scouting. Potential transfer to elite
+                        European academy anticipated in 2026. Projected as future star of African and world football.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>▭ Player Comparison (Youth Level 2025)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Dembele vs elite youth attacking midfielders across key metrics
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Current Statistics</h3>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">17
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">International Caps</span><span
+                                class="info-value">10 (Mali U17)</span></div>
+                        <div class="info-row"><span class="info-label">International Goals</span><span
+                                class="info-value">5 goals</span></div>
+                        <div class="info-row"><span class="info-label">International Assists</span><span
+                                class="info-value">7 assists</span></div>
+                        <div class="info-row"><span class="info-label">Peak Match Rating</span><span
+                                class="info-value">9.2/10</span></div>
+                        <div class="info-row"><span class="info-label">Potential Rating</span><span
+                                class="info-value">9.9/10</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Creative Playmaker</span></div>
+                        <div class="info-row"><span class="info-label">Best Position</span><span class="info-value">CAM
+                                / LW</span></div>
+                        <div class="info-row"><span class="info-label">Comparable Players</span><span
+                                class="info-value">Young Messi style</span></div>
+                        <div class="info-row"><span class="info-label">Development Stage</span><span
+                                class="info-value">Elite prospect</span></div>
+                        <div class="info-row"><span class="info-label">Transfer Status</span><span
+                                class="info-value">Highly sought</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇲🇱
+                                Mali</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from FIFA U-17 World Cup, CAF Records, Mali FA & Expert Scout Assessment
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Dribbling', 'Agility', 'Creativity', 'Vision', 'Finishing', 'Passing', 'Work Rate', 'Close Control'],
+                datasets: [{
+                    label: 'Seydou Dembele (2025)',
+                    data: [9.8, 9.7, 9.4, 9.2, 8.9, 9.3, 8.6, 9.6],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Lamine Yamal (at 17)',
+                    data: [9.5, 9.4, 9.6, 9.3, 8.7, 9.4, 8.8, 9.4],
+                    borderColor: '#A50044',
+                    backgroundColor: 'rgba(165,0,68,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Young Messi (at 17)',
+                    data: [9.9, 9.8, 9.7, 9.5, 9.2, 9.3, 8.5, 9.8],
+                    borderColor: '#0066CC',
+                    backgroundColor: 'rgba(0,102,204,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Pedri (at 17)',
+                    data: [8.8, 8.6, 9.2, 9.4, 7.9, 9.6, 9.1, 9.0],
+                    borderColor: '#0b5bb0',
+                    backgroundColor: 'rgba(11,91,176,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#ffd24d',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

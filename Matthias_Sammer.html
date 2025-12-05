@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Matthias Sammer — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://pbs.twimg.com/media/DmUREdnXcAAEu4u.jpg" alt="Matthias Sammer photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Matthias Sammer</div>
+        <div class="sub">Libero / Midfielder (Historical) · Germany · Born: 05 Sep 1967 (58) · Height: 1.80 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Bor. Dortmund, Dynamo Dresden, Germany NT</span>
+          <span class="pill"><strong>Position</strong> Libero / Sweeper / Defensive Midfielder</span>
+          <span class="pill"><strong>Full Name</strong> Matthias Sammer</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A legendary German "Libero" and 1996 Ballon d'Or winner, Sammer was a complete player defined by his supreme intelligence and relentless work rate. He was the mastermind behind Germany's EURO 1996 victory (named Player of the Tournament) and Borussia Dortmund's 1997 Champions League win. He uniquely blended defensive brilliance with attacking surges from deep.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>INT - Intelligence</td><td>9.8</td></tr>
+              <tr><td>POS - Positioning</td><td>9.6</td></tr>
+              <tr><td>LED - Leadership</td><td>9.5</td></tr>
+              <tr><td>TAC - Tackling</td><td>9.2</td></tr>
+              <tr><td>WR - Work Rate</td><td>9.2</td></tr>
+              <tr><td>PAS - Passing</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for a legendary German player.</li>
+            <li>1996 Ballon d'Or Winner.</li>
+            <li>Analyze peak (1994-1997) Dortmund and Germany footage.</li>
+            <li>Metrics reflect the ultimate modern "Libero" role.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from FIFA archives, UEFA, DFB (German FA), Bundesliga, and Borussia Dortmund records.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">96.5 (96.5 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Matthias Sammer was the brain and the heart of every team he played for. He is one of only two defenders (along with Beckenbauer) to win the Ballon d'Or, a testament to his complete mastery of the "Libero" (sweeper) role. Originally an all-action box-to-box midfielder, he was converted to sweeper by Ottmar Hitzfeld at Dortmund, a move that made history. Sammer redefined the role, playing it not as a passive last man, but as an aggressive, intelligent attacker from deep, constantly surging forward to score crucial goals. He was the undisputed leader of Germany's EURO 1996-winning side and the mastermind of Dortmund's 1997 Champions League triumph.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1985–1990</td><td>Dynamo Dresden</td><td>83 apps, 39 goals. 2x East German Champion.</td></tr>
+            <tr><td>1990–1992</td><td>VfB Stuttgart</td><td>63 apps, 20 goals. 1991-92 Bundesliga winner.</td></tr>
+            <tr><td>1992–1993</td><td>Inter Milan</td><td>11 apps, 4 goals. Brief, unsuccessful spell in Serie A.</td></tr>
+            <tr><td>1993–1998</td><td>Borussia Dortmund</td><td>115 apps, 21 goals. 2x Bundesliga winner. 1997 UCL winner.</td></tr>
+            <tr><td>1986–1990</td><td>East Germany NT</td><td>23 caps, 6 goals.</td></tr>
+            <tr><td>1990–1997</td><td>Germany National Team</td><td>51 caps, 8 goals. EURO 1996 winner.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Jun 30, 1996</td><td>EURO 1996 Final vs. Czech Rep.</td><td>Led Germany to victory as captain/libero.</td></tr>
+            <tr><td>1996</td><td>Ballon d'Or Winner</td><td>Named European Footballer of the Year.</td></tr>
+            <tr><td>May 28, 1997</td><td>UCL Final vs. Juventus</td><td>Masterclass performance, led Dortmund to 3-1 win.</td></tr>
+            <tr><td>1991–92</td><td>Bundesliga Champion</td><td>Won title with VfB Stuttgart.</td></tr>
+            <tr><td>1994–95, 1995-96</td><td>Bundesliga Champion</td><td>Won back-to-back titles with Dortmund.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths</h3>
+            <ul class="small">
+              <li><strong>Football IQ:</strong> Generational. One of the smartest players ever.</li>
+              <li><strong>Leadership:</strong> A fierce, demanding, and inspirational captain.</li>
+              <li><strong>Positioning:</strong> Master of the "Libero" role, always in the right place.</li>
+              <li><strong>Work Rate & Stamina:</strong> Relentless engine, covered the entire pitch from the back.</li>
+              <li><strong>Tackling:</strong> Aggressive, clean, and perfectly timed.</li>
+              <li><strong>Attacking Surges:</strong> His signature move. Scored vital goals by running from deep.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Injuries:</strong> A serious knee injury cut his career short at age 30.</li>
+              <li><strong>Temperament:</strong> Extremely demanding of teammates, sometimes to a fault.</li>
+              <li><strong>Technical Finesse:</strong> Was more of a powerful, direct player than an elegant artist.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>The Modern Libero:</strong> Sammer is, alongside Beckenbauer, one of the two greatest sweepers of all time. He modernized the role, blending the defensive security of a Baresi with the attacking output of a box-to-box midfielder. His 1996 Ballon d'Or and 1997 Champions League win cemented his status as the best player in the world at his peak.</p>
+        <p class="small"><strong>German Icon:</strong> He was the face of the unified German team's first great triumph (EURO 1996). His red hair, fiery personality, and relentless running made him a symbol of German football's winning mentality. His early retirement due to injury is one of the sport's great "what ifs."</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (ERA)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">Mental</td><td>INT - Intelligence</td><td>9.8</td><td>Generational football brain.</td></tr>
+            <tr><td>LED - Leadership</td><td>9.5</td><td>A dominant, vocal, on-field general.</td></tr>
+            <tr><td>POS - Positioning</td><td>9.6</td><td>Master of the sweeper role.</td></tr>
+            <tr><td rowspan="2">Defensive</td><td>TAC - Tackling</td><td>9.2</td><td>Aggressive, precise, and strong.</td></tr>
+            <tr><td>INT - Interceptions</td><td>9.3</td><td>Anticipated play at an elite level.</td></tr>
+            <tr><td rowspan="3">Physical</td><td>WR - Work Rate</td><td>9.2</td><td>Relentless engine, defined his attacking surges.</td></tr>
+            <tr><td>STA - Stamina</td><td>9.0</td><td>Box-to-box energy, but from the back.</td></tr>
+            <tr><td>PAC - Pace</td><td>8.5</td><td>Deceptively fast over long distances.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Sammer's unique "attacking sweeper" profile was a perfect fit for these philosophies:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>35. Beckenbauer Libero</strong></td><td>10.0/10</td><td>1.15</td><td>The modern heir to Beckenbauer. Redefined the role.</td></tr>
+            <tr><td><strong>01. Cruyff Intelligence</strong></td><td>9.5/10</td><td>1.45</td><td>A "Total Football" defender. An attacker who started from the back.</td></tr>
+            <tr><td><strong>18. Sacchi Pressing</strong></td><td>9.2/10</td><td>1.32</td><td>His intelligence and engine were perfect for a high-line pressing system.</td></tr>
+            <tr><td><strong>30. Heynckes Efficiency</strong></td><td>9.0/10</td><td>1.25</td><td>German efficiency, two-way play, leadership, and goal threat.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> The "Total Football Libero." Sammer's DNA was built on supreme intelligence and a relentless engine. He was a defensive midfielder converted into a revolutionary sweeper. He didn't just defend; he *launched* the attack. He would win the ball with a trademark aggressive tackle, then surge 60 yards upfield, often finishing the move himself. He was a vocal, fiery leader who organized the entire team from the back. He was a defender with the brain of a #10 and the engine of a #8.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Peak)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>3-5-2</td><td>Libero / Sweeper</td><td>His perfect role. Clean up, organize, and given license to surge forward.</td></tr>
+            <tr><td>4-2-3-1</td><td>Defensive Midfielder (DM)</td><td>His original role. Act as the "pivot," controlling the game.</td></tr>
+            <tr><td>4-3-3</td><td>Ball-Playing CB</td><td>In a modern system, would be the ball-playing CB with license to roam.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Sammer was a quintessential German leader: fiery, demanding, vocal, and obsessed with winning. He was famously hard on his teammates, demanding the same level of perfection from them that he demanded from himself. This "iron-will" personality, combined with his supreme intelligence, made him the team's natural leader and captain. He was a "coach on the field" who played with controlled fury and total confidence.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits</h2>
+        <ul class="small">
+          <li><strong>Leadership:</strong> Generational, vocal, and demanding.</li>
+          <li><strong>Intelligence:</strong> A footballing genius.</li>
+          <li><strong>Winning Mentality:</strong> A serial winner, obsessed with perfection.</li>
+          <li><strong>Aggression:</strong> A fiery, relentless competitor.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Big-Game Player:</strong> Rose to the occasion in UCL and EURO finals.</li>
+          <li><strong>Leadership:</strong> His defining mental trait.</li>
+          <li><strong>Football IQ:</strong> One of the smartest players in history.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>Injuries:</strong> His career-ending injury was a major blow.</li>
+          <li><strong>Abrasive:</strong> His demanding nature could cause friction.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Sammer had a unique footballing education. He was raised in the disciplined, technical system of East Germany (Dynamo Dresden). He then adapted to the unified Bundesliga, winning a title with Stuttgart. After a brief, ill-fated spell in Italy, he found his philosophical home at Dortmund under Ottmar Hitzfeld, who built the team around his unique talents. He is a product of both German efficiency and the "Total Football" concept of a universal, intelligent player.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: Applied (Historical Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>1995-96 (Peak)</td><td>Bor. Dortmund</td><td>32</td><td>4</td><td>~5</td><td>~0.8</td><td>96.5 (Peak)</td></tr>
+            <tr><td>1996-97</td><td>Bor. Dortmund</td><td>21</td><td>4</td><td>~3</td><td>~0.7</td><td>96.0</td></tr>
+            <tr><td>1994-95</td><td>Bor. Dortmund</td><td>28</td><td>4</td><td>~4</td><td>~0.7</td><td>95.0</td></tr>
+            <tr><td>1991-92</td><td>VfB Stuttgart</td><td>33</td><td>9</td><td>~8</td><td>~1.2</td><td>94.0</td></tr>
+            <tr><td>Career Total</td><td>Various</td><td>315</td><td>84</td><td>N/A</td><td>N/A</td><td>96.5 (Peak)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">His goal/assist numbers are remarkably high for a defensive player, highlighting his unique role.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>10/10. One of the greatest captains of the 1990s.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>World-class. Best player in UCL Final and EURO Final.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Professionalism</td><td>A model of German perfectionism and work ethic.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Mentor/Coach</td><td>Ottmar Hitzfeld (BVB)</td><td>Converted him to Libero, unlocking his Ballon d'Or potential.</td></tr>
+            <tr><td>Team</td><td>Germany NT 1996</td><td>The undisputed leader and best player of the EURO-winning team.</td></tr>
+            <tr><td>Team</td><td>Bor. Dortmund 1997</td><td>The on-field general of the Champions League-winning side.</td></tr>
+            <tr><td>Rivalry</td><td>Inter Milan</td><td>A rare failure; his style did not fit Serie A at the time.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>May 28, 1997</td><td>Juventus (Dortmund)</td><td>W 3-1</td><td>90 mins, dominant defensive display</td><td>Champions League Final</td></tr>
+            <tr><td>Jun 30, 1996</td><td>Czech Rep. (Germany)</td><td>W 2-1</td><td>90 mins, Man of the Tournament</td><td>EURO 1996 Final</td></tr>
+            <tr><td>Jun 23, 1996</td><td>Croatia (Germany)</td><td>W 2-1</td><td>1 goal, dominant performance</td><td>EURO 1996 QF</td></tr>
+            <tr><td>1995-96</td><td>Bayern Munich (Dortmund)</td><td>W</td><td>Key defensive performance</td><td>Bundesliga (Title win)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: UEFA, FIFA, DFB, Bundesliga archives.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on EURO 1996 and 1997 UCL Final.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-MS-01</td><td>Germany (EURO 96)</td><td>1996</td><td>EURO 1996 highlights (Player of Tournament)</td><td>ARCH-MS-EURO96 (attach)</td></tr>
+            <tr><td>VH-MS-02</td><td>Dortmund vs Juventus</td><td>1997</td><td>Champions League Final highlights</td><td>ARCH-MS-UCL97 (attach)</td></tr>
+            <tr><td>VH-MS-03</td><td>Dortmund</td><td>1995-97</td><td>Bundesliga highlights (surging runs, goals)</td><td>ARCH-MS-BULI (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Legendary Liberos)</h2>
+        <p class="small">Comparators: The only other player in his category. Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="sammerRadar" aria-label="Radar comparing Sammer and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Peak)</h2>
+        <ul class="small">
+          <li>A generational leader and football brain.</li>
+          <li>The ultimate "Libero," who was both the best defender and a key attacker.</li>
+          <li>His value was in his intelligence and his "will to win."</li>
+          <li>A player who makes everyone around him better through his demands.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA, UEFA, DFB, Bundesliga, Kicker. All metrics based on 1985-1998 playing career. Data is highly reliable and well-documented due to his legendary status.</p>
+        <div class="muted-box small">One of the all-time greats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Matthias Sammer expanded scouting profile. 1996 Ballon d'Or Winner. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('sammerRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Intelligence (INT)', 'Positioning (POS)', 'Leadership (LED)', 'Tackling (TAC)', 'Work Rate (WR)', 'Passing (PAS)'],
+          datasets: [
+            { label: 'Matthias Sammer (Peak)', data: [9.8, 9.6, 9.5, 9.2, 9.2, 9.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Franz Beckenbauer (Peak)', data: [10.0, 9.8, 9.6, 9.0, 8.8, 9.7],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite Libero', data: [9.0, 9.0, 8.8, 8.5, 8.2, 8.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

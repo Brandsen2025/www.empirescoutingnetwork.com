@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernando Hierro — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/470161374_596324779610808_787850005653035531_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=t4Qm8GQVjxsQ7kNvwFUFZss&_nc_oc=AdlNg1PkjYMMZbUas6d52kjpBRaIUS-bFPjJeCrE4et7KaTQXZAZeWdDt8z0bkHoK8U&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=XMg5VvVosUEsGq6o9CbQOQ&oh=00_AfmLOpfhYONrNCn0gqYrL40c8k5ALTE5bmY9i6Mu1FwS2Q&oe=69372290"
+                    alt="Fernando Hierro" class="photo">
+                <div class="title">Fernando Hierro</div>
+                <div class="sub">Real Madrid Legend • Spain Captain • 3x Champions League • 601 Apps</div>
+                <div class="rating-badge">92.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇪🇸 Spain</span><span class="stat-label">89 Caps •
+                            29 Goals • 4 World Cups</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre-Back /
+                            Sweeper / DM</span></div>
+                    <div class="info-row"><span class="info-label">Famous For</span><span class="info-value">Leadership,
+                            Goals, Versatility</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Spain
+                            🇪🇸</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Real Madrid</span><span class="info-value">1989-2003
+                            (601 apps)</span></div>
+                    <div class="info-row"><span class="info-label">La Liga</span><span class="info-value">439 matches,
+                            102 goals</span></div>
+                    <div class="info-row"><span class="info-label">Spain NT</span><span class="info-value">1989-2002 (89
+                            caps)</span></div>
+                    <div class="info-row"><span class="info-label">Captain</span><span class="info-value">Real Madrid &
+                            Spain</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Fernando Hierro is a **Real Madrid and Spain legend**, one of football's most versatile
+                    and influential defenders who could also play defensive midfield and scored goals prolifically from
+                    defense. **Real Madrid (1989-2003)**: **601 official appearances, 127 total goals** across 14
+                    seasons. **439 La Liga matches, 102 goals** - extraordinary goal-scoring record for a defender. **68
+                    Champions League appearances, 7 goals**. Primarily centre-back and sweeper, but also played
+                    defensive midfielder when needed. **3 UEFA Champions Leagues (1998, 2000, 2002)** - part of Real
+                    Madrid's modern European dominance. **5 La Liga titles, 4 Spanish Super Cups, 1 Intercontinental
+                    Cup, 1 UEFA Super Cup**. **Real Madrid captain** after Manolo Sanchís retired - held armband until
+                    2003 when Raúl took over. Leader of the Galácticos era. Coaches often advanced him further up the
+                    field early in his Madrid career, contributing to his exceptional goal tally. Became the "engine"
+                    and defensive leader as he matured. **Spain National Team (1989-2002)**: **89 caps, 29 goals** -
+                    incredible scoring record for a defender at international level. Represented Spain at **4 FIFA World
+                    Cups (1990, 1994, 1998, 2002)** and **2 European Championships (1996, 2000)**. One of Spain's most
+                    decorated players. Elite defensive metrics combined with remarkable attacking output: **Tackling
+                    (9.2), Marking (9.1), Positional Intelligence (9.3), Aerial Ability (9.4)**. Also **Long Passing
+                    (8.9)** and **Composure (9.0)**. Versatile, could play multiple positions. Exceptional leader and
+                    organizer. Goal-scoring threat from set pieces and open play. One of the greatest defenders in Real
+                    Madrid history and a Spanish football icon.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> 89 Spain Caps
+                    (29 Goals) • 4 World Cups • 3 Champions Leagues • 5 La Liga • 601 Real Madrid Apps • 127 Total Goals
+                    • Captain of Real Madrid & Spain</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Hierro's tactical DNA mapped across legendary coaching
+                    philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 9.2/10</span>
+                    <span class="pill">Guardiola Positional 8.8/10</span>
+                    <span class="pill">Cruyff Intelligence 8.9/10</span>
+                    <span class="pill">Menotti Artistry 8.6/10</span>
+                    <span class="pill">Michels Total 9.1/10</span>
+                    <span class="pill">Simeone Cholismo 9.3/10</span>
+                    <span class="pill">Mourinho Tactical 9.2/10</span>
+                    <span class="pill">Sacchi Pressing 9.0/10</span>
+                    <span class="pill">Klopp Intensity 8.9/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESTJ (Executive)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Goal-Scoring
+                                Defender</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Leadership</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Positioning</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**89 Spain caps, 29 goals** - incredible for a defender. **4 World Cups**. **3
+                            Champions Leagues**, **5 La Liga** with Real Madrid. **601 apps, 127 total goals**. **Real
+                            Madrid & Spain captain**. Versatile CB/Sweeper/DM. Elite tackling (9.2), marking (9.1),
+                            aerial dominance (9.4). Goal-scoring threat. Complete defender and leader.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989 | Real Madrid Arrival</div>
+                    <div class="timeline-event">⚪ Joined **Real Madrid** - would spend 14 years at the club. **601 total
+                        appearances**.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989-2003 | Real Madrid Era</div>
+                    <div class="timeline-event">⚪🏆 <strong>601 APPS, 127 GOALS</strong> - 14 seasons. **439 La Liga
+                        games, 102 goals**. **68 UCL games, 7 goals**. Extraordinary goal-scoring defender.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1998, 2000, 2002 | 3x Champions League</div>
+                    <div class="timeline-event">🏆🏆🏆 <strong>3 UEFA CHAMPIONS LEAGUES</strong> - 1998, 2000, 2002.
+                        Part of Real Madrid's modern European dominance.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989-2003 | Real Madrid Captain</div>
+                    <div class="timeline-event">⚪⚡ **REAL MADRID CAPTAIN** - Took armband after Sanchís retired. Leader
+                        of Galácticos era. Held captaincy until 2003.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989-2002 | Spain Career</div>
+                    <div class="timeline-event">🇪🇸⚽ <strong>89 SPAIN CAPS, 29 GOALS</strong> - Incredible scoring
+                        record for a defender. **4 World Cups** (1990, 1994, 1998, 2002), **2 Euros** (1996, 2000).
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Career Legacy | Complete Defender</div>
+                    <div class="timeline-event">⭐ **VERSATILE LEGEND** - CB/Sweeper/DM. Elite defender (9.2 tackling,
+                        9.1 marking) who scored **102 La Liga goals**. Captain, leader, icon.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Country</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Real Madrid</strong></td>
+                            <td>1989-2003</td>
+                            <td>601</td>
+                            <td>127 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>La Liga</strong></td>
+                            <td>1989-2003</td>
+                            <td>439</td>
+                            <td>102 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Champions League</strong></td>
+                            <td>Career</td>
+                            <td>68</td>
+                            <td>7 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Spain NT</strong></td>
+                            <td>1989-2002</td>
+                            <td>89</td>
+                            <td>29 goals</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> 601 Real Madrid Apps • 89 Spain Caps • 3 CLs • 5
+                                LaLiga • Captain</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Major Honors</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">3x Champions League</div>
+                        <div class="trophy-year">1998, 2000, 2002</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇪🇸</div>
+                        <div class="trophy-title">5x La Liga</div>
+                        <div class="trophy-year">Real Madrid</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇪🇸</div>
+                        <div class="trophy-title">89 Spain Caps</div>
+                        <div class="trophy-year">29 Goals</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🌍</div>
+                        <div class="trophy-title">4 World Cups</div>
+                        <div class="trophy-year">1990-2002</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚡</div>
+                        <div class="trophy-title">Captain</div>
+                        <div class="trophy-year">Real Madrid & Spain</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">127 Goals</div>
+                        <div class="trophy-year">From Defense</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career Highlights</h2>
+                <p class="small" style="margin-bottom:12px;">Fernando Hierro's legendary Real Madrid and Spain career.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Achievement</th>
+                            <th>Years</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Real Madrid</strong></td>
+                            <td>1989-2003</td>
+                            <td>601 apps, 127 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3x UCL Winner</strong></td>
+                            <td>1998/2000/2002</td>
+                            <td>European Glory</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Spain Legend</strong></td>
+                            <td>1989-2002</td>
+                            <td>89 caps, 29 goals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Captain</strong></td>
+                            <td>Madrid & Spain</td>
+                            <td>Leader</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining performances of a goal-scoring defender.
+                </p>
+                <div class="timeline-item">
+                    <div class="timeline-date">1998, 2000, 2002 | 3x Champions League Winner</div>
+                    <div class="timeline-event">🏆🏆🏆 <strong>3 UEFA CHAMPIONS LEAGUES</strong> - Won Europe's top
+                        prize three times with Real Madrid. Modern European dominance.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989-2003 | 14 Years at Real Madrid</div>
+                    <div class="timeline-event">⚪⚽ <strong>601 APPS, 127 GOALS</strong> - Legendary Madrid career. **102
+                        La Liga goals from defense**. Versatile CB/Sweeper/DM.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Captain Era | Real Madrid & Spain</div>
+                    <div class="timeline-event">⚡🏆 **CAPTAIN of REAL MADRID & SPAIN** - Leader of Galácticos. Spain
+                        internationals. Held armband with distinction.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989-2002 | Spain Career</div>
+                    <div class="timeline-event">🇪🇸⚽⚽ <strong>89 CAPS, 29 GOALS</strong> - Incredible scoring for a
+                        defender. **4 World Cups**, **2 Euros**. Spain legend.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Elite Defenders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Fernando Hierro vs Elite Defenders - The
+                    Complete Package</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">CB /
+                                Sweeper / DM</span></div>
+                        <div class="info-row"><span class="info-label">Famous For</span><span class="info-value">Goals,
+                                Leadership</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Spain
+                                🇪🇸</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy</h3>
+                        <div class="info-row"><span class="info-label">Spain Caps</span><span class="info-value">89 (29
+                                goals)</span></div>
+                        <div class="info-row"><span class="info-label">World Cups</span><span class="info-value">4
+                                (1990-2002)</span></div>
+                        <div class="info-row"><span class="info-label">Real Madrid</span><span class="info-value">601
+                                apps, 127 goals</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">92.0 -
+                                Legend</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Fernando Hierro - Real Madrid Legend • 89 Spain Caps
+            • 3 Champions Leagues • Captain</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Leadership', 'Positional IQ', 'Tackling', 'Marking', 'Aerial', 'Composure', 'Long Pass', 'Danger Gen'], datasets: [{ label: 'Hierro', data: [9.4, 9.3, 9.2, 9.1, 9.4, 9.0, 8.9, 8.6], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>

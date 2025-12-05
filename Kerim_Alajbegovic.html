@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerim Alajbegović — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div>
+            <div class="card">
+                <img src="https://i.ytimg.com/vi/xQuQElNfRRI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBTXMUJsXSoMk-OrEaPiyGS0wPCzQ"
+                    alt="Kerim Alajbegović" class="photo">
+                <div class="rating-badge">87.3</div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Kerim
+                        Alajbegović</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">September 21, 2007
+                        (Cologne, Germany)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Winger
+                        (LW)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.85m (6'1")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Both</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">18 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Red Bull
+                        Salzburg (#27)</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Bosnia &
+                        Herzegovina (6 caps, 1 goal)</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">8.8/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">DRI (Dribbling)</span><span
+                        class="info-value">9.0/10</span></div>
+                <div class="info-row"><span class="info-label">PAC (Pace)</span><span class="info-value">8.9/10</span>
+                </div>
+                <div class="info-row"><span class="info-label">CRE (Creativity)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">FIN (Finishing)</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">VER (Versatility)</span><span
+                        class="info-value">9.1/10</span></div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">9.2/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇪🇸 Guardiola (9.0/10)</span>
+                <span class="pill">🇩🇪 Klopp (8.9/10)</span>
+                <span class="pill">🇩🇪 Nagelsmann (8.8/10)</span>
+                <span class="pill">🇮🇹 Ancelotti (8.7/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Arteta (8.6/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Exceptionally talented 18-year-old winger with rare two-footed
+                    ability. Perfect for possession-based systems requiring technical wingers who can beat defenders
+                    1v1. Ideal for high-pressing teams needing wide players to contribute defensively. Versatility
+                    playing both wings increases tactical value. Red Bull Salzburg development pathway (famous for
+                    producing elite wingers). Already 6 senior Bosnia & Herzegovina caps at 18 demonstrates maturity.
+                    €5M market value rapidly increasing. Contract until 2029 suggests club belief in world-class
+                    potential.
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div>
+            <!-- Career Summary -->
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Kerim Alajbegović</strong> is one of European football's most exciting teenage prospects—an
+                    18-year-old winger combining elite technical ability, rare two-footed capability, and impressive
+                    physical attributes (1.85m/6'1"). Born in Cologne, Germany on September 21, 2007, Alajbegović
+                    developed through prestigious German academies (1. FC Köln, Bayer Leverkusen) before joining Red
+                    Bull Salzburg's renowned talent development system in July 2025. The Austrian club, famous for
+                    producing world-class attackers like Erling Haaland, Sadio Mané, and Karim Adeyemi, invested in
+                    Alajbegović with a contract running until 2029.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Alajbegović's rapid ascension is remarkable. Professional debut at 17 in UEFA Champions League
+                    qualifying (July 23, 2025), first goal three days later, and Bundesliga debut within weeks. By
+                    September 2025, senior international debut for Bosnia & Herzegovina with a goal against San
+                    Marino—becoming one of the youngest Bosnian internationals. Currently holds 6 senior caps at just 18
+                    years old. His two-footed technical brilliance, combined with modern winger physical profile and
+                    versatility across attacking positions, marks him as a potential elite-level talent. Market value
+                    €5M and rising rapidly. Red Bull Salzburg's track record suggests Alajbegović could follow pathway
+                    to top European clubs.
+                </p>
+            </div>
+
+            <!-- Current Season Stats -->
+            <div class="card">
+                <h2>▲ Current Season Statistics (2025-26 Red Bull Salzburg)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Minutes</th>
+                        <th>Development Stage</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Austrian Bundesliga</strong></td>
+                        <td>Multiple</td>
+                        <td>1+</td>
+                        <td>163</td>
+                        <td>Regular rotation player</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UEFA Champions League Qualifiers</strong></td>
+                        <td>1+</td>
+                        <td>0</td>
+                        <td>41</td>
+                        <td>UCL experience at 17</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ÖFB-Cup</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>118</td>
+                        <td>First professional goal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total (as of Oct 2025)</strong></td>
+                        <td>11</td>
+                        <td>4</td>
+                        <td>322+</td>
+                        <td>Breakthrough season</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Season Context:</strong> 2025-26 represents Alajbegović's breakthrough professional season.
+                    Signed first pro contract with Bayer Leverkusen (January 2025), then transferred to Red Bull
+                    Salzburg (July 2025). Immediate impact: professional debut age 17 in Champions League qualifying. 11
+                    appearances and 4 goals by October exceptional for teenager. Regular minutes in Austrian Bundesliga
+                    demonstrates coaching staff trust. Contract extension to 2029 (September 2025) shows club
+                    commitment. Learning Red Bull system known for developing elite attacking talent. At 18, trajectory
+                    suggests major European club interest within 1-2 seasons.
+                </div>
+            </div>
+
+            <!-- Evolution Through Career -->
+            <div class="card">
+                <h2>⟲ Development Path</h2>
+                <div class="section">
+                    <h3>1. FC Köln Academy (Early Years)</h3>
+                    <p class="lead">Began football journey at hometown club 1. FC Köln. Developed fundamental technical
+                        skills in Bundesliga youth system. Physical attributes (eventually 1.85m) evident early.
+                        Demonstrated two-footed ability from young age. Cologne academy foundation in German technical
+                        development methodology.</p>
+                </div>
+                <div class="section">
+                    <h3>Bayer Leverkusen Academy (2021-2025)</h3>
+                    <p class="lead">Joined Bayer Leverkusen's prestigious youth academy in 2021. Four years developing
+                        in elite Bundesliga environment. Progressed rapidly through age groups. Two-footed technical
+                        ability refined. Tactical understanding improved under top coaching. Signed first professional
+                        contract January 2025 at age 17. Recognition as exceptional prospect within German football.</p>
+                </div>
+                <div class="section">
+                    <h3>Red Bull Salzburg - Professional Breakthrough (July 2025-Present)</h3>
+                    <p class="lead">Transferred to Red Bull Salzburg July 2025. Immediate professional debut July 23,
+                        2025 (UCL qualifier vs Brann, age 17). First goal July 26 (Austrian Cup vs Union Dietach).
+                        Bundesliga debut August 2, 2025. First league goal August 9 vs Grazer AK. Contract extended
+                        until 2029 (September 2025). 11 appearances, 4 goals by October. Entering Red Bull's famous
+                        development system (Haaland, Mané, Adeyemi pathway). Current FGA rating: 8.7/10 with potential
+                        9.2/10.</p>
+                </div>
+                <div class="section">
+                    <h3>International Career - Bosnia & Herzegovina</h3>
+                    <p class="lead">Represented Bosnia at U15, U17 (captain), U19, and U21 levels. Senior call-up August
+                        2025 for World Cup qualifiers. Senior debut September 6, 2025 vs San Marino—scored in same
+                        match. 6 senior caps, 1 goal by November 2025 at age 18. One of youngest Bosnian internationals.
+                        Future captain potential evident from youth captaincy.</p>
+                </div>
+            </div>
+
+            <!-- Technical Profile -->
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Two-Footed Ability</span><span
+                                class="info-value">9.1/10</span></div>
+                        <div class="info-row"><span class="info-label">Dribbling</span><span
+                                class="info-value">9.0/10</span></div>
+                        <div class="info-row"><span class="info-label">Pace</span><span class="info-value">8.9/10</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">Creativity</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Finishing</span><span
+                                class="info-value">8.5/10</span></div>
+                        <div class="info-row"><span class="info-label">Height (1.85m)</span><span
+                                class="info-value">Physical advantage</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Modern Winger / Inside Forward<br><br>
+                            <strong>Key Attributes:</strong> Rare two-footed capability allows playing both wings
+                            effectively, exceptional 1v1 dribbling ability, pace to exploit space in transition, 1.85m
+                            height unusual for winger adds aerial threat, creative passing and vision, improving
+                            finishing, versatile across attacking positions.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for possession systems requiring technical wingers.
+                            Ideal for teams emphasizing width and 1v1 situations. Excellent for high pressing requiring
+                            wide attackers. Developing suitability for inside forward role cutting inside.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Club History -->
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club</th>
+                        <th>Level</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>Early Years</td>
+                        <td><strong>1. FC Köln</strong></td>
+                        <td>Youth</td>
+                        <td>Hometown club, foundation development</td>
+                    </tr>
+                    <tr>
+                        <td>2021-2025</td>
+                        <td><strong>Bayer Leverkusen</strong></td>
+                        <td>Youth</td>
+                        <td>Elite academy, first pro contract (Jan 2025)</td>
+                    </tr>
+                    <tr>
+                        <td>2025-Present</td>
+                        <td><strong>Red Bull Salzburg</strong></td>
+                        <td>Austrian Bundesliga</td>
+                        <td>11 apps, 4 goals; contract until 2029; #27</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Summary:</strong> 11 senior appearances, 4 goals for Red Bull Salzburg. Bosnia &
+                    Herzegovina: 6 caps, 1 goal at age 18. Youth international: U15, U17 (captain), U19, U21. €5M market
+                    value (September 2025). Contract until June 2029. Born Germany, represents Bosnia & Herzegovina.
+                    Two-footed winger—extremely rare asset. Red Bull Salzburg pathway suggests future top-5 league move.
+                    At 18, enormous development potential remaining.
+                </div>
+            </div>
+
+            <!-- Recognition & Achievements -->
+            <div class="card">
+                <h2>★ Recognition & Development</h2>
+                <h3>Club Level</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Red Bull Salzburg</div>
+                        <div class="trophy-year">2025-Present</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">4 Goals (11 apps)</div>
+                        <div class="trophy-year">Age 18</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Contract 2029</div>
+                        <div class="trophy-year">Extended Sept 2025</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">◉</div>
+                        <div class="trophy-title">UCL Debut Age 17</div>
+                        <div class="trophy-year">July 23, 2025</div>
+                    </div>
+                </div>
+                <h3>International & Individual</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇧🇦</div>
+                        <div class="trophy-title">Bosnia & Herzegovina</div>
+                        <div class="trophy-year">6 caps, 1 goal</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">U17 Captain</div>
+                        <div class="trophy-year">Leadership</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Market Value €5M</div>
+                        <div class="trophy-year">Rising rapidly</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Both-Footed</div>
+                        <div class="trophy-year">Rare asset</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Milestones -->
+            <div class="card">
+                <h2>▶ Career Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Early Years | 1. FC Köln Youth</div>
+                    <div class="timeline-event">Began football development at hometown Bundesliga club. Foundation years
+                        building technical skills. Two-footed ability evident from early age. German youth development
+                        methodology foundation.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 | Bayer Leverkusen Academy</div>
+                    <div class="timeline-event">Joined prestigious Bayer Leverkusen youth academy. Step up to elite
+                        Bundesliga development environment. Four years refining technical and tactical abilities.
+                        Recognition as exceptional prospect.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth International Career | Bosnia & Herzegovina</div>
+                    <div class="timeline-event">Represented Bosnia at U15, U17, U19, U21 levels. <strong>Captained U17
+                            national team</strong>—leadership qualities evident. Despite German birth, committed to
+                        Bosnian heritage. Building international experience.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025 | First Professional Contract</div>
+                    <div class="timeline-event"><strong>Signed first professional contract with Bayer Leverkusen at age
+                            17</strong>. Recognition of enormous potential. Beginning of professional career. Bundesliga
+                        pathway opening.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2025 | Red Bull Salzburg Transfer</div>
+                    <div class="timeline-event">Transferred to Red Bull Salzburg. Joining club famous for developing
+                        elite attackers (Haaland, Mané, Adeyemi). Opportunity for immediate first-team football.
+                        Undisclosed fee. Contract until 2029.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 23, 2025 | Professional Debut</div>
+                    <div class="timeline-event"><strong>Professional debut in UEFA Champions League qualifier vs
+                            Brann</strong>. Age 17. Immediate entry at highest level. Trusted in crucial European match.
+                        Remarkable confidence from coaching staff.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 26, 2025 | First Professional Goal</div>
+                    <div class="timeline-event">Scored first professional goal in Austrian Cup vs Union Dietach. Just
+                        three days after debut. Immediate impact. Goal-scoring threat evident.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2025 | Bundesliga Debut & First League Goal</div>
+                    <div class="timeline-event">Austrian Bundesliga debut August 2. First league goal August 9 vs Grazer
+                        AK. Rapid integration into first team. Becoming regular squad member.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 6, 2025 | Senior International Debut</div>
+                    <div class="timeline-event"><strong>Senior Bosnia & Herzegovina debut vs San Marino</strong> (World
+                        Cup qualifier). Scored in debut match. Age 18. One of youngest Bosnian internationals. Future
+                        national team cornerstone.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2025 | Contract Extension</div>
+                    <div class="timeline-event">Red Bull Salzburg extended contract until June 2029. Club commitment
+                        after just two months. Recognition of world-class potential. Market value rising toward €10M+.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>▭ Player Comparison (Elite Young Wingers)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Alajbegović vs elite young wingers at age 18
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Club Appearances</span><span
+                                class="info-value">11 matches</span></div>
+                        <div class="info-row"><span class="info-label">Club Goals</span><span class="info-value">4
+                                goals</span></div>
+                        <div class="info-row"><span class="info-label">International Caps</span><span
+                                class="info-value">6 caps (BiH)</span></div>
+                        <div class="info-row"><span class="info-label">International Goals</span><span
+                                class="info-value">1 goal</span></div>
+                        <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€5M
+                                (rising)</span></div>
+                        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until
+                                June 2029</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Two-footed winger</span></div>
+                        <div class="info-row"><span class="info-label">Best Position</span><span class="info-value">LW /
+                                RW</span></div>
+                        <div class="info-row"><span class="info-label">Key Strength</span><span class="info-value">Both
+                                feet + dribbling</span></div>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">18
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Potential Rating</span><span
+                                class="info-value">9.2/10</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇧🇦
+                                Bosnia</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from Red Bull Salzburg, FFBiH, Bayer Leverkusen & Expert Scout Assessment
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Dribbling', 'Pace', 'Creativity', 'Finishing', 'Two-Footed', 'Vision', 'Work Rate', 'Potential'],
+                datasets: [{
+                    label: 'Kerim Alajbegović (Age 18)',
+                    data: [9.0, 8.9, 8.7, 8.5, 9.1, 8.6, 8.4, 9.2],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Karim Adeyemi (at 18)',
+                    data: [8.8, 9.5, 8.2, 8.4, 7.8, 8.1, 8.6, 9.0],
+                    borderColor: '#0066CC',
+                    backgroundColor: 'rgba(0,102,204,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Jamal Musiala (at 18)',
+                    data: [9.2, 8.4, 9.0, 8.3, 8.9, 8.9, 8.3, 9.4],
+                    borderColor: '#DA291C',
+                    backgroundColor: 'rgba(218,41,28,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Bukayo Saka (at 18)',
+                    data: [8.6, 8.7, 8.8, 8.2, 8.2, 8.7, 8.9, 8.9],
+                    borderColor: '#0b5bb0',
+                    backgroundColor: 'rgba(11,91,176,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#ffd24d',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konstantinos Koulierakis — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://www.footballtransfers.com/media/img/player-img_uploads/Konstantinos_Koulierakis.png_gd5kSHe.max-165x165.png"
+                    alt="Konstantinos Koulierakis" class="photo">
+                <div class="rating-badge">87.3</div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Konstantinos
+                        Koulierakis</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">May 26, 2004
+                        (Greece)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre-Back
+                        (Left-Footed)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.92m (6'4")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">20 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">VfL Wolfsburg
+                        (Bundesliga)</span></div>
+                <div class="info-row"><span class="info-label">Intl. Caps</span><span class="info-value">15 (Greece
+                        Senior)</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">8.5/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">DEF (Defending)</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">PAS (Ball-Playing)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">AER (Aerial)</span><span class="info-value">8.9/10</span>
+                </div>
+                <div class="info-row"><span class="info-label">POS (Positioning)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">SPI (Speed)</span><span class="info-value">8.4/10</span>
+                </div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">9.2/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇪🇸 Guardiola (8.9/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Arteta (8.8/10)</span>
+                <span class="pill">🇮🇹 Ancelotti (8.7/10)</span>
+                <span class="pill">🇩🇪 Tuchel (8.7/10)</span>
+                <span class="pill">🇪🇸 Luis Enrique (8.6/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Elite 20-year-old Greek left-footed centre-back for
+                    Bundesliga's VfL Wolfsburg. Born May 26, 2004. Exceptional physical profile: 1.92m (6'4") imposing
+                    height with good speed 8.4/10. PAOK academy product (Greece). Career: 64 senior appearances, 5
+                    goals. PAOK (2022-24): 60 apps, 5 goals including Champions League qualification playoff (1 app) and
+                    Europa League (5 apps). Conference League: 8 apps. Bundesliga: 4 apps (2025/26). Greece senior: 15
+                    caps age 18-20 (debut June 15, 2023 vs Cyprus, 3-0). Greece U21/U19 international. €15M transfer VfL
+                    Wolfsburg July 2024. Market value €18M. Left-footed rarity for CB adds immense value. Modern
+                    ball-playing defender: passing 8.7/10, defending 8.8, aerial 8.9 (1.92m dominance), positioning 8.7,
+                    speed 8.4. Exceptional potential 9.2/10. Age 20 with 15 senior international caps exceptional.
+                    Perfect for possession-based systems requiring left-footed ball-playing CB with elite physical
+                    tools.
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Konstantinos Koulierakis</strong> is an exceptional 20-year-old Greek professional
+                    footballer who plays as left-footed centre-back for Bundesliga club VfL Wolfsburg and the Greece
+                    national team. Born May 26, 2004, Koulierakis represents rare commodity: young left-footed
+                    ball-playing centre-back (passing 8.7/10) with elite physical profile—1.92m (6'4") dominating aerial
+                    presence (8.9/10), excellent defending (8.8/10), strong positioning (8.7/10), and good speed
+                    (8.4/10) unusual for his height. At just 20 years old with exceptional potential (9.2/10), 64 senior
+                    club appearances, 5 goals, and 15 Greece senior caps (debut age 18), he commands €18M market value
+                    after €15M transfer from PAOK to Wolfsburg July 2024, representing one of Greek football's most
+                    exciting defensive prospects.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Koulierakis's rapid development showcases PAOK's excellent youth system and his own exceptional
+                    talent. PAOK academy graduate making first-team debut 2022 age 17-18. PAOK career (2022-2024): 60
+                    total appearances, 5 goals from centre-back demonstrating offensive threat from set-pieces. European
+                    competition experience extensive for age: Champions League qualification playoff (1 app), Europa
+                    League (5 apps), Conference League (8 apps—14 total European matches before age 20). Greek Super
+                    League proven. Greece senior international debut June 15, 2023 (3-0 vs Cyprus) age 18 years 20 days.
+                    15 total Greece caps accumulated by age 20 including friendlies and competitive matches. Greece U21
+                    and U19 international. July 2024: €15M transfer to VfL Wolfsburg (Bundesliga)—significant investment
+                    demonstrating belief in potential. 2024/25 season: Bundesliga integration (4 apps). Current market
+                    value €18M reflecting excellent development. Playing style modern: left-footed specialty rare for
+                    centre-backs making extremely valuable for teams building from back. Ball-playing ability 8.7/10
+                    perfect for possession systems (Guardiola 8.9/10 philosophy match). 1.92m height dominates aerially
+                    (8.9/10). Defending fundamentals strong (8.8/10). Positioning excellent (8.7/10). Speed good
+                    (8.4/10) allowing recovery and high defensive line play. Age 20 with exceptional potential
+                    9.2/10—ceiling extremely high. Perfect modern centre-back profile for elite European football.
+                </p>
+            </div>
+            <div class="card">
+                <h2>▲ Career Statistics</h2>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total</th>
+                        <th>Detail</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Career</strong></td>
+                        <td>64 matches</td>
+                        <td>5 goals (age 20)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PAOK (2022-24)</strong></td>
+                        <td>60 apps</td>
+                        <td>5 goals, Greek Super League</td>
+                    </tr>
+                    <tr>
+                        <td><strong>European Comps</strong></td>
+                        <td>14 apps</td>
+                        <td>UCL Qual (1), UEL (5), UECL (8)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VfL Wolfsburg</strong></td>
+                        <td>4 apps</td>
+                        <td>Bundesliga 2024/25-2025/26</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Greece Senior</strong></td>
+                        <td>15 caps</td>
+                        <td>Debut age 18 (June 15, 2023)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Market Value</strong></td>
+                        <td>€18M</td>
+                        <td>€15M transfer Jul 2024</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Context:</strong> 64 career apps, 5 goals by age 20. PAOK academy product. 14
+                    European matches pre-20. Greece debut age 18 (15 caps total). €15M Wolfsburg transfer. Market value
+                    €18M. 1.92m (6'4"). Left-footed rarity. Potential 9.2/10. Perfect modern CB.
+                </div>
+            </div>
+            <div class="card">
+                <h2>⟲ Development Path</h2>
+                <div class="section">
+                    <h3>PAOK Academy & Early Breakthrough (2022-2023, Age 17-18)</h3>
+                    <p class="lead">Developed through PAOK (Thessaloniki) youth academy. Greek football education.
+                        Physical growth to 1.92m. Left-footed development specialist. First-team debut 2022 age 17-18.
+                        Conference League experience: 8 appearances. Set-piece threat: 5 career goals from CB. Greece
+                        U19/U21 international. <strong>Greece senior debut June 15, 2023 (age 18)</strong> in 3-0 vs
+                        Cyprus. Exceptional early recognition.</p>
+                </div>
+                <div class="section">
+                    <h3>PAOK First-Team Regular & European Football (2023-2024, Age 18-19)</h3>
+                    <p class="lead">PAOK first-team regular: 60 total apps by July 2024. Greek Super League proven.
+                        European experience expanded: Champions League qualification playoff (1 app), Europa League (5
+                        apps), Conference League (8 apps). 14 total European matches before 20th birthday. Ball-playing
+                        ability refined (8.7/10). Defending 8.8, aerial 8.9 (1.92m), positioning 8.7, speed 8.4 all
+                        developed. Greece senior: accumulated caps reaching 15 by age 19-20. Transfer interest from
+                        major leagues.</p>
+                </div>
+                <div class="section">
+                    <h3>Bundesliga Transfer & Development (July 2024-Present, Age 20)</h3>
+                    <p class="lead">July 2024: <strong>€15M transfer to VfL Wolfsburg (Bundesliga)</strong>. Significant
+                        investment. Market value now €18M. 2024/25-2025/26: Bundesliga integration (4 apps). German
+                        football tactical education. High-level competition. Greece regular: 15 senior caps. Age 20 with
+                        exceptional potential 9.2/10. Left-footed modern CB perfect for possession systems. Elite
+                        European career trajectory.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Aerial Dominance</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Defending</span><span
+                                class="info-value">8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Ball-Playing</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Positioning</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Speed (6'4")</span><span
+                                class="info-value">8.4/10</span></div>
+                        <div class="info-row"><span class="info-label">Left-Footed</span><span class="info-value">Rare
+                                advantage</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Modern Ball-Playing Centre-Back (Left-Footed)<br><br>
+                            <strong>Key Attributes:</strong> Elite physical profile 1.92m (6'4") with aerial dominance
+                            (8.9), left-footed rarity adds immense value, excellent ball-playing (8.7), strong defending
+                            (8.8), good positioning (8.7), excellent speed for height (8.4), 14 European matches pre-20,
+                            15 Greece caps age 18-20.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for possession systems (Guardiola 8.9). Ideal for
+                            high defensive lines (speed + positioning). Excellent for Bundesliga/elite leagues.
+                            Exceptional potential 9.2/10. Age 20 huge upside.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club/Level</th>
+                        <th>Achievement</th>
+                    </tr>
+                    <tr>
+                        <td>Youth</td>
+                        <td><strong>PAOK Academy</strong></td>
+                        <td>Full youth development (Greece)</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td><strong>PAOK First-Team Debut</strong></td>
+                        <td>Professional debut age 17-18</td>
+                    </tr>
+                    <tr>
+                        <td>2022-24</td>
+                        <td><strong>PAOK</strong></td>
+                        <td>60 apps, 5 goals; 14 European matches</td>
+                    </tr>
+                    <tr>
+                        <td>Jun 15, 2023</td>
+                        <td><strong>Greece Debut</strong></td>
+                        <td>Age 18 vs Cyprus (3-0)</td>
+                    </tr>
+                    <tr>
+                        <td>Jul 2024</td>
+                        <td><strong>€15M Transfer</strong></td>
+                        <td>VfL Wolfsburg (Bundesliga)</td>
+                    </tr>
+                    <tr>
+                        <td>2024-Present</td>
+                        <td><strong>VfL Wolfsburg</strong></td>
+                        <td>4 Bundesliga apps, €18M value, 15 Greece caps</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Summary:</strong> PAOK academy product. 64 apps, 5 goals (age 20). 14 European
+                    matches. Greece debut age 18 (15 caps). €15M Bundesliga transfer. Market value €18M. 1.92m
+                    left-footed CB. Potential 9.2/10. Modern profile.
+                </div>
+            </div>
+            <div class="card">
+                <h2>★ Honors & Recognition</h2>
+                <h3>Club Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">PAOK Academy</div>
+                        <div class="trophy-year">Graduate</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">64 Career Apps</div>
+                        <div class="trophy-year">By age 20</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">14 European Apps</div>
+                        <div class="trophy-year">Before age 20</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">5 Goals from CB</div>
+                        <div class="trophy-year">Set-piece threat</div>
+                    </div>
+                </div>
+                <h3>International Recognition</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇬🇷</div>
+                        <div class="trophy-title">Greece Senior</div>
+                        <div class="trophy-year">15 caps (debut 18)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">€18M Value</div>
+                        <div class="trophy-year">€15M transfer</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Left-Footed</div>
+                        <div class="trophy-year">Rare CB asset</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Potential 9.2</div>
+                        <div class="trophy-year">Elite upside</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▶ Career Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 26, 2004 | Birth</div>
+                    <div class="timeline-event">Born in Greece. Future VfL Wolfsburg Bundesliga defender and Greece
+                        international centre-back.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Years | PAOK Academy</div>
+                    <div class="timeline-event">Complete development through PAOK (Thessaloniki) prestigious Greek
+                        academy. Physical growth to 1.92m (6'4"). Left-footed development specialization. Ball-playing
+                        education. Greek football tactical foundation. Greece youth international (U19, U21). Prepared
+                        for professional football.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 | PAOK First-Team Debut (Age 17-18)</div>
+                    <div class="timeline-event"><strong>PAOK first-team professional debut</strong> age 17-18. Greek
+                        Super League debut. Conference League: 8 appearances (European competition early exposure).
+                        Set-piece weapon: 5 career goals from centre-back. Quick progression to regular status.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 15, 2023 | Greece Senior Debut (Age 18)</div>
+                    <div class="timeline-event"><strong>GREECE SENIOR INTERNATIONAL DEBUT</strong> age 18 years 20 days
+                        in 3-0 victory vs Cyprus. Exceptional recognition. Youngest generation of Greek defenders. Dream
+                        moment representing national team. Regular squad member from debut.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-2024 | European Football & Development</div>
+                    <div class="timeline-event">PAOK 60 total appearances, 5 goals. <strong>European experience: 14
+                            matches</strong> (Champions League qualification playoff 1 app, Europa League 5 apps,
+                        Conference League 8 apps). Continental football before 20th birthday exceptional. Ball-playing
+                        8.7, defending 8.8, aerial 8.9, positioning 8.7, speed 8.4 all developed. Greece caps
+                        accumulated: 15 by age 19-20. Major league interest from Bundesliga, Serie A, Premier League.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 | €15M Bundesliga Transfer</div>
+                    <div class="timeline-event"><strong>€15M transfer to VfL Wolfsburg (Bundesliga)</strong>.
+                        Significant investment in 20-year-old defender. German football tactical education. High-level
+                        competition weekly. Market value €18M (already €3M increase). European platform for development.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Present | Elite Prospect (Age 20)</div>
+                    <div class="timeline-event"><strong>Age 20 with exceptional potential 9.2/10</strong>. 64 career
+                        matches, 5 goals. 14 European apps. Greece: 15 senior caps (debut age 18). VfL Wolfsburg: 4
+                        Bundesliga apps. 1.92m (6'4") left-footed modern ball-playing centre-back: ball-playing 8.7,
+                        defending 8.8, aerial dominance 8.9, positioning 8.7, speed 8.4. Market value €18M. Perfect for
+                        possession systems (Guardiola 8.9 philosophy match). Left-footed rarity adds immense value.
+                        Greek football's finest young defensive prospect. Elite European career trajectory. Rating
+                        87.3/10.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▭ Player Comparison (Young European Ball-Playing CBs)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">Comparing Koulierakis vs elite young
+                    European ball-playing centre-backs</p>
+            </div>
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Total Career Apps</span><span
+                                class="info-value">64 matches</span></div>
+                        <div class="info-row"><span class="info-label">Goals</span><span class="info-value">5</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">European Apps</span><span
+                                class="info-value">14</span></div>
+                        <div class="info-row"><span class="info-label">Bundesliga Apps</span><span
+                                class="info-value">4</span></div>
+                        <div class="info-row"><span class="info-label">Greece Caps</span><span class="info-value">15
+                                (debut 18)</span></div>
+                        <div class="info-row"><span class="info-label">Market Value</span><span
+                                class="info-value">€18M</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Ball-playing LCB</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">CB
+                                (Left-footed)</span></div>
+                        <div class="info-row"><span class="info-label">Key Strength</span><span
+                                class="info-value">Aerial 8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.92m
+                                (6'4")</span></div>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">20
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Potential</span><span
+                                class="info-value">9.2/10</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;"><strong style="color: var(--accent2);">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">Data validated from VfL Wolfsburg, PAOK,
+            Hellenic Football Federation & Expert Scout Assessment</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Defending', 'Ball-Playing', 'Aerial', 'Positioning', 'Speed', 'Composure', 'Tackling', 'Potential'],
+                datasets: [{
+                    label: 'Konstantinos Koulierakis (Age 20)',
+                    data: [8.8, 8.7, 8.9, 8.7, 8.4, 8.5, 8.6, 9.2],
+                    borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5
+                }, {
+                    label: 'William Saliba (at 20)',
+                    data: [8.7, 8.6, 8.8, 8.8, 8.5, 8.6, 8.7, 9.1],
+                    borderColor: '#EF0107', backgroundColor: 'rgba(239,1,7,0.08)', borderWidth: 2, pointRadius: 4
+                }, {
+                    label: 'Joško Gvardiol (at 20)',
+                    data: [8.8, 8.8, 8.6, 8.7, 8.6, 8.7, 8.6, 9.3],
+                    borderColor: '#6CABDD', backgroundColor: 'rgba(108,171,221,0.08)', borderWidth: 2, pointRadius: 4
+                }, {
+                    label: 'Evan Ndicka (at 20)',
+                    data: [8.6, 8.5, 8.7, 8.6, 8.3, 8.4, 8.5, 8.9],
+                    borderColor: '#E1000F', backgroundColor: 'rgba(225,0,15,0.08)', borderWidth: 2, pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true, max: 10,
+                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d', borderWidth: 2, padding: 12,
+                        callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10'; } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

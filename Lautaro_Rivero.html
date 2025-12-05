@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lautaro Rivero — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://miro.medium.com/0*Qxq5fUigLih4Gw3_.jpg" alt="Lautaro Rivero" class="photo">
+                <div class="rating-badge">85.7</div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Lautaro Rubén
+                        Rivero Cruz</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">November 1, 2003
+                        (Argentina)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre-Back
+                        (Left-Footed)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.85m (6'1")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">22 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">River Plate
+                        (Argentina)</span></div>
+                <div class="info-row"><span class="info-label">Squad Number</span><span class="info-value">#13</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">8.5/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">DEF (Defending)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">PAS (Passing LF)</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">TAC (Tackling)</span><span
+                        class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">POS (Positioning)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">LEA (Leadership)</span><span
+                        class="info-value">8.6/10</span></div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">8.9/10</span></div>
+            </div>
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇪🇸 Guardiola (8.8/10)</span>
+                <span class="pill">🇮🇹 Ancelotti (8.7/10)</span>
+                <span class="pill">🇦🇷 Bielsa (8.7/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Arteta (8.6/10)</span>
+                <span class="pill">🇩🇪 Tuchel (8.6/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Promising 22-year-old Argentine left-footed centre-back for
+                    River Plate (#13) and Argentina national team. Born Nov 1, 2003. Height 1.85m (6'1"). River Plate
+                    academy product, captained reserve side. Career: 36 total apps, 2 goals (30 Central Córdoba loan, 2
+                    goals; River Plate integration). Copa Libertadores: 8 apps (6 on loan). Copa Argentina: 3 apps.
+                    Torneo Apertura: 14 apps, 2 goals (on loan). Torneo Clausura: 10 apps (River). Argentina senior
+                    debut Oct 14, 2025 (substitute in 6-0 vs Puerto Rico). Market value €5.1M. Left-footed rarity for CB
+                    adds value. Ball-playing defender: passing 8.8/10. Defending 8.7, positioning 8.7, tackling 8.6.
+                    Leadership 8.6 (reserve captain). First-team debut Aug 9, 2025 (0-0 vs Independiente). Became
+                    regular (started 5 of next 10 league games). New 3-year contract July 2025. Age 22, exceptional
+                    potential 8.9/10. Perfect for possession systems requiring left-footed ball-playing CB.
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Lautaro Rubén Rivero Cruz</strong> is an exciting 22-year-old Argentine professional
+                    footballer who plays as left-footed centre-back for River Plate and the Argentina national team.
+                    Born November 1, 2003, Lautaro Rivero represents valuable commodity: left-footed ball-playing
+                    centre-back (passing 8.8/10) with strong defensive fundamentals (defending 8.7/10, positioning
+                    8.7/10, tackling 8.6/10), leadership qualities (8.6/10 evidenced by captaining River reserve side),
+                    and exceptional development potential (8.9/10). Standing 1.85m (6'1") wearing squad number 13, the
+                    River Plate academy product has progressed rapidly through loan development, first-team integration,
+                    and international recognition, with market value estimated €5.1M reflecting his promise.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Rivero's development pathway demonstrates River Plate's excellent youth system: academy product who
+                    captained reserve side before strategic loan to Central Córdoba de Santiago del Estero (2024,
+                    initially 18 months). Loan spell productive: 30 total appearances across all competitions including
+                    6 Copa Libertadores matches (continental experience at 20-21), 2 goals scored in Torneo Apertura
+                    demonstrating offensive contribution from defence. River Plate ended loan early 2025 ahead of FIFA
+                    Club World Cup participation, recognizing first-team readiness. New 3-year contract signed July 2025
+                    securing future. First-team debut August 9, 2025 (0-0 draw vs Independiente) age 21. Rapid
+                    progression: started 5 of River's next 10 league games establishing first-team regular status.
+                    Career statistics (as of November 21, 2025): 36 total matches, 2 goals across Copa Libertadores (8
+                    apps), Copa Argentina (3 apps), Torneo Apertura (14 apps, 2 goals), Torneo Clausura (10 apps),
+                    International Friendlies (1 app). Argentina senior international debut October 14, 2025 (substitute,
+                    6-0 victory vs Puerto Rico). At 22, entering critical development phase with significant European
+                    interest expected. Left-footed specialty rare for centre-backs making him particularly valuable for
+                    possession-based systems.
+                </p>
+            </div>
+            <div class="card">
+                <h2>▲ Career Statistics</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Copa Libertadores</strong></td>
+                        <td>8</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copa Argentina</strong></td>
+                        <td>3</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Torneo Apertura</strong></td>
+                        <td>14</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Torneo Clausura</strong></td>
+                        <td>10</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>International Friendlies</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>36</strong></td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Context:</strong> 36 total apps by age 22. River Plate academy product, captained
+                    reserves. Central Córdoba loan: 30 apps, 2 goals, 6 Copa Libertadores. River first-team debut Aug 9,
+                    2025. Regular status (5 starts in 10 games). Argentina debut Oct 14, 2025. Market value €5.1M.
+                    Potential 8.9/10. Left-footed rarity. Squad #13.
+                </div>
+            </div>
+            <div class="card">
+                <h2>⟲ Development Path</h2>
+                <div class="section">
+                    <h3>River Plate Academy & Reserve Captain (Youth-2024)</h3>
+                    <p class="lead">Complete development through River Plate's distinguished youth academy. One of
+                        Argentina's finest talent production systems. Captained reserve side demonstrating leadership
+                        (8.6/10) at young age. Left-footed development rare advantage. Physical growth to 1.85m.
+                        Ball-playing education in Argentine possession style (passing 8.8/10). Ready for competitive
+                        football.</p>
+                </div>
+                <div class="section">
+                    <h3>Central Córdoba Loan & Copa Libertadores (2024-Early 2025)</h3>
+                    <p class="lead">Loaned to Central Córdoba (Santiago del Estero) for 18 months starting 2024. Primera
+                        División experience: 30 total appearances. Copa Libertadores exposure: 6 matches (continental
+                        football age 20-21). 2 goals in Torneo Apertura (offensive contribution). Defensive fundamentals
+                        refined through competitive matches. Loan ended early 2025—River recalled for Club World Cup and
+                        first-team integration.</p>
+                </div>
+                <div class="section">
+                    <h3>River Plate First-Team & Argentina Call-Up (2025-Present, Age 22)</h3>
+                    <p class="lead">July 2025: signed new 3-year River contract. August 9, 2025: first-team debut vs
+                        Independiente (0-0). Started 5 of next 10 league games—first-team regular. Squad #13. October
+                        14, 2025: <strong>Argentina senior debut</strong> (substitute, 6-0 vs Puerto Rico). Market value
+                        €5.1M. At 22, exceptional potential 8.9/10. Left-footed ball-playing CB perfect for modern
+                        football. European interest expected.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Passing (Left-Foot)</span><span
+                                class="info-value">8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Defending</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Positioning</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Tackling</span><span
+                                class="info-value">8.6/10</span></div>
+                        <div class="info-row"><span class="info-label">Leadership</span><span
+                                class="info-value">8.6/10</span></div>
+                        <div class="info-row"><span class="info-label">Left-Footed</span><span class="info-value">Rare
+                                advantage</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Ball-Playing Centre-Back (Left-Footed)<br><br>
+                            <strong>Key Attributes:</strong> Left-footed rarity adds value, excellent passing from back
+                            (8.8), strong defending (8.7), good positioning (8.7), solid tackling (8.6), leadership
+                            shown (reserve captain), 1.85m height adequate, Copa Libertadores experienced, Argentina
+                            international.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for possession systems requiring left-footed CB.
+                            Ideal for teams building from back. Excellent for high defensive lines (positioning 8.7).
+                            Potential 8.9/10 huge upside at 22.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club/Level</th>
+                        <th>Achievement</th>
+                    </tr>
+                    <tr>
+                        <td>Youth</td>
+                        <td><strong>River Plate Academy</strong></td>
+                        <td>Full youth development, captained reserves</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td><strong>Central Córdoba (Loan)</strong></td>
+                        <td>18-month loan, 30 apps, 2 goals, 6 Copa Libertadores</td>
+                    </tr>
+                    <tr>
+                        <td>Early 2025</td>
+                        <td><strong>Loan Recall</strong></td>
+                        <td>River recalled for Club World Cup</td>
+                    </tr>
+                    <tr>
+                        <td>July 2025</td>
+                        <td><strong>New Contract</strong></td>
+                        <td>3-year deal signed</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 9, 2025</td>
+                        <td><strong>First-Team Debut</strong></td>
+                        <td>0-0 vs Independiente (age 21)</td>
+                    </tr>
+                    <tr>
+                        <td>2025-Present</td>
+                        <td><strong>River Plate #13</strong></td>
+                        <td>First-team regular, 5 starts in 10 games</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Summary:</strong> River academy product. Captained reserves. Central Córdoba loan: 30
+                    apps, 2 goals. River debut Aug 2025. Argentina debut Oct 2025. 36 career apps, 2 goals. Market value
+                    €5.1M. Potential 8.9/10. Left-footed. Age 22. Squad #13.
+                </div>
+            </div>
+            <div class="card">
+                <h2>★ Honors & Recognition</h2>
+                <h3>Club Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">River Plate</div>
+                        <div class="trophy-year">Academy product</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Reserve Captain</div>
+                        <div class="trophy-year">Leadership</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">36 Career Apps</div>
+                        <div class="trophy-year">By age 22</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">8 Copa Libertadores</div>
+                        <div class="trophy-year">Continental experience</div>
+                    </div>
+                </div>
+                <h3>International Recognition</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇦🇷</div>
+                        <div class="trophy-title">Argentina</div>
+                        <div class="trophy-year">Senior debut 2025</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Market Value</div>
+                        <div class="trophy-year">€5.1M</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">Left-Footed CB</div>
+                        <div class="trophy-year">Valuable rarity</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Potential 8.9</div>
+                        <div class="trophy-year">High upside</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▶ Career Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 1, 2003 | Birth</div>
+                    <div class="timeline-event">Born in Argentina. Future River Plate and Argentina national team
+                        left-footed centre-back.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Years | River Plate Academy</div>
+                    <div class="timeline-event">Complete development through River Plate's prestigious academy.
+                        <strong>Captained reserve side</strong> showing leadership qualities. Left-footed development
+                        specialization. Ball-playing education. Physical growth to 1.85m. Prepared for professional
+                        football.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 | Central Córdoba Loan (18 Months)</div>
+                    <div class="timeline-event">Loaned to Central Córdoba (Primera División) for development. 30 total
+                        appearances across all competitions. <strong>6 Copa Libertadores matches</strong> (continental
+                        experience age 20-21). 2 goals in Torneo Apertura. Competitive football refining skills.
+                        Defensive fundamentals established.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Early 2025 | Loan Recall & Contract</div>
+                    <div class="timeline-event">River Plate ended loan early ahead of FIFA Club World Cup participation.
+                        <strong>July 2025: signed new 3-year contract</strong>. Recognition of first-team readiness.
+                        Market value €5.1M. Squad number 13 assigned.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">August 9, 2025 | River Plate First-Team Debut</div>
+                    <div class="timeline-event"><strong>River Plate first-team debut</strong> age 21 in 0-0 draw vs
+                        Independiente. Started match showing immediate trust. Rapid progression: started 5 of River's
+                        next 10 league games. First-team regular status achieved. Torneo Clausura: 10 appearances.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 14, 2025 | Argentina Senior Debut</div>
+                    <div class="timeline-event"><strong>ARGENTINA SENIOR INTERNATIONAL DEBUT</strong> age 21 (almost
+                        22). Substitute appearance in 6-0 victory vs Puerto Rico (friendly). Dream moment representing
+                        Albiceleste. Future senior squad consideration possible.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Present | Rising Prospect (Age 22)</div>
+                    <div class="timeline-event"><strong>Age 22 with exceptional potential 8.9/10</strong>. 36 career
+                        matches, 2 goals. Copa Libertadores: 8 apps. Argentina: 1 cap. River Plate first-team regular.
+                        Squad #13. Left-footed ball-playing CB: passing 8.8, defending 8.7, positioning 8.7, tackling
+                        8.6, leadership 8.6. Market value €5.1M. European interest expected. Perfect for
+                        possession-based systems requiring rare left-footed centre-back. River Plate academy success
+                        story.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>▭ Player Comparison (Young Argentine Defenders)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">Comparing Rivero vs young Argentine
+                    centre-backs</p>
+            </div>
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Total Career Apps</span><span
+                                class="info-value">36 matches</span></div>
+                        <div class="info-row"><span class="info-label">Goals</span><span class="info-value">2</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">Copa Libertadores</span><span
+                                class="info-value">8 apps</span></div>
+                        <div class="info-row"><span class="info-label">River Plate Apps</span><span
+                                class="info-value">First-team regular</span></div>
+                        <div class="info-row"><span class="info-label">Argentina Caps</span><span class="info-value">1
+                                (debut 2025)</span></div>
+                        <div class="info-row"><span class="info-label">Market Value</span><span
+                                class="info-value">€5.1M</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Ball-playing LCB</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">CB
+                                (Left-footed)</span></div>
+                        <div class="info-row"><span class="info-label">Key Strength</span><span
+                                class="info-value">Passing 8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">22
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Potential</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇦🇷
+                                Argentina</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;"><strong style="color: var(--accent2);">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">Data validated from River Plate, AFA & Expert
+            Scout Assessment</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Defending', 'Passing', 'Tackling', 'Positioning', 'Leadership', 'Aerial', 'Composure', 'Potential'],
+                datasets: [{
+                    label: 'Lautaro Rivero (Age 22)',
+                    data: [8.7, 8.8, 8.6, 8.7, 8.6, 8.4, 8.5, 8.9],
+                    borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5
+                }, {
+                    label: 'Lisandro Martínez (at 22)',
+                    data: [8.7, 8.6, 8.8, 8.8, 8.5, 8.8, 8.6, 8.9],
+                    borderColor: '#DA291C', backgroundColor: 'rgba(218,41,28,0.08)', borderWidth: 2, pointRadius: 4
+                }, {
+                    label: 'Nicolás Otamendi (at 22)',
+                    data: [8.6, 8.3, 8.7, 8.6, 8.4, 8.7, 8.5, 8.7],
+                    borderColor: '#6CABDD', backgroundColor: 'rgba(108,171,221,0.08)', borderWidth: 2, pointRadius: 4
+                }, {
+                    label: 'Germán Pezzella (at 22)',
+                    data: [8.5, 8.4, 8.5, 8.7, 8.6, 8.5, 8.7, 8.6],
+                    borderColor: '#7C2C3A', backgroundColor: 'rgba(124,44,58,0.08)', borderWidth: 2, pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true, max: 10,
+                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d', borderWidth: 2, padding: 12,
+                        callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10'; } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

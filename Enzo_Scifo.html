@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Enzo Scifo — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZJ5AIpskukGS-Ihx2imb_26h8X1P5URe9F-Uzui-7Zxq8eJPbLygo6nTXcho9oVOg6Uay_jGhiwUUZNKN8Zdr_TcvFNlHZe0FQndpksgSOm_wZUU5KQ9qRho14ODwamevPq9KLlvXgeg/s1600/scifo+auxerre.jpg" alt="Enzo Scifo playing for Belgium in 1986">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Enzo Scifo</div>
+        <div class="sub">Attacking Midfielder (Retired) · Belgium · Born: 19 Feb 1966 (59)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Anderlecht, Torino, AS Monaco, Inter Milan</span>
+          <span class="pill"><strong>Position</strong> Attacking Midfielder (#10)</span>
+          <span class="pill"><strong>Nickname</strong> "The Little Pelé" / "Le Petit Pelé"</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">One of the greatest Belgian players of all time, "The Little Pelé" was a sublime attacking midfielder. Renowned for his exceptional vision (VIS), elegant technique (TEC), and creativity, he was the star of the 1986 World Cup "dark horse" Belgium team (4th place) and won the Best Young Player award.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>VIS - Vision</td><td>9.7</td></tr>
+              <tr><td>TEC - Technique</td><td>9.6</td></tr>
+              <tr><td>PAS - Passing</td><td>9.5</td></tr>
+              <tr><td>FLA - Flair</td><td>9.4</td></tr>
+              <tr><td>SHT - Shooting</td><td>8.5</td></tr>
+              <tr><td>PAC - Pace</td><td>7.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical and based on archival footage and reports.</li>
+            <li>Analyze 1986 World Cup (Best Young Player) and 1990 World Cup (Goal vs Uruguay) for peak metrics.</li>
+            <li>Metrics reflect a classic, pure #10; not a physical or high-press player.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, Transfermarkt, and FIFA archives.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">91.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Enzo Scifo was a generational talent, the creative "brain" of the Belgian national team for over a decade. He burst onto the scene at the 1986 World Cup, winning the Best Young Player award and leading Belgium to a historic 4th place finish. His career saw him play for some of Europe's biggest clubs, including Inter Milan and Torino, reaching the UEFA Cup final with the latter. He was a complete playmaker, combining sublime vision, elegant dribbling, and a fine shot. He won 4 Belgian league titles with Anderlecht and a Ligue 1 title with AS Monaco.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1983–1987</td><td>Anderlecht</td><td>Won 3x Belgian League titles. Belgian Golden Shoe (1984).</td></tr>
+            <tr><td>1987–1988</td><td>Inter Milan</td><td>Moved to Serie A.</td></tr>
+            <tr><td>1988–1989</td><td>Bordeaux</td><td>One season in France.</td></tr>
+            <tr><td>1989–1991</td><td>Auxerre</td><td>Starred under Guy Roux.</td></tr>
+            <tr><td>1991–1993</td><td>Torino</td><td>Reached 1991-92 UEFA Cup Final. Won 1993 Coppa Italia.</td></tr>
+            <tr><td>1993–1997</td><td>AS Monaco</td><td>Won 1996-97 Ligue 1 title.</td></tr>
+            <tr><td>1997–2000</td><td>Anderlecht</td><td>Returned to his first club; won 4th league title.</td></tr>
+            <tr><td>1984–1998</td><td>Belgium National Team</td><td>84 caps, 18 goals. Played in 4 World Cups (1986, 1990, 1994, 1998).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1986</td><td>FIFA World Cup</td><td>Won Best Young Player Award; led Belgium to 4th place.</td></tr>
+            <tr><td>Jun 17, 1990</td><td>Belgium vs. Uruguay (WC)</td><td>Scored a spectacular 25-yard "worldie" goal.</td></tr>
+            <tr><td>1992</td><td>UEFA Cup Final</td><td>Reached the final with Torino (lost to Ajax).</td></tr>
+            <tr><td>1997</td><td>Ligue 1 Title</td><td>Key playmaker for the AS Monaco championship team.</td></tr>
+            <tr><td>1984</td><td>Belgian Golden Shoe</td><td>Won as an 18-year-old.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Vision & Creativity (VIS):</strong> A sublime, world-class playmaker.</li>
+              <li><strong>Technique & Dribbling (TEC/DRB):</strong> "The Little Pelé"; elegant, two-footed, and graceful.</li>
+              <li><strong>Passing (PAS):</strong> Dictated the tempo with precise, intelligent passing.</li>
+              <li><strong>Long Shooting (SHT):</strong> Capable of scoring spectacular goals from distance.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Pace & Athleticism:</strong> Relied on his brain, not his speed.</li>
+              <li><strong>Physicality:</strong> A lightweight player, not a physical force.</li>
+              <li><strong>Defensive Work Rate:</strong> A classic #10, not a two-way player.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> A national icon in Belgium. One of the most recognizable European stars of the 1980s.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A marquee, high-value playmaker who commanded significant fees, moving between top clubs in Italy and France.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Proved he was elite in Belgium, France, and Italy (Serie A), which was the world's top league at the time.</td>
+            <p class="small"><strong>International Impact:</strong> A legend. The star of Belgium's "Golden Generation," playing in four consecutive World Cups.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>VIS - Vision</td><td>9.7</td></tr>
+                <tr><td>PAS - Passing</td><td>9.5</td></tr>
+                <tr><td>SCA - Shot Creating Actions</td><td>~5.5 (Peak)</td></tr>
+                <tr><td>IQ - Tactical Intelligence</td><td>9.4</td></tr>
+                <tr><td>xAG - Expected Assists</td><td>~0.35 (Peak)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Att. Mids)</h3>
+            <ul class="small">
+              <li>Vision (VIS): 99th percentile.</li>
+              <li>Technique (TEC): 98th percentile.</li>
+              <li>Flair (FLA): 97th percentile.</li>
+              <li>Pace (PAC): 40th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival WC and Serie A data. ERA Factor: ~1.12 (late 80s/early 90s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Scifo's DNA was the **Pure Playmaker ('Trequartista')**. He was "Le Petit Pelé," a pure artist who controlled the game with his **Vision (VIS)**, **Technique (TEC)**, and **Passing (PAS)**. He was the classic #10, the "brain" of his team, and the player who could unlock any defense with a moment of genius.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Menotti Artistry</td><td>9.8</td><td>His game was pure technical art and creativity.</td></tr>
+                <tr><td>Cruyff Intelligence</td><td>9.5</td><td>A sublime football brain, a "Maestro."</td></tr>
+                <tr><td>Guardiola Positional</td><td>8.5</td><td>A "free 10" who could unlock any defense.</td></tr>
+                <tr><td>Santana JogoBonito</td><td>8.2</td><td>Embodied the "beautiful game" with his style.</td></tr>
+                <tr><td>Ferguson Mental</td><td>8.0</td><td>A proven winner and big-game player.</td></tr>
+                <tr><td>Klopp Intensity</td><td>2.0</td><td>Opposite of his style; lacked defensive work rate.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on 1986 WC (Best Young Player) and 1990 WC goal.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>WC Best Young Player:</strong> 1986.</li>
+              <li><strong>4x World Cup Participant:</strong></li>
+              <li><strong>Belgian Golden Shoe:</strong> 1984 (at age 18).</li>
+              <li><strong>4x Belgian Champion:</strong></li>
+              <li><strong>1x Ligue 1 Champion:</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (awards, titles), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a central, free-roaming attacking midfielder (#10).</li>
+          <li>Build the entire offensive structure around his vision and passing.</li>
+          <li>Do not burden him with defensive duties; pair with a "destroyer" DM.</li>
+          <li>Ideal for a possession-based, technical team.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Artistic & Creative:</strong> A classic #10 who played on instinct and feel.</li>
+          <li><strong>Calm & Composed:</strong> An elegant, unhurried player.</li>
+          <li><strong>Leader:</strong> Was the talisman and creative leader for Belgium for a decade.</li>
+          <li><strong>Resilient:</strong> Bounced back from a tough spell at Inter to thrive at Auxerre and Torino.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Handled the "Little Pelé" tag from a young age.</li>
+          <li>Performed on the biggest stage (1986 World Cup).</li>
+          <li>Consistent excellence (4 World Cups).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>A "luxury" player who needed the right system to thrive.</li>
+          <li>Struggled in the highly-structured Serie A at Inter.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Enzo Scifo was an artist, a throwback to the pure #10. His career was defined by his incredible vision and technical purity. He proved his genius at the 1986 World Cup and, after a difficult move to Inter, showed the resilience to rebuild his career and win titles in both Italy (Cup) and France (League). He was a player who embodied the "Menotti Artistry" philosophy.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.12 (late 80s/early 90s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1989-90</td><td>Auxerre (All Comps)</td><td>33+</td><td>11</td><td>~10</td><td>~21</td><td>91.5 (Peak)</td></tr>
+            <tr><td>1991-92</td><td>Torino (All Comps)</td><td>40+</td><td>9</td><td>~12</td><td>~21</td><td>91.0 (Peak)</td></tr>
+            <tr><td>1986</td><td>Belgium (World Cup)</td><td>7</td><td>2</td><td>3</td><td>5</td><td>92.0 (Peak)</td></tr>
+            <tr><td>1996-97</td><td>AS Monaco (Ligue 1)</td><td>15</td><td>5</td><td>~4</td><td>9</td><td>90.0</td></tr>
+            <tr><td>(Career)</td><td>Belgium</td><td>84</td><td>18</td><td>~20+</td><td>N/A</td><td>N/A</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his peak.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>A quiet, technical leader. Led by his creativity and on-field genius.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>Exceptional. Starred in a World Cup at age 20.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>His game was built on pure, natural talent and vision.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>National Hero</td><td>Belgium Fans</td><td>Considered one of the "Red Devils" all-time greatest players.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Guy Thys</td><td>The manager who unleashed him at the 1986 World Cup.</td></tr>
+            <tr><td>Coaching Relationship</td><td>Guy Roux</td><td>Helped revitalize his career at Auxerre.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Jun 25, 1986</td><td>Argentina (WC Semi)</td><td>L 0-2</td><td>90 mins.</td><td>1986 World Cup 4th place</td></tr>
+            <tr><td>Jun 17, 1990</td><td>Uruguay (World Cup)</td><td>W 3-1</td><td>90 mins, 1 goal (long shot).</td><td>Iconic WC goal</td></tr>
+            <tr><td>Apr 29, 1992</td><td>Ajax (UEFA Cup Final)</td><td>D 0-0</td><td>90 mins, key creator.</td><td>Lost on away goals</td></tr>
+            <tr><td>May 17, 1997</td><td>(Ligue 1)</td><td>W</td><td>90 mins, 1 assist.</td><td>Won Ligue 1 title</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 1986 WC, 1990 WC goal vs. Uruguay, and Torino/Monaco highlights.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-ES-01</td><td>Belgium vs Uruguay</td><td>1990</td><td>1990 World Cup long-range goal</td><td>ARCH-ES-1990-WC (attach)</td></tr>
+            <tr><td>VH-ES-02</td><td>Belgium (World Cup)</td><td>1986</td><td>1986 WC Best Young Player highlights</td><td>ARCH-ES-1986-WC (attach)</td></tr>
+            <tr><td>VH-ES-03</td><td>Torino</td><td>1991-93</td><td>Serie A & UEFA Cup highlights</td><td>ARCH-ES-TORINO (attach)</td></tr>
+            <tr><td>VH-ES-04</td><td>AS Monaco</td><td>1993-97</td><td>Ligue 1 title highlights</td><td>ARCH-ES-MONACO (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Playmakers)</h2>
+        <p class="small">Comparators: Michael Laudrup (Profile), Roberto Baggio (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="scifoRadar" aria-label="Radar comparing Scifo and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player was an artist who needed total creative freedom.</li>
+          <li>Motivated by being the "brain" and "maestro" of the team.</li>
+          <li>Thrived when the system was built around his unique talent.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, and FIFA. All metrics are based on his historical peak (circa 1986-1993). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate 1986 WC Best Young Player, 4 WC appearances, and all club titles.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Enzo Scifo expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('scifoRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Vision (VIS)','Technique (TEC)','Passing (PAS)','Flair (FLA)','Shooting (SHT)','Pace (PAC)'],
+          datasets: [
+            { label: 'Enzo Scifo (Peak)', data: [9.7, 9.6, 9.5, 9.4, 8.5, 7.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'M. Laudrup (Profile)', data: [9.8, 9.7, 9.6, 9.5, 8.0, 8.0],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'R. Baggio (Profile)', data: [9.5, 9.8, 9.2, 9.7, 9.4, 8.5],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
