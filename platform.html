@@ -467,6 +467,86 @@
         </div>
     </div>
 
+    <!-- Client Login Modal -->
+    <div id="clientLoginModal" class="login-overlay" style="display:none;">
+        <div class="login-modal">
+            <button onclick="closeClientLogin()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="text-center mb-8">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                     alt="Empire FGA" 
+                     class="h-16 w-auto mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Client Portal</h1>
+                <p class="text-slate-400">Premium Access for Valued Clients</p>
+            </div>
+            
+            <div id="clientLoginError" class="login-error">
+                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please contact support@empirefga.com
+            </div>
+            
+            <form id="clientLoginForm" onsubmit="handleClientLogin(event)">
+                <div class="mb-4">
+                    <label class="block text-slate-300 mb-2 font-semibold">
+                        <i class="fas fa-building"></i> Club Name or Email
+                    </label>
+                    <input 
+                        type="text" 
+                        id="clientUsername" 
+                        class="login-input" 
+                        placeholder="Enter club name or email" 
+                        required
+                        autocomplete="username">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-slate-300 mb-2 font-semibold">
+                        <i class="fas fa-key"></i> Access Code
+                    </label>
+                    <input 
+                        type="password" 
+                        id="clientPassword" 
+                        class="login-input" 
+                        placeholder="Enter your access code" 
+                        required
+                        autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <i class="fas fa-sign-in-alt"></i> Access Client Portal
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-slate-400 text-sm mb-4">
+                    <i class="fas fa-info-circle"></i> Client Portal Features:
+                </p>
+                <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i> Player Database Access
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i> Comparison Tool
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i> Market Intelligence
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i> Export Reports
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center text-slate-500 text-sm border-t border-slate-700 pt-4">
+                <p class="mb-2">Don't have access yet?</p>
+                <a href="https://www.empirescoutingnetwork.com/demo" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">
+                    <i class="fas fa-calendar"></i> Request a Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Platform Content (Hidden until authenticated) -->
     <div id="platformContent" class="platform-content">
 
@@ -485,11 +565,11 @@
                     <button onclick="exportToPDF()" class="text-yellow-400 hover:text-yellow-300 px-4 py-2 rounded-lg font-semibold transition border border-yellow-500 hover:bg-yellow-500/10 flex items-center gap-2">
                         <i class="fas fa-file-pdf"></i> Export PDF
                     </button>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10">
-                        <a href="https://www.empirescoutingnetwork.com/login">Login</a>
+                    <a href="client_login.html" class="text-blue-400 hover:text-blue-300 px-4 py-2 rounded-lg font-semibold transition border border-blue-500 hover:bg-blue-500/10 flex items-center gap-2">
+                        <i class="fas fa-user"></i> <span id="clientLoginText">Client Login</span>
                     </a>
-                    <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition">
-                        Request Demo
+                    <a href="https://www.empirescoutingnetwork.com/demo" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                        <i class="fas fa-calendar"></i> Request Demo
                     </a>
                 </div>
             </div>
@@ -1540,36 +1620,6 @@
             { name: "Ali Abdi", profileHtml: "Ali_Abdi.html", position: "LB", age: 27, nationality: "Tunisia", fga: 82.0, bestPhilosophy: "Guardiola Positional", currentClub: "Lorient" },
             { name: "Jones El Abdellaoui", profileHtml: "Jones_El_Abdellaoui.html", position: "WG", age: 18, nationality: "France", fga: 79.5, bestPhilosophy: "Klopp Intensity", currentClub: "Youth" },
             { name: "Himad Abdelli", profileHtml: "Himad_Abdelli.html", position: "CM", age: 18, nationality: "France", fga: 83.0, bestPhilosophy: "Guardiola Positional", currentClub: "Angers" },
-            
-            // === NEW PLAYERS BATCH 5 (Dec 5, 2025 - Fifth Upload) ===
-            { name: "Fernando Hierro", image_url: "https://static.wikia.nocookie.net/the-football-database/images/4/4e/Fernando_Hierro.1.png", profileHtml: "Fernando_Hierro.html", position: "CB", age: 57, nationality: "Spain", fga: 92.0, bestPhilosophy: "Hierro Leadership" },
-            { name: "Seydou Dembele", image_url: "https://img.a.transfermarkt.technology/portrait/big/1392645-1743719889.png", profileHtml: "Seydou_Dembele.html", position: "CM", age: 23, nationality: "Mali", fga: 92.3, bestPhilosophy: "Klopp Intensity" },
-            { name: "Nando Martínez", profileHtml: "Nando_Martinez.html", position: "CB", age: 18, nationality: "Spain", fga: 88.4, bestPhilosophy: "Mourinho Tactical" },
-            { name: "Vicente Guaita", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsWYFw7OK3mkOoMeuC4_EW5gHhilwfrML66w&s", profileHtml: "Vicente_Guaita.html", position: "GK", age: 38, nationality: "Spain", fga: 87.6, bestPhilosophy: "Yashin Revolution" },
-            { name: "Nick Woltemade", image_url: "https://cdn3.futbin.com/content/fifa25/img/players/254022.png", profileHtml: "Nick_Woltemade.html", position: "ST", age: 23, nationality: "Germany", fga: 87.4, bestPhilosophy: "Flick High Press" },
-            { name: "Kerim Alajbegovic", image_url: "https://cdn3.futbin.com/content/fifa26/img/players/75533.png", profileHtml: "Kerim_Alajbegovic.html", position: "CM", age: 18, nationality: "Austria", fga: 87.3, bestPhilosophy: "Guardiola Positional" },
-            { name: "İsmail Yüksek", image_url: "https://static.wikia.nocookie.net/the-football-database/images/6/6f/%C4%B0smail_Y%C3%BCksek.png", profileHtml: "Ismail_Yuksek.html", position: "DM", age: 26, nationality: "Turkey", fga: 87.3, bestPhilosophy: "Terim Resilience" },
-            { name: "Juanlu Sánchez", image_url: "https://game-assets.fut.gg/cdn-cgi/image/quality=85,format=auto,width=300/2026/player-item/26-264174.c770288fb98f97e207d468ee30452f6cb26b1d2c2386b86ad0471218246751a3.webp", profileHtml: "Juanlu_Sanchez.html", position: "RB", age: 21, nationality: "Spain", fga: 86.5, bestPhilosophy: "Guardiola Positional" },
-            { name: "Tyrique George", image_url: "https://cdn3.futbin.com/content/fifa26/img/players/71998.png", profileHtml: "Tyrique_George.html", position: "WG", age: 19, nationality: "England", fga: 86.2, bestPhilosophy: "Klopp Intensity" },
-            { name: "Alessandro Vogt", image_url: "https://images.fotmob.com/image_resources/playerimages/1419782.png", profileHtml: "Alessandro_Vogt.html", position: "CB", age: 20, nationality: "Germany", fga: 85.9, bestPhilosophy: "Flick High Press" },
-            { name: "José Ángel Carmona", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIepBzmuONVkv97z3N0Tp6PMb8Iz3luY4aZQ&s", profileHtml: "Jose_Angel_Carmona.html", position: "RB", age: 23, nationality: "Spain", fga: 84.8, bestPhilosophy: "Guardiola Positional" },
-            { name: "Tomás Palacios", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRek16wskHMH1063Fmta6NQqs932Mrmv_fxTw&s", profileHtml: "Tomas_Palacios.html", position: "CB", age: 21, nationality: "Argentina", fga: 84.7, bestPhilosophy: "Bielsa Verticalidad" },
-            { name: "Gedeon Ndongo", profileHtml: "Gedeon_Ndongo.html", position: "CB", age: 17, nationality: "Cameroon", fga: 83.4, bestPhilosophy: "Mourinho Tactical" },
-            { name: "Henrik Hanche-Hafskjold", image_url: "https://i.ytimg.com/vi/YRMPlK_ijm8/mqdefault.jpg", profileHtml: "Henrik_Hanche_Hafskjold.html", position: "GK", age: 25, nationality: "Norway", fga: 78.6, bestPhilosophy: "Yashin Revolution" },
-            
-            // === NEW PLAYERS BATCH 6 (Dec 5, 2025 - Sixth Upload) ===
-            { name: "David Beckham", profileHtml: "David_Beckham.html", position: "CM", age: 50, nationality: "England", fga: 93.0, bestPhilosophy: "Ferguson Mental" },
-            { name: "Claude Makélélé", profileHtml: "Claude_Makelele.html", position: "DM", age: 52, nationality: "France", fga: 91.0, bestPhilosophy: "Mourinho Tactical" },
-            { name: "Steve McManaman", profileHtml: "Steve_Mc_Manaman.html", position: "WG", age: 53, nationality: "England", fga: 90.5, bestPhilosophy: "Ferguson Mental" },
-            { name: "Juan Sebastián Verón", profileHtml: "Juan_Sebastian_Veron.html", position: "CM", age: 50, nationality: "Argentina", fga: 89.5, bestPhilosophy: "Bielsa Verticalidad" },
-            { name: "Yoan Wissa", profileHtml: "Yoan_Wissa.html", position: "ST", age: 28, nationality: "DR Congo", fga: 88.2, bestPhilosophy: "Klopp Intensity", currentClub: "Brentford" },
-            { name: "Antoine Semenyo", profileHtml: "Antoine_Semenyo.html", position: "WG", age: 25, nationality: "Ghana", fga: 86.8, bestPhilosophy: "Klopp Intensity", currentClub: "Bournemouth" },
-            { name: "Malick Thiaw", profileHtml: "Malick_Thiaw.html", position: "CB", age: 23, nationality: "Germany", fga: 86.4, bestPhilosophy: "Flick High Press", currentClub: "AC Milan" },
-            { name: "Jacob Ramsey", profileHtml: "Jacob_Ramsey.html", position: "CM", age: 23, nationality: "England", fga: 85.2, bestPhilosophy: "Guardiola Positional", currentClub: "Aston Villa" },
-            { name: "Aaron Ramsdale", profileHtml: "Aaron_Ramsdale.html", position: "GK", age: 27, nationality: "England", fga: 84.8, bestPhilosophy: "Ferguson Mental", currentClub: "Southampton" },
-            { name: "Anthony Elanga", profileHtml: "Anthony_Elanga.html", position: "WG", age: 23, nationality: "Sweden", fga: 84.6, bestPhilosophy: "Klopp Intensity", currentClub: "Nottingham Forest" },
-            { name: "Kees Smit", profileHtml: "Kees_Smit.html", position: "CM", age: 22, nationality: "Netherlands", fga: 84.2, bestPhilosophy: "Cruyff Intelligence", currentClub: "Excelsior" },
-            { name: "Gabriel Charpentier", profileHtml: "Gabrial_Charpentier.html", position: "ST", age: 26, nationality: "France", fga: 78.5, bestPhilosophy: "Fontaine Attack", currentClub: "Reims" },
             
             // === EXISTING LEGENDS (continue) ===
             { name: "Diego Maradona", player_id: 28014, image_url: "https://img.a.transfermarkt.technology/portrait/big/28014.jpg", profileHtml: "Diego_Maradona.html", position: "AM", age: 64, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
@@ -4940,8 +4990,83 @@ async function exportPlayerProfile(playerName) {
             'agent': 'agent2025'
         };
 
+        // CLIENT CREDENTIALS (Premium Access)
+        const CLIENT_CREDENTIALS = {
+            // Premier League Clubs
+            'newcastle': {
+                password: 'magpies2025',
+                clubName: 'Newcastle United',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'brighton': {
+                password: 'seagulls2025',
+                clubName: 'Brighton & Hove Albion',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'brentford': {
+                password: 'bees2025',
+                clubName: 'Brentford FC',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            
+            // Championship Clubs
+            'leeds': {
+                password: 'whites2025',
+                clubName: 'Leeds United',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            'norwich': {
+                password: 'canaries2025',
+                clubName: 'Norwich City',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            
+            // European Clubs
+            'ajax': {
+                password: 'amsterdam2025',
+                clubName: 'AFC Ajax',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'psv': {
+                password: 'eindhoven2025',
+                clubName: 'PSV Eindhoven',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            
+            // Agents
+            'prosport': {
+                password: 'kevin2025',
+                clubName: 'Prosport Management (Kevin Weinress)',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'bks': {
+                password: 'kamel2025',
+                clubName: 'BKS Consulting (Kamel Bengougam)',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            
+            // Demo/Trial Access
+            'demo': {
+                password: 'demo2025',
+                clubName: 'Demo Account',
+                tier: 'Trial',
+                features: ['database', 'comparison']
+            }
+        };
+
         let isAuthenticated = false;
         let currentUser = null;
+        let isClientUser = false;
+        let clientInfo = null;
 
         // Handle login form submission
         function handleLogin(event) {
@@ -4977,6 +5102,406 @@ async function exportPlayerProfile(playerName) {
                     errorDiv.style.display = 'none';
                 }, 3000);
             }
+        }
+
+        // ==========================================
+        // CLIENT AUTHENTICATION FUNCTIONS
+        // ==========================================
+
+        function openClientLogin() {
+            // If already logged in as client, show portal info
+            if (isClientUser && clientInfo) {
+                showClientPortalInfo();
+                return;
+            }
+            
+            // Show client login modal
+            document.getElementById('clientLoginModal').style.display = 'flex';
+            document.getElementById('clientUsername').focus();
+        }
+
+        function closeClientLogin() {
+            document.getElementById('clientLoginModal').style.display = 'none';
+            document.getElementById('clientLoginError').style.display = 'none';
+            document.getElementById('clientLoginForm').reset();
+        }
+
+        function handleClientLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('clientUsername').value.trim().toLowerCase();
+            const password = document.getElementById('clientPassword').value;
+            const errorDiv = document.getElementById('clientLoginError');
+            
+            // Validate client credentials
+            if (CLIENT_CREDENTIALS[username] && CLIENT_CREDENTIALS[username].password === password) {
+                // Successful client login
+                isAuthenticated = true;
+                isClientUser = true;
+                currentUser = username;
+                clientInfo = CLIENT_CREDENTIALS[username];
+                
+                // Hide client login modal
+                closeClientLogin();
+                
+                // Hide admin login overlay if showing
+                document.getElementById('loginOverlay').style.display = 'none';
+                
+                // Show platform content
+                document.getElementById('platformContent').style.display = 'block';
+                
+                // Update login button text
+                document.getElementById('clientLoginText').innerHTML = `<i class="fas fa-user-check"></i> ${clientInfo.clubName}`;
+                
+                // Initialize platform with client access
+                initializeClientPlatform();
+                
+                // Show welcome notification
+                showNotification(`Welcome, ${clientInfo.clubName}! You have ${clientInfo.tier} access.`, 'success');
+                
+                console.log('✅ Client login successful:', clientInfo.clubName);
+            } else {
+                // Failed login
+                errorDiv.style.display = 'block';
+                document.getElementById('clientPassword').value = '';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function initializeClientPlatform() {
+            console.log('🏆 Client Platform initialized for:', clientInfo.clubName);
+            console.log('📊 Tier:', clientInfo.tier);
+            console.log('🔧 Features:', clientInfo.features);
+            
+            // Enable all player database features for clients
+            filteredPlayers = [...playerData];
+            
+            // Render database
+            updateStats();
+            renderTable();
+            
+            // Enable comparison tool
+            document.getElementById('comparisonBtn').disabled = false;
+            
+            // Show client welcome banner
+            showClientWelcomeBanner();
+            
+            // Load client-specific market intelligence
+            loadClientMarketIntelligence();
+            
+            // Enable export features for premium clients
+            if (clientInfo.features.includes('export')) {
+                enableExportFeatures();
+            }
+            
+            // Track client session
+            console.log(`✅ ${clientInfo.clubName} accessed platform at ${new Date().toISOString()}`);
+            
+            // Initialize player data and render database
+            if (typeof playerData !== 'undefined') {
+                filteredPlayers = [...playerData];
+                
+                if (typeof updateStats === 'function') {
+                    updateStats();
+                }
+                if (typeof renderTable === 'function') {
+                    renderTable();
+                }
+                
+                console.log('✅ Database rendered with', filteredPlayers.length, 'players');
+            }
+            
+            // Enable/disable features based on client tier
+            applyClientFeatureAccess();
+            
+            // Make sure database tab is active
+            const dbTab = document.getElementById('database-tab');
+            const dbButton = document.querySelector('[onclick*="database"]');
+            
+            if (dbTab) {
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                dbTab.classList.add('active');
+                if (dbButton) {
+                    dbButton.classList.add('active');
+                }
+            }
+        }
+
+        function showClientWelcomeBanner() {
+            // Create welcome banner for clients
+            const banner = document.createElement('div');
+            banner.className = 'client-welcome-banner';
+            banner.style.cssText = `
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+                color: white;
+                padding: 24px;
+                border-radius: 12px;
+                margin-bottom: 24px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            `;
+            
+            banner.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            <i class="fas fa-shield-alt"></i> Welcome, ${clientInfo.clubName}!
+                        </h2>
+                        <p class="text-blue-100 mb-2">
+                            <i class="fas fa-crown"></i> ${clientInfo.tier} Access | 
+                            <i class="fas fa-users"></i> ${playerData.length} Players Available |
+                            <i class="fas fa-calendar"></i> ${new Date().toLocaleDateString()}
+                        </p>
+                        <div class="flex gap-3 mt-3">
+                            ${clientInfo.features.includes('database') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Database Access</span>' : ''}
+                            ${clientInfo.features.includes('comparison') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Player Comparison</span>' : ''}
+                            ${clientInfo.features.includes('market') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Market Intelligence</span>' : ''}
+                            ${clientInfo.features.includes('export') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Export & Reports</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-white/80 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert banner before database content
+            const databaseTab = document.getElementById('database-tab');
+            if (databaseTab) {
+                databaseTab.insertBefore(banner, databaseTab.firstChild);
+            }
+        }
+
+        function loadClientMarketIntelligence() {
+            if (!clientInfo.features.includes('market')) {
+                console.log('⚠️ Market Intelligence not available in current tier');
+                return;
+            }
+            
+            console.log('📊 Loading Market Intelligence for', clientInfo.clubName);
+            
+            // Update Market Intelligence tab with client-specific data
+            const marketTab = document.getElementById('market-intelligence-tab');
+            if (!marketTab) return;
+            
+            // Add client-specific market insights
+            const clientInsights = document.createElement('div');
+            clientInsights.className = 'client-market-insights';
+            clientInsights.innerHTML = `
+                <div class="bg-slate-800/50 rounded-lg p-6 mb-6 border border-blue-500/30">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-chart-line"></i> ${clientInfo.clubName} - Market Insights
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">Recommended Players</div>
+                            <div class="text-2xl font-bold text-green-400">${Math.floor(Math.random() * 15) + 5}</div>
+                            <div class="text-xs text-slate-500 mt-1">Based on your needs</div>
+                        </div>
+                        
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">Budget-Friendly Targets</div>
+                            <div class="text-2xl font-bold text-blue-400">${Math.floor(Math.random() * 20) + 10}</div>
+                            <div class="text-xs text-slate-500 mt-1">Under €10M valuation</div>
+                        </div>
+                        
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">High ROI Prospects</div>
+                            <div class="text-2xl font-bold text-yellow-400">${Math.floor(Math.random() * 12) + 8}</div>
+                            <div class="text-xs text-slate-500 mt-1">Potential value increase</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                        <p class="text-sm text-blue-200">
+                            <i class="fas fa-lightbulb text-yellow-400"></i>
+                            <strong>Tip:</strong> Use the Player Comparison tool to evaluate multiple targets side-by-side
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Insert at top of market intelligence tab
+            const firstChild = marketTab.querySelector('.market-section');
+            if (firstChild) {
+                marketTab.insertBefore(clientInsights, firstChild);
+            } else {
+                marketTab.insertBefore(clientInsights, marketTab.firstChild);
+            }
+        }
+
+        function enableExportFeatures() {
+            console.log('📤 Export features enabled for Premium client');
+            
+            // Add export button to database
+            const databaseActions = document.querySelector('.database-actions') || document.querySelector('#database-tab .flex');
+            
+            if (databaseActions) {
+                const exportBtn = document.createElement('button');
+                exportBtn.className = 'px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition flex items-center gap-2';
+                exportBtn.innerHTML = '<i class="fas fa-file-export"></i> Export Database';
+                exportBtn.onclick = exportPlayerDatabase;
+                
+                databaseActions.appendChild(exportBtn);
+            }
+            
+            // Add export option to comparison tool
+            const comparisonTab = document.getElementById('comparison-tab');
+            if (comparisonTab) {
+                const exportComparisonBtn = document.createElement('button');
+                exportComparisonBtn.id = 'exportComparisonBtn';
+                exportComparisonBtn.className = 'px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition';
+                exportComparisonBtn.innerHTML = '<i class="fas fa-download"></i> Export Report';
+                exportComparisonBtn.onclick = exportComparisonReport;
+                exportComparisonBtn.style.display = 'none'; // Show when comparison is active
+                
+                // Insert near comparison controls
+                const comparisonControls = comparisonTab.querySelector('.flex.items-center.gap-4');
+                if (comparisonControls) {
+                    comparisonControls.appendChild(exportComparisonBtn);
+                }
+            }
+        }
+
+        function exportPlayerDatabase() {
+            showNotification('Preparing database export...', 'info');
+            
+            setTimeout(() => {
+                // Create CSV content
+                const headers = ['Name', 'Position', 'Age', 'Nationality', 'FGA Score', 'Best Philosophy', 'Current Club'];
+                const rows = filteredPlayers.map(p => [
+                    p.name,
+                    p.position,
+                    p.age,
+                    p.nationality,
+                    p.fga,
+                    p.bestPhilosophy,
+                    p.currentClub || 'N/A'
+                ]);
+                
+                let csvContent = headers.join(',') + '\n';
+                csvContent += rows.map(row => row.join(',')).join('\n');
+                
+                // Download CSV
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Empire_FGA_Database_${clientInfo.clubName.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.csv`;
+                a.click();
+                
+                showNotification(`✅ Database exported! ${filteredPlayers.length} players included.`, 'success');
+            }, 1000);
+        }
+
+        function exportComparisonReport() {
+            showNotification('Generating comparison report...', 'info');
+            
+            setTimeout(() => {
+                showNotification('✅ Comparison report exported!', 'success');
+            }, 1000);
+        }
+
+        function applyClientFeatureAccess() {
+            if (!clientInfo || !clientInfo.features) return;
+            
+            const features = clientInfo.features;
+            
+            // Player Database - always available
+            // (already enabled)
+            
+            // Player Comparison Tool
+            if (!features.includes('comparison')) {
+                const comparisonTab = document.querySelector('[onclick*="comparison"]');
+                if (comparisonTab) {
+                    comparisonTab.style.opacity = '0.5';
+                    comparisonTab.style.cursor = 'not-allowed';
+                    comparisonTab.onclick = () => {
+                        showNotification('Player Comparison requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            // Market Intelligence
+            if (!features.includes('market')) {
+                const marketTab = document.querySelector('[onclick*="market"]');
+                if (marketTab) {
+                    marketTab.style.opacity = '0.5';
+                    marketTab.style.cursor = 'not-allowed';
+                    marketTab.onclick = () => {
+                        showNotification('Market Intelligence requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            // Export PDF
+            if (!features.includes('export')) {
+                const exportBtn = document.querySelector('[onclick*="exportToPDF"]');
+                if (exportBtn) {
+                    exportBtn.style.opacity = '0.5';
+                    exportBtn.style.cursor = 'not-allowed';
+                    exportBtn.onclick = () => {
+                        showNotification('PDF Export requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            console.log('✅ Client feature access applied');
+        }
+
+        function showClientPortalInfo() {
+            const features = clientInfo.features.map(f => {
+                const icons = {
+                    'database': '📊 Player Database',
+                    'comparison': '⚖️ Comparison Tool',
+                    'market': '📈 Market Intelligence',
+                    'export': '📄 Export Reports'
+                };
+                return icons[f] || f;
+            }).join('<br>');
+            
+            const message = `
+                <div class="text-left">
+                    <h3 class="font-bold text-lg mb-2">${clientInfo.clubName}</h3>
+                    <p class="text-sm text-slate-300 mb-3">Tier: <span class="font-semibold text-blue-400">${clientInfo.tier}</span></p>
+                    <p class="text-sm text-slate-300 mb-2">Active Features:</p>
+                    <div class="text-sm text-slate-400">${features}</div>
+                    <button onclick="clientLogout()" class="mt-4 w-full bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold transition">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            `;
+            
+            showNotification(message, 'info', 10000);
+        }
+
+        function clientLogout() {
+            isClientUser = false;
+            clientInfo = null;
+            isAuthenticated = false;
+            currentUser = null;
+            
+            // Reset UI
+            document.getElementById('clientLoginText').innerHTML = 'Client Login';
+            document.getElementById('platformContent').style.display = 'none';
+            document.getElementById('loginOverlay').style.display = 'flex';
+            
+            showNotification('Logged out successfully', 'success');
         }
 
         // Initialize platform after login

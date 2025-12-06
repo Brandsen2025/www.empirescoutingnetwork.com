@@ -1,18 +1,38 @@
-<!-- COMPLETE ARGENTINA DATABASE WIDGET (FULL SCREEN VERSION) -->
+<!-- IMPROVED ARGENTINA DATABASE WIDGET - WITH VIDEO COUNTS -->
 <div id="esn-arg-container">
     
     <!-- 1. HEADER -->
     <div class="esn-arg-header">
-        <h2 style="color: #C5A059; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Liga Profesional</h2>
-        <span style="color: #666; font-size: 14px;">Argentina • 2025/2026 Season</span>
+        <div>
+            <h2 style="color: #C5A059; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Liga Profesional</h2>
+            <span style="color: #666; font-size: 14px;">Argentina • 2025/2026 Season</span>
+        </div>
+        <div class="esn-stats-summary">
+            <div class="esn-stat-pill">
+                <i class="fas fa-video"></i>
+                <span id="total-videos-count">0</span> Videos
+            </div>
+            <div class="esn-stat-pill">
+                <i class="fas fa-futbol"></i>
+                <span id="teams-with-videos-count">0</span>/28 Teams
+            </div>
+        </div>
     </div>
 
     <!-- 2. MAIN LAYOUT -->
     <div class="esn-arg-body">
         
-        <!-- SIDEBAR (Team List) -->
+        <!-- SIDEBAR (Team List with Video Counts) -->
         <div class="esn-arg-sidebar">
-            <input type="text" id="esn-team-search" placeholder="Search Team..." onkeyup="window.filterTeams()">
+            <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
+            
+            <!-- Quick Filters -->
+            <div class="esn-filter-bar">
+                <button class="esn-filter-btn active" onclick="window.filterByVideoCount('all')">All Teams</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('withVideos')">With Videos</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('noVideos')">No Videos</button>
+            </div>
+            
             <div id="esn-team-list">
                 <!-- Teams load here -->
             </div>
@@ -23,9 +43,15 @@
             <h1 id="esn-selected-title">Select a Team</h1>
             
             <div class="esn-tabs">
-                <button class="esn-tab-btn active" onclick="window.switchTab('fullMatches')">Full Matches</button>
-                <button class="esn-tab-btn" onclick="window.switchTab('highlights')">Highlights</button>
-                <button class="esn-tab-btn" onclick="window.switchTab('academy')">Reserves / U20</button>
+                <button class="esn-tab-btn active" onclick="window.switchTab('fullMatches')">
+                    <i class="fas fa-film"></i> Full Matches <span class="tab-count" id="full-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('highlights')">
+                    <i class="fas fa-star"></i> Highlights <span class="tab-count" id="highlights-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('academy')">
+                    <i class="fas fa-users"></i> Reserves/U20 <span class="tab-count" id="academy-count">0</span>
+                </button>
             </div>
 
             <div id="esn-video-grid">
@@ -53,8 +79,11 @@
 
 </div>
 
-<!-- CSS STYLES (Includes Full Screen Player Fix) -->
+<!-- CSS STYLES (Enhanced with Video Count Badges) -->
 <style>
+    /* Font Awesome for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
     /* GLOBAL CONTAINER */
     #esn-arg-container {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -69,34 +98,266 @@
         box-sizing: border-box;
     }
 
-    /* HEADER & LAYOUT */
-    .esn-arg-header { padding: 25px; border-bottom: 2px solid #C5A059; background: #111; }
+    /* HEADER & STATS */
+    .esn-arg-header { 
+        padding: 25px; 
+        border-bottom: 2px solid #C5A059; 
+        background: #111; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .esn-stats-summary {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .esn-stat-pill {
+        background: #1a1a1a;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #C5A059;
+    }
+    
+    .esn-stat-pill i {
+        font-size: 14px;
+    }
+    
+    .esn-stat-pill span {
+        font-weight: bold;
+    }
+
     .esn-arg-body { display: flex; flex: 1; height: 650px; }
     
     /* SIDEBAR */
-    .esn-arg-sidebar { width: 25%; min-width: 220px; background: #111; border-right: 1px solid #333; display: flex; flex-direction: column; }
-    #esn-team-search { background: #000; border: none; border-bottom: 1px solid #333; color: white; padding: 15px; width: 100%; box-sizing: border-box; font-size: 14px; }
-    #esn-team-search:focus { outline: 1px solid #C5A059; }
-    #esn-team-list { overflow-y: auto; flex: 1; }
+    .esn-arg-sidebar { 
+        width: 28%; 
+        min-width: 250px; 
+        background: #111; 
+        border-right: 1px solid #333; 
+        display: flex; 
+        flex-direction: column; 
+    }
     
-    .esn-team-item { padding: 15px 20px; border-bottom: 1px solid #222; cursor: pointer; display: flex; justify-content: space-between; font-size: 14px; color: #ccc; transition: 0.2s; }
-    .esn-team-item:hover { background: #1a1a1a; color: #fff; }
-    .esn-team-item.active { background: #1a1a1a; border-left: 4px solid #C5A059; color: #C5A059; font-weight: bold; }
+    #esn-team-search { 
+        background: #000; 
+        border: none; 
+        border-bottom: 1px solid #333; 
+        color: white; 
+        padding: 15px; 
+        width: 100%; 
+        box-sizing: border-box; 
+        font-size: 14px; 
+    }
+    
+    #esn-team-search:focus { outline: 1px solid #C5A059; }
+    
+    /* FILTER BAR */
+    .esn-filter-bar {
+        display: flex;
+        gap: 5px;
+        padding: 10px;
+        background: #0a0a0a;
+        border-bottom: 1px solid #222;
+    }
+    
+    .esn-filter-btn {
+        flex: 1;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        color: #888;
+        padding: 8px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+    
+    .esn-filter-btn:hover {
+        background: #222;
+        color: #fff;
+    }
+    
+    .esn-filter-btn.active {
+        background: #C5A059;
+        color: #000;
+        border-color: #C5A059;
+    }
+    
+    #esn-team-list { 
+        overflow-y: auto; 
+        flex: 1; 
+    }
+    
+    /* TEAM ITEMS WITH VIDEO COUNTS */
+    .esn-team-item { 
+        padding: 15px 20px; 
+        border-bottom: 1px solid #222; 
+        cursor: pointer; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        font-size: 14px; 
+        color: #ccc; 
+        transition: 0.2s; 
+    }
+    
+    .esn-team-item:hover { 
+        background: #1a1a1a; 
+        color: #fff; 
+    }
+    
+    .esn-team-item.active { 
+        background: #1a1a1a; 
+        border-left: 4px solid #C5A059; 
+        color: #C5A059; 
+        font-weight: bold; 
+    }
+    
+    .esn-team-name {
+        flex: 1;
+    }
+    
+    .esn-video-badge {
+        background: #1a1a1a;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: bold;
+        color: #666;
+        border: 1px solid #333;
+        min-width: 35px;
+        text-align: center;
+    }
+    
+    .esn-team-item:hover .esn-video-badge {
+        border-color: #C5A059;
+        color: #C5A059;
+    }
+    
+    .esn-team-item.active .esn-video-badge {
+        background: #C5A059;
+        color: #000;
+        border-color: #C5A059;
+    }
+    
+    .esn-video-badge.has-videos {
+        color: #C5A059;
+        border-color: #C5A059;
+    }
+    
+    .esn-video-badge.no-videos {
+        color: #444;
+        border-color: #222;
+    }
 
     /* CONTENT AREA */
-    .esn-arg-content { width: 75%; padding: 30px; background: #080808; overflow-y: auto; }
-    #esn-selected-title { margin-top: 0; text-transform: uppercase; color: #fff; font-size: 28px; }
+    .esn-arg-content { 
+        width: 72%; 
+        padding: 30px; 
+        background: #080808; 
+        overflow-y: auto; 
+    }
+    
+    #esn-selected-title { 
+        margin-top: 0; 
+        text-transform: uppercase; 
+        color: #fff; 
+        font-size: 28px; 
+    }
 
-    .esn-tabs { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #333; }
-    .esn-tab-btn { background: none; border: none; color: #666; padding: 12px 0; cursor: pointer; font-weight: bold; font-size: 14px; border-bottom: 3px solid transparent; transition: 0.3s; }
-    .esn-tab-btn:hover { color: #fff; }
-    .esn-tab-btn.active { color: #C5A059; border-bottom: 3px solid #C5A059; }
+    /* TABS WITH COUNTS */
+    .esn-tabs { 
+        display: flex; 
+        gap: 20px; 
+        margin-bottom: 25px; 
+        border-bottom: 1px solid #333; 
+    }
+    
+    .esn-tab-btn { 
+        background: none; 
+        border: none; 
+        color: #666; 
+        padding: 12px 15px; 
+        cursor: pointer; 
+        font-weight: bold; 
+        font-size: 14px; 
+        border-bottom: 3px solid transparent; 
+        transition: 0.3s; 
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .esn-tab-btn:hover { 
+        color: #fff; 
+    }
+    
+    .esn-tab-btn.active { 
+        color: #C5A059; 
+        border-bottom: 3px solid #C5A059; 
+    }
+    
+    .tab-count {
+        background: #1a1a1a;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        border: 1px solid #333;
+    }
+    
+    .esn-tab-btn.active .tab-count {
+        background: #C5A059;
+        color: #000;
+        border-color: #C5A059;
+    }
 
-    .esn-v-card { background: #151515; border: 1px solid #333; border-radius: 6px; margin-bottom: 12px; padding: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; }
-    .esn-v-card:hover { border-color: #C5A059; transform: translateX(8px); background: #1a1a1a; }
-    .esn-v-info h4 { margin: 0 0 6px 0; color: #fff; font-size: 16px; }
-    .esn-v-info span { color: #777; font-size: 13px; }
-    .esn-v-play { color: #C5A059; font-size: 24px; }
+    /* VIDEO CARDS */
+    .esn-v-card { 
+        background: #151515; 
+        border: 1px solid #333; 
+        border-radius: 6px; 
+        margin-bottom: 12px; 
+        padding: 18px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        cursor: pointer; 
+        transition: all 0.2s ease; 
+    }
+    
+    .esn-v-card:hover { 
+        border-color: #C5A059; 
+        transform: translateX(8px); 
+        background: #1a1a1a; 
+    }
+    
+    .esn-v-info h4 { 
+        margin: 0 0 6px 0; 
+        color: #fff; 
+        font-size: 16px; 
+    }
+    
+    .esn-v-info span { 
+        color: #777; 
+        font-size: 13px; 
+    }
+    
+    .esn-v-play { 
+        color: #C5A059; 
+        font-size: 24px; 
+    }
 
     /* FULL SCREEN MODAL STYLES */
     .esn-modal {
@@ -137,7 +398,11 @@
         border-radius: 4px;
         transition: 0.2s;
     }
-    .esn-close-btn:hover { background: #C5A059; color: #000; }
+    
+    .esn-close-btn:hover { 
+        background: #C5A059; 
+        color: #000; 
+    }
     
     .esn-video-wrapper {
         flex-grow: 1; 
@@ -148,33 +413,127 @@
 
     .esn-video-wrapper iframe {
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         border: none;
     }
 
-    @media (max-width: 800px) {
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
         .esn-arg-body { flex-direction: column; height: auto; }
-        .esn-arg-sidebar { width: 100%; height: 250px; }
+        .esn-arg-sidebar { width: 100%; max-height: 300px; }
         .esn-arg-content { width: 100%; }
     }
 </style>
 
-<!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT LOGIC (Enhanced with Video Counting) -->
 <script>
 (function() {
 
     // ==========================================
     // 1. DATABASE - ADD YOUR MATCHES HERE
     // ==========================================
-     const db = {
+    const db = {
+        "argentinos juniors": {
+            fullMatches: [
+                { title: "vs River Plate", date: "1 August 2025", link: "#" }
+            ],
+            highlights: [],
+            academy: []
+        },
+        "atl. tucumán": {
+            fullMatches: [
+                { title: "vs River Plate", date: "Matchday 6", link: "#" }
+            ],
+            highlights: [],
+            academy: []
+        },
+        "banfield": {
+            fullMatches: [
+                { title: "vs Godoy Cruz", date: "24 July 2023", link: "https://player.mux.com/1HFe2t6PWeEpjjukQUQvqFHKXCn5iKPgFJtDrt8hGT8" },
+                { title: "vs Talleres", date: "30 October 2023", link: "https://player.mux.com/joySVKHfLihFy02PTL56mw351wVAZag2XXo3F46OWD4s" },
+                { title: "vs Argentinos Juniors", date: "10 February 2024", link: "https://player.mux.com/mqqynSvxk02zqDmJlYWglmryD79dBZfN1QsIEpqS02hFo" },
+                { title: "vs Belgrano", date: "6 November 2024", link: "https://player.mux.com/6ih2kQATS6ZpNUK6WYVvELAEa8eKiaYZpwvEfgKxZtc" },
+                { title: "vs Independiente", date: "13 June 2024", link: "https://player.mux.com/600c01anoOGG97fQGAGM02CJY2Y1zDzxjO3EaqR02L6YzjU" },
+                { title: "vs River Plate", date: "2 November 2024", link: "https://player.mux.com/T1OlsJGb02Zc01aLRa008QCpaWhfolgUcgN5gzd004csDi00" },
+                { title: "vs Tigre", date: "18 November 2024", link: "https://player.mux.com/4q5MexMQjpfTWKVyJd017eKqG59UYexXpq902e2wa02wRk" },
+                { title: "vs Deportivo Riestra", date: "24 November 2024", link: "https://player.mux.com/eFwafdn4zRikp00gOGso2nPc00vS00dB00GUMn7Fq9vHNSY" },
+                { title: "vs Lanús", date: "30 November 2024", link: "https://player.mux.com/T20143FMJjk9OpappWruPp01fXMbzQVCqqqXAeDFd00xwE" }
+            ],
+            highlights: [],
+            academy: []
+        },
+        "barracas central": {
+            fullMatches: [
+                { title: "vs Vélez Sarsfield", date: "15 July 2025", link: "https://player.mux.com/5S01cCp02KDcwIHGVVVCzllWaI6Qp6wFRjht2xi6AW01pg" },
+		{ title: "vs Deportivo Riestra", date: "24 November 2025", link: "https://player.mux.com/lYxGN01577MBsgQ2OHb4QkWkZt009nXgS1zu2JbWCrjF00" },
+            ],
+            highlights: [],
+            academy: []
+        },
+        "belgrano": {
+            fullMatches: [
+		{ title: "vs Sarmiento (Junín)", date: "20 February 2024", link: "https://player.mux.com/P00dSZYAHvqmFbJTX8eO01wXc01JfhvbhgoM9pVamFBU01o" }
+],
+            highlights: [],
+            academy: []
+        },
         "boca juniors": {
             fullMatches: [
-                { title: "vs Barracas Central", date: "Matchday 3", link: "https://player.mux.com/QTNTN3GGEg3gFVCjZzXWapub4bCbnQnNi3BnIF01SAaA" }, 
-                { title: "vs Sarmiento", date: "Matchday 2", link: "#" },
+		{ title: "vs Huracán", date: "8 March 1981", link: "https://player.mux.com/rTBBdtvFPkkIo01ATtktsv8IFgUT2JPYYz3fwWIccuQI" },
+                { title: "vs Barracas Central", date: "Matchday 3", link: "https://player.mux.com/QTNTN3GGEg3gFVCjZzXWapub4bCbnQnNi3BnIF01SAaA" },
+                { title: "vs Talleres", date: "23 November 2025", link: "https://player.mux.com/8m01acCnvvmLG4ePp5ppLyzjAOzwnEQfAs3XbENKgfyo" },
                 { title: "vs Sarmiento", date: "Matchday 2", link: "#" }
             ],
-            highlights: [ { title: "Goal Analysis", date: "vs River", link: "#" } ],
+            highlights: [{ title: "Goal Analysis", date: "vs River", link: "#" }],
+            academy: []
+        },
+        "central córdoba": {
+            fullMatches: [
+		{ title: "vs Estudiantes La Plata", date: "30 November 2025", link: "https://player.mux.com/v6bI018OH2iARfAJ8vyfhc2gCpi00YLd1aRBBQqwAbYI4" },
+                { title: "vs Defensa y Justicia", date: "28 July 2025", link: "https://player.mux.com/9MefHzMx7dsMk1498jVZkd01GLCAm01EXyXKFJcCLzhOs" }
+		
+            ],
+            highlights: [],
+            academy: []
+        },
+        "colón": {
+            fullMatches: [],
+            highlights: [],
+            academy: []
+        },
+        "defensa y justicia": {
+            fullMatches: [
+                { title: "vs Central Córdoba", date: "28 July 2025", link: "https://player.mux.com/9MefHzMx7dsMk1498jVZkd01GLCAm01EXyXKFJcCLzhOs" }
+            ],
+            highlights: [],
+            academy: []
+        },
+        "estudiantes lp": {
+            fullMatches: [
+		{ title: "vs Central Córdoba", date: "30 November 2025", link: "https://player.mux.com/v6bI018OH2iARfAJ8vyfhc2gCpi00YLd1aRBBQqwAbYI4" },
+		{ title: "vs Rosario Central", date: "23 November 2025", link: "https://player.mux.com/6cC8PyTeHtZOVLbZSdOC01MHFTpmqSdBHSMEl1ABrIjk" }
+],
+            highlights: [],
+            academy: []
+        },
+        "gimnasia lp": {
+            fullMatches: [
+		{ title: "vs Unión", date: "24 November 2025", link: "https://player.mux.com/nfqTni9XPP2E2zosFLrMeoA1y7BDRICYHcecPH8X76U" }
+],
+            highlights: [],
+            academy: []
+        },
+        "godoy cruz": {
+            fullMatches: [],
+            highlights: [],
+            academy: []
+        },
+        "huracán": {
+            fullMatches: [],
+            highlights: [],
             academy: []
         },
         "independiente": {
@@ -184,14 +543,24 @@
             highlights: [],
             academy: []
         },
-        "river plate": {
-            fullMatches: [
-                 { title: "vs Platense", date: "Quarter-Finals", link: "https://player.mux.com/aocX56007YQEjUrRbXm480200W01CZuQ02WMxxy7534Tt8Sk" }
-            ],
+        "instituto": {
+            fullMatches: [],
             highlights: [],
             academy: []
-        }, 
-"platense": {
+        },
+        "lanús": {
+            fullMatches: [
+		{ title: "vs Tigre", date: "27 November 2025", link: "https://player.mux.com/SRwiGmxFsNJawelLk47s02e00GnIC1rkxaXvpHH5qTbPQ" }
+],
+            highlights: [],
+            academy: []
+        },
+        "newell's old boys": {
+            fullMatches: [],
+            highlights: [],
+            academy: []
+        },
+        "platense": {
             fullMatches: [
                 { title: "vs Belgrano", date: "15 February 2024", link: "https://player.mux.com/SlqvR02pjKaZ01VClO01IsMVDvx8010221kwV3OhhdWIQYuE" },
                 { title: "vs River Plate", date: "21 May 2025", link: "https://player.mux.com/aocX56007YQEjUrRbXm480200W01CZuQ02WMxxy7534Tt8Sk" },
@@ -200,45 +569,77 @@
             ],
             highlights: [],
             academy: []
-        }, 
-"argentinos juniors": {
+        },
+        "racing club": {
             fullMatches: [
-                { title: "vs River Plate", date: "1 August 2025", link: "#" }
+		{ title: "vs River Plate", date: "23 November 2025", link: "https://player.mux.com/rVlqsg1hNx5ZDXsRQu9ETTRd5NLa8xQyq5lKSRBu5G8" }],
+            highlights: [],
+            academy: []
+        },
+        "riestra": {
+            fullMatches: [
+		{ title: "vs Banfield", date: "24 November 2024", link: "https://player.mux.com/eFwafdn4zRikp00gOGso2nPc00vS00dB00GUMn7Fq9vHNSY" },
+		{ title: "vs Barracas Central", date: "24 November 2025", link: "https://player.mux.com/lYxGN01577MBsgQ2OHb4QkWkZt009nXgS1zu2JbWCrjF00" }
+],
+            highlights: [],
+            academy: []
+        },
+        "river plate": {
+            fullMatches: [
+                { title: "vs Racing Club", date: "23 November 2025", link: "https://player.mux.com/rVlqsg1hNx5ZDXsRQu9ETTRd5NLa8xQyq5lKSRBu5G8" }
             ],
             highlights: [],
             academy: []
         },
- "atl. tucumán": {
+        "rosario central": {
             fullMatches: [
-                { title: "vs River Plate", date: "Matchday 6", link: "#" }
-            ],
-            highlights: [],
-            academy: []
-        }, 
-"san lorenzo": {
-            fullMatches: [
-                { title: "vs platense", date: "25 May 2025", link: "https://player.mux.com/cErfxDk00KU8vlJsgxTFnFgxvMaQSbT01qIG014EOXX1a00" }
-            ],
+		{ title: "vs Estudiantes La Plata", date: "23 November 2025", link: "https://player.mux.com/6cC8PyTeHtZOVLbZSdOC01MHFTpmqSdBHSMEl1ABrIjk" }
+],
             highlights: [],
             academy: []
         },
-"banfield": {
-            fullMatches: [
-                { title: "vs Talleres", date: "30 October 2023", link: "https://player.mux.com/joySVKHfLihFy02PTL56mw351wVAZag2XXo3F46OWD4s" },
-                { title: "vs Argentinos Juniors", date: "10 February 2024", link: "https://player.mux.com/mqqynSvxk02zqDmJlYWglmryD79dBZfN1QsIEpqS02hFo" },
-                { title: "vs Belgrano", date: "6 November 2024", link: "https://player.mux.com/6ih2kQATS6ZpNUK6WYVvELAEa8eKiaYZpwvEfgKxZtc" },
-                { title: "vs Independiente", date: "13 June 2024", link: "https://player.mux.com/600c01anoOGG97fQGAGM02CJY2Y1zDzxjO3EaqR02L6YzjU" },
-                { title: "vs River Plate", date: "2 November 2024", link: "https://player.mux.com/T1OlsJGb02Zc01aLRa008QCpaWhfolgUcgN5gzd004csDi00" },
-                { title: "vs Tigre", date: "18 November 2024", link: "https://player.mux.com/4q5MexMQjpfTWKVyJd017eKqG59UYexXpq902e2wa02wRk" },
-                { title: "vs Lañus", date: "30 November 2024", link: "https://player.mux.com/T20143FMJjk9OpappWruPp01fXMbzQVCqqqXAeDFd00xwE" },
-                
-            ],
+        "san lorenzo": {
+            fullMatches: [],
             highlights: [],
             academy: []
         },
-
+        "sarmiento": {
+            fullMatches: [
+		{ title: "vs Belgrano", date: "20 February 2024", link: "https://player.mux.com/P00dSZYAHvqmFbJTX8eO01wXc01JfhvbhgoM9pVamFBU01o" }
+],
+            highlights: [],
+            academy: []
+        },
+        "talleres": {
+            fullMatches: [
+		{ title: "vs Boca Juniors", date: "23 November 2025", link: "https://player.mux.com/8m01acCnvvmLG4ePp5ppLyzjAOzwnEQfAs3XbENKgfyo" }
+],
+            highlights: [],
+            academy: []
+        },
+        "tigre": {
+            fullMatches: [
+		{ title: "vs Lañus", date: "27 November 2025", link: "https://player.mux.com/SRwiGmxFsNJawelLk47s02e00GnIC1rkxaXvpHH5qTbPQ" }
+],
+            highlights: [],
+            academy: []
+        },
+        "unión": {
+            fullMatches: [
+		{ title: "vs Gimnasia", date: "24 November 2025", link: "https://player.mux.com/nfqTni9XPP2E2zosFLrMeoA1y7BDRICYHcecPH8X76U" }
+],
+            highlights: [],
+            academy: []
+        },
+        "vélez sarsfield": {
+            fullMatches: [
+                { title: "vs Tigre", date: "15 July 2025", link: "https://player.mux.com/5S01cCp02KDcwIHGVVVCzllWaI6Qp6wFRjht2xi6AW01pg" }
+            ],
+            highlights: [],
+            academy: []
+        }
     };
-
+    
     const allTeams = [
         "Argentinos Juniors", "Atl. Tucumán", "Banfield", "Barracas Central", 
         "Belgrano", "Boca Juniors", "Central Córdoba", "Colón", "Defensa y Justicia", 
@@ -249,33 +650,126 @@
     ].sort();
 
     // ==========================================
-    // 2. SYSTEM LOGIC
+    // 2. VIDEO COUNT CALCULATION
+    // ==========================================
+    
+    function getVideoCount(teamKey) {
+        if (!db[teamKey]) return 0;
+        return (db[teamKey].fullMatches?.length || 0) + 
+               (db[teamKey].highlights?.length || 0) + 
+               (db[teamKey].academy?.length || 0);
+    }
+    
+    function updateGlobalStats() {
+        let totalVideos = 0;
+        let teamsWithVideos = 0;
+        
+        Object.keys(db).forEach(key => {
+            const count = getVideoCount(key);
+            totalVideos += count;
+            if (count > 0) teamsWithVideos++;
+        });
+        
+        document.getElementById('total-videos-count').textContent = totalVideos;
+        document.getElementById('teams-with-videos-count').textContent = teamsWithVideos;
+    }
+
+    // ==========================================
+    // 3. TEAM LIST RENDERING WITH COUNTS
     // ==========================================
 
     let currentTeamKey = null;
     let currentTab = 'fullMatches';
+    let currentFilter = 'all';
 
     setTimeout(function() {
         const list = document.getElementById('esn-team-list');
         if(!list) return;
+        
         list.innerHTML = "";
         allTeams.forEach(t => {
+            const key = t.toLowerCase();
+            const videoCount = getVideoCount(key);
+            
             let div = document.createElement('div');
             div.className = 'esn-team-item';
-            div.innerText = t;
+            div.setAttribute('data-video-count', videoCount);
+            div.innerHTML = `
+                <span class="esn-team-name">${t}</span>
+                <span class="esn-video-badge ${videoCount > 0 ? 'has-videos' : 'no-videos'}">${videoCount}</span>
+            `;
             div.onclick = function() { window.selectTeam(t, this); };
             list.appendChild(div);
         });
+        
+        updateGlobalStats();
     }, 500);
 
     window.selectTeam = function(name, el) {
         currentTeamKey = name.toLowerCase();
         document.getElementById('esn-selected-title').innerText = name;
+        
         let items = document.querySelectorAll('.esn-team-item');
         items.forEach(i => i.classList.remove('active'));
         if(el) el.classList.add('active');
+        
+        // Update tab counts
+        const teamData = db[currentTeamKey] || { fullMatches: [], highlights: [], academy: [] };
+        document.getElementById('full-count').textContent = teamData.fullMatches?.length || 0;
+        document.getElementById('highlights-count').textContent = teamData.highlights?.length || 0;
+        document.getElementById('academy-count').textContent = teamData.academy?.length || 0;
+        
         window.switchTab('fullMatches');
     };
+
+    // ==========================================
+    // 4. FILTER FUNCTIONS
+    // ==========================================
+    
+    window.filterByVideoCount = function(type) {
+        currentFilter = type;
+        
+        // Update button states
+        document.querySelectorAll('.esn-filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Filter teams
+        const items = document.querySelectorAll('.esn-team-item');
+        items.forEach(item => {
+            const count = parseInt(item.getAttribute('data-video-count'));
+            
+            if (type === 'all') {
+                item.style.display = 'flex';
+            } else if (type === 'withVideos') {
+                item.style.display = count > 0 ? 'flex' : 'none';
+            } else if (type === 'noVideos') {
+                item.style.display = count === 0 ? 'flex' : 'none';
+            }
+        });
+    };
+
+    window.filterTeams = function() {
+        let term = document.getElementById('esn-team-search').value.toLowerCase();
+        let items = document.querySelectorAll('.esn-team-item');
+        
+        items.forEach(item => {
+            const teamName = item.querySelector('.esn-team-name').innerText.toLowerCase();
+            const matchesSearch = teamName.includes(term);
+            const count = parseInt(item.getAttribute('data-video-count'));
+            
+            let shouldShow = matchesSearch;
+            
+            // Apply current filter
+            if (currentFilter === 'withVideos' && count === 0) shouldShow = false;
+            if (currentFilter === 'noVideos' && count > 0) shouldShow = false;
+            
+            item.style.display = shouldShow ? 'flex' : 'none';
+        });
+    };
+
+    // ==========================================
+    // 5. TAB SWITCHING & VIDEO RENDERING
+    // ==========================================
 
     window.switchTab = function(category) {
         currentTab = category;
@@ -294,7 +788,7 @@
         grid.innerHTML = "";
 
         if (!currentTeamKey || !db[currentTeamKey] || !db[currentTeamKey][currentTab] || db[currentTeamKey][currentTab].length === 0) {
-            grid.innerHTML = '<p style="color:#444">No videos available yet.</p>';
+            grid.innerHTML = '<p style="color:#444; text-align:center; padding:40px 0;">No videos available yet for this category.</p>';
             return;
         }
 
@@ -313,16 +807,8 @@
         });
     }
 
-    window.filterTeams = function() {
-        let term = document.getElementById('esn-team-search').value.toLowerCase();
-        let items = document.querySelectorAll('.esn-team-item');
-        items.forEach(item => {
-            item.style.display = item.innerText.toLowerCase().includes(term) ? 'flex' : 'none';
-        });
-    };
-
     // ==========================================
-    // 3. VIDEO PLAYER LOGIC (FULL SCREEN)
+    // 6. VIDEO PLAYER LOGIC (FULL SCREEN)
     // ==========================================
     
     window.playVideo = function(url, title) {
