@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Stefani Miglioranzi Dashboard | First Wave International</title>
+    <meta name="description"
+        content="Stefani Miglioranzi Agent Dashboard - First Wave International. 779 proprietary metrics, player analysis, market intelligence.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .player-card.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .roster-table th,
+        .roster-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            vertical-align: middle;
+        }
+
+        .roster-table th {
+            background-color: rgba(30, 58, 138, 0.3);
+            color: #93c5fd;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .roster-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            color: #cbd5e0;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-button:hover {
+            color: #60a5fa;
+        }
+
+        .nav-button.active {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                        alt="Empire Scouting Network" class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button data-section="dashboard" class="nav-button active">Dashboard</button>
+                    <button data-section="roster" class="nav-button">My Players</button>
+                    <button data-section="comparison" class="nav-button">Compare</button>
+                    <button data-section="market" class="nav-button">Market Intelligence</button>
+                    <span class="text-sm text-slate-400"> | Stefani Miglioranzi</span>
+                    <button onclick="logout()" class="text-sm text-red-400 hover:text-red-300">Logout</button>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
+            <div class="px-4 py-4 space-y-3">
+                <button data-section="dashboard" class="nav-button block w-full text-left active">Dashboard</button>
+                <button data-section="roster" class="nav-button block w-full text-left">My Players</button>
+                <button data-section="comparison" class="nav-button block w-full text-left">Compare</button>
+                <button data-section="market" class="nav-button block w-full text-left">Market Intelligence</button>
+                <button onclick="logout()"
+                    class="text-red-400 hover:text-red-300 block w-full text-left">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- DASHBOARD SECTION -->
+            <section id="dashboard" class="section active">
+                <div class="text-center mb-12 p-8 bg-slate-900/50 rounded-xl border border-blue-500/20">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                        Welcome to Your Agent Dashboard
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-4">
+                        Stefani Miglioranzi • First Wave International
+                    </p>
+                    <p class="text-sm text-slate-400 mb-8">
+                        Lifetime Access • 779 Metrics • 60 Philosophies • Priority Support
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">5</div>
+                            <div class="text-sm text-slate-400">Active Players</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">779</div>
+                            <div class="text-sm text-slate-400">Total Metrics</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-green-400 mb-2">60</div>
+                            <div class="text-sm text-slate-400">Philosophies</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">79.8</div>
+                            <div class="text-sm text-slate-400">Avg. FGA Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Player List -->
+                    <div class="md:col-span-1 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">My Players</h3>
+                        <div id="player-list" class="space-y-4">
+                            <!-- Player cards will be populated by JavaScript -->
+                        </div>
+
+                        <button onclick="addPlayerRequest()"
+                            class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                            + Add Player
+                        </button>
+                    </div>
+
+                    <!-- Player Analysis -->
+                    <div class="md:col-span-2 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Player Analysis</h3>
+                        <div id="player-analysis">
+                            <!-- Analysis will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROSTER SECTION -->
+            <section id="roster" class="section">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h1 class="text-4xl md:text-5xl font-bold gradient-text">
+                            My Player Roster
+                        </h1>
+                        <button onclick="exportAllPDFs()"
+                            class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Export All PDFs
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="roster-table w-full text-sm text-left text-slate-300">
+                            <thead class="text-xs uppercase">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Age</th>
+                                    <th>Current Club</th>
+                                    <th>Nationality</th>
+                                    <th>FGA Rating</th>
+                                    <th>Market Value</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="roster-body">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4">
+                        Click "Export PDF" to generate professional scouting reports for clubs. Need to add more
+                        players? Email us at info@firstwavesports.com
+                    </p>
+                </div>
+            </section>
+
+            <!-- COMPARISON SECTION -->
+            <section id="comparison" class="section">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text text-center">
+                        Player Comparison Tool
+                    </h1>
+                    <p class="text-xl text-slate-300 text-center mb-8">Compare players across metrics and tactical
+                        philosophies</p>
+
+                    <div class="text-center py-20">
+                        <svg class="w-24 h-24 text-blue-400 mx-auto mb-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4">Compare Players Side-by-Side</h3>
+                        <p class="text-slate-400 mb-6 max-w-2xl mx-auto">
+                            Advanced comparison features! Compare players across 779 metrics, philosophy compatibility,
+                            and market positioning.
+                        </p>
+                        <button onclick="alert('Comparison tool coming soon!')"
+                            class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition">
+                            Launch Comparison Tool
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKET INTELLIGENCE SECTION -->
+            <section id="market" class="section">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl font-bold mb-4 gradient-text text-center">
+                        Market Intelligence Hub
+                    </h1>
+
+                    <!-- Market Overview Cards -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-12 mt-8">
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">$2.1M</div>
+                                    <div class="text-sm text-slate-400">Avg. Market Value</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">First Wave portfolio average</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-green-400">3.1M</div>
+                                    <div class="text-sm text-slate-400">Portfolio Value</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Total 5 players combined</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-purple-400">15</div>
+                                    <div class="text-sm text-slate-400">Active Scouts</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Based on FGA compatibility</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Trends -->
+                    <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-blue-400">Market Trends & Insights</h2>
+
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">🔥 Hot Market: MLS Defenders</h3>
+                                <p class="text-slate-300 text-sm">
+                                    European clubs showing increased interest in MLS center backs and fullbacks. Sam
+                                    Junqua and Daniel Steres positioned perfectly for winter transfer window.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">📊 Value Opportunity: USL Talents</h3>
+                                <p class="text-slate-300 text-sm">
+                                    Championship and League One clubs actively seeking North American talent. Luke Biasi
+                                    and Derek Waldeck represent excellent value propositions.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">⚡ Emerging Market: Strikers</h3>
+                                <p class="text-slate-300 text-sm">
+                                    USL Championship showing strong demand for proven goalscorers. Johnny Rodriguez fits
+                                    the profile perfectly for European step-up.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const playersDB = {
+            1: {
+                name: 'Sam Junqua',
+                position: 'LB',
+                club: 'Real Salt Lake',
+                age: 29,
+                nationality: 'USA',
+                fgaOverall: 80.5,
+                marketValue: 0.65,
+                agent: 'Stefani Miglioranzi',
+                agentCompany: 'First Wave International',
+                strengths: ['Versatile defender (LB/CB/LM)', '32 MLS appearances in 2025', 'Strong defensive positioning', 'Growing attacking contribution'],
+                klopp: 8.7,
+                ferguson: 8.3,
+                guardiola: 8.0
+            },
+            2: {
+                name: 'Daniel Steres',
+                position: 'CB',
+                club: 'Houston Dynamo',
+                age: 34,
+                nationality: 'USA',
+                fgaOverall: 81.2,
+                marketValue: 0.9,
+                agent: 'Stefani Miglioranzi',
+                agentCompany: 'First Wave International',
+                strengths: ['212 MLS career appearances', '14 career goals', 'Experienced leader', 'Championship mentality'],
+                mourinho: 8.5,
+                ferguson: 8.2,
+                ancelotti: 7.9
+            },
+            3: {
+                name: 'Luke Biasi',
+                position: 'CB',
+                club: 'Pittsburgh Riverhounds',
+                age: 26,
+                nationality: 'USA',
+                fgaOverall: 77.5,
+                marketValue: 0.175,
+                agent: 'Stefani Miglioranzi',
+                agentCompany: 'First Wave International',
+                strengths: ['45% clean sheet rate (93rd percentile)', '42 career matches', 'Strong defensive fundamentals', 'Memphis & Syracuse experience'],
+                mourinho: 7.8,
+                ferguson: 7.5,
+                guardiola: 7.2
+            },
+            4: {
+                name: 'Johnny Rodriguez',
+                position: 'ST',
+                club: 'Las Vegas Lights FC',
+                age: 26,
+                nationality: 'USA',
+                fgaOverall: 79.3,
+                marketValue: 0.25,
+                agent: 'Stefani Miglioranzi',
+                agentCompany: 'First Wave International',
+                strengths: ['25 goals in college (2017)', 'CCCAA Tournament MVP', 'Strong aerial ability', 'Clinical finisher'],
+                klopp: 8.0,
+                guardiola: 7.8,
+                ferguson: 7.5
+            },
+            5: {
+                name: 'Derek Waldeck',
+                position: 'DM',
+                club: 'Spokane Velocity FC',
+                age: 27,
+                nationality: 'USA',
+                fgaOverall: 80.6,
+                marketValue: 0.2,
+                agent: 'Stefani Miglioranzi',
+                agentCompany: 'First Wave International',
+                strengths: ['2x NCAA Champion (Stanford)', '89 career starts (school record)', '22 career assists', 'Tactical intelligence'],
+                guardiola: 8.5,
+                ferguson: 8.2,
+                ancelotti: 7.9
+            }
+        };
+
+        // Initialize dashboard
+        function init() {
+            renderPlayerList();
+            renderRoster();
+            selectPlayer(1);
+        }
+
+        // Render player list
+        function renderPlayerList() {
+            const container = document.getElementById('player-list');
+            container.innerHTML = '';
+
+            Object.keys(playersDB).forEach((id, index) => {
+                const player = playersDB[id];
+                const card = document.createElement('div');
+                card.className = `player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover${index === 0 ? ' selected bg-slate-700/50 border-blue-400' : ''}`;
+                card.id = `player-${id}`;
+                card.onclick = () => selectPlayer(id);
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="text-xl font-bold">${player.name}</div>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                            FGA: ${player.fgaOverall}
+                        </span>
+                    </div>
+                    <div class="flex justify-between text-slate-400 text-sm mb-4">
+                        <span>${player.position} • ${player.age} years</span>
+                        <span>🇺🇸 ${player.nationality}</span>
+                    </div>
+                    <div class="text-sm font-semibold text-green-400">
+                        ⚽ ${player.club}
+                    </div>
+                    <div class="text-xs text-slate-500 mt-2">
+                        Click to view full analysis
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Render roster table
+        function renderRoster() {
+            const tbody = document.getElementById('roster-body');
+            tbody.innerHTML = '';
+
+            Object.keys(playersDB).forEach(id => {
+                const player = playersDB[id];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="font-semibold text-blue-400">${player.name}</td>
+                    <td>${player.position}</td>
+                    <td>${player.age}</td>
+                    <td>${player.club}</td>
+                    <td>🇺🇸 ${player.nationality}</td>
+                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">${player.fgaOverall}</span></td>
+                    <td>€${player.marketValue}M</td>
+                    <td>
+                        <button onclick="exportPDF(${id})" class="text-green-400 hover:text-green-300 text-xs underline">
+                            Export PDF
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Select player
+        function selectPlayer(id) {
+            document.querySelectorAll('.player-card').forEach(card => {
+                card.classList.remove('selected', 'bg-slate-700/50', 'border-blue-400');
+            });
+            document.getElementById(`player-${id}`).classList.add('selected', 'bg-slate-700/50', 'border-blue-400');
+
+            const player = playersDB[id];
+            const analysisDiv = document.getElementById('player-analysis');
+
+            const topPhilosophies = [
+                { name: 'Klopp Intensity', score: player.klopp || 0 },
+                { name: 'Ferguson Mental', score: player.ferguson || 0 },
+                { name: 'Guardiola Positional', score: player.guardiola || 0 },
+                { name: 'Mourinho Tactical', score: player.mourinho || 0 },
+                { name: 'Ancelotti Balance', score: player.ancelotti || 0 }
+            ].sort((a, b) => b.score - a.score).slice(0, 3);
+
+            analysisDiv.innerHTML = `
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-2xl font-bold">${player.name}</h4>
+                        <button onclick="exportPDF(${id})" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Export PDF
+                        </button>
+                    </div>
+                    
+                    <p class="text-slate-300 mb-6">
+                        ${player.position} • ${player.age} years • ${player.club} • 🇺🇸 ${player.nationality}
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-blue-400">${player.fgaOverall}</div>
+                            <div class="text-xs text-slate-400">FGA Rating</div>
+                        </div>
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-yellow-400">€${player.marketValue}M</div>
+                            <div class="text-xs text-slate-400">Market Value</div>
+                        </div>
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-purple-400">${topPhilosophies[0].score.toFixed(1)}</div>
+                            <div class="text-xs text-slate-400">Top Philosophy</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                        <div class="space-y-3">
+                            ${topPhilosophies.map(phil => `
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>${phil.name}</span>
+                                        <span class="text-blue-400 font-bold">${phil.score.toFixed(1)}/10</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: ${phil.score * 10}%"></div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Key Strengths</h5>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            ${player.strengths.map(s => `<li>• ${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Navigation
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.getAttribute('data-section');
+
+                document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById(section).classList.add('active');
+
+                closeMobileMenu();
+            });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        }
+
+        function exportPDF(playerId) {
+            alert('📄 PDF Export for ' + playersDB[playerId].name + '\n\nProfessional scouting report generation coming soon!');
+        }
+
+        function exportAllPDFs() {
+            alert('📄 Exporting all 5 player reports...\n\nBulk PDF generation feature coming soon!');
+        }
+
+        function addPlayerRequest() {
+            alert('📧 Add More Players to Your Roster\n\nAs a First Wave client, adding players is FREE!\n\nEmail us:\ninfo@firstwavesports.com\n\nInclude:\n• Player name\n• Current club\n• Position\n• Date of birth\n\nWe\'ll create their complete FGA profile within 48 hours!');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'https://www.empirescoutingnetwork.com';
+            }
+        }
+
+        // Initialize on load
+        window.onload = init;
+    </script>
+</body>
+
+</html>
