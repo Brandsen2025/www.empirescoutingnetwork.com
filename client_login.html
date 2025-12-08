@@ -3,343 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Login - Empire Scouting Network</title>
+    <title>Client Login | Empire FGA Scouting Network</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * { font-family: 'Inter', sans-serif; }
         
         .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #22d3ee 100%);
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .login-card {
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(96, 165, 250, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        .login-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        
+
         .input-field {
             background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(96, 165, 250, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .input-field:focus {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: #60a5fa;
-            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
             outline: none;
         }
-        
-        .login-button {
-            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-            transition: all 0.3s ease;
-        }
-        
-        .login-button:hover {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .error-message {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #fca5a5;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: none;
-        }
-        
-        .success-message {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #86efac;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: none;
-        }
-        
-        .floating-particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(96, 165, 250, 0.5);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            50% { transform: translateY(-100px) translateX(50px); opacity: 1; }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
         }
     </style>
 </head>
-<body>
-    <!-- Floating particles for effect -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="floating-particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
-        <div class="floating-particle" style="left: 20%; top: 80%; animation-delay: 1s;"></div>
-        <div class="floating-particle" style="left: 80%; top: 30%; animation-delay: 2s;"></div>
-        <div class="floating-particle" style="left: 70%; top: 70%; animation-delay: 3s;"></div>
-        <div class="floating-particle" style="left: 40%; top: 40%; animation-delay: 4s;"></div>
-    </div>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center bg-grid relative overflow-hidden">
 
-    <div class="min-h-screen flex items-center justify-center p-4 relative z-10">
-        <div class="w-full max-w-6xl grid lg:grid-cols-2 gap-8">
-            
-            <!-- Left Side - Branding & Features -->
-            <div class="hidden lg:flex flex-col justify-center space-y-8">
-                <div>
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" alt="Empire Scouting Network" class="h-16 mb-6">
-                    <h1 class="text-5xl font-bold text-white mb-4">
-                        Welcome to<br/>
-                        <span class="gradient-text">Empire FGA</span>
-                    </h1>
-                    <p class="text-xl text-slate-300 mb-8">
-                        Revolutionary Football Analytics Platform
-                    </p>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">779 Proprietary Metrics</h3>
-                            <p class="text-slate-400">Most comprehensive player analysis system in football</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">60-Philosophy Framework</h3>
-                            <p class="text-slate-400">Match players to legendary tactical systems</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Market Intelligence</h3>
-                            <p class="text-slate-400">Transfer risk analysis & valuation insights</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+    <div class="w-full max-w-md p-6 relative z-10">
+        <div class="login-box rounded-2xl p-8">
+            <div class="text-center mb-8">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                     alt="Empire FGA" 
+                     class="h-16 w-auto mx-auto mb-4 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <h1 class="text-2xl font-bold text-white mb-2">Secure Client Portal</h1>
+                <p class="text-slate-400 text-sm">Enter your agency or club credentials to access your dashboard.</p>
             </div>
-            
-            <!-- Right Side - Login Form -->
-            <div class="flex items-center justify-center">
-                <div class="login-card rounded-2xl p-8 w-full max-w-md">
-                    <div class="text-center mb-8">
-                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user-shield text-3xl text-white"></i>
-                        </div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Client Portal</h2>
-                        <p class="text-slate-400">Sign in to access your dashboard</p>
-                    </div>
-                    
-                    <!-- Error Message -->
-                    <div id="errorMessage" class="error-message">
-                        <i class="fas fa-exclamation-circle mr-2"></i>
-                        <span id="errorText">Invalid credentials</span>
-                    </div>
-                    
-                    <!-- Success Message -->
-                    <div id="successMessage" class="success-message">
-                        <i class="fas fa-check-circle mr-2"></i>
-                        <span>Login successful! Redirecting...</span>
-                    </div>
-                    
-                    <!-- Login Form -->
-                    <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-300 mb-2">
-                                <i class="fas fa-envelope mr-2"></i>Email / Username
-                            </label>
-                            <input 
-                                type="text" 
-                                id="username" 
-                                class="input-field w-full px-4 py-3 rounded-lg text-white"
-                                placeholder="Enter your email or username"
-                                required
-                                autocomplete="username"
-                            >
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-300 mb-2">
-                                <i class="fas fa-lock mr-2"></i>Password
-                            </label>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                class="input-field w-full px-4 py-3 rounded-lg text-white"
-                                placeholder="Enter your password"
-                                required
-                                autocomplete="current-password"
-                            >
-                        </div>
-                        
-                        <div class="flex items-center justify-between text-sm">
-                            <label class="flex items-center text-slate-400 cursor-pointer">
-                                <input type="checkbox" class="mr-2 rounded border-slate-600">
-                                Remember me
-                            </label>
-                            <a href="#" class="text-blue-400 hover:text-blue-300 transition">
-                                Forgot password?
-                            </a>
-                        </div>
-                        
-                        <button 
-                            type="submit" 
-                            class="login-button w-full py-3 rounded-lg font-bold text-white text-lg"
-                        >
-                            <i class="fas fa-sign-in-alt mr-2"></i>
-                            Sign In
-                        </button>
-                    </form>
-                    
-                    <div class="mt-6 text-center">
-                        <p class="text-slate-400 text-sm">
-                            Don't have an account? 
-                            <a href="https://www.empirescoutingnetwork.com/demo" class="text-blue-400 hover:text-blue-300 font-semibold transition">
-                                Request Demo
-                            </a>
-                        </p>
-                    </div>
-                    
-                    <div class="mt-8 pt-6 border-t border-slate-700">
-                        <div class="text-center mb-4">
-                            <p class="text-slate-500 text-sm mb-3">Demo Credentials:</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700">
-                                <p class="text-slate-400 mb-1">Username:</p>
-                                <p class="text-blue-400 font-mono">client</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Client ID / Username</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-slate-500"></i>
                             </div>
-                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700">
-                                <p class="text-slate-400 mb-1">Password:</p>
-                                <p class="text-blue-400 font-mono">client2025</p>
-                            </div>
+                            <input type="text" id="username" 
+                                   class="input-field w-full pl-10 pr-4 py-3 rounded-lg text-white placeholder-slate-500" 
+                                   placeholder="e.g. firstwave" required autofocus>
                         </div>
                     </div>
-                    
-                    <div class="mt-6 text-center">
-                        <a href="platform.html" class="text-sm text-slate-500 hover:text-slate-400 transition">
-                            <i class="fas fa-arrow-left mr-2"></i>Back to Platform
-                        </a>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Access Code</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-slate-500"></i>
+                            </div>
+                            <input type="password" id="password" 
+                                   class="input-field w-full pl-10 pr-4 py-3 rounded-lg text-white placeholder-slate-500" 
+                                   placeholder="••••••••" required>
+                        </div>
                     </div>
+
+                    <div id="errorMessage" class="hidden p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm text-center">
+                        <i class="fas fa-circle-exclamation mr-2"></i> Invalid credentials. Please try again.
+                    </div>
+
+                    <button type="submit" id="loginBtn" 
+                            class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+                        <span>Authenticate</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
                 </div>
+            </form>
+
+            <div class="mt-8 pt-6 border-t border-slate-700/50 text-center">
+                <p class="text-xs text-slate-500">
+                    Protected by Empire FGA 779-Metric Encryption.<br>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 mt-2 inline-block">Lost your access code?</a>
+                </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Client credentials database
-        const CLIENT_CREDENTIALS = {
-            'client': { password: 'client2025', name: 'Demo Client', company: 'Demo FC', tier: 'Professional' },
-            'kevwin@prosport.com': { password: 'kevin2025', name: 'Kevin Weinress', company: 'Prosport Management', tier: 'Elite' },
-            'kamel@bks.com': { password: 'kamel2025', name: 'Kamel Bengougam', company: 'BKS Consulting', tier: 'Professional' },
-            'paul@vulpes.com': { password: 'paul2025', name: 'Paul Onya', company: 'Vulpes-VNA', tier: 'Professional' },
-            'agent': { password: 'agent2025', name: 'Agent Demo', company: 'Demo Agency', tier: 'Academy' },
-            'jimdejong': { password: 'empirefga123', name: 'Jim de Jong', company: 'Empire FGA', tier: 'Admin' }
+        // CLIENT CREDENTIALS DATABASE
+        const CREDENTIALS = {
+            // Stefani Miglioranzi (First Wave Sports)
+            'firstwave': {
+                pass: 'stefani2025',
+                redirect: 'stefani_miglioranzi_dashboard.html', // Redirects to his specific agent dashboard
+                name: 'First Wave Sports'
+            },
+            
+            // Kevin Weinress (Prosport Management)
+            'prosport': {
+                pass: 'kevin2025',
+                redirect: 'kevin_weinress_dashboard.html', // Redirects to his specific agent dashboard
+                name: 'Prosport Management'
+            },
+
+            // Kamel Bengougam (BKS Consulting)
+            'bks': {
+                pass: 'kamel2025',
+                redirect: 'platform.html', // Defaults to general platform
+                name: 'BKS Consulting'
+            },
+
+            // Standard Club Access (Redirects to main Platform)
+            'newcastle': { pass: 'magpies2025', redirect: 'platform.html', name: 'Newcastle United' },
+            'brighton': { pass: 'seagulls2025', redirect: 'platform.html', name: 'Brighton & Hove Albion' },
+            'ajax': { pass: 'amsterdam2025', redirect: 'platform.html', name: 'AFC Ajax' },
+            'psv': { pass: 'eindhoven2025', redirect: 'platform.html', name: 'PSV Eindhoven' },
+            
+            // Demo
+            'demo': { pass: 'demo2025', redirect: 'platform.html', name: 'Demo User' }
         };
-        
-        function handleLogin(event) {
-            event.preventDefault();
+
+        function handleLogin(e) {
+            e.preventDefault();
             
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
-            const errorDiv = document.getElementById('errorMessage');
-            const successDiv = document.getElementById('successMessage');
+            const userIn = document.getElementById('username').value.trim().toLowerCase();
+            const passIn = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+            const btnText = loginBtn.querySelector('span');
+            const btnIcon = loginBtn.querySelector('i');
+
+            // Reset UI
+            errorMsg.classList.add('hidden');
             
-            // Hide previous messages
-            errorDiv.style.display = 'none';
-            successDiv.style.display = 'none';
-            
-            // Check credentials
-            const user = CLIENT_CREDENTIALS[username];
-            
-            if (user && user.password === password) {
-                // Store session
-                sessionStorage.setItem('empirefga_client', JSON.stringify({
-                    username: username,
-                    name: user.name,
-                    company: user.company,
-                    tier: user.tier,
-                    loginTime: new Date().toISOString()
-                }));
-                
-                // Show success
-                successDiv.style.display = 'block';
-                
-                // Redirect after short delay
-                setTimeout(() => {
-                    window.location.href = 'client_dashboard.html';
-                }, 1000);
-            } else {
-                // Show error
-                errorDiv.style.display = 'block';
-                document.getElementById('errorText').textContent = 'Invalid username or password';
-                
-                // Shake animation
-                const loginCard = document.querySelector('.login-card');
-                loginCard.style.animation = 'shake 0.5s';
-                setTimeout(() => {
-                    loginCard.style.animation = '';
-                }, 500);
-            }
+            // Loading State
+            const originalText = btnText.innerText;
+            btnText.innerText = 'Verifying...';
+            btnIcon.className = 'fas fa-circle-notch fa-spin ml-2';
+            loginBtn.disabled = true;
+            loginBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Simulate Network Delay (for realism)
+            setTimeout(() => {
+                if (CREDENTIALS[userIn] && CREDENTIALS[userIn].pass === passIn) {
+                    // SUCCESS
+                    const userData = CREDENTIALS[userIn];
+                    
+                    // Store session data (optional, used if platform.html checks login)
+                    localStorage.setItem('empire_user', JSON.stringify({
+                        username: userIn,
+                        name: userData.name,
+                        loginTime: new Date().toISOString()
+                    }));
+
+                    btnText.innerText = 'Access Granted';
+                    btnIcon.className = 'fas fa-check ml-2';
+                    loginBtn.classList.remove('from-blue-600', 'to-blue-500');
+                    loginBtn.classList.add('from-green-600', 'to-green-500');
+
+                    // Redirect
+                    setTimeout(() => {
+                        window.location.href = userData.redirect;
+                    }, 500);
+
+                } else {
+                    // FAILURE
+                    errorMsg.classList.remove('hidden');
+                    document.getElementById('password').value = '';
+                    
+                    // Reset Button
+                    btnText.innerText = originalText;
+                    btnIcon.className = 'fas fa-arrow-right ml-2';
+                    loginBtn.disabled = false;
+                    loginBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                }
+            }, 800);
         }
-        
-        // Check if already logged in
-        window.addEventListener('load', () => {
-            const session = sessionStorage.getItem('empirefga_client');
-            if (session) {
-                // Already logged in, redirect
-                window.location.href = 'client_dashboard.html';
-            }
-        });
     </script>
-    
-    <style>
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-    </style>
 </body>
 </html>
