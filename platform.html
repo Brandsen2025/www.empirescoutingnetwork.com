@@ -609,7 +609,7 @@
             <div id="database-tab" class="tab-content active">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold mb-4 gradient-text">Player Database</h1>
-                    <p class="text-xl text-slate-300">Search 521 players analyzed with 779 metrics and 60 tactical philosophies</p>
+                    <p class="text-xl text-slate-300">Search 616 players analyzed with 779 metrics and 60 tactical philosophies</p>
                 </div>
 
                 <!-- Stats Dashboard -->
@@ -1451,6 +1451,12 @@
             { name: "Morocco", flag: "🇲🇦" }, { name: "Algeria", flag: "🇩🇿" },
             { name: "Tunisia", flag: "🇹🇳" }, { name: "Egypt", flag: "🇪🇬" },
             { name: "Libya", flag: "🇱🇾" }
+        ],
+	"Asia": [
+            { name: "Japan", flag: "🇯🇵" }, { name: "Saudi Arabia", flag: "🇸🇦" },
+            { name: "Qatar", flag: "🇸🇦" }, { name: "UAE", flag: "#" },
+	    { name: "South Korea", flag: "🇰🇷" },
+            
         ]
     };
 
@@ -1522,6 +1528,11 @@
             html += createLink("Championship", "#");
             html += createLink("League One", "#");
         }
+	else if (country === "Sweden") {
+            html += createLink("Allsvenskan", "#");
+            html += createLink("Superettan", "#");
+            html += createLink("U21", "#");
+	}
         else {
             // Default links for countries you haven't set up specific leagues for yet
             html += createLink(country + " - First Division", "#");
@@ -2173,7 +2184,57 @@
     { name: "Maximilian Braune", profileHtml: "Maximilian_Braun.html", position: "CM", age: 24, nationality: "Germany", fga: 78.9, bestPhilosophy: "Klopp Intensity", currentClub: "Unknown" },
     { name: "Marcelo Saralegui", profileHtml: "Marcelo_Saralegui.html", position: "AM", age: 26, nationality: "Uruguay", fga: 81.2, bestPhilosophy: "Menotti Artistry", currentClub: "Unknown" },
     { name: "Nelson Acosta", profileHtml: "Nelson_Acosta.html", position: "CM", age: 85, nationality: "Uruguay", fga: 94.5, bestPhilosophy: "Michels Total Football" },
-    { name: "Andréa Librici", profileHtml: "Andrea_Librici.html", position: "RB/CM", age: 20, nationality: "Belgium", fga: 75.5, bestPhilosophy: "Klopp Intensity" },];
+    { name: "Andréa Librici", profileHtml: "Andrea_Librici.html", position: "RB/CM", age: 20, nationality: "Belgium", fga: 75.5, bestPhilosophy: "Klopp Intensity" },
+
+// === NEW PLAYERS BATCH 5 (Dec 5, 2025 - Fifth Upload) ===
+            { name: "Fernando Hierro", image_url: "https://static.wikia.nocookie.net/the-football-database/images/4/4e/Fernando_Hierro.1.png", profileHtml: "Fernando_Hierro.html", position: "CB", age: 57, nationality: "Spain", fga: 92.0, bestPhilosophy: "Hierro Leadership" },
+            { name: "Seydou Dembele", image_url: "https://img.a.transfermarkt.technology/portrait/big/1392645-1743719889.png", profileHtml: "Seydou_Dembele.html", position: "CM", age: 23, nationality: "Mali", fga: 92.3, bestPhilosophy: "Klopp Intensity" },
+            { name: "Nando Martínez", profileHtml: "Nando_Martinez.html", position: "CB", age: 18, nationality: "Spain", fga: 88.4, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Vicente Guaita", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsWYFw7OK3mkOoMeuC4_EW5gHhilwfrML66w&s", profileHtml: "Vicente_Guaita.html", position: "GK", age: 38, nationality: "Spain", fga: 87.6, bestPhilosophy: "Yashin Revolution" },
+            { name: "Nick Woltemade", image_url: "https://cdn3.futbin.com/content/fifa25/img/players/254022.png", profileHtml: "Nick_Woltemade.html", position: "ST", age: 23, nationality: "Germany", fga: 87.4, bestPhilosophy: "Flick High Press" },
+            { name: "Kerim Alajbegovic", image_url: "https://cdn3.futbin.com/content/fifa26/img/players/75533.png", profileHtml: "Kerim_Alajbegovic.html", position: "CM", age: 18, nationality: "Austria", fga: 87.3, bestPhilosophy: "Guardiola Positional" },
+            { name: "İsmail Yüksek", image_url: "https://static.wikia.nocookie.net/the-football-database/images/6/6f/%C4%B0smail_Y%C3%BCksek.png", profileHtml: "Ismail_Yuksek.html", position: "DM", age: 26, nationality: "Turkey", fga: 87.3, bestPhilosophy: "Terim Resilience" },
+            { name: "Juanlu Sánchez", image_url: "https://game-assets.fut.gg/cdn-cgi/image/quality=85,format=auto,width=300/2026/player-item/26-264174.c770288fb98f97e207d468ee30452f6cb26b1d2c2386b86ad0471218246751a3.webp", profileHtml: "Juanlu_Sanchez.html", position: "RB", age: 21, nationality: "Spain", fga: 86.5, bestPhilosophy: "Guardiola Positional" },
+            { name: "Tyrique George", image_url: "https://cdn3.futbin.com/content/fifa26/img/players/71998.png", profileHtml: "Tyrique_George.html", position: "WG", age: 19, nationality: "England", fga: 86.2, bestPhilosophy: "Klopp Intensity" },
+            { name: "Alessandro Vogt", image_url: "https://images.fotmob.com/image_resources/playerimages/1419782.png", profileHtml: "Alessandro_Vogt.html", position: "CB", age: 20, nationality: "Germany", fga: 85.9, bestPhilosophy: "Flick High Press" },
+            { name: "José Ángel Carmona", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIepBzmuONVkv97z3N0Tp6PMb8Iz3luY4aZQ&s", profileHtml: "Jose_Angel_Carmona.html", position: "RB", age: 23, nationality: "Spain", fga: 84.8, bestPhilosophy: "Guardiola Positional" },
+            { name: "Tomás Palacios", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRek16wskHMH1063Fmta6NQqs932Mrmv_fxTw&s", profileHtml: "Tomas_Palacios.html", position: "CB", age: 21, nationality: "Argentina", fga: 84.7, bestPhilosophy: "Bielsa Verticalidad" },
+            { name: "Gedeon Ndongo", profileHtml: "Gedeon_Ndongo.html", position: "CB", age: 17, nationality: "Cameroon", fga: 83.4, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Henrik Hanche-Hafskjold", image_url: "https://i.ytimg.com/vi/YRMPlK_ijm8/mqdefault.jpg", profileHtml: "Henrik_Hanche_Hafskjold.html", position: "GK", age: 25, nationality: "Norway", fga: 78.6, bestPhilosophy: "Yashin Revolution" },
+ // === NEW PLAYERS BATCH 6 (Dec 5, 2025 - Sixth Upload) ===
+            { name: "David Beckham", profileHtml: "David_Beckham.html", position: "CM", age: 50, nationality: "England", fga: 93.0, bestPhilosophy: "Ferguson Mental" },
+            { name: "Claude Makélélé", profileHtml: "Claude_Makelele.html", position: "DM", age: 52, nationality: "France", fga: 91.0, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Steve McManaman", profileHtml: "Steve_Mc_Manaman.html", position: "WG", age: 53, nationality: "England", fga: 90.5, bestPhilosophy: "Ferguson Mental" },
+            { name: "Juan Sebastián Verón", profileHtml: "Juan_Sebastian_Veron.html", position: "CM", age: 50, nationality: "Argentina", fga: 89.5, bestPhilosophy: "Bielsa Verticalidad" },
+            { name: "Yoan Wissa", profileHtml: "Yoan_Wissa.html", position: "ST", age: 28, nationality: "DR Congo", fga: 88.2, bestPhilosophy: "Klopp Intensity", currentClub: "Brentford" },
+            { name: "Antoine Semenyo", profileHtml: "Antoine_Semenyo.html", position: "WG", age: 25, nationality: "Ghana", fga: 86.8, bestPhilosophy: "Klopp Intensity", currentClub: "Bournemouth" },
+            { name: "Malick Thiaw", profileHtml: "Malick_Thiaw.html", position: "CB", age: 23, nationality: "Germany", fga: 86.4, bestPhilosophy: "Flick High Press", currentClub: "AC Milan" },
+            { name: "Jacob Ramsey", profileHtml: "Jacob_Ramsey.html", position: "CM", age: 23, nationality: "England", fga: 85.2, bestPhilosophy: "Guardiola Positional", currentClub: "Aston Villa" },
+            { name: "Aaron Ramsdale", profileHtml: "Aaron_Ramsdale.html", position: "GK", age: 27, nationality: "England", fga: 84.8, bestPhilosophy: "Ferguson Mental", currentClub: "Southampton" },
+            { name: "Anthony Elanga", profileHtml: "Anthony_Elanga.html", position: "WG", age: 23, nationality: "Sweden", fga: 84.6, bestPhilosophy: "Klopp Intensity", currentClub: "Nottingham Forest" },
+            { name: "Kees Smit", profileHtml: "Kees_Smit.html", position: "CM", age: 22, nationality: "Netherlands", fga: 84.2, bestPhilosophy: "Cruyff Intelligence", currentClub: "Excelsior" },
+            { name: "Gabriel Charpentier", profileHtml: "Gabrial_Charpentier.html", position: "ST", age: 26, nationality: "France", fga: 78.5, bestPhilosophy: "Fontaine Attack", currentClub: "Reims" },
+
+// === NEW BATCH - Added 19 Players (Batch 7: Dec 8, 2025) ===
+            { name: "Christian Gomis", profileHtml: "Christian_Gomis.html", position: "CB", age: 27, nationality: "Senegal 🇸🇳 / France 🇫🇷", fga: 76.5, bestPhilosophy: "Mourinho System", currentClub: "Uthai Thani FC" },
+            { name: "Nathanael Saintini", profileHtml: "Nathanael_Saintini.html", position: "CB", age: 25, nationality: "Guadeloupe 🇬🇵 / France 🇫🇷", fga: 77.0, bestPhilosophy: "Mourinho System", currentClub: "FC Noah" },
+            { name: "Florian Danho", profileHtml: "Florian_Danho.html", position: "CB", age: 25, nationality: "France 🇫🇷 / Ivory Coast 🇨🇮", fga: 75.5, bestPhilosophy: "Mourinho System", currentClub: "Esperance Tunis" },
+            { name: "Hicham Mahou", profileHtml: "Hicham_Mahou.html", position: "RW", age: 26, nationality: "France 🇫🇷", fga: 76.0, bestPhilosophy: "Mourinho System", currentClub: "FC Lugano" },
+            { name: "Nathan Zeze", profileHtml: "Nathan_Zeze.html", position: "CB", age: 20, nationality: "France 🇫🇷", fga: 79.5, bestPhilosophy: "Guardiola System", currentClub: "Neom SC" },
+            { name: "Bradley Sample", profileHtml: "Bradley_Sample.html", position: "CDM", age: 24, nationality: "United States 🇺🇸", fga: 75.5, bestPhilosophy: "Versatile", currentClub: "Pittsburgh Riverhounds SC" },
+            { name: "Luke Biasi", profileHtml: "Luke_Biasi.html", position: "DF", age: 25, nationality: "United States 🇺🇸", fga: 76.5, bestPhilosophy: "Versatile", currentClub: "Pittsburgh Riverhounds SC" },
+            { name: "Daniel Steres", profileHtml: "Daniel_Steres.html", position: "CB", age: 35, nationality: "United States 🇺🇸", fga: 79.0, bestPhilosophy: "Versatile", currentClub: "Houston Dynamo" },
+            { name: "Adrien Perez", profileHtml: "Adrien_Perez.html", position: "LW", age: 29, nationality: "United States 🇺🇸", fga: 77.5, bestPhilosophy: "Versatile", currentClub: "Free Agent" },
+            { name: "Emilio Ycaza", profileHtml: "Emilio_Ycaza.html", position: "LW", age: 27, nationality: "USA🇺🇸 / Ecuador🇪🇨", fga: 78.0, bestPhilosophy: "Versatile", currentClub: "Charleston Battery" },
+            { name: "Sam Junqua", profileHtml: "Sam_Junqua.html", position: "LB", age: 26, nationality: "United States 🇺🇸", fga: 74.0, bestPhilosophy: "Versatile", currentClub: "FC Dallas" },
+            { name: "Dereck Waldeck", profileHtml: "Derek_Waldeck.html", position: "DF", age: 27, nationality: "United States 🇺🇸", fga: 77.0, bestPhilosophy: "Versatile", currentClub: "Spokane Velocity" },
+            { name: "Johnny Rodriguez", profileHtml: "Johnny_Rodriguez.html", position: "AM", age: 27, nationality: "United States 🇺🇸", fga: 78.5, bestPhilosophy: "Versatile", currentClub: "Las Vegas Lights FC" },
+            { name: "David Weir", profileHtml: "David_Weir.html", position: "CB", age: 54, nationality: "Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿", fga: 83.5, bestPhilosophy: "Ferguson System", currentClub: "Retired" },
+            { name: "Bart Verbruggen", profileHtml: "Bart_Verbruggen.html", position: "GK", age: 22, nationality: "Unknown", fga: 80.0, bestPhilosophy: "Guardiola System", currentClub: "Brighton FC" },
+            { name: "Gabriel Batistuta", profileHtml: "Gabriel_Batistuta.html", position: "ST", age: 55, nationality: "Argentina", fga: 92.5, bestPhilosophy: "Menotti Attack", currentClub: "Retired" },
+            { name: "Robert Sánchez", profileHtml: "Robert_Sanchez.html", position: "GK", age: 27, nationality: "Spain 🇪🇸", fga: 81.5, bestPhilosophy: "Guardiola System", currentClub: "Chelsea FC" },
+            { name: "Ederson", profileHtml: "Ederson_Moraes.html", position: "GK", age: 31, nationality: "Brazil 🇧🇷", fga: 90.0, bestPhilosophy: "Guardiola System", currentClub: "Fenerbahçe" },
+            { name: "Martín Zubimendi", profileHtml: "Martin_Zubimendi.html", position: "CDM", age: 25, nationality: "Spain 🇪🇸", fga: 87.5, bestPhilosophy: "Guardiola System", currentClub: "Arsenal FC" }];
 
         // DEBUG LOGGING
         console.log('====== PAGE LOADED ======');

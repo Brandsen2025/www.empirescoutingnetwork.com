@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilio Ycaza — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, .18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, .02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, .12);
+            border: 1px solid rgba(255, 210, 77, .18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1pCm5feyRFPayo5EwllSOeV2KENMl2k_rZw&s"
+                    alt="Emilio Ycaza" class="photo">
+                <div class="title">Emilio Ycaza</div>
+                <div class="sub">American/Ecuadorian Midfielder • Charleston Battery • 2023 USL Championship Final •
+                    First Wave International</div>
+                <div class="rating-badge">78.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇺🇸🇪🇨 USA/ECU</span><span
+                            class="stat-label">Charleston Battery • 63 Apps • 2023 USL Final</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Emilio
+                            Ycaza</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">USA🇺🇸 /
+                            Ecuador🇪🇨</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">27 (Born: Jul 10,
+                            1997)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">South Florida Bulls</span><span
+                            class="info-value">2018-2019 (35 apps)</span></div>
+                    <div class="info-row"><span class="info-label">RGV FC Toros</span><span class="info-value">2021-2022
+                            (50 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Charleston Battery</span><span
+                            class="info-value">2023-Present (63 apps)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Emilio Ycaza is a dynamic box-to-box midfielder excelling with Charleston Battery.
+                    **Charleston Battery (2023-Present)**: **63 matches, 8 goals, 6 assists** across all competitions.
+                    Fan favorite. **2023 USL Championship Final** runner-up in first season. **4 goals, 3 assists in 24
+                    matches** (regular season + playoffs) in 2023. **4 goals, 3 assists in 2024**. Consistent performer.
+                    **Created 56 total chances**. **3x Team of the Week** selections. **Premier defensive midfielder** -
+                    31 interceptions, 40 tackles won in 2024. **RGV FC Toros (2021-2022)**: **50 appearances, 7 goals, 6
+                    assists**. Led team in matches, starts, minutes, **chances created (44)** in 2022. **University of
+                    South Florida**: 35 apps, AAC Rookie of the Week 2018. Known for **creativity (8.1)**, **work rate
+                    (8.3)**, **passing (7.9)**, and **defensive contribution (8.0)**. Complete midfielder who can attack
+                    and defend. At 27, entering prime years.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> 2023 USL
+                    Championship Final • 63 Charleston Apps • 8 Goals, 6 Assists • 3x Team of Week • 56 Chances Created
+                    • Premier Defensive MF</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Creativity</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Passing</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vision</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Dribbling</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive & Physical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Work Rate</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Defensive Contribution</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Stamina</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Ycaza's tactical DNA - box-to-box midfielder.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Box-to-Box 8.2/10</span>
+                    <span class="pill">High Press 8.0/10</span>
+                    <span class="pill">Possession-Based 7.9/10</span>
+                    <span class="pill">Counter-Press 7.8/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality</span><span class="info-value">ENFP
+                                (Campaigner)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Box-to-Box
+                                Engine</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Work Rate</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Creativity</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**2023 USL Championship Final** runner-up in first Charleston season. **63
+                            appearances, 8 goals, 6 assists** for Battery. **3x Team of the Week**. Complete midfielder.
+                            Fan favorite. Dual USA/Ecuador citizenship. At 27, in prime years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018-2019 | University of South Florida</div>
+                    <div class="timeline-event">🎓 **35 appearances** for USF Bulls. AAC Rookie of the Week 2018.
+                        College career foundation.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2022 | RGV FC Toros</div>
+                    <div class="timeline-event">⚽ **50 appearances, 7 goals, 6 assists**. Led team in **chances created
+                        (44)** in 2022. Breakout professional seasons.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 2022 | Charleston Battery Signing</div>
+                    <div class="timeline-event">⚡ **CHARLESTON BATTERY** - Multi-year deal for 2023 season. Major career
+                        move.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 Season | USL Championship Final</div>
+                    <div class="timeline-event">🏆 **USL CHAMPIONSHIP FINAL** - 4 goals, 3 assists in 24 matches.
+                        Reached final in first season. Fan favorite.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 Season | Consistency</div>
+                    <div class="timeline-event">⚽ **4 goals, 3 assists** in 2024. Matched previous season. **3x Team of
+                        the Week**. Premier defensive midfielder.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals (Assists)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>South Florida Bulls</strong></td>
+                            <td>2018-2019</td>
+                            <td>35</td>
+                            <td>College</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RGV FC Toros</strong></td>
+                            <td>2021-2022</td>
+                            <td>50</td>
+                            <td>7 (6)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Charleston Battery</strong></td>
+                            <td>2023-Present</td>
+                            <td>63</td>
+                            <td>8 (6)</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> 148+ Apps • 2023 USL Championship Final • 15 Goals,
+                                12 Assists • 3x Team of Week • 56 Chances Created</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Emilio Ycaza is a complete box-to-box midfielder.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Box-to-Box Midfielder</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Work rate (8.3), stamina (8.2), creativity (8.1), defensive contribution (8.0)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Attacking</strong></td>
+                            <td>Creative passer, 56 chances created, vision, good dribbling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Defensive</strong></td>
+                            <td>Premier defensive MF - 31 interceptions, 40 tackles won (2024)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>High work rate, can play full
+
+                                90 minutes, consistent performer</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Complete midfielder. 2023 USL Final runner-up. 63
+                                Charleston apps with 8 goals, 6 assists. 3x Team of Week. Fan favorite.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Watch Emilio Ycaza's box-to-box midfielder abilities.</p>
+                <div class="video-container">
+                    <iframe
+                        src="https://player.mux.com/PH3y14tA81701Vngr7km00z1KadB1KQhDNyLmaivNFW5o?metadata-video-title=Emilio-Ycaza&video-title=Emilio-Ycaza"
+                        style="width:100%;height:100%;border:none"
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Recent performances - Charleston Battery (December 2025).
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nov 9, 2025</strong></td>
+                            <td>USL Championship</td>
+                            <td>Charleston vs Pittsburgh</td>
+                            <td>✅ 2-1 W</td>
+                            <td>Strong Display</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 2, 2025</strong></td>
+                            <td>USL Championship</td>
+                            <td>Louisville vs Charleston</td>
+                            <td>⬜ 1-1 D</td>
+                            <td>Midfield Control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 26, 2025</strong></td>
+                            <td>USL Championship</td>
+                            <td>Charleston vs Tampa Bay</td>
+                            <td>✅ 3-0 W</td>
+                            <td>Complete Performance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 19, 2025</strong></td>
+                            <td>USL Championship</td>
+                            <td>Birmingham vs Charleston</td>
+                            <td>❌ 2-1 L</td>
+                            <td>Worked Hard</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 12, 2025</strong></td>
+                            <td>USL Championship</td>
+                            <td>Charleston vs Detroit</td>
+                            <td>✅ 2-0 W</td>
+                            <td>Box-to-Box Excellence</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining performances.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | USL Championship Final</div>
+                    <div class="timeline-event">🏆 **USL CHAMPIONSHIP FINAL** - Reached final in first Charleston
+                        season. 4 goals, 3 assists across 24 matches (regular + playoffs).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 | Team of the Week Performances</div>
+                    <div class="timeline-event">⭐ **3x TEAM OF THE WEEK** - Multiple standout performances. 4 goals, 3
+                        assists. Premier defensive midfielder.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 | RGV FC Leadership</div>
+                    <div class="timeline-event">⚽ **Team leader** in matches, starts, minutes, **chances created (44)**.
+                        Breakout professional season.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison (vs USL Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Ycaza vs Elite USL Championship Midfielders
+                </p>
+            </div>
+ 	    </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Emilio
+                                Ycaza</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Jul 10, 1997
+                                (27)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">USA
+                                🇺🇸 / Ecuador 🇪🇨</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Charleston
+                                Battery</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">USL
+                                Championship</span></div>
+                        <div class="info-row"><span class="info-label">Agency</span><span class="info-value">First Wave
+                                International</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">78.0 -
+                                Box-to-Box</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Work Rate 8.3/10</div>
+                        <div class="pill">Stamina 8.2/10</div>
+                        <div class="pill">Creativity 8.1/10</div>
+                        <div class="pill">Defensive Contribution 8.0/10</div>
+                        <div class="pill">Passing 7.9/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: COMPLETE MIDFIELDER</strong><br><br>Emilio Ycaza is a dynamic
+                            box-to-box midfielder. **Charleston Battery** (2023-Present): **63 matches, 8 goals, 6
+                            assists**. **2023 USL Championship Final** runner-up in first season. Consistent 4 goals, 3
+                            assists in both 2023 and 2024. **3x Team of the Week** selections. **Premier defensive
+                            midfielder** - 31 interceptions, 40 tackles won in 2024. **56 total chances created**. Known
+                            for exceptional **work rate (8.3)**, **stamina (8.2)**, and **creativity (8.1)**. Complete
+                            midfielder who excels both offensively and defensively. Fan favorite at Charleston. At 27,
+                            in prime years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Work Rate', 'Stamina', 'Creativity', 'Defensive', 'Passing', 'Vision', 'Interceptions', 'Dribbling'], datasets: [{ label: 'Ycaza', data: [8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.9, 7.6], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
