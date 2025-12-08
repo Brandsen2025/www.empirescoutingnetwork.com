@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Ramsey — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://i2-prod.football.london/incoming/article32339558.ece/ALTERNATES/s1200c/0_Jacob-Ramsey.jpg"
+                    alt="Jacob Ramsey" class="photo">
+                <div class="title">Jacob Ramsey</div>
+                <div class="sub">Newcastle United • England • U21 Euro Winner</div>
+                <div class="rating-badge">85.2</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span><span
+                            class="stat-label">U21 Euro Winner • 126 Villa Apps • 16 England U21 Caps</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Born</span><span class="info-value">May 28, 2001
+                            (24)</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">England
+                            🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Newcastle United</span><span
+                            class="info-value">2024-Present</span></div>
+                    <div class="info-row"><span class="info-label">Aston Villa</span><span
+                            class="info-value">2019-2024</span></div>
+                    <div class="info-row"><span class="info-label">Transfer Fee</span><span class="info-value">£30M
+                            (2024)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Jacob Ramsey is a **dynamic English midfielder** who joined **Newcastle United** for
+                    **£30 million** in July 2024 from Aston Villa. Born May 28, 2001, in Great Barr, the **24-year-old**
+                    stands **1.83m (6'0")** and is **right-footed**. Both his brothers, **Aaron Ramsey** (Aston Villa)
+                    and **Josh Ramsey** (Walsall), are also professional footballers. **2024-25 Newcastle:** **1 goal in
+                    20 appearances** (15 PL, 5 UCL). Adapting to new system after Villa departure. **Aston Villa
+                    Career:** **Villa Veteran** at age 23. **126 appearances, 12 goals, 9 assists** (2019-2024).
+                    **Academy graduate** who rose through ranks. Signed professional contract at **18** (June 2019).
+                    Made debut at 18 years old. Played in **Premier League, Championship, Cup competitions**. **Key
+                    Achievement:** **2023 UEFA U21 EURO WINNER** with England. **16 caps for England U21**, crucial
+                    member of championship squad. **England Youth:** Captained U18s, represented U15-U21 levels.
+                    **Playing Style:** **Box-to-box midfielder** with excellent energy, strong dribbling, good passing
+                    range, contributes both defensively and offensively, intelligent movement off the ball. **2022-23
+                    Highlight:** Career-best season at Villa with **6 goals** and strong all-around performances.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> U21 Euro Winner
+                    (2023) • Villa Academy Graduate • 126 Villa Apps</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Ramsey's tactical profile across coaching styles.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 8.2/10</span>
+                    <span class="pill">Guardiola Positional 8.0/10</span>
+                    <span class="pill">Cruyff Intelligence 8.2/10</span>
+                    <span class="pill">Menotti Artistry 8.0/10</span>
+                    <span class="pill">Michels Total 8.4/10</span>
+                    <span class="pill">Simeone Cholismo 8.0/10</span>
+                    <span class="pill">Mourinho Tactical 7.8/10</span>
+                    <span class="pill">Sacchi Pressing 8.4/10</span>
+                    <span class="pill">Klopp Intensity 8.8/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ENFJ (Protagonist)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Box-to-Box
+                                Dynamo</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Leadership</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**European champion** - won U21 Euros with England in 2023. Villa academy
+                            graduate with 126 apps by age 23. Elite mobility (8.8) and dribbling (8.6) for box-to-box
+                            role. Excellent carries (8.4) and vision (8.2). Good two-way play with tackling (8.0) and
+                            positioning (8.2). Captained England youth teams. Family football pedigree (brothers Aaron,
+                            Josh). Career-best 6 goals in 2022-23.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | U21 Euro Winner</div>
+                    <div class="timeline-event">🏆 **UEFA U21 EURO CHAMPION** - Won European Championship with England
+                        U21 (16 caps total).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 | Newcastle Move</div>
+                    <div class="timeline-event">🏁 **£30M TRANSFER** - Joined Newcastle United for £30 million from
+                        Aston Villa.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-23 | Career Season</div>
+                    <div class="timeline-event">⚽ **6 GOALS FOR VILLA** - Career-best scoring season at Aston Villa.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 | Villa Debut</div>
+                    <div class="timeline-event">🎓 **ACADEMY GRADUATE** - Signed professional contract, made first-team
+                        debut at 18.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Team</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2024-25</strong></td>
+                            <td>Newcastle Utd</td>
+                            <td>20</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2019-24</strong></td>
+                            <td>Aston Villa</td>
+                            <td>126</td>
+                            <td>12</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2022-23</strong></td>
+                            <td>Aston Villa</td>
+                            <td>-</td>
+                            <td>6</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>U21</strong></td>
+                            <td>England U21</td>
+                            <td>16</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="5"><strong>Achievements:</strong> U21 Euro Winner (2023) • Villa Academy
+                                Graduate</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">U21 Euro Winner</div>
+                        <div class="trophy-year">2023</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🎓</div>
+                        <div class="trophy-title">Villa Academy</div>
+                        <div class="trophy-year">Graduate</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">👨‍👦‍👦</div>
+                        <div class="trophy-title">Ramsey Brothers</div>
+                        <div class="trophy-year">Legacy</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Newcastle United</strong></td>
+                            <td>2024-</td>
+                            <td>20</td>
+                            <td>Midfielder</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aston Villa</strong></td>
+                            <td>2019-24</td>
+                            <td>126</td>
+                            <td>Academy Star</td>
+                        </tr>
+                        <tr>
+                            <td><strong>England U21</strong></td>
+                            <td>-2023</td>
+                            <td>16</td>
+                            <td>Euro Winner</td>
+                        </tr>
+                        <tr>
+                            <td><strong>England Youth</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Captain U18</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | U21 Euro Triumph</div>
+                    <div class="timeline-event">🏆 **EURO CHAMPION** - Won UEFA U21 European Championship with England.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-23 | Career Best</div>
+                    <div class="timeline-event">⚽ **6 GOALS FOR VILLA** - Scored career-high 6 goals in all
+                        competitions.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 | Professional Debut</div>
+                    <div class="timeline-event">🎓 **ASTON VILLA** - Made first-team debut as academy graduate at age
+                        18.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs PL Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Jacob Ramsey vs Premier League Midfielders
+                </p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Born</span><span class="info-value">May 28,
+                                2001</span></div>
+                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.83m
+                                (6'0")</span></div>
+                        <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Great
+                                Barr</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Newcastle
+                                Utd</span></div>
+                        <div class="info-row"><span class="info-label">Transfer</span><span class="info-value">£30M
+                                (2024)</span></div>
+                        <div class="info-row"><span class="info-label">Brothers</span><span class="info-value">Aaron,
+                                Josh</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>const ctx = document.getElementById('radarChart'); new Chart(ctx, { type: 'radar', data: { labels: ['Energy', 'Dribbling', 'Passing', 'Tackling', 'Vision', 'Mobility'], datasets: [{ label: 'Jacob Ramsey', data: [88, 86, 80, 80, 82, 88], fill: true, backgroundColor: 'rgba(255,210,77,0.2)', borderColor: '#ffd24d', pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff' }, { label: 'Average PL CM', data: [76, 76, 78, 76, 74, 78], fill: true, backgroundColor: 'rgba(11,91,176,0.2)', borderColor: '#0b5bb0', pointBackgroundColor: '#0b5bb0', pointBorderColor: '#fff' }] }, options: { elements: { line: { borderWidth: 3 } }, scales: { r: { angleLines: { color: 'rgba(255,255,255,0.1)' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#f0f6fc', font: { size: 13, weight: '600' } }, ticks: { color: '#8b949e', backdropColor: 'transparent' }, suggestedMin: 0, suggestedMax: 100 } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 14, weight: '600' } } } } } });</script>
+</body>
+
+</html>
