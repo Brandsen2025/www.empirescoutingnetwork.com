@@ -1544,10 +1544,16 @@
             html += createLink("U19", "#");
 	}
 	else if (country === "USA") {
-            html += createLink("MLS (Major League Soccer", "mls_database.html");
+            html += createLink("MLS (Major League Soccer)", "mls_database.html");
             html += createLink("USL Championship", "#");
             html += createLink("USL1", "#");
 	    html += createLink("NISA", "#");
+	}
+	else if (country === "Colombia") {
+            html += createLink("Torneo Dimayor", "colombian_primera_a.html");
+            html += createLink("Liga Dimayor II", "#");
+            html += createLink("Copa Colombia", "#");
+	    html += createLink("U19", "#");
 	}
         else {
             // Default links for countries you haven't set up specific leagues for yet
