@@ -1,11 +1,11 @@
-<!-- SUPERETTAN DATABASE WIDGET - WITH VIDEO COUNTS -->
-<div id="esn-superettan-container">
+<!-- COLOMBIAN PRIMERA A DATABASE WIDGET - WITH VIDEO COUNTS -->
+<div id="esn-colombia-container">
 
     <!-- 1. HEADER -->
-    <div class="esn-superettan-header">
+    <div class="esn-colombia-header">
         <div>
-            <h2 style="color: #006aa7; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Superettan</h2>
-            <span style="color: #666; font-size: 14px;">Sweden • 2025 Season</span>
+            <h2 style="color: #FF9900; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Liga BetPlay</h2>
+            <span style="color: #666; font-size: 14px;">Colombia • 2025 Season</span>
         </div>
         <div class="esn-stats-summary">
             <div class="esn-stat-pill">
@@ -14,16 +14,16 @@
             </div>
             <div class="esn-stat-pill">
                 <i class="fas fa-futbol"></i>
-                <span id="teams-with-videos-count">0</span>/16 Teams
+                <span id="teams-with-videos-count">0</span>/20 Teams
             </div>
         </div>
     </div>
 
     <!-- 2. MAIN LAYOUT -->
-    <div class="esn-superettan-body">
+    <div class="esn-colombia-body">
 
         <!-- SIDEBAR (Team List with Video Counts) -->
-        <div class="esn-superettan-sidebar">
+        <div class="esn-colombia-sidebar">
             <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
 
             <!-- Quick Filters -->
@@ -39,7 +39,7 @@
         </div>
 
         <!-- CONTENT (Video Area) -->
-        <div class="esn-superettan-content">
+        <div class="esn-colombia-content">
             <h1 id="esn-selected-title">Select a Team</h1>
 
             <div class="esn-tabs">
@@ -65,7 +65,7 @@
     <div id="esn-player-modal" class="esn-modal">
         <div class="esn-modal-content">
             <div class="esn-modal-header">
-                <span id="esn-playing-title" style="color:#006aa7; font-weight:bold; font-size: 18px;">Match
+                <span id="esn-playing-title" style="color:#FF9900; font-weight:bold; font-size: 18px;">Match
                     Title</span>
                 <span class="esn-close-btn" onclick="window.closeVideo()">✕ Close</span>
             </div>
@@ -86,7 +86,7 @@
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
     /* GLOBAL CONTAINER */
-    #esn-superettan-container {
+    #esn-colombia-container {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background: #000;
         color: #fff;
@@ -100,9 +100,9 @@
     }
 
     /* HEADER & STATS */
-    .esn-superettan-header {
+    .esn-colombia-header {
         padding: 25px;
-        border-bottom: 2px solid #006aa7;
+        border-bottom: 2px solid #FF9900;
         background: #111;
         display: flex;
         justify-content: space-between;
@@ -125,7 +125,7 @@
         align-items: center;
         gap: 8px;
         font-size: 13px;
-        color: #006aa7;
+        color: #FF9900;
     }
 
     .esn-stat-pill i {
@@ -136,14 +136,14 @@
         font-weight: bold;
     }
 
-    .esn-superettan-body {
+    .esn-colombia-body {
         display: flex;
         flex: 1;
         height: 650px;
     }
 
     /* SIDEBAR */
-    .esn-superettan-sidebar {
+    .esn-colombia-sidebar {
         width: 28%;
         min-width: 250px;
         background: #111;
@@ -164,7 +164,7 @@
     }
 
     #esn-team-search:focus {
-        outline: 1px solid #006aa7;
+        outline: 1px solid #FF9900;
     }
 
     /* FILTER BAR */
@@ -196,9 +196,9 @@
     }
 
     .esn-filter-btn.active {
-        background: #006aa7;
+        background: #FF9900;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #FF9900;
     }
 
     #esn-team-list {
@@ -226,8 +226,8 @@
 
     .esn-team-item.active {
         background: #1a1a1a;
-        border-left: 4px solid #006aa7;
-        color: #006aa7;
+        border-left: 4px solid #FF9900;
+        color: #FF9900;
         font-weight: bold;
     }
 
@@ -248,19 +248,19 @@
     }
 
     .esn-team-item:hover .esn-video-badge {
-        border-color: #006aa7;
-        color: #006aa7;
+        border-color: #FF9900;
+        color: #FF9900;
     }
 
     .esn-team-item.active .esn-video-badge {
-        background: #006aa7;
+        background: #FF9900;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #FF9900;
     }
 
     .esn-video-badge.has-videos {
-        color: #006aa7;
-        border-color: #006aa7;
+        color: #FF9900;
+        border-color: #FF9900;
     }
 
     .esn-video-badge.no-videos {
@@ -269,7 +269,7 @@
     }
 
     /* CONTENT AREA */
-    .esn-superettan-content {
+    .esn-colombia-content {
         width: 72%;
         padding: 30px;
         background: #080808;
@@ -311,8 +311,8 @@
     }
 
     .esn-tab-btn.active {
-        color: #006aa7;
-        border-bottom: 3px solid #006aa7;
+        color: #FF9900;
+        border-bottom: 3px solid #FF9900;
     }
 
     .tab-count {
@@ -325,9 +325,9 @@
     }
 
     .esn-tab-btn.active .tab-count {
-        background: #006aa7;
+        background: #FF9900;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #FF9900;
     }
 
     /* VIDEO CARDS */
@@ -345,7 +345,7 @@
     }
 
     .esn-v-card:hover {
-        border-color: #006aa7;
+        border-color: #FF9900;
         transform: translateX(8px);
         background: #1a1a1a;
     }
@@ -362,7 +362,7 @@
     }
 
     .esn-v-play {
-        color: #006aa7;
+        color: #FF9900;
         font-size: 24px;
     }
 
@@ -409,7 +409,7 @@
     }
 
     .esn-close-btn:hover {
-        background: #006aa7;
+        background: #FF9900;
         color: #fff;
     }
 
@@ -431,17 +431,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-        .esn-superettan-body {
+        .esn-colombia-body {
             flex-direction: column;
             height: auto;
         }
 
-        .esn-superettan-sidebar {
+        .esn-colombia-sidebar {
             width: 100%;
             max-height: 300px;
         }
 
-        .esn-superettan-content {
+        .esn-colombia-content {
             width: 100%;
         }
     }
@@ -455,116 +455,65 @@
         // 1. DATABASE - ADD YOUR MATCHES HERE
         // ==========================================
         const db = {
-            "falkenbergs ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "gefle if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "gif sundsvall": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
-],
-                highlights: [],
-                academy: []
-            },
-            "helsingborgs if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "ik brage": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" }
-],
-                highlights: [],
-                academy: []
-            },
-            "ik oddevold": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-],
-                highlights: [],
-                academy: []
-            },
-            "kalmar ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "landskrona bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "sandvikens if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "skövde aik": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "trelleborgs ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "umeå fc": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "utsiktens bk": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-],
-                highlights: [],
-                academy: []
-            },
-            "varbergs bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "västerås sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örebro sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örgryte is": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "östersunds fk": {
-                fullMatches: [
-		{ title: "vs IK Oddevold", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs IK Brage", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" },
-		{ title: "vs Utsiktens BK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs Umea", date: "19 September 2025", link: "https://player.mux.com/YKXlBp1FiinrcoSTUtjdnFZn63V4wtmo7aZ6ceYsMCc" },
-		{ title: "vs GIF Sundsvall", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
-		{ title: "vs Helsingborgs", date: "2 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },	
-],
-                highlights: [],
-                academy: []
-            }
+            "águilas doradas": { fullMatches: [], highlights: [], academy: [] },
+            "alianza fc": { fullMatches: [], highlights: [], academy: [] },
+            "américa de cali": { fullMatches: [], highlights: [], academy: [] },
+            "atlético bucaramanga": { fullMatches: [
+		{ title: "vs Independiente Santa Fe", date: "9 December 2025", link: "https://player.mux.com/W00bxby029vr88nxO301ftJAABP00PfALXpA7qJT51CVIXI" }
+], highlights: [], academy: [] },
+            "atlético nacional": { fullMatches: [], highlights: [], academy: [] },
+            "boyacá chicó": { fullMatches: [
+		{ title: "vs Deportivo Pasto", date: "22 March 2025", link: "https://player.mux.com/7blMBPAAE5OGVD3K1AiPqag1WWtpsK6ohb4hZGsaPFc" },
+		{ title: "vs Unión Magdalena", date: "16 March 2025", link: "https://player.mux.com/IGpqJMLquOswQ100qZ9vJH47jOkuweM4actUYNMAAB2Q" },
+		{ title: "vs Deportivo Cali", date: "10 March 2025", link: "https://player.mux.com/DtCYzZauZthgI5BJl7gswdpktPBvX5cvOHUEvKe11CE" },			
+		{ title: "vs La Equidad", date: "22 February 2025", link: "https://player.mux.com/ZdHfyr2ccToAq3BhyWO1yC8xa46JmPWPAXxHmYl01P9k" },
+		{ title: "vs Deportivo Pasto", date: "12 February 2025", link: "https://player.mux.com/rD7ns8vcDja2B3uYB4g02S5bG6OU36xVOGMb93xwIAGY" },		
+		{ title: "vs Llaneros", date: "8 February 2025", link: "https://player.mux.com/v024MA1X02RRaefVhcq9bCA02qf3wtvmsuqAryfMth9qtI" },
+		{ title: "vs Bucaramanga", date: "24 January 2025", link: "https://player.mux.com/vC00Rl01EWnQnN8C9Ulvopaa02vpnvsMJsZLg02YHX4t6pg" },
+			
+], highlights: [], academy: [] },
+            "deportes tolima": { fullMatches: [], highlights: [], academy: [] },
+            "deportivo cali": { fullMatches: [
+		{ title: "vs Junior Barranquilla", date: "12 July 2025", link: "https://player.mux.com/SKawLHvBZ2Nrm4Z2lB2aq00k3q3iasKmzWpL02OSttgeA" },
+		{ title: "vs Boyacá Chicó", date: "10 March 2025", link: "https://player.mux.com/DtCYzZauZthgI5BJl7gswdpktPBvX5cvOHUEvKe11CE" },
+], highlights: [], academy: [] },
+            "deportivo pasto": { fullMatches: [
+		{ title: "vs Boyacá Chicó", date: "22 March 2025", link: "https://player.mux.com/7blMBPAAE5OGVD3K1AiPqag1WWtpsK6ohb4hZGsaPFc" },
+		{ title: "vs Boyacá Chicó", date: "12 February 2025", link: "https://player.mux.com/rD7ns8vcDja2B3uYB4g02S5bG6OU36xVOGMb93xwIAGY" },
+], highlights: [], academy: [] },
+            "deportivo pereira": { fullMatches: [], highlights: [], academy: [] },
+            "envigado": { fullMatches: [
+		{ title: "vs Millonarios", date: "16 May 2025", link: "https://player.mux.com/xVJBVdYewIGcBuSl6XfpsEHbyeOf4djky8mgbRSykMI" },
+		{ title: "vs Independiente Santa Fe", date: "28 February 2025", link: "https://player.mux.com/102ukgOs01N9mpuRI5rlgVvszNZFwFROr5bDNzf01DpQ58" },
+], highlights: [], academy: [] },
+            "fortaleza ceif": { fullMatches: [], highlights: [], academy: [] },
+            "independiente medellín": { fullMatches: [
+		{ title: "vs Bucaramanga", date: "9 December 2025", link: "https://player.mux.com/W00bxby029vr88nxO301ftJAABP00PfALXpA7qJT51CVIXI" },
+		{ title: "vs Boyacá Chicó", date: "3 February 2025", link: "https://player.mux.com/PuUZxE1aLUYbi00kELrJvH6DmLj5JrtuBuyjfofQLO4M" },
+], highlights: [], academy: [] },
+            "junior": { fullMatches: [
+		{ title: "vs Deportivo Cali", date: "12 July 2025", link: "https://player.mux.com/SKawLHvBZ2Nrm4Z2lB2aq00k3q3iasKmzWpL02OSttgeA" },
+], highlights: [], academy: [] },
+            "la equidad": { fullMatches: [
+		{ title: "vs Boyacá Chicó", date: "22 February 2025", link: "https://player.mux.com/ZdHfyr2ccToAq3BhyWO1yC8xa46JmPWPAXxHmYl01P9k" }
+], highlights: [], academy: [] },
+            "llaneros": { fullMatches: [
+		{ title: "vs Boyacá Chicó", date: "2 February 2025", link: "https://player.mux.com/v024MA1X02RRaefVhcq9bCA02qf3wtvmsuqAryfMth9qtI" }], highlights: [], academy: [] },
+            "millonarios": { fullMatches: [
+		{ title: "vs Envigado", date: "16 May 2025", link: "https://player.mux.com/xVJBVdYewIGcBuSl6XfpsEHbyeOf4djky8mgbRSykMI" },
+], highlights: [], academy: [] },
+            "once caldas": { fullMatches: [], highlights: [], academy: [] },
+            "santa fe": { fullMatches: [
+		{ title: "vs Envigado", date: "28 February 2025", link: "https://player.mux.com/102ukgOs01N9mpuRI5rlgVvszNZFwFROr5bDNzf01DpQ58" },
+], highlights: [], academy: [] },
+            "unión magdalena": { fullMatches: [
+		{ title: "vs Boyacá Chicó", date: "16 March 2025", link: "https://player.mux.com/IGpqJMLquOswQ100qZ9vJH47jOkuweM4actUYNMAAB2Q" },
+], highlights: [], academy: [] }
         };
 
         // Sort keys alphabetically for the list
         const allTeams = Object.keys(db).map(k => {
-            // Capitalize for display
+            // Capitalize for display, keeping special characters
             return k.replace(/\b\w/g, l => l.toUpperCase());
         }).sort();
 

@@ -1,11 +1,11 @@
-<!-- SUPERETTAN DATABASE WIDGET - WITH VIDEO COUNTS -->
-<div id="esn-superettan-container">
+<!-- DANISH SUPERLIGA DATABASE WIDGET - WITH VIDEO COUNTS -->
+<div id="esn-denmark-container">
 
     <!-- 1. HEADER -->
-    <div class="esn-superettan-header">
+    <div class="esn-denmark-header">
         <div>
-            <h2 style="color: #006aa7; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Superettan</h2>
-            <span style="color: #666; font-size: 14px;">Sweden • 2025 Season</span>
+            <h2 style="color: #E10E49; margin: 0; text-transform: uppercase; letter-spacing: 1px;">3F Superliga</h2>
+            <span style="color: #666; font-size: 14px;">Denmark • 2025/2026 Season</span>
         </div>
         <div class="esn-stats-summary">
             <div class="esn-stat-pill">
@@ -14,16 +14,16 @@
             </div>
             <div class="esn-stat-pill">
                 <i class="fas fa-futbol"></i>
-                <span id="teams-with-videos-count">0</span>/16 Teams
+                <span id="teams-with-videos-count">0</span>/12 Teams
             </div>
         </div>
     </div>
 
     <!-- 2. MAIN LAYOUT -->
-    <div class="esn-superettan-body">
+    <div class="esn-denmark-body">
 
         <!-- SIDEBAR (Team List with Video Counts) -->
-        <div class="esn-superettan-sidebar">
+        <div class="esn-denmark-sidebar">
             <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
 
             <!-- Quick Filters -->
@@ -39,7 +39,7 @@
         </div>
 
         <!-- CONTENT (Video Area) -->
-        <div class="esn-superettan-content">
+        <div class="esn-denmark-content">
             <h1 id="esn-selected-title">Select a Team</h1>
 
             <div class="esn-tabs">
@@ -65,7 +65,7 @@
     <div id="esn-player-modal" class="esn-modal">
         <div class="esn-modal-content">
             <div class="esn-modal-header">
-                <span id="esn-playing-title" style="color:#006aa7; font-weight:bold; font-size: 18px;">Match
+                <span id="esn-playing-title" style="color:#E10E49; font-weight:bold; font-size: 18px;">Match
                     Title</span>
                 <span class="esn-close-btn" onclick="window.closeVideo()">✕ Close</span>
             </div>
@@ -86,7 +86,7 @@
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
     /* GLOBAL CONTAINER */
-    #esn-superettan-container {
+    #esn-denmark-container {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background: #000;
         color: #fff;
@@ -100,9 +100,9 @@
     }
 
     /* HEADER & STATS */
-    .esn-superettan-header {
+    .esn-denmark-header {
         padding: 25px;
-        border-bottom: 2px solid #006aa7;
+        border-bottom: 2px solid #E10E49;
         background: #111;
         display: flex;
         justify-content: space-between;
@@ -125,7 +125,7 @@
         align-items: center;
         gap: 8px;
         font-size: 13px;
-        color: #006aa7;
+        color: #E10E49;
     }
 
     .esn-stat-pill i {
@@ -136,14 +136,14 @@
         font-weight: bold;
     }
 
-    .esn-superettan-body {
+    .esn-denmark-body {
         display: flex;
         flex: 1;
         height: 650px;
     }
 
     /* SIDEBAR */
-    .esn-superettan-sidebar {
+    .esn-denmark-sidebar {
         width: 28%;
         min-width: 250px;
         background: #111;
@@ -164,7 +164,7 @@
     }
 
     #esn-team-search:focus {
-        outline: 1px solid #006aa7;
+        outline: 1px solid #E10E49;
     }
 
     /* FILTER BAR */
@@ -196,9 +196,9 @@
     }
 
     .esn-filter-btn.active {
-        background: #006aa7;
+        background: #E10E49;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #E10E49;
     }
 
     #esn-team-list {
@@ -226,8 +226,8 @@
 
     .esn-team-item.active {
         background: #1a1a1a;
-        border-left: 4px solid #006aa7;
-        color: #006aa7;
+        border-left: 4px solid #E10E49;
+        color: #E10E49;
         font-weight: bold;
     }
 
@@ -248,19 +248,19 @@
     }
 
     .esn-team-item:hover .esn-video-badge {
-        border-color: #006aa7;
-        color: #006aa7;
+        border-color: #E10E49;
+        color: #E10E49;
     }
 
     .esn-team-item.active .esn-video-badge {
-        background: #006aa7;
+        background: #E10E49;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #E10E49;
     }
 
     .esn-video-badge.has-videos {
-        color: #006aa7;
-        border-color: #006aa7;
+        color: #E10E49;
+        border-color: #E10E49;
     }
 
     .esn-video-badge.no-videos {
@@ -269,7 +269,7 @@
     }
 
     /* CONTENT AREA */
-    .esn-superettan-content {
+    .esn-denmark-content {
         width: 72%;
         padding: 30px;
         background: #080808;
@@ -311,8 +311,8 @@
     }
 
     .esn-tab-btn.active {
-        color: #006aa7;
-        border-bottom: 3px solid #006aa7;
+        color: #E10E49;
+        border-bottom: 3px solid #E10E49;
     }
 
     .tab-count {
@@ -325,9 +325,9 @@
     }
 
     .esn-tab-btn.active .tab-count {
-        background: #006aa7;
+        background: #E10E49;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #E10E49;
     }
 
     /* VIDEO CARDS */
@@ -345,7 +345,7 @@
     }
 
     .esn-v-card:hover {
-        border-color: #006aa7;
+        border-color: #E10E49;
         transform: translateX(8px);
         background: #1a1a1a;
     }
@@ -362,7 +362,7 @@
     }
 
     .esn-v-play {
-        color: #006aa7;
+        color: #E10E49;
         font-size: 24px;
     }
 
@@ -409,7 +409,7 @@
     }
 
     .esn-close-btn:hover {
-        background: #006aa7;
+        background: #E10E49;
         color: #fff;
     }
 
@@ -431,17 +431,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-        .esn-superettan-body {
+        .esn-denmark-body {
             flex-direction: column;
             height: auto;
         }
 
-        .esn-superettan-sidebar {
+        .esn-denmark-sidebar {
             width: 100%;
             max-height: 300px;
         }
 
-        .esn-superettan-content {
+        .esn-denmark-content {
             width: 100%;
         }
     }
@@ -455,116 +455,31 @@
         // 1. DATABASE - ADD YOUR MATCHES HERE
         // ==========================================
         const db = {
-            "falkenbergs ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "gefle if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "gif sundsvall": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
-],
-                highlights: [],
-                academy: []
-            },
-            "helsingborgs if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "ik brage": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" }
-],
-                highlights: [],
-                academy: []
-            },
-            "ik oddevold": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-],
-                highlights: [],
-                academy: []
-            },
-            "kalmar ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "landskrona bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "sandvikens if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "skövde aik": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "trelleborgs ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "umeå fc": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "utsiktens bk": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-],
-                highlights: [],
-                academy: []
-            },
-            "varbergs bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "västerås sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örebro sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örgryte is": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "östersunds fk": {
-                fullMatches: [
-		{ title: "vs IK Oddevold", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs IK Brage", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" },
-		{ title: "vs Utsiktens BK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs Umea", date: "19 September 2025", link: "https://player.mux.com/YKXlBp1FiinrcoSTUtjdnFZn63V4wtmo7aZ6ceYsMCc" },
-		{ title: "vs GIF Sundsvall", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
-		{ title: "vs Helsingborgs", date: "2 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },	
-],
-                highlights: [],
-                academy: []
-            }
+            "agf": { fullMatches: [], highlights: [], academy: [] },
+            "brøndby if": { fullMatches: [], highlights: [], academy: [] },
+            "copenhagen": { fullMatches: [
+		{ title: "vs Silkeborg IF", date: "17 October 2025", link: "https://player.mux.com/7mkzxLpetp21mExkAP64qY9hmH53t2RJaFp01P9YTfZ4" }
+], highlights: [], academy: [] },
+            "fc fredericia": { fullMatches: [], highlights: [], academy: [] },
+            "fc midtjylland": { fullMatches: [
+		{ title: "vs Viborg FF", date: "8 November 2025", link: "https://player.mux.com/6CWpivAG5TqXTY8dJQ9XzknLWq5ZDhLGYahZr5z5jtA" }
+], highlights: [], academy: [] },
+            "fc nordsjælland": { fullMatches: [], highlights: [], academy: [] },
+            "odense boldklub": { fullMatches: [], highlights: [], academy: [] },
+            "randers fc": { fullMatches: [], highlights: [], academy: [] },
+            "silkeborg if": { fullMatches: [
+		{ title: "vs FC Copenhagen", date: "17 October 2025", link: "https://player.mux.com/7mkzxLpetp21mExkAP64qY9hmH53t2RJaFp01P9YTfZ4" }
+], highlights: [], academy: [] },
+            "sønderjyske": { fullMatches: [], highlights: [], academy: [] },
+            "vejle bokldklub": { fullMatches: [], highlights: [], academy: [] },
+            "viborg ff": { fullMatches: [
+		{ title: "vs Viborg FF", date: "8 November 2025", link: "https://player.mux.com/6CWpivAG5TqXTY8dJQ9XzknLWq5ZDhLGYahZr5z5jtA" }
+], highlights: [], academy: [] }
         };
 
         // Sort keys alphabetically for the list
         const allTeams = Object.keys(db).map(k => {
-            // Capitalize for display
+            // Capitalize for display, keeping special characters
             return k.replace(/\b\w/g, l => l.toUpperCase());
         }).sort();
 

@@ -1,11 +1,11 @@
-<!-- SUPERETTAN DATABASE WIDGET - WITH VIDEO COUNTS -->
-<div id="esn-superettan-container">
+<!-- SAUDI PRO LEAGUE DATABASE WIDGET - WITH VIDEO COUNTS -->
+<div id="esn-saudi-container">
 
     <!-- 1. HEADER -->
-    <div class="esn-superettan-header">
+    <div class="esn-saudi-header">
         <div>
-            <h2 style="color: #006aa7; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Superettan</h2>
-            <span style="color: #666; font-size: 14px;">Sweden • 2025 Season</span>
+            <h2 style="color: #006C35; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Saudi Pro League</h2>
+            <span style="color: #666; font-size: 14px;">Saudi Arabia • 2025/2026 Season</span>
         </div>
         <div class="esn-stats-summary">
             <div class="esn-stat-pill">
@@ -14,16 +14,16 @@
             </div>
             <div class="esn-stat-pill">
                 <i class="fas fa-futbol"></i>
-                <span id="teams-with-videos-count">0</span>/16 Teams
+                <span id="teams-with-videos-count">0</span>/18 Teams
             </div>
         </div>
     </div>
 
     <!-- 2. MAIN LAYOUT -->
-    <div class="esn-superettan-body">
+    <div class="esn-saudi-body">
 
         <!-- SIDEBAR (Team List with Video Counts) -->
-        <div class="esn-superettan-sidebar">
+        <div class="esn-saudi-sidebar">
             <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
 
             <!-- Quick Filters -->
@@ -39,7 +39,7 @@
         </div>
 
         <!-- CONTENT (Video Area) -->
-        <div class="esn-superettan-content">
+        <div class="esn-saudi-content">
             <h1 id="esn-selected-title">Select a Team</h1>
 
             <div class="esn-tabs">
@@ -65,7 +65,7 @@
     <div id="esn-player-modal" class="esn-modal">
         <div class="esn-modal-content">
             <div class="esn-modal-header">
-                <span id="esn-playing-title" style="color:#006aa7; font-weight:bold; font-size: 18px;">Match
+                <span id="esn-playing-title" style="color:#006C35; font-weight:bold; font-size: 18px;">Match
                     Title</span>
                 <span class="esn-close-btn" onclick="window.closeVideo()">✕ Close</span>
             </div>
@@ -86,7 +86,7 @@
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
     /* GLOBAL CONTAINER */
-    #esn-superettan-container {
+    #esn-saudi-container {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background: #000;
         color: #fff;
@@ -100,9 +100,9 @@
     }
 
     /* HEADER & STATS */
-    .esn-superettan-header {
+    .esn-saudi-header {
         padding: 25px;
-        border-bottom: 2px solid #006aa7;
+        border-bottom: 2px solid #006C35;
         background: #111;
         display: flex;
         justify-content: space-between;
@@ -125,7 +125,7 @@
         align-items: center;
         gap: 8px;
         font-size: 13px;
-        color: #006aa7;
+        color: #006C35;
     }
 
     .esn-stat-pill i {
@@ -136,14 +136,14 @@
         font-weight: bold;
     }
 
-    .esn-superettan-body {
+    .esn-saudi-body {
         display: flex;
         flex: 1;
         height: 650px;
     }
 
     /* SIDEBAR */
-    .esn-superettan-sidebar {
+    .esn-saudi-sidebar {
         width: 28%;
         min-width: 250px;
         background: #111;
@@ -164,7 +164,7 @@
     }
 
     #esn-team-search:focus {
-        outline: 1px solid #006aa7;
+        outline: 1px solid #006C35;
     }
 
     /* FILTER BAR */
@@ -196,9 +196,9 @@
     }
 
     .esn-filter-btn.active {
-        background: #006aa7;
+        background: #006C35;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #006C35;
     }
 
     #esn-team-list {
@@ -226,8 +226,8 @@
 
     .esn-team-item.active {
         background: #1a1a1a;
-        border-left: 4px solid #006aa7;
-        color: #006aa7;
+        border-left: 4px solid #006C35;
+        color: #006C35;
         font-weight: bold;
     }
 
@@ -248,19 +248,19 @@
     }
 
     .esn-team-item:hover .esn-video-badge {
-        border-color: #006aa7;
-        color: #006aa7;
+        border-color: #006C35;
+        color: #006C35;
     }
 
     .esn-team-item.active .esn-video-badge {
-        background: #006aa7;
+        background: #006C35;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #006C35;
     }
 
     .esn-video-badge.has-videos {
-        color: #006aa7;
-        border-color: #006aa7;
+        color: #006C35;
+        border-color: #006C35;
     }
 
     .esn-video-badge.no-videos {
@@ -269,7 +269,7 @@
     }
 
     /* CONTENT AREA */
-    .esn-superettan-content {
+    .esn-saudi-content {
         width: 72%;
         padding: 30px;
         background: #080808;
@@ -311,8 +311,8 @@
     }
 
     .esn-tab-btn.active {
-        color: #006aa7;
-        border-bottom: 3px solid #006aa7;
+        color: #006C35;
+        border-bottom: 3px solid #006C35;
     }
 
     .tab-count {
@@ -325,9 +325,9 @@
     }
 
     .esn-tab-btn.active .tab-count {
-        background: #006aa7;
+        background: #006C35;
         color: #fff;
-        border-color: #006aa7;
+        border-color: #006C35;
     }
 
     /* VIDEO CARDS */
@@ -345,7 +345,7 @@
     }
 
     .esn-v-card:hover {
-        border-color: #006aa7;
+        border-color: #006C35;
         transform: translateX(8px);
         background: #1a1a1a;
     }
@@ -362,7 +362,7 @@
     }
 
     .esn-v-play {
-        color: #006aa7;
+        color: #006C35;
         font-size: 24px;
     }
 
@@ -409,7 +409,7 @@
     }
 
     .esn-close-btn:hover {
-        background: #006aa7;
+        background: #006C35;
         color: #fff;
     }
 
@@ -431,17 +431,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-        .esn-superettan-body {
+        .esn-saudi-body {
             flex-direction: column;
             height: auto;
         }
 
-        .esn-superettan-sidebar {
+        .esn-saudi-sidebar {
             width: 100%;
             max-height: 300px;
         }
 
-        .esn-superettan-content {
+        .esn-saudi-content {
             width: 100%;
         }
     }
@@ -455,111 +455,108 @@
         // 1. DATABASE - ADD YOUR MATCHES HERE
         // ==========================================
         const db = {
-            "falkenbergs ff": {
+            "al ahli": {
                 fullMatches: [],
                 highlights: [],
                 academy: []
             },
-            "gefle if": {
+            "al ettifaq": {
                 fullMatches: [],
                 highlights: [],
                 academy: []
             },
-            "gif sundsvall": {
+            "al fateh": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al fayha": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al hilal": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al ittihad": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al khaleej": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al kholood": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al nassr": {
                 fullMatches: [
-		{ title: "vs Östersunds FK", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
+		{ title: "vs Neom SC", date: "8 November 2025", link: "https://player.mux.com/NGhgCLemSsc2z1RNWWj801012JhKnWvhQU7Jfs6k1iUzo" },
 ],
                 highlights: [],
                 academy: []
             },
-            "helsingborgs if": {
+            "al okhdood": {
                 fullMatches: [],
                 highlights: [],
                 academy: []
             },
-            "ik brage": {
+            "al orobah": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al qadsiah": {
                 fullMatches: [
-		{ title: "vs Östersunds FK", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" }
+		{ title: "vs Neom SC", date: "19 October 2025", link: "https://player.mux.com/sgj5K800j9hxwA6stuwuD3szll2zP1aUROVxGIxutOFs" }
 ],
                 highlights: [],
                 academy: []
             },
-            "ik oddevold": {
+            "al raed": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al riyad": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al shabab": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al taawoun": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "al wehda": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "damac": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+	    "neom": {
                 fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
+		{ title: "vs Al Nassr", date: "8 November 2025", link: "https://player.mux.com/NGhgCLemSsc2z1RNWWj801012JhKnWvhQU7Jfs6k1iUzo" },
+		{ title: "vs Al Qadsiah", date: "19 October 2025", link: "https://player.mux.com/sgj5K800j9hxwA6stuwuD3szll2zP1aUROVxGIxutOFs" }
 ],
                 highlights: [],
                 academy: []
-            },
-            "kalmar ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "landskrona bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "sandvikens if": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "skövde aik": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "trelleborgs ff": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "umeå fc": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "utsiktens bk": {
-                fullMatches: [
-		{ title: "vs Östersunds FK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-],
-                highlights: [],
-                academy: []
-            },
-            "varbergs bois": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "västerås sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örebro sk": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "örgryte is": {
-                fullMatches: [],
-                highlights: [],
-                academy: []
-            },
-            "östersunds fk": {
-                fullMatches: [
-		{ title: "vs IK Oddevold", date: "25 October 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs IK Brage", date: "18 October 2025", link: "https://player.mux.com/OnB4PEqVSXED1hIE5Sj5ZYFB4012zODXoWt7PBs1gN02E" },
-		{ title: "vs Utsiktens BK", date: "25 September 2025", link: "https://player.mux.com/n5BuG9itzhSU8V7zmEFzJX6ZgrsMakLJP1GDvZXEQWE" },
-		{ title: "vs Umea", date: "19 September 2025", link: "https://player.mux.com/YKXlBp1FiinrcoSTUtjdnFZn63V4wtmo7aZ6ceYsMCc" },
-		{ title: "vs GIF Sundsvall", date: "16 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },
-		{ title: "vs Helsingborgs", date: "2 August 2025", link: "https://player.mux.com/eXjrlJrl1YV9gFLpSVbzaJRQxyPKP9yA5DPBUGYjIkI" },	
-],
-                highlights: [],
-                academy: []
-            }
+}
         };
 
         // Sort keys alphabetically for the list

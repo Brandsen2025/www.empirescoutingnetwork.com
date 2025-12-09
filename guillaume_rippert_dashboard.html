@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - Guillaume Rippert Dashboard | MYG Invest</title>
+    <meta name="description" content="Guillaume Rippert Agent Dashboard - MYG Invest. 779 proprietary metrics, player analysis, market intelligence.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .player-card.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+
+        .roster-table th, .roster-table td {
+             padding: 12px 15px;
+             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+             vertical-align: middle; 
+        }
+         .roster-table th {
+            background-color: rgba(30, 58, 138, 0.3);
+            color: #93c5fd;
+            text-align: left;
+            font-weight: 600;
+        }
+        .roster-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nav-button {
+             background: none;
+             border: none;
+             color: #cbd5e0;
+             padding: 0.5rem 1rem;
+             cursor: pointer;
+             font-weight: 500;
+             transition: color 0.2s ease;
+        }
+        .nav-button:hover {
+             color: #60a5fa;
+        }
+        .nav-button.active {
+             color: #3b82f6;
+             font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    
+    <nav class="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="platform.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                         alt="Empire Scouting Network" 
+                         class="h-10 w-auto">
+                    <span class="text-xl font-bold gradient-text">Empire Scouting Network</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button data-section="dashboard" class="nav-button active">Dashboard</button>
+                    <button data-section="roster" class="nav-button">My Players</button>
+                    <button data-section="comparison" class="nav-button">Compare</button>
+                    <button data-section="market" class="nav-button">Market Intelligence</button>
+                    <span class="text-sm text-slate-400"> | Guillaume Rippert</span>
+                    <button onclick="logout()" class="text-sm text-red-400 hover:text-red-300">Logout</button>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-slate-900 border-t border-blue-500/20">
+            <div class="px-4 py-4 space-y-3">
+                 <button data-section="dashboard" class="nav-button block w-full text-left">Dashboard</button>
+                 <button data-section="roster" class="nav-button block w-full text-left">My Players</button>
+                 <button data-section="comparison" class="nav-button block w-full text-left">Compare</button>
+                 <button data-section="market" class="nav-button block w-full text-left">Market Intelligence</button>
+                 <button onclick="logout()" class="text-red-400 hover:text-red-300 block w-full text-left">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- DASHBOARD SECTION -->
+            <section id="dashboard" class="section">
+                <div class="text-center mb-12 p-8 bg-slate-900/50 rounded-xl border border-blue-500/20">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                        Welcome to Your Agent Dashboard
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-4">
+                        Guillaume Rippert • MYG Invest
+                    </p>
+                    <p class="text-sm text-slate-400 mb-8">
+                        VIP Access • 779 Metrics • 60 Philosophies • Priority Support
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                         <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">5</div>
+                            <div class="text-sm text-slate-400">Active Clients</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">€19.2M</div>
+                            <div class="text-sm text-slate-400">Portfolio Value</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-green-400 mb-2">60</div>
+                            <div class="text-sm text-slate-400">Philosophies</div>
+                        </div>
+                        <div class="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">80.4</div>
+                            <div class="text-sm text-slate-400">Avg. FGA Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Player List -->
+                    <div class="md:col-span-1 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">My Players</h3>
+                        <div id="player-list" class="space-y-4">
+                            <!-- Nathan Zeze Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover selected bg-slate-700/50 border-blue-400" 
+                                 onclick="selectPlayer(1)" 
+                                 id="player-1">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Nathan Zézé</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 85.0
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CB • 20 years</span>
+                                    <span>🇫🇷 FRA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ NEOM SC • Saudi Pro League
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Hicham Mahou Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(2)" 
+                                 id="player-2">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Hicham Mahou</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 79.5
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>LW/RW • 25 years</span>
+                                    <span>🇲🇦 MAR</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ FC Lugano • Swiss Super League
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Florian Danho Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(3)" 
+                                 id="player-3">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Florian Danho</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 77.8
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CF • 25 years</span>
+                                    <span>🇫🇷 FRA</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ Espérance Tunis • Ligue 1 Pro
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Nathanael Saintini Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(4)" 
+                                 id="player-4">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Nathanaël Saintini</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 76.5
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CB • 25 years</span>
+                                    <span>🇬🇵 GLP</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ FC Noah • Armenia Premier League
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+
+                            <!-- Christian Gomis Card -->
+                            <div class="player-card bg-slate-800/50 border border-blue-500/30 rounded-lg p-6 cursor-pointer transition card-hover" 
+                                 onclick="selectPlayer(5)" 
+                                 id="player-5">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="text-xl font-bold">Christian Gomis</div>
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold text-sm">
+                                        FGA: 75.8
+                                    </span>
+                                </div>
+                                <div class="flex justify-between text-slate-400 text-sm mb-4">
+                                    <span>CB/DM • 26 years</span>
+                                    <span>🇸🇳 SEN</span>
+                                </div>
+                                <div class="text-sm font-semibold text-green-400">
+                                    ⚽ BG Pathum Utd • Thai League
+                                </div>
+                                <div class="text-xs text-slate-500 mt-2">
+                                    Click to view full analysis
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="addPlayerRequest()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                            + Add Player
+                        </button>
+                    </div>
+                    
+                    <!-- Player Analysis -->
+                    <div class="md:col-span-2 bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Player Analysis</h3>
+                        <div id="player-analysis">
+                            <!-- Zeze Analysis -->
+                            <div class="player-analysis-content" id="analysis-1">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Nathan Zézé</h4>
+                                        <button onclick="exportPDF(1)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Centre-Back (Left) • 20 years • NEOM SC (Saudi Arabia) • 🇫🇷 France
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">85.0</div>
+                                            <div class="text-xs text-slate-400">FGA Potential</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">9.2</div>
+                                            <div class="text-xs text-slate-400">Aerial Duels</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.8</div>
+                                            <div class="text-xs text-slate-400">Progressive Pass</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€15M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.9</div>
+                                            <div class="text-xs text-slate-400">Klopp Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Klopp High Line</span>
+                                                    <span class="text-blue-400 font-bold">8.9/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 89%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Guardiola Build-up</span>
+                                                    <span class="text-blue-400 font-bold">8.6/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 86%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Conte 3-ATB</span>
+                                                    <span class="text-blue-400 font-bold">8.4/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 84%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Elite Prospect.</strong> A modern, left-footed centre-back with exceptional physical attributes (1.90m) and ball-playing ability. Recently moved to <strong>NEOM SC</strong> in Saudi Arabia in a significant transfer. Dominant in aerial duels and calm under pressure. One of the highest ceiling French defenders.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Premier League (Future Transfer), Champions League Clubs
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Monitor development in Saudi Pro League for future return to Europe.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mahou Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-2">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Hicham Mahou</h4>
+                                        <button onclick="exportPDF(2)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Winger (Right/Left) • 25 years • FC Lugano (SUI) • 🇲🇦 Morocco
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">79.5</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">9.0</div>
+                                            <div class="text-xs text-slate-400">Dribbling</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.7</div>
+                                            <div class="text-xs text-slate-400">Explosiveness</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€2.5M</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.6</div>
+                                            <div class="text-xs text-slate-400">De Zerbi Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>De Zerbi Isolation</span>
+                                                    <span class="text-blue-400 font-bold">8.6/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 86%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Klopp Transition</span>
+                                                    <span class="text-blue-400 font-bold">8.4/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 84%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ancelotti Freedom</span>
+                                                    <span class="text-blue-400 font-bold">8.1/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 81%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Dynamic Winger.</strong> Mahou is an explosive ball carrier who excels in 1v1 isolation. His low center of gravity and acceleration make him a nightmare for defenders in the Swiss Super League. Shows significant improvement in end-product (G+A).
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Ligue 1 (Mid-table), Serie A, Belgium Pro League
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Ready for top 5 league step-up as impact player.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Danho Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-3">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Florian Danho</h4>
+                                        <button onclick="exportPDF(3)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Centre-Forward • 25 years • Espérance Tunis (TUN) • 🇫🇷 France
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">77.8</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">9.1</div>
+                                            <div class="text-xs text-slate-400">Strength</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.0</div>
+                                            <div class="text-xs text-slate-400">Hold-up Play</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€700K</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.5</div>
+                                            <div class="text-xs text-slate-400">Mourinho Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Target Man</span>
+                                                    <span class="text-blue-400 font-bold">8.5/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Dyche Physical</span>
+                                                    <span class="text-blue-400 font-bold">8.3/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 83%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Conte Pivot</span>
+                                                    <span class="text-blue-400 font-bold">8.0/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 80%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Physical Powerhouse.</strong> Danho recently joined <strong>Espérance Tunis</strong>, bringing his sheer strength and frame to the African giants. Excellent back-to-goal play, allowing teammates to join the attack. A handful for any defense in set-piece situations and a key asset for CAF Champions League competition.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> CAF CL Contenders, Ligue 2 (Promotion chasers)
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Valuable asset for direct style teams and continental play.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Saintini Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-4">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Nathanaël Saintini</h4>
+                                        <button onclick="exportPDF(4)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Centre-Back • 25 years • FC Noah (Armenia) • 🇬🇵 Guadeloupe
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">76.5</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">9.3</div>
+                                            <div class="text-xs text-slate-400">Height (1.88m)</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.2</div>
+                                            <div class="text-xs text-slate-400">Blocks</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€500K</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.4</div>
+                                            <div class="text-xs text-slate-400">Dyche Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Dyche Low Block</span>
+                                                    <span class="text-blue-400 font-bold">8.4/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 84%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Defense</span>
+                                                    <span class="text-blue-400 font-bold">8.1/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 81%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Simeone Aggression</span>
+                                                    <span class="text-blue-400 font-bold">7.9/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 79%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Imposing Defender.</strong> Saintini is a physically imposing center-back who recently moved to <strong>FC Noah</strong> in Armenia. Dominates his penalty area with aerial prowess and strength. Gaining European experience in the UEFA Conference League. Best suited for structured defensive blocks.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Eastern Europe Top Flight, Ligue 2, MLS
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Solid starter for physical leagues.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Gomis Analysis -->
+                            <div class="player-analysis-content hidden" id="analysis-5">
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-2xl font-bold">Christian Gomis</h4>
+                                        <button onclick="exportPDF(5)" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="text-slate-300 mb-6">
+                                        Centre-Back / DM • 26 years • BG Pathum United • 🇸🇳 Senegal
+                                    </p>
+
+                                    <!-- Key Stats -->
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-blue-400">75.8</div>
+                                            <div class="text-xs text-slate-400">FGA Rating</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-cyan-400">8.4</div>
+                                            <div class="text-xs text-slate-400">Versatility</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-green-400">8.1</div>
+                                            <div class="text-xs text-slate-400">Tackling</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-yellow-400">€400K</div>
+                                            <div class="text-xs text-slate-400">Market Value</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-purple-400">8.0</div>
+                                            <div class="text-xs text-slate-400">Bielsa Fit</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Philosophy Compatibility -->
+                                    <div class="mb-6">
+                                        <h5 class="text-lg font-bold mb-4">Tactical Philosophy Compatibility</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Bielsa Intensity</span>
+                                                    <span class="text-blue-400 font-bold">8.0/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 80%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Mourinho Defensive</span>
+                                                    <span class="text-blue-400 font-bold">7.8/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 78%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-sm mb-1">
+                                                    <span>Ancelotti Adaptable</span>
+                                                    <span class="text-blue-400 font-bold">7.5/10</span>
+                                                </div>
+                                                <div class="w-full bg-slate-700 rounded-full h-2">
+                                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 75%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scouting Notes -->
+                                    <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+                                        <h5 class="text-lg font-bold mb-3 text-blue-400">🎯 Scouting Report</h5>
+                                        <p class="text-slate-300 text-sm leading-relaxed">
+                                            <strong>Versatile Stopper.</strong> Gomis offers flexibility, capable of playing as a central defender or defensive midfielder. His PSG academy background shows in his technical basics, combined with physical ruggedness. Currently performing well in Asian markets.
+                                        </p>
+                                        <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                            <strong>Target Clubs:</strong> Asian Top Flights, Eastern Europe, Ligue 2
+                                        </p>
+                                        <p class="text-green-400 text-sm font-bold mt-3">
+                                            💡 Recommendation: Reliable utility player for squad depth.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </section>
+
+             <!-- ROSTER SECTION -->
+             <section id="roster" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                     <div class="flex justify-between items-center mb-8">
+                        <h1 class="text-4xl md:text-5xl font-bold gradient-text">
+                            My Player Roster
+                        </h1>
+                        <button onclick="exportAllPDFs()" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Export All PDFs
+                        </button>
+                    </div>
+                     <div class="overflow-x-auto">
+                        <table class="roster-table w-full text-sm text-left text-slate-300">
+                             <thead class="text-xs uppercase">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Age</th>
+                                    <th>Current Club</th>
+                                    <th>Nationality</th>
+                                    <th>FGA Rating</th>
+                                    <th>Market Value</th>
+                                    <th>Actions</th>
+                                </tr>
+                             </thead>
+                             <tbody>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Nathan_Zeze.html" class="hover:underline">Nathan Zézé</a>
+                                    </td>
+                                    <td>CB</td>
+                                    <td>20</td>
+                                    <td>NEOM SC (KSA)</td>
+                                    <td>🇫🇷 FRA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">85.0</span></td>
+                                    <td>€15.0M</td>
+                                    <td>
+                                        <button onclick="exportPDF(1)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Hicham_Mahou.html" class="hover:underline">Hicham Mahou</a>
+                                    </td>
+                                    <td>LW/RW</td>
+                                    <td>25</td>
+                                    <td>FC Lugano</td>
+                                    <td>🇲🇦 MAR</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">79.5</span></td>
+                                    <td>€2.5M</td>
+                                    <td>
+                                        <button onclick="exportPDF(2)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Florian_Danho.html" class="hover:underline">Florian Danho</a>
+                                    </td>
+                                    <td>CF</td>
+                                    <td>25</td>
+                                    <td>Espérance Tunis</td>
+                                    <td>🇫🇷 FRA</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">77.8</span></td>
+                                    <td>€700K</td>
+                                    <td>
+                                        <button onclick="exportPDF(3)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Nathanael_Saintini.html" class="hover:underline">Nathanaël Saintini</a>
+                                    </td>
+                                    <td>CB</td>
+                                    <td>25</td>
+                                    <td>FC Noah</td>
+                                    <td>🇬🇵 GLP</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">76.5</span></td>
+                                    <td>€500K</td>
+                                    <td>
+                                        <button onclick="exportPDF(4)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold text-blue-400">
+                                        <a href="Christian_Gomis.html" class="hover:underline">Christian Gomis</a>
+                                    </td>
+                                    <td>CB/DM</td>
+                                    <td>26</td>
+                                    <td>BG Pathum Utd</td>
+                                    <td>🇸🇳 SEN</td>
+                                    <td><span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold">75.8</span></td>
+                                    <td>€400K</td>
+                                    <td>
+                                        <button onclick="exportPDF(5)" class="text-green-400 hover:text-green-300 text-xs underline">
+                                            Export PDF
+                                        </button>
+                                    </td>
+                                </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <p class="text-xs text-slate-500 mt-4">
+                        Click "Export PDF" to generate professional scouting reports for clubs.
+                    </p>
+                </div>
+            </section>
+
+            <!-- COMPARISON SECTION -->
+            <section id="comparison" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+                        Player Comparison Tool
+                    </h1>
+                    
+                    <div class="text-center py-20">
+                        <svg class="w-24 h-24 text-blue-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4">Compare Players Side-by-Side</h3>
+                        <p class="text-slate-400 mb-6 max-w-2xl mx-auto">
+                            Advanced comparison features now available. Compare Nathan Zeze vs Elite U23 Defenders or Hicham Mahou vs Swiss League Wingers.
+                        </p>
+                        <a href="platform.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition text-white">
+                            Launch Comparison Tool
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKET INTELLIGENCE SECTION -->
+            <section id="market" class="section hidden">
+                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+                        Market Intelligence Hub
+                    </h1>
+
+                    <!-- Market Overview Cards -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">€19.2M</div>
+                                    <div class="text-sm text-slate-400">Portfolio Est. Value</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Zeze's move to NEOM SC drove value up</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-green-400">24.2</div>
+                                    <div class="text-sm text-slate-400">Avg. Age</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">High Potential Youth Roster</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-6 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-purple-400">22</div>
+                                    <div class="text-sm text-slate-400">Active Inquiries</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500">Saudi, African & European Interest</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Trends -->
+                    <div class="bg-slate-800/50 border border-blue-500/20 rounded-lg p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-blue-400">Market Trends & Insights</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">🔥 Hot Market: Saudi Pro League Youth</h3>
+                                <p class="text-slate-300 text-sm">
+                                    The transfer of <strong>Nathan Zeze</strong> to NEOM SC highlights the growing trend of top Saudi clubs investing in elite young European talent, not just veterans.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">📊 Value Opportunity: African Champions League</h3>
+                                <p class="text-slate-300 text-sm">
+                                    <strong>Florian Danho's</strong> move to Espérance Tunis places him in a high-visibility window for CAF Champions League, often a springboard back to Ligue 1.
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h3 class="text-lg font-bold mb-2">⚡ Emerging Trend: Conference League Exposure</h3>
+                                <p class="text-slate-300 text-sm">
+                                    <strong>Nathanael Saintini</strong> joining FC Noah provides crucial UEFA Conference League minutes, increasing his visibility to mid-tier European clubs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.getAttribute('data-section');
+                
+                // Update active nav button
+                document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show selected section
+                document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById(section).classList.remove('hidden');
+                
+                // Close mobile menu if open
+                closeMobileMenu();
+            });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        }
+
+        function selectPlayer(id) {
+            // Update selected card
+            document.querySelectorAll('.player-card').forEach(card => {
+                card.classList.remove('selected', 'bg-slate-700/50', 'border-blue-400');
+            });
+            document.getElementById(`player-${id}`).classList.add('selected', 'bg-slate-700/50', 'border-blue-400');
+            
+            // Show selected player analysis
+            document.querySelectorAll('.player-analysis-content').forEach(analysis => {
+                analysis.classList.add('hidden');
+            });
+            document.getElementById(`analysis-${id}`).classList.remove('hidden');
+        }
+
+        // Guillaume Rippert's Player Database - UPDATED CLUBS
+        const playersDB = {
+            1: {
+                name: 'Nathan Zeze',
+                position: 'CB',
+                club: 'NEOM SC',
+                age: 20,
+                nationality: 'France',
+                fgaOverall: 8.5,
+                marketValue: '15.0',
+                bio: 'One of the most promising young French defenders, recently making a high-profile move to NEOM SC in Saudi Arabia. Standing at 1.90m, Zeze combines elite physical traits with modern ball-playing ability. His transfer value has skyrocketed, reflecting his status as a cornerstone defensive talent.',
+                strengths: [
+                    'Elite aerial ability',
+                    'Left-footed balance',
+                    'Recovery pace',
+                    'Ball progression',
+                    'Physical dominance'
+                ],
+                xps: 7.0, 
+                trophyMagnet: 7.5,
+                dma: 8.2, 
+                poi: 8.5, 
+                chr: 8.0,
+                cpx: 8.4,
+                guardiola: 8.6,
+                klopp: 8.9, 
+                ancelotti: 8.2,
+                mourinho: 8.0,
+                cruyff: 8.3,
+                transferTargets: [
+                    'Premier League (Future)',
+                    'Saudi Pro League Giants',
+                    'Champions League Clubs'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Guillaume Rippert',
+                agentCompany: 'MYG Invest'
+            },
+            2: {
+                name: 'Hicham Mahou',
+                position: 'LW/RW',
+                club: 'FC Lugano',
+                age: 25,
+                nationality: 'Morocco/France',
+                fgaOverall: 7.95,
+                marketValue: '2.5',
+                bio: 'Explosive winger plying his trade in the Swiss Super League with FC Lugano. Mahou is a dynamic dribbler who thrives in 1v1 situations. He has developed his end product significantly and offers versatility across the front line. His pace is a major asset in transition.',
+                strengths: [
+                    'Explosive acceleration',
+                    '1v1 Dribbling',
+                    'Versatility (Both wings)',
+                    'Transitional play',
+                    'Agility'
+                ],
+                xps: 7.8,
+                trophyMagnet: 7.5,
+                dma: 7.6,
+                poi: 7.8,
+                chr: 7.9,
+                cpx: 8.0,
+                guardiola: 7.5,
+                klopp: 8.4, 
+                ancelotti: 8.1,
+                mourinho: 7.2,
+                cruyff: 7.4,
+                transferTargets: [
+                    'Ligue 1 Mid-table',
+                    'Serie A',
+                    'Belgium Pro League'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Guillaume Rippert',
+                agentCompany: 'MYG Invest'
+            },
+            3: {
+                name: 'Florian Danho',
+                position: 'CF',
+                club: 'Espérance Tunis',
+                age: 25,
+                nationality: 'France',
+                fgaOverall: 7.78,
+                marketValue: '0.7',
+                bio: 'A physical centre-forward who recently signed with African giants Espérance Tunis. Danho is a classic target man profile—strong, capable of holding up the ball, and dominating in the air. He will be a key figure in their domestic and CAF Champions League campaigns.',
+                strengths: [
+                    'Physical strength',
+                    'Hold-up play',
+                    'Aerial threat',
+                    'Back-to-goal play',
+                    'Work rate'
+                ],
+                xps: 7.4,
+                trophyMagnet: 7.8,
+                dma: 7.5,
+                poi: 8.0,
+                chr: 8.2,
+                cpx: 7.1,
+                guardiola: 6.8,
+                klopp: 7.5,
+                ancelotti: 7.8,
+                mourinho: 8.5, 
+                cruyff: 6.5,
+                transferTargets: [
+                    'Ligue 1 (Return)',
+                    'GCC Leagues',
+                    'Turkish Super Lig'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Guillaume Rippert',
+                agentCompany: 'MYG Invest'
+            },
+            4: {
+                name: 'Nathanaël Saintini',
+                position: 'CB',
+                club: 'FC Noah',
+                age: 25,
+                nationality: 'Guadeloupe',
+                fgaOverall: 7.65,
+                marketValue: '0.5',
+                bio: 'Imposing central defender currently playing for FC Noah in Armenia. Standing at 1.88m, Saintini dominates the penalty box with his aerial prowess and physical strength. His move to FC Noah provides him with European competition experience in the UEFA Conference League.',
+                strengths: [
+                    'Aerial dominance',
+                    'Physicality',
+                    'Shot blocking',
+                    'Defensive positioning',
+                    'Strength'
+                ],
+                xps: 7.5,
+                trophyMagnet: 7.2,
+                dma: 7.4,
+                poi: 7.9,
+                chr: 8.0,
+                cpx: 7.0,
+                guardiola: 6.5,
+                klopp: 7.2,
+                ancelotti: 7.5,
+                mourinho: 8.1, 
+                cruyff: 6.0,
+                transferTargets: [
+                    'Ligue 2',
+                    'MLS',
+                    'Eastern Europe Top Tier'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Guillaume Rippert',
+                agentCompany: 'MYG Invest'
+            },
+            5: {
+                name: 'Christian Gomis',
+                position: 'CB/DM',
+                club: 'BG Pathum United',
+                age: 26,
+                nationality: 'Senegal/France',
+                fgaOverall: 7.58,
+                marketValue: '0.4',
+                bio: 'Versatile defensive player capable of operating as a centre-back or defensive midfielder. Gomis brings a mix of French academy technical schooling (PSG youth) and physical resilience. Currently playing in Asia, he offers reliability and tactical flexibility for his team.',
+                strengths: [
+                    'Versatility (CB/DM)',
+                    'Tackling',
+                    'Defensive discipline',
+                    'Physical presence',
+                    'Adaptability'
+                ],
+                xps: 7.5,
+                trophyMagnet: 7.2,
+                dma: 7.6,
+                poi: 7.7,
+                chr: 8.0,
+                cpx: 7.4,
+                guardiola: 7.2,
+                klopp: 7.5,
+                ancelotti: 7.5,
+                mourinho: 7.8,
+                cruyff: 7.0,
+                transferTargets: [
+                    'Ligue 2',
+                    'Asian Top Flights',
+                    'Swiss League'
+                ],
+                hasVideoHighlights: true,
+                agent: 'Guillaume Rippert',
+                agentCompany: 'MYG Invest'
+            }
+        };
+
+        // Helper Functions
+        function calculateSalaryBand(fga) {
+            if (fga >= 8.5) return { min: 40, max: 80, position: 'Elite Potential' };
+            if (fga >= 7.8) return { min: 15, max: 35, position: 'Top Tier Starter' };
+            if (fga >= 7.5) return { min: 5, max: 15, position: 'Squad Rotation' };
+            return { min: 2, max: 8, position: 'Development/Depth' };
+        }
+
+        function loadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+
+        async function exportPDF(playerId) {
+            const player = playersDB[playerId];
+            if (!player) {
+                alert('Player data not found');
+                return;
+            }
+            
+            const statusMsg = document.createElement('div');
+            statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #3b82f6;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+            statusMsg.innerHTML = '<div style="color:#60a5fa;font-size:18px;font-weight:bold;margin-bottom:10px;">⏳ Generating Report...</div><div style="color:#94a3b8;font-size:14px;">Creating Scouting Report for ' + player.name + '</div>';
+            document.body.appendChild(statusMsg);
+            
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // PAGE 1: HEADER
+                doc.setFillColor(30, 58, 138); // Blue header for MYG
+                doc.rect(0, 0, 210, 50, 'F');
+                
+                // Empire FGA Logo
+                const logoUrl = 'https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ';
+                
+                try {
+                    const logoImg = await loadImage(logoUrl);
+                    doc.addImage(logoImg, 'PNG', 15, 8, 35, 35);
+                } catch (error) {
+                    // Fallback
+                }
+                
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(22);
+                doc.setFont(undefined, 'bold');
+                doc.text('EMPIRE FGA SCOUTING REPORT', 55, 22);
+                
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'normal');
+                doc.text('Guillaume Rippert • MYG Invest', 55, 32);
+                doc.text('779-Metric Analysis System', 55, 39);
+                
+                // Player Info
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(18);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(30, 58, 138);
+                doc.text(player.name, 20, 65);
+                
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.setFont(undefined, 'normal');
+                doc.text(`${player.position} • ${player.age} years • ${player.club} • ${player.nationality}`, 20, 73);
+                
+                // Rating Badge
+                doc.setFillColor(59, 130, 246);
+                doc.roundedRect(150, 58, 40, 18, 3, 3, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.text(`FGA: ${player.fgaOverall.toFixed(1)}`, 170, 70, { align: 'center' });
+                
+                // Bio
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(30, 58, 138);
+                doc.text('EXECUTIVE SUMMARY', 20, 88);
+                
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(10);
+                doc.setTextColor(0, 0, 0);
+                
+                const bioLines = doc.splitTextToSize(player.bio, 170);
+                let yPos = 96;
+                bioLines.forEach(line => {
+                    doc.text(line, 20, yPos);
+                    yPos += 5;
+                });
+                
+                // Metrics
+                yPos += 8;
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(30, 58, 138);
+                doc.text('KEY PERFORMANCE METRICS', 20, yPos);
+                
+                yPos += 8;
+                const metrics = [
+                    { label: 'XPS (Experience)', value: player.xps },
+                    { label: 'Trophy Magnet', value: player.trophyMagnet },
+                    { label: 'DMA (Decision)', value: player.dma },
+                    { label: 'POI (Positioning)', value: player.poi },
+                    { label: 'CHR (Character)', value: player.chr },
+                    { label: 'CPX (Complexity)', value: player.cpx }
+                ];
+                
+                metrics.forEach((metric, index) => {
+                    const xOffset = (index % 2) * 95;
+                    const yOffset = Math.floor(index / 2) * 10;
+                    
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(0, 0, 0);
+                    doc.text(metric.label, 20 + xOffset, yPos + yOffset);
+                    
+                    doc.setFont(undefined, 'bold');
+                    doc.setTextColor(59, 130, 246);
+                    doc.text(`${metric.value.toFixed(1)}/10`, 75 + xOffset, yPos + yOffset);
+                    
+                    doc.setFillColor(226, 232, 240);
+                    doc.rect(90 + xOffset, yPos + yOffset - 3, 30, 4, 'F');
+                    doc.setFillColor(59, 130, 246);
+                    doc.rect(90 + xOffset, yPos + yOffset - 3, (metric.value / 10) * 30, 4, 'F');
+                });
+                
+                yPos += 40;
+                
+                // Strengths
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(30, 58, 138);
+                doc.text('KEY STRENGTHS', 20, yPos);
+                
+                yPos += 8;
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                doc.setTextColor(0, 0, 0);
+                
+                player.strengths.forEach(strength => {
+                    const strengthLines = doc.splitTextToSize(`• ${strength}`, 170);
+                    strengthLines.forEach(line => {
+                        doc.text(line, 25, yPos);
+                        yPos += 5;
+                    });
+                });
+                
+                // Value
+                yPos += 5;
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Estimated Market Value:', 20, yPos);
+                doc.setTextColor(34, 197, 94);
+                doc.text(`€${player.marketValue}M`, 80, yPos);
+                
+                // Footer
+                doc.setFontSize(8);
+                doc.setTextColor(128, 128, 128);
+                doc.text('Empire FGA Scouting Network | MYG Invest | www.empirescoutingnetwork.com', 105, 285, { align: 'center' });
+                
+                // Save
+                doc.save(`Empire_FGA_${player.name.replace(/\s/g, '_')}_Report.pdf`);
+                document.body.removeChild(statusMsg);
+                
+            } catch (error) {
+                document.body.removeChild(statusMsg);
+                alert('Error: ' + error.message);
+            }
+        }
+
+        async function exportAllPDFs() {
+            const statusMsg = document.createElement('div');
+            statusMsg.style = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;border:2px solid #3b82f6;padding:30px;border-radius:12px;z-index:9999;text-align:center;';
+            statusMsg.innerHTML = '<div style="color:#60a5fa;font-size:18px;font-weight:bold;margin-bottom:10px;">⏳ Generating All PDFs...</div><div style="color:#94a3b8;font-size:14px;">Processing MYG Invest Roster</div>';
+            document.body.appendChild(statusMsg);
+            
+            try {
+                for (let i = 1; i <= 5; i++) {
+                    await exportPDF(i);
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                }
+                document.body.removeChild(statusMsg);
+                alert('All reports generated successfully!');
+            } catch (error) {
+                document.body.removeChild(statusMsg);
+            }
+        }
+
+        function addPlayerRequest() {
+            alert('Request sent to MYG Invest admin for player addition.');
+        }
+
+        function logout() {
+            if(confirm('Logout of Guillaume Rippert Dashboard?')) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
