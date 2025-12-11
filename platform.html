@@ -726,350 +726,978 @@
                 </div>
             </div>
 
-            <!-- MARKET INTELLIGENCE TAB -->
+           <!-- MARKET INTELLIGENCE TAB -->
             <div id="market-tab" class="tab-content">
+                <!-- HERO SECTION -->
                 <div class="text-center mb-8">
-                    <h1 class="text-4xl font-bold mb-4 gradient-text">🚨 Transfer Risk Calculator</h1>
-                    <p class="text-xl text-slate-300">Predict transfer disasters BEFORE they happen - Based on CIES Big 5 league data</p>
-                    <p class="text-sm text-slate-400 mt-2">Research shows: <span class="text-red-400 font-bold">54% of top transfers FAIL</span> | Empire FGA Accuracy: <span class="text-green-400 font-bold">76%</span></p>
+                    <h1 class="text-5xl font-bold mb-4 gradient-text">💎 Market Intelligence Dashboard</h1>
+                    <p class="text-2xl text-slate-300 mb-2">The ONLY platform that tells you WHO IS SIGNABLE</p>
+                    <p class="text-sm text-slate-400">Performance Data + Financial Intelligence + Deal Feasibility = Smart Scouting</p>
                 </div>
 
-                <!-- CIES Market Overview -->
-                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-blue-300">📊 Big 5 League Market Overview (CIES Data)</h3>
-                        <span class="text-xs text-slate-400">Source: CIES Football Observatory</span>
+                <!-- QUICK STATS OVERVIEW -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                    <div class="stat-card">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <div class="stat-value">9</div>
+                        <div class="stat-label">Data Sources</div>
                     </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-slate-800/50 rounded-lg p-4 text-center">
-                            <div class="text-2xl font-bold text-blue-400">€3.5B</div>
-                            <div class="text-xs text-slate-400 mt-1">Annual Transfer Volume</div>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-4 text-center">
-                            <div class="text-2xl font-bold text-red-400">54%</div>
-                            <div class="text-xs text-slate-400 mt-1">Transfer Failure Rate</div>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-4 text-center">
-                            <div class="text-2xl font-bold text-yellow-400">37%</div>
-                            <div class="text-xs text-slate-400 mt-1">Premier League Share</div>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-4 text-center">
-                            <div class="text-2xl font-bold text-green-400">58%</div>
-                            <div class="text-xs text-slate-400 mt-1">Bundesliga Success Rate ⭐</div>
-                        </div>
+                    <div class="stat-card">
+                        <div class="text-3xl mb-2">💰</div>
+                        <div class="stat-value">€3.5B</div>
+                        <div class="stat-label">Annual Transfer Volume</div>
                     </div>
-                </div>
-
-                <!-- CASE STUDY: Validated Predictions -->
-                <div class="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/30 rounded-xl p-6 mb-8">
-                    <div class="flex items-start gap-4">
-                        <div class="text-4xl">💀</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-red-400 mb-2">Validated Prediction: Antony → Manchester United</h3>
-                            <div class="grid md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <div class="text-sm text-slate-400 mb-2">Transfer Details (2022)</div>
-                                    <div class="space-y-1 text-sm">
-                                        <div class="flex justify-between">
-                                            <span class="text-slate-300">Transfer Fee:</span>
-                                            <span class="text-white font-bold">€95M</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-slate-300">From:</span>
-                                            <span class="text-white">Ajax (Eredivisie)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-slate-300">FGA Value:</span>
-                                            <span class="text-yellow-400 font-bold">€35M</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-slate-300">Overpayment:</span>
-                                            <span class="text-red-400 font-bold">€60M (217%)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-slate-400 mb-2">Empire FGA Risk Assessment</div>
-                                    <div class="bg-red-500/20 rounded-lg p-3 mb-2">
-                                        <div class="flex items-center justify-between mb-2">
-                                            <span class="text-red-400 font-bold">RISK SCORE</span>
-                                            <span class="text-3xl font-bold text-red-400">🔴 75/100</span>
-                                        </div>
-                                        <div class="text-xs text-slate-300">Success Probability: 25%</div>
-                                    </div>
-                                    <div class="text-xs space-y-1">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-red-400">✗</span>
-                                            <span>217% overvaluation</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-red-400">✗</span>
-                                            <span>League jump: Eredivisie → PL</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-red-400">✗</span>
-                                            <span>Philosophy mismatch</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-slate-800/50 rounded-lg p-4">
-                                <div class="text-sm font-semibold text-slate-300 mb-2">Actual Outcome (2022-2024):</div>
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <div class="text-xl font-bold text-red-400">5 Goals</div>
-                                        <div class="text-xs text-slate-400">56 games</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-xl font-bold text-red-400">€30M</div>
-                                        <div class="text-xs text-slate-400">Current value</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-xl font-bold text-red-400">-€65M</div>
-                                        <div class="text-xs text-slate-400">Value lost</div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 text-center">
-                                    <span class="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-lg text-sm font-bold">
-                                        ✅ EMPIRE FGA PREDICTION: CORRECT
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="stat-card">
+                        <div class="text-3xl mb-2">📊</div>
+                        <div class="stat-value">120+</div>
+                        <div class="stat-label">Leagues Covered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-3xl mb-2">🔥</div>
+                        <div class="stat-value">76%</div>
+                        <div class="stat-label">Prediction Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-3xl mb-2">⚡</div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Smart Features</div>
                     </div>
                 </div>
 
-                <!-- Interactive Calculator -->
-                <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-blue-300">🎯 Calculate Transfer Risk</h3>
-                    <p class="text-sm text-slate-400 mb-6">Select a player from our database to calculate their transfer risk score</p>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Input Section -->
-                        <div>
-                            <div class="space-y-4">
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Select Player</label>
-                                    <select id="riskPlayerSelect" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white">
-                                        <option value="">Choose a player...</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Target Club League</label>
-                                    <select id="riskTargetLeague" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white">
-                                        <option value="Premier League">Premier League</option>
-                                        <option value="La Liga">La Liga</option>
-                                        <option value="Serie A">Serie A</option>
-                                        <option value="Bundesliga">Bundesliga</option>
-                                        <option value="Ligue 1">Ligue 1</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Target Club Philosophy</label>
-                                    <select id="riskTargetPhilosophy" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white">
-                                        <option value="Guardiola Positional">Guardiola - Positional Play</option>
-                                        <option value="Klopp Intensity">Klopp - High Intensity</option>
-                                        <option value="Mourinho Defensive">Mourinho - Defensive Pragmatism</option>
-                                        <option value="Ferguson Balanced">Ferguson - Balanced Attack</option>
-                                        <option value="Ancelotti Flexible">Ancelotti - Flexible 4-3-3</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Proposed Transfer Fee (€M)</label>
-                                    <input type="number" id="riskTransferFee" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white" placeholder="e.g., 50" min="0">
-                                </div>
-                                
-                                <button onclick="calculateTransferRisk()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 px-6 py-3 rounded-lg font-bold transition">
-                                    Calculate Risk Score
-                                </button>
-                            </div>
-                        </div>
+                <!-- NAVIGATION TABS -->
+                <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                    <button onclick="showMarketSection('data-sources', this)" class="market-sub-tab active bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        📊 Data Sources
+                    </button>
+                    <button onclick="showMarketSection('feasibility', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🎯 Feasibility Filter
+                    </button>
+                    <button onclick="showMarketSection('work-permit', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🛂 Work Permit (GBE)
+                    </button>
+                    <button onclick="showMarketSection('league-conversion', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🌍 League Conversion
+                    </button>
+                    <button onclick="showMarketSection('agent-network', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🤝 Agent Network
+                    </button>
+                    <button onclick="showMarketSection('replacement', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🔄 Replacement Engine
+                    </button>
+                </div>
+
+                <!-- SECTION 1: DATA SOURCES -->
+                <div id="market-data-sources" class="market-section">
+                    <div class="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/30 rounded-xl p-6 mb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-300">📊 Our 9 Data Sources - The Foundation</h2>
+                        <p class="text-slate-300 mb-6">We integrate data from the world's leading providers to give you the complete picture</p>
                         
-                        <!-- Results Section -->
-                        <div id="riskResults" class="hidden">
-                            <div class="bg-slate-800/50 rounded-lg p-6">
-                                <h4 class="text-lg font-bold mb-4">Risk Assessment</h4>
-                                
-                                <!-- Risk Score Badge -->
-                                <div id="riskScoreBadge" class="bg-slate-700/50 rounded-lg p-6 mb-4 text-center">
-                                    <div class="text-sm text-slate-400 mb-2">TRANSFER RISK SCORE</div>
-                                    <div id="riskScoreValue" class="text-5xl font-bold mb-2">0</div>
-                                    <div id="riskScoreLabel" class="text-sm font-semibold">LOW RISK</div>
-                                    <div class="mt-3 text-xs">
-                                        <span class="text-slate-400">Success Probability: </span>
-                                        <span id="riskSuccessProbability" class="font-bold">0%</span>
+                        <!-- PERFORMANCE DATA -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">⚽ Performance & Event Data</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <!-- StatsBomb -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-blue-500/20 hover:border-blue-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">StatsBomb (Hudl)</h4>
+                                            <p class="text-xs text-blue-400">Gold Standard - Most Granular Data</p>
+                                        </div>
+                                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">ACTIVE</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 3,400+ events per match</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 360° player tracking included</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 170+ competitions</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Pressure data, freeze frames</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Coverage: 40+ leagues</span>
+                                        <span class="text-xs font-bold text-yellow-400">€50K-100K/yr</span>
                                     </div>
                                 </div>
-                                
-                                <!-- Breakdown -->
-                                <div id="riskBreakdown" class="space-y-3 mb-4">
-                                    <!-- Populated by JavaScript -->
+
+                                <!-- Wyscout -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-blue-500/20 hover:border-blue-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Wyscout (Hudl)</h4>
+                                            <p class="text-xs text-blue-400">Video + Data Linkage</p>
+                                        </div>
+                                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">ACTIVE</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 2,000 games/week</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Video clips linked to data</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 300+ competitions</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Youth tournament coverage</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Unique: Video integration</span>
+                                        <span class="text-xs font-bold text-yellow-400">€30K-60K/yr</span>
+                                    </div>
                                 </div>
-                                
-                                <!-- Recommendations -->
-                                <div id="riskRecommendations" class="space-y-2">
-                                    <!-- Populated by JavaScript -->
+
+                                <!-- Opta -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700/20 hover:border-slate-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Opta (Stats Perform)</h4>
+                                            <p class="text-xs text-slate-400">Broadest Global Coverage</p>
+                                        </div>
+                                        <span class="bg-slate-600 text-slate-300 px-2 py-1 rounded text-xs font-bold">OPTIONAL</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-info-circle text-slate-400"></i> 80+ competitions</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-info-circle text-slate-400"></i> Historical data (2000s+)</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-info-circle text-slate-400"></i> Opta Vision tracking</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-info-circle text-slate-400"></i> ProVision platform</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Most expensive option</span>
+                                        <span class="text-xs font-bold text-red-400">€80K-150K/yr</span>
+                                    </div>
+                                </div>
+
+                                <!-- Impect -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20 hover:border-purple-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Impect (Catapult)</h4>
+                                            <p class="text-xs text-purple-400">Revolutionary Packing Data</p>
+                                        </div>
+                                        <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs font-bold">PREMIUM</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-star text-purple-400"></i> Packing® metric</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-star text-purple-400"></i> 70+ competitions</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-star text-purple-400"></i> 9+ Bundesliga clubs use it</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-star text-purple-400"></i> Highest predictive power</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Used by Tuchel, Klopp</span>
+                                        <span class="text-xs font-bold text-yellow-400">€20K-40K/yr</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- "We Warned You" Section -->
-                <div class="bg-slate-900/50 border border-red-500/20 rounded-xl p-6 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-red-400">💀 Transfer Disasters We Predicted (2018-2024)</h3>
-                    <p class="text-sm text-slate-400 mb-6">Real transfers that Empire FGA would have flagged as high-risk</p>
-                    
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <!-- Disaster 1 -->
-                        <div class="bg-slate-800/50 rounded-lg p-4 border border-red-500/20">
-                            <div class="flex items-center justify-between mb-3">
-                                <h4 class="font-bold text-white">Romelu Lukaku → Chelsea</h4>
-                                <span class="text-red-400 font-bold text-sm">🔴 72/100</span>
-                            </div>
-                            <div class="text-xs space-y-1 mb-3">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Fee:</span>
-                                    <span class="text-white">€115M</span>
+                        <!-- FINANCIAL DATA -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4 text-green-400">💰 Market & Financial Intelligence</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <!-- Transfermarkt -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20 hover:border-green-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Transfermarkt</h4>
+                                            <p class="text-xs text-green-400">Market Values & Contracts</p>
+                                        </div>
+                                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">FREE</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Market values</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Contract expiry dates</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Agent information</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Injury records</li>
+                                    </ul>
+                                    <div class="text-xs text-slate-400">Via web scraping (worldfootballR)</div>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Year:</span>
-                                    <span class="text-white">2021</span>
+
+                                <!-- Capology -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20 hover:border-green-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Capology</h4>
+                                            <p class="text-xs text-green-400">Salary & Payroll Data</p>
+                                        </div>
+                                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">ACTIVE</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Player salaries (gross/net)</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Club wage bills</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 15+ European leagues</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Tax-adjusted estimates</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Best salary source</span>
+                                        <span class="text-xs font-bold text-yellow-400">€5K-15K/yr</span>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Loss:</span>
-                                    <span class="text-red-400 font-bold">€40M+</span>
+
+                                <!-- Off The Pitch -->
+                                <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20 hover:border-green-500/40 transition">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white">Off The Pitch</h4>
+                                            <p class="text-xs text-green-400">Club Financial Health</p>
+                                        </div>
+                                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">ACTIVE</span>
+                                    </div>
+                                    <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> P&L statements</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Debt levels</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 25 European leagues</li>
+                                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Motivated sellers ID</li>
+                                    </ul>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-slate-400">Predict who MUST sell</span>
+                                        <span class="text-xs font-bold text-yellow-400">€10K-25K/yr</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-xs text-slate-300">
-                                <span class="font-semibold">Outcome:</span> Loaned back to Inter after 1 season
                             </div>
                         </div>
 
-                        <!-- Disaster 2 -->
-                        <div class="bg-slate-800/50 rounded-lg p-4 border border-red-500/20">
-                            <div class="flex items-center justify-between mb-3">
-                                <h4 class="font-bold text-white">Philippe Coutinho → Barcelona</h4>
-                                <span class="text-red-400 font-bold text-sm">🔴 78/100</span>
-                            </div>
-                            <div class="text-xs space-y-1 mb-3">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Fee:</span>
-                                    <span class="text-white">€160M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Year:</span>
-                                    <span class="text-white">2018</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Loss:</span>
-                                    <span class="text-red-400 font-bold">€140M (87%)</span>
-                                </div>
-                            </div>
-                            <div class="text-xs text-slate-300">
-                                <span class="font-semibold">Outcome:</span> Multiple loans, sold at massive loss
-                            </div>
-                        </div>
-
-                        <!-- Disaster 3 -->
-                        <div class="bg-slate-800/50 rounded-lg p-4 border border-red-500/20">
-                            <div class="flex items-center justify-between mb-3">
-                                <h4 class="font-bold text-white">Harry Maguire → Man United</h4>
-                                <span class="text-red-400 font-bold text-sm">🔴 65/100</span>
-                            </div>
-                            <div class="text-xs space-y-1 mb-3">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Fee:</span>
-                                    <span class="text-white">€87M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Year:</span>
-                                    <span class="text-white">2019</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Loss:</span>
-                                    <span class="text-red-400 font-bold">€72M (83%)</span>
-                                </div>
-                            </div>
-                            <div class="text-xs text-slate-300">
-                                <span class="font-semibold">Outcome:</span> Captain stripped, value €15M
-                            </div>
-                        </div>
-
-                        <!-- Disaster 4 -->
-                        <div class="bg-slate-800/50 rounded-lg p-4 border border-red-500/20">
-                            <div class="flex items-center justify-between mb-3">
-                                <h4 class="font-bold text-white">Nicolas Pépé → Arsenal</h4>
-                                <span class="text-red-400 font-bold text-sm">🔴 68/100</span>
-                            </div>
-                            <div class="text-xs space-y-1 mb-3">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Fee:</span>
-                                    <span class="text-white">€80M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Year:</span>
-                                    <span class="text-white">2019</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Loss:</span>
-                                    <span class="text-red-400 font-bold">€70M (88%)</span>
-                                </div>
-                            </div>
-                            <div class="text-xs text-slate-300">
-                                <span class="font-semibold">Outcome:</span> Flopped, released on free
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-center">
-                        <div class="text-2xl font-bold text-red-400 mb-2">€850M+</div>
-                        <div class="text-sm text-slate-300">Total preventable losses from top 10 predicted disasters</div>
-                        <div class="text-xs text-slate-400 mt-2">"Imagine your club saved just ONE of these disasters..."</div>
-                    </div>
-                </div>
-
-                <!-- Premier League Premium Calculator -->
-                <div class="bg-slate-900/50 border border-yellow-500/20 rounded-xl p-6">
-                    <h3 class="text-xl font-bold mb-4 text-yellow-400">💰 Premier League Premium Calculator</h3>
-                    <p class="text-sm text-slate-400 mb-4">CIES Data: Premier League clubs pay 25% more than other Big 5 leagues</p>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- PHYSICAL DATA -->
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Player Base Value (€M)</label>
-                            <input type="number" id="premiumBaseValue" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white" placeholder="e.g., 40" min="0">
-                            <button onclick="calculatePremium()" class="mt-4 w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg font-semibold transition">
-                                Calculate PL Premium
-                            </button>
-                        </div>
-                        <div id="premiumResults" class="hidden bg-slate-800/50 rounded-lg p-4">
-                            <div class="space-y-3">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Base Value:</span>
-                                    <span id="premiumBase" class="text-white font-bold">€0M</span>
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">🏃 Physical & Tracking Data</h3>
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-cyan-500/20 hover:border-cyan-500/40 transition max-w-2xl">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-white">SkillCorner</h4>
+                                        <p class="text-xs text-cyan-400">AI Broadcast Tracking (No GPS Needed!)</p>
+                                    </div>
+                                    <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded text-xs font-bold">ACTIVE</span>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">PL Premium (25%):</span>
-                                    <span id="premiumAmount" class="text-yellow-400 font-bold">€0M</span>
-                                </div>
-                                <div class="h-px bg-slate-700"></div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-300 font-semibold">Actual PL Cost:</span>
-                                    <span id="premiumTotal" class="text-red-400 font-bold text-xl">€0M</span>
-                                </div>
-                                <div class="mt-4 text-xs text-slate-400">
-                                    💡 Tip: Consider buying from Bundesliga instead (58% success rate, no premium)
+                                <ul class="text-sm space-y-2 text-slate-300 mb-4">
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Full 90-min tracking (all 22 players)</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Off-camera extrapolation (AI-powered)</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Speed, distance, work rate metrics</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> 120+ competitions worldwide</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-star text-yellow-400"></i> Scout players in ANY league with TV coverage</li>
+                                </ul>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-slate-400">230+ clubs use it</span>
+                                    <span class="text-xs font-bold text-yellow-400">€15K-30K/yr</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- TOTAL INVESTMENT -->
+                    <div class="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/30 rounded-xl p-6">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">💰 Total Annual Investment</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="bg-slate-800/50 rounded-lg p-6 text-center border border-green-500/20">
+                                <div class="text-sm text-slate-400 mb-2">MINIMUM SETUP</div>
+                                <div class="text-3xl font-bold text-green-400 mb-2">€310K</div>
+                                <div class="text-xs text-slate-400">StatsBomb + Wyscout + Financial sources</div>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-6 text-center border border-blue-500/20">
+                                <div class="text-sm text-slate-400 mb-2">RECOMMENDED</div>
+                                <div class="text-3xl font-bold text-blue-400 mb-2">€465K</div>
+                                <div class="text-xs text-slate-400">+ Impect Packing + SkillCorner</div>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-6 text-center border border-purple-500/20">
+                                <div class="text-sm text-slate-400 mb-2">ENTERPRISE</div>
+                                <div class="text-3xl font-bold text-purple-400 mb-2">€621K</div>
+                                <div class="text-xs text-slate-400">+ Opta for maximum coverage</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-slate-300">💡 <strong>ROI:</strong> Each prevented €50M+ transfer disaster pays for the entire system</p>
+                            <p class="text-xs text-slate-400 mt-2">Example: Avoiding an "Antony-type" mistake (€60M loss) = 10x ROI in Year 1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: FEASIBILITY FILTER -->
+                <div id="market-feasibility" class="market-section hidden">
+                    <div class="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/30 rounded-xl p-6 mb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-green-300">🎯 Feasibility Filter - WHO IS SIGNABLE?</h2>
+                        <p class="text-slate-300 mb-6">Most platforms show you good players. We show you good players YOU CAN ACTUALLY SIGN.</p>
+                        
+                        <!-- EXPLANATION -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-bold mb-4 text-white">How It Works: 3-Factor Deal Probability Score</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-green-500/20">
+                                    <div class="text-3xl mb-2">📅</div>
+                                    <h4 class="font-bold mb-2">1. Contract Context</h4>
+                                    <p class="text-sm text-slate-300 mb-3">Time remaining on current contract</p>
+                                    <ul class="text-xs space-y-1 text-slate-400">
+                                        <li>• <12 months = <span class="text-green-400 font-bold">HIGH</span> (40% weight)</li>
+                                        <li>• 1-2 years = <span class="text-yellow-400 font-bold">MEDIUM</span></li>
+                                        <li>• 3+ years = <span class="text-red-400 font-bold">LOW</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-green-500/20">
+                                    <div class="text-3xl mb-2">💸</div>
+                                    <h4 class="font-bold mb-2">2. Club Financial Health</h4>
+                                    <p class="text-sm text-slate-300 mb-3">Selling club's financial status</p>
+                                    <ul class="text-xs space-y-1 text-slate-400">
+                                        <li>• Negative cash flow = <span class="text-green-400 font-bold">MOTIVATED</span> (35% weight)</li>
+                                        <li>• Missing UCL = <span class="text-yellow-400 font-bold">NEED FUNDS</span></li>
+                                        <li>• Debt > Revenue = <span class="text-green-400 font-bold">DISCOUNT</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-green-500/20">
+                                    <div class="text-3xl mb-2">📊</div>
+                                    <h4 class="font-bold mb-2">3. Hierarchy Status</h4>
+                                    <p class="text-sm text-slate-300 mb-3">Player's role in current squad</p>
+                                    <ul class="text-xs space-y-1 text-slate-400">
+                                        <li>• Bench (<25% mins) = <span class="text-green-400 font-bold">AVAILABLE</span> (25% weight)</li>
+                                        <li>• Rotation (25-75%) = <span class="text-yellow-400 font-bold">MEDIUM</span></li>
+                                        <li>• Starter (>75%) = <span class="text-red-400 font-bold">HARD</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INTERACTIVE CALCULATOR -->
+                        <div class="bg-slate-800/50 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Calculate Deal Probability</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Select Player</label>
+                                        <select id="feasibilityPlayer" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="">Choose player...</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Contract Remaining (months)</label>
+                                        <input type="number" id="feasibilityContract" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 18" min="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Selling Club Financial Status</label>
+                                        <select id="feasibilityFinance" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="distressed">Distressed (negative cash flow)</option>
+                                            <option value="pressured">Pressured (no UCL)</option>
+                                            <option value="stable" selected>Stable</option>
+                                            <option value="strong">Strong (UCL club)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Minutes Played (% of season)</label>
+                                        <input type="number" id="feasibilityMinutes" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 65" min="0" max="100">
+                                    </div>
+                                    <button onclick="calculateFeasibility()" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-6 py-3 rounded-lg font-bold transition">
+                                        Calculate Deal Probability
+                                    </button>
+                                </div>
+                                <div id="feasibilityResults" class="hidden">
+                                    <div class="bg-slate-900/50 rounded-lg p-6 border-2" id="feasibilityCard">
+                                        <div class="text-center mb-6">
+                                            <div class="text-sm text-slate-400 mb-2">DEAL PROBABILITY</div>
+                                            <div id="feasibilityScore" class="text-6xl font-bold mb-2">0%</div>
+                                            <div id="feasibilityLabel" class="text-lg font-semibold"></div>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">Contract Factor:</span>
+                                                <span id="contractFactor" class="font-bold"></span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">Financial Factor:</span>
+                                                <span id="financialFactor" class="font-bold"></span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">Hierarchy Factor:</span>
+                                                <span id="hierarchyFactor" class="font-bold"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6 p-4 bg-slate-800/50 rounded-lg">
+                                            <div class="text-sm font-semibold mb-2">Recommendation:</div>
+                                            <p id="feasibilityRecommendation" class="text-sm text-slate-300"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMPLES -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-5">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-3xl">✅</div>
+                                <div>
+                                    <h4 class="font-bold text-green-400">HIGH Probability Example</h4>
+                                    <p class="text-xs text-slate-400">Score: 78% - STRONG TARGET</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span class="text-slate-400">Contract:</span><span class="text-green-400 font-bold">8 months left</span></div>
+                                <div class="flex justify-between"><span class="text-slate-400">Club:</span><span class="text-green-400 font-bold">Relegated, €50M debt</span></div>
+                                <div class="flex justify-between"><span class="text-slate-400">Role:</span><span class="text-green-400 font-bold">Bench player (15% mins)</span></div>
+                                <div class="mt-3 p-3 bg-green-500/20 rounded text-xs">
+                                    <strong>Action:</strong> Immediate approach recommended. Club is motivated seller.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-5">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-3xl">❌</div>
+                                <div>
+                                    <h4 class="font-bold text-red-400">LOW Probability Example</h4>
+                                    <p class="text-xs text-slate-400">Score: 12% - AVOID</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span class="text-slate-400">Contract:</span><span class="text-red-400 font-bold">4 years left</span></div>
+                                <div class="flex justify-between"><span class="text-slate-400">Club:</span><span class="text-red-400 font-bold">UCL qualified, €200M revenue</span></div>
+                                <div class="flex justify-between"><span class="text-slate-400">Role:</span><span class="text-red-400 font-bold">Key starter (92% mins)</span></div>
+                                <div class="mt-3 p-3 bg-red-500/20 rounded text-xs">
+                                    <strong>Action:</strong> Club has no reason to sell. Extremely difficult and expensive.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: WORK PERMIT CALCULATOR -->
+                <div id="market-work-permit" class="market-section hidden">
+                    <div class="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-300">🛂 GBE Calculator - Post-Brexit Work Permits</h2>
+                        <p class="text-slate-300 mb-6">Automated work permit checks for UK Premier League signings (15+ points = GRANTED)</p>
+                        
+                        <!-- UK SYSTEM EXPLANATION -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-bold mb-4">How the UK Points System Works</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold mb-3 text-cyan-400">International Appearances</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>75%+ caps (Top 50 FIFA)</span>
+                                                <span class="font-bold text-green-400">15 pts</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Automatic approval</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>50-74% caps</span>
+                                                <span class="font-bold text-yellow-400">10 pts</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Strong candidate</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>30-49% caps</span>
+                                                <span class="font-bold text-orange-400">5 pts</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Needs club minutes</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-3 text-cyan-400">Club Competition Points</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>Champions League</span>
+                                                <span class="font-bold text-purple-400">+4 pts/match</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Per match played</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>Europa/Conference</span>
+                                                <span class="font-bold text-blue-400">+2 pts/match</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Per match played</div>
+                                        </div>
+                                        <div class="bg-slate-900/50 rounded p-3">
+                                            <div class="flex justify-between mb-1">
+                                                <span>Top Domestic League</span>
+                                                <span class="font-bold text-green-400">0-6 pts</span>
+                                            </div>
+                                            <div class="text-xs text-slate-400">Based on league tier</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-green-500/20 rounded-lg border border-green-500/30">
+                                <div class="font-bold text-green-400 mb-2">✅ Approval Threshold: 15+ Points</div>
+                                <p class="text-sm text-slate-300">Players with 15 or more points automatically qualify for a GBE (Governing Body Endorsement)</p>
+                            </div>
+                        </div>
+
+                        <!-- INTERACTIVE CALCULATOR -->
+                        <div class="bg-slate-800/50 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Calculate GBE Points</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Player Name</label>
+                                        <input type="text" id="gbePlayerName" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="Enter player name">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">National Team (FIFA Ranking)</label>
+                                        <select id="gbeFifaRank" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="50">Top 50 (e.g., Brazil, Spain, Germany)</option>
+                                            <option value="70">51-70 (e.g., Serbia, Ukraine)</option>
+                                            <option value="100">71-100</option>
+                                            <option value="150">100+</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">International Caps (% in last 2 years)</label>
+                                        <input type="number" id="gbeIntCaps" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 75" min="0" max="100">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Champions League Matches Played</label>
+                                        <input type="number" id="gbeUclMatches" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 6" min="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Europa/Conference Matches</label>
+                                        <input type="number" id="gbeEuropaMatches" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 10" min="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Current League Quality</label>
+                                        <select id="gbeLeagueQuality" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="6">Tier 1: PL, La Liga, Serie A, Bundesliga, Ligue 1</option>
+                                            <option value="4">Tier 2: Eredivisie, Liga NOS, Pro League</option>
+                                            <option value="2">Tier 3: Championship, Liga MX</option>
+                                            <option value="0">Tier 4: Other leagues</option>
+                                        </select>
+                                    </div>
+                                    <button onclick="calculateGBE()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 px-6 py-3 rounded-lg font-bold transition">
+                                        Calculate GBE Points
+                                    </button>
+                                </div>
+                                <div id="gbeResults" class="hidden">
+                                    <div class="bg-slate-900/50 rounded-lg p-6 border-2" id="gbeCard">
+                                        <div class="text-center mb-6">
+                                            <div id="gbeIcon" class="text-6xl mb-4"></div>
+                                            <div class="text-sm text-slate-400 mb-2">TOTAL GBE POINTS</div>
+                                            <div id="gbeScore" class="text-6xl font-bold mb-2">0</div>
+                                            <div id="gbeStatus" class="text-lg font-semibold"></div>
+                                        </div>
+                                        <div class="space-y-3 mb-6">
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">International:</span>
+                                                <span id="gbeIntPoints" class="font-bold"></span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">Champions League:</span>
+                                                <span id="gbeUclPoints" class="font-bold"></span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">Europa/Conference:</span>
+                                                <span id="gbeEuropaPoints" class="font-bold"></span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm">
+                                                <span class="text-slate-400">League Quality:</span>
+                                                <span id="gbeLeaguePoints" class="font-bold"></span>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 bg-slate-800/50 rounded-lg">
+                                            <div class="text-sm font-semibold mb-2">Recommendation:</div>
+                                            <p id="gbeRecommendation" class="text-sm text-slate-300"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: LEAGUE CONVERSION -->
+                <div id="market-league-conversion" class="market-section hidden">
+                    <div class="bg-gradient-to-r from-purple-900/30 to-slate-900/30 border border-purple-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-purple-300">🌍 League Conversion Translator</h2>
+                        <p class="text-slate-300 mb-6">20 goals in Austrian Bundesliga ≠ 20 goals in Premier League. Adjust expectations by league difficulty.</p>
+                        
+                        <!-- CONVERSION TABLE -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-bold mb-4">League Difficulty Coefficients</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead class="bg-slate-900">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left">League</th>
+                                            <th class="px-4 py-3 text-center">Coefficient</th>
+                                            <th class="px-4 py-3 text-center">Example Conversion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-700">
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3 font-semibold text-blue-400">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</td>
+                                            <td class="px-4 py-3 text-center font-bold">1.00</td>
+                                            <td class="px-4 py-3 text-center text-slate-400">Baseline</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇪🇸 La Liga</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.95</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-green-400 font-bold">21 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇩🇪 Bundesliga</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.92</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-green-400 font-bold">18 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇮🇹 Serie A</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.90</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-green-400 font-bold">18 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇫🇷 Ligue 1</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.87</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-yellow-400 font-bold">17 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇳🇱 Eredivisie</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.78</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-yellow-400 font-bold">16 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.75</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-yellow-400 font-bold">15 PL goals</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-700/30">
+                                            <td class="px-4 py-3">🇦🇹 Austrian Bundesliga</td>
+                                            <td class="px-4 py-3 text-center font-bold">0.65</td>
+                                            <td class="px-4 py-3 text-center">20 goals → <span class="text-red-400 font-bold">13 PL goals</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- CALCULATOR -->
+                        <div class="bg-slate-800/50 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Calculate Premier League Equivalent</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Current League</label>
+                                        <select id="conversionCurrentLeague" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="1.00">Premier League</option>
+                                            <option value="0.95">La Liga</option>
+                                            <option value="0.92">Bundesliga</option>
+                                            <option value="0.90">Serie A</option>
+                                            <option value="0.87">Ligue 1</option>
+                                            <option value="0.78">Eredivisie</option>
+                                            <option value="0.75">Championship</option>
+                                            <option value="0.65">Austrian Bundesliga</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Stat Type</label>
+                                        <select id="conversionStatType" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="goals">Goals</option>
+                                            <option value="assists">Assists</option>
+                                            <option value="g+a">Goals + Assists</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Current Season Performance</label>
+                                        <input type="number" id="conversionValue" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 20" min="0">
+                                    </div>
+                                    <button onclick="calculateConversion()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 rounded-lg font-bold transition">
+                                        Calculate PL Equivalent
+                                    </button>
+                                </div>
+                                <div id="conversionResults" class="hidden">
+                                    <div class="bg-slate-900/50 rounded-lg p-6 border-2 border-purple-500">
+                                        <div class="text-center mb-6">
+                                            <div class="text-sm text-slate-400 mb-2">PREMIER LEAGUE EQUIVALENT</div>
+                                            <div id="conversionEquivalent" class="text-6xl font-bold text-purple-400 mb-2">0</div>
+                                            <div id="conversionStatLabel" class="text-lg text-slate-300"></div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div class="bg-slate-800/50 rounded-lg p-4">
+                                                <div class="flex justify-between items-center mb-2">
+                                                    <span class="text-sm text-slate-400">Current League:</span>
+                                                    <span id="conversionCurrentLeagueLabel" class="font-bold"></span>
+                                                </div>
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-sm text-slate-400">Current Stats:</span>
+                                                    <span id="conversionCurrentValue" class="font-bold text-white"></span>
+                                                </div>
+                                            </div>
+                                            <div class="p-4 bg-purple-500/20 rounded-lg border border-purple-500/30">
+                                                <div class="text-sm font-semibold mb-2 text-purple-300">Reality Check:</div>
+                                                <p id="conversionExplanation" class="text-sm text-slate-300"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: AGENT NETWORK -->
+                <div id="market-agent-network" class="market-section hidden">
+                    <div class="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-orange-300">🤝 Agent Network Mapping</h2>
+                        <p class="text-slate-300 mb-6">If you want Player X, which agent represents him? Who else do they represent? Package deals and relationship leverage.</p>
+                        
+                        <!-- VISUAL GRAPH REPRESENTATION -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-bold mb-4">How Agent Networks Work</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-orange-500/20">
+                                    <div class="text-3xl mb-3 text-center">👤</div>
+                                    <h4 class="font-bold text-center mb-3">Target Player</h4>
+                                    <p class="text-sm text-slate-300 text-center mb-4">The player you want to sign</p>
+                                    <div class="bg-blue-500/20 rounded p-3 text-center">
+                                        <div class="font-bold text-blue-400">Example:</div>
+                                        <div class="text-sm">Player A (CB, age 23)</div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-orange-500/20">
+                                    <div class="text-3xl mb-3 text-center">🤵</div>
+                                    <h4 class="font-bold text-center mb-3">Agent/Agency</h4>
+                                    <p class="text-sm text-slate-300 text-center mb-4">Who represents them</p>
+                                    <div class="bg-orange-500/20 rounded p-3 text-center">
+                                        <div class="font-bold text-orange-400">Example:</div>
+                                        <div class="text-sm">Jorge Mendes (GestiFute)</div>
+                                        <div class="text-xs text-slate-400 mt-1">Represents 50+ players</div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-orange-500/20">
+                                    <div class="text-3xl mb-3 text-center">👥</div>
+                                    <h4 class="font-bold text-center mb-3">Other Clients</h4>
+                                    <p class="text-sm text-slate-300 text-center mb-4">Package deal opportunities</p>
+                                    <div class="bg-green-500/20 rounded p-3 text-center">
+                                        <div class="font-bold text-green-400">Example:</div>
+                                        <div class="text-sm">Player B (ST), Player C (GK)</div>
+                                        <div class="text-xs text-slate-400 mt-1">Also available</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AGENT DATABASE -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-bold mb-4">Top Agents in Our Database</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-orange-500/20">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-bold">Jorge Mendes</h4>
+                                            <p class="text-xs text-slate-400">GestiFute Agency</p>
+                                        </div>
+                                        <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs">VIP</span>
+                                    </div>
+                                    <div class="text-sm text-slate-300 mb-3">
+                                        <div class="flex justify-between"><span>Total Clients:</span><span class="font-bold">50+</span></div>
+                                        <div class="flex justify-between"><span>Combined Value:</span><span class="font-bold">€2.5B+</span></div>
+                                        <div class="flex justify-between"><span>Notable:</span><span class="text-xs">Ronaldo, Félix, Dias</span></div>
+                                    </div>
+                                    <button class="w-full bg-orange-600 hover:bg-orange-700 px-3 py-2 rounded text-sm font-semibold transition">
+                                        View Full Network
+                                    </button>
+                                </div>
+
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-orange-500/20">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-bold">Mino Raiola Estate</h4>
+                                            <p class="text-xs text-slate-400">Raiola Agency</p>
+                                        </div>
+                                        <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">TOP</span>
+                                    </div>
+                                    <div class="text-sm text-slate-300 mb-3">
+                                        <div class="flex justify-between"><span>Total Clients:</span><span class="font-bold">40+</span></div>
+                                        <div class="flex justify-between"><span>Combined Value:</span><span class="font-bold">€1.8B+</span></div>
+                                        <div class="flex justify-between"><span>Notable:</span><span class="text-xs">Haaland, De Ligt</span></div>
+                                    </div>
+                                    <button class="w-full bg-orange-600 hover:bg-orange-700 px-3 py-2 rounded text-sm font-semibold transition">
+                                        View Full Network
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEARCH FUNCTIONALITY -->
+                        <div class="bg-slate-800/50 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Search Agent Network</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Search Query</label>
+                                        <input type="text" id="agentSearch" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., Show me all RBs in Ligue 1 represented by agencies we've worked with">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Position Filter</label>
+                                        <select id="agentPosition" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="">All Positions</option>
+                                            <option value="GK">Goalkeeper</option>
+                                            <option value="CB">Center Back</option>
+                                            <option value="FB">Full Back</option>
+                                            <option value="CM">Central Midfielder</option>
+                                            <option value="WG">Winger</option>
+                                            <option value="ST">Striker</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">League Filter</label>
+                                        <select id="agentLeague" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="">All Leagues</option>
+                                            <option value="Premier League">Premier League</option>
+                                            <option value="La Liga">La Liga</option>
+                                            <option value="Serie A">Serie A</option>
+                                            <option value="Bundesliga">Bundesliga</option>
+                                            <option value="Ligue 1">Ligue 1</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Relationship Status</label>
+                                        <select id="agentRelationship" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="all">All Agents</option>
+                                            <option value="worked">Agencies We've Worked With</option>
+                                            <option value="good">Good Relationship</option>
+                                            <option value="new">New Contacts</option>
+                                        </select>
+                                    </div>
+                                    <button onclick="searchAgentNetwork()" class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 px-6 py-3 rounded-lg font-bold transition">
+                                        Search Network
+                                    </button>
+                                </div>
+                                <div id="agentResults" class="hidden">
+                                    <div class="bg-slate-900/50 rounded-lg p-6 border border-orange-500/30">
+                                        <h4 class="font-bold mb-4">Search Results</h4>
+                                        <div id="agentResultsList" class="space-y-3">
+                                            <!-- Results will appear here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 6: REPLACEMENT ENGINE -->
+                <div id="market-replacement" class="market-section hidden">
+                    <div class="bg-gradient-to-r from-cyan-900/30 to-slate-900/30 border border-cyan-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-cyan-300">🔄 Replacement Engine</h2>
+                        <p class="text-slate-300 mb-6">Selling Player X for €60M? Find 5 similar players at 25% of the cost. Smart squad building.</p>
+                        
+                        <!-- HOW IT WORKS -->
+                        <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-bold mb-4">How the Replacement Engine Works</h3>
+                            <div class="grid md:grid-cols-4 gap-4">
+                                <div class="bg-slate-900/50 rounded-lg p-4 text-center">
+                                    <div class="text-3xl mb-2">📊</div>
+                                    <h4 class="font-semibold mb-2 text-sm">1. Analyze Player</h4>
+                                    <p class="text-xs text-slate-400">Extract all 779 metrics + playing style</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 text-center">
+                                    <div class="text-3xl mb-2">🔍</div>
+                                    <h4 class="font-semibold mb-2 text-sm">2. Search Database</h4>
+                                    <p class="text-xs text-slate-400">Cosine similarity across all players</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 text-center">
+                                    <div class="text-3xl mb-2">💰</div>
+                                    <h4 class="font-semibold mb-2 text-sm">3. Filter by Budget</h4>
+                                    <p class="text-xs text-slate-400">Only show affordable alternatives</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 text-center">
+                                    <div class="text-3xl mb-2">⭐</div>
+                                    <h4 class="font-semibold mb-2 text-sm">4. Rank Results</h4>
+                                    <p class="text-xs text-slate-400">95%+ similarity matches</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CALCULATOR -->
+                        <div class="bg-slate-800/50 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Find Replacements</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="bg-blue-500/20 rounded-lg p-4 border border-blue-500/30 mb-4">
+                                        <h4 class="font-bold mb-2 text-blue-300">Scenario: Player Sale</h4>
+                                        <p class="text-sm text-slate-300">You're selling a key player. Find affordable replacements with similar attributes.</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Player Being Sold</label>
+                                        <select id="replacementPlayer" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="">Select player...</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Sale Price (€M)</label>
+                                        <input type="number" id="replacementSalePrice" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 60" min="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Replacement Budget (% of sale)</label>
+                                        <div class="flex gap-2">
+                                            <input type="range" id="replacementBudgetSlider" class="flex-1" min="10" max="100" value="25" oninput="updateReplacementBudget()">
+                                            <span id="replacementBudgetValue" class="text-white font-bold w-16 text-right">25%</span>
+                                        </div>
+                                        <div class="text-xs text-slate-400 mt-1">Budget: <span id="replacementBudgetAmount" class="text-white font-bold">€0M</span></div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Max Weekly Wage (€K)</label>
+                                        <input type="number" id="replacementMaxWage" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 50" min="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Minimum Similarity Score</label>
+                                        <select id="replacementSimilarity" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                            <option value="95">95%+ (Very Similar)</option>
+                                            <option value="90">90%+ (Similar)</option>
+                                            <option value="85">85%+ (Somewhat Similar)</option>
+                                        </select>
+                                    </div>
+                                    <button onclick="findReplacements()" class="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 px-6 py-3 rounded-lg font-bold transition">
+                                        Find Replacements
+                                    </button>
+                                </div>
+                                <div id="replacementResults" class="hidden">
+                                    <div class="bg-slate-900/50 rounded-lg p-6 border border-cyan-500/30">
+                                        <h4 class="font-bold mb-4">Replacement Options</h4>
+                                        <div id="replacementsList" class="space-y-3">
+                                            <!-- Results will appear here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE CASE STUDY -->
+                        <div class="mt-6 bg-green-900/20 border border-green-500/30 rounded-lg p-5">
+                            <h4 class="font-bold text-green-400 mb-3">✅ Success Story: Liverpool FC</h4>
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div>
+                                    <div class="text-slate-400 mb-1">Player Sold:</div>
+                                    <div class="font-bold">Philippe Coutinho</div>
+                                    <div class="text-xs text-slate-400">To Barcelona for €142M</div>
+                                </div>
+                                <div>
+                                    <div class="text-slate-400 mb-1">Replacements:</div>
+                                    <div class="font-bold">Salah + Mané + Firmino</div>
+                                    <div class="text-xs text-slate-400">Combined: ~€80M</div>
+                                </div>
+                                <div>
+                                    <div class="text-slate-400 mb-1">Outcome:</div>
+                                    <div class="font-bold text-green-400">Champions League Win</div>
+                                    <div class="text-xs text-slate-400">Better squad, lower cost</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMPETITIVE ADVANTAGE SUMMARY -->
+                <div class="mt-8 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/30 rounded-xl p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-center gradient-text">🏆 Your Competitive Advantage</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-slate-800/50 rounded-lg p-6 text-center">
+                            <div class="text-4xl mb-4">⚡</div>
+                            <h3 class="font-bold mb-3 text-xl">Speed</h3>
+                            <p class="text-sm text-slate-300">Get deal probability, work permit status, and league-adjusted expectations in <strong class="text-blue-400">under 60 seconds</strong></p>
+                        </div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 text-center">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h3 class="font-bold mb-3 text-xl">Accuracy</h3>
+                            <p class="text-sm text-slate-300"><strong class="text-green-400">76% prediction accuracy</strong> on transfer success vs. 54% industry failure rate</p>
+                        </div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 text-center">
+                            <div class="text-4xl mb-4">💰</div>
+                            <h3 class="font-bold mb-3 text-xl">ROI</h3>
+                            <p class="text-sm text-slate-300">One prevented €60M disaster pays for <strong class="text-yellow-400">10 years</strong> of the system</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- PHILOSOPHY HEATMAP TAB -->
             <div id="philosophy-tab" class="tab-content">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold mb-4 gradient-text">60-Philosophy Framework Heatmap</h1>
@@ -1546,13 +2174,27 @@
 	else if (country === "USA") {
             html += createLink("MLS (Major League Soccer)", "mls_database.html");
             html += createLink("USL Championship", "#");
-            html += createLink("USL1", "#");
+            html += createLink("USL1", "usl1_widget.html");
 	    html += createLink("NISA", "#");
 	}
 	else if (country === "Colombia") {
             html += createLink("Torneo Dimayor", "colombian_primera_a.html");
             html += createLink("Liga Dimayor II", "#");
             html += createLink("Copa Colombia", "#");
+	    html += createLink("U19", "#");
+	}
+	else if (country === "Netherlands") {
+            html += createLink("Eredivisie", "eredivisie.html");
+            html += createLink("Keuken Kampioen Divisie", "#");
+            html += createLink("Tweede Divisie", "#");
+	    html += createLink("KNVB Beker", "#");
+	}
+	else if (country === "Norway") {
+            html += createLink("Eliteserien", "eredivisie.html");
+            html += createLink("OBOS Ligaen", "#");
+            html += createLink("PostNord Ligaen", "#");
+	    html += createLink("Norsk Tpping Ligaen", "#");
+	    html += createLink("NM Cupen", "#");
 	    html += createLink("U19", "#");
 	}
         else {
@@ -2256,7 +2898,26 @@
             { name: "Gabriel Batistuta", profileHtml: "Gabriel_Batistuta.html", position: "ST", age: 55, nationality: "Argentina", fga: 92.5, bestPhilosophy: "Menotti Attack", currentClub: "Retired" },
             { name: "Robert Sánchez", profileHtml: "Robert_Sanchez.html", position: "GK", age: 27, nationality: "Spain 🇪🇸", fga: 81.5, bestPhilosophy: "Guardiola System", currentClub: "Chelsea FC" },
             { name: "Ederson", profileHtml: "Ederson_Moraes.html", position: "GK", age: 31, nationality: "Brazil 🇧🇷", fga: 90.0, bestPhilosophy: "Guardiola System", currentClub: "Fenerbahçe" },
-            { name: "Martín Zubimendi", profileHtml: "Martin_Zubimendi.html", position: "CDM", age: 25, nationality: "Spain 🇪🇸", fga: 87.5, bestPhilosophy: "Guardiola System", currentClub: "Arsenal FC" }];
+            { name: "Martín Zubimendi", profileHtml: "Martin_Zubimendi.html", position: "CDM", age: 25, nationality: "Spain 🇪🇸", fga: 87.5, bestPhilosophy: "Guardiola System", currentClub: "Arsenal FC" },
+// === NEW PLAYERS BATCH 8 (Dec 11, 2025 - Eighth Upload) ===
+            { name: "Emerson", profileHtml: "Emerson.html", position: "LB", age: 49, nationality: "Brazil", fga: 94.6, bestPhilosophy: "Capello Defensive" },
+            { name: "Vincent Candela", profileHtml: "Vincent_Candela.html", position: "LB", age: 52, nationality: "France", fga: 93.7, bestPhilosophy: "Capello Tactical" },
+            { name: "Freddy Rincón", profileHtml: "Freddy_Rincon.html", position: "CM", age: 56, nationality: "Colombia", fga: 93.2, bestPhilosophy: "Bilardo Combative" },
+            { name: "Damiano Tommasi", profileHtml: "Damiano_Tommasi.html", position: "CM", age: 50, nationality: "Italy", fga: 91.8, bestPhilosophy: "Capello Tactical" },
+            { name: "Cristiano Zanetti", profileHtml: "Cristiano_Zanetti.html", position: "DM", age: 51, nationality: "Italy", fga: 90.2, bestPhilosophy: "Capello Defensive" },
+            { name: "Victor Boniface", profileHtml: "Victor_Boniface.html", position: "ST", age: 24, nationality: "Nigeria", fga: 84.5, bestPhilosophy: "Klopp Intensity", currentClub: "Bayer Leverkusen" },
+            { name: "Zakaria Eddahchouri", profileHtml: "Zakaria_Eddahchouri.html", position: "WG", age: 22, nationality: "Morocco", fga: 79.5, bestPhilosophy: "Guardiola Positional", currentClub: "Ajax" },
+            { name: "Agustín Urzi", profileHtml: "Agustin_Urzi.html", position: "WG", age: 23, nationality: "Argentina", fga: 78.5, bestPhilosophy: "Bielsa Verticalidad" },
+            { name: "Victor Eletu", profileHtml: "Victor_Eletu.html", position: "CM", age: 22, nationality: "Nigeria", fga: 78.5, bestPhilosophy: "Klopp Intensity" },
+            { name: "Ferrety Sousa", profileHtml: "Ferrety_Sousa.html", position: "WG", age: 24, nationality: "Portugal", fga: 77.0, bestPhilosophy: "Mourinho Tactical" },
+            { name: "Will Seymore", profileHtml: "Will_Seymore.html", position: "DM", age: 33, nationality: "USA", fga: 76.8, bestPhilosophy: "Berhalter Possession" },
+            { name: "Chovanie Amatkarijo", profileHtml: "Chovanie_Amatkarijo.html", position: "FB", age: 21, nationality: "Netherlands", fga: 76.5, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Marcel Canadi", profileHtml: "Marcel_Canadi.html", position: "CB", age: 28, nationality: "Austria", fga: 76.0, bestPhilosophy: "Mourinho Defensive" },
+            { name: "Tim Littmann", profileHtml: "Tim_Littmann.html", position: "DM", age: 27, nationality: "Germany", fga: 75.0, bestPhilosophy: "Flick High Press" },
+            { name: "Younes Hansal", profileHtml: "Younes_Hansal.html", position: "CM", age: 24, nationality: "Morocco", fga: 74.5, bestPhilosophy: "Guardiola Positional" },
+            { name: "Adrián Jiménez", profileHtml: "Adrian_Jimenez.html", position: "GK", age: 29, nationality: "Spain", fga: 76.0, bestPhilosophy: "Guardiola System" },
+            { name: "Adne Midtskogen", profileHtml: "Adne_Midtskogen.html", position: "ST", age: 25, nationality: "Norway", fga: 77.5, bestPhilosophy: "Solskjaer Attack" },];
+
 
         // DEBUG LOGGING
         console.log('====== PAGE LOADED ======');
