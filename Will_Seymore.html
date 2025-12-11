@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willy Seymore — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, .18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, .02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, .12);
+            border: 1px solid rgba(255, 210, 77, .18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://vip.sportsengine.com/usl-site-expansion-3/wp-content/uploads/sites/349/2025/01/NM904869.jpg"
+                    alt="Will Seymore" class="photo">
+                <div class="title">Will Seymore</div>
+                <div class="sub">American Midfielder • New Mexico United • USL Championship • 34 Appearances in 2025 •
+                    Midfield Anchor • Empire FGA</div>
+                <div class="rating-badge">76.8</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇺🇸 USA</span><span class="stat-label">New Mexico
+                            United • 34 Apps (2025) • 1 Goal • 3 Assists</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">William
+                            Seymore</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Defensive
+                            Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">USA 🇺🇸 /
+                            England 🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">33 (Born: Feb 29,
+                            1992)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Reno 1868</span><span
+                            class="info-value">2018-2019</span></div>
+                    <div class="info-row"><span class="info-label">New Mexico United</span><span
+                            class="info-value">2022-Present</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Will Seymore is a durable and intelligent midfielder anchoring the midfield for **New
+                    Mexico United** in the USL Championship. A key figure in the 2025 season with **34 total
+                    appearances**, 1 goal, and 3 assists. Played over **2,296 minutes**, providing stability and
+                    defensive cover. **Contract extended until November 30, 2026**. Known for his **passing accuracy
+                    (86.03%)**, **tackling (7.8)**, and **positional discipline (7.9)**. At 33, he remains one of the
+                    most reliable midfielders in the league.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> New Mexico
+                    United Leader • 86+ Club Apps • 34 Appearances in 2025 • USL Championship Veteran</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Defensive & Technical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Tackling</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Interceptions</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Passing</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Positioning</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Ball Retention</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Mental & Physical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Leadership</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Concentration</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Stamina</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Strength</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Seymore's tactical DNA mapped across legendary coaching philosophies.</p>
+                <h3>Manager Philosophy Scores (9-Metric FGA)</h3>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+                    <span class="pill" style="margin:0;text-align:center">Guardiola 8.2/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Klopp 7.8/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Ancelotti 8.0/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Sacchi 8.5/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Mourinho 8.5/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Bielsa 7.5/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Simeone 8.4/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Wenger 7.5/10</span>
+                    <span class="pill" style="margin:0;text-align:center">Ferguson 8.0/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality</span><span class="info-value">ESTJ
+                                (Executive)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Organized &
+                                Disciplined</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">Highly consistent professional. **86.03% passing accuracy** in 2025
+                            demonstrates reliability. Trusted by coaches to manage games. 33 years old, brings calm
+                            authority to the midfield engine room.
+                        </p>
+                    </div>
+                </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2024 | Extension</div>
+                    <div class="timeline-event">📝 **CONTRACT** - Signed extension with New Mexico United until Nov
+                        2026. Club commitment.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 Season | Workhorse</div>
+                    <div class="timeline-event">⚔️ **34 APPS** - Featured in 34 matches across all competitions.
+                        Indispensable squad member.</div>
+                </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals (Assists)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>New Mexico Utd</strong></td>
+                            <td>2025</td>
+                            <td>34</td>
+                            <td>1 (3)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>New Mexico Utd</strong></td>
+                            <td>2024</td>
+                            <td>Various</td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>New Mexico Utd</strong></td>
+                            <td>2022-23</td>
+                            <td>50+</td>
+                            <td>Starter</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> USL Veteran • 2000+ Minutes in 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Will Seymore is a defensive midfield specialist.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Defensive Midfielder (6)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Ball retention (8.0), positioning (7.9), leadership (8.2)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution</strong></td>
+                            <td>High completion rate (86%), keeps play ticking, switches play effectively.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Defensive</strong></td>
+                            <td>Screens the back four, intercepts passes, solid in duels.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>Experienced, reads the game well, organizes teammates.</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Reliable anchor. 1 goal, 3 assists in 2025.
+                                Contract to 2026.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Watch Will Seymore's midfield control.</p>
+                <div class="video-container">
+                    <iframe
+                        src="https://player.mux.com/SVtJU2k02oxAMd7JQfpUiwuhfRWogumuMetqaBubFXFA?metadata-video-title=Will-Seymore&video-title=Will-Seymore"
+                        style="width:100%;height:100%;border:none"
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches (Sample)</h2>
+                <p class="small" style="margin-bottom:12px;">Recent form - New Mexico United (2025).</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USL Playoffs</td>
+                            <td>NMU vs Sacramento</td>
+                            <td>❌ L</td>
+                            <td>Sub (4m)</td>
+                        </tr>
+                        <tr>
+                            <td>USL Championship</td>
+                            <td>NMU vs Phoenix</td>
+                            <td>✅ W</td>
+                            <td>Starter (90m)</td>
+                        </tr>
+                        <tr>
+                            <td>USL Championship</td>
+                            <td>Tulsa vs NMU</td>
+                            <td>⬜ D</td>
+                            <td>Assist</td>
+                        </tr>
+                        <tr>
+                            <td>USL Championship</td>
+                            <td>NMU vs Memphis</td>
+                            <td>✅ W</td>
+                            <td>Key Pass</td>
+                        </tr>
+                        <tr>
+                            <td>USL Championship</td>
+                            <td>El Paso vs NMU</td>
+                            <td>✅ W</td>
+                            <td>Solid Display</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs USL Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Seymore vs League Average</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">William
+                                Seymore</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Feb 29, 1992
+                                (33)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">USA
+                                🇺🇸</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">New Mexico
+                                United</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">USL
+                                Championship</span></div>
+                        <div class="info-row"><span class="info-label">Agency</span><span class="info-value">Empire
+                                FGA</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">76.8 -
+                                Reliable</span></div>
+                    </div>
+                </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Leadership 8.2/10</div>
+                        <div class="pill">Passing 8.6/10</div>
+                        <div class="pill">Positioning 7.9/10</div>
+                        <div class="pill">Consistency 8.3/10</div>
+                        <div class="pill">Tackling 7.8/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: MIDFIELD ANCHOR</strong><br><br>Will Seymore is the heartbeat
+                            of **New Mexico United's** midfield. **34 appearances** in the 2025 season attest to his
+                            durability and importance. With an **86% passing accuracy**, he provides essential control
+                            and composure. Experienced leader (33 years old) contracted through 2026. The type of player
+                            managers rely on week in, week out.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Defense', 'Passing', 'Vision', 'Physicality', 'Stamina', 'Leadership', 'Technique', 'Positioning'], datasets: [{ label: 'Seymore', data: [7.8, 7.7, 7.6, 7.6, 7.7, 8.2, 7.5, 7.9], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>

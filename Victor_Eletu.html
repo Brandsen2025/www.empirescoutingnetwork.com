@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Eletu — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, .18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, .02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, .12);
+            border: 1px solid rgba(255, 210, 77, .18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://www.panafricafootball.com/wp-content/uploads/2025/08/Victor-Eletu-e1754047937907.jpg"
+                    alt="Victor Eletu" class="photo">
+                <div class="title">Victor Eletu</div>
+                <div class="sub">Nigerian Defensive Midfielder • Milan Futuro / AC Milan • Nigeria U20 International •
+                    Serie C Debut 2025 • First Wave International</div>
+                <div class="rating-badge">78.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇳🇬 NGA</span><span class="stat-label">Milan Futuro
+                            • AC Milan Academy • Nigeria U20 • Deep-Lying Playmaker</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Victor
+                            Eletu</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Defensive
+                            Midfielder (Regista)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Nigeria
+                            🇳🇬</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">20 (Born: Apr 1,
+                            2005)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">AC Milan Primavera</span><span
+                            class="info-value">2021-2024 (Youth)</span></div>
+                    <div class="info-row"><span class="info-label">Milan Futuro</span><span
+                            class="info-value">2025-Present (Serie C)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Victor Eletu is a highly rated defensive midfield prospect in the AC Milan system.
+                    **Milan Futuro (2025-Present)**: Promoted to newly formed reserve team in Serie C. **Professional
+                    debut** April 23, 2025. Contract extended to **June 2027**. Integral part of Milan's future project.
+                    **AC Milan Primavera**: **75+ appearances** for U19s. Captained the side in UEFA Youth League. Key
+                    figure in run to Youth League Final Four (2023). **International**: **Nigeria U20 International**.
+                    Standout performer at **2023 U20 World Cup** in Argentina, helping Flying Eagles reach
+                    quarter-finals. Known for excellent **passing range (8.2)**, **vision (8.0)**, **tactical
+                    intelligence (7.9)**, and **composure (8.1)**. Deep-lying playmaker (Regista) who controls tempo.
+                    Trained regularly with **AC Milan First Team** under Stefano Pioli and Paulo Fonseca. Made senior
+                    squad bench appearances.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> Milan Futuro
+                    (Serie C) • AC Milan Pro Contract to 2027 • Nigeria U20 World Cup Quarter-Finalist • UEFA Youth
+                    League Captain</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Technical & Tactical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Passing Range</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vision</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Technique</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Ball Control</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Long Balls</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Mental & Physical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Tactical IQ</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Work Rate</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Agility</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Eletu's tactical DNA - modern deep-lying playmaker.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Regista 8.3/10</span>
+                    <span class="pill">Possession-Based 8.2/10</span>
+                    <span class="pill">Build-Up Play 8.1/10</span>
+                    <span class="pill">Tactical Pivot 7.9/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality</span><span class="info-value">INTJ
+                                (Architect)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Calculated
+                                Playmaker</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Leadership</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**Nigeria U20 World Cup** standout. **Milan Futuro** professional debut in
+                            Serie C (2025). **AC Milan Primavera captain** experience. Trains with senior team. High
+                            maturity level for age (20). Calm under pressure, orchestrates play from deep.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | FIFA U20 World Cup</div>
+                    <div class="timeline-event">🇳🇬 **NIGERIA U20** - Key midfielder for Flying Eagles reaching
+                        Quarter-Finals vs South Korea. Impressed global scouts.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-2024 | UEFA Youth League</div>
+                    <div class="timeline-event">🇪🇺 **FINAL FOUR RUN** - Pivotal role in AC Milan Primavera's historic
+                        run to UEFA Youth League semi-finals.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 23, 2025 | Professional Debut</div>
+                    <div class="timeline-event">⚽ **MILAN FUTURO DEBUT** - Made first professional appearance in Serie
+                        C. Historic moment for Milan reserve project.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2025 | Contract Extension</div>
+                    <div class="timeline-event">📝 **AC MILAN EXTENSION** - Signed new deal until June 2027. Confirmed
+                        as key part of club's long-term plans.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Competition</th>
+                            <th>Apps</th>
+                            <th>Goals (Assists)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AC Milan Primavera</strong></td>
+                            <td>Primavera 1 / UYL</td>
+                            <td>75+</td>
+                            <td>Youth</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Milan Futuro</strong></td>
+                            <td>Serie C (2025-)</td>
+                            <td>2+</td>
+                            <td>0 (0)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nigeria U20</strong></td>
+                            <td>World Cup / AFCON</td>
+                            <td>12</td>
+                            <td>0 (2)</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> AC Milan Pro Contract • Nigeria U20 World Cup QF •
+                                UYL Final Four • Senior Training</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Victor Eletu is a sophisticated deep-lying playmaker.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Defensive Midfielder (Regista)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Passing range (8.2), long balls (8.3), composure (8.1), vision (8.0)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Excellent left foot, precise long-range distribution, ball retention</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>Tactically disciplined, positionally aware, leader (Primavera Captain)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Potential</strong></td>
+                            <td>High ceiling. Developed at prestigious Milan Academy. Serie A prospect.</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Elite midfield prospect. Milan Futuro starter.
+                                Nigeria U20 star. Contract to 2027. Refined passer and tactician.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Watch Victor Eletu's midfield mastery and passing range.</p>
+                <div class="video-container">
+                    <iframe src="https://player.mux.com/YpfFf01ZZuv3fe8T7YLZNAhPVMROaURVa5cqRhlQugks"
+                        style="width:100%;height:100%;border:none"
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Recent performances - Milan Futuro (Serie C / Dec 2025).
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nov 2025</strong></td>
+                            <td>Serie C</td>
+                            <td>Milan Futuro vs SPAL</td>
+                            <td>✅ W</td>
+                            <td>Controlled Tempo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 2025</strong></td>
+                            <td>Serie C</td>
+                            <td>Pescara vs Milan Futuro</td>
+                            <td>⬜ D</td>
+                            <td>Solid Defensively</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2025</strong></td>
+                            <td>Serie C</td>
+                            <td>Milan Futuro vs Legnago</td>
+                            <td>✅ W</td>
+                            <td>Key Passes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2025 Season</strong></td>
+                            <td>Serie C</td>
+                            <td>Milan Futuro</td>
+                            <td>Start</td>
+                            <td>Professional Approach</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining moments.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | U20 World Cup vs Italy</div>
+                    <div class="timeline-event">🇳🇬 **NIGERIA 2-0 ITALY** - Masterclass midfield performance against
+                        eventual finalists. Announced talent to world stage.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | Professional Debut</div>
+                    <div class="timeline-event">🔴⚫ **MILAN FUTURO DEBUT** - First steps in senior professional football
+                        in Serie C.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Pro Defensive Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Eletu vs Serie C/B Midfielders</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Victor
+                                Eletu</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Apr 1, 2005
+                                (20)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Defensive
+                                Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">Nigeria 🇳🇬</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Milan Futuro
+                                (AC Milan)</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Serie C
+                                (Italy)</span></div>
+                        <div class="info-row"><span class="info-label">Agency</span><span class="info-value">First Wave
+                                International</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">78.5 - High
+                                Potential</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Passing Range 8.2/10</div>
+                        <div class="pill">Composure 8.1/10</div>
+                        <div class="pill">Vision 8.0/10</div>
+                        <div class="pill">Technique 7.9/10</div>
+                        <div class="pill">Tactical IQ 7.9/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: ELITE REGISTA PROSPECT</strong><br><br>Victor Eletu is a
+                            high-potential Nigerian defensive midfielder developed at **AC Milan**. **Milan Futuro**
+                            (Serie C) key player. **Nigeria U20 International** - World Cup 2023 Quarter-Finalist.
+                            **Contract to 2027**. Known for elite **passing range (8.2)**, **composure (8.1)**, and
+                            ability to dictate tempo from deep. Left-footed playmaker with exceptional vision. Captained
+                            Milan Primavera to Youth League Final Four. At 20, physically maturing and gaining valuable
+                            senior experience in Serie C. Future Serie A caliber midfielder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Passing', 'Vision', 'Composure', 'Technique', 'Tactical IQ', 'Long Balls', 'Defense', 'Agility'], datasets: [{ label: 'Eletu', data: [8.2, 8.0, 8.1, 7.9, 7.9, 8.3, 7.5, 7.7], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
