@@ -1,0 +1,827 @@
+<!-- TRENDYOL 1. LIG WIDGET - TURKEY 2ND TIER -->
+<div id="esn-t1l-container">
+
+    <!-- 1. HEADER -->
+    <div class="esn-t1l-header">
+        <div>
+            <h2 style="color: #E30A17; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Trendyol 1. Lig</h2>
+            <span style="color: #555; font-size: 14px;">Turkey • 2025/2026 Season</span>
+        </div>
+        <div class="esn-stats-summary">
+            <div class="esn-stat-pill">
+                <i class="fas fa-video"></i>
+                <span id="total-videos-count">0</span> Videos
+            </div>
+            <div class="esn-stat-pill">
+                <i class="fas fa-futbol"></i>
+                <span id="teams-with-videos-count">0</span>/20 Teams
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN LAYOUT -->
+    <div class="esn-t1l-body">
+
+        <!-- SIDEBAR (Team List with Video Counts) -->
+        <div class="esn-t1l-sidebar">
+            <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
+
+            <!-- Quick Filters -->
+            <div class="esn-filter-bar">
+                <button class="esn-filter-btn active" onclick="window.filterByVideoCount('all')">All Teams</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('withVideos')">With Videos</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('noVideos')">No Videos</button>
+            </div>
+
+            <div id="esn-team-list">
+                <!-- Teams load here -->
+            </div>
+        </div>
+
+        <!-- CONTENT (Video Area) -->
+        <div class="esn-t1l-content">
+            <h1 id="esn-selected-title">Select a Team</h1>
+
+            <div class="esn-tabs">
+                <button class="esn-tab-btn active" onclick="window.switchTab('fullMatches')">
+                    <i class="fas fa-film"></i> Full Matches <span class="tab-count" id="full-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('highlights')">
+                    <i class="fas fa-star"></i> Highlights <span class="tab-count" id="highlights-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('academy')">
+                    <i class="fas fa-users"></i> Academy/U19 <span class="tab-count" id="academy-count">0</span>
+                </button>
+            </div>
+
+            <div id="esn-video-grid">
+                <p style="color: #555; margin-top: 20px;">Select a team from the left to view matches.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 3. POPUP VIDEO PLAYER (FULL WINDOW MODE) -->
+    <div id="esn-player-modal" class="esn-modal">
+        <div class="esn-modal-content">
+            <div class="esn-modal-header">
+                <span id="esn-playing-title" style="color:#E30A17; font-weight:bold; font-size: 18px;">Match
+                    Title</span>
+                <span class="esn-close-btn" onclick="window.closeVideo()">✕ Close</span>
+            </div>
+            <div class="esn-video-wrapper">
+                <iframe id="esn-main-iframe" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CSS STYLES (Turkish 1. Lig Theme - Red/White/Grey) -->
+<style>
+    /* Font Awesome for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+    /* GLOBAL CONTAINER */
+    #esn-t1l-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f8f9fa;
+        color: #333;
+        width: 100%;
+        min-height: 700px;
+        border: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    /* HEADER & STATS */
+    .esn-t1l-header {
+        padding: 25px;
+        border-bottom: 4px solid #E30A17;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .esn-stats-summary {
+        display: flex;
+        gap: 15px;
+    }
+
+    .esn-stat-pill {
+        background: #fff0f0;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid #ffcccc;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #E30A17;
+    }
+
+    .esn-stat-pill i {
+        font-size: 14px;
+    }
+
+    .esn-stat-pill span {
+        font-weight: bold;
+    }
+
+    .esn-t1l-body {
+        display: flex;
+        flex: 1;
+        height: 650px;
+    }
+
+    /* SIDEBAR */
+    .esn-t1l-sidebar {
+        width: 28%;
+        min-width: 250px;
+        background: #fff;
+        border-right: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #esn-team-search {
+        background: #fff;
+        border: none;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    #esn-team-search:focus {
+        outline: 1px solid #E30A17;
+    }
+
+    /* FILTER BAR */
+    .esn-filter-bar {
+        display: flex;
+        gap: 5px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-bottom: 1px solid #eee;
+    }
+
+    .esn-filter-btn {
+        flex: 1;
+        background: #fff;
+        border: 1px solid #ddd;
+        color: #666;
+        padding: 8px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+
+    .esn-filter-btn:hover {
+        background: #fff0f0;
+        color: #E30A17;
+    }
+
+    .esn-filter-btn.active {
+        background: #E30A17;
+        color: #fff;
+        border-color: #E30A17;
+    }
+
+    #esn-team-list {
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    /* TEAM ITEMS WITH VIDEO COUNTS */
+    .esn-team-item {
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #444;
+        transition: 0.2s;
+    }
+
+    .esn-team-item:hover {
+        background: #fff5f5;
+        color: #E30A17;
+    }
+
+    .esn-team-item.active {
+        background: #fff0f0;
+        border-left: 4px solid #E30A17;
+        color: #E30A17;
+        font-weight: bold;
+    }
+
+    .esn-team-name {
+        flex: 1;
+    }
+
+    .esn-video-badge {
+        background: #f0f0f0;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: bold;
+        color: #888;
+        border: 1px solid #ddd;
+        min-width: 35px;
+        text-align: center;
+    }
+
+    .esn-team-item:hover .esn-video-badge {
+        border-color: #E30A17;
+        color: #E30A17;
+    }
+
+    .esn-team-item.active .esn-video-badge {
+        background: #E30A17;
+        color: #fff;
+        border-color: #E30A17;
+    }
+
+    .esn-video-badge.has-videos {
+        color: #E30A17;
+        border-color: #E30A17;
+        background: #fff0f0;
+    }
+
+    .esn-video-badge.no-videos {
+        color: #aaa;
+        border-color: #eee;
+    }
+
+    /* CONTENT AREA */
+    .esn-t1l-content {
+        width: 72%;
+        padding: 30px;
+        background: #fcfcfc;
+        overflow-y: auto;
+    }
+
+    #esn-selected-title {
+        margin-top: 0;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 28px;
+    }
+
+    /* TABS WITH COUNTS */
+    .esn-tabs {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .esn-tab-btn {
+        background: none;
+        border: none;
+        color: #888;
+        padding: 12px 15px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .esn-tab-btn:hover {
+        color: #E30A17;
+    }
+
+    .esn-tab-btn.active {
+        color: #E30A17;
+        border-bottom: 3px solid #E30A17;
+    }
+
+    .tab-count {
+        background: #eee;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        color: #666;
+    }
+
+    .esn-tab-btn.active .tab-count {
+        background: #E30A17;
+        color: #fff;
+        border-color: #E30A17;
+    }
+
+    /* VIDEO CARDS */
+    .esn-v-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        padding: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .esn-v-card:hover {
+        border-color: #E30A17;
+        transform: translateX(8px);
+        background: #fff5f5;
+        box-shadow: 0 4px 8px rgba(227, 10, 23, 0.1);
+    }
+
+    .esn-v-info h4 {
+        margin: 0 0 6px 0;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .esn-v-info span {
+        color: #888;
+        font-size: 13px;
+    }
+
+    .esn-v-play {
+        color: #E30A17;
+        font-size: 24px;
+    }
+
+    /* FULL SCREEN MODAL STYLES */
+    .esn-modal {
+        display: none;
+        position: fixed;
+        z-index: 2147483647;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .esn-modal-content {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+
+    .esn-modal-header {
+        flex-shrink: 0;
+        padding: 15px 25px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .esn-close-btn {
+        cursor: pointer;
+        color: #333;
+        font-size: 18px;
+        padding: 5px 15px;
+        background: #eee;
+        border-radius: 4px;
+        transition: 0.2s;
+    }
+
+    .esn-close-btn:hover {
+        background: #E30A17;
+        color: #fff;
+    }
+
+    .esn-video-wrapper {
+        flex-grow: 1;
+        width: 100%;
+        position: relative;
+        background: #000;
+    }
+
+    .esn-video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .esn-t1l-body {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .esn-t1l-sidebar {
+            width: 100%;
+            max-height: 300px;
+        }
+
+        .esn-t1l-content {
+            width: 100%;
+        }
+    }
+</style>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    (function () {
+
+        // ==========================================
+        // 1. DATABASE - TRENDYOL 1. LIG TEAMS
+        // ==========================================
+        const db = {
+            "ankaragücü": {
+                fullMatches: [
+                    { title: "vs Gençlerbirliği", date: "12 September 2025", link: "https://player.mux.com/HlRUZKJsqYlEHBe6ThLIMMTn98V01CXbXAb5qDoQzXl00" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "pendikspor": {
+                fullMatches: [
+                    { title: "vs Istanbulspor", date: "2 November 2025", link: "https://player.mux.com/Ptxec201sPKLKXom3XYnSNlorz7a01irMdsnzBr01277pU" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "istanbulspor": {
+                fullMatches: [
+                    { title: "vs Pendikspor", date: "2 November 2025", link: "https://player.mux.com/Ptxec201sPKLKXom3XYnSNlorz7a01irMdsnzBr01277pU" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "fatih karagümrük": {
+                fullMatches: [
+                    { title: "vs Sakaryaspor", date: "20 September 2025", link: "https://player.mux.com/5OurPijDA8c600xk7tDQlcfHuCTiaui8onAzd2Zb00xfQ" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "sakaryaspor": {
+                fullMatches: [
+                    { title: "vs Fatih Karagümrük", date: "20 September 2025", link: "https://player.mux.com/5OurPijDA8c600xk7tDQlcfHuCTiaui8onAzd2Zb00xfQ" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "kocaelispor": {
+                fullMatches: [
+                    { title: "vs Boluspor", date: "25 September 2025", link: "https://player.mux.com/joySVKHfLihFy02PTL56mw351wVAZag2XXo3F46OWD4s" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "çorum fk": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "boluspor": {
+                fullMatches: [
+                    { title: "vs Bodrum FK", date: "2 November 2025", link: "https://player.mux.com/m00VW7jzeotwyjIo8RiZjOu01JJYhB6lIxCWDom3ICMZM" },
+		    { title: "vs Adana Demirspor", date: "12 December 2025", link: "https://player.mux.com/8rVjtHPrEcjY1UvjzTRXwIGfUOw3DpJYgy547tsMn900" },
+                ],
+                highlights: [],
+                academy: []
+            },
+  	    "bodrum FK": {
+                fullMatches: [
+                    { title: "vs Boluspor", date: "2 November 2025", link: "https://player.mux.com/m00VW7jzeotwyjIo8RiZjOu01JJYhB6lIxCWDom3ICMZM" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "manisa fk": {
+                fullMatches: [],
+                highlights: [
+		{ title: "Bobby Adekanye Highlights", date: "2024-2025", link: "https://player.mux.com/US5NN600DchMncMQ4xuMHbyRzqttI7sCAgQT8ndfsQUQ" },
+		{ title: "Loïs Diony Highlights", date: "2024-2025", link: "https://player.mux.com/m01PkNc012gjMp6FbmFXXniH300NvruxrT01Wifz3jN9tfE" },
+],
+                academy: []
+            },
+            "bandırmaspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "gençlerbirliği": {
+                fullMatches: [
+                    { title: "vs Ankaragücü", date: "12 September 2025", link: "https://player.mux.com/HlRUZKJsqYlEHBe6ThLIMMTn98V01CXbXAb5qDoQzXl00" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "ümraniyespor": {
+                fullMatches: [
+		{ title: "vs Sivasspor", date: "1 November 2025", link: "https://player.mux.com/TkqxfACepVoPHEyq1HqfzN26GODm7GpBab01VeVJOGek" },
+],
+                highlights: [
+		{ title: "vs Baris Ekincier", date: "Highlights 2024-2025", link: "https://player.mux.com/h9dY1TDh5WyGp8V2IomCVxg3VBfgf01Zb2Cn82Q2r5lk" },
+],
+                academy: []
+            },
+            "keçiörengücü": {
+                fullMatches: [
+		{ title: "vs Sariyerspor", date: "1 November 2025", link: "https://player.mux.com/oehT6ZKDa71Sj7H5lI028zbtxjfEwYS2gjPIjHgm8Smo" },
+],
+                highlights: [],
+                academy: []
+            },
+            "erzurumspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "şanlıurfaspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "adanaspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "yeni malatyaspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "iğdır fk": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "amed sk": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "esenler erokspor": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+ 	    "sivasspor": {
+                fullMatches: [
+		{ title: "vs Ümraniyespor", date: "1 November 2025", link: "https://player.mux.com/TkqxfACepVoPHEyq1HqfzN26GODm7GpBab01VeVJOGek" },
+],
+                highlights: [
+		{ title: "vs Cihat Celik", date: "Highlights 2016-2017", link: "https://player.mux.com/awyOeyIs35zXGBIEibco00vDKy6xJA007eTq8lIGXrrWU" },
+		{ title: "vs Cihat Celik", date: "Highlights 2019-2020", link: "https://player.mux.com/VutgS5Y00eFeCxdKp8cfMmnUR2c2cQoMh023T7cHUxCkY" },
+],
+                academy: []
+            },
+   	    "serik spor": {
+                fullMatches: [
+		{ title: "vs Adana Demirspor", date: "1 November 2025", link: "https://player.mux.com/rnvo49RWexkQmmJDBOn54x6AKayXEGBQSlFFdpj8g8U" },
+],
+                highlights: [],
+                academy: []
+            },
+ 	"adana demirspor": {
+                fullMatches: [
+		{ title: "vs Serik Spor", date: "1 November 2025", link: "https://player.mux.com/rnvo49RWexkQmmJDBOn54x6AKayXEGBQSlFFdpj8g8U" },
+		{ title: "vs Boluspor", date: "12 December 2025", link: "https://player.mux.com/8rVjtHPrEcjY1UvjzTRXwIGfUOw3DpJYgy547tsMn900" },
+],
+                highlights: [],
+                academy: []
+            },
+	"sariyerspor": {
+                fullMatches: [
+		{ title: "vs Ankara Keçiörengücü", date: "1 November 2025", link: "https://player.mux.com/oehT6ZKDa71Sj7H5lI028zbtxjfEwYS2gjPIjHgm8Smo" },
+],
+                highlights: [],
+                academy: []
+            }
+
+        };
+
+        const allTeams = [
+            "Adanaspor", "Adana Demirspor", "Amed SK", "Ankaragücü", "Bandırmaspor", "Boluspor","Bodrum FK", 
+            "Çorum FK", "Erzurumspor", "Esenler Erokspor", "Fatih Karagümrük",
+            "Gençlerbirliği", "Iğdır FK", "Istanbulspor", "Keçiörengücü",
+            "Kocaelispor", "Manisa FK", "Pendikspor", "Sakaryaspor",
+            "Şanlıurfaspor", "Sariyerspor", "Serik Spor", "Sivasspor", "Ümraniyespor", "Yeni Malatyaspor"
+        ].sort();
+
+        // ==========================================
+        // 2. VIDEO COUNT CALCULATION
+        // ==========================================
+
+        function getVideoCount(teamKey) {
+            if (!db[teamKey]) return 0;
+            return (db[teamKey].fullMatches?.length || 0) +
+                (db[teamKey].highlights?.length || 0) +
+                (db[teamKey].academy?.length || 0);
+        }
+
+        function updateGlobalStats() {
+            let totalVideos = 0;
+            let teamsWithVideos = 0;
+
+            Object.keys(db).forEach(key => {
+                const count = getVideoCount(key);
+                totalVideos += count;
+                if (count > 0) teamsWithVideos++;
+            });
+
+            document.getElementById('total-videos-count').textContent = totalVideos;
+            document.getElementById('teams-with-videos-count').textContent = teamsWithVideos;
+        }
+
+        // ==========================================
+        // 3. TEAM LIST RENDERING WITH COUNTS
+        // ==========================================
+
+        let currentTeamKey = null;
+        let currentTab = 'fullMatches';
+        let currentFilter = 'all';
+
+        setTimeout(function () {
+            const list = document.getElementById('esn-team-list');
+            if (!list) return;
+
+            list.innerHTML = "";
+            allTeams.forEach(t => {
+                const key = t.toLowerCase();
+                const videoCount = getVideoCount(key);
+
+                let div = document.createElement('div');
+                div.className = 'esn-team-item';
+                div.setAttribute('data-video-count', videoCount);
+                div.innerHTML = `
+                <span class="esn-team-name">${t}</span>
+                <span class="esn-video-badge ${videoCount > 0 ? 'has-videos' : 'no-videos'}">${videoCount}</span>
+            `;
+                div.onclick = function () { window.selectTeam(t, this); };
+                list.appendChild(div);
+            });
+
+            updateGlobalStats();
+        }, 500);
+
+        window.selectTeam = function (name, el) {
+            currentTeamKey = name.toLowerCase();
+            document.getElementById('esn-selected-title').innerText = name;
+
+            let items = document.querySelectorAll('.esn-team-item');
+            items.forEach(i => i.classList.remove('active'));
+            if (el) el.classList.add('active');
+
+            // Update tab counts
+            const teamData = db[currentTeamKey] || { fullMatches: [], highlights: [], academy: [] };
+            document.getElementById('full-count').textContent = teamData.fullMatches?.length || 0;
+            document.getElementById('highlights-count').textContent = teamData.highlights?.length || 0;
+            document.getElementById('academy-count').textContent = teamData.academy?.length || 0;
+
+            window.switchTab('fullMatches');
+        };
+
+        // ==========================================
+        // 4. FILTER FUNCTIONS
+        // ==========================================
+
+        window.filterByVideoCount = function (type) {
+            currentFilter = type;
+
+            // Update button states
+            document.querySelectorAll('.esn-filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter teams
+            const items = document.querySelectorAll('.esn-team-item');
+            items.forEach(item => {
+                const count = parseInt(item.getAttribute('data-video-count'));
+
+                if (type === 'all') {
+                    item.style.display = 'flex';
+                } else if (type === 'withVideos') {
+                    item.style.display = count > 0 ? 'flex' : 'none';
+                } else if (type === 'noVideos') {
+                    item.style.display = count === 0 ? 'flex' : 'none';
+                }
+            });
+        };
+
+        window.filterTeams = function () {
+            let term = document.getElementById('esn-team-search').value.toLowerCase();
+            let items = document.querySelectorAll('.esn-team-item');
+
+            items.forEach(item => {
+                const teamName = item.querySelector('.esn-team-name').innerText.toLowerCase();
+                const matchesSearch = teamName.includes(term);
+                const count = parseInt(item.getAttribute('data-video-count'));
+
+                let shouldShow = matchesSearch;
+
+                // Apply current filter
+                if (currentFilter === 'withVideos' && count === 0) shouldShow = false;
+                if (currentFilter === 'noVideos' && count > 0) shouldShow = false;
+
+                item.style.display = shouldShow ? 'flex' : 'none';
+            });
+        };
+
+        // ==========================================
+        // 5. TAB SWITCHING & VIDEO RENDERING
+        // ==========================================
+
+        window.switchTab = function (category) {
+            currentTab = category;
+            let tabs = document.querySelectorAll('.esn-tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+
+            if (category === 'fullMatches') tabs[0].classList.add('active');
+            if (category === 'highlights') tabs[1].classList.add('active');
+            if (category === 'academy') tabs[2].classList.add('active');
+
+            renderVideos();
+        };
+
+        function renderVideos() {
+            const grid = document.getElementById('esn-video-grid');
+            grid.innerHTML = "";
+
+            if (!currentTeamKey || !db[currentTeamKey] || !db[currentTeamKey][currentTab] || db[currentTeamKey][currentTab].length === 0) {
+                grid.innerHTML = '<p style="color:#666; text-align:center; padding:40px 0;">No videos available yet for this category.</p>';
+                return;
+            }
+
+            db[currentTeamKey][currentTab].forEach(vid => {
+                let card = document.createElement('div');
+                card.className = 'esn-v-card';
+                card.onclick = function () { window.playVideo(vid.link, vid.title); };
+                card.innerHTML = `
+                <div class="esn-v-info">
+                    <h4>${vid.title}</h4>
+                    <span>${vid.date}</span>
+                </div>
+                <div class="esn-v-play">▶</div>
+            `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // 6. VIDEO PLAYER LOGIC (FULL SCREEN)
+        // ==========================================
+
+        window.playVideo = function (url, title) {
+            const modal = document.getElementById('esn-player-modal');
+            const iframe = document.getElementById('esn-main-iframe');
+            const titleSpan = document.getElementById('esn-playing-title');
+
+            titleSpan.innerText = title;
+
+            // Auto-Convert YouTube links
+            if (url.includes("youtube.com/watch?v=")) {
+                url = url.replace("watch?v=", "embed/");
+                if (url.includes("&")) url = url.split("&")[0];
+            } else if (url.includes("youtu.be/")) {
+                url = url.replace("youtu.be/", "youtube.com/embed/");
+            }
+
+            iframe.src = url;
+            modal.style.display = "block";
+        };
+
+        window.closeVideo = function () {
+            const modal = document.getElementById('esn-player-modal');
+            const iframe = document.getElementById('esn-main-iframe');
+            modal.style.display = "none";
+            iframe.src = "";
+        };
+
+    })();
+</script>
