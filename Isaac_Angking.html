@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youri Regeer — Empire FGA Profile</title>
+    <title>Isaac Angking — Empire FGA Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,8 +14,8 @@
             --card: #1a1a20;
             --white: #f0f6fc;
             --muted: #9e9ea5;
-            --accent1: #D2122E; /* Ajax Red */
-            --accent2: #ffd24d; /* Empire Gold */
+            --accent1: #F9A602; /* Rhode Island Amber */
+            --accent2: #0047AB; /* Rhode Island Blue */
             --accent3: #ffffff;
         }
 
@@ -30,7 +30,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background: radial-gradient(900px 500px at 8% 12%, rgba(210, 18, 46, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 255, 255, 0.04), transparent 8%), var(--bg);
+            background: radial-gradient(900px 500px at 8% 12%, rgba(249, 166, 2, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(0, 71, 171, 0.06), transparent 8%), var(--bg);
             color: var(--white);
             -webkit-font-smoothing: antialiased;
             font-family: 'Inter', sans-serif
@@ -59,7 +59,7 @@
         .header-title {
             font-size: 20px;
             font-weight: 800;
-            color: var(--accent2);
+            color: var(--accent1);
             letter-spacing: -0.5px;
         }
 
@@ -86,7 +86,7 @@
             width: 100%;
             height: 520px;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: top center;
             border-radius: 10px;
             border: 3px solid var(--accent1);
             background: #0b1624
@@ -107,7 +107,7 @@
 
         .pill {
             display: inline-block;
-            background: rgba(210, 18, 46, 0.12);
+            background: rgba(249, 166, 2, 0.12);
             padding: 7px 12px;
             border-radius: 999px;
             font-weight: 700;
@@ -117,10 +117,10 @@
             border: 1px solid rgba(255, 255, 255, 0.18)
         }
         
-        .pill.gold {
-            background: rgba(255, 210, 77, 0.12);
-            border-color: rgba(255, 210, 77, 0.3);
-            color: var(--accent2);
+        .pill.blue {
+            background: rgba(0, 71, 171, 0.15);
+            border-color: rgba(0, 71, 171, 0.4);
+            color: #4da6ff;
         }
 
         table {
@@ -140,9 +140,9 @@
         }
 
         th {
-            background: linear-gradient(90deg, rgba(210, 18, 46, 0.85), rgba(255, 255, 255, 0.1));
+            background: linear-gradient(90deg, rgba(249, 166, 2, 0.85), rgba(0, 71, 171, 0.85));
             font-weight: 800;
-            color: #ffffff;
+            color: #0f0f13;
             text-transform: uppercase;
             font-size: 12px;
         }
@@ -151,14 +151,15 @@
             position: absolute;
             right: 18px;
             top: 18px;
-            background: linear-gradient(135deg, #D2122E, #ffffff);
-            color: #000;
+            background: linear-gradient(135deg, #F9A602, #0047AB);
+            color: #ffffff;
             font-weight: 900;
             padding: 12px 18px;
             border-radius: 16px;
             font-size: 26px;
-            box-shadow: 0 10px 30px rgba(210, 18, 46, 0.25);
+            box-shadow: 0 10px 30px rgba(249, 166, 2, 0.25);
             border: 1px solid rgba(255,255,255,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
         .section {
@@ -175,7 +176,7 @@
         .section h3 {
             font-size: 16px;
             font-weight: 700;
-            color: var(--accent2);
+            color: var(--accent1);
             margin: 16px 0 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -207,7 +208,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed rgba(210, 18, 46, 0.3)
+            border: 1px dashed rgba(249, 166, 2, 0.3)
         }
 
         .muted-box {
@@ -273,13 +274,13 @@
 
         .metric-fill {
             height: 100%;
-            background: linear-gradient(90deg, #D2122E 0%, #ff4d4d 100%);
+            background: linear-gradient(90deg, #F9A602 0%, #FFD700 100%);
             border-radius: 3px
         }
         
         /* Tier 3 Scout Metrics styling */
         .metric-fill.tier3 {
-            background: linear-gradient(90deg, #ffd24d 0%, #ffaa00 100%);
+            background: linear-gradient(90deg, #0047AB 0%, #007FFF 100%);
         }
 
         .timeline-item {
@@ -304,8 +305,8 @@
         }
 
         .stat-box {
-            background: rgba(210, 18, 46, 0.12);
-            border: 1px solid rgba(210, 18, 46, 0.2);
+            background: rgba(249, 166, 2, 0.12);
+            border: 1px solid rgba(249, 166, 2, 0.2);
             padding: 14px;
             border-radius: 8px;
             text-align: center
@@ -351,77 +352,77 @@
                 alt="Empire Scouting Network">
             <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
         </div>
-        <div style="font-size:12px; color:var(--accent2); font-weight:700; border:1px solid var(--accent2); padding:5px 10px; border-radius:4px;">
+        <div style="font-size:12px; color:var(--accent1); font-weight:700; border:1px solid var(--accent1); padding:5px 10px; border-radius:4px;">
             FGA SYSTEM v2.0
         </div>
     </header>
     <div class="container">
         <div>
             <div class="card">
-                <img src="https://images.nu.nl/m/j3uxm4uawm02_wd854/0/63/3250/1829/regeer-raakt-vlak-na-transfer-naar-ajax-geblesseerd-en-is-maanden-uitgeschakeld.jpg"
-                    alt="Youri Regeer" class="photo">
-                <div class="title">Youri Regeer</div>
-                <div class="sub">Dutch Midfielder • Ajax • "The Versatile Engine" • Emerging Core</div>
-                <div class="rating-badge">77.0</div>
+                <img src="https://cdn1.sportngin.com/attachments/photo/0845-207529743/20240705_RIvIndy2H1338_large.jpg"
+                    alt="Isaac Angking" class="photo">
+                <div class="title">Isaac Angking</div>
+                <div class="sub">Puerto Rican Playmaker • Rhode Island FC • "The Boricua Maestro"</div>
+                <div class="rating-badge">68.5</div>
                 <div class="section">
-                    <div class="stat-box"><span class="stat-value">🇳🇱 Netherlands</span><span class="stat-label">Height: 1.77m • Ajax Return 2025 • Tactical Hybrid</span></div>
+                    <div class="stat-box"><span class="stat-value">🇵🇷 Puerto Rico</span><span class="stat-label">Height: 1.80m • International • Creative Hub</span></div>
                 </div>
                 <div class="section">
-                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Youri Regeer</span></div>
-                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">CM / RB / Inverted FB</span></div>
-                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Netherlands 🇳🇱</span></div>
-                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">22 (Born: Aug 18, 2003)</span></div>
-                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Isaac Angking</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">CM / CAM / LM</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Puerto Rico 🇵🇷 / USA 🇺🇸</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">25 (Born: Jan 24, 2000)</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
                 </div>
                 <div class="section">
                     <h3>Career Path</h3>
-                    <div class="info-row"><span class="info-label">Ajax Youth</span><span
-                            class="info-value">2017-2022</span></div>
-                    <div class="info-row"><span class="info-label">FC Twente</span><span
-                            class="info-value">2023-2024</span></div>
-                    <div class="info-row"><span class="info-label">Ajax</span><span
-                            class="info-value">Jan 2025-Present</span></div>
+                    <div class="info-row"><span class="info-label">NE Revolution</span><span
+                            class="info-value">2018-2020 (Homegrown)</span></div>
+                    <div class="info-row"><span class="info-label">Columbus Crew 2</span><span
+                            class="info-value">2022-2023</span></div>
+                    <div class="info-row"><span class="info-label">Rhode Island FC</span><span
+                            class="info-value">2024-Present</span></div>
                 </div>
             </div>
         </div>
         <div>
             <div class="card">
                 <h2>🌍 Global Impact Analysis</h2>
-                <p class="lead">Youri Regeer is a product of the famed **Ajax Academy** (De Toekomst) who has returned to Amsterdam in 2025 as a refined professional. After a successful spell at **FC Twente** where he developed physically and gained Eredivisie experience, Ajax re-signed him to provide elite versatility. Capable of playing as a **Central Midfielder**, **Right Back**, or even an **Inverted Fullback**, Regeer is the ultimate "Total Football" utility player. His tactical intelligence (IQ 7.9) allows him to seamlessly switch roles mid-game, making him a manager's dream for complex tactical systems.</p>
-                <div class="muted-box"><strong style="color:var(--accent2)">Scout Note:</strong> Re-signed by Ajax in Jan 2025. Adds immediate depth to midfield and defense. Key attribute: Positional Flexibility.</div>
+                <p class="lead">Isaac Angking is a technically gifted midfielder who has found his home at **Rhode Island FC** in the USL Championship. Originally a highly-touted Homegrown Player for the New England Revolution, Angking possesses elite vision and passing range for this level. A key figure for the **Puerto Rico National Team**, he operates best as a deep-lying playmaker or advanced #8, where he can dictate tempo. While not the most physically imposing, his ability to break lines with his left foot makes him a valuable creative asset in possession-dominant systems.</p>
+                <div class="muted-box"><strong style="color:var(--accent1)">Career Highlights:</strong> New England Revolution Homegrown Signee (2018) • Puerto Rico International (10+ Caps) • Rhode Island FC Founding Squad Member.</div>
             </div>
             
             <div class="card">
                 <h2>📊 Core FGA Intelligence Metrics</h2>
                 
-                <h3>Tier 1: Technical & Passing (Automated)</h3>
+                <h3>Tier 1: Technical & Creative (Automated)</h3>
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
-                                    class="metric-score">7.9</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width:79%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">PRG (Progressive)</span><span
                                     class="metric-score">7.8</span></div>
                             <div class="metric-bar">
                                 <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
-                                    class="metric-score">7.6</span></div>
+                                    class="metric-score">7.9</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width:76%"></div>
+                                <div class="metric-fill" style="width:79%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
                                     class="metric-score">7.5</span></div>
                             <div class="metric-bar">
                                 <div class="metric-fill" style="width:75%"></div>
@@ -434,33 +435,33 @@
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
-                                    class="metric-score">8.2</span></div>
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">7.2</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width:82%"></div>
+                                <div class="metric-fill" style="width:72%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">REC (Recovery)</span><span
-                                    class="metric-score">7.6</span></div>
+                            <div class="metric-header"><span class="metric-name">SPD (Speed)</span><span
+                                    class="metric-score">6.5</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width:76%"></div>
+                                <div class="metric-fill" style="width:65%"></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
-                                    class="metric-score">7.1</span></div>
+                            <div class="metric-header"><span class="metric-name">STR (Strength)</span><span
+                                    class="metric-score">6.2</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width:71%"></div>
+                                <div class="metric-fill" style="width:62%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">1v1 (Defending)</span><span
-                                    class="metric-score">7.5</span></div>
+                            <div class="metric-header"><span class="metric-name">DEF (Defense)</span><span
+                                    class="metric-score">6.0</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width:75%"></div>
+                                <div class="metric-fill" style="width:60%"></div>
                             </div>
                         </div>
                     </div>
@@ -470,33 +471,33 @@
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">IQ (Tactical)</span><span
-                                    class="metric-score" style="color:var(--accent2)">7.9</span></div>
+                            <div class="metric-header"><span class="metric-name">CRE (Creativity)</span><span
+                                    class="metric-score" style="color:var(--white)">8.2</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill tier3" style="width:79%"></div>
+                                <div class="metric-fill tier3" style="width:82%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">VER (Versatility)</span><span
-                                    class="metric-score" style="color:var(--accent2)">9.0</span></div>
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score" style="color:var(--white)">7.5</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill tier3" style="width:90%"></div>
+                                <div class="metric-fill tier3" style="width:75%"></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
-                                    class="metric-score" style="color:var(--accent2)">7.7</span></div>
+                            <div class="metric-header"><span class="metric-name">WOR (Work Rate)</span><span
+                                    class="metric-score" style="color:var(--white)">6.8</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill tier3" style="width:77%"></div>
+                                <div class="metric-fill tier3" style="width:68%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">PRO (Professional)</span><span
-                                    class="metric-score" style="color:var(--accent2)">8.5</span></div>
+                            <div class="metric-header"><span class="metric-name">FK (Free Kicks)</span><span
+                                    class="metric-score" style="color:var(--white)">7.8</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill tier3" style="width:85%"></div>
+                                <div class="metric-fill tier3" style="width:78%"></div>
                             </div>
                         </div>
                     </div>
@@ -505,13 +506,13 @@
 
             <div class="card">
                 <h2>🧠 60-Philosophy Framework Analysis</h2>
-                <p class="small" style="margin-bottom:12px;">Regeer fits the classic Dutch School methodology.</p>
+                <p class="small" style="margin-bottom:12px;">Angking fits technical, possession-oriented structures.</p>
                 <h3>Top Philosophy Fits</h3>
                 <div>
-                    <span class="pill gold">QO1: Cruyff Intelligence 8.8/10</span>
-                    <span class="pill">QP1: Michels Total 8.5/10</span>
-                    <span class="pill">QQ1: Van Gaal System 8.2/10</span>
-                    <span class="pill">QU1: Guardiola Positional 8.0/10</span>
+                    <span class="pill gold">QU1: Guardiola Positional 8.0/10</span>
+                    <span class="pill">MLS Academy Tech 8.5/10</span>
+                    <span class="pill">Deep Lying Playmaker 8.2/10</span>
+                    <span class="pill blue">Caribbean Technical 8.0/10</span>
                 </div>
             </div>
 
@@ -521,26 +522,26 @@
                     <div>
                         <h3>Core Traits</h3>
                         <div class="info-row"><span class="info-label">Personality Type</span><span
-                                class="info-value">ISTP (The Virtuoso)</span></div>
-                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Adaptable Connector</span></div>
+                                class="info-value">INFP (The Mediator)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Creative Architect</span></div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">Adaptability</span><span
-                                    class="metric-score">9.0</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width:90%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">Work Ethic</span><span
+                            <div class="metric-header"><span class="metric-name">Flair</span><span
                                     class="metric-score">8.5</span></div>
                             <div class="metric-bar">
                                 <div class="metric-fill" style="width:85%"></div>
                             </div>
                         </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">6.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:65%"></div>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <h3>Analysis</h3>
-                        <p class="small">**The Ultimate Connector:** Regeer is low-maintenance and high-output. He accepts any role given by the manager, whether starting at right-back, playing in a double pivot, or closing a game as a wide midfielder. His psychological profile is stable, showing high levels of composure (7.7) even when pressed in his own defensive third.</p>
+                        <p class="small">**Mercurial Talent:** Angking is a confidence player. When he is in rhythm, he can unlock any defense in the USL with a single pass. He thrives when given the "keys" to the midfield but can drift out of games if the team is forced to defend for long periods. Needs a destroyer next to him to flourish.</p>
                     </div>
                 </div>
             </div>
@@ -548,16 +549,16 @@
             <div class="card">
                 <h2>🤝 Key Career Moments</h2>
                 <div class="timeline-item">
-                    <div class="timeline-date">2022 | Ajax Debut</div>
-                    <div class="timeline-event">❌ Made his debut for Ajax in the KNVB Cup. Showed early promise but needed minutes to develop.</div>
+                    <div class="timeline-date">2018 | The Prodigy</div>
+                    <div class="timeline-event">🇺🇸 Signed as a **Homegrown Player** for New England Revolution, becoming the youngest signing in club history at the time.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">2023 | Twente Move</div>
-                    <div class="timeline-event">🔄 Moved to **FC Twente** to secure first-team football. Became a key player, often operating as an inverted fullback or midfielder.</div>
+                    <div class="timeline-date">2021 | International Debut</div>
+                    <div class="timeline-event">🇵🇷 Committed to **Puerto Rico**. Scored on his debut vs Bahamas (7-0 win), establishing himself as the creative hub of the national team.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Jan 2025 | The Return</div>
-                    <div class="timeline-event">⚽ **Re-signed by Ajax**. Brought back to Amsterdam to add depth and quality to the squad for the 2025-26 campaign.</div>
+                    <div class="timeline-date">2024 | The Anchor</div>
+                    <div class="timeline-event">⚓ Joined **Rhode Island FC** for their inaugural season, providing local connection and midfield creativity.</div>
                 </div>
             </div>
 
@@ -567,32 +568,32 @@
                     <thead>
                         <tr>
                             <th>Club</th>
-                            <th>Era</th>
+                            <th>Season</th>
                             <th>Apps</th>
-                            <th>Role</th>
+                            <th>G/A</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Ajax</strong></td>
-                            <td>2024-Present</td>
-                            <td>26</td>
-                            <td>Squad Rotation</td>
+                            <td><strong>Rhode Island FC</strong></td>
+                            <td>2024-2025</td>
+                            <td>35+</td>
+                            <td>4 Goals / 6 Assists</td>
                         </tr>
                         <tr>
-                            <td><strong>FC Twente</strong></td>
-                            <td>2023-2024</td>
-                            <td>95</td>
-                            <td>Starter</td>
+                            <td><strong>Columbus Crew 2</strong></td>
+                            <td>2022-2023</td>
+                            <td>28</td>
+                            <td>3 Goals / 4 Assists</td>
                         </tr>
                         <tr>
-                            <td><strong>Jong Ajax</strong></td>
-                            <td>2019-2023</td>
-                            <td>90+</td>
-                            <td>Captain/Leader</td>
+                            <td><strong>Puerto Rico</strong></td>
+                            <td>Int'l</td>
+                            <td>12</td>
+                            <td>4 Goals</td>
                         </tr>
-                        <tr style="background:rgba(210, 18, 46, 0.15)">
-                            <td colspan="4"><strong>Summary:</strong> 120+ Eredivisie Appearances by age 22. Highly experienced for his age group.</td>
+                        <tr style="background:rgba(249, 166, 2, 0.15)">
+                            <td colspan="4"><strong>Summary:</strong> High technical output per 90 mins. Set-piece specialist.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -600,7 +601,7 @@
 
             <div class="card">
                 <h2>⚽ Tactical Profile & Playing Style</h2>
-                <p class="small" style="margin-bottom:12px;">Youri Regeer is an "Inverted Connector".</p>
+                <p class="small" style="margin-bottom:12px;">Isaac Angking is a "Technical Creator".</p>
                 <table>
                     <thead>
                         <tr>
@@ -611,77 +612,79 @@
                     <tbody>
                         <tr>
                             <td><strong>Primary Role</strong></td>
-                            <td>Box-to-Box Midfielder / Inverted Right Back</td>
+                            <td>Central Midfielder (8) / Advanced Playmaker (10)</td>
                         </tr>
                         <tr>
                             <td><strong>Key Strengths</strong></td>
-                            <td>Versatility (9.0), Passing Range (7.8), Stamina (8.2), Tactical IQ.</td>
+                            <td>Passing (7.8), Vision (8.0), Left Foot, Set Pieces.</td>
                         </tr>
                         <tr>
                             <td><strong>In Possession</strong></td>
-                            <td>Tidy passer. Likes to drift centrally from wide areas to overload the midfield.</td>
+                            <td>Drops deep to collect ball. Looks for diagonal switches. threading through balls.</td>
                         </tr>
                         <tr>
                             <td><strong>Out of Possession</strong></td>
-                            <td>Disciplined presser. Uses recovery speed to track back. Good 1v1 fundamentals.</td>
+                            <td>Positions to intercept passing lanes but struggles with physical duels.</td>
                         </tr>
-                        <tr style="background:rgba(210, 18, 46, 0.15)">
-                            <td colspan="2"><strong>Summary:</strong> Not a specialist, but a generalist of the highest order. Essential for squads fighting on multiple fronts.</td>
+                        <tr style="background:rgba(249, 166, 2, 0.15)">
+                            <td colspan="2"><strong>Summary:</strong> A player who needs the ball to be effective. Best used as a creative outlet in a midfield three.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="card">
-                <h2>⚽ Recent Matches (2025-26 Season)</h2>
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Highlights focusing on distribution and set-pieces.</p>
+                <div style="margin-top:12px; border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:40px; text-align:center; background:rgba(0,0,0,0.3);">
+                   <p style="color:var(--muted)">[Video Placeholder: Isaac Angking Skills 2024]</p>
+                   <p style="font-size:12px; color:var(--accent1)">Vision • Passing • Goals</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Recent Matches (Late 2025 Context)</h2>
                 <p class="small" style="margin-bottom:12px;">Empire FGA Evaluations.</p>
                 <table>
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>Opponent</th>
-                            <th>Competition</th>
+                            <th>Result</th>
                             <th>Perf</th>
                             <th>Key Notes</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Sep 30, 2025</strong></td>
-                            <td>Marseille</td>
-                            <td>UCL</td>
-                            <td>6.4</td>
-                            <td>Sub (23'), Defended lead</td>
+                            <td><strong>Oct 25, 2025</strong></td>
+                            <td>Hartford Athletic</td>
+                            <td>✅ 2-1 W</td>
+                            <td>7.5</td>
+                            <td>1 Assist, 90% Pass Acc</td>
                         </tr>
                         <tr>
-                            <td><strong>Sep 21, 2025</strong></td>
-                            <td>PSV</td>
-                            <td>Eredivisie</td>
-                            <td>6.6</td>
-                            <td>Starter (68'), Solid link-up</td>
+                            <td><strong>Oct 18, 2025</strong></td>
+                            <td>Louisville City</td>
+                            <td>❌ 0-1 L</td>
+                            <td>6.0</td>
+                            <td>Subbed 60', Overpowered</td>
                         </tr>
                         <tr>
-                            <td><strong>Sep 17, 2025</strong></td>
-                            <td>Inter Milan</td>
-                            <td>UCL</td>
-                            <td>6.2</td>
-                            <td>Full 90, High work rate</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Oct 04, 2025</strong></td>
-                            <td>Sparta</td>
-                            <td>Eredivisie</td>
-                            <td>6.5</td>
-                            <td>Late sub, 1 Clearance</td>
+                            <td><strong>Oct 10, 2025</strong></td>
+                            <td>Miami FC</td>
+                            <td>✅ 3-0 W</td>
+                            <td>8.0</td>
+                            <td>Goal (Free Kick)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="card">
-                <h2>📊 Player Comparison (vs Eredivisie Midfielders)</h2>
+                <h2>📊 Player Comparison (vs USL Midfielder)</h2>
                 <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
-                <p class="small" style="text-align:center;margin-top:12px">Regeer vs Average Eredivisie CM</p>
+                <p class="small" style="text-align:center;margin-top:12px">Angking vs Average USL Championship CM</p>
             </div>
 
             <div class="card">
@@ -689,17 +692,17 @@
                 <div class="two-col">
                     <div>
                         <h3>Profile</h3>
-                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Youri Regeer</span></div>
-                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Aug 18, 2003 (22)</span></div>
-                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.77m</span></div>
-                        <div class="info-row"><span class="info-label">Agent</span><span class="info-value">Essel Sports</span></div>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Isaac Angking</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Jan 24, 2000 (25)</span></div>
+                        <div class="info-row"><span class="info-label">Homegrown</span><span class="info-value">New England Revs</span></div>
+                        <div class="info-row"><span class="info-label">Status</span><span class="info-value">First Team Squad</span></div>
                     </div>
                     <div>
                         <h3>Current Status</h3>
-                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Ajax</span></div>
-                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Eredivisie</span></div>
-                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">Utility / Rotation</span></div>
-                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">77.0 - Emerging</span></div>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Rhode Island FC</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">USL Championship</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">Playmaker</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">68.5 - Technical</span></div>
                     </div>
                 </div>
             </div>
@@ -709,21 +712,21 @@
                 <div class="two-col">
                     <div>
                         <h3>Elite Attributes</h3>
-                        <div class="pill gold">Versatility 9.0/10</div>
-                        <div class="pill">Stamina 8.2/10</div>
-                        <div class="pill">Tactical IQ 7.9/10</div>
-                        <div class="pill">Passing 7.9/10</div>
+                        <div class="pill gold">Vision (VIS) 8.0/10</div>
+                        <div class="pill gold">Technique 7.9/10</div>
+                        <div class="pill">Passing 7.8/10</div>
+                        <div class="pill blue">Creativity 8.2/10</div>
                     </div>
                     <div>
                         <h3>Summary</h3>
-                        <p class="small"><strong>VERDICT: EMERGING CORE PLAYER</strong><br><br>Youri Regeer is the modern archetype of the "Ajax Midfielder." While he may not possess one singular world-class trait, his lack of weaknesses and high **Tactical IQ (7.9)** make him invaluable. His return to Ajax in 2025 was a smart recruitment move. He provides coverage for 3-4 positions and maintains a high technical floor (7.6). A player who will play 30+ games a season across multiple roles.</p>
+                        <p class="small"><strong>VERDICT: TECHNICAL SPECIALIST</strong><br><br>Isaac Angking is a player who offers something different in the athletic-heavy USL Championship. His **Vision (8.0)** and **Technique (7.9)** are MLS-level, but his physical consistency has kept him in the second tier. For Rhode Island FC, he is a crucial asset against low blocks where creativity is needed. A high-ceiling playmaker who requires the right system to shine.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Passing', 'Versatility', 'Tactical IQ', 'Stamina', 'Defense', 'Speed', 'Strength', 'Technique'], datasets: [{ label: 'Youri Regeer', data: [7.9, 9.0, 7.9, 8.2, 7.1, 7.5, 6.8, 7.6], borderColor: '#D2122E', backgroundColor: 'rgba(210, 18, 46, 0.2)', borderWidth: 3, pointBackgroundColor: '#D2122E', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Avg Eredivisie CM', data: [7.0, 6.0, 7.0, 7.5, 6.5, 7.0, 6.5, 7.0], borderColor: '#9e9ea5', backgroundColor: 'transparent', borderWidth: 1, borderDash: [5, 5], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#9e9ea5', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(15,15,19,0.95)', titleColor: '#D2122E', bodyColor: '#f0f6fc', borderColor: '#D2122E', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Passing', 'Vision', 'Technique', 'Defense', 'Speed', 'Strength', 'Creativity', 'Work Rate'], datasets: [{ label: 'Isaac Angking', data: [7.8, 8.0, 7.9, 6.0, 6.5, 6.2, 8.2, 6.8], borderColor: '#F9A602', backgroundColor: 'rgba(249, 166, 2, 0.2)', borderWidth: 3, pointBackgroundColor: '#F9A602', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Avg USL CM', data: [6.5, 6.5, 6.5, 7.0, 7.0, 7.5, 6.0, 7.5], borderColor: '#9e9ea5', backgroundColor: 'transparent', borderWidth: 1, borderDash: [5, 5], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#9e9ea5', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(15,15,19,0.95)', titleColor: '#F9A602', bodyColor: '#f0f6fc', borderColor: '#F9A602', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
     </script>
 </body>
 

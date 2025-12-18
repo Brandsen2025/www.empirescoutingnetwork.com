@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eino-Iivari Pitkälä — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card: #1a1a20;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --accent1: #E4002B; /* PK-35 Red */
+            --accent2: #ffd24d; /* Empire Gold */
+            --accent3: #000000; /* Black */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(228, 0, 43, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(228, 0, 43, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 255, 255, 0.18)
+        }
+        
+        .pill.gold {
+            background: rgba(255, 210, 77, 0.12);
+            border-color: rgba(255, 210, 77, 0.3);
+            color: var(--accent2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(228, 0, 43, 0.85), rgba(0, 0, 0, 0.85));
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, #E4002B, #000000);
+            color: #ffffff;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(228, 0, 43, 0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(228, 0, 43, 0.3)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #E4002B 0%, #ff4d4d 100%);
+            border-radius: 3px
+        }
+        
+        /* Tier 3 Scout Metrics styling */
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #ffd24d 0%, #ffaa00 100%);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(228, 0, 43, 0.12);
+            border: 1px solid rgba(228, 0, 43, 0.2);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--white);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div style="font-size:12px; color:var(--accent2); font-weight:700; border:1px solid var(--accent2); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.0
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/584958528_1359946756141837_2893596222056581139_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=J51aX5phZy4Q7kNvwF9UOSS&_nc_oc=Adm5Pc3AQ0AfQAb-ayquBqXYRyqBNzASyLnmNsTpd4oncwb0v9vOinHOIeoLkbkG0_U&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=L2LeoVTz5AG5a29IGyTecA&oh=00_AflmsbdHqxem8eZPKcjd9Rs0dFmjB_d98yL-FNNr2DRD3Q&oe=69475F9B"
+                    alt="Eino-Iivari Pitkälä" class="photo">
+                <div class="title">Eino-Iivari Pitkälä</div>
+                <div class="sub">Finnish Midfielder • PK-35 • "The Silent Anchor"</div>
+                <div class="rating-badge">63.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇫🇮 Finland</span><span class="stat-label">Category 2004 • PK-35 • Former TPS / FC Jazz</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Eino-Iivari Pitkälä</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Defensive Midfield (DM)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Finland 🇫🇮</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">21 (Born: Feb 9, 2004)</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">FC Jazz</span><span
+                            class="info-value">2021-2023</span></div>
+                    <div class="info-row"><span class="info-label">TPS</span><span
+                            class="info-value">2024</span></div>
+                    <div class="info-row"><span class="info-label">PK-35</span><span
+                            class="info-value">2025-Present</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Eino-Iivari Pitkälä is a disciplined central midfielder who excels in providing structural balance to his team. After building a technical foundation at FC Jazz and refining his tactical understanding in the high-pressure environment of **TPS** in Turku during the 2024 season, he joined **PK-35** in 2025. He is a high-utility player whose value lies in his **Tactical Discipline (8.0)** and adherence to system instructions. Not a creator, but a vital "screener" who manages the space between midfield and defense with Nordic efficiency.</p>
+                <div class="muted-box"><strong style="color:var(--accent1)">Scout Note:</strong> Established Ykkösliiga profile. Clean technical floor. High reliability score.</div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                
+                <h3>Tier 1: Defensive & Stability (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">6.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:69%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WOR (Work Rate)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Technical & Passing (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">6.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:69%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CON (Control)</span><span
+                                    class="metric-score">6.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">6.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:64%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">6.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:61%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (Expert Input)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DIS (Discipline)</span><span
+                                    class="metric-score" style="color:var(--accent2)">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLM (Calmness)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:74%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Mapping Pitkälä's tactical DNA to historical systems.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill gold">SF1: Bilardo Pragmatism 8.5/10</span>
+                    <span class="pill">SO1: Lobanovskyi Science 8.2/10</span>
+                    <span class="pill">SL1: Liedholm Technical 7.8/10</span>
+                    <span class="pill">Functional Anchor 9.0/10</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ISTJ (Logistician)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Reliable Soldier</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Team First</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**Low Ego, High Adherence.** Pitkälä is the type of player who performs a specific role without deviation. He shows the high **Reliability (8.8)** common in Finnish players trained in professional academies like TPS. He provides psychological stability to the midfield through simple, repetitive success.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023 | Pori Development</div>
+                    <div class="timeline-event">🇫🇮 Breakthrough at **FC Jazz**. Became a regular starter in senior football as a teenager, proving his physical readiness for the Finnish tiers.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 | The Turku Year</div>
+                    <div class="timeline-event">⚽ Moved to **TPS**. Competed in the Ykkösliiga promotion battle. Gained experience at a club with high expectations and tactical rigor.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | PK-35 Arrival</div>
+                    <div class="timeline-event">📈 Signed for **PK-35** in Helsinki. Recruited to provide defensive stability and ball recycling in the capital city's midfield engine room.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PK-35</strong></td>
+                            <td>2025</td>
+                            <td>-</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TPS</strong></td>
+                            <td>2024</td>
+                            <td>21</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FC Jazz</strong></td>
+                            <td>2021-2023</td>
+                            <td>45+</td>
+                            <td>3</td>
+                        </tr>
+                        <tr style="background:rgba(228, 0, 43, 0.15)">
+                            <td colspan="4"><strong>Summary:</strong> High volume of senior minutes before age 21. Defensive specialist.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Eino-Iivari Pitkälä is a "Screener".</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Holding Midfielder / Pivot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Discipline (8.0), Work Rate (8.2), Interceptions (7.2), Simple Passing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>In Possession</strong></td>
+                            <td>Keeps the game simple. Primarily recycled the ball to creative teammates or fullbacks.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Out of Possession</strong></td>
+                            <td>Positions himself to prevent counter-attacks. Uses high stamina to track back and cover space.</td>
+                        </tr>
+                        <tr style="background:rgba(228, 0, 43, 0.15)">
+                            <td colspan="2"><strong>Summary:</strong> A fundamental system player. Reliable anchor who ensures team shape is maintained.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Highlights from TPS 2024 and PK-35 Pre-season.</p>
+                <div class="muted-box" style="margin-top:12px;text-align:center;padding:24px">
+                    <p style="font-size:18px;color:var(--accent2);margin-bottom:12px;font-weight:700">The Nordic Screen</p>
+                    <p style="font-size:13px;color:var(--muted);line-height:1.8">"Discipline (8.0), Stamina (7.8).<br>Proven Ykkösliiga Anchor.<br>Former TPS & Jazz talent.<br>PK-35 Defensive Hub.<br>Eino-Iivari Pitkälä - Functional Midfield Mastery."</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Last 5 Matches (Late 2024/25)</h2>
+                <p class="small" style="margin-bottom:12px;">Performance trajectory - Pivot Role.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Opponent</th>
+                            <th>Competition</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Recent</strong></td>
+                            <td>JIPPO</td>
+                            <td>Ykkösliiga</td>
+                            <td>⬜ 1-1 D</td>
+                            <td>Starter, 92% Pass Acc</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recent</strong></td>
+                            <td>KTP</td>
+                            <td>Ykkösliiga</td>
+                            <td>❌ 1-2 L</td>
+                            <td>Starter, 5 Interceptions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2024</strong></td>
+                            <td>Jaro</td>
+                            <td>Ykkösliiga</td>
+                            <td>✅ 2-0 W</td>
+                            <td>Clean Sheet, Solid cover</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 | TPS vs SalPa</div>
+                    <div class="timeline-event">⚫⚪ Controlled the midfield tempo in a crucial Turku-region derby, proving his ability to manage pressure.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | PK-35 Debut</div>
+                    <div class="timeline-event">🔴⚫ Stepped into the Helsinki side's XI immediately, showing rapid cultural and tactical adaptation.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison (vs League Average CM)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Pitkälä vs Average Ykkösliiga Midfielder</p>
+            </div>
+
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Eino-Iivari Pitkälä</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Feb 9, 2004 (21)</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Finland 🇫🇮</span></div>
+                        <div class="info-row"><span class="info-label">Agent</span><span class="info-value">EVLV Sports Management</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">PK-35</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Ykkösliiga</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">Holding Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">63.5 - Competent</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill gold">Discipline 8.0/10</div>
+                        <div class="pill gold">Reliability 8.8/10</div>
+                        <div class="pill">Work Rate 8.2/10</div>
+                        <div class="pill">Positioning 7.6/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: RELIABLE SYSTEM ANCHOR</strong><br><br>Eino-Iivari Pitkälä is a "coach's player". He provides high structural value without requiring the ball to dominate. His movement from FC Jazz to TPS and now **PK-35** shows a steady professional ascent. He is perfectly suited for teams that play a **Liedholm (SL1)** or **Bilardo (SF1)** style where defensive discipline is paramount. A high-floor prospect for the Finnish top flight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Tackling', 'Passing', 'Interceptions', 'Speed', 'Vision', 'Stamina', 'Work Rate', 'Discipline'], datasets: [{ label: 'Eino-Iivari Pitkälä', data: [6.9, 6.9, 7.2, 6.5, 6.4, 7.8, 8.2, 8.0], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'League Avg CM', data: [6.5, 6.8, 6.5, 7.0, 6.8, 7.2, 7.4, 7.0], borderColor: '#ff4d4d', backgroundColor: 'transparent', borderWidth: 1, borderDash: [5, 5], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>

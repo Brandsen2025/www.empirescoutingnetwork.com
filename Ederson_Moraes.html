@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ederson — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0YPzhJ-bjLqJkNzGMHkVslP9CjPH_31xrNw&s"
+                    alt="Ederson" class="photo">
+                <div class="title">Ederson</div>
+                <div class="sub">Brazilian Goalkeeper • Fenerbahçe • Man City Legend • Brazil International</div>
+                <div class="rating-badge">90.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇧🇷 Brazil</span><span class="stat-label">30 Caps •
+                            Copa America 2019 Winner • Man City 6 PL Titles</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Ederson
+                            Santana de Moraes</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Goalkeeper</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Brazil
+                            🇧🇷</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">31 (Born: Aug 17,
+                            1993)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Benfica</span><span class="info-value">2015-2017 (79
+                            apps)</span></div>
+                    <div class="info-row"><span class="info-label">Manchester City</span><span
+                            class="info-value">2017-2024 (372 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Fenerbahçe</span><span
+                            class="info-value">2024-Present</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Ederson is one of the best goalkeepers in the world. **Manchester City (2017-2024)**:
+                    **372 appearances** across 7 seasons. Won **6 Premier League titles**, **UEFA Champions League
+                    2023**, **FA Cup x2**, **League Cup x4**, **UEFA Super Cup**, **FIFA Club World Cup**. **Primeira
+                    Liga winner** with Benfica (2016-17). **Brazil National Team**: **30 caps**. **Copa America 2019
+                    winner**. **2022 World Cup** squad. Known for exceptional **distribution (9.6)**, **sweeper-keeper
+                    ability (9.4)**, **shot-stopping (9.0)**, and **composure (9.2)**. Revolutionized goalkeeping with
+                    his ball-playing ability. **Fenerbahçe (2024-Present)**: Major transfer to Turkish Super Lig. Most
+                    decorated City goalkeeper ever. Modern sweeper-keeper who changed the position.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> 6 Premier League
+                    Titles • UCL 2023 • Copa America 2019 • Man City Legend • 372 City Apps • Brazil International •
+                    Sweeper-Keeper Pioneer</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics (Goalkeepers)</h2>
+                <h3>Tier 1: Shot-Stopping & Reflexes</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Reflexes</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Positioning</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Handling</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">One-on-Ones</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Distribution & Ball-Playing</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Distribution</span><span
+                                    class="metric-score">9.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Long Passing</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Short Passing</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vision</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Sweeper-Keeper</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Aerial & Physical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Aerial Ability</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Command of Area</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Communication</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Ederson's tactical DNA mapped across coaching
+                    philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Guardiola System 9.9/10</span>
+                    <span class="pill">Possession-Based 9.7/10</span>
+                    <span class="pill">High-Line Defense 9.5/10</span>
+                    <span class="pill">Arteta Buildup 9.4/10</span>
+                    <span class="pill">Ten Hag Modern 9.3/10</span>
+                    <span class="pill">Nagelsmann Tactical 9.2/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESTP (Entrepreneur)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span
+                                class="info-value">Sweeper-Keeper</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Distribution</span><span
+                                    class="metric-score">9.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**372 Man City appearances**. **6 Premier League titles**, **UCL 2023**. **Copa
+                            America 2019 winner** with Brazil. **30 caps** for Brazil. Known for revolutionizing
+                            goalkeeping with elite **distribution (9.6)**. **Sweeper-keeper (9.4)** ability. Perfect for
+                            Guardiola's system. Most successful goalkeeper in Premier League history. **Fenerbahçe** new
+                            challenge. Modern GK pioneer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2017 | Manchester City Signing</div>
+                    <div class="timeline-event">💙 Joined **Manchester City** for £35M from Benfica. Guardiola's
+                        first-choice goalkeeper.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2018 | First Premier League Title</div>
+                    <div class="timeline-event">🏆 **PREMIER LEAGUE 2017-18** - City hit 100 points. First of 6 PL
+                        titles.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2019 | Copa America Winner</div>
+                    <div class="timeline-event">🇧🇷🏆 **COPA AMERICA 2019 CHAMPION** with Brazil. Major international
+                        trophy.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2023 | Treble Winner</div>
+                    <div class="timeline-event">🏆🏆🏆 **HISTORIC TREBLE** - Premier League, FA Cup, UEFA Champions
+                        League. Man City's greatest season.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2023 | Champions League Glory</div>
+                    <div class="timeline-event">🏆 **UEFA CHAMPIONS LEAGUE FINAL** - City 1-0 Inter Milan. European
+                        champion. Career-defining moment.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2024 | Fenerbahçe Move</div>
+                    <div class="timeline-event">🇹🇷 **FENERBAHÇE** transfer. New challenge in Turkish Super Lig after
+                        legendary City career.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Country</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Clean Sheets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Benfica</strong></td>
+                            <td>2015-2017</td>
+                            <td>79</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Manchester City</strong></td>
+                            <td>2017-2024</td>
+                            <td>372</td>
+                            <td>215</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fenerbahçe</strong></td>
+                            <td>2024-Present</td>
+                            <td>20+</td>
+                            <td>10+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brazil NT</strong></td>
+                            <td>2017-Present</td>
+                            <td>30</td>
+                            <td>18</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> 6 Premier League Titles • UCL 2023 • Copa America
+                                2019 • Most Decorated City GK</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Ederson is the modern sweeper-keeper.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Sweeper-Keeper / Ball-Playing Goalkeeper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Distribution (9.6), long passing (9.5), sweeper-keeper (9.4), composure (9.2)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shot-Stopping</strong></td>
+                            <td>Excellent reflexes (9.0), positioning (9.2), one-on-ones (9.1)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution</strong></td>
+                            <td>Elite passing range, pinpoint accuracy, starts attacks from the back</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>Composed under pressure, UCL 2023 winner mentality, treble winner</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Revolutionary goalkeeper who changed the position.
+                                6 PL titles, UCL 2023 winner. Most successful GK in Man City history.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Ederson's highlights showcase his distribution and sweeper-keeper ability.</p>
+                <div class="muted-box" style="margin-top:12px;text-align:center;padding:24px">
+                    <p style="font-size:18px;color:var(--accent2);margin-bottom:12px;font-weight:700">Man City Legend
+                    </p>
+                    <p style="font-size:13px;color:var(--muted);line-height:1.8">"6 Premier League titles with Man
+                        City.<br>UEFA Champions League 2023 winner.<br>Distribution (9.6), Sweeper-Keeper (9.4),
+                        Composure (9.2).<br>Copa America 2019 champion with Brazil.<br>Ederson - Modern goalkeeping
+                        pioneer."</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Recent performance tracker - Latest matches for Fenerbahçe
+                    (December 2025).</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dec 1, 2025</strong></td>
+                            <td>Super Lig</td>
+                            <td>Fenerbahçe vs Galatasaray</td>
+                            <td>✅ 2-0 W</td>
+                            <td>Clean Sheet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 27, 2025</strong></td>
+                            <td>Europa League</td>
+                            <td>Fenerbahçe vs Lyon</td>
+                            <td>✅ 1-0 W</td>
+                            <td>Clean Sheet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 23, 2025</strong></td>
+                            <td>Super Lig</td>
+                            <td>Trabzonspor vs Fenerbahçe</td>
+                            <td>✅ 0-3 W</td>
+                            <td>Dominant Display</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 10, 2025</strong></td>
+                            <td>Super Lig</td>
+                            <td>Fenerbahçe vs Besiktas</td>
+                            <td>✅ 2-1 W</td>
+                            <td>Commanding Performance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 5, 2025</strong></td>
+                            <td>Europa League</td>
+                            <td>Fenerbahçe vs Man United</td>
+                            <td>⬜ 1-1 D</td>
+                            <td>Several Key Saves</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining performances.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 10, 2023 | UCL Final</div>
+                    <div class="timeline-event">🏆 **UEFA CHAMPIONS LEAGUE FINAL** - Man City 1-0 Inter Milan. European
+                        champion. Historic treble complete.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 14, 2022 | PL Title Decider</div>
+                    <div class="timeline-event">🏆 **PREMIER LEAGUE FINAL DAY** - City 3-2 Aston Villa. Comeback from
+                        2-0 down to win title. Dramatic.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 7, 2019 | Copa America Final</div>
+                    <div class="timeline-event">🇧🇷🏆 **COPA AMERICA 2019 FINAL** - Brazil 3-1 Peru at Maracanã.
+                        International champion.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 6, 2023 | FA Cup Final</div>
+                    <div class="timeline-event">🏆 **FA CUP FINAL 2023** - Man City 2-1 Man United. Part of historic
+                        treble season.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Elite Sweeper-Keepers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Ederson vs Elite Sweeper-Keepers</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Ederson
+                                Santana de Moraes</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Aug 17, 1993
+                                (31)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Goalkeeper</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Brazil
+                                🇧🇷</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Fenerbahçe
+                                SK</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Turkish
+                                Super Lig</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">First-Choice
+                                Goalkeeper</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">90.0 -
+                                World Class</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Distribution 9.6/10</div>
+                        <div class="pill">Long Passing 9.5/10</div>
+                        <div class="pill">Sweeper-Keeper 9.4/10</div>
+                        <div class="pill">Vision 9.3/10</div>
+                        <div class="pill">Composure 9.2/10</div>
+                        <div class="pill">Positioning 9.2/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: WORLD-CLASS SWEEPER-KEEPER</strong><br><br>Ederson is one of
+                            the greatest goalkeepers of his generation. **372 appearances** for Manchester City across 7
+                            seasons. Won **6 Premier League titles**, **UEFA Champions League 2023**, **FA Cup x2**,
+                            historic **treble 2023**. **Copa America 2019 winner** with Brazil. **30 international
+                            caps**. Known for revolutionary **distribution (9.6)** and **sweeper-keeper ability (9.4)**.
+                            Perfect for possession-based systems. Changed modern goalkeeping. Most successful goalkeeper
+                            in Man City history. **Fenerbahçe** new challenge in Turkey. True legend of the game.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Distribution', 'Long Passing', 'Sweeper-Keeper', 'Vision', 'Composure', 'Positioning', 'Reflexes', 'One-on-Ones'], datasets: [{ label: 'Ederson', data: [9.6, 9.5, 9.4, 9.3, 9.2, 9.2, 9.0, 9.1], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
