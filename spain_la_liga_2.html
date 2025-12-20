@@ -1,0 +1,819 @@
+<!-- LA LIGA HYPERMOTION WIDGET - SPAIN 2ND TIER -->
+<div id="esn-spa-container">
+
+    <!-- 1. HEADER -->
+    <div class="esn-spa-header">
+        <div>
+            <h2 style="color: #bf0d0d; margin: 0; text-transform: uppercase; letter-spacing: 1px;">LaLiga Hypermotion
+            </h2>
+            <span style="color: #666; font-size: 14px;">Spain • 2024/2025 Season</span>
+        </div>
+        <div class="esn-stats-summary">
+            <div class="esn-stat-pill">
+                <i class="fas fa-video"></i>
+                <span id="total-videos-count">0</span> Videos
+            </div>
+            <div class="esn-stat-pill">
+                <i class="fas fa-futbol"></i>
+                <span id="teams-with-videos-count">0</span>/22 Teams
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN LAYOUT -->
+    <div class="esn-spa-body">
+
+        <!-- SIDEBAR (Team List with Video Counts) -->
+        <div class="esn-spa-sidebar">
+            <input type="text" id="esn-team-search" placeholder="🔍 Search Team..." onkeyup="window.filterTeams()">
+
+            <!-- Quick Filters -->
+            <div class="esn-filter-bar">
+                <button class="esn-filter-btn active" onclick="window.filterByVideoCount('all')">All Teams</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('withVideos')">With Videos</button>
+                <button class="esn-filter-btn" onclick="window.filterByVideoCount('noVideos')">No Videos</button>
+            </div>
+
+            <div id="esn-team-list">
+                <!-- Teams load here -->
+            </div>
+        </div>
+
+        <!-- CONTENT (Video Area) -->
+        <div class="esn-spa-content">
+            <h1 id="esn-selected-title">Select a Team</h1>
+
+            <div class="esn-tabs">
+                <button class="esn-tab-btn active" onclick="window.switchTab('fullMatches')">
+                    <i class="fas fa-film"></i> Full Matches <span class="tab-count" id="full-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('highlights')">
+                    <i class="fas fa-star"></i> Highlights <span class="tab-count" id="highlights-count">0</span>
+                </button>
+                <button class="esn-tab-btn" onclick="window.switchTab('academy')">
+                    <i class="fas fa-users"></i> Academy/B-Team <span class="tab-count" id="academy-count">0</span>
+                </button>
+            </div>
+
+            <div id="esn-video-grid">
+                <p style="color: #555; margin-top: 20px;">Select a team from the left to view matches.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 3. POPUP VIDEO PLAYER (FULL WINDOW MODE) -->
+    <div id="esn-player-modal" class="esn-modal">
+        <div class="esn-modal-content">
+            <div class="esn-modal-header">
+                <span id="esn-playing-title" style="color:#bf0d0d; font-weight:bold; font-size: 18px;">Match
+                    Title</span>
+                <span class="esn-close-btn" onclick="window.closeVideo()">✕ Close</span>
+            </div>
+            <div class="esn-video-wrapper">
+                <iframe id="esn-main-iframe" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CSS STYLES (Spanish Theme - Deep Red/Dark Grey/White) -->
+<style>
+    /* Font Awesome for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+    /* GLOBAL CONTAINER */
+    #esn-spa-container {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #fdfdfd;
+        color: #1a1a1a;
+        width: 100%;
+        min-height: 700px;
+        border: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    /* HEADER & STATS */
+    .esn-spa-header {
+        padding: 25px;
+        border-bottom: 4px solid #bf0d0d;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .esn-stats-summary {
+        display: flex;
+        gap: 15px;
+    }
+
+    .esn-stat-pill {
+        background: #fef1f1;
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid #f9dcdc;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #bf0d0d;
+        font-weight: 600;
+    }
+
+    .esn-stat-pill i {
+        font-size: 14px;
+    }
+
+    .esn-stat-pill span {
+        font-weight: 800;
+    }
+
+    .esn-spa-body {
+        display: flex;
+        flex: 1;
+        height: 650px;
+    }
+
+    /* SIDEBAR */
+    .esn-spa-sidebar {
+        width: 28%;
+        min-width: 260px;
+        background: #fff;
+        border-right: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #esn-team-search {
+        background: #fff;
+        border: none;
+        border-bottom: 1px solid #f0f0f0;
+        color: #1a1a1a;
+        padding: 18px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        outline: none;
+    }
+
+    #esn-team-search:focus {
+        background: #fafafa;
+    }
+
+    /* FILTER BAR */
+    .esn-filter-bar {
+        display: flex;
+        gap: 4px;
+        padding: 8px;
+        background: #fcfcfc;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .esn-filter-btn {
+        flex: 1;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        color: #666;
+        padding: 8px 4px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .esn-filter-btn:hover {
+        background: #fef1f1;
+        color: #bf0d0d;
+        border-color: #f9dcdc;
+    }
+
+    .esn-filter-btn.active {
+        background: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+    }
+
+    #esn-team-list {
+        overflow-y: auto;
+        flex: 1;
+        scrollbar-width: thin;
+        scrollbar-color: #ddd transparent;
+    }
+
+    /* TEAM ITEMS WITH VIDEO COUNTS */
+    .esn-team-item {
+        padding: 16px 20px;
+        border-bottom: 1px solid #f9f9f9;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #333;
+        transition: 0.2s;
+        font-weight: 500;
+    }
+
+    .esn-team-item:hover {
+        background: #f9f9f9;
+        padding-left: 25px;
+        color: #bf0d0d;
+    }
+
+    .esn-team-item.active {
+        background: #fef1f1;
+        border-left: 5px solid #bf0d0d;
+        color: #bf0d0d;
+        font-weight: 700;
+    }
+
+    .esn-team-name {
+        flex: 1;
+    }
+
+    .esn-video-badge {
+        background: #f0f0f0;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #888;
+        border: 1px solid #ddd;
+        min-width: 32px;
+        text-align: center;
+    }
+
+    .esn-team-item:hover .esn-video-badge {
+        border-color: #bf0d0d;
+        color: #bf0d0d;
+        background: #fff;
+    }
+
+    .esn-team-item.active .esn-video-badge {
+        background: #bf0d0d;
+        color: #fff;
+        border-color: #bf0d0d;
+    }
+
+    .esn-video-badge.has-videos {
+        color: #bf0d0d;
+        border-color: #bf0d0d;
+        background: #fff;
+    }
+
+    .esn-video-badge.no-videos {
+        color: #ccc;
+        border-color: #eee;
+        background: #fafafa;
+    }
+
+    /* CONTENT AREA */
+    .esn-spa-content {
+        width: 72%;
+        padding: 35px;
+        background: #fff;
+        overflow-y: auto;
+    }
+
+    #esn-selected-title {
+        margin-top: 0;
+        text-transform: uppercase;
+        color: #1a1a1a;
+        font-size: 32px;
+        letter-spacing: -0.5px;
+        font-weight: 800;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+
+    /* TABS WITH COUNTS */
+    .esn-tabs {
+        display: flex;
+        gap: 30px;
+        margin: 25px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .esn-tab-btn {
+        background: none;
+        border: none;
+        color: #999;
+        padding: 12px 0;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-transform: uppercase;
+    }
+
+    .esn-tab-btn:hover {
+        color: #666;
+    }
+
+    .esn-tab-btn.active {
+        color: #bf0d0d;
+        border-bottom: 3px solid #bf0d0d;
+    }
+
+    .tab-count {
+        background: #f5f5f5;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 800;
+        border: 1px solid #eee;
+        color: #777;
+    }
+
+    .esn-tab-btn.active .tab-count {
+        background: #bf0d0d;
+        color: #fff;
+        border-color: #bf0d0d;
+    }
+
+    /* VIDEO CARDS */
+    .esn-v-card {
+        background: #fff;
+        border: 1px solid #efefef;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .esn-v-card:hover {
+        border-color: #bf0d0d;
+        transform: translateY(-2px);
+        background: #fefafa;
+        box-shadow: 0 4px 12px rgba(191, 13, 13, 0.08);
+    }
+
+    .esn-v-info h4 {
+        margin: 0 0 6px 0;
+        color: #1a1a1a;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .esn-v-info span {
+        color: #999;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .esn-v-play {
+        color: #bf0d0d;
+        font-size: 24px;
+        opacity: 0.6;
+        transition: 0.2s;
+    }
+
+    .esn-v-card:hover .esn-v-play {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    /* FULL SCREEN MODAL STYLES */
+    .esn-modal {
+        display: none;
+        position: fixed;
+        z-index: 2147483647;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+    }
+
+    .esn-modal-content {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+
+    .esn-modal-header {
+        flex-shrink: 0;
+        padding: 15px 30px;
+        background: #1a1a1a;
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .esn-close-btn {
+        cursor: pointer;
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 16px;
+        background: #333;
+        border-radius: 4px;
+        transition: 0.2s;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .esn-close-btn:hover {
+        background: #bf0d0d;
+    }
+
+    .esn-video-wrapper {
+        flex-grow: 1;
+        width: 100%;
+        position: relative;
+        background: #000;
+    }
+
+    .esn-video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .esn-spa-body {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .esn-spa-sidebar {
+            width: 100%;
+            max-height: 400px;
+        }
+
+        .esn-spa-content {
+            width: 100%;
+        }
+    }
+</style>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    (function () {
+
+        // ==========================================
+        // 1. DATABASE - LA LIGA HYPERMOTION TEAMS
+        // ==========================================
+        const db = {
+            "real oviedo": {
+                fullMatches: [
+                    { title: "vs Racing Santander", date: "22 September 2024", link: "https://player.mux.com/HlRUZKJsqYlEHBe6ThLIMMTn98V01CXbXAb5qDoQzXl00" },
+                    { title: "vs Sporting Gijón", date: "09 September 2024", link: "https://player.mux.com/CpQwnibKZEWfQWkFdaml27nUoMxwbLIHDOPXp01QRjKA" },
+                ],
+                highlights: [
+                    { title: "Derbi Asturiano - Goals", date: "Highlights", link: "https://player.mux.com/1HFe2t6PWeEpjjukQUQvqFHKXCn5iKPgFJtDrt8hGT8" },
+                ],
+                academy: []
+            },
+            "racing santander": {
+                fullMatches: [
+                    { title: "vs Real Oviedo", date: "22 September 2024", link: "https://player.mux.com/HlRUZKJsqYlEHBe6ThLIMMTn98V01CXbXAb5qDoQzXl00" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "málaga": {
+                fullMatches: [
+                    { title: "vs Elche", date: "15 September 2024", link: "https://player.mux.com/5OurPijDA8c600xk7tDQlcfHuCTiaui8onAzd2Zb00xfQ" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "deportivo la coruña": {
+                fullMatches: [
+                    { title: "vs Racing Ferrol", date: "01 September 2024", link: "https://player.mux.com/joySVKHfLihFy02PTL56mw351wVAZag2XXo3F46OWD4s" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "cádiz": {
+                fullMatches: [
+                    { title: "vs Tenerife", date: "31 August 2024", link: "https://player.mux.com/CpQwnibKZEWfQWkFdaml27nUoMxwbLIHDOPXp01QRjKA" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "granada": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "almería": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "eibar": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "levante": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "elche": {
+                fullMatches: [
+                    { title: "vs Málaga", date: "15 September 2024", link: "https://player.mux.com/5OurPijDA8c600xk7tDQlcfHuCTiaui8onAzd2Zb00xfQ" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "real zaragoza": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "sporting gijón": {
+                fullMatches: [
+                    { title: "vs Real Oviedo", date: "09 September 2024", link: "https://player.mux.com/CpQwnibKZEWfQWkFdaml27nUoMxwbLIHDOPXp01QRjKA" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "tenerife": {
+                fullMatches: [
+                    { title: "vs Cádiz", date: "31 August 2024", link: "https://player.mux.com/CpQwnibKZEWfQWkFdaml27nUoMxwbLIHDOPXp01QRjKA" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "albacete": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "burgos cf": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "cartagena": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "castellón": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "córdoba": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "huesca": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "mirandés": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            },
+            "racing ferrol": {
+                fullMatches: [
+                    { title: "vs Deportivo La Coruña", date: "01 September 2024", link: "https://player.mux.com/joySVKHfLihFy02PTL56mw351wVAZag2XXo3F46OWD4s" },
+                ],
+                highlights: [],
+                academy: []
+            },
+            "eldense": {
+                fullMatches: [],
+                highlights: [],
+                academy: []
+            }
+        };
+
+        const allTeams = [
+            "Albacete", "Almería", "Burgos CF", "Cádiz", "Cartagena",
+            "Castellón", "Córdoba", "Deportivo La Coruña", "Eibar", "Elche",
+            "Eldense", "Granada", "Huesca", "Levante", "Málaga",
+            "Mirandés", "Racing Ferrol", "Racing Santander", "Real Oviedo",
+            "Real Zaragoza", "Sporting Gijón", "Tenerife"
+        ].sort();
+
+        // ==========================================
+        // 2. VIDEO COUNT CALCULATION
+        // ==========================================
+
+        function getVideoCount(teamKey) {
+            if (!db[teamKey]) return 0;
+            return (db[teamKey].fullMatches?.length || 0) +
+                (db[teamKey].highlights?.length || 0) +
+                (db[teamKey].academy?.length || 0);
+        }
+
+        function updateGlobalStats() {
+            let totalVideos = 0;
+            let teamsWithVideos = 0;
+
+            Object.keys(db).forEach(key => {
+                const count = getVideoCount(key);
+                totalVideos += count;
+                if (count > 0) teamsWithVideos++;
+            });
+
+            document.getElementById('total-videos-count').textContent = totalVideos;
+            document.getElementById('teams-with-videos-count').textContent = teamsWithVideos;
+        }
+
+        // ==========================================
+        // 3. TEAM LIST RENDERING WITH COUNTS
+        // ==========================================
+
+        let currentTeamKey = null;
+        let currentTab = 'fullMatches';
+        let currentFilter = 'all';
+
+        setTimeout(function () {
+            const list = document.getElementById('esn-team-list');
+            if (!list) return;
+
+            list.innerHTML = "";
+            allTeams.forEach(t => {
+                const key = t.toLowerCase();
+                const videoCount = getVideoCount(key);
+
+                let div = document.createElement('div');
+                div.className = 'esn-team-item';
+                div.setAttribute('data-video-count', videoCount);
+                div.innerHTML = `
+                <span class="esn-team-name">${t}</span>
+                <span class="esn-video-badge ${videoCount > 0 ? 'has-videos' : 'no-videos'}">${videoCount}</span>
+            `;
+                div.onclick = function () { window.selectTeam(t, this); };
+                list.appendChild(div);
+            });
+
+            updateGlobalStats();
+        }, 500);
+
+        window.selectTeam = function (name, el) {
+            currentTeamKey = name.toLowerCase();
+            document.getElementById('esn-selected-title').innerText = name;
+
+            let items = document.querySelectorAll('.esn-team-item');
+            items.forEach(i => i.classList.remove('active'));
+            if (el) el.classList.add('active');
+
+            // Update tab counts
+            const teamData = db[currentTeamKey] || { fullMatches: [], highlights: [], academy: [] };
+            document.getElementById('full-count').textContent = teamData.fullMatches?.length || 0;
+            document.getElementById('highlights-count').textContent = teamData.highlights?.length || 0;
+            document.getElementById('academy-count').textContent = teamData.academy?.length || 0;
+
+            window.switchTab('fullMatches');
+        };
+
+        // ==========================================
+        // 4. FILTER FUNCTIONS
+        // ==========================================
+
+        window.filterByVideoCount = function (type) {
+            currentFilter = type;
+
+            // Update button states
+            document.querySelectorAll('.esn-filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter teams
+            const items = document.querySelectorAll('.esn-team-item');
+            items.forEach(item => {
+                const count = parseInt(item.getAttribute('data-video-count'));
+
+                if (type === 'all') {
+                    item.style.display = 'flex';
+                } else if (type === 'withVideos') {
+                    item.style.display = count > 0 ? 'flex' : 'none';
+                } else if (type === 'noVideos') {
+                    item.style.display = count === 0 ? 'flex' : 'none';
+                }
+            });
+        };
+
+        window.filterTeams = function () {
+            let term = document.getElementById('esn-team-search').value.toLowerCase();
+            let items = document.querySelectorAll('.esn-team-item');
+
+            items.forEach(item => {
+                const teamName = item.querySelector('.esn-team-name').innerText.toLowerCase();
+                const matchesSearch = teamName.includes(term);
+                const count = parseInt(item.getAttribute('data-video-count'));
+
+                let shouldShow = matchesSearch;
+
+                // Apply current filter
+                if (currentFilter === 'withVideos' && count === 0) shouldShow = false;
+                if (currentFilter === 'noVideos' && count > 0) shouldShow = false;
+
+                item.style.display = shouldShow ? 'flex' : 'none';
+            });
+        };
+
+        // ==========================================
+        // 5. TAB SWITCHING & VIDEO RENDERING
+        // ==========================================
+
+        window.switchTab = function (category) {
+            currentTab = category;
+            let tabs = document.querySelectorAll('.esn-tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+
+            if (category === 'fullMatches') tabs[0].classList.add('active');
+            if (category === 'highlights') tabs[1].classList.add('active');
+            if (category === 'academy') tabs[2].classList.add('active');
+
+            renderVideos();
+        };
+
+        function renderVideos() {
+            const grid = document.getElementById('esn-video-grid');
+            grid.innerHTML = "";
+
+            if (!currentTeamKey || !db[currentTeamKey] || !db[currentTeamKey][currentTab] || db[currentTeamKey][currentTab].length === 0) {
+                grid.innerHTML = '<p style="color:#888; text-align:center; padding:50px 0; font-size: 14px; font-weight: 500;">No videos available yet for this category.</p>';
+                return;
+            }
+
+            db[currentTeamKey][currentTab].forEach(vid => {
+                let card = document.createElement('div');
+                card.className = 'esn-v-card';
+                card.onclick = function () { window.playVideo(vid.link, vid.title); };
+                card.innerHTML = `
+                <div class="esn-v-info">
+                    <h4>${vid.title}</h4>
+                    <span>${vid.date}</span>
+                </div>
+                <div class="esn-v-play">▶</div>
+            `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // 6. VIDEO PLAYER LOGIC (FULL SCREEN)
+        // ==========================================
+
+        window.playVideo = function (url, title) {
+            const modal = document.getElementById('esn-player-modal');
+            const iframe = document.getElementById('esn-main-iframe');
+            const titleSpan = document.getElementById('esn-playing-title');
+
+            titleSpan.innerText = title;
+
+            // Auto-Convert YouTube links
+            if (url.includes("youtube.com/watch?v=")) {
+                url = url.replace("watch?v=", "embed/");
+                if (url.includes("&")) url = url.split("&")[0];
+            } else if (url.includes("youtu.be/")) {
+                url = url.replace("youtu.be/", "youtube.com/embed/");
+            }
+
+            iframe.src = url;
+            modal.style.display = "block";
+        };
+
+        window.closeVideo = function () {
+            const modal = document.getElementById('esn-player-modal');
+            const iframe = document.getElementById('esn-main-iframe');
+            modal.style.display = "none";
+            iframe.src = "";
+        };
+
+    })();
+</script>
