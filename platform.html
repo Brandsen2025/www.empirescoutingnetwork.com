@@ -362,7 +362,7 @@
         }
         
         .platform-content {
-            display: none;
+            display: block;
         }
         
         /* ==========================================
@@ -415,7 +415,7 @@
 <body class="bg-slate-950 text-white">
 
     <!-- Login Overlay -->
-    <div id="loginOverlay" class="login-overlay">
+    <div id="loginOverlay" class="login-overlay" style="display: none;">
         <div class="login-modal">
             <div class="text-center mb-8">
                 <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
@@ -483,7 +483,7 @@
             </div>
             
             <div id="clientLoginError" class="login-error">
-                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please contact support@empirefga.com
+                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70030500001f020430151d001902151617115e131f1d">[email&#160;protected]</a>
             </div>
             
             <form id="clientLoginForm" onsubmit="handleClientLogin(event)">
@@ -596,7 +596,7 @@
                     <i class="fas fa-users"></i> Squad Builder
                 </button>
                 <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('agents')">
-                    <i class="fas fa-user-tie"></i> Scouting Tool
+                    <i class="fas fa-binoculars"></i> Scouting Tool
                 </button>
             </div>
         </div>
@@ -609,7 +609,7 @@
             <div id="database-tab" class="tab-content active">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold mb-4 gradient-text">Player Database</h1>
-                    <p class="text-xl text-slate-300">Search 5000 players analyzed with 779 metrics and 60 tactical philosophies</p>
+                    <p class="text-xl text-slate-300">Search 616 players analyzed with 779 metrics and 60 tactical philosophies</p>
                 </div>
 
                 <!-- Stats Dashboard -->
@@ -726,7 +726,7 @@
                 </div>
             </div>
 
-           <!-- MARKET INTELLIGENCE TAB -->
+            <!-- MARKET INTELLIGENCE TAB -->
             <div id="market-tab" class="tab-content">
                 <!-- HERO SECTION -->
                 <div class="text-center mb-8">
@@ -1784,9 +1784,28 @@
             <!-- VIDEO LIBRARY TAB -->
             <div id="agents-tab" class="tab-content">
                 <div class="text-center mb-8">
-                    <h1 class="text-4xl font-bold mb-4 gradient-text"><i class="fas fa-user-tie"></i> Scouting Tool</h1>
-                    <p class="text-xl text-slate-300">Manage your players and generate client-ready reports</p>
+                    <h1 class="text-4xl font-bold mb-4 gradient-text"><i class="fas fa-binoculars"></i> Empire FGA Scouting Tool</h1>
+                    <p class="text-xl text-slate-300">Professional scouting infrastructure: Video Library • AI Analysis • Data Collection • Intelligence Reports</p>
                 </div>
+
+                <!-- SCOUTING TOOL NAVIGATION -->
+                <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                    <button onclick="showScoutingTool('video-library', this)" class="scouting-sub-tab active bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🎬 Video Library
+                    </button>
+                    <button onclick="showScoutingTool('ai-integration', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🤖 AI Integration
+                    </button>
+                    <button onclick="showScoutingTool('data-collection', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        📋 Data Collection
+                    </button>
+                    <button onclick="showScoutingTool('intelligence-report', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        📊 Intelligence Report
+                    </button>
+                </div>
+
+                <!-- TOOL 1: VIDEO LIBRARY -->
+                <div id="scouting-video-library" class="scouting-section">
                <!-- EMPIRE SCOUTING NETWORK - VIDEO LIBRARY WIDGET -->
 <div id="esn-library-root">
 
@@ -1901,351 +1920,774 @@
 
     .search-icon {
         position: absolute;
-        right: 12px;
+        right: 15px;
         top: 50%;
         transform: translateY(-50%);
-        opacity: 0.5;
+        font-size: 1rem;
     }
 
-    /* REGION TITLES */
-    .esn-region-label {
-        color: var(--esn-text);
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        padding-left: 10px;
-        border-left: 4px solid var(--esn-gold);
-        text-transform: uppercase;
-    }
-
-    /* GRID SYSTEM */
-    .esn-grid {
+    /* GRID LAYOUT */
+    #esn-grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
     }
 
-    /* COUNTRY CARDS */
-    .esn-card {
+    @media (max-width: 768px) {
+        #esn-grid-container {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+    }
+
+    /* COUNTRY CARD */
+    .esn-country-card {
         background: var(--esn-card-bg);
         border: 1px solid var(--esn-border);
-        padding: 20px 10px;
-        border-radius: 6px;
+        border-radius: 8px;
+        padding: 20px;
         text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
     }
 
-    .esn-card:hover {
-        background: #1a1a1a;
-        transform: translateY(-5px);
+    .esn-country-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
         border-color: var(--esn-gold);
-        box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2); /* Gold Glow */
     }
 
     .esn-flag {
-        font-size: 36px;
-        display: block;
-        margin-bottom: 10px;
+        font-size: 3rem;
+        margin-bottom: 12px;
     }
 
-    .esn-name {
-        font-size: 13px;
+    .esn-country-name {
+        font-size: 1.1rem;
         font-weight: 600;
-        letter-spacing: 0.5px;
-        color: #ddd;
+        color: var(--esn-text);
+        margin-bottom: 6px;
     }
 
-    .esn-card:hover .esn-name {
+    .esn-league-count {
+        font-size: 0.85rem;
         color: var(--esn-gold);
     }
 
-    /* MODAL (POPUP) */
+    /* MODAL OVERLAY */
     .esn-modal {
-        display: none;
+        display: none; /* Hidden by default */
         position: fixed;
         z-index: 10000;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.9);
-        backdrop-filter: blur(4px);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
     }
 
     .esn-modal-content {
-        background-color: #050505;
+        background-color: var(--esn-bg);
         margin: 5% auto;
         padding: 0;
-        border: 1px solid var(--esn-gold);
+        border: 1px solid var(--esn-border);
         width: 90%;
-        max-width: 600px;
+        max-width: 700px;
         border-radius: 8px;
-        box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+        box-shadow: 0 8px 30px rgba(197, 160, 89, 0.4);
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
+    /* Modal Header */
     .esn-modal-header {
-        background: var(--esn-card-bg);
+        background-color: var(--esn-card-bg);
         padding: 20px;
-        border-bottom: 1px solid #333;
+        border-bottom: 2px solid var(--esn-gold);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 
     .esn-modal-header h3 {
         margin: 0;
         color: var(--esn-gold);
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 
     .esn-close {
-        color: #fff;
-        font-size: 28px;
+        color: var(--esn-gold);
+        font-size: 2rem;
+        font-weight: 700;
         cursor: pointer;
-        transition: 0.2s;
+        transition: color 0.3s;
     }
-    .esn-close:hover { color: var(--esn-gold); }
 
+    .esn-close:hover {
+        color: var(--esn-gold-hover);
+    }
+
+    /* Link List */
     .esn-link-list {
-        padding: 30px;
-        max-height: 60vh;
-        overflow-y: auto;
+        padding: 20px;
     }
 
-    /* LINKS INSIDE MODAL */
-    .esn-league-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #151515;
-        color: white;
-        padding: 15px 20px;
-        margin-bottom: 12px;
-        text-decoration: none;
-        border-radius: 4px;
-        border: 1px solid #333;
+    .esn-link-item {
+        background: var(--esn-card-bg);
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border-left: 3px solid var(--esn-gold);
         transition: all 0.2s;
     }
 
-    .esn-league-btn:hover {
-        background: #222;
-        border-color: var(--esn-gold);
-        color: var(--esn-gold);
+    .esn-link-item:hover {
+        background: #1a1a1a;
+        transform: translateX(5px);
     }
-    
-    .esn-arrow { font-size: 18px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-        #esn-library-root { padding: 20px; }
-        .esn-grid { grid-template-columns: repeat(3, 1fr); }
+    .esn-link-item a {
+        color: var(--esn-gold);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        display: block;
+    }
+
+    .esn-link-item a:hover {
+        color: var(--esn-gold-hover);
     }
 </style>
 
-<!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT CODE -->
 <script>
-    // --- DATABASE STRUCTURE ---
-    const database = {
-        "South America": [
-            { name: "Argentina", flag: "🇦🇷" }, { name: "Brazil", flag: "🇧🇷" },
-            { name: "Uruguay", flag: "🇺🇾" }, { name: "Colombia", flag: "🇨🇴" },
-            { name: "Chile", flag: "🇨🇱" }, { name: "Paraguay", flag: "🇵🇾" },
-            { name: "Ecuador", flag: "🇪🇨" }, { name: "Peru", flag: "🇵🇪" },
-            { name: "Venezuela", flag: "🇻🇪" }, { name: "Bolivia", flag: "🇧🇴" }
-        ],
-        "Europe": [
-            { name: "England", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" }, { name: "Spain", flag: "🇪🇸" },
-            { name: "Germany", flag: "🇩🇪" }, { name: "Italy", flag: "🇮🇹" },
-            { name: "France", flag: "🇫🇷" }, { name: "Portugal", flag: "🇵🇹" },
-            { name: "Netherlands", flag: "🇳🇱" }, { name: "Belgium", flag: "🇧🇪" },
-            { name: "Turkey", flag: "🇹🇷" }, { name: "Croatia", flag: "🇭🇷" },
-            { name: "Austria", flag: "🇦🇹" }, { name: "Denmark", flag: "🇩🇰" },
-            { name: "Sweden", flag: "🇸🇪" }, { name: "Switzerland", flag: "🇨🇭" },
-            { name: "Poland", flag: "🇵🇱" }, { name: "Serbia", flag: "🇷🇸" },
-            { name: "Norway", flag: "🇳🇴" }, { name: "Greece", flag: "🇬🇷" },
-            { name: "Czech Rep", flag: "🇨🇿" }, { name: "Scotland", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
-            { name: "Ukraine", flag: "🇺🇦" }, { name: "Romania", flag: "🇷🇴" },
-            { name: "Hungary", flag: "🇭🇺" }
-        ],
-        "North & Central America": [
-            { name: "USA", flag: "🇺🇸" }, { name: "Mexico", flag: "🇲🇽" },
-            { name: "Canada", flag: "🇨🇦" }, { name: "Costa Rica", flag: "🇨🇷" },
-            { name: "Jamaica", flag: "🇯🇲" }, { name: "Panama", flag: "🇵🇦" }
-        ],
-        "Maghreb (Africa)": [
-            { name: "Morocco", flag: "🇲🇦" }, { name: "Algeria", flag: "🇩🇿" },
-            { name: "Tunisia", flag: "🇹🇳" }, { name: "Egypt", flag: "🇪🇬" },
-            { name: "Libya", flag: "🇱🇾" }
-        ],
-	"Asia": [
-            { name: "Japan", flag: "🇯🇵" }, { name: "Saudi Arabia", flag: "🇸🇦" },
-            { name: "Qatar", flag: "🇸🇦" }, { name: "UAE", flag: "#" },
-	    { name: "South Korea", flag: "🇰🇷" },
-            
-        ]
-    };
-
-    const container = document.getElementById('esn-grid-container');
-
-    // 1. GENERATE GRID
-    function renderGrid() {
-        container.innerHTML = "";
-        for (const [region, countries] of Object.entries(database)) {
-            // Region Header
-            const header = document.createElement('div');
-            header.className = 'esn-region-label';
-            header.innerText = region;
-            container.appendChild(header);
-
-            // Grid Wrapper
-            const grid = document.createElement('div');
-            grid.className = 'esn-grid';
-
-            countries.forEach(c => {
-                const card = document.createElement('div');
-                card.className = 'esn-card';
-                card.setAttribute('data-search', c.name.toLowerCase());
-                card.innerHTML = `<span class="esn-flag">${c.flag}</span><div class="esn-name">${c.name}</div>`;
-                card.onclick = () => openModal(c.name);
-                grid.appendChild(card);
-            });
-            container.appendChild(grid);
+    // DATA STRUCTURE: Country → Leagues with links
+    const countryData = [
+        {
+            name: "Argentina",
+            flag: "🇦🇷",
+            leagues: [
+                { name: "Liga Profesional", url: "https://www.youtube.com/@FutbolDePrimeraSuscribite/videos" }
+            ]
+        },
+        {
+            name: "Australia",
+            flag: "🇦🇺",
+            leagues: [
+                { name: "A-League", url: "https://www.youtube.com/@KeepUpAU/videos" }
+            ]
+        },
+        {
+            name: "Austria",
+            flag: "🇦🇹",
+            leagues: [
+                { name: "Austrian Bundesliga", url: "https://www.youtube.com/@bundesliga_aut/videos" }
+            ]
+        },
+        {
+            name: "Belgium",
+            flag: "🇧🇪",
+            leagues: [
+                { name: "Pro League", url: "https://www.youtube.com/@JupilerProLeague/videos" }
+            ]
+        },
+        {
+            name: "Brazil",
+            flag: "🇧🇷",
+            leagues: [
+                { name: "Série A + Paulista", url: "https://www.youtube.com/@paulistao/videos" }
+            ]
+        },
+        {
+            name: "Chile",
+            flag: "🇨🇱",
+            leagues: [
+                { name: "Primera División", url: "https://www.youtube.com/@TNTSportsChile/videos" }
+            ]
+        },
+        {
+            name: "Czech Republic",
+            flag: "🇨🇿",
+            leagues: [
+                { name: "Czech First League", url: "https://www.youtube.com/@fortunaliga/videos" }
+            ]
+        },
+        {
+            name: "Denmark",
+            flag: "🇩🇰",
+            leagues: [
+                { name: "Superliga + 1st Division", url: "https://www.youtube.com/@3sportdk/videos" }
+            ]
+        },
+        {
+            name: "England",
+            flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+            leagues: [
+                { name: "Premier League", url: "https://www.youtube.com/@premierleague/videos" },
+                { name: "Championship", url: "https://www.youtube.com/@skysportsfootball/videos" },
+                { name: "League One + League Two", url: "https://www.youtube.com/@skysportsfootball/videos" }
+            ]
+        },
+        {
+            name: "France",
+            flag: "🇫🇷",
+            leagues: [
+                { name: "Ligue 1 + Ligue 2", url: "https://www.youtube.com/@Ligue1/videos" }
+            ]
+        },
+        {
+            name: "Germany",
+            flag: "🇩🇪",
+            leagues: [
+                { name: "Bundesliga + 2.Bundesliga", url: "https://www.youtube.com/@bundesliga/videos" }
+            ]
+        },
+        {
+            name: "Greece",
+            flag: "🇬🇷",
+            leagues: [
+                { name: "Super League", url: "https://www.youtube.com/@superleagregr/videos" }
+            ]
+        },
+        {
+            name: "Italy",
+            flag: "🇮🇹",
+            leagues: [
+                { name: "Serie A", url: "https://www.youtube.com/@SerieA/videos" },
+                { name: "Serie B", url: "https://www.youtube.com/@seriebkt/videos" }
+            ]
+        },
+        {
+            name: "Mexico",
+            flag: "🇲🇽",
+            leagues: [
+                { name: "Liga MX", url: "https://www.youtube.com/@LigaBBVAMX/videos" }
+            ]
+        },
+        {
+            name: "Netherlands",
+            flag: "🇳🇱",
+            leagues: [
+                { name: "Eredivisie", url: "https://www.youtube.com/@eredivisie/videos" },
+                { name: "Eerste Divisie", url: "https://www.youtube.com/@keuken-kampioen-divisie/videos" }
+            ]
+        },
+        {
+            name: "Norway",
+            flag: "🇳🇴",
+            leagues: [
+                { name: "Eliteserien", url: "https://www.youtube.com/@tv2sport/videos" }
+            ]
+        },
+        {
+            name: "Poland",
+            flag: "🇵🇱",
+            leagues: [
+                { name: "Ekstraklasa", url: "https://www.youtube.com/@EkstraklasaOfficial/videos" }
+            ]
+        },
+        {
+            name: "Portugal",
+            flag: "🇵🇹",
+            leagues: [
+                { name: "Primeira Liga", url: "https://www.youtube.com/@ligaportugal/videos" }
+            ]
+        },
+        {
+            name: "Scotland",
+            flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+            leagues: [
+                { name: "Scottish Premiership", url: "https://www.youtube.com/@spfl/videos" }
+            ]
+        },
+        {
+            name: "Serbia",
+            flag: "🇷🇸",
+            leagues: [
+                { name: "SuperLiga", url: "https://www.youtube.com/@SuperLiga/videos" }
+            ]
+        },
+        {
+            name: "Spain",
+            flag: "🇪🇸",
+            leagues: [
+                { name: "La Liga", url: "https://www.youtube.com/@laliga/videos" },
+                { name: "Segunda División", url: "https://www.youtube.com/@laligasmartbank/videos" }
+            ]
+        },
+        {
+            name: "Sweden",
+            flag: "🇸🇪",
+            leagues: [
+                { name: "Allsvenskan", url: "https://www.youtube.com/@allsvenskan/videos" }
+            ]
+        },
+        {
+            name: "Switzerland",
+            flag: "🇨🇭",
+            leagues: [
+                { name: "Super League", url: "https://www.youtube.com/@SuperLeague/videos" }
+            ]
+        },
+        {
+            name: "Turkey",
+            flag: "🇹🇷",
+            leagues: [
+                { name: "Süper Lig", url: "https://www.youtube.com/@superlig/videos" }
+            ]
+        },
+        {
+            name: "USA",
+            flag: "🇺🇸",
+            leagues: [
+                { name: "MLS", url: "https://www.youtube.com/@mls/videos" }
+            ]
         }
-    }
+    ];
 
-    // 2. SEARCH FUNCTION
-    function filterCountries() {
-        const term = document.getElementById('esn-search').value.toLowerCase();
-        const cards = document.getElementsByClassName('esn-card');
-        Array.from(cards).forEach(card => {
-            const name = card.getAttribute('data-search');
-            card.style.display = name.includes(term) ? "block" : "none";
+    // RENDER GRID OF COUNTRIES
+    function renderGrid() {
+        const container = document.getElementById('esn-grid-container');
+        container.innerHTML = '';
+
+        countryData.forEach(country => {
+            const card = document.createElement('div');
+            card.className = 'esn-country-card';
+            card.dataset.countryName = country.name.toLowerCase(); // for search filtering
+
+            card.innerHTML = `
+                <div class="esn-flag">${country.flag}</div>
+                <div class="esn-country-name">${country.name}</div>
+                <div class="esn-league-count">${country.leagues.length} League${country.leagues.length > 1 ? 's' : ''}</div>
+            `;
+
+            card.onclick = () => openModal(country);
+            container.appendChild(card);
         });
     }
 
-    // 3. MODAL & LINKS LOGIC
+    // OPEN MODAL WITH LEAGUE LINKS
     function openModal(country) {
         const modal = document.getElementById('esn-modal');
-        const title = document.getElementById('modal-country-name');
-        const list = document.getElementById('modal-leagues-list');
+        const countryNameEl = document.getElementById('modal-country-name');
+        const leaguesListEl = document.getElementById('modal-leagues-list');
 
-        title.innerText = country.toUpperCase();
-        list.innerHTML = ""; // Clear old links
+        countryNameEl.innerHTML = `${country.flag} ${country.name}`;
+        leaguesListEl.innerHTML = '';
 
-        // --- CUSTOMIZE YOUR LINKS HERE ---
-        // This logic determines which buttons appear for which country.
-        // Replace 'href="#"' with your actual Google Drive / Video URL.
+        country.leagues.forEach(league => {
+            const item = document.createElement('div');
+            item.className = 'esn-link-item';
+            item.innerHTML = `<a href="${league.url}" target="_blank">${league.name}</a>`;
+            leaguesListEl.appendChild(item);
+        });
 
-        let html = "";
-
-        if (country === "Brazil") {
-            html += createLink("Série A (Brasileirão)", "#");
-            html += createLink("Série B", "#");
-            html += createLink("U20 Copinha", "#");
-        } 
-        else if (country === "Argentina") {
-            html += createLink("Liga Profesional", "Liga_Profesional_AR.html");
-            html += createLink("Copa Argentina", "Copa_Argentina_AR.html");
-            html += createLink("Reserves", "#");
-        }
-        else if (country === "England") {
-            html += createLink("Premier League", "#");
-            html += createLink("Championship", "#");
-            html += createLink("League One", "#");
-        }
-	else if (country === "Sweden") {
-            html += createLink("Allsvenskan", "#");
-            html += createLink("Superettan", "superettan.html");
-            html += createLink("U21", "#");
-	}
-	else if (country === "Turkey") {
-            html += createLink("Super Lig", "turkey_super_lig.html");
-            html += createLink("1.Lig", "turkey_1_lig.html");
-            html += createLink("Türkiye Kupasi", "#");
-	}
-	else if (country === "Denmark") {
-            html += createLink("3F Superliga", "danish_superliga.html");
-            html += createLink("First Division", "#");
-            html += createLink("U19", "#");
-	}
-	else if (country === "USA") {
-            html += createLink("MLS (Major League Soccer)", "mls_database.html");
-            html += createLink("USL Championship", "#");
-            html += createLink("USL1", "usl1_widget.html");
-	    html += createLink("NISA", "#");
-	}
-	else if (country === "Colombia") {
-            html += createLink("Torneo Dimayor", "colombian_primera_a.html");
-            html += createLink("Liga Dimayor II", "#");
-            html += createLink("Copa Colombia", "#");
-	    html += createLink("U19", "#");
-	}
-	else if (country === "Netherlands") {
-            html += createLink("Eredivisie", "eredivisie.html");
-            html += createLink("Keuken Kampioen Divisie", "#");
-            html += createLink("Tweede Divisie", "#");
-	    html += createLink("KNVB Beker", "#");
-	}
-	else if (country === "Norway") {
-            html += createLink("Eliteserien", "norway_eliteserien.html");
-            html += createLink("OBOS Ligaen", "#");
-            html += createLink("PostNord Ligaen", "#");
-	    html += createLink("Norsk Tpping Ligaen", "#");
-	    html += createLink("NM Cupen", "#");
-	    html += createLink("U19", "#");
-	}
-	else if (country === "Spain") {
-            html += createLink("La Liga EA Sports", "#");
-            html += createLink("La Liga Hypermotion", "spain_la_liga_2.html");
-            html += createLink("Primera RFEF", "spain_primera_federacion.html");
-	    html += createLink("Segunda RFEF", "#");
-	    html += createLink("Copa del Rey", "#");
-	    html += createLink("División de Honor Juvenil", "#");
-	}
-	else if (country === "Saudi Arabia") {
-            html += createLink("Saudi League", "#");
-            html += createLink("Saudi First Division", "spain_la_liga_2.html");
-            html += createLink("King's Cup", "spain_primera_federacion.html");
-	   
-	}
-        else {
-            // Default links for countries you haven't set up specific leagues for yet
-            html += createLink(country + " - First Division", "#");
-            html += createLink(country + " - Youth / U21", "#");
-            html += createLink(country + " - National Team", "#");
-        }
-
-        list.innerHTML = html;
-        modal.style.display = "block";
+        modal.style.display = 'block';
     }
 
-    // Helper to make a button
-    function createLink(text, url) {
-        return `<a href="${url}" class="esn-league-btn">
-                    <span>${text}</span>
-                    <span class="esn-arrow">▶</span>
-                </a>`;
-    }
-
+    // CLOSE MODAL
     function closeModal() {
-        document.getElementById('esn-modal').style.display = "none";
+        document.getElementById('esn-modal').style.display = 'none';
     }
 
-    // Close modal if clicking background
-    window.onclick = function(e) {
-        if (e.target == document.getElementById('esn-modal')) {
-            closeModal();
-        }
+    // FILTER COUNTRIES VIA SEARCH
+    function filterCountries() {
+        const query = document.getElementById('esn-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.esn-country-card');
+
+        cards.forEach(card => {
+            const countryName = card.dataset.countryName;
+            card.style.display = countryName.includes(query) ? 'block' : 'none';
+        });
     }
+
+    // Close modal if clicked outside content
+    window.onclick = function(event) {
+        const modal = document.getElementById('esn-modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 
     // Run
     renderGrid();
 </script>
-    </footer>
+                </div>
 
+                <!-- TOOL 2: AI INTEGRATION -->
+                <div id="scouting-ai-integration" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-purple-900/30 to-slate-900/30 border border-purple-500/30 rounded-xl p-6 mb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-purple-300">🤖 AI-Powered Video Analysis</h2>
+                        <p class="text-slate-300 mb-6">Real-time computer vision for tactical intelligence, player tracking, and automated event detection</p>
+                        
+                        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="text-2xl">⚠️</div>
+                                <h3 class="font-bold text-yellow-400">Coming Soon - Full Integration</h3>
+                            </div>
+                            <p class="text-sm text-slate-300">AI video analysis system is currently in development. Full integration scheduled for Q1 2026.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">👁️</div>
+                                <h4 class="font-bold mb-2 text-center">Object Detection</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Player tracking (22 players)</li>
+                                    <li>• Ball tracking</li>
+                                    <li>• Referee detection</li>
+                                    <li>• Formation analysis</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">⚡</div>
+                                <h4 class="font-bold mb-2 text-center">Event Recognition</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Goals & assists</li>
+                                    <li>• Passes & crosses</li>
+                                    <li>• Tackles & interceptions</li>
+                                    <li>• Set pieces</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">🧠</div>
+                                <h4 class="font-bold mb-2 text-center">Tactical Analysis</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Pressing patterns</li>
+                                    <li>• Space analysis</li>
+                                    <li>• Build-up phases</li>
+                                    <li>• Transition speed</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-blue-500/10 rounded-lg border border-blue-500/30">
+                            <h4 class="font-semibold mb-2 text-blue-300">Technical Specifications:</h4>
+                            <div class="grid md:grid-cols-2 gap-3 text-sm text-slate-300">
+                                <div>• Model: YOLOv8 + Custom Training</div>
+                                <div>• Processing: 25+ FPS real-time</div>
+                                <div>• Accuracy: 95%+ player detection</div>
+                                <div>• Integration: Wyscout/InStat compatible</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: DATA COLLECTION -->
+                <div id="scouting-data-collection" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-green-300">📋 Scout Data Collection Template</h2>
+                        <p class="text-slate-300 mb-6">Comprehensive 779-metric system for professional scouting reports</p>
+
+                        <!-- Template Overview -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-green-400">Excel Workbook Structure</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Worksheets:</span>
+                                        <span class="font-bold text-white">18 sheets</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Total Metrics:</span>
+                                        <span class="font-bold text-white">779 metrics</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Philosophy Scores:</span>
+                                        <span class="font-bold text-white">60 frameworks</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Auto-Calculated:</span>
+                                        <span class="font-bold text-green-400">✓ Yes</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-green-400">Key Features</h3>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Scout identification system</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Video source integration</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Data quality validation</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Auto-generated summary reports</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Player photos & highlights</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Worksheet Breakdown -->
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20 mb-6">
+                            <h3 class="text-lg font-bold mb-4 text-white">18 Specialized Worksheets</h3>
+                            <div class="grid md:grid-cols-3 gap-3 text-sm">
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">1. Scout Info</div>
+                                    <div class="text-slate-400 text-xs">Scout identification</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">2. Player Basic</div>
+                                    <div class="text-slate-400 text-xs">27 identification metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">3. Foundation</div>
+                                    <div class="text-slate-400 text-xs">41 foundation metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">4. Core FGA</div>
+                                    <div class="text-slate-400 text-xs">10 auto-calculated</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">5. Context System</div>
+                                    <div class="text-slate-400 text-xs">26 context metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">6. Philosophy Scores</div>
+                                    <div class="text-slate-400 text-xs">60 frameworks</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">7. Sub-Components</div>
+                                    <div class="text-slate-400 text-xs">240 components</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">8. Ultimate</div>
+                                    <div class="text-slate-400 text-xs">26 integration metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">9. Physical</div>
+                                    <div class="text-slate-400 text-xs">17 attributes</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">10. Technical</div>
+                                    <div class="text-slate-400 text-xs">26 skills</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">11. Goalkeeper</div>
+                                    <div class="text-slate-400 text-xs">26 GK specialized</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">12. Tactical</div>
+                                    <div class="text-slate-400 text-xs">26 awareness metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">13. Crossing</div>
+                                    <div class="text-slate-400 text-xs">26 delivery metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">14. Creative</div>
+                                    <div class="text-slate-400 text-xs">26 artistic metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">15. Psychological</div>
+                                    <div class="text-slate-400 text-xs">30 profile metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">16. Relationships</div>
+                                    <div class="text-slate-400 text-xs">20+ dynamics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">17. Validation</div>
+                                    <div class="text-slate-400 text-xs">Quality checklist</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">18. Summary Report</div>
+                                    <div class="text-slate-400 text-xs">Auto-generated</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Download Section -->
+                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-5 text-center">
+                            <h3 class="text-lg font-bold mb-3">📥 Download Template</h3>
+                            <p class="text-sm text-slate-300 mb-4">Get the complete Excel template with all 779 metrics, formulas, and validation rules</p>
+                            <button class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-8 py-3 rounded-lg font-bold transition">
+                                <i class="fas fa-download mr-2"></i>Download Empire FGA Scout Template.xlsx
+                            </button>
+                            <div class="mt-3 text-xs text-slate-400">Version 1.0 | Last Updated: January 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 4: INTELLIGENCE REPORT GENERATOR -->
+                <div id="scouting-intelligence-report" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-orange-300">📊 Strategic Intelligence Report Generator</h2>
+                        <p class="text-slate-300 mb-6">Generate custom market intelligence reports for transfer windows and strategic planning</p>
+
+                        <!-- Report Builder -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Club/Client</label>
+                                    <input type="text" id="reportClub" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., RB Leipzig">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Transfer Window</label>
+                                    <select id="reportWindow" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="january-2026">January 2026</option>
+                                        <option value="summer-2026">Summer 2026</option>
+                                        <option value="january-2027">January 2027</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Primary Need</label>
+                                    <select id="reportNeed" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="striker">Striker</option>
+                                        <option value="midfielder">Midfielder</option>
+                                        <option value="defender">Defender</option>
+                                        <option value="goalkeeper">Goalkeeper</option>
+                                        <option value="multiple">Multiple Positions</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Budget Range (€M)</label>
+                                    <input type="text" id="reportBudget" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 30-50">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Current League</label>
+                                    <select id="reportLeague" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="bundesliga">Bundesliga</option>
+                                        <option value="premier-league">Premier League</option>
+                                        <option value="la-liga">La Liga</option>
+                                        <option value="serie-a">Serie A</option>
+                                        <option value="ligue-1">Ligue 1</option>
+                                    </select>
+                                </div>
+                                <button onclick="generateIntelligenceReport()" class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 px-6 py-3 rounded-lg font-bold transition">
+                                    <i class="fas fa-file-alt mr-2"></i>Generate Report
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-orange-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-orange-400">Report Includes:</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">📈</div>
+                                        <div>
+                                            <div class="font-semibold">Market Analysis</div>
+                                            <div class="text-slate-400 text-xs">Current market trends and inefficiencies</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">🎯</div>
+                                        <div>
+                                            <div class="font-semibold">Target Profiles</div>
+                                            <div class="text-slate-400 text-xs">Specific player recommendations with FGA scores</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">💰</div>
+                                        <div>
+                                            <div class="font-semibold">Budget Allocation</div>
+                                            <div class="text-slate-400 text-xs">Conservative, aggressive, and recommended scenarios</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">⚡</div>
+                                        <div>
+                                            <div class="font-semibold">Execution Strategy</div>
+                                            <div class="text-slate-400 text-xs">Week-by-week action plan with critical dates</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">🔍</div>
+                                        <div>
+                                            <div class="font-semibold">Tactical Fit</div>
+                                            <div class="text-slate-400 text-xs">60-Philosophy framework compatibility</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">📊</div>
+                                        <div>
+                                            <div class="font-semibold">Success Metrics</div>
+                                            <div class="text-slate-400 text-xs">ROI projections and risk assessments</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Report Preview -->
+                        <div class="mt-6 bg-slate-800/50 rounded-lg p-5 border border-orange-500/20">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-orange-400">📄 Example: RB Leipzig January 2026</h3>
+                                <button class="text-sm bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded transition">
+                                    View Full Report
+                                </button>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Client:</span>
+                                    <span class="font-bold">Alexander Neuherz, RB Leipzig</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Window:</span>
+                                    <span class="font-bold">January 2026</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Primary Need:</span>
+                                    <span class="font-bold">15-20 Goals (Striker)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Budget:</span>
+                                    <span class="font-bold text-green-400">€45-50M recommended</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Top Recommendation:</span>
+                                    <span class="font-bold text-orange-400">Fisnik Asllani (Hoffenheim) €18M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Scouting Tool Sub-Tab Navigation
+                function showScoutingTool(toolId, clickedButton) {
+                    // Hide all scouting sections
+                    document.querySelectorAll('.scouting-section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.scouting-sub-tab').forEach(tab => {
+                        tab.classList.remove('active', 'bg-blue-600');
+                        tab.classList.add('bg-slate-800');
+                    });
+                    
+                    // Show selected section
+                    const targetSection = document.getElementById(`scouting-${toolId}`);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                    
+                    // Activate clicked tab
+                    if (clickedButton) {
+                        clickedButton.classList.add('active', 'bg-blue-600');
+                        clickedButton.classList.remove('bg-slate-800');
+                    }
+                }
+
+                // Generate Intelligence Report
+                function generateIntelligenceReport() {
+                    const club = document.getElementById('reportClub').value;
+                    const window = document.getElementById('reportWindow').value;
+                    const need = document.getElementById('reportNeed').value;
+                    const budget = document.getElementById('reportBudget').value;
+                    const league = document.getElementById('reportLeague').value;
+
+                    if (!club || !budget) {
+                        alert('Please fill in Club and Budget fields');
+                        return;
+                    }
+
+                    // In real implementation, this would generate a comprehensive report
+                    alert(`Generating Strategic Intelligence Report for ${club}...\n\nWindow: ${window}\nPrimary Need: ${need}\nBudget: €${budget}M\nLeague: ${league}\n\nReport will be ready in 2-3 minutes.`);
+                }
+            </script>
     <script>
         // LOAD FULL PLAYER DATA FROM YOUR DATABASE
         // This section will be replaced with the complete 521-player array
@@ -2265,6 +2707,7 @@
             { name: "Troy Parrott", player_id: 458709, image_url: "https://img.a.transfermarkt.technology/portrait/big/458709.jpg", profileHtml: "Troy_Parrott.html", position: "ST", age: 22, nationality: "Republic of Ireland", fga: 78.9, bestPhilosophy: "Ferguson Mental", currentClub: "AZ Alkmaar" },
             
             // === NEW PLAYERS BATCH 2 (Dec 1, 2025 - Second Upload) ===
+            { name: "Andrea Librici", profileHtml: "Andrea_Librici.html", position: "CM", age: 20, nationality: "Belgium/Italy", fga: 75.5, bestPhilosophy: "Guardiola Positional", currentClub: "MVV Maastricht" },
             { name: "Davis Opoku", profileHtml: "Davis_Opoku.html", position: "WG", age: 18, nationality: "Ghana", fga: 68.0, bestPhilosophy: "Cruyff Intelligence", currentClub: "OH Leuven" },
             { name: "Dennis Gyamfi", profileHtml: "Dennis_Gyamfi.html", position: "FB", age: 21, nationality: "Netherlands", fga: 72.0, bestPhilosophy: "Cruyff Intelligence", currentClub: "Beerschot" },
             { name: "Edisson Jordanov", profileHtml: "Edisson_Jordanov.html", position: "FB", age: 23, nationality: "Bulgaria", fga: 75.0, bestPhilosophy: "Mourinho Tactical", currentClub: "Beerschot" },
@@ -2313,7 +2756,7 @@
             { name: "Diego Maradona", player_id: 28014, image_url: "https://img.a.transfermarkt.technology/portrait/big/28014.jpg", profileHtml: "Diego_Maradona.html", position: "AM", age: 64, nationality: "Argentina", fga: 99.5, bestPhilosophy: "Menotti Artistry" },
             { name: "Pelé", player_id: 39910, image_url: "https://img.a.transfermarkt.technology/portrait/big/39910.jpg", profileHtml: "Pele.html", position: "ST", age: 84, nationality: "Brazil", fga: 99.5, bestPhilosophy: "Santana JogoBonito" },
             { name: "Johan Cruyff", player_id: 28242, image_url: "https://img.a.transfermarkt.technology/portrait/big/28242.jpg", profileHtml: "Johan_Cruyff.html", position: "ST", age: 78, nationality: "Netherlands", fga: 99.5, bestPhilosophy: "Cruyff Intelligence" },
-            { name: "Lionel Messi", player_id: 28003, image_url: "https://sortitoutsi.b-cdn.net/assets/graphic_styles/cut_out_faces.png", profileHtml: "Lionel_Messi.html", position: "AM", age: 38, nationality: "Argentina", fga: 99.0, bestPhilosophy: "Guardiola Positional" },
+            { name: "Lionel Messi", player_id: 28003, image_url: "https://img.a.transfermarkt.technology/portrait/big/28003.jpg", profileHtml: "Lionel_Messi.html", position: "AM", age: 38, nationality: "Argentina", fga: 99.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Gianluigi Buffon", profileHtml: "Gianluigi_Buffon.html", position: "GK", age: 47, nationality: "Italy", fga: 99.0, bestPhilosophy: "Buffon Presence" },
             { name: "Zico", profileHtml: "Zico.html", position: "CM", age: 72, nationality: "Brazil", fga: 99.0, bestPhilosophy: "Platini Elegance" },
             { name: "Cristiano Ronaldo", player_id: 8198, image_url: "https://img.a.transfermarkt.technology/portrait/big/8198.jpg", profileHtml: "Cristiano_Ronaldo.html", position: "ST", age: 40, nationality: "Portugal", fga: 98.5, bestPhilosophy: "Ferguson Mental" },
@@ -2569,6 +3012,7 @@
             { name: "Geremi Njitap", profileHtml: "Geremi_Njitap.html", position: "CM", age: 47, nationality: "Cameroon", fga: 90.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Antonio Valencia", profileHtml: "Antonio_Valencia.html", position: "WG", age: 40, nationality: "Ecuador", fga: 90.0, bestPhilosophy: "Mourinho Tactical" },
             { name: "Carlos Valderrama", profileHtml: "Carlos_Valderrama.html", position: "AM", age: 64, nationality: "Colombia", fga: 90.0, bestPhilosophy: "Cruyff Intelligence" },
+            { name: "Sam Beukema", profileHtml: "Sam_Beukema.html", position: "CB", age: 27, nationality: "Netherlands", fga: 90.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Federico Higuaín", profileHtml: "Federico_Higuain.html", position: "CM", age: 41, nationality: "Argentina", fga: 90.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Periko Alonso", profileHtml: "Periko_Alonso.html", position: "CM", age: 72, nationality: "Spain", fga: 90.0, bestPhilosophy: "Ferguson Mental" },
             { name: "Khéphren Thuram", profileHtml: "Kephren_Thuram.html", position: "CM", age: 24, nationality: "France", fga: 90.0, bestPhilosophy: "Ferguson Mental" },
@@ -2754,6 +3198,7 @@
             { name: "Archie Gray", profileHtml: "Archie_Gray.html", position: "FB", age: 19, nationality: "England", fga: 78.0, bestPhilosophy: "Guardiola Positional" },
             { name: "Caden Clark", profileHtml: "Caden_Clark.html", position: "AM", age: 22, nationality: "United States", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Nishan Burkart", profileHtml: "Nishan_Burkart.html", position: "ST", age: 25, nationality: "Switzerland", fga: 78.0, bestPhilosophy: "Klopp Intensity" },
+            { name: "Darío Osorio", profileHtml: "Dario_Osorio.html", position: "Winger (RW/LW)", age: 21, nationality: "Chile", fga: 78.0, bestPhilosophy: "Menotti Artistry" },
             { name: "Malte Pahlsson", profileHtml: "Malte_Pahlsson.html", position: "GK", age: 26, nationality: "Sweden", fga: 78.0, bestPhilosophy: "Yashin Revolution" },
             { name: "Nathan Harriel", profileHtml: "Nathan_Harriel.html", position: "FB", age: 24, nationality: "USA", fga: 77.5, bestPhilosophy: "Simeone Cholismo" },
             { name: "Samuel Mbangula", profileHtml: "Samuel_Mbangula.html", position: "WG", age: 21, nationality: "Belgium / Congo DR", fga: 77.0, bestPhilosophy: "Wenger Development" },
@@ -3008,7 +3453,7 @@
             { name: "Ivan Toney", profileHtml: "Ivan_Toney.html", position: "ST", age: 29, nationality: "England 🏴󠁧󠁢󠁥󠁮󠁧󠁿", fga: 83.5, bestPhilosophy: "Versatile", currentClub: "Al-Ahli" },
             { name: "Davide Frattesi", profileHtml: "Davide_Frattesi.html", position: "CM", age: 26, nationality: "Italy 🇮🇹", fga: 81.8, bestPhilosophy: "Versatile", currentClub: "Inter Milan" },
             { name: "Moise Kean", profileHtml: "Moise_Kean.html", position: "ST", age: 25, nationality: "Italy 🇮🇹", fga: 78.4, bestPhilosophy: "Versatile", currentClub: "Fiorentina" },
-            { name: "Tijjani Reijnders", image_url: "https://sortitoutsi.b-cdn.net/uploads/face/face_37071126.png", profileHtml: "Tijjani_Reijnders.html", position: "CM", age: 27, nationality: "Netherlands 🇳🇱", fga: 83.8, bestPhilosophy: "Guardiola Positional", currentClub: "AC Milan" },
+            { name: "Tijjani Reijnders", profileHtml: "Tijjani_Reijnders.html", position: "CM", age: 27, nationality: "Netherlands 🇳🇱", fga: 83.8, bestPhilosophy: "Guardiola Positional", currentClub: "AC Milan" },
             { name: "Dušan Vlahović", profileHtml: "Dusan_Vlahovic.html", position: "ST", age: 25, nationality: "Serbia 🇷🇸", fga: 86.2, bestPhilosophy: "Versatile", currentClub: "Juventus" },
             { name: "Michel Aebischer", profileHtml: "Michel_Aebischer.html", position: "CM", age: 29, nationality: "Switzerland 🇨🇭", fga: 74.5, bestPhilosophy: "Versatile", currentClub: "Bologna" },
             { name: "Sam Beukema", profileHtml: "Sam_Beukema.html", position: "CB", age: 27, nationality: "Netherlands 🇳🇱", fga: 79.5, bestPhilosophy: "Versatile", currentClub: "Bologna" },
@@ -3023,9 +3468,9 @@
             { name: "Simon Adingra", profileHtml: "Simon_Adingra.html", position: "RW", age: 23, nationality: "Ivory Coast 🇨🇮", fga: 76.8, bestPhilosophy: "Klopp Intensity", currentClub: "Brighton FC" },
             { name: "Iñaki Williams", profileHtml: "Inaki_Williams.html", position: "RW", age: 31, nationality: "Ghana 🇬🇭 / Spain 🇪🇸", fga: 84.5, bestPhilosophy: "Klopp Intensity", currentClub: "Athletic Bilbao" },
             { name: "Darío Osorio", profileHtml: "Dario_Osorio.html", position: "RW", age: 21, nationality: "Chile 🇨🇱", fga: 74.2, bestPhilosophy: "Menotti Artistry", currentClub: "FC Midtjylland" },
-            { name: "Mikel Gogorza", profileHtml: "Mikel_Gogorza.html", position: "LW", age: 19, nationality: "Denmark 🇩🇰", fga: 71.5, bestPhilosophy: "Klopp Intensity", currentClub: "FC Midtjylland" },
+            { name: "Mikel Gogorza", profileHtml: "Mikel_Gogorza.html", position: "LW", age: 19, nationality: "Denmark 🇩🇰 / France 🇫🇷", fga: 71.5, bestPhilosophy: "Klopp Intensity", currentClub: "HB Tórshavn" },
 // === NEW BATCH 14 (Dec 18, 2025 - Fourteenth Upload with Portraits) ===
-            { name: "David Cancola", image_url: "https://cdn.futwiz.com/assets/img/fifa20/faces/237867.png", profileHtml: "David_Cancola.html", position: "DM", age: 29, nationality: "Austria 🇦🇹", fga: 69.5, bestPhilosophy: "Versatile", currentClub: "None" },
+            { name: "David Cancola", image_url: "https://cdn.futwiz.com/assets/img/fifa20/faces/237867.png", profileHtml: "David_Cancola.html", position: "DM", age: 29, nationality: "Austria 🇦🇹", fga: 69.5, bestPhilosophy: "Versatile", currentClub: "Wolfsberger AC" },
             { name: "Thibaut Courtois", image_url: "https://cdn-img.zerozero.pt/img/planteis/new/74/88/11147488_thibaut_courtois_20240809094141.png", profileHtml: "Thibault_Courtois.html", position: "GK", age: 33, nationality: "Belgium 🇧🇪", fga: 93.5, bestPhilosophy: "Ferguson Mental", currentClub: "Real Madrid" },
             { name: "Vinícius Júnior", image_url: "https://static.wikia.nocookie.net/the-football-database/images/8/8f/Vin%C3%ADcius_J%C3%BAnior.1.png", profileHtml: "Vinicius_Jr.html", position: "LW", age: 25, nationality: "Brazil 🇧🇷", fga: 92.8, bestPhilosophy: "Guardiola Positional", currentClub: "Real Madrid" },
             { name: "Wessel Dammers", image_url: "https://images.fotmob.com/image_resources/playerimages/560853.png", profileHtml: "Wessel_Dammers.html", position: "CB", age: 30, nationality: "Netherlands 🇳🇱", fga: 74.2, bestPhilosophy: "Versatile", currentClub: "FC Groningen" },
@@ -3037,13 +3482,13 @@
             { name: "Dominik Kotarski", image_url: "https://images.fotmob.com/image_resources/playerimages/873557.png", profileHtml: "Dominik_Kotarski.html", position: "GK", age: 25, nationality: "Croatia 🇭🇷", fga: 76.8, bestPhilosophy: "Versatile", currentClub: "PAOK" },
             { name: "Gabriel Pereira", image_url: "https://cdn-img.zerozero.pt/img/jogadores/new/33/08/693308_gabriel_pereira_20250307004642.png", profileHtml: "Gabriel_Pereira.html", position: "CB", age: 25, nationality: "Brazil 🇧🇷", fga: 78.2, bestPhilosophy: "Versatile", currentClub: "FC Copenhagen" },
             { name: "Pantelis Hatzidiakos", profileHtml: "Pantelis_Hatzidiakos.html", position: "CB", age: 28, nationality: "Greece 🇬🇷", fga: 76.5, bestPhilosophy: "Versatile", currentClub: "AEK Athens" },
-            { name: "Mohamed Elyounoussi", image_url: "https://static.wikia.nocookie.net/the-football-database/images/e/e3/Mohamed_Elyounoussi.1.png", profileHtml: "Mohamed_Elyounoussi.html", position: "AM", age: 31, nationality: "Norway 🇳🇴", fga: 81.2, bestPhilosophy: "Guardiola Positional", currentClub: "FC Copenhagen" },
+            { name: "Mohamed Elyounoussi", image_url: "https://static.wikia.nocookie.net/the-football-database/images/e/e3/Mohamed_Elyounoussi.1.png", profileHtml: "Mohamed_Elyounoussi.html", position: "AM", age: 31, nationality: "Norway 🇳🇴", fga: 81.2, bestPhilosophy: "Guardiola Positional", currentClub: "AIK" },
             { name: "Thomas Delaney", image_url: "https://images.fotmob.com/image_resources/playerimages/170218.png", profileHtml: "Thomas_Delaney.html", position: "DM", age: 34, nationality: "Denmark 🇩🇰", fga: 77.8, bestPhilosophy: "Ferguson Mental", currentClub: "FC Copenhagen" },
-            { name: "Youssoufa Moukoko", image_url: "https://static.wikia.nocookie.net/the-football-database/images/5/5e/Youssoufa_Moukoko.1.png", profileHtml: "Youssoufa_Moukoko.html", position: "ST", age: 20, nationality: "Germany 🇩🇪", fga: 82.5, bestPhilosophy: "Versatile", currentClub: "FC Copenhagen" },
+            { name: "Youssoufa Moukoko", image_url: "https://static.wikia.nocookie.net/the-football-database/images/5/5e/Youssoufa_Moukoko.1.png", profileHtml: "Youssoufa_Moukoko.html", position: "ST", age: 20, nationality: "Germany 🇩🇪", fga: 82.5, bestPhilosophy: "Versatile", currentClub: "OGC Nice" },
 // === NEW BATCH 15 (Dec 19, 2025 - Fifteenth Upload) ===
             { name: "Erick Otieno", profileHtml: "Eric_Otieno.html", position: "LB", age: 29, nationality: "Kenya 🇰🇪", fga: 79.6, bestPhilosophy: "Bielsa Verticalidad", currentClub: "AIK" },
             { name: "Juan Carlos Obregón Jr.", profileHtml: "Juan_Carlos_Obregon.html", position: "ST", age: 28, nationality: "Honduras 🇭🇳", fga: 84.5, bestPhilosophy: "Bielsa Verticalidad", currentClub: "Motagua" },
-            { name: "Vassilis Hatzipanagis", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN2smq4xjUPedSJBGu0Gbh0KkKwOcrJc8jvg&s", profileHtml: "Vassilis_Hatzipanagis.html", position: "AM", age: 72, nationality: "Greece 🇬🇷", fga: 98.2, bestPhilosophy: "Cruyff Intelligence", currentClub: "Retired Legend" },
+            { name: "Vassilis Hatzipanagis", profileHtml: "Vassilis_Hatzipanagis.html", position: "AM", age: 72, nationality: "Greece 🇬🇷", fga: 98.2, bestPhilosophy: "Cruyff Intelligence", currentClub: "Retired Legend" },
             { name: "Jackson Dietrich", profileHtml: "Jackson_Dietrich.html", position: "RW", age: 29, nationality: "USA 🇺🇸", fga: 71.8, bestPhilosophy: "Bielsa Verticalidad", currentClub: "Sacramento Republic" },
             { name: "Lucca Dourado", profileHtml: "Lucca_Dourado.html", position: "ST", age: 25, nationality: "Brazil 🇧🇷", fga: 82.1, bestPhilosophy: "Bielsa Verticalidad", currentClub: "Avaí FC" },
             { name: "Nazeem Bartman", profileHtml: "Nazeem_Bartman.html", position: "LW", age: 32, nationality: "South Africa 🇿🇦", fga: 73.2, bestPhilosophy: "Guardiola Positional", currentClub: "Cape Town City" },
@@ -3060,10 +3505,7 @@
             { name: "Albijon Muzaci", profileHtml: "Albijon_Muzaci.html", position: "RW", age: 29, nationality: "Kosovo 🇽🇰", fga: 79.5, bestPhilosophy: "Guardiola Positional", currentClub: "Ballkani" },
             { name: "Pau Juventeny", profileHtml: "Pau_Juventeny.html", position: "CM", age: 25, nationality: "Spain 🇪🇸", fga: 75.2, bestPhilosophy: "Guardiola Positional", currentClub: "Girona" },
             { name: "Pedro Diniz", profileHtml: "Pedro_Diniz.html", position: "ST", age: 26, nationality: "Portugal 🇵🇹", fga: 73.5, bestPhilosophy: "Versatile", currentClub: "SC Farense" },
-            { name: "Eemeli Honkola", profileHtml: "Eemeli_Honkola.html", position: "ST", age: 20, nationality: "Finland 🇫🇮", fga: 71.0, bestPhilosophy: "Ferguson Mental", currentClub: "HJK Helsinki" },
-
-
-];
+            { name: "Eemeli Honkola", profileHtml: "Eemeli_Honkola.html", position: "ST", age: 20, nationality: "Finland 🇫🇮", fga: 71.0, bestPhilosophy: "Ferguson Mental", currentClub: "HJK Helsinki" },];
 
 
         // DEBUG LOGGING
@@ -3089,8 +3531,18 @@
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
             
-            document.getElementById(tabName + '-tab').classList.add('active');
-            event.target.classList.add('active');
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+            
+            // Find and activate the clicked button
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes(getTabLabel(tabName))) {
+                    btn.classList.add('active');
+                }
+            });
             
             if (tabName === 'philosophy') {
                 renderPhilosophyHeatmap();
@@ -3099,6 +3551,18 @@
             } else if (tabName === 'squad') {
                 initializeSquadBuilder();
             }
+        }
+        
+        function getTabLabel(tabName) {
+            const labels = {
+                'database': 'Player Database',
+                'comparison': 'Compare Players',
+                'market': 'Market Intelligence',
+                'philosophy': 'Philosophy Heatmap',
+                'squad': 'Squad Builder',
+                'agents': 'Scout Network'
+            };
+            return labels[tabName] || '';
         }
 
         // DATABASE FUNCTIONS
@@ -3777,61 +4241,402 @@
             // Base score from FGA (scaled to 0-10)
             const baseScore = fga / 10;
             
-            // Define philosophies with position compatibility
+            // Complete 60-Philosophy Framework with Schools
             const philosophies = {
-                'Ferguson Mental': {
-                    weight: 1.45,
-                    positionFit: { ST: 1.0, WG: 1.0, AM: 0.95, CM: 0.95, DM: 0.90, FB: 0.85, CB: 0.85, GK: 0.80 },
-                    keywords: ['Ferguson', 'Mental'],
-                    description: 'Mental strength, composure, winning mentality'
-                },
-                'Guardiola Positional': {
-                    weight: 1.40,
-                    positionFit: { CM: 1.0, DM: 1.0, AM: 0.95, FB: 0.90, CB: 0.90, ST: 0.80, WG: 0.75, GK: 0.70 },
-                    keywords: ['Guardiola', 'Positional', 'Possession'],
-                    description: 'Positional play, passing precision, intelligence'
-                },
+                // ========================================
+                // DUTCH SCHOOL (6 Philosophies)
+                // ========================================
                 'Cruyff Intelligence': {
-                    weight: 1.38,
-                    positionFit: { AM: 1.0, ST: 1.0, CM: 0.95, WG: 0.95, FB: 0.85, DM: 0.85, CB: 0.80, GK: 0.65 },
+                    weight: 1.38, school: 'Dutch',
+                    positionFit: { AM: 1.0, ST: 1.0, CM: 0.95, WG: 0.95, FB: 0.85, DM: 0.85, CB: 0.80, GK: 0.65, LW: 1.0, RW: 1.0, LB: 0.85, RB: 0.85 },
                     keywords: ['Cruyff', 'Intelligence'],
                     description: 'Total football, creativity, spatial awareness'
                 },
-                'Simeone Cholismo': {
-                    weight: 1.35,
-                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.70, ST: 0.70, WG: 0.70, GK: 0.85 },
-                    keywords: ['Simeone', 'Cholismo'],
-                    description: 'Defensive intensity, warrior mentality, discipline'
-                },
-                'Klopp Intensity': {
-                    weight: 1.32,
-                    positionFit: { CM: 1.0, FB: 1.0, WG: 0.95, ST: 0.95, AM: 0.90, DM: 0.90, CB: 0.85, GK: 0.70 },
-                    keywords: ['Klopp', 'Intensity'],
-                    description: 'High pressing, counter-pressing, work rate'
-                },
-                'Mourinho Tactical': {
-                    weight: 1.30,
-                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.85 },
-                    keywords: ['Mourinho', 'Tactical'],
-                    description: 'Tactical discipline, defensive structure, pragmatism'
-                },
-                'Menotti Artistry': {
-                    weight: 1.28,
-                    positionFit: { AM: 1.0, WG: 1.0, ST: 0.95, CM: 0.80, FB: 0.70, DM: 0.60, CB: 0.50, GK: 0.40 },
-                    keywords: ['Menotti', 'Artistry', 'Artist', 'Riquelme'],
-                    description: 'Individual artistry, creative freedom, flair'
-                },
-                'Michels Total': {
-                    weight: 1.35,
-                    positionFit: { CM: 1.0, FB: 1.0, AM: 0.95, DM: 0.95, CB: 0.90, ST: 0.90, WG: 0.90, GK: 0.75 },
+                'Michels Total Football': {
+                    weight: 1.35, school: 'Dutch',
+                    positionFit: { CM: 1.0, FB: 1.0, AM: 0.95, DM: 0.95, CB: 0.90, ST: 0.90, WG: 0.90, GK: 0.75, LW: 0.90, RW: 0.90, LB: 1.0, RB: 1.0 },
                     keywords: ['Michels', 'Total'],
                     description: 'Total football, positional fluidity, versatility'
                 },
+                'Van Gaal Discipline': {
+                    weight: 1.32, school: 'Dutch',
+                    positionFit: { CB: 1.0, DM: 1.0, CM: 0.95, FB: 0.90, AM: 0.85, ST: 0.80, WG: 0.75, GK: 0.85, LB: 0.90, RB: 0.90, LW: 0.75, RW: 0.75 },
+                    keywords: ['Van Gaal', 'Discipline'],
+                    description: 'Disciplined possession, tactical strictness, organization'
+                },
+                'Kovács Methodical': {
+                    weight: 1.28, school: 'Dutch',
+                    positionFit: { DM: 1.0, CM: 0.95, CB: 0.95, FB: 0.90, AM: 0.85, ST: 0.80, WG: 0.75, GK: 0.80, LB: 0.90, RB: 0.90, LW: 0.75, RW: 0.75 },
+                    keywords: ['Kovács', 'Kovacs', 'Method'],
+                    description: 'Methodical approach, systematic play'
+                },
+                'Hiddink Pragmatic': {
+                    weight: 1.24, school: 'Dutch',
+                    positionFit: { CM: 0.95, DM: 0.95, CB: 0.95, FB: 0.90, AM: 0.85, ST: 0.85, WG: 0.80, GK: 0.80, LB: 0.90, RB: 0.90, LW: 0.80, RW: 0.80 },
+                    keywords: ['Hiddink', 'Pragmatic'],
+                    description: 'Pragmatic tactics, adaptability'
+                },
+                'Beenhakker European': {
+                    weight: 1.22, school: 'Dutch',
+                    positionFit: { CM: 0.90, CB: 0.90, DM: 0.90, FB: 0.85, AM: 0.85, ST: 0.85, WG: 0.80, GK: 0.75, LB: 0.85, RB: 0.85, LW: 0.80, RW: 0.80 },
+                    keywords: ['Beenhakker', 'European'],
+                    description: 'European tactical fusion, professionalism'
+                },
+
+                // ========================================
+                // SPANISH SCHOOL (7 Philosophies)
+                // ========================================
+                'Guardiola Positional': {
+                    weight: 1.40, school: 'Spanish',
+                    positionFit: { CM: 1.0, DM: 1.0, AM: 0.95, FB: 0.90, CB: 0.90, ST: 0.80, WG: 0.75, GK: 0.70, LW: 0.75, RW: 0.75, LB: 0.90, RB: 0.90 },
+                    keywords: ['Guardiola', 'Positional', 'Possession'],
+                    description: 'Positional play, passing precision, intelligence'
+                },
+                'Aragonés Pride': {
+                    weight: 1.30, school: 'Spanish',
+                    positionFit: { CM: 0.95, AM: 0.95, CB: 0.90, DM: 0.90, FB: 0.85, ST: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Aragonés', 'Aragones', 'Pride'],
+                    description: 'Spanish pride, technical excellence'
+                },
+                'Carniglia Practical': {
+                    weight: 1.28, school: 'Spanish',
+                    positionFit: { ST: 0.95, CB: 0.95, DM: 0.90, CM: 0.90, FB: 0.85, AM: 0.85, WG: 0.80, GK: 0.80, LW: 0.80, RW: 0.80, LB: 0.85, RB: 0.85 },
+                    keywords: ['Carniglia', 'Practical'],
+                    description: 'Practical effectiveness, counter-attacking'
+                },
+                'Emery Intensity': {
+                    weight: 1.26, school: 'Spanish',
+                    positionFit: { CM: 0.95, DM: 0.95, FB: 0.90, CB: 0.90, WG: 0.85, ST: 0.85, AM: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.90, RB: 0.90 },
+                    keywords: ['Emery', 'Intensity'],
+                    description: 'High intensity pressing, detailed preparation'
+                },
+                'Muñoz Physical': {
+                    weight: 1.26, school: 'Spanish',
+                    positionFit: { CB: 0.95, DM: 0.95, ST: 0.90, FB: 0.85, CM: 0.85, AM: 0.80, WG: 0.75, GK: 0.80, LW: 0.75, RW: 0.75, LB: 0.85, RB: 0.85 },
+                    keywords: ['Muñoz', 'Munoz', 'Physical'],
+                    description: 'Physical dominance, aerial strength'
+                },
+                'Pellegrini Balance': {
+                    weight: 1.24, school: 'Spanish',
+                    positionFit: { CM: 0.90, AM: 0.90, CB: 0.85, DM: 0.85, FB: 0.85, ST: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Pellegrini', 'Balance'],
+                    description: 'Balanced approach, attacking fluidity'
+                },
+                'Villalonga Tactical': {
+                    weight: 1.24, school: 'Spanish',
+                    positionFit: { CB: 0.90, DM: 0.90, CM: 0.85, FB: 0.85, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.80, LW: 0.75, RW: 0.75, LB: 0.85, RB: 0.85 },
+                    keywords: ['Villalonga', 'Tactical'],
+                    description: 'Tactical discipline, defensive organization'
+                },
+
+                // ========================================
+                // ITALIAN SCHOOL (8 Philosophies)
+                // ========================================
+                'Herrera Catenaccio': {
+                    weight: 1.35, school: 'Italian',
+                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.85, GK: 0.90, AM: 0.65, ST: 0.70, WG: 0.65, LB: 0.95, RB: 0.95, LW: 0.65, RW: 0.65 },
+                    keywords: ['Herrera', 'Catenaccio'],
+                    description: 'Defensive fortress, tactical cynicism'
+                },
+                'Rocco Defense': {
+                    weight: 1.32, school: 'Italian',
+                    positionFit: { CB: 1.0, DM: 0.95, FB: 0.90, GK: 0.95, CM: 0.80, AM: 0.60, ST: 0.65, WG: 0.60, LB: 0.90, RB: 0.90, LW: 0.60, RW: 0.60 },
+                    keywords: ['Rocco', 'Defense'],
+                    description: 'Ultra-defensive, zone marking'
+                },
+                'Lippi Leadership': {
+                    weight: 1.32, school: 'Italian',
+                    positionFit: { CB: 0.95, DM: 0.95, CM: 0.90, FB: 0.90, AM: 0.80, ST: 0.85, WG: 0.75, GK: 0.85, LB: 0.90, RB: 0.90, LW: 0.75, RW: 0.75 },
+                    keywords: ['Lippi', 'Leadership'],
+                    description: 'Leadership, tactical flexibility'
+                },
+                'Trapattoni Organization': {
+                    weight: 1.30, school: 'Italian',
+                    positionFit: { CB: 0.95, DM: 0.95, CM: 0.90, FB: 0.85, AM: 0.75, ST: 0.80, WG: 0.70, GK: 0.85, LB: 0.85, RB: 0.85, LW: 0.70, RW: 0.70 },
+                    keywords: ['Trapattoni', 'Organization'],
+                    description: 'Meticulous organization, defensive solidity'
+                },
+                'Bearzot Pragmatic': {
+                    weight: 1.28, school: 'Italian',
+                    positionFit: { CB: 0.90, DM: 0.90, CM: 0.85, FB: 0.85, ST: 0.85, AM: 0.80, WG: 0.75, GK: 0.80, LB: 0.85, RB: 0.85, LW: 0.75, RW: 0.75 },
+                    keywords: ['Bearzot', 'Pragmatic'],
+                    description: 'Pragmatic tactics, team unity'
+                },
                 'Sacchi Pressing': {
-                    weight: 1.28,
-                    positionFit: { CB: 1.0, DM: 1.0, CM: 0.95, FB: 0.95, AM: 0.80, ST: 0.75, WG: 0.75, GK: 0.80 },
+                    weight: 1.28, school: 'Italian',
+                    positionFit: { CB: 1.0, DM: 1.0, CM: 0.95, FB: 0.95, AM: 0.80, ST: 0.75, WG: 0.75, GK: 0.80, LB: 0.95, RB: 0.95, LW: 0.75, RW: 0.75 },
                     keywords: ['Sacchi', 'Pressing', 'Maldini'],
                     description: 'Organized pressing, defensive compactness'
+                },
+                'Carcano Method': {
+                    weight: 1.22, school: 'Italian',
+                    positionFit: { CB: 0.85, DM: 0.85, CM: 0.80, FB: 0.80, AM: 0.75, ST: 0.80, WG: 0.70, GK: 0.75, LB: 0.80, RB: 0.80, LW: 0.70, RW: 0.70 },
+                    keywords: ['Carcano', 'Method'],
+                    description: 'Systematic approach, tactical discipline'
+                },
+                'Cesarini Heroes': {
+                    weight: 1.20, school: 'Italian',
+                    positionFit: { ST: 0.90, AM: 0.85, CM: 0.80, CB: 0.80, DM: 0.80, FB: 0.75, WG: 0.85, GK: 0.70, LW: 0.85, RW: 0.85, LB: 0.75, RB: 0.75 },
+                    keywords: ['Cesarini', 'Heroes'],
+                    description: 'Late heroics, mental resilience'
+                },
+
+                // ========================================
+                // ENGLISH SCHOOL (8 Philosophies)
+                // ========================================
+                'Ferguson Mental': {
+                    weight: 1.45, school: 'English',
+                    positionFit: { ST: 1.0, WG: 1.0, AM: 0.95, CM: 0.95, DM: 0.90, FB: 0.85, CB: 0.85, GK: 0.80, LW: 1.0, RW: 1.0, LB: 0.85, RB: 0.85 },
+                    keywords: ['Ferguson', 'Mental'],
+                    description: 'Mental strength, winning mentality'
+                },
+                'Clough Genius': {
+                    weight: 1.38, school: 'English',
+                    positionFit: { ST: 0.95, AM: 0.95, CM: 0.90, WG: 0.90, CB: 0.85, DM: 0.85, FB: 0.85, GK: 0.75, LW: 0.90, RW: 0.90, LB: 0.85, RB: 0.85 },
+                    keywords: ['Clough', 'Genius'],
+                    description: 'Tactical genius, attacking flair'
+                },
+                'Busby Babes': {
+                    weight: 1.35, school: 'English',
+                    positionFit: { ST: 0.95, AM: 0.95, WG: 0.95, CM: 0.90, FB: 0.85, DM: 0.80, CB: 0.80, GK: 0.75, LW: 0.95, RW: 0.95, LB: 0.85, RB: 0.85 },
+                    keywords: ['Busby', 'Babes'],
+                    description: 'Attacking football, youth development'
+                },
+                'Paisley Consistency': {
+                    weight: 1.34, school: 'English',
+                    positionFit: { CM: 0.95, CB: 0.95, DM: 0.90, FB: 0.90, AM: 0.85, ST: 0.85, WG: 0.85, GK: 0.85, LW: 0.85, RW: 0.85, LB: 0.90, RB: 0.90 },
+                    keywords: ['Paisley', 'Consistency'],
+                    description: 'Consistency, tactical simplicity'
+                },
+                'Shankly Spirit': {
+                    weight: 1.32, school: 'English',
+                    positionFit: { CM: 0.95, ST: 0.90, CB: 0.90, DM: 0.90, FB: 0.85, AM: 0.85, WG: 0.85, GK: 0.80, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Shankly', 'Spirit'],
+                    description: 'Fighting spirit, team unity, passion'
+                },
+                'Robson Passion': {
+                    weight: 1.30, school: 'English',
+                    positionFit: { CM: 0.90, ST: 0.90, AM: 0.90, CB: 0.85, DM: 0.85, FB: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Robson', 'Passion'],
+                    description: 'Passion, box-to-box energy'
+                },
+                'Venables Intelligence': {
+                    weight: 1.28, school: 'English',
+                    positionFit: { AM: 0.95, CM: 0.90, ST: 0.85, CB: 0.85, DM: 0.85, FB: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Venables', 'Intelligence'],
+                    description: 'Tactical intelligence, innovation'
+                },
+                'Winterbottom Method': {
+                    weight: 1.24, school: 'English',
+                    positionFit: { CB: 0.85, CM: 0.85, DM: 0.85, FB: 0.80, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.75, LW: 0.75, RW: 0.75, LB: 0.80, RB: 0.80 },
+                    keywords: ['Winterbottom', 'Method'],
+                    description: 'Methodical coaching, professionalism'
+                },
+
+                // ========================================
+                // GERMAN SCHOOL (6 Philosophies)
+                // ========================================
+                'Beckenbauer Elegance': {
+                    weight: 1.36, school: 'German',
+                    positionFit: { CB: 1.0, DM: 1.0, CM: 0.95, FB: 0.90, AM: 0.85, ST: 0.80, WG: 0.75, GK: 0.80, LW: 0.75, RW: 0.75, LB: 0.90, RB: 0.90 },
+                    keywords: ['Beckenbauer', 'Elegance'],
+                    description: 'Elegant sweeper play, ball-playing defenders'
+                },
+                'Heynckes Precision': {
+                    weight: 1.34, school: 'German',
+                    positionFit: { CM: 0.95, CB: 0.95, DM: 0.95, FB: 0.90, AM: 0.85, ST: 0.85, WG: 0.80, GK: 0.85, LW: 0.80, RW: 0.80, LB: 0.90, RB: 0.90 },
+                    keywords: ['Heynckes', 'Precision'],
+                    description: 'Tactical precision, high pressing'
+                },
+                'Hitzfeld Success': {
+                    weight: 1.32, school: 'German',
+                    positionFit: { CM: 0.90, CB: 0.90, DM: 0.90, FB: 0.85, ST: 0.85, AM: 0.85, WG: 0.80, GK: 0.80, LW: 0.80, RW: 0.80, LB: 0.85, RB: 0.85 },
+                    keywords: ['Hitzfeld', 'Success'],
+                    description: 'Winning mentality, tactical adaptability'
+                },
+                'Happel Innovation': {
+                    weight: 1.30, school: 'German',
+                    positionFit: { CM: 0.90, AM: 0.90, ST: 0.85, CB: 0.85, DM: 0.85, FB: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Happel', 'Innovation'],
+                    description: 'Tactical innovation, attacking philosophy'
+                },
+                'Cramer Method': {
+                    weight: 1.28, school: 'German',
+                    positionFit: { CB: 0.90, DM: 0.90, CM: 0.85, FB: 0.85, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.80, LW: 0.75, RW: 0.75, LB: 0.85, RB: 0.85 },
+                    keywords: ['Cramer', 'Method'],
+                    description: 'Methodical preparation, systematic training'
+                },
+                'Herberger Discipline': {
+                    weight: 1.28, school: 'German',
+                    positionFit: { CB: 0.90, DM: 0.90, CM: 0.85, FB: 0.85, AM: 0.75, ST: 0.80, WG: 0.70, GK: 0.85, LW: 0.70, RW: 0.70, LB: 0.85, RB: 0.85 },
+                    keywords: ['Herberger', 'Discipline'],
+                    description: 'German discipline, organization'
+                },
+
+                // ========================================
+                // FRENCH SCHOOL (5 Philosophies)
+                // ========================================
+                'Wenger Development': {
+                    weight: 1.32, school: 'French',
+                    positionFit: { AM: 1.0, CM: 0.95, ST: 0.90, WG: 0.90, FB: 0.85, DM: 0.85, CB: 0.80, GK: 0.70, LW: 0.90, RW: 0.90, LB: 0.85, RB: 0.85 },
+                    keywords: ['Wenger', 'Development'],
+                    description: 'Youth development, technical football'
+                },
+                'Deschamps Pragmatic': {
+                    weight: 1.30, school: 'French',
+                    positionFit: { DM: 0.95, CM: 0.95, CB: 0.90, FB: 0.85, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.85, LW: 0.75, RW: 0.75, LB: 0.85, RB: 0.85 },
+                    keywords: ['Deschamps', 'Pragmatic'],
+                    description: 'Pragmatic tactics, defensive organization'
+                },
+                'Platini Elegance': {
+                    weight: 1.28, school: 'French',
+                    positionFit: { AM: 1.0, CM: 0.95, WG: 0.90, ST: 0.85, FB: 0.75, DM: 0.70, CB: 0.65, GK: 0.60, LW: 0.90, RW: 0.90, LB: 0.75, RB: 0.75 },
+                    keywords: ['Platini', 'Elegance'],
+                    description: 'Elegant play, technical excellence'
+                },
+                'Suaudeau Method': {
+                    weight: 1.26, school: 'French',
+                    positionFit: { CM: 0.90, AM: 0.85, CB: 0.85, DM: 0.85, FB: 0.80, ST: 0.80, WG: 0.80, GK: 0.75, LW: 0.80, RW: 0.80, LB: 0.80, RB: 0.80 },
+                    keywords: ['Suaudeau', 'Method'],
+                    description: 'Systematic youth development'
+                },
+                'Fontaine Attack': {
+                    weight: 1.24, school: 'French',
+                    positionFit: { ST: 1.0, WG: 0.95, AM: 0.90, CM: 0.75, FB: 0.65, DM: 0.60, CB: 0.55, GK: 0.50, LW: 0.95, RW: 0.95, LB: 0.65, RB: 0.65 },
+                    keywords: ['Fontaine', 'Attack'],
+                    description: 'Pure attacking football, goal-scoring'
+                },
+
+                // ========================================
+                // SOUTH AMERICAN SCHOOL (7 Philosophies)
+                // ========================================
+                'Bielsa Verticalidad': {
+                    weight: 1.34, school: 'South American',
+                    positionFit: { CM: 1.0, FB: 0.95, WG: 0.95, AM: 0.90, ST: 0.90, DM: 0.85, CB: 0.80, GK: 0.70, LW: 0.95, RW: 0.95, LB: 0.95, RB: 0.95 },
+                    keywords: ['Bielsa', 'Vertical'],
+                    description: 'Vertical football, high intensity'
+                },
+                'Simeone Cholismo': {
+                    weight: 1.35, school: 'South American',
+                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.70, ST: 0.70, WG: 0.70, GK: 0.85, LB: 0.95, RB: 0.95, LW: 0.70, RW: 0.70 },
+                    keywords: ['Simeone', 'Cholismo'],
+                    description: 'Defensive intensity, warrior mentality'
+                },
+                'Bilardo Combative': {
+                    weight: 1.32, school: 'South American',
+                    positionFit: { DM: 1.0, CB: 0.95, CM: 0.90, FB: 0.90, AM: 0.75, ST: 0.80, WG: 0.70, GK: 0.85, LB: 0.90, RB: 0.90, LW: 0.70, RW: 0.70 },
+                    keywords: ['Bilardo', 'Combative'],
+                    description: 'Combative play, tactical shrewdness'
+                },
+                'Menotti Artistry': {
+                    weight: 1.28, school: 'South American',
+                    positionFit: { AM: 1.0, WG: 1.0, ST: 0.95, CM: 0.80, FB: 0.70, DM: 0.60, CB: 0.50, GK: 0.40, LW: 1.0, RW: 1.0, LB: 0.70, RB: 0.70 },
+                    keywords: ['Menotti', 'Artistry'],
+                    description: 'Individual artistry, creative freedom'
+                },
+                'Zagallo Tactical': {
+                    weight: 1.22, school: 'South American',
+                    positionFit: { CM: 0.90, DM: 0.90, CB: 0.85, FB: 0.85, AM: 0.80, ST: 0.80, WG: 0.80, GK: 0.75, LW: 0.80, RW: 0.80, LB: 0.85, RB: 0.85 },
+                    keywords: ['Zagallo', 'Tactical'],
+                    description: 'Tactical intelligence, systematic approach'
+                },
+                'Santana Joga Bonito': {
+                    weight: 1.18, school: 'South American',
+                    positionFit: { AM: 0.95, ST: 0.95, WG: 0.95, CM: 0.85, FB: 0.75, DM: 0.70, CB: 0.65, GK: 0.60, LW: 0.95, RW: 0.95, LB: 0.75, RB: 0.75 },
+                    keywords: ['Santana', 'Joga Bonito'],
+                    description: 'Beautiful football, artistic expression'
+                },
+                'Feola System': {
+                    weight: 1.16, school: 'South American',
+                    positionFit: { CM: 0.85, CB: 0.85, DM: 0.85, FB: 0.80, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.75, LW: 0.75, RW: 0.75, LB: 0.80, RB: 0.80 },
+                    keywords: ['Feola', 'System'],
+                    description: 'Systematic organization, methodical'
+                },
+
+                // ========================================
+                // EASTERN EUROPEAN SCHOOL (4 Philosophies)
+                // ========================================
+                'Lobanovskyi Scientific': {
+                    weight: 1.36, school: 'Eastern European',
+                    positionFit: { CM: 1.0, CB: 0.95, DM: 0.95, FB: 0.90, AM: 0.90, ST: 0.85, WG: 0.85, GK: 0.80, LW: 0.85, RW: 0.85, LB: 0.90, RB: 0.90 },
+                    keywords: ['Lobanovskyi', 'Scientific'],
+                    description: 'Scientific methods, data analysis'
+                },
+                'Guttmann Innovation': {
+                    weight: 1.32, school: 'Eastern European',
+                    positionFit: { AM: 0.95, ST: 0.95, CM: 0.90, WG: 0.90, CB: 0.80, DM: 0.80, FB: 0.80, GK: 0.70, LW: 0.90, RW: 0.90, LB: 0.80, RB: 0.80 },
+                    keywords: ['Guttmann', 'Innovation'],
+                    description: 'Tactical innovation, attacking football'
+                },
+                'Sebes Method': {
+                    weight: 1.30, school: 'Eastern European',
+                    positionFit: { CM: 0.95, AM: 0.90, CB: 0.85, DM: 0.85, FB: 0.85, ST: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Sebes', 'Method'],
+                    description: 'Revolutionary tactics, fluid positions'
+                },
+                'Gorski Discipline': {
+                    weight: 1.26, school: 'Eastern European',
+                    positionFit: { CB: 0.90, DM: 0.90, CM: 0.85, FB: 0.85, AM: 0.75, ST: 0.75, WG: 0.70, GK: 0.80, LW: 0.70, RW: 0.70, LB: 0.85, RB: 0.85 },
+                    keywords: ['Gorski', 'Discipline'],
+                    description: 'Tactical discipline, defensive organization'
+                },
+
+                // ========================================
+                // MODERN MASTERS (9 Philosophies)
+                // ========================================
+                'Klopp Intensity': {
+                    weight: 1.32, school: 'Modern',
+                    positionFit: { CM: 1.0, FB: 1.0, WG: 0.95, ST: 0.95, AM: 0.90, DM: 0.90, CB: 0.85, GK: 0.70, LW: 0.95, RW: 0.95, LB: 1.0, RB: 1.0 },
+                    keywords: ['Klopp', 'Intensity'],
+                    description: 'High pressing, counter-pressing, heavy metal football'
+                },
+                'Nagelsmann Innovation': {
+                    weight: 1.32, school: 'Modern',
+                    positionFit: { CM: 0.95, CB: 0.90, AM: 0.90, FB: 0.90, DM: 0.90, ST: 0.85, WG: 0.85, GK: 0.80, LW: 0.85, RW: 0.85, LB: 0.90, RB: 0.90 },
+                    keywords: ['Nagelsmann', 'Innovation'],
+                    description: 'Tactical innovation, data-driven'
+                },
+                'Ancelotti Flexible': {
+                    weight: 1.30, school: 'Modern',
+                    positionFit: { CM: 0.95, AM: 0.90, CB: 0.90, DM: 0.90, FB: 0.85, ST: 0.85, WG: 0.85, GK: 0.80, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['Ancelotti', 'Flexible'],
+                    description: 'Tactical flexibility, man-management'
+                },
+                'Mourinho Tactical': {
+                    weight: 1.30, school: 'Modern',
+                    positionFit: { CB: 1.0, DM: 1.0, FB: 0.95, CM: 0.90, AM: 0.80, ST: 0.80, WG: 0.75, GK: 0.85, LB: 0.95, RB: 0.95, LW: 0.75, RW: 0.75 },
+                    keywords: ['Mourinho', 'Tactical'],
+                    description: 'Tactical discipline, defensive structure'
+                },
+                'Flick Combination': {
+                    weight: 1.30, school: 'Modern',
+                    positionFit: { CM: 0.95, CB: 0.90, FB: 0.90, AM: 0.90, ST: 0.85, DM: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.90, RB: 0.90 },
+                    keywords: ['Flick', 'Combination'],
+                    description: 'Combination play, high pressing'
+                },
+                'Conte Intensity': {
+                    weight: 1.28, school: 'Modern',
+                    positionFit: { CB: 0.95, CM: 0.90, DM: 0.90, FB: 0.95, ST: 0.85, AM: 0.80, WG: 0.75, GK: 0.80, LW: 0.75, RW: 0.75, LB: 0.95, RB: 0.95 },
+                    keywords: ['Conte', 'Intensity'],
+                    description: 'High intensity, 3-5-2 mastery'
+                },
+                'Tuchel Systematic': {
+                    weight: 1.28, school: 'Modern',
+                    positionFit: { CB: 0.95, CM: 0.90, DM: 0.90, FB: 0.90, AM: 0.85, ST: 0.80, WG: 0.80, GK: 0.80, LW: 0.80, RW: 0.80, LB: 0.90, RB: 0.90 },
+                    keywords: ['Tuchel', 'Systematic'],
+                    description: 'Systematic approach, defensive solidity'
+                },
+                'Pochettino Pressing': {
+                    weight: 1.26, school: 'Modern',
+                    positionFit: { CM: 0.95, FB: 0.90, WG: 0.90, AM: 0.85, CB: 0.85, DM: 0.85, ST: 0.85, GK: 0.75, LW: 0.90, RW: 0.90, LB: 0.90, RB: 0.90 },
+                    keywords: ['Pochettino', 'Pressing'],
+                    description: 'High pressing, fitness culture'
+                },
+                'DeVisser Science': {
+                    weight: 1.38, school: 'Modern',
+                    positionFit: { CM: 0.95, AM: 0.95, CB: 0.90, DM: 0.90, FB: 0.85, ST: 0.85, WG: 0.85, GK: 0.75, LW: 0.85, RW: 0.85, LB: 0.85, RB: 0.85 },
+                    keywords: ['DeVisser', 'Science'],
+                    description: 'Scientific scouting, talent identification'
                 }
             };
             
@@ -3840,65 +4645,120 @@
             Object.keys(philosophies).forEach(philName => {
                 const phil = philosophies[philName];
                 
-                // Start with base FGA score
-                let score = baseScore;
+                // ============================================
+                // IMPROVED FORMULA V2.0 - Realistic Scoring
+                // ============================================
                 
-                // Apply position fit multiplier (this creates differentiation!)
+                // STEP 1: Start with adjusted baseline (not just FGA/10)
+                // This creates a lower starting point so modifiers matter more
+                let score = (fga - 50) / 5; // 50 FGA = 0, 75 FGA = 5.0, 100 FGA = 10.0
+                score = Math.max(0, score); // Ensure non-negative
+                
+                // STEP 2: Apply STRONG position fit multiplier
+                // Range: 0.40 to 1.20 (much wider than before!)
                 const posFit = phil.positionFit[pos] || 0.70;
                 score *= posFit;
                 
-                // Age-based adjustments
-                if (age <= 25) {
-                    // Young players: lower tactical IQ philosophies
-                    if (philName === 'Guardiola Positional' || philName === 'Mourinho Tactical') {
-                        score *= 0.92;
-                    }
-                    // Higher intensity philosophies
-                    if (philName === 'Klopp Intensity') {
-                        score *= 1.05;
-                    }
-                } else if (age >= 33) {
-                    // Veterans: higher tactical IQ
-                    if (philName === 'Guardiola Positional' || philName === 'Mourinho Tactical') {
-                        score *= 1.05;
-                    }
-                    // Lower intensity
-                    if (philName === 'Klopp Intensity') {
-                        score *= 0.92;
+                // STEP 3: Philosophy-specific role penalties/bonuses
+                // Attackers in defensive philosophies = major penalty
+                const isAttacker = ['ST', 'WG', 'AM', 'LW', 'RW'].includes(pos);
+                const isDefender = ['CB', 'DM', 'GK'].includes(pos);
+                const isMidfield = ['CM', 'FB', 'LB', 'RB'].includes(pos);
+                
+                const defensivePhilosophies = [
+                    'Herrera Catenaccio', 'Rocco Defense', 'Simeone Cholismo', 
+                    'Mourinho Tactical', 'Sacchi Pressing', 'Trapattoni Organization',
+                    'Bilardo Combative', 'Gorski Discipline'
+                ];
+                
+                const attackingPhilosophies = [
+                    'Menotti Artistry', 'Cruyff Intelligence', 'Busby Babes',
+                    'Fontaine Attack', 'Santana Joga Bonito', 'Guttmann Innovation',
+                    'Clough Genius', 'Platini Elegance'
+                ];
+                
+                const tacticalPhilosophies = [
+                    'Guardiola Positional', 'Van Gaal Discipline', 'Lobanovskyi Scientific',
+                    'Sacchi Pressing', 'Nagelsmann Innovation', 'Heynckes Precision'
+                ];
+                
+                const intensityPhilosophies = [
+                    'Klopp Intensity', 'Bielsa Verticalidad', 'Emery Intensity',
+                    'Pochettino Pressing', 'Conte Intensity'
+                ];
+                
+                // Apply philosophy-role mismatch penalties
+                if (defensivePhilosophies.includes(philName)) {
+                    if (isAttacker) score *= 0.60; // Major penalty for attackers in defensive systems
+                    if (isDefender) score *= 1.15; // Bonus for defenders
+                }
+                
+                if (attackingPhilosophies.includes(philName)) {
+                    if (isDefender) score *= 0.55; // Major penalty for defenders in attacking systems
+                    if (isAttacker) score *= 1.20; // Bonus for attackers
+                }
+                
+                if (tacticalPhilosophies.includes(philName)) {
+                    if (isMidfield) score *= 1.10; // Midfielders excel in tactical systems
+                }
+                
+                if (intensityPhilosophies.includes(philName)) {
+                    if (isMidfield || pos === 'FB' || pos === 'LB' || pos === 'RB') {
+                        score *= 1.15; // High-energy positions excel
                     }
                 }
                 
-                // Major boost if this is player's best philosophy (1.15x = +15%)
+                // STEP 4: Age-based tactical understanding
+                if (age <= 22) {
+                    // Very young players: Lower tactical IQ, higher intensity
+                    if (tacticalPhilosophies.includes(philName)) score *= 0.85;
+                    if (intensityPhilosophies.includes(philName)) score *= 1.10;
+                } else if (age <= 26) {
+                    // Young but developing: Slight penalty for complex tactics
+                    if (tacticalPhilosophies.includes(philName)) score *= 0.92;
+                } else if (age >= 33) {
+                    // Veterans: Higher tactical IQ, lower intensity
+                    if (tacticalPhilosophies.includes(philName)) score *= 1.12;
+                    if (intensityPhilosophies.includes(philName)) score *= 0.88;
+                } else if (age >= 30) {
+                    // Prime veterans: Balanced with slight tactical bonus
+                    if (tacticalPhilosophies.includes(philName)) score *= 1.05;
+                }
+                
+                // STEP 5: MAJOR boost if this is player's best philosophy (+30%)
                 const isMatch = phil.keywords.some(keyword => philosophy.includes(keyword));
                 if (isMatch) {
-                    score *= 1.15;
+                    score *= 1.30; // Increased from 1.15 to 1.30
                 }
                 
-                // Minor penalty for mismatch with player's natural style
+                // STEP 6: Additional mismatch penalties for extreme cases
                 if (!isMatch) {
-                    // Attackers lose points in defensive philosophies
-                    if ((pos === 'ST' || pos === 'WG' || pos === 'AM') && 
-                        (philName === 'Simeone Cholismo' || philName === 'Mourinho Tactical' || philName === 'Sacchi Pressing')) {
-                        score *= 0.90;
+                    // Pure attackers in ultra-defensive systems
+                    if ((pos === 'ST' || pos === 'WG' || pos === 'LW' || pos === 'RW') && 
+                        (philName === 'Herrera Catenaccio' || philName === 'Rocco Defense')) {
+                        score *= 0.70; // Additional 30% penalty
                     }
-                    // Defenders lose points in creative philosophies
-                    if ((pos === 'CB' || pos === 'DM') && 
-                        (philName === 'Menotti Artistry' || philName === 'Cruyff Intelligence')) {
-                        score *= 0.88;
+                    
+                    // Pure defenders/DMs in pure attacking systems
+                    if ((pos === 'CB' || pos === 'DM' || pos === 'GK') && 
+                        (philName === 'Fontaine Attack' || philName === 'Menotti Artistry' || philName === 'Santana Joga Bonito')) {
+                        score *= 0.65; // Additional 35% penalty
                     }
                 }
                 
-                // Add slight randomness based on player name hash (consistent per player)
-                const nameHash = player.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-                const variance = ((nameHash % 10) - 5) * 0.02; // -0.1 to +0.1
-                score *= (1 + variance);
+                // STEP 7: Remove random variance (was causing weird results)
+                // Instead, add small FGA-based adjustment for precision
+                const fgaPrecision = (fga % 10) * 0.01; // 0.0 to 0.09
+                score *= (1 + fgaPrecision);
                 
-                // Cap at 10.0
-                const finalScore = Math.min(10.0, Math.max(5.0, score));
+                // STEP 8: Final bounds - WIDER RANGE (2.0 to 10.0)
+                // Remove the floor of 5.0 to allow poor fits
+                const finalScore = Math.min(10.0, Math.max(2.0, score));
                 
                 scores[philName] = {
                     score: Math.round(finalScore * 10) / 10,
                     weight: phil.weight,
+                    school: phil.school,
                     description: phil.description,
                     weightedScore: Math.round(finalScore * phil.weight * 10) / 10
                 };
@@ -4203,7 +5063,8 @@
                     
                     <!-- PHILOSOPHY COMPATIBILITY SCORES -->
                     <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-6">
-                        <h4 class="text-2xl font-bold text-center gradient-text mb-6">🧠 Tactical Philosophy Compatibility Scores</h4>
+                        <h4 class="text-2xl font-bold text-center gradient-text mb-2">🧠 Tactical Philosophy Compatibility Scores</h4>
+                        <p class="text-center text-slate-400 text-sm mb-6">Complete 60-Philosophy Framework | 9 Tactical Schools | Weighted by Historical Impact</p>
                         
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm">
@@ -4220,40 +5081,83 @@
                                         const philosophyScores = playersWithMetrics.map(p => calculatePhilosophyScores(p));
                                         const philosophies = Object.keys(philosophyScores[0]);
                                         
-                                        return philosophies.map(philName => {
-                                            const scores = philosophyScores.map(ps => ps[philName]);
-                                            const maxScore = Math.max(...scores.map(s => s.score));
+                                        // Group philosophies by school
+                                        const schools = {
+                                            'Dutch': [], 'Spanish': [], 'Italian': [], 'English': [],
+                                            'German': [], 'French': [], 'South American': [],
+                                            'Eastern European': [], 'Modern': []
+                                        };
+                                        
+                                        philosophies.forEach(philName => {
+                                            const school = philosophyScores[0][philName].school || 'Modern';
+                                            schools[school].push(philName);
+                                        });
+                                        
+                                        let html = '';
+                                        Object.keys(schools).forEach(schoolName => {
+                                            if (schools[schoolName].length === 0) return;
                                             
-                                            return `
-                                                <tr class="border-b border-slate-700/50 hover:bg-slate-800/30">
-                                                    <td class="py-3 px-2 text-slate-300">
-                                                        <div class="font-bold text-white">${philName}</div>
-                                                        <div class="text-xs text-slate-500">${scores[0].description}</div>
-                                                        <div class="text-xs text-blue-400 mt-1">Weight: ${scores[0].weight}x</div>
+                                            // School header row
+                                            const schoolEmoji = {
+                                                'Dutch': '🇳🇱',
+                                                'Spanish': '🇪🇸',
+                                                'Italian': '🇮🇹',
+                                                'English': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+                                                'German': '🇩🇪',
+                                                'French': '🇫🇷',
+                                                'South American': '🌎',
+                                                'Eastern European': '⭐',
+                                                'Modern': '🔥'
+                                            };
+                                            
+                                            html += `
+                                                <tr class="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 border-y-2 border-blue-500/50">
+                                                    <td colspan="${playersWithMetrics.length + 1}" class="py-3 px-4 text-center">
+                                                        <div class="text-lg font-bold text-white">
+                                                            ${schoolEmoji[schoolName]} ${schoolName.toUpperCase()} SCHOOL (${schools[schoolName].length} Philosophies)
+                                                        </div>
                                                     </td>
-                                                    ${scores.map((s, idx) => {
-                                                        const isBest = s.score === maxScore && s.score > 0;
-                                                        const isPlayerPhil = playersWithMetrics[idx].bestPhilosophy.includes(philName.split(' ')[0]);
-                                                        const percentage = (s.score / 10) * 100;
-                                                        
-                                                        return `
-                                                            <td class="py-3 px-2 text-center ${isPlayerPhil ? 'bg-blue-900/20' : ''}">
-                                                                <div class="font-bold text-xl ${isBest ? 'text-green-400' : isPlayerPhil ? 'text-blue-400' : 'text-white'}">
-                                                                    ${s.score.toFixed(1)} ${isBest ? '✓' : ''} ${isPlayerPhil ? '⭐' : ''}
-                                                                </div>
-                                                                <div class="text-xs text-slate-400 mb-1">
-                                                                    Weighted: ${s.weightedScore.toFixed(1)}
-                                                                </div>
-                                                                <div class="w-full bg-slate-700 rounded-full h-2">
-                                                                    <div class="h-2 rounded-full ${isBest ? 'bg-green-400' : isPlayerPhil ? 'bg-blue-400' : 'bg-slate-500'}" 
-                                                                         style="width: ${percentage}%"></div>
-                                                                </div>
-                                                            </td>
-                                                        `;
-                                                    }).join('')}
                                                 </tr>
                                             `;
-                                        }).join('');
+                                            
+                                            // Philosophy rows for this school
+                                            schools[schoolName].forEach(philName => {
+                                                const scores = philosophyScores.map(ps => ps[philName]);
+                                                const maxScore = Math.max(...scores.map(s => s.score));
+                                                
+                                                html += `
+                                                    <tr class="border-b border-slate-700/50 hover:bg-slate-800/30">
+                                                        <td class="py-3 px-2 text-slate-300">
+                                                            <div class="font-bold text-white">${philName}</div>
+                                                            <div class="text-xs text-slate-500">${scores[0].description}</div>
+                                                            <div class="text-xs text-blue-400 mt-1">Weight: ${scores[0].weight}x</div>
+                                                        </td>
+                                                        ${scores.map((s, idx) => {
+                                                            const isBest = s.score === maxScore && s.score > 0;
+                                                            const isPlayerPhil = playersWithMetrics[idx].bestPhilosophy.includes(philName.split(' ')[0]);
+                                                            const percentage = (s.score / 10) * 100;
+                                                            
+                                                            return `
+                                                                <td class="py-3 px-2 text-center ${isPlayerPhil ? 'bg-blue-900/20' : ''}">
+                                                                    <div class="font-bold text-xl ${isBest ? 'text-green-400' : isPlayerPhil ? 'text-blue-400' : 'text-white'}">
+                                                                        ${s.score.toFixed(1)} ${isBest ? '✓' : ''} ${isPlayerPhil ? '⭐' : ''}
+                                                                    </div>
+                                                                    <div class="text-xs text-slate-400 mb-1">
+                                                                        Weighted: ${s.weightedScore.toFixed(1)}
+                                                                    </div>
+                                                                    <div class="w-full bg-slate-700 rounded-full h-2">
+                                                                        <div class="h-2 rounded-full ${isBest ? 'bg-green-400' : isPlayerPhil ? 'bg-blue-400' : 'bg-slate-500'}" 
+                                                                             style="width: ${percentage}%"></div>
+                                                                    </div>
+                                                                </td>
+                                                            `;
+                                                        }).join('')}
+                                                    </tr>
+                                                `;
+                                            });
+                                        });
+                                        
+                                        return html;
                                     })()}
                                 </tbody>
                             </table>
@@ -5944,18 +6848,6 @@ async function exportPlayerProfile(playerName) {
                 tier: 'Agent',
                 features: ['database', 'comparison', 'market', 'export']
             },
- 'myg': {
-                password: 'guillaume2025',
-                clubName: 'MYG Invest (Guillaume Rippert)',
-                tier: 'Agent',
-                features: ['database', 'comparison', 'market', 'export']
-            },
-'Hayk': {
-                password: 'Hayk2025',
-                clubName: 'Hayk Midzirjanian',
-                tier: 'Agent',
-                features: ['database', 'comparison', 'market', 'export']
-            },
             
             // Demo/Trial Access
             'demo': {
@@ -6526,6 +7418,427 @@ async function exportPlayerProfile(playerName) {
             }
         }
 
+
+        // ==================== MARKET INTELLIGENCE FUNCTIONS ====================
+        
+        // Market Intelligence Sub-Tab Navigation
+        function showMarketSection(sectionId, clickedButton) {
+            // Hide all market sections
+            document.querySelectorAll('.market-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.market-sub-tab').forEach(tab => {
+                tab.classList.remove('active', 'bg-blue-600');
+                tab.classList.add('bg-slate-800');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(`market-${sectionId}`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+            
+            // Activate clicked tab
+            if (clickedButton) {
+                clickedButton.classList.add('active', 'bg-blue-600');
+                clickedButton.classList.remove('bg-slate-800');
+            }
+        }
+
+        // ==================== FEASIBILITY FILTER ====================
+        
+        function calculateFeasibility() {
+            const contractMonths = parseInt(document.getElementById('feasibilityContract').value);
+            const financeStatus = document.getElementById('feasibilityFinance').value;
+            const minutesPlayed = parseInt(document.getElementById('feasibilityMinutes').value);
+            
+            if (!contractMonths || !minutesPlayed) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Calculate Contract Score (40% weight)
+            let contractScore = 0;
+            if (contractMonths < 12) {
+                contractScore = 100;
+            } else if (contractMonths <= 24) {
+                contractScore = 60;
+            } else if (contractMonths <= 36) {
+                contractScore = 30;
+            } else {
+                contractScore = 10;
+            }
+            
+            // Calculate Financial Score (35% weight)
+            let financialScore = 0;
+            switch(financeStatus) {
+                case 'distressed': financialScore = 100; break;
+                case 'pressured': financialScore = 75; break;
+                case 'stable': financialScore = 40; break;
+                case 'strong': financialScore = 10; break;
+            }
+            
+            // Calculate Hierarchy Score (25% weight)
+            let hierarchyScore = 0;
+            if (minutesPlayed < 25) {
+                hierarchyScore = 100;
+            } else if (minutesPlayed <= 75) {
+                hierarchyScore = 60;
+            } else {
+                hierarchyScore = 20;
+            }
+            
+            // Weighted Total
+            const totalScore = (contractScore * 0.4) + (financialScore * 0.35) + (hierarchyScore * 0.25);
+            
+            // Display Results
+            document.getElementById('feasibilityResults').classList.remove('hidden');
+            document.getElementById('feasibilityScore').textContent = Math.round(totalScore) + '%';
+            
+            // Color coding
+            const card = document.getElementById('feasibilityCard');
+            let labelText = '';
+            let recommendation = '';
+            
+            if (totalScore >= 70) {
+                card.style.borderColor = '#22c55e';
+                labelText = '🟢 HIGH PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#22c55e';
+                recommendation = 'STRONG TARGET: Club is motivated to sell, contract situation favors transfer. Immediate approach recommended.';
+            } else if (totalScore >= 40) {
+                card.style.borderColor = '#eab308';
+                labelText = '🟡 MEDIUM PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#eab308';
+                recommendation = 'VIABLE TARGET: Transfer is possible but may require negotiation. Monitor situation closely.';
+            } else {
+                card.style.borderColor = '#ef4444';
+                labelText = '🔴 LOW PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#ef4444';
+                recommendation = 'DIFFICULT TARGET: Club has little motivation to sell. Very expensive and time-consuming. Consider alternatives.';
+            }
+            
+            document.getElementById('feasibilityLabel').textContent = labelText;
+            document.getElementById('contractFactor').textContent = contractScore.toFixed(0) + '/100';
+            document.getElementById('contractFactor').style.color = contractScore > 60 ? '#22c55e' : (contractScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('financialFactor').textContent = financialScore.toFixed(0) + '/100';
+            document.getElementById('financialFactor').style.color = financialScore > 60 ? '#22c55e' : (financialScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('hierarchyFactor').textContent = hierarchyScore.toFixed(0) + '/100';
+            document.getElementById('hierarchyFactor').style.color = hierarchyScore > 60 ? '#22c55e' : (hierarchyScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('feasibilityRecommendation').textContent = recommendation;
+        }
+
+        // ==================== GBE (WORK PERMIT) CALCULATOR ====================
+        
+        function calculateGBE() {
+            const playerName = document.getElementById('gbePlayerName').value;
+            const fifaRank = parseInt(document.getElementById('gbeFifaRank').value);
+            const intCaps = parseInt(document.getElementById('gbeIntCaps').value);
+            const uclMatches = parseInt(document.getElementById('gbeUclMatches').value);
+            const europaMatches = parseInt(document.getElementById('gbeEuropaMatches').value);
+            const leagueQuality = parseInt(document.getElementById('gbeLeagueQuality').value);
+            
+            if (!playerName || intCaps === null) {
+                alert('Please fill in player name and international caps');
+                return;
+            }
+            
+            // Calculate International Points
+            let intPoints = 0;
+            if (fifaRank <= 50) {
+                if (intCaps >= 75) intPoints = 15;
+                else if (intCaps >= 50) intPoints = 10;
+                else if (intCaps >= 30) intPoints = 5;
+            }
+            
+            // Calculate Champions League Points (4 per match, max 12)
+            const uclPoints = Math.min(uclMatches * 4, 12);
+            
+            // Calculate Europa/Conference Points (2 per match, max 6)
+            const europaPoints = Math.min(europaMatches * 2, 6);
+            
+            // League Quality Points (already set)
+            const leaguePoints = leagueQuality;
+            
+            // Total Points
+            const totalPoints = intPoints + uclPoints + europaPoints + leaguePoints;
+            
+            // Display Results
+            document.getElementById('gbeResults').classList.remove('hidden');
+            document.getElementById('gbeScore').textContent = totalPoints;
+            
+            // Status and Styling
+            const card = document.getElementById('gbeCard');
+            let statusText = '';
+            let icon = '';
+            let recommendation = '';
+            
+            if (totalPoints >= 15) {
+                card.style.borderColor = '#22c55e';
+                statusText = '✅ APPROVED';
+                icon = '✅';
+                document.getElementById('gbeStatus').style.color = '#22c55e';
+                recommendation = `${playerName} qualifies for a GBE work permit. Transfer can proceed immediately without issues.`;
+            } else {
+                card.style.borderColor = '#ef4444';
+                statusText = '❌ DENIED';
+                icon = '❌';
+                document.getElementById('gbeStatus').style.color = '#ef4444';
+                const pointsNeeded = 15 - totalPoints;
+                recommendation = `${playerName} is ${pointsNeeded} points short of GBE approval. Consider: (1) Waiting for more international caps, (2) Champions League appearances, or (3) This transfer will not be approved.`;
+            }
+            
+            document.getElementById('gbeIcon').textContent = icon;
+            document.getElementById('gbeStatus').textContent = statusText;
+            
+            // Individual scores
+            document.getElementById('gbeIntPoints').textContent = intPoints + ' pts';
+            document.getElementById('gbeIntPoints').style.color = intPoints > 0 ? '#22c55e' : '#ef4444';
+            
+            document.getElementById('gbeUclPoints').textContent = uclPoints + ' pts';
+            document.getElementById('gbeUclPoints').style.color = uclPoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeEuropaPoints').textContent = europaPoints + ' pts';
+            document.getElementById('gbeEuropaPoints').style.color = europaPoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeLeaguePoints').textContent = leaguePoints + ' pts';
+            document.getElementById('gbeLeaguePoints').style.color = leaguePoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeRecommendation').textContent = recommendation;
+        }
+
+        // ==================== LEAGUE CONVERSION CALCULATOR ====================
+        
+        function calculateConversion() {
+            const currentLeague = parseFloat(document.getElementById('conversionCurrentLeague').value);
+            const statType = document.getElementById('conversionStatType').value;
+            const currentValue = parseInt(document.getElementById('conversionValue').value);
+            
+            if (!currentValue) {
+                alert('Please enter current season performance');
+                return;
+            }
+            
+            // Calculate Premier League Equivalent
+            const plEquivalent = Math.round(currentValue * currentLeague);
+            
+            // Display Results
+            document.getElementById('conversionResults').classList.remove('hidden');
+            document.getElementById('conversionEquivalent').textContent = plEquivalent;
+            
+            // Stat label
+            let statLabel = '';
+            switch(statType) {
+                case 'goals': statLabel = 'goals in Premier League'; break;
+                case 'assists': statLabel = 'assists in Premier League'; break;
+                case 'g+a': statLabel = 'G+A in Premier League'; break;
+            }
+            document.getElementById('conversionStatLabel').textContent = statLabel;
+            
+            // League name
+            const leagueSelect = document.getElementById('conversionCurrentLeague');
+            const leagueName = leagueSelect.options[leagueSelect.selectedIndex].text;
+            document.getElementById('conversionCurrentLeagueLabel').textContent = leagueName;
+            document.getElementById('conversionCurrentValue').textContent = currentValue + ' ' + statType;
+            
+            // Explanation
+            let explanation = '';
+            const difference = currentValue - plEquivalent;
+            
+            if (currentLeague === 1.00) {
+                explanation = `This player is already in the Premier League. No conversion needed.`;
+            } else if (difference > 5) {
+                explanation = `⚠️ REALITY CHECK: ${difference} less ${statType} expected in Premier League. The ${leagueName} has lower defensive intensity.`;
+            } else if (difference > 0) {
+                explanation = `Minor adjustment expected. ${leagueName} is competitive but slightly easier than Premier League.`;
+            } else {
+                explanation = `This player might actually perform better in Premier League due to better teammates and service.`;
+            }
+            
+            document.getElementById('conversionExplanation').textContent = explanation;
+        }
+
+        // ==================== AGENT NETWORK SEARCH ====================
+        
+        function searchAgentNetwork() {
+            const position = document.getElementById('agentPosition').value;
+            const league = document.getElementById('agentLeague').value;
+            const relationship = document.getElementById('agentRelationship').value;
+            
+            // Show results
+            document.getElementById('agentResults').classList.remove('hidden');
+            
+            // Mock results (in real implementation, this would query a database)
+            const mockResults = [
+                {
+                    name: 'Player Example 1',
+                    position: 'RB',
+                    age: 23,
+                    club: 'Lille',
+                    agent: 'CAA Stellar',
+                    relationship: 'worked',
+                    value: '€15M'
+                },
+                {
+                    name: 'Player Example 2',
+                    position: 'RB',
+                    age: 25,
+                    club: 'Lyon',
+                    agent: 'CAA Stellar',
+                    relationship: 'worked',
+                    value: '€12M'
+                },
+                {
+                    name: 'Player Example 3',
+                    position: 'RB',
+                    age: 21,
+                    club: 'Lens',
+                    agent: 'Unique Sports',
+                    relationship: 'good',
+                    value: '€8M'
+                }
+            ];
+            
+            const resultsList = document.getElementById('agentResultsList');
+            resultsList.innerHTML = mockResults.map(player => `
+                <div class="bg-slate-800/50 rounded-lg p-4 border border-orange-500/20">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="font-bold">${player.name}</div>
+                        <div class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">${player.value}</div>
+                    </div>
+                    <div class="text-xs space-y-1 text-slate-400">
+                        <div>${player.position} • Age ${player.age} • ${player.club}</div>
+                        <div class="text-orange-400">Agent: ${player.agent}</div>
+                        <div class="text-green-400">✓ ${relationship === 'worked' ? 'Previous relationship' : 'Good relationship'}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== REPLACEMENT ENGINE ====================
+        
+        function updateReplacementBudget() {
+            const salePrice = parseFloat(document.getElementById('replacementSalePrice').value) || 0;
+            const budgetPercent = parseInt(document.getElementById('replacementBudgetSlider').value);
+            const budgetAmount = (salePrice * budgetPercent / 100).toFixed(1);
+            
+            document.getElementById('replacementBudgetValue').textContent = budgetPercent + '%';
+            document.getElementById('replacementBudgetAmount').textContent = '€' + budgetAmount + 'M';
+        }
+        
+        function findReplacements() {
+            const playerSelect = document.getElementById('replacementPlayer');
+            const salePrice = parseFloat(document.getElementById('replacementSalePrice').value);
+            const budgetPercent = parseInt(document.getElementById('replacementBudgetSlider').value);
+            const maxWage = parseFloat(document.getElementById('replacementMaxWage').value);
+            const minSimilarity = parseInt(document.getElementById('replacementSimilarity').value);
+            
+            if (!playerSelect.value || !salePrice || !maxWage) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const budgetAmount = salePrice * budgetPercent / 100;
+            
+            // Show results
+            document.getElementById('replacementResults').classList.remove('hidden');
+            
+            // Mock results (in real implementation, this would use cosine similarity on 779 metrics)
+            const mockReplacements = [
+                {
+                    name: 'Replacement A',
+                    age: 22,
+                    club: 'Sporting CP',
+                    league: 'Liga Portugal',
+                    similarity: 96,
+                    price: budgetAmount * 0.6,
+                    wage: maxWage * 0.5
+                },
+                {
+                    name: 'Replacement B',
+                    age: 24,
+                    club: 'RB Leipzig',
+                    league: 'Bundesliga',
+                    similarity: 94,
+                    price: budgetAmount * 0.8,
+                    wage: maxWage * 0.7
+                },
+                {
+                    name: 'Replacement C',
+                    age: 21,
+                    club: 'Ajax',
+                    league: 'Eredivisie',
+                    similarity: 93,
+                    price: budgetAmount * 0.5,
+                    wage: maxWage * 0.4
+                }
+            ];
+            
+            const resultsList = document.getElementById('replacementsList');
+            resultsList.innerHTML = mockReplacements.map((player, index) => `
+                <div class="bg-slate-800/50 rounded-lg p-4 border border-cyan-500/20">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="font-bold text-lg">#${index + 1} ${player.name}</div>
+                        <div class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded font-bold">${player.similarity}% Match</div>
+                    </div>
+                    <div class="text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Club:</span>
+                            <span>${player.club} (${player.league})</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Age:</span>
+                            <span>${player.age}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Transfer Fee:</span>
+                            <span class="text-green-400 font-bold">€${player.price.toFixed(1)}M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Weekly Wage:</span>
+                            <span class="text-green-400 font-bold">€${player.wage.toFixed(0)}K</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-700">
+                        <div class="text-xs text-slate-400 mb-1">Total Cost Saving vs Original:</div>
+                        <div class="text-lg font-bold text-green-400">€${(salePrice - player.price).toFixed(1)}M</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== INITIALIZE MARKET INTELLIGENCE ====================
+        
+        // Populate player dropdowns
+        function initializeMarketIntelligence() {
+            const playerDropdowns = [
+                'feasibilityPlayer',
+                'replacementPlayer'
+            ];
+            
+            playerDropdowns.forEach(dropdownId => {
+                const select = document.getElementById(dropdownId);
+                if (select && playerData.length > 0) {
+                    // Add sample players
+                    playerData.slice(0, 20).forEach(player => {
+                        const option = document.createElement('option');
+                        option.value = player.name;
+                        option.textContent = `${player.name} - ${player.position} - ${player.club}`;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePlatform(); // Initialize platform immediately
+            setTimeout(initializeMarketIntelligence, 1000);
+        });
         // Calculate transfer risk
         function calculateTransferRisk() {
             const playerSelect = document.getElementById('riskPlayerSelect');
@@ -6799,12 +8112,3 @@ async function exportPlayerProfile(playerName) {
         }
 
         // Initialize when platform loads
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeRiskCalculator);
-        } else {
-            initializeRiskCalculator();
-        }
-    </script>
-
-</body>
-</html>
