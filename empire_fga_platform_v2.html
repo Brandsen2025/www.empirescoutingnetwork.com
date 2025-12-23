@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empire FGA - 2,121 Player Database</title>
+    <title>Empire FGA - 2,219 Players Database</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         * { font-family: 'Inter', sans-serif; }
         
+        :root {
+            --bg: #0b121e;
+            --card: #151c2c;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --legacy-gold: #c5a059;
+            --accent1: #60a5fa;
+            --accent2: #22d3ee;
+        }
+        
+        body {
+            background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.1), transparent 25%), var(--bg);
+            color: var(--white);
+        }
+        
         .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            background: linear-gradient(to right, var(--legacy-gold), var(--accent2), var(--accent1));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -19,87 +34,117 @@
         
         .player-card {
             background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(17, 24, 39, 0.8) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(197, 160, 89, 0.2);
             border-radius: 12px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .player-card:hover {
-            border-color: #60a5fa;
+            border-color: var(--legacy-gold);
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 24px rgba(197, 160, 89, 0.3);
         }
         
-        .metric-badge {
+        .player-card.premium {
+            border-color: rgba(197, 160, 89, 0.4);
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(17, 24, 39, 0.9) 100%);
+        }
+        
+        .player-card.premium::before {
+            content: '⭐';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+        
+        .fga-badge {
             display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 14px;
         }
         
-        .metric-elite {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
+        .fga-elite {
+            background: linear-gradient(135deg, #c5a059, #d4af37);
+            color: #000;
         }
         
-        .metric-excellent {
+        .fga-excellent {
             background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
         }
         
-        .metric-good {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+        .fga-good {
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
         }
         
-        .metric-average {
+        .fga-average {
             background: linear-gradient(135deg, #94a3b8, #64748b);
             color: white;
         }
         
+        .fga-pending {
+            background: linear-gradient(135deg, #451a03, #78350f);
+            color: #fbbf24;
+            border: 1px dashed #fbbf24;
+        }
+        
         .filter-pill {
             display: inline-block;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
-            background-color: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #60a5fa;
+            background-color: rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--legacy-gold);
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 0.875rem;
+            font-size: 14px;
             font-weight: 600;
             margin: 4px;
         }
         
         .filter-pill:hover, .filter-pill.active {
-            background-color: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
+            background-color: var(--legacy-gold);
+            color: #000;
+            border-color: var(--legacy-gold);
         }
         
-        .pagination-btn {
-            background-color: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #60a5fa;
-            padding: 8px 16px;
-            border-radius: 6px;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--legacy-gold), #d4af37);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
             cursor: pointer;
-            transition: all 0.2s;
-            margin: 0 4px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(197, 160, 89, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent1);
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .pagination-btn:hover:not(:disabled) {
-            background-color: rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-        
-        .pagination-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent1);
         }
         
         .modal {
@@ -109,7 +154,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             overflow-y: auto;
         }
@@ -123,12 +168,10 @@
         
         .modal-content {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 2px solid rgba(59, 130, 246, 0.3);
+            border: 2px solid var(--legacy-gold);
             border-radius: 20px;
-            max-width: 1200px;
+            max-width: 600px;
             width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
             padding: 30px;
         }
         
@@ -140,8 +183,8 @@
         }
         
         .spinner {
-            border: 4px solid rgba(59, 130, 246, 0.2);
-            border-top: 4px solid #3b82f6;
+            border: 4px solid rgba(197, 160, 89, 0.2);
+            border-top: 4px solid var(--legacy-gold);
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -152,22 +195,56 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        input, select {
+            background: var(--card);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--legacy-gold);
+        }
+        
+        .stat-box {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--legacy-gold);
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.875rem;
+            margin-top: 8px;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-white">
+<body>
     <!-- Header -->
-    <header class="bg-gradient-to-r from-slate-900 to-slate-800 border-b border-blue-500/20 sticky top-0 z-50">
+    <header class="border-b border-gray-800 sticky top-0 z-50 backdrop-blur-lg bg-opacity-90" style="background: rgba(11, 18, 30, 0.9);">
         <div class="max-w-7xl mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1" alt="Empire FGA" class="h-12">
                     <div>
-                        <h1 class="text-2xl font-bold gradient-text">Empire FGA</h1>
-                        <p class="text-sm text-slate-400">2,121 Players • 779 Metrics • 13 Philosophies</p>
+                        <h1 class="text-2xl font-bold gradient-text">EMPIRE FGA</h1>
+                        <p class="text-sm" style="color: var(--muted);">2,219 Players • 98 Complete Profiles • 779 Metrics</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span class="text-sm text-slate-400">Powered by</span>
                     <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" alt="Empire Scouting Network" class="h-10">
                 </div>
             </div>
@@ -178,69 +255,68 @@
     <main class="max-w-7xl mx-auto px-4 py-8">
         <!-- Stats Bar -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold gradient-text" id="total-players">2,121</div>
-                <div class="text-sm text-slate-400 mt-2">Total Players</div>
+            <div class="stat-box">
+                <div class="stat-value" id="total-players">2,219</div>
+                <div class="stat-label">Total Players</div>
             </div>
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold gradient-text">779</div>
-                <div class="text-sm text-slate-400 mt-2">Metrics Per Player</div>
+            <div class="stat-box">
+                <div class="stat-value" id="premium-count">98</div>
+                <div class="stat-label">Complete Profiles</div>
             </div>
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold gradient-text">13</div>
-                <div class="text-sm text-slate-400 mt-2">Philosophy Fits</div>
+            <div class="stat-box">
+                <div class="stat-value">2,121</div>
+                <div class="stat-label">On-Demand Analysis</div>
             </div>
-            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold gradient-text">96%</div>
-                <div class="text-sm text-slate-400 mt-2">Prediction Accuracy</div>
+            <div class="stat-box">
+                <div class="stat-value">779</div>
+                <div class="stat-label">Metrics Per Player</div>
             </div>
         </div>
 
         <!-- Search & Filters -->
-        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
+        <div class="bg-gray-900 bg-opacity-50 border border-gray-700 rounded-xl p-6 mb-8">
             <h2 class="text-xl font-bold mb-4 gradient-text">Search Players</h2>
             
             <!-- Search Input -->
             <div class="mb-4">
-                <input type="text" id="search-input" placeholder="Search by name, club, or league..." 
-                       class="w-full bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500">
+                <input type="text" id="search-input" placeholder="Search by name, club, or nationality..." 
+                       class="w-full">
             </div>
             
-            <!-- Position Filter -->
-            <div class="mb-4">
-                <label class="text-sm text-slate-400 mb-2 block">Position:</label>
-                <div id="position-filters" class="flex flex-wrap">
-                    <div class="filter-pill active" data-filter="all">All Positions</div>
-                    <div class="filter-pill" data-filter="GK">GK</div>
-                    <div class="filter-pill" data-filter="DF">DF</div>
-                    <div class="filter-pill" data-filter="MF">MF</div>
-                    <div class="filter-pill" data-filter="FW">FW</div>
+            <!-- Filters -->
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Position Filter -->
+                <div>
+                    <label class="text-sm mb-2 block" style="color: var(--muted);">Position:</label>
+                    <div id="position-filters" class="flex flex-wrap">
+                        <div class="filter-pill active" data-filter="all">All Positions</div>
+                        <div class="filter-pill" data-filter="GK">GK</div>
+                        <div class="filter-pill" data-filter="DF">DF</div>
+                        <div class="filter-pill" data-filter="MF">MF</div>
+                        <div class="filter-pill" data-filter="FW">FW</div>
+                    </div>
+                </div>
+                
+                <!-- Status Filter -->
+                <div>
+                    <label class="text-sm mb-2 block" style="color: var(--muted);">Profile Status:</label>
+                    <div id="status-filters" class="flex flex-wrap">
+                        <div class="filter-pill active" data-filter="all">All Players</div>
+                        <div class="filter-pill" data-filter="premium">⭐ Complete Profiles</div>
+                        <div class="filter-pill" data-filter="basic">📊 On-Demand</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- League Filter -->
-            <div class="mb-4">
-                <label class="text-sm text-slate-400 mb-2 block">League:</label>
-                <div id="league-filters" class="flex flex-wrap">
-                    <div class="filter-pill active" data-filter="all">All Leagues</div>
-                    <div class="filter-pill" data-filter="Premier League">Premier League</div>
-                    <div class="filter-pill" data-filter="La Liga">La Liga</div>
-                    <div class="filter-pill" data-filter="Serie A">Serie A</div>
-                    <div class="filter-pill" data-filter="Bundesliga">Bundesliga</div>
-                    <div class="filter-pill" data-filter="Ligue 1">Ligue 1</div>
-                </div>
-            </div>
-            
-            <!-- Sort Options -->
-            <div>
-                <label class="text-sm text-slate-400 mb-2 block">Sort by:</label>
-                <select id="sort-select" class="bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-2 text-white">
+            <!-- Sort -->
+            <div class="mt-4">
+                <label class="text-sm mb-2 block" style="color: var(--muted);">Sort by:</label>
+                <select id="sort-select">
                     <option value="fga-desc">FGA Rating (High to Low)</option>
                     <option value="fga-asc">FGA Rating (Low to High)</option>
                     <option value="name-asc">Name (A-Z)</option>
                     <option value="name-desc">Name (Z-A)</option>
-                    <option value="age-asc">Age (Young to Old)</option>
-                    <option value="age-desc">Age (Old to Young)</option>
+                    <option value="status-premium">Premium First</option>
                 </select>
             </div>
         </div>
@@ -250,9 +326,10 @@
             <div class="spinner"></div>
         </div>
 
-        <!-- Results Count -->
-        <div id="results-info" class="text-slate-400 text-sm mb-4" style="display: none;">
+        <!-- Results Info -->
+        <div id="results-info" class="text-sm mb-4" style="color: var(--muted); display: none;">
             Showing <span id="showing-count">0</span> of <span id="filtered-count">0</span> players
+            (<span id="premium-filtered">0</span> complete profiles, <span id="basic-filtered">0</span> on-demand)
         </div>
 
         <!-- Players Grid -->
@@ -262,35 +339,80 @@
 
         <!-- No Results -->
         <div id="no-results" class="text-center py-12" style="display: none;">
-            <i class="fas fa-search text-6xl text-slate-600 mb-4"></i>
-            <h3 class="text-xl font-bold text-slate-400">No players found</h3>
-            <p class="text-slate-500">Try adjusting your search or filters</p>
+            <i class="fas fa-search text-6xl mb-4" style="color: var(--muted);"></i>
+            <h3 class="text-xl font-bold" style="color: var(--muted);">No players found</h3>
+            <p class="text-sm mt-2" style="color: var(--muted);">Try adjusting your search or filters</p>
         </div>
 
         <!-- Pagination -->
         <div id="pagination" class="flex justify-center items-center space-x-2 mt-8" style="display: none;">
-            <button id="prev-page" class="pagination-btn">
+            <button id="prev-page" class="btn-secondary">
                 <i class="fas fa-chevron-left"></i> Previous
             </button>
-            <span id="page-info" class="text-slate-400 px-4">Page 1 of 1</span>
-            <button id="next-page" class="pagination-btn">
+            <span id="page-info" class="px-4" style="color: var(--muted);">Page 1 of 1</span>
+            <button id="next-page" class="btn-secondary">
                 Next <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </main>
 
-    <!-- Player Detail Modal -->
-    <div id="player-modal" class="modal">
+    <!-- Request Analysis Modal -->
+    <div id="request-modal" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-start mb-6">
-                <h2 class="text-3xl font-bold gradient-text" id="modal-player-name">Player Name</h2>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-2xl">
+                <h2 class="text-2xl font-bold gradient-text" id="request-player-name">Request Analysis</h2>
+                <button onclick="closeRequestModal()" class="text-2xl" style="color: var(--muted);">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div id="modal-player-content">
-                <!-- Player details will be inserted here -->
+            
+            <div class="mb-6">
+                <div class="bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg p-4 mb-4">
+                    <h3 class="font-bold mb-2" style="color: var(--legacy-gold);">Your complete analysis will include:</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-check" style="color: var(--legacy-gold);"></i> Full 779 FGA metrics</li>
+                        <li><i class="fas fa-check" style="color: var(--legacy-gold);"></i> 60 tactical philosophy fits</li>
+                        <li><i class="fas fa-check" style="color: var(--legacy-gold);"></i> Market intelligence dashboard</li>
+                        <li><i class="fas fa-check" style="color: var(--legacy-gold);"></i> Transfer risk assessment</li>
+                        <li><i class="fas fa-check" style="color: var(--legacy-gold);"></i> Beautiful HTML profile</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="text-sm mb-2 block" style="color: var(--muted);">Your Email:</label>
+                    <input type="email" id="request-email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="text-sm mb-2 block" style="color: var(--muted);">Additional Notes (Optional):</label>
+                    <textarea id="request-notes" rows="3" class="w-full" style="resize: vertical;" 
+                              placeholder="Any specific areas of interest?"></textarea>
+                </div>
+                
+                <div class="text-center mb-4 text-sm" style="color: var(--muted);">
+                    <i class="fas fa-clock"></i> Delivered in 24-48 hours<br>
+                    <i class="fas fa-gift"></i> First 3 requests FREE during trial
+                </div>
+                
+                <button onclick="submitRequest()" class="btn-primary w-full">
+                    <i class="fas fa-paper-plane"></i> REQUEST FULL ANALYSIS
+                </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content text-center">
+            <div class="text-6xl mb-4" style="color: var(--legacy-gold);">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Request Submitted!</h2>
+            <p class="mb-6">We'll analyze <strong id="success-player-name"></strong> and send the complete profile to <strong id="success-email"></strong> within 24-48 hours.</p>
+            <p class="text-sm mb-6" style="color: var(--muted);">Check your email for confirmation and updates.</p>
+            <button onclick="closeSuccessModal()" class="btn-primary">
+                Got it!
+            </button>
         </div>
     </div>
 
@@ -303,20 +425,23 @@
         let currentFilters = {
             search: '',
             position: 'all',
-            league: 'all',
+            status: 'all',
             sort: 'fga-desc'
         };
+        let currentRequestPlayer = null;
 
         // Load players from JSON
         async function loadPlayers() {
             try {
-                // Replace this with your actual JSON file path
-                const response = await fetch('empire_fga_players.json');
+                const response = await fetch('complete_player_database.json');
                 allPlayers = await response.json();
                 filteredPlayers = [...allPlayers];
                 
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('total-players').textContent = allPlayers.length.toLocaleString();
+                
+                const premiumCount = allPlayers.filter(p => p.status === 'premium').length;
+                document.getElementById('premium-count').textContent = premiumCount;
                 
                 applyFilters();
             } catch (error) {
@@ -324,7 +449,7 @@
                     <div class="text-center">
                         <i class="fas fa-exclamation-triangle text-6xl text-red-500 mb-4"></i>
                         <h3 class="text-xl font-bold text-red-400">Error Loading Database</h3>
-                        <p class="text-slate-400 mt-2">Please make sure empire_fga_players.json is in the same directory</p>
+                        <p class="mt-2" style="color: var(--muted);">Please make sure complete_player_database.json is in the same directory</p>
                     </div>
                 `;
                 console.error('Error loading players:', error);
@@ -337,24 +462,26 @@
                 // Search filter
                 if (currentFilters.search) {
                     const searchTerm = currentFilters.search.toLowerCase();
-                    const playerName = player.Player.toLowerCase();
-                    const squad = player.Squad.toLowerCase();
-                    const comp = player.Comp.toLowerCase();
-                    if (!playerName.includes(searchTerm) && !squad.includes(searchTerm) && !comp.includes(searchTerm)) {
+                    const playerName = (player.name || '').toLowerCase();
+                    const club = (player.club || '').toLowerCase();
+                    const nationality = (player.nationality || '').toLowerCase();
+                    if (!playerName.includes(searchTerm) && 
+                        !club.includes(searchTerm) && 
+                        !nationality.includes(searchTerm)) {
                         return false;
                     }
                 }
                 
                 // Position filter
                 if (currentFilters.position !== 'all') {
-                    if (!player.Pos.includes(currentFilters.position)) {
+                    if (!player.position || !player.position.includes(currentFilters.position)) {
                         return false;
                     }
                 }
                 
-                // League filter
-                if (currentFilters.league !== 'all') {
-                    if (!player.Comp.includes(currentFilters.league)) {
+                // Status filter
+                if (currentFilters.status !== 'all') {
+                    if (player.status !== currentFilters.status) {
                         return false;
                     }
                 }
@@ -374,22 +501,31 @@
         function sortPlayers() {
             switch (currentFilters.sort) {
                 case 'fga-desc':
-                    filteredPlayers.sort((a, b) => b.FGA_Rating - a.FGA_Rating);
+                    filteredPlayers.sort((a, b) => {
+                        const aRating = a.fga_rating || 0;
+                        const bRating = b.fga_rating || 0;
+                        return bRating - aRating;
+                    });
                     break;
                 case 'fga-asc':
-                    filteredPlayers.sort((a, b) => a.FGA_Rating - b.FGA_Rating);
+                    filteredPlayers.sort((a, b) => {
+                        const aRating = a.fga_rating || 0;
+                        const bRating = b.fga_rating || 0;
+                        return aRating - bRating;
+                    });
                     break;
                 case 'name-asc':
-                    filteredPlayers.sort((a, b) => a.Player.localeCompare(b.Player));
+                    filteredPlayers.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
                     break;
                 case 'name-desc':
-                    filteredPlayers.sort((a, b) => b.Player.localeCompare(a.Player));
+                    filteredPlayers.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
                     break;
-                case 'age-asc':
-                    filteredPlayers.sort((a, b) => a.Age - b.Age);
-                    break;
-                case 'age-desc':
-                    filteredPlayers.sort((a, b) => b.Age - a.Age);
+                case 'status-premium':
+                    filteredPlayers.sort((a, b) => {
+                        if (a.status === 'premium' && b.status !== 'premium') return -1;
+                        if (a.status !== 'premium' && b.status === 'premium') return 1;
+                        return (b.fga_rating || 0) - (a.fga_rating || 0);
+                    });
                     break;
             }
         }
@@ -416,8 +552,13 @@
             document.getElementById('pagination').style.display = 'flex';
             document.getElementById('results-info').style.display = 'block';
             
+            // Update results info
+            const premiumFiltered = filteredPlayers.filter(p => p.status === 'premium').length;
+            const basicFiltered = filteredPlayers.filter(p => p.status === 'basic').length;
             document.getElementById('showing-count').textContent = Math.min(endIndex, filteredPlayers.length);
             document.getElementById('filtered-count').textContent = filteredPlayers.length;
+            document.getElementById('premium-filtered').textContent = premiumFiltered;
+            document.getElementById('basic-filtered').textContent = basicFiltered;
             
             playersToShow.forEach(player => {
                 const card = createPlayerCard(player);
@@ -430,46 +571,61 @@
         // Create player card
         function createPlayerCard(player) {
             const card = document.createElement('div');
-            card.className = 'player-card';
-            card.onclick = () => showPlayerDetails(player);
+            card.className = `player-card ${player.status}`;
             
-            const ratingClass = getRatingClass(player.FGA_Rating);
-            const philosophyClass = getRatingClass(player.Best_Philosophy_Score);
+            const isPremium = player.status === 'premium';
+            const fgaRating = player.fga_rating;
+            
+            let ratingBadge = '';
+            if (fgaRating) {
+                const ratingClass = fgaRating >= 90 ? 'fga-elite' :
+                                   fgaRating >= 80 ? 'fga-excellent' :
+                                   fgaRating >= 70 ? 'fga-good' : 'fga-average';
+                ratingBadge = `<span class="fga-badge ${ratingClass}">${fgaRating}/100</span>`;
+            } else {
+                ratingBadge = `<span class="fga-badge fga-pending">Not yet analyzed</span>`;
+            }
+            
+            const philosophy = player.top_philosophy || 'Not yet analyzed';
+            const age = player.age ? `Age ${player.age}` : '';
+            const club = player.club || (isPremium ? 'Legend' : '');
             
             card.innerHTML = `
                 <div class="flex justify-between items-start mb-4">
                     <div>
-                        <h3 class="text-lg font-bold text-white">${player.Player}</h3>
-                        <p class="text-sm text-slate-400">${player.Squad}</p>
+                        <h3 class="text-lg font-bold">${player.name}</h3>
+                        <p class="text-sm" style="color: var(--muted);">
+                            ${player.position} | ${age} | ${player.nationality}
+                        </p>
+                        ${club ? `<p class="text-xs" style="color: var(--legacy-gold);">${club}</p>` : ''}
                     </div>
-                    <span class="metric-badge ${ratingClass}">
-                        ${player.FGA_Rating}/10
-                    </span>
+                    ${ratingBadge}
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 mb-4">
-                    <div class="text-center">
-                        <div class="text-xs text-slate-400">Position</div>
-                        <div class="text-sm font-bold text-blue-400">${player.Pos}</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-xs text-slate-400">Age</div>
-                        <div class="text-sm font-bold text-blue-400">${player.Age}</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-xs text-slate-400">League</div>
-                        <div class="text-sm font-bold text-blue-400">${player.Comp.split(' ').pop()}</div>
-                    </div>
-                </div>
-                
-                <div class="border-t border-slate-700 pt-3">
-                    <div class="text-xs text-slate-400 mb-1">Best Philosophy Fit:</div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold text-cyan-400">${player.Best_Philosophy}</span>
-                        <span class="metric-badge ${philosophyClass} text-xs">
-                            ${player.Best_Philosophy_Score}/10
-                        </span>
-                    </div>
+                <div class="border-t pt-3" style="border-color: rgba(197, 160, 89, 0.2);">
+                    <div class="text-xs mb-2" style="color: var(--muted);">Top Philosophy:</div>
+                    <div class="text-sm font-semibold mb-3" style="color: var(--legacy-gold);">${philosophy}</div>
+                    
+                    ${isPremium ? `
+                        <button onclick="viewProfile('${player.filename}')" class="btn-primary w-full mb-2">
+                            <i class="fas fa-user"></i> VIEW PROFILE
+                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="btn-secondary text-xs">
+                                <i class="fas fa-balance-scale"></i> COMPARE
+                            </button>
+                            <button class="btn-secondary text-xs">
+                                <i class="fas fa-download"></i> PDF
+                            </button>
+                        </div>
+                    ` : `
+                        <button onclick="requestAnalysis('${player.name.replace(/'/g, "\\'")}', '${player.position}', '${club}')" class="btn-primary w-full">
+                            <i class="fas fa-paper-plane"></i> REQUEST FULL ANALYSIS
+                        </button>
+                        <div class="text-xs text-center mt-2" style="color: var(--muted);">
+                            First 3 requests FREE
+                        </div>
+                    `}
                 </div>
             `;
             
@@ -478,121 +634,65 @@
 
         // Get rating class
         function getRatingClass(rating) {
-            if (rating >= 8.5) return 'metric-elite';
-            if (rating >= 7.5) return 'metric-excellent';
-            if (rating >= 6.5) return 'metric-good';
-            return 'metric-average';
+            if (rating >= 90) return 'fga-elite';
+            if (rating >= 80) return 'fga-excellent';
+            if (rating >= 70) return 'fga-good';
+            return 'fga-average';
         }
 
-        // Show player details
-        function showPlayerDetails(player) {
-            const modal = document.getElementById('player-modal');
-            const content = document.getElementById('modal-player-content');
-            
-            document.getElementById('modal-player-name').textContent = player.Player;
-            
-            const ratingClass = getRatingClass(player.FGA_Rating);
-            
-            content.innerHTML = `
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Basic Info -->
-                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
-                        <h3 class="text-lg font-bold mb-4 text-blue-300">Player Info</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Club:</span>
-                                <span class="font-semibold">${player.Squad}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">League:</span>
-                                <span class="font-semibold">${player.Comp}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Position:</span>
-                                <span class="font-semibold">${player.Pos}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Age:</span>
-                                <span class="font-semibold">${player.Age}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Nationality:</span>
-                                <span class="font-semibold">${player.Nation}</span>
-                            </div>
-                            <div class="flex justify-between border-t border-slate-700 pt-3 mt-3">
-                                <span class="text-slate-400">FGA Rating:</span>
-                                <span class="metric-badge ${ratingClass}">${player.FGA_Rating}/10</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Core Metrics -->
-                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
-                        <h3 class="text-lg font-bold mb-4 text-blue-300">Core Metrics</h3>
-                        <div class="space-y-2">
-                            ${createMetricRow('Shooting (XPS)', player.XPS)}
-                            ${createMetricRow('Finishing (STK)', player.STK)}
-                            ${createMetricRow('Long Passing (LGP)', player.LGP)}
-                            ${createMetricRow('Vertical Passing (VRP)', player.VRP)}
-                            ${createMetricRow('Pass Accuracy (HZP)', player.HZP)}
-                            ${createMetricRow('Creativity (KEY)', player.KEY)}
-                            ${createMetricRow('Tackling (TAC)', player.TAC)}
-                            ${createMetricRow('Interceptions (INT)', player.INT)}
-                        </div>
-                    </div>
-                    
-                    <!-- Philosophy Fits -->
-                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 md:col-span-2">
-                        <h3 class="text-lg font-bold mb-4 text-blue-300">Tactical Philosophy Fits</h3>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            ${createPhilosophyCard('Guardiola', player.Guardiola_Fit)}
-                            ${createPhilosophyCard('Mourinho', player.Mourinho_Fit)}
-                            ${createPhilosophyCard('Klopp', player.Klopp_Fit)}
-                            ${createPhilosophyCard('Ferguson', player.Ferguson_Fit)}
-                            ${createPhilosophyCard('Ancelotti', player.Ancelotti_Fit)}
-                            ${createPhilosophyCard('Simeone', player.Simeone_it)}
-                            ${createPhilosophyCard('Cruyff', player.Cruyff_Fit)}
-                            ${createPhilosophyCard('Conte', player.Conte_Fit)}
-                            ${createPhilosophyCard('Tuchel', player.Tuchel_Fit)}
-                            ${createPhilosophyCard('Bielsa', player.Bielsa_Fit)}
-                            ${createPhilosophyCard('Michels', player.Michels_Fit)}
-                            ${createPhilosophyCard('Van Gaal', player.Van_Gaal_Fit)}
-                            ${createPhilosophyCard('Hiddink', player.Hiddink_Fit)}
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            modal.classList.add('active');
+        // View profile
+        function viewProfile(filename) {
+            window.open(`profiles/${filename}`, '_blank');
         }
 
-        // Create metric row
-        function createMetricRow(label, value) {
-            if (!value || value === 0) return '';
-            const ratingClass = getRatingClass(value);
-            return `
-                <div class="flex justify-between items-center">
-                    <span class="text-sm text-slate-400">${label}:</span>
-                    <span class="metric-badge ${ratingClass} text-xs">${value}/10</span>
-                </div>
-            `;
+        // Request analysis
+        function requestAnalysis(playerName, position, club) {
+            currentRequestPlayer = { name: playerName, position: position, club: club };
+            document.getElementById('request-player-name').textContent = `Request Analysis: ${playerName}`;
+            document.getElementById('request-modal').classList.add('active');
         }
 
-        // Create philosophy card
-        function createPhilosophyCard(name, score) {
-            if (!score || score === 0) return '';
-            const ratingClass = getRatingClass(score);
-            return `
-                <div class="bg-slate-800/50 border border-blue-500/10 rounded-lg p-4 text-center">
-                    <div class="text-sm font-semibold text-slate-300 mb-2">${name}</div>
-                    <div class="metric-badge ${ratingClass}">${score}/10</div>
-                </div>
-            `;
+        // Submit request
+        function submitRequest() {
+            const email = document.getElementById('request-email').value;
+            const notes = document.getElementById('request-notes').value;
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Here you would send the request to your server
+            // For now, we'll just show success message
+            
+            // Send email notification (you'll need to implement this on backend)
+            console.log('Request submitted:', {
+                player: currentRequestPlayer,
+                email: email,
+                notes: notes,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Close request modal
+            closeRequestModal();
+            
+            // Show success modal
+            document.getElementById('success-player-name').textContent = currentRequestPlayer.name;
+            document.getElementById('success-email').textContent = email;
+            document.getElementById('success-modal').classList.add('active');
+            
+            // Clear form
+            document.getElementById('request-email').value = '';
+            document.getElementById('request-notes').value = '';
         }
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('player-modal').classList.remove('active');
+        // Close modals
+        function closeRequestModal() {
+            document.getElementById('request-modal').classList.remove('active');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.remove('active');
         }
 
         // Update pagination
@@ -626,14 +726,14 @@
             }
         });
 
-        // League filters
-        document.getElementById('league-filters').addEventListener('click', (e) => {
+        // Status filters
+        document.getElementById('status-filters').addEventListener('click', (e) => {
             if (e.target.classList.contains('filter-pill')) {
-                document.querySelectorAll('#league-filters .filter-pill').forEach(pill => {
+                document.querySelectorAll('#status-filters .filter-pill').forEach(pill => {
                     pill.classList.remove('active');
                 });
                 e.target.classList.add('active');
-                currentFilters.league = e.target.dataset.filter;
+                currentFilters.status = e.target.dataset.filter;
                 applyFilters();
             }
         });
@@ -656,10 +756,16 @@
             }
         });
 
-        // Close modal on outside click
-        document.getElementById('player-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'player-modal') {
-                closeModal();
+        // Close modals on outside click
+        document.getElementById('request-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'request-modal') {
+                closeRequestModal();
+            }
+        });
+
+        document.getElementById('success-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'success-modal') {
+                closeSuccessModal();
             }
         });
 
