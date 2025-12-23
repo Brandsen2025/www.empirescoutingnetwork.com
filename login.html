@@ -18,6 +18,16 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        .error-message {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white flex items-center justify-center min-h-screen px-4">
@@ -31,18 +41,26 @@
         <h2 class="text-3xl font-bold text-center mb-2 gradient-text">Client Portal Login</h2>
         <p class="text-center text-slate-400 mb-8">Access your scouting dashboard</p>
 
-        <form action="#" method="POST"> <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
-                <input type="email" name="email" id="email" required 
+        <!-- Error Message -->
+        <div id="error-message" class="hidden mb-4 bg-red-900/30 border border-red-500/50 rounded-lg p-4 text-red-300 text-sm text-center error-message">
+            Invalid credentials. Please try again.
+        </div>
+
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-slate-300 mb-2">Username</label>
+                <input type="text" name="username" id="username" required 
                        class="w-full bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                       placeholder="you@example.com">
+                       placeholder="agent or admin"
+                       autocomplete="username">
             </div>
 
             <div class="mb-6">
                  <label for="password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
                 <input type="password" name="password" id="password" required 
                        class="w-full bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                       placeholder="••••••••">
+                       placeholder="••••••••"
+                       autocomplete="current-password">
             </div>
 
             <div class="flex items-center justify-between mb-6">
@@ -51,7 +69,7 @@
                     <label for="remember-me" class="ml-2 block text-sm text-slate-400"> Remember me </label>
                 </div>
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-blue-400 hover:text-blue-300"> Forgot your password? </a>
+                    <a href="#" class="font-medium text-blue-400 hover:text-blue-300" onclick="showCredentials(event)"> Need help? </a>
                 </div>
             </div>
 
@@ -62,6 +80,19 @@
                 </button>
             </div>
         </form>
+
+        <!-- Demo Credentials (Hidden by default) -->
+        <div id="demo-credentials" class="hidden mt-6 bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 text-sm">
+            <p class="font-bold text-blue-300 mb-2">📋 Demo Credentials:</p>
+            <div class="space-y-2 text-slate-300">
+                <p><strong>Agent Access:</strong></p>
+                <p class="ml-4">Username: <code class="bg-slate-800 px-2 py-1 rounded">agent</code></p>
+                <p class="ml-4">Password: <code class="bg-slate-800 px-2 py-1 rounded">agent2025</code></p>
+                <p class="mt-2"><strong>Admin Access:</strong></p>
+                <p class="ml-4">Username: <code class="bg-slate-800 px-2 py-1 rounded">admin</code></p>
+                <p class="ml-4">Password: <code class="bg-slate-800 px-2 py-1 rounded">empire2025</code></p>
+            </div>
+        </div>
         
         <p class="mt-8 text-center text-sm text-slate-400">
             Don't have access? 
@@ -71,6 +102,68 @@
             <a href="index.html" class="hover:text-slate-300">← Back to Main Site</a>
         </p>
     </div>
+
+    <script>
+        // Valid credentials
+        const credentials = {
+            'agent': 'agent2025',
+            'admin': 'empire2025'
+        };
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('remember-me').checked;
+            const errorMsg = document.getElementById('error-message');
+
+            // Validate credentials
+            if (credentials[username] && credentials[username] === password) {
+                // Store login session
+                if (rememberMe) {
+                    localStorage.setItem('esn_user', username);
+                    localStorage.setItem('esn_role', username === 'admin' ? 'admin' : 'agent');
+                } else {
+                    sessionStorage.setItem('esn_user', username);
+                    sessionStorage.setItem('esn_role', username === 'admin' ? 'admin' : 'agent');
+                }
+
+                // Show success message
+                errorMsg.classList.add('hidden');
+                
+                // Redirect to platform
+                window.location.href = 'platform.html';
+            } else {
+                // Show error message
+                errorMsg.classList.remove('hidden');
+                
+                // Shake animation
+                document.getElementById('login-form').classList.add('error-message');
+                setTimeout(() => {
+                    document.getElementById('login-form').classList.remove('error-message');
+                }, 500);
+
+                // Clear password field
+                document.getElementById('password').value = '';
+            }
+        }
+
+        function showCredentials(event) {
+            event.preventDefault();
+            const demoDiv = document.getElementById('demo-credentials');
+            demoDiv.classList.toggle('hidden');
+        }
+
+        // Check if already logged in
+        window.onload = function() {
+            const user = localStorage.getItem('esn_user') || sessionStorage.getItem('esn_user');
+            if (user) {
+                // Already logged in, redirect to platform
+                window.location.href = 'platform.html';
+            }
+        };
+    </script>
 
 </body>
 </html>
