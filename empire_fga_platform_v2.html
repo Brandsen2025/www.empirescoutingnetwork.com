@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire FGA - 2,121 Player Database</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .player-card {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .player-card:hover {
+            border-color: #60a5fa;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+        }
+        
+        .metric-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .metric-elite {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .metric-excellent {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .metric-good {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .metric-average {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
+            color: white;
+        }
+        
+        .filter-pill {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 4px;
+        }
+        
+        .filter-pill:hover, .filter-pill.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .pagination-btn {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 0 4px;
+            font-weight: 600;
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(59, 130, 246, 0.2);
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 border-b border-blue-500/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1" alt="Empire FGA" class="h-12">
+                    <div>
+                        <h1 class="text-2xl font-bold gradient-text">Empire FGA</h1>
+                        <p class="text-sm text-slate-400">2,121 Players • 779 Metrics • 13 Philosophies</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-slate-400">Powered by</span>
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" alt="Empire Scouting Network" class="h-10">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold gradient-text" id="total-players">2,121</div>
+                <div class="text-sm text-slate-400 mt-2">Total Players</div>
+            </div>
+            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold gradient-text">779</div>
+                <div class="text-sm text-slate-400 mt-2">Metrics Per Player</div>
+            </div>
+            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold gradient-text">13</div>
+                <div class="text-sm text-slate-400 mt-2">Philosophy Fits</div>
+            </div>
+            <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold gradient-text">96%</div>
+                <div class="text-sm text-slate-400 mt-2">Prediction Accuracy</div>
+            </div>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4 gradient-text">Search Players</h2>
+            
+            <!-- Search Input -->
+            <div class="mb-4">
+                <input type="text" id="search-input" placeholder="Search by name, club, or league..." 
+                       class="w-full bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <!-- Position Filter -->
+            <div class="mb-4">
+                <label class="text-sm text-slate-400 mb-2 block">Position:</label>
+                <div id="position-filters" class="flex flex-wrap">
+                    <div class="filter-pill active" data-filter="all">All Positions</div>
+                    <div class="filter-pill" data-filter="GK">GK</div>
+                    <div class="filter-pill" data-filter="DF">DF</div>
+                    <div class="filter-pill" data-filter="MF">MF</div>
+                    <div class="filter-pill" data-filter="FW">FW</div>
+                </div>
+            </div>
+            
+            <!-- League Filter -->
+            <div class="mb-4">
+                <label class="text-sm text-slate-400 mb-2 block">League:</label>
+                <div id="league-filters" class="flex flex-wrap">
+                    <div class="filter-pill active" data-filter="all">All Leagues</div>
+                    <div class="filter-pill" data-filter="Premier League">Premier League</div>
+                    <div class="filter-pill" data-filter="La Liga">La Liga</div>
+                    <div class="filter-pill" data-filter="Serie A">Serie A</div>
+                    <div class="filter-pill" data-filter="Bundesliga">Bundesliga</div>
+                    <div class="filter-pill" data-filter="Ligue 1">Ligue 1</div>
+                </div>
+            </div>
+            
+            <!-- Sort Options -->
+            <div>
+                <label class="text-sm text-slate-400 mb-2 block">Sort by:</label>
+                <select id="sort-select" class="bg-slate-800 border border-blue-500/30 rounded-lg px-4 py-2 text-white">
+                    <option value="fga-desc">FGA Rating (High to Low)</option>
+                    <option value="fga-asc">FGA Rating (Low to High)</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="age-asc">Age (Young to Old)</option>
+                    <option value="age-desc">Age (Old to Young)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Results Count -->
+        <div id="results-info" class="text-slate-400 text-sm mb-4" style="display: none;">
+            Showing <span id="showing-count">0</span> of <span id="filtered-count">0</span> players
+        </div>
+
+        <!-- Players Grid -->
+        <div id="players-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" style="display: none;">
+            <!-- Players will be dynamically inserted here -->
+        </div>
+
+        <!-- No Results -->
+        <div id="no-results" class="text-center py-12" style="display: none;">
+            <i class="fas fa-search text-6xl text-slate-600 mb-4"></i>
+            <h3 class="text-xl font-bold text-slate-400">No players found</h3>
+            <p class="text-slate-500">Try adjusting your search or filters</p>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="flex justify-center items-center space-x-2 mt-8" style="display: none;">
+            <button id="prev-page" class="pagination-btn">
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <span id="page-info" class="text-slate-400 px-4">Page 1 of 1</span>
+            <button id="next-page" class="pagination-btn">
+                Next <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Player Detail Modal -->
+    <div id="player-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-start mb-6">
+                <h2 class="text-3xl font-bold gradient-text" id="modal-player-name">Player Name</h2>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-player-content">
+                <!-- Player details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let allPlayers = [];
+        let filteredPlayers = [];
+        let currentPage = 1;
+        const playersPerPage = 12;
+        let currentFilters = {
+            search: '',
+            position: 'all',
+            league: 'all',
+            sort: 'fga-desc'
+        };
+
+        // Load players from JSON
+        async function loadPlayers() {
+            try {
+                // Replace this with your actual JSON file path
+                const response = await fetch('empire_fga_players.json');
+                allPlayers = await response.json();
+                filteredPlayers = [...allPlayers];
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('total-players').textContent = allPlayers.length.toLocaleString();
+                
+                applyFilters();
+            } catch (error) {
+                document.getElementById('loading').innerHTML = `
+                    <div class="text-center">
+                        <i class="fas fa-exclamation-triangle text-6xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold text-red-400">Error Loading Database</h3>
+                        <p class="text-slate-400 mt-2">Please make sure empire_fga_players.json is in the same directory</p>
+                    </div>
+                `;
+                console.error('Error loading players:', error);
+            }
+        }
+
+        // Apply filters
+        function applyFilters() {
+            filteredPlayers = allPlayers.filter(player => {
+                // Search filter
+                if (currentFilters.search) {
+                    const searchTerm = currentFilters.search.toLowerCase();
+                    const playerName = player.Player.toLowerCase();
+                    const squad = player.Squad.toLowerCase();
+                    const comp = player.Comp.toLowerCase();
+                    if (!playerName.includes(searchTerm) && !squad.includes(searchTerm) && !comp.includes(searchTerm)) {
+                        return false;
+                    }
+                }
+                
+                // Position filter
+                if (currentFilters.position !== 'all') {
+                    if (!player.Pos.includes(currentFilters.position)) {
+                        return false;
+                    }
+                }
+                
+                // League filter
+                if (currentFilters.league !== 'all') {
+                    if (!player.Comp.includes(currentFilters.league)) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            });
+
+            // Sort
+            sortPlayers();
+            
+            // Reset to page 1
+            currentPage = 1;
+            displayPlayers();
+        }
+
+        // Sort players
+        function sortPlayers() {
+            switch (currentFilters.sort) {
+                case 'fga-desc':
+                    filteredPlayers.sort((a, b) => b.FGA_Rating - a.FGA_Rating);
+                    break;
+                case 'fga-asc':
+                    filteredPlayers.sort((a, b) => a.FGA_Rating - b.FGA_Rating);
+                    break;
+                case 'name-asc':
+                    filteredPlayers.sort((a, b) => a.Player.localeCompare(b.Player));
+                    break;
+                case 'name-desc':
+                    filteredPlayers.sort((a, b) => b.Player.localeCompare(a.Player));
+                    break;
+                case 'age-asc':
+                    filteredPlayers.sort((a, b) => a.Age - b.Age);
+                    break;
+                case 'age-desc':
+                    filteredPlayers.sort((a, b) => b.Age - a.Age);
+                    break;
+            }
+        }
+
+        // Display players
+        function displayPlayers() {
+            const startIndex = (currentPage - 1) * playersPerPage;
+            const endIndex = startIndex + playersPerPage;
+            const playersToShow = filteredPlayers.slice(startIndex, endIndex);
+            
+            const grid = document.getElementById('players-grid');
+            grid.innerHTML = '';
+            
+            if (filteredPlayers.length === 0) {
+                document.getElementById('no-results').style.display = 'block';
+                document.getElementById('players-grid').style.display = 'none';
+                document.getElementById('pagination').style.display = 'none';
+                document.getElementById('results-info').style.display = 'none';
+                return;
+            }
+            
+            document.getElementById('no-results').style.display = 'none';
+            document.getElementById('players-grid').style.display = 'grid';
+            document.getElementById('pagination').style.display = 'flex';
+            document.getElementById('results-info').style.display = 'block';
+            
+            document.getElementById('showing-count').textContent = Math.min(endIndex, filteredPlayers.length);
+            document.getElementById('filtered-count').textContent = filteredPlayers.length;
+            
+            playersToShow.forEach(player => {
+                const card = createPlayerCard(player);
+                grid.appendChild(card);
+            });
+            
+            updatePagination();
+        }
+
+        // Create player card
+        function createPlayerCard(player) {
+            const card = document.createElement('div');
+            card.className = 'player-card';
+            card.onclick = () => showPlayerDetails(player);
+            
+            const ratingClass = getRatingClass(player.FGA_Rating);
+            const philosophyClass = getRatingClass(player.Best_Philosophy_Score);
+            
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">${player.Player}</h3>
+                        <p class="text-sm text-slate-400">${player.Squad}</p>
+                    </div>
+                    <span class="metric-badge ${ratingClass}">
+                        ${player.FGA_Rating}/10
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400">Position</div>
+                        <div class="text-sm font-bold text-blue-400">${player.Pos}</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400">Age</div>
+                        <div class="text-sm font-bold text-blue-400">${player.Age}</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs text-slate-400">League</div>
+                        <div class="text-sm font-bold text-blue-400">${player.Comp.split(' ').pop()}</div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-slate-700 pt-3">
+                    <div class="text-xs text-slate-400 mb-1">Best Philosophy Fit:</div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-semibold text-cyan-400">${player.Best_Philosophy}</span>
+                        <span class="metric-badge ${philosophyClass} text-xs">
+                            ${player.Best_Philosophy_Score}/10
+                        </span>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Get rating class
+        function getRatingClass(rating) {
+            if (rating >= 8.5) return 'metric-elite';
+            if (rating >= 7.5) return 'metric-excellent';
+            if (rating >= 6.5) return 'metric-good';
+            return 'metric-average';
+        }
+
+        // Show player details
+        function showPlayerDetails(player) {
+            const modal = document.getElementById('player-modal');
+            const content = document.getElementById('modal-player-content');
+            
+            document.getElementById('modal-player-name').textContent = player.Player;
+            
+            const ratingClass = getRatingClass(player.FGA_Rating);
+            
+            content.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Basic Info -->
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold mb-4 text-blue-300">Player Info</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Club:</span>
+                                <span class="font-semibold">${player.Squad}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">League:</span>
+                                <span class="font-semibold">${player.Comp}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Position:</span>
+                                <span class="font-semibold">${player.Pos}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Age:</span>
+                                <span class="font-semibold">${player.Age}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Nationality:</span>
+                                <span class="font-semibold">${player.Nation}</span>
+                            </div>
+                            <div class="flex justify-between border-t border-slate-700 pt-3 mt-3">
+                                <span class="text-slate-400">FGA Rating:</span>
+                                <span class="metric-badge ${ratingClass}">${player.FGA_Rating}/10</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Core Metrics -->
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6">
+                        <h3 class="text-lg font-bold mb-4 text-blue-300">Core Metrics</h3>
+                        <div class="space-y-2">
+                            ${createMetricRow('Shooting (XPS)', player.XPS)}
+                            ${createMetricRow('Finishing (STK)', player.STK)}
+                            ${createMetricRow('Long Passing (LGP)', player.LGP)}
+                            ${createMetricRow('Vertical Passing (VRP)', player.VRP)}
+                            ${createMetricRow('Pass Accuracy (HZP)', player.HZP)}
+                            ${createMetricRow('Creativity (KEY)', player.KEY)}
+                            ${createMetricRow('Tackling (TAC)', player.TAC)}
+                            ${createMetricRow('Interceptions (INT)', player.INT)}
+                        </div>
+                    </div>
+                    
+                    <!-- Philosophy Fits -->
+                    <div class="bg-slate-900/50 border border-blue-500/20 rounded-xl p-6 md:col-span-2">
+                        <h3 class="text-lg font-bold mb-4 text-blue-300">Tactical Philosophy Fits</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            ${createPhilosophyCard('Guardiola', player.Guardiola_Fit)}
+                            ${createPhilosophyCard('Mourinho', player.Mourinho_Fit)}
+                            ${createPhilosophyCard('Klopp', player.Klopp_Fit)}
+                            ${createPhilosophyCard('Ferguson', player.Ferguson_Fit)}
+                            ${createPhilosophyCard('Ancelotti', player.Ancelotti_Fit)}
+                            ${createPhilosophyCard('Simeone', player.Simeone_it)}
+                            ${createPhilosophyCard('Cruyff', player.Cruyff_Fit)}
+                            ${createPhilosophyCard('Conte', player.Conte_Fit)}
+                            ${createPhilosophyCard('Tuchel', player.Tuchel_Fit)}
+                            ${createPhilosophyCard('Bielsa', player.Bielsa_Fit)}
+                            ${createPhilosophyCard('Michels', player.Michels_Fit)}
+                            ${createPhilosophyCard('Van Gaal', player.Van_Gaal_Fit)}
+                            ${createPhilosophyCard('Hiddink', player.Hiddink_Fit)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        // Create metric row
+        function createMetricRow(label, value) {
+            if (!value || value === 0) return '';
+            const ratingClass = getRatingClass(value);
+            return `
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-slate-400">${label}:</span>
+                    <span class="metric-badge ${ratingClass} text-xs">${value}/10</span>
+                </div>
+            `;
+        }
+
+        // Create philosophy card
+        function createPhilosophyCard(name, score) {
+            if (!score || score === 0) return '';
+            const ratingClass = getRatingClass(score);
+            return `
+                <div class="bg-slate-800/50 border border-blue-500/10 rounded-lg p-4 text-center">
+                    <div class="text-sm font-semibold text-slate-300 mb-2">${name}</div>
+                    <div class="metric-badge ${ratingClass}">${score}/10</div>
+                </div>
+            `;
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('player-modal').classList.remove('active');
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+        }
+
+        // Event Listeners
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            currentFilters.search = e.target.value;
+            applyFilters();
+        });
+
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+            currentFilters.sort = e.target.value;
+            applyFilters();
+        });
+
+        // Position filters
+        document.getElementById('position-filters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-pill')) {
+                document.querySelectorAll('#position-filters .filter-pill').forEach(pill => {
+                    pill.classList.remove('active');
+                });
+                e.target.classList.add('active');
+                currentFilters.position = e.target.dataset.filter;
+                applyFilters();
+            }
+        });
+
+        // League filters
+        document.getElementById('league-filters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-pill')) {
+                document.querySelectorAll('#league-filters .filter-pill').forEach(pill => {
+                    pill.classList.remove('active');
+                });
+                e.target.classList.add('active');
+                currentFilters.league = e.target.dataset.filter;
+                applyFilters();
+            }
+        });
+
+        // Pagination
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPlayers();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayPlayers();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('player-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'player-modal') {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        loadPlayers();
+    </script>
+</body>
+</html>
