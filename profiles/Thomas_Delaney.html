@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Delaney — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card: #1a1a20;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --accent1: #002B5C;
+            --accent2: #FFD700;
+            --accent3: #ffffff
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(0, 43, 92, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 215, 0, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -0.5px
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2)
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(0, 43, 92, 0.2);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 255, 255, 0.18)
+        }
+
+        .pill.gold {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+            color: var(--accent2)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(0, 43, 92, 0.85), rgba(0, 30, 65, 0.85));
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 12px
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, #002B5C, #001a3a);
+            color: #FFD700;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(0, 43, 92, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(0, 43, 92, 0.3)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #002B5C 0%, #0056b3 100%);
+            border-radius: 3px
+        }
+
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #FFD700 0%, #ffaa00 100%)
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 6px 6px 0
+        }
+
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(0, 43, 92, 0.2);
+            border: 1px solid rgba(0, 43, 92, 0.3);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--white);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div
+            style="font-size:12px; color:var(--accent2); font-weight:700; border:1px solid var(--accent2); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.0</div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://campo.dk/wp-content/uploads/2025/04/fcks-thomas-delaney-amin-chiakha-aerger-nederlaget-kampen-fc-midtjylland-koebenhavn-mesterskabsspillet-pa-mch-arena-1024x735.jpg"
+                    alt="Thomas Delaney" class="photo">
+                <div class="title">Thomas Delaney</div>
+                <div class="sub">Danish General • FC Copenhagen • "The Anchor" • DM / CM</div>
+                <div class="rating-badge">77.8</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇩🇰 Denmark</span><span class="stat-label">Born Sep
+                            3, 1991 • Age: 34 • FC Copenhagen • Height: 1.82m • Right-Footed</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Thomas
+                            Joseph Delaney</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">DM / CM
+                            (Defensive Midfielder)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Denmark
+                            🇩🇰</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">34 (Born: Sep 3,
+                            1991)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.82m</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">FC
+                            Copenhagen (2024-2026)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">FC Copenhagen (Youth)</span><span
+                            class="info-value">2009-2012</span></div>
+                    <div class="info-row"><span class="info-label">Werder Bremen</span><span
+                            class="info-value">2017-2021</span></div>
+                    <div class="info-row"><span class="info-label">Borussia Dortmund</span><span
+                            class="info-value">2021-2024</span></div>
+                    <div class="info-row"><span class="info-label">Sevilla (Loan)</span><span
+                            class="info-value">2022-2023</span></div>
+                    <div class="info-row"><span class="info-label">FC Copenhagen (Return)</span><span
+                            class="info-value">July 2024-Present</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Thomas Delaney returned home to **FC Copenhagen** in July 2024, signing a 2-year deal
+                    until 2026. The **34-year-old Danish international** has been a rock in midfield, featuring in **17
+                    matches** across all competitions in the **2025/26 season**. A veteran of Bundesliga and La Liga,
+                    Delaney brings world-class experience and tactical intelligence. His leadership anchors Copenhagen's
+                    Champions League campaign, providing the perfect blend of steel and sophistication.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Scout Note:</strong> 80+ Denmark caps.
+                    Bundesliga veteran. Champions League experience. 17 appearances this season. Homecoming hero.</div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Defensive & Tactical (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PASS (Passing)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DUR (Durability)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Intelligence</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TIQ (Tactical IQ)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WRK (Work Rate)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STM (Stamina)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">COM (Composure)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (Expert Input)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LEA (Leadership)</span><span
+                                    class="metric-score" style="color:var(--accent2)">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span
+                                    class="metric-score" style="color:var(--accent2)">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character)</span><span
+                                    class="metric-score" style="color:var(--accent2)">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">EXP (Experience)</span><span
+                                    class="metric-score" style="color:var(--accent2)">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ADV (Adaptability)</span><span
+                                    class="metric-score" style="color:var(--accent2)">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill gold">Liedholm Swedish-Italian Fusion 8.8/10</span>
+                    <span class="pill">Ferguson Mental Warfare 8.6/10</span>
+                    <span class="pill">Trapattoni Tactical Mastery 8.5/10</span>
+                    <span class="pill">Hiddink Adaptability 8.2/10</span>
+                </div>
+                <div class="muted-box" style="margin-top:14px;"><strong>Primary DNA:</strong> Liedholm Swedish-Italian
+                    Fusion (Scandinavian discipline meets tactical sophistication). <strong>Secondary:</strong> Ferguson
+                    Mental (veteran leadership, never-say-die mentality). <strong>Tertiary:</strong> Trapattoni Mastery
+                    (intelligent positioning, tactical flexibility).</div>
+            </div>
+
+            <div class="card">
+                <h2>🎥 Video Analysis</h2>
+                <div class="video-container"
+                    style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                    <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="muted-box" style="margin-top:12px;"><strong>Highlight Reel:</strong> Tactical intelligence
+                    and ball recovery (2025/26 Champions League).</div>
+            </div>
+
+            <div class="card">
+                <h2>🗓️ Last 5 Matches (2025/26)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Opponent</th>
+                            <th>Result</th>
+                            <th>Mins</th>
+                            <th>Rating</th>
+                            <th>Stats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dec 10</td>
+                            <td>UCL vs Celtic (H)</td>
+                            <td><span style="color:#4caf50">W 2-0</span></td>
+                            <td>90'</td>
+                            <td><span class="pill" style="margin:0; background:rgba(76, 175, 80, 0.2)">8.2</span></td>
+                            <td>8 Recoveries, 92% Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Dec 05</td>
+                            <td>vs Brøndby (H)</td>
+                            <td><span style="color:#4caf50">W 2-0</span></td>
+                            <td>90'</td>
+                            <td><span class="pill" style="margin:0; background:rgba(76, 175, 80, 0.2)">7.8</span></td>
+                            <td>5 Interceptions</td>
+                        </tr>
+                        <tr>
+                            <td>Nov 27</td>
+                            <td>UCL @ Man City (A)</td>
+                            <td><span style="color:#f44336">L 0-3</span></td>
+                            <td>90'</td>
+                            <td><span class="pill" style="margin:0">6.5</span></td>
+                            <td>Defensive efforts</td>
+                        </tr>
+                        <tr>
+                            <td>Nov 21</td>
+                            <td>vs Nordsjaelland (H)</td>
+                            <td><span style="color:#4caf50">W 3-1</span></td>
+                            <td>82'</td>
+                            <td><span class="pill" style="margin:0; background:rgba(76, 175, 80, 0.2)">7.5</span></td>
+                            <td>Solid midfield control</td>
+                        </tr>
+                        <tr>
+                            <td>Nov 14</td>
+                            <td>@ Silkeborg (A)</td>
+                            <td><span style="color:#ffd24d">D 1-1</span></td>
+                            <td>90'</td>
+                            <td><span class="pill" style="margin:0">7.2</span></td>
+                            <td>70 Touches</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>⭐ Iconic Matches</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2021 vs Russia (Euro 2020)</div>
+                    <div class="timeline-event">Captained Denmark after Christian Eriksen's collapse, showing immense
+                        leadership during the nation's darkest hour.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2024 vs Lille (Champions League Qualifier)</div>
+                    <div class="timeline-event">Scored the decisive goal in his first match back at Copenhagen, sending
+                        FCK to the Champions League group stage.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2012 | Copenhagen Academy</div>
+                    <div class="timeline-event">🇩🇰 Rose through **FC Copenhagen** academy, winning Danish titles as a
+                        youth.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 | Bundesliga Move</div>
+                    <div class="timeline-event">🇩🇪 Joined **Werder Bremen**, establishing himself as a
+                        Bundesliga-quality midfielder.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 | Dortmund Era</div>
+                    <div class="timeline-event">⚫🟡 Signed for **BVB**, playing Champions League football at the highest
+                        level.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 | Homecoming</div>
+                    <div class="timeline-event">🏠 Returned to **FC Copenhagen** as a veteran leader, bringing
+                        world-class experience back home.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FC Copenhagen (1st)</strong></td>
+                            <td>120+</td>
+                            <td>8</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Werder Bremen</strong></td>
+                            <td>116</td>
+                            <td>5</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Borussia Dortmund</strong></td>
+                            <td>60+</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FC Copenhagen (Return)</strong></td>
+                            <td>35+</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Denmark National Team</strong></td>
+                            <td>80+</td>
+                            <td>2</td>
+                            <td>-</td>
+                        </tr>
+                        <tr style="background:rgba(255,215,0,0.15)">
+                            <td colspan="4"><strong>Summary:</strong> Elite veteran DM. 80+ caps for Denmark. Champions
+                                League proven. Homecoming leader.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <div class="muted-box" style="margin-top:14px;"><strong>Comparable Players:</strong> Pierre-Emile
+                    Højbjerg (Danish DM), Christian Eriksen (Danish veteran), Lasse Schøne (Copenhagen legend)</div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Experience (EXP) 9.5/10</div>
+                        <div class="pill">Leadership (LEA) 9.2/10</div>
+                        <div class="pill">Tactical IQ (TIQ) 9.0/10</div>
+                        <div class="pill">Character (CHR) 9.0/10</div>
+                        <div class="pill">Decision Making (DMA) 8.8/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: VETERAN GENERAL (Prime Leadership)</strong><br><br>Thomas
+                            Delaney is the perfect homecoming signing. At 34, he brings world-class experience (EXP 9.5)
+                            and tactical intelligence (TIQ 9.0) that Copenhagen desperately needed. His leadership (LEA
+                            9.2) anchors their Champions League campaign. While pace has declined, his positioning (8.8)
+                            and decision-making (8.8) compensate perfectly. A Danish legend finishing his career where
+                            it all began.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Tackling', 'Position', 'Passing', 'Tactical IQ', 'Leadership', 'Experience', 'Composure', 'Work Rate'], datasets: [{ label: 'Thomas Delaney', data: [8.2, 8.8, 8.0, 9.0, 9.2, 9.5, 8.6, 8.4], borderColor: '#FFD700', backgroundColor: 'rgba(255, 215, 0, 0.2)', borderWidth: 3, pointBackgroundColor: '#FFD700', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Pierre-Emile Højbjerg', data: [8.5, 8.2, 8.2, 8.5, 8.5, 8.0, 8.0, 8.8], borderColor: '#ef4444', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }, { label: 'Christian Eriksen', data: [6.5, 7.8, 9.2, 9.0, 8.8, 9.2, 9.0, 7.5], borderColor: '#10b981', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }, { label: 'Lasse Schøne', data: [7.0, 8.0, 8.8, 8.5, 8.0, 8.8, 8.2, 7.8], borderColor: '#3b82f6', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#9e9ea5', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } } } } });
+    </script>
+</body>
+
+</html>

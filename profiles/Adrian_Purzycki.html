@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Purzycki — Empire FGA Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #0f0f13; --card: #1a1a20; --white: #f0f6fc; --muted: #9e9ea5; --accent1: #0047AB; /* Odra Blue */ --accent2: #D2122E; /* Odra Red */ }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: radial-gradient(900px 500px at 10% 10%, rgba(0, 71, 171, 0.1), transparent 20%), var(--bg); color: var(--white); }
+        .container { max-width: 1300px; margin: 20px auto; padding: 20px; display: grid; grid-template-columns: 360px 1fr; gap: 25px; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px; }
+        .photo { width: 100%; height: 500px; object-fit: cover; object-position: top; border-radius: 10px; border: 3px solid var(--accent1); }
+        .title { font-size: 34px; font-weight: 900; color: var(--white); margi[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG2biueI0IkqDQuKkdTMbg1d7MzuYBc4sVIIPbI9qQADx4xtrRaNYoEkM0sbrM7REuyNtfeMWcpQzCMz2xq1-k7UUG5INwl1MxwBoRndh4mV8n_B0mZeCEy-rzb-VHnC6Bnq2F3r-jwCahnrVtTtEC0AMtoy0g5W89SrchmvyYcmA%3D%3D)][[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG-Kj5xEv4hs8GfX0D2FDZKue8XsECFJnsmn4XrRlQ1LJqhK76VjpfjoZg1NPrDYqeU-t9tuR3EnSnnuAReh4TABavxA3L4wlDZr0y5Ozk9j4B43UT3ZhXaXXt20aGBwkSqCq50Zr7Gsb6iy_r9VLlU5VW2mTmkRHoqsDNRIwU%3D)]n: 15px 0; }
+        .pill { background: rgba(0, 71, 171, 0.15); padding: 6px 12px; border-radius: 20px; color: var(--white); font-weight: 700; font-size: 13px; display: inline-block; margin: 5px; border: 1px solid rgba(255,255,255,0.1); }
+        .pill.red { background: rgba(210, 18, 46, 0.15); border-color: var(--accent2); color: #ff6b6b; }
+        .metric-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top:5px; }
+        .metric-fill { height: 100%; background: linear-gradient(90deg, var(--accent1), var(--accent2)); border-radius: 3px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; color: var(--white); font-size: 14px; }
+        th, td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        th { color: var(--accent1); text-transform: uppercase; font-size: 12px; font-weight: 800; }
+        .timeline-item { border-left: 3px solid var(--accent2); padding-left: 15px; margin: 15px 0; }
+        .visual-canvas { height: 350px; display: flex; justify-content: center; align-items: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT COL -->
+        <div>
+            <div class="card">
+                <img src="https://ocdn.eu/sport-images-transforms/1/lAnk
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #BA9B37 0%, #FFD700 100%);
+            border-radius: 3px
+        }
+        
+        /* Tier 3 Scout Metrics styling */
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #ffffff 0%, #cccccc 100%);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(186, 155, 55, 0.12);
+            border: 1px solid rgba(186, 155, 55, 0.2);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--white);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div style="font-size:12px; color:var(--accent1); font-weight:700; border:1px solid var(--accent1); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.0
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://ucfknights.com/imgproxy/5_AN0NLDB4Vlr0lID07Yi_X-20SuXN_ctneN2-BDfpA/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3VjZmtuaWdodHMtY29tLXByb2QvMjAyNC8xMS8xNS83UGMwVGFjMWpMT2pUR1o1Q0FNSENHSDBYU3hQZTdHWUQ1R0plNHlsLnBuZw.png"
+                    alt="Clarence Awoudor" class="photo">
+                <div class="title">Clarence Awoudor</div>
+                <div class="sub">French Winger • UCF Knights • "The Creator" • NCAA Assist Leader</div>
+                <div class="rating-badge">71.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇫🇷 France</span><span class="stat-label">Category 2003 • NCAA Assist King (13) • All-Sun Belt First Team</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Clarence Awoudor</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Winger / Forward</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">France 🇫🇷</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">22 (Born: Sep 23, 2003)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.70m (5'7")</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Oregon State</span><span
+                            class="info-value">2022 (Pac-12 All-Freshman)</span></div>
+                    <div class="info-row"><span class="info-label">UCF Knights</span><span
+                            class="info-value">2023-Present (Senior)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Clarence Awoudor is one of the most productive creative forwards in NCAA Division I soccer. Hailing from **Saint-Lô, France**, he has lit up the American collegiate system with his elite vision and technical ability. In the 2029lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy84Y2U4OTUxODg5NDI0YmNiN2YyNGQ4NjM5Yzc3ZjYyMC5qcGeTlQMAzJbNErrNCoiVAs0EsADCw5MJpjU2Y2M1NgbeAAKhMAGhMQE/adrian-purzycki.jpg" alt="Adrian Purzycki" class="photo">
+                <div class="title">Adrian Purzycki</div>
+                <div class="sub" style="color:var(--muted)">Defensive Midfielder • Odra Opole • "The Anchor"</div>
+                <div style="position:absolute; right:20px; top:20px; background:var(--accent1); padding:10px 15px; border-radius:12px; font-weight:900; font-size:24px;">72.0</div>
+                
+                <div style="margin-top:20px;">
+                    <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.1);"><span>Nation</span><span>🇵🇱 Poland / 🇬🇧 UK</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.1);"><span>Age</span><span>28 (1997)</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.1);"><span>Contract</span><span>Until June 2025</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>Role</span><span>Holding Midfielder</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COL -->
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p>Adrian Purzycki is a robust defensive midfielder currently anchoring the midfield for **Odra Opole** in the Polish I Liga. Born in Poland but developed in the UK (Wigan Athletic academy), he brings a blend of British physicality and Polish tactical discipline. In the 2025/26 season, he has added goals to his game (5 goals in 16 apps), evolving from a pure destroyer into a more complete box-to-box presence. He is a leader in the middle of the park, known for his **Tackling (7.9)** and ability to break up play.</p>
+                <div style="margin-top:10px; padding:10px; background:rgba(0,71,171,0.1); border-left:3px solid var(--accent1); font-size:13px;">
+                    <strong>Scout Note:</strong> Contract expires mid-2025. High value free agent potential. English dual nationality.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Core FGA Metrics</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Tier 1: Defensive</h3>
+                        <div style="margin-bottom:10px"><span>TAC (Tackling) 7.9</span><div class="metric-bar"><div class="metric-fill" style="width:79%"></div></div></div>
+                        <div style="margin-5 season with **UCF**, he led the entire nation in assists (13), operating as a creative hub on the wing. His low center of gravity, combined with French academy technical schooling, makes him elusive in 1v1 situations. He is a prime candidate for the MLS SuperDraft or a return to European professional football.</p>
+                <div class="muted-box"><strong style="color:var(--accent1)">Scout Note:</strong> 2025 NCAA Assist Leader. 5 Goals, 13 Assists in 16 Games. Proven end product at collegiate level.</div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                
+                <h3>Tier 1: Technical & Creative (Elite)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Final Ball)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Physical & Mental (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">bottom:10px"><span>INT (Interceptions) 7.6</span><div class="metric-bar"><div class="metric-fill" style="width:76%"></div></div></div>
+                        <div style="margin-bottom:10px"><span>STR (Strength) 7.8</span><div class="metric-bar"><div class="metric-fill" style="width:78%"></div></div></div>
+                    </div>
+                    <div>
+                        <h3>Tier 3: Scout</h3>
+                        <div style="margin-bottom:10px"><span>AGG (Aggression) 8.2</span><div class="metric-bar"><div class="metric-
+                            <div class="metric-header"><span class="metric-name">FLA (Flair)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STR (Strength)</span><span
+                                    class="metric-score">5.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (Expert Input)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRE (Creativity)</span><span
+                                    class="metric-score" style="color:var(--white)">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DEC (Decision)</span><span
+                                    class="metric-score" style="color:var(--white)">8.0</span></div>
+                            <div class="metric-bar">fill" style="width:82%; background:var(--accent2)"></div></div></div>
+                        <div style="margin-bottom:10px"><span>POS (Positioning) 7.5</span><div class="metric-bar"><div class="metric-fill" style="width:75%; background:var(--accent2)"></div></div></div>
+                        <div style="margin-bottom:10px"><span>LEA (Leadership) 7.8</span><div class="metric-bar"><div class="metric-fill" style="width:78%; background:var(--accent2)"></div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <div style="border:1px solid rgba(255,255,255,0.1); border-radius:8px; overflow:hidden;">
+                    <video controls width="100%" style="border-radius:8px;">
+                        <source src="https://www.dropbox.com/scl/fi/4jvm6tp064n6nxyu88odv/Adrian-Purzycki.mp4?rlkey=7k81pq85fsaf8cgnnuxr9v0ib&st=pjx5ucwx&raw=1" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🏆 60-Philosophy Framework</h2>
+                <div>
+
+                                <div class="metric-fill tier3" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IMP (Impact)</span><span
+                                    class="metric-score" style="color:var(--white)">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><                    <span class="pill red">SD1: Dyche Block (Physical) 8.5</span>
+                    <span class="pill">Ball Winning Midfielder 8.8</span>
+                    <span class="pill">Polish Pragmatism 8.2</span>
+                    <span class="pill">English Academy Grit 8.0</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Momentsspan class="metric-name">AER (Aerial)</span><span
+                                    class="metric-score" style="color:var(--white)">4.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 6</h2>
+                <div class="timeline-item"><div class="timeline-date">2013-2016 | Wigan Athletic</div><div>Developed in the English youth system. Gained physical toughness and tempo.</div></div>
+                <div class="timeline-item"><div class="timeline-date">2023 | Odra Opole</div><div>Joined **Od0-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Awoudor fits technical, assist-heavy systems.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill gold">SE1: Menotti Artistry 9.0/10</span>
+                    <span class="pill">RX1: Wenger Development 8.8/10</span>
+                    <span class="pill">Creative Winger 9.2/10</span>
+                    <span class="pill">French Tech 8.5/10</span>ra Opole**. Established himself as a key starter in the Polish First League.</div></div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Recent Statistics (2025/26 Season)</h2>
+                <table>
+                    <thead><tr><th>Metric</th><th>Value</th><th>Context</th></tr></thead>
+                    <tbody>
+                        <tr><td>Matches</td><td>16</td><td>I Liga</td></tr>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ENFP (The Campaigner)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Selfless Creator</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Altruism</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">
+                        <tr><td>Goals</td><td>5</td><td>Career High</td></tr>
+                        <tr><td>Minutes</td><td>1248</td><td>Starter</td></tr>
+                        <tr style="background:rgba(210,18,46,0.15)"><td colspan="3"><strong>Form:</strong> Surprisingly high goal output for a DM.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison (vs I Liga Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="purzyckiRadar"></canvas></div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <div class="pill red">Tackling 7.9</div>
+                        <div class="pill">Strength 7.8</div>
+                        <div class="pill">Aggression 8.2</div>
+                    </div>
+                    <div>
+                        <p><strong>VERDICT: EXPERIENCED ANCHOR.</strong> Purzycki is a reliable, physicallyConfidence</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**The Provider:** Awoudor takes more joy in assisting than scoring. His psychological profile suggests a player who thrives on connection strong midfielder who has added goals to his game in 2025. His English academy background gives him an edge in physical duels. An essential piece for any team needing spine and grit in the midfield.</p>
+                    </div>
+                 and team cohesion. He constantly looks for the extra pass to set up a teammate in a better position (13 assists in 16 games).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Chart(document.getElementById('purzyckiRadar'), {
+            type: 'radar',
+            data: { labels: ['Tackling','Strength','Passing','Shooting','Aggression','Positioning','Stamina','Technique'], datasets: [{ label: 'Purzycki', data: [7.9, 7.8, 6.8, 7.2="timeline-date">2022 | Oregon State</div>
+                    <div class="timeline-event">🇺🇸 Named to the **All-Pac-12 First Team** as a freshman. Immediate impact in US college soccer with his French technical flair.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date, 8.2, 7.5, 7.8, 6.5], borderColor: '#0047AB', backgroundColor: 'rgba(0,71,171,0.2)' }] },
+            options: { scales: { r: { max: 10, ticks: { display: false } } } }
+        });
+    </script>
+</body>
+</html>
+```">2024 | The Transfer</div>
+                    <div class="timeline-event">⚔️ Transferred to **UCF Knights**. Joined a program known for attacking football to maximize his creative output.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | National Assist Leader</div>
+                    <div class="timeline-event">📈 Recorded **13 assists** in the regular season, leading the entire NCAA Division

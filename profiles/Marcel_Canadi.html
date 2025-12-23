@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcel Canadi — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, .18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, .02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, .12);
+            border: 1px solid rgba(255, 210, 77, .18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/559867052_1393868959410696_1649502836001219692_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hB84Zzvc8HYQ7kNvwEaHGPp&_nc_oc=AdkiNf9motgEnJWyBfvzl2OPdq05shBmpLi2vD2270Ti_5JNY-ZQjMRbExC--6q4WWA&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=eHfu7uEpUZiW1ZixxSILNA&oh=00_AfluzC1YCUUFEnmEABt1aOrkpvs5y2_-9EqTxF8A5oG-Xg&oe=6946DB2D"
+                    alt="Marcel Canadi" class="photo">
+                <div class="title">Marcel Canadi</div>
+                <div class="sub">Austrian Attacking Midfielder • Enosis Neon Paralimniou • Cyprus First Division •
+                    Joined Jan 2025 • </div>
+                <div class="rating-badge">76.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇦🇹 AUT</span><span class="stat-label">Enosis Neon
+                            Paralimniou • Joined 2025 • Attacking Midfielder</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Marcel
+                            Canadi</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Attacking
+                            Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Austria
+                            🇦🇹</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">28 (Born: Oct 27,
+                            1997)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">SV Ried / Sibenik</span><span
+                            class="info-value">2020-2023</span></div>
+                    <div class="info-row"><span class="info-label">Enosis Neon Paralimniou</span><span
+                            class="info-value">2025-Present</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Marcel Canadi is a creative Austrian attacking midfielder currently plyng his trade in
+                    Cyprus. **Enosis Neon Paralimniou (2025-Present)**: Moved to Cypriot First Division on **Jan 1,
+                    2025**. Contract until **May 2026**. **4 appearances** (190 minutes) in 2025/26 season. settling
+                    into new league. **Previous Experience**: Extensive career in Austria (SV Ried, Admira Wacker) and
+                    Croatia (HNK Sibenik). Known for **creativity (7.8)**, **vision (7.9)**, **technical skills (7.7)**,
+                    and **set-piece delivery (7.8)**. Experienced playmaker looking to make an impact in Cypriot
+                    football.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> Enosis Neon
+                    Paralimniou (Cyprus) • Austrian Bundesliga Experience (SV Ried/Admira) • 250+ Career Apps</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Technical & Creative</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vision</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Creativity</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Passing</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Technique</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Set Pieces</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Mental & Tactical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Decision Making</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Experience</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Tactical IQ</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Canadi's tactical DNA - creative playmaker.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Number 10 7.9/10</span>
+                    <span class="pill">Playmaker 7.8/10</span>
+                    <span class="pill">Set-Piece Specialist 7.8/10</span>
+                    <span class="pill">Technical Midfielder 7.7/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality</span><span class="info-value">INTP
+                                (Logician)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Intelligent
+                                Creator</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Creativity</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">Experienced professional with history in Austrian Bundesliga and Croatian
+                            league. Adapter to new leagues (Cyprus in 2025). Creative mind who looks to unlock defenses.
+                            Mature player at 28.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 1, 2025 | Cyprus Move</div>
+                    <div class="timeline-event">📝 **TRANSFER** - Joined Enosis Neon Paralimniou. New chapter in career.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2022 | Austrian Bundesliga</div>
+                    <div class="timeline-event">⚽ **SV RIED** - Regular starter in Austrian top flight. Established
+                        professional credentials.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 Season | Debut</div>
+                    <div class="timeline-event">🇨🇾 **FIRST APPS** - Made 4 appearances for Enosis in first half of
+                        2025. Integrating into squad.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Apps</th>
+                            <th>Goals/Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Enosis Neon Paralimniou</strong></td>
+                            <td>4</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HNK Sibenik</strong></td>
+                            <td>15</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SV Ried</strong></td>
+                            <td>40+</td>
+                            <td>Multiple</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="3"><strong>Career:</strong> Austrian Bundesliga & Croatian HNL Experience •
+                                Cyprus 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Marcel Canadi is a technical attacking midfielder.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Attacking Midfielder (10)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Vision (7.9), creativity (7.8), set pieces (7.8), passing (7.7)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Attacking</strong></td>
+                            <td>Links midfield and attack, finds final ball, dangerous from free kicks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>High technical level, comfortable on ball, good weight of pass</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>Intelligent positioning, good reading of the game</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Creative midfielder in Cyprus. 28 years old.
+                                Experienced in Austria. Set-piece threat.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Watch Marcel Canadi's creative midfield play (2025 Highlights)</p>
+                <div class="video-container">
+                    <iframe src="https://www.dropbox.com/scl/fi/a2oh7rorqdrn5uapta2io/Marcel-anadi-II.mp4?rlkey=r9iba5lm60l4pao7u5s3xe87d&st=uwupjsvu&raw=1"
+                        style="width:100%;height:100%;border:none"
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches (Sample)</h2>
+                <p class="small" style="margin-bottom:12px;">Recent form - Enosis Neon Paralimniou (2025).</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cyprus League</td>
+                            <td>Enosis vs Omonia</td>
+                            <td>❌ L</td>
+                            <td>Creating Chances</td>
+                        </tr>
+                        <tr>
+                            <td>Cyprus League</td>
+                            <td>Aris vs Enosis</td>
+                            <td>❌ L</td>
+                            <td>Sub App</td>
+                        </tr>
+                        <tr>
+                            <td>Cyprus League</td>
+                            <td>Enosis vs AEL</td>
+                            <td>⬜ D</td>
+                            <td>Solid Midfield</td>
+                        </tr>
+                        <tr>
+                            <td>Cyprus League</td>
+                            <td>Enosis vs Pafos</td>
+                            <td>❌ L</td>
+                            <td>Starter (60m)</td>
+                        </tr>
+                        <tr>
+                            <td>Cyprus League</td>
+                            <td>Debut Match</td>
+                            <td>✅ W</td>
+                            <td>First Appearance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs League Playmakers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Canadi vs Cyprus League Midfielders</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Marcel
+                                Canadi</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Oct 27, 1997
+                                (28)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Attacking
+                                Midfielder</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">Austria 🇦🇹</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Enosis Neon
+                                Paralimniou</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Cyprus
+                                First Division</span></div>
+                        <div class="info-row"><span class="info-label">Agency</span><span class="info-value"> </span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">76.0 -
+                                Creative</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Vision 7.9/10</div>
+                        <div class="pill">Creativity 7.8/10</div>
+                        <div class="pill">Set Pieces 7.8/10</div>
+                        <div class="pill">Passing 7.7/10</div>
+                        <div class="pill">Tactical IQ 7.7/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: CREATIVE PLAYMAKER</strong><br><br>Marcel Canadi is a
+                            technically gifted **Austrian attacking midfielder** now playing for **Enosis Neon
+                            Paralimniou** in Cyprus (Jan 2025). **Contract until 2026**. Experienced in Austrian
+                            Bundesliga. Known for **vision (7.9)** and ability to unlock defenses. **Set-piece
+                            specialist**. At 28, he brings creativity and experience to the Cypriot First Division.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Vision', 'Creativity', 'Passing', 'Set Pieces', 'Technique', 'Tactical IQ', 'Shooting', 'Work Rate'], datasets: [{ label: 'Canadi', data: [7.9, 7.8, 7.7, 7.8, 7.7, 7.7, 7.4, 7.3], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>

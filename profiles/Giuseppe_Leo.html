@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giuseppe Leo — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card: #1a1a20;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --accent1: #3498DB;
+            /* Leo Blue */
+            --accent2: #ffd24d;
+            /* Empire Gold */
+            --accent3: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(52, 152, 219, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 255, 255, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 255, 255, 0.18)
+        }
+
+        .pill.gold {
+            background: rgba(255, 210, 77, 0.12);
+            border-color: rgba(255, 210, 77, 0.3);
+            color: var(--accent2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.85), rgba(255, 255, 255, 0.1));
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, #3498DB, #ffffff);
+            color: #000;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(52, 152, 219, 0.3)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498DB 0%, #34dbdb 100%);
+            border-radius: 3px
+        }
+
+        /* Tier 3 Scout Metrics styling */
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #ffd24d 0%, #ffaa00 100%);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(52, 152, 219, 0.12);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--white);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div
+            style="font-size:12px; color:var(--accent2); font-weight:700; border:1px solid var(--accent2); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.0
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://tmssl.akamaized.net/images/players/header/156711.jpg" alt="Giuseppe Leo"
+                    class="photo">
+                <div class="title">Giuseppe Leo</div>
+                <div class="sub">Defender • 3. Liga • "The Versatile Stopper" • Reliable</div>
+                <div class="rating-badge">71.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇩🇪 Germany / 🇮🇹</span><span
+                            class="stat-label">Height: 1.85m • Defensive Utility • 1v1 Specialist</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Giuseppe
+                            Leo</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">RB /
+                            CB</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Germany
+                            🇩🇪 / Italy 🇮🇹</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">30 (Born: Jan 30,
+                            1995)</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">FC Ingolstadt</span><span
+                            class="info-value">2014-2018</span></div>
+                    <div class="info-row"><span class="info-label">Karlsruher SC</span><span
+                            class="info-value">2018-2020</span></div>
+                    <div class="info-row"><span class="info-label">Rot-Weiss Essen</span><span
+                            class="info-value">2021-Present</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎥 Video Analysis</h2>
+                <div style="border-radius:8px; overflow:hidden;">
+                    <div
+                        style="width:100%; height:200px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); color:var(--muted);">
+                        No Analysis Video Available
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Giuseppe Leo is a versatile defensive asset known for his reliability across the back
+                    four. Primarily a Right-Back who can comfortably shift to Centre-Back, he brings German discipline
+                    mixed with Italian defensive tenacity. His FGA Analysis highlights his strength in **1v1 situations
+                    (7.6)** and **Tackling (7.8)**. While not an elite offensive full-back, his defensive stability
+                    makes him a valuable piece for tactical flexibility in the 3. Liga and regional leagues.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Scout Note:</strong> Dependable squad
+                    player. Low mistake rate. Ideal for locking down a flank or providing cover at CB.</div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Technical & Passing (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">6.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:68%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRG (Progressive)</span><span
+                                    class="metric-score">6.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:62%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">6.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:65%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">5.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:52%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Physical & Defensive (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REC (Recovery)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">1v1 (Defending)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (Expert Input)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IQ (Tactical)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:75%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VER (Versatility)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:72%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRO (Professional)</span><span
+                                    class="metric-score" style="color:var(--accent2)">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Tactical suitability for structured, disciplined defenses.
+                </p>
+                <h3>Top Philosophy Fits</h3>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                    <span class="pill gold">Structural Discipline (Allegri) 9.0/10</span>
+                    <span class="pill">Catenaccio Focus (Herrera) 8.8/10</span>
+                    <span class="pill">Defensive Shape (Benitez) 8.5/10</span>
+                    <span class="pill">Set Piece Dominance (Dyche) 8.7/10</span>
+                    <span class="pill">Back Three System (Tuchel) 8.2/10</span>
+                    <span class="pill">Pragmatism (Ancelotti) 8.0/10</span>
+                </div>
+                <div class="muted-box" style="margin-top:14px;">
+                    <span class="metric-name">CORE ARCHETYPE:</span> <span
+                        style="color:var(--white); font-weight:700;">The "Tactical Soldier"</span><br>
+                    <span class="small">Follows instructions perfectly. Best in a structured zonal marking
+                        system.</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ISTJ (The Logistician)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Consistent
+                                Worker</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Focus</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**The Quiet Professional:** Leo is not a flashy player. He executes
+                            instructions with precision and maintains focus for 90 minutes. His high Professionalism
+                            score (8.0) indicates a player who trains hard and is rarely caught out of position due to
+                            lack of concentration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016 | Ingolstadt Debut</div>
+                    <div class="timeline-event">🎓 Broke through the academy ranks at FC Ingolstadt 04, showcasing
+                        potential as a versatile defender.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 | KSC Stint</div>
+                    <div class="timeline-event">🛡️ Provided stability for Karlsruher SC in the 2. Bundesliga, proving
+                        his capability at a higher level.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 | RWE Leader</div>
+                    <div class="timeline-event">⚽ Became a regular at Rot-Weiss Essen, helping stabilize the defense
+                        with his experience and versatility.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Era</th>
+                            <th>Apps</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Rot-Weiss Essen</strong></td>
+                            <td>2021-Present</td>
+                            <td>45+</td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Karlsruher SC</strong></td>
+                            <td>2018-2020</td>
+                            <td>20</td>
+                            <td>Rotation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FC Ingolstadt II</strong></td>
+                            <td>2014-2018</td>
+                            <td>80+</td>
+                            <td>Starter/Captain</td>
+                        </tr>
+                        <tr style="background:rgba(52, 152, 219, 0.15)">
+                            <td colspan="4"><strong>Summary:</strong> Approaching 200 senior appearances. Solid
+                                lower-league veteran.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Leo is a "Defensive Full-Back / Wide Center-Back".</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Right Back (Defensive)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Tackling (7.8), Versatility (7.8), Positioning (7.5).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>In Possession</strong></td>
+                            <td>Safe circulation. Rarely overlaps aggressively. Focuses on retaining possession.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Out of Possession</strong></td>
+                            <td>Strong in duels. Hard to beat 1v1. Good at tucking in to form a back three.</td>
+                        </tr>
+                        <tr style="background:rgba(52, 152, 219, 0.15)">
+                            <td colspan="2"><strong>Summary:</strong> A pragmatic defender for teams that prioritize
+                                defensive solidity over attacking flair from the back.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Recent Matches (2025-26 Season)</h2>
+                <p class="small" style="margin-bottom:12px;">Empire FGA Evaluations.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Opponent</th>
+                            <th>Competition</th>
+                            <th>Perf</th>
+                            <th>Key Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Aug 24, 2025</strong></td>
+                            <td>Dresden</td>
+                            <td>3. Liga</td>
+                            <td>6.9</td>
+                            <td>Solid defensively, 0 crosses</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug 31, 2025</strong></td>
+                            <td>Unterhaching</td>
+                            <td>3. Liga</td>
+                            <td>7.1</td>
+                            <td>Won 4/5 ground duels</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sep 14, 2025</strong></td>
+                            <td>A. Bielefeld</td>
+                            <td>3. Liga</td>
+                            <td>6.5</td>
+                            <td>Subbed 70', tactical change</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison (vs 3. Liga Defenders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Leo vs Avg 3. Liga Defender</p>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill gold">Reliability 8.0/10</div>
+                        <div class="pill">Versatility 7.8/10</div>
+                        <div class="pill">Tackling 7.8/10</div>
+                        <div class="pill">Stamina 7.5/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: DEPENDABLE UTILITY</strong><br><br>Giuseppe Leo is the kind of
+                            player every squad needs. He isn't the star, but he raises the floor of the defense. His
+                            ability to play RB and CB competence allows for tactical flexibility during matches. His
+                            **Work Rate** and **Professionalism** make him a low-risk asset for any 3. Liga or 2.
+                            Bundesliga side looking for defensive depth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Passing', 'Versatility', 'Tactical IQ', 'Stamina', 'Defense', 'Speed', 'Strength', 'Technique'], datasets: [{ label: 'Giuseppe Leo', data: [6.8, 7.8, 7.5, 7.5, 7.6, 6.8, 7.2, 6.5], borderColor: '#3498DB', backgroundColor: 'rgba(52, 152, 219, 0.2)', borderWidth: 3, pointBackgroundColor: '#3498DB', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Avg 3. Liga Def', data: [6.2, 6.5, 6.8, 7.0, 7.0, 6.5, 7.0, 6.0], borderColor: '#9e9ea5', backgroundColor: 'transparent', borderWidth: 1, borderDash: [5, 5], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#9e9ea5', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(15,15,19,0.95)', titleColor: '#3498DB', bodyColor: '#f0f6fc', borderColor: '#3498DB', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
