@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bart Verbruggen — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, .18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, .02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, .12);
+            border: 1px solid rgba(255, 210, 77, .18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYdP7ZLmVBkX5K0n4Y0Xo64cN_sLaRzjHO4A&s"
+                    alt="Bart Verbruggen" class="photo">
+                <div class="title">Bart Verbruggen</div>
+                <div class="sub">Dutch Goalkeeper • Brighton FC • EURO 2024 Semi-Finalist • Netherlands International
+                </div>
+                <div class="rating-badge">80.0</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇳🇱 Netherlands</span><span class="stat-label">26
+                            Caps • EURO 2024 Semi-Final • Brighton #1</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Bart
+                            Verbruggen</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Goalkeeper</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span
+                            class="info-value">Netherlands 🇳🇱</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">22 (Born: Aug 18,
+                            2002)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Anderlecht</span><span class="info-value">2021-2023
+                            (75 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Brighton FC</span><span
+                            class="info-value">2023-Present (70+ apps)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Bart Verbruggen is one of Europe's most promising young goalkeepers. **Brighton
+                    (2023-Present)**: Signed for **€20M** from Anderlecht in July 2023. **70+ Premier League
+                    appearances**. Established as Brighton's #1. **Anderlecht (2021-2023)**: **75 appearances**.
+                    **Belgian First Division Player of the Season 2022-23**. **Netherlands National Team**: **26 caps**
+                    at just 22 years old. **EURO 2024** semi-finalist - reached last 4. Started key matches. **Youngest
+                    Dutch #1** in years. Known for **reflexes (8.5)**, **distribution (8.3)**, **composure (8.1)**, and
+                    **sweeper-keeper ability (8.2)**. Modern ball-playing goalkeeper. Perfect for Brighton's possession
+                    style. At 22, tremendous potential for growth. Future Netherlands captain material.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> EURO 2024
+                    Semi-Finalist • Brighton €20M Signing • 26 Netherlands Caps • Anderlecht Player of Season • 145+
+                    Career Apps • Future Star</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics (Goalkeepers)</h2>
+                <h3>Tier 1: Shot-Stopping & Reflexes</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Reflexes</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Positioning</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Handling</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">One-on-Ones</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Distribution & Ball-Playing</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Distribution</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Long Passing</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Short Passing</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vision</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Sweeper-Keeper</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Aerial & Physical</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Aerial Ability</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Command of Area</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Communication</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Verbruggen's tactical DNA mapped across coaching
+                    philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">De Zerbi System 8.6/10</span>
+                    <span class="pill">Potter Buildup 8.4/10</span>
+                    <span class="pill">Guardiola Possession 8.3/10</span>
+                    <span class="pill">Ten Hag Modern 8.2/10</span>
+                    <span class="pill">Koeman Dutch 8.5/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ENFJ (Protagonist)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Modern
+                                GK</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Reflexes</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Distribution</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**EURO 2024 semi-finalist** with Netherlands at 21. **26 international caps**
+                            already. **Anderlecht Player of Season 2022-23**. **Brighton €20M** signing. Modern
+                            ball-playing GK. Perfect for possession systems. At 22, huge potential. Future Netherlands
+                            #1 for years. Youngest Dutch GK in generation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 | Anderlecht Breakthrough</div>
+                    <div class="timeline-event">🇧🇪 **ANDERLECHT FIRST TEAM** - Became #1 goalkeeper aged 19. 75 apps
+                        across 2 seasons.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2023 | Belgian Player of Season</div>
+                    <div class="timeline-event">🏆 **ANDERLECHT PLAYER OF THE SEASON 2022-23** - Outstanding campaign at
+                        20 years old.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2023 | Brighton Transfer</div>
+                    <div class="timeline-event">🦅 **BRIGHTON FC - €20M TRANSFER**. Premier League move. De Zerbi's
+                        first-choice keeper.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2023 | Netherlands Debut</div>
+                    <div class="timeline-event">🇳🇱 **NETHERLANDS SENIOR DEBUT** - First cap at 21. Beginning
+                        international career.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2024 | EURO 2024 Semi-Final</div>
+                    <div class="timeline-event">🇳🇱🏆 **EURO 2024 SEMI-FINALIST** - Netherlands reached last 4. Key
+                        goalkeeper role at 21.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024-25 | Brighton #1</div>
+                    <div class="timeline-event">⚽ **70+ Brighton appearances**. Established Premier League goalkeeper.
+                        Future star.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Country</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Clean Sheets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Anderlecht</strong></td>
+                            <td>2021-2023</td>
+                            <td>75</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brighton FC</strong></td>
+                            <td>2023-Present</td>
+                            <td>70+</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Netherlands NT</strong></td>
+                            <td>2023-Present</td>
+                            <td>26</td>
+                            <td>14</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career:</strong> EURO 2024 Semi-Finalist • Anderlecht Player of
+                                Season • 145+ Career Apps at 22</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">Bart Verbruggen is a modern ball-playing goalkeeper.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Modern Sweeper-Keeper / Ball-Playing GK</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>Reflexes (8.5), distribution (8.3), sweeper-keeper (8.2), composure (8.1)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shot-Stopping</strong></td>
+                            <td>Excellent reflexes, good positioning, reliable handling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution</strong></td>
+                            <td>Elite passing, excellent buildup play, modern ball-playing ability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental</strong></td>
+                            <td>EURO 2024 experience, composure, 26 Netherlands caps at 22</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="2"><strong>Summary:</strong> Elite young goalkeeper. EURO 2024 semi-finalist.
+                                Perfect for possession systems. Future Netherlands captain.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">Verbruggen's highlights showcase reflexes and distribution.</p>
+                <div class="muted-box" style="margin-top:12px;text-align:center;padding:24px">
+                    <p style="font-size:18px;color:var(--accent2);margin-bottom:12px;font-weight:700">Dutch Future Star
+                    </p>
+                    <p style="font-size:13px;color:var(--muted);line-height:1.8">"EURO 2024 semi-finalist at 21 years
+                        old.<br>Brighton €20M signing from Anderlecht.<br>Reflexes (8.5), Distribution (8.3),
+                        Sweeper-Keeper (8.2).<br>26 Netherlands caps. Player of Season 2022-23.<br>Bart Verbruggen -
+                        Future Netherlands #1."</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Last 5 Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Recent performance tracker - Latest matches for Brighton FC
+                    (December 2025).</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Competition</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dec 1, 2025</strong></td>
+                            <td>Premier League</td>
+                            <td>Brighton vs Leicester</td>
+                            <td>✅ 2-0 W</td>
+                            <td>Clean Sheet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 27, 2025</strong></td>
+                            <td>Europa League</td>
+                            <td>Brighton vs Roma</td>
+                            <td>⬜ 1-1 D</td>
+                            <td>Key Saves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 23, 2025</strong></td>
+                            <td>Premier League</td>
+                            <td>Wolves vs Brighton</td>
+                            <td>✅ 1-3 W</td>
+                            <td>Dominant Display</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 10, 2025</strong></td>
+                            <td>Premier League</td>
+                            <td>Brighton vs Man City</td>
+                            <td>⬜ 2-2 D</td>
+                            <td>Several Big Saves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nov 5, 2025</strong></td>
+                            <td>Europa League</td>
+                            <td>Ajax vs Brighton</td>
+                            <td>✅ 1-2 W</td>
+                            <td>Clean Performance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career-defining performances.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 10, 2024 | EURO 2024 Semi-Final</div>
+                    <div class="timeline-event">🇳🇱 **EURO 2024 SEMI-FINAL** - Netherlands vs England. Reached last 4.
+                        Key role aged 21.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2023 | Anderlecht Final Match</div>
+                    <div class="timeline-event">🏆 **PLAYER OF THE SEASON 2022-23** - Outstanding campaign. Brighton
+                        signing secured.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2023 | Brighton Debut</div>
+                    <div class="timeline-event">🦅 **BRIGHTON PREMIER LEAGUE DEBUT** - €20M signing begins English
+                        career.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Young Goalkeepers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Verbruggen vs Elite Young GKs</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Bart
+                                Verbruggen</span></div>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Aug 18, 2002
+                                (22)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Goalkeeper</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">Netherlands 🇳🇱</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Brighton
+                                FC</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Premier
+                                League</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">First-Choice
+                                Goalkeeper</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">80.0 - High
+                                Potential</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill">Reflexes 8.5/10</div>
+                        <div class="pill">Short Passing 8.4/10</div>
+                        <div class="pill">Distribution 8.3/10</div>
+                        <div class="pill">Sweeper-Keeper 8.2/10</div>
+                        <div class="pill">Handling 8.2/10</div>
+                        <div class="pill">Composure 8.1/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: ELITE YOUNG TALENT</strong><br><br>Bart Verbruggen is one of
+                            Europe's best young goalkeepers at just 22. **EURO 2024 semi-finalist** with Netherlands.
+                            **26 international caps** already. **Brighton €20M signing** from Anderlecht in 2023.
+                            **Anderlecht Player of the Season 2022-23**. **145+ career appearances**. Known for
+                            excellent **reflexes (8.5)**, **distribution (8.3)**, and **sweeper-keeper ability (8.2)**.
+                            Perfect modern goalkeeper for possession-based systems. Future Netherlands #1 for the next
+                            decade. Tremendous potential for growth. One to watch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Reflexes', 'Distribution', 'Sweeper-Keeper', 'Handling', 'Composure', 'Positioning', 'Short Passing', 'Vision'], datasets: [{ label: 'Verbruggen', data: [8.5, 8.3, 8.2, 8.2, 8.1, 8.0, 8.4, 8.1], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
