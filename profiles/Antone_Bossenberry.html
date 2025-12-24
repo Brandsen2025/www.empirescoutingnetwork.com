@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Antone Bossenberry — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://pbs.twimg.com/media/G2TBLvjXMAERglv.jpg" alt="Antone Bossenberry photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Antone Bossenberry</div>
+        <div class="sub">Attacking Midfielder (Prospect) · Canada · Born: 14 Aug 2008 (17) · Height: 1.65 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Toronto FC</span>
+          <span class="pill"><strong>Position</strong> Attacking Midfielder (#10)</span>
+          <span class="pill"><strong>Full Name</strong> Antone Bossenberry</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A complete attacking midfielder who uses his 1.65m stature to his advantage, making explosive dashes with the ball. He is an incredible, unpredictable dribbler, comfortable cutting inside to change play and use his vision. He has shown impressive calmness in front of goal for Toronto II and Canada U-17s. TFC II coach Gianni Cimini calls him a "rare... young talent who brings the full package."</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>DRI - Dribbling</td><td>9.2 P</td></tr>
+              <tr><td>AGI - Agility</td><td>9.1 P</td></tr>
+              <tr><td>VIS - Vision</td><td>9.0 P</td></tr>
+              <tr><td>CRE - Creativity</td><td>9.0 P</td></tr>
+              <tr><td>COM - Composure</td><td>8.8 P</td></tr>
+              <tr><td>PAC - Pace</td><td>8.6 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>A-List Prospect. One of the top 2008-born players in CONCACAF.</li>
+            <li>Star for Toronto FC II and Canada U-17s.</li>
+            <li>Analyze MLS Next Pro and U-17 international footage.</li>
+            <li>Elite #10 "playmaker" profile, low center of gravity.</li>
+            <li>High praise from TFC II coach Gianni Cimini.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Toronto FC, MLS, Canada Soccer, and The Guardian.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">74.0 (91.5 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Antone Bossenberry is one of the most exciting creative talents to emerge from Canada. A diminutive (1.65m) but "complete" attacking midfielder, he uses his low center of gravity for "explosive dashes" and "incredible, unpredictable" dribbling. He is not just a dribbler; he is a high-level playmaker, comfortable cutting inside to use his vision and change the direction of play. He has also demonstrated a "rare" calmness in front of goal, regularly getting into scoring positions for Toronto FC II and the Canada U-17s. TFC II coach Gianni Cimini praised him as "highly skilful, intentional and well-balanced... the type of player every coach dreams of working with."</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>~2018–2024</td><td>Toronto FC Academy</td><td>Developed through the TFC youth system.</td></tr>
+            <tr><td>2024–2025</td><td>Toronto FC II</td><td>Key player in MLS Next Pro.</td></tr>
+            <tr><td>2024–2025</td><td>Canada U-17</td><td>Star playmaker for the national youth team.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>CONCACAF U-17 C'ship</td><td>Key player for Canada U-17s.</td></tr>
+            <tr><td>2025</td><td>MLS Next Pro Season</td><td>Breakout season with TFC II.</td></tr>
+            <tr><td>2025</td><td>Coach Praise (G. Cimini)</td><td>Called a "rare... young talent who brings the full package."</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Dribbling:</strong> Elite, "incredible and unpredictable." His top skill.</li>
+              <li><strong>Agility & Pace:</strong> "Explosive dashes," uses low center of gravity perfectly.</li>
+              <li><strong>Vision & Creativity:</strong> Reads the game very well, can change play.</li>
+              <li><strong>Composure:</strong> "Impressive calmness" in scoring positions.</li>
+              <li><strong>Football IQ:</strong> Praised as "highly skilful, intentional and well-balanced."</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Physicality:</strong> At 1.65m, will be a target for physical play.</li>
+              <li><strong>Aerial Ability:</strong> Non-existent, a clear limitation.</li>
+              <li><strong>Senior Experience:</strong> Has not yet played an MLS first-team match.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>Canada's Next #10:</strong> With Alphonso Davies and Jonathan David established as forwards, Canada is looking for its next generation of creators. Bossenberry is at the top of that list, a player with the flair and vision to unlock defenses at the international level.</p>
+        <p class="small"><strong>TFC's "Full Package":</strong> His coach's high praise suggests he is not just a talent, but a model professional. This "full package" (skill + mentality) makes him a top-tier asset for Toronto FC, who will be keen to integrate him into the first team before European clubs make significant offers.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">Attacking</td><td>DRI - Dribbling</td><td>9.2 P</td><td>"Incredible and unpredictable." Elite 1v1.</td></tr>
+            <tr><td>CRE - Creativity</td><td>9.0 P</td><td>High-level playmaker.</td></tr>
+            <tr><td>FIN - Finishing</td><td>8.5 P</td><td>"Impressive calmness," good goal record.</td></tr>
+            <tr><td rowspan="2">Technical</td><td>VIS - Vision</td><td>9.0 P</td><td>"Reads the game very well."</td></tr>
+            <tr><td>TCH - Ball Control</td><td>8.8 P</td><td>Technically secure at speed.</td></tr>
+            <tr><td rowspan="2">Mental</td><td>INT - Intelligence</td><td>8.8 P</td><td>"Intentional" player, high IQ.</td></tr>
+            <tr><td>COM - Composure</td><td>8.8 P</td><td>Calm in the final third.</td></tr>
+            <tr><td rowspan="2">Physical</td><td>AGI - Agility</td><td>9.1 P</td><td>Elite low center of gravity.</td></tr>
+            <tr><td>PAC - Pace</td><td>8.6 P</td><td>"Explosive dashes."</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Bossenberry's profile as a small, agile, and highly creative #10 aligns perfectly with these philosophies:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>43. Menotti Artistry</strong></td><td>9.2 P</td><td>1.35</td><td>South American-style playmaker, dribbling, flair, and creativity.</td></tr>
+            <tr><td><strong>07. Guardiola Positional</strong></td><td>9.0 P</td><td>1.38</td><td>The perfect "free #8" or #10 to find space and break lines.</td></tr>
+            <tr><td><strong>01. Cruyff Intelligence</strong></td><td>8.8 P</td><td>1.45</td><td>Game is based on intelligence, dribbling, and technical skill.</td></tr>
+            <tr><td><strong>40. Santana Joga Bonito</strong></td><td>8.5 P</td><td>1.18</td><td>Plays with flair, unpredictability, and attacking joy.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A classic, low-gravity "enganche" or #10. His DNA is built around his agility and "explosive" dribbling, using his 1.65m frame to his advantage to turn quickly and accelerate away from defenders. He is a "complete" creator, possessing the vision to change the play, the unpredictability to beat a man 1v1, and the composure to finish scoring chances himself. He is a player who demands the ball and dictates the final third.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-2-3-1</td><td>Attacking Midfielder (CAM)</td><td>Central creative hub. Free role, receive between the lines, dribble.</td></tr>
+            <tr><td>4-3-3</td><td>Attacking #8 (Mezzala)</td><td>Play as the creative, advanced midfielder, carry the ball forward.</td></tr>
+            <tr><td>4-4-2 (Diamond)</td><td>Tip of Diamond (#10)</td><td>The team's primary playmaker, link midfield and attack.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Bossenberry's profile is overwhelmingly positive. Coach Cimini's praise ("full package," "dreams of working with") suggests he is highly coachable, intelligent, and professional. His "impressive calmness" in front of goal points to a player with high composure and confidence who doesn't shrink in big moments. He appears to be a mature, focused, and low-risk prospect from a mental standpoint.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Intelligent:</strong> "Reads the game very well," "intentional."</li>
+          <li><strong>Coachable:</strong> "Type of player every coach dreams of working with."</li>
+          <li><strong>Composed:</strong> Calm in front of goal.</li>
+          <li><strong>Confident:</strong> An "unpredictable" and direct dribbler.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Coachability & Professionalism:</strong> Elite. Has the "full package."</li>
+          <li><strong>Football IQ:</strong> His game is built on smarts, not just athleticism.</li>
+          <li><strong>Composure:</strong> A key asset for a final-third player.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>Physicality:</strong> Must prove he can handle the physical side of MLS/Europe.</li>
+          <li><strong>Hype:</strong> Being labeled the "full package" creates high expectations.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Bossenberry is a product of the Toronto FC academy, which has become a leader in North American development. His experience in MLS Next Pro with TFC II is the perfect "finishing school," allowing him to test his creative skills against senior professionals. His additional experience as a key player for Canada U-17s has prepared him for the pressure of international competition.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>Notes</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Toronto FC II</td><td>~20</td><td>~6</td><td>~7</td><td>MLS Next Pro</td><td>74.0 (Current)</td></tr>
+            <tr><td>2025</td><td>Canada U-17</td><td>~10</td><td>~4</td><td>~5</td><td>CONCACAF U-17s</td><td>N/A (Prospect)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>91.5 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on youth/reserve team performance. No senior MLS appearances as of November 2025.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example as the team's primary creator.</td><td>Monitor.</td></tr>
+            <tr><td>Professionalism</td><td>Extremely high. "Full package." Coach's dream.</td><td>N/A (Prospect)</td></tr>
+            <tr><td>Development</td><td>On an elite path. Needs to be physically protected.</td><td>MLS debut in 2026 is likely.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Academy</td><td>Toronto FC</td><td>The club's top creative "jewel."</td></tr>
+            <tr><td>Coach</td><td>Gianni Cimini (TFC II)</td><td>Has given him the highest possible praise.</td></tr>
+            <tr><td>National Team</td><td>Canada U-17s</td><td>The team's primary playmaker.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 2025</td><td>Columbus Crew 2</td><td>W</td><td>1 goal, 1 assist, 4 dribbles</td><td>MLS Next Pro</td></tr>
+            <tr><td>Oct 2025</td><td>USA U-17</td><td>D</td><td>1 assist, 3 key passes</td><td>U-17 International</td></tr>
+            <tr><td>Sep 2025</td><td>Mexico U-17</td><td>L</td><td>4 key passes</td><td>U-17 International</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: MLS Next Pro, Canada Soccer, Transfermarkt.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on dribbling, key passes, and goals.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AB-01</td><td>Toronto FC II</td><td>2025</td><td>Dribbling & Assists compilation</td><td>ARCH-AB-TFC2 (attach)</td></tr>
+            <tr><td>VH-AB-02</td><td>Canada U-17s</td><td>2025</td><td>CONCACAF U-17 highlights</td><td>ARCH-AB-CANU17 (attach)</td></tr>
+            <tr><td>VH-AB-03</td><td>TFC II</td><td>2025</td><td>Goals compilation</td><td>ARCH-AB-GOALS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (CAM Prospects)</h2>
+        <p class="small">Comparators: Other top North American creative prospects. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="bossenberryRadar" aria-label="Radar comparing Bossenberry and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>An A-List prospect whose low-risk mental profile ("full package") makes him a safe bet to reach his potential.</li>
+          <li>His game is reminiscent of players like Phil Foden or a young Eden Hazard (low gravity, explosive dribbling).</li>
+          <li>He is a prime target for a top-5 league club, and his development should be accelerated.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, MLS Next Pro, Canada Soccer, The Guardian. All metrics are projections based on reserve/youth performance.</p>
+        <div class="muted-box small">This is a prospective analysis. Data and ratings will change rapidly as he develops.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Antone Bossenberry expanded scouting profile. Toronto FC prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('bossenberryRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Dribbling (DRI)', 'Agility (AGI)', 'Vision (VIS)', 'Creativity (CRE)', 'Composure (COM)', 'Pace (PAC)'],
+          datasets: [
+            { label: 'Bossenberry (Potential)', data: [9.2, 9.1, 9.0, 9.0, 8.8, 8.6],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Caden Clark (Prospect)', data: [8.5, 8.4, 8.6, 8.5, 8.2, 8.4],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite CAM', data: [8.5, 8.0, 8.8, 8.8, 8.5, 8.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

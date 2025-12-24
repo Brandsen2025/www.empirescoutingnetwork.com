@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea Librici — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 14px 0 10px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+            margin-top: 16px
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        @media (max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://28ii5ymxukgj.b-cdn.net/w_1920/1bycl81wwfqp-andrea-librici-mvv.jpg" alt="Andrea Librici" class="photo">
+                <div class="title">Andrea Librici</div>
+                <div class="sub">PLAYER • MVV Maastricht • Belgian-Italian Midfielder</div>
+                <div class="rating-badge">75.5</div>
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom:10px"><span class="stat-value">7.6</span><span
+                            class="stat-label">Midfielder Potential</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">9 Dec 2004
+                            (20)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Belgium /
+                            Italy</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Midfielder /
+                            Right-Back</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">MVV
+                            Maastricht</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Stats</h3>
+                    <div class="info-row"><span class="info-label">Pro Debut</span><span class="info-value">Jul 30,
+                            2022</span></div>
+                    <div class="info-row"><span class="info-label">MVV Apps</span><span class="info-value">19 (1 goal, 2
+                            assists)</span></div>
+                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until Jun 30,
+                            2026</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Andrea Giuseppe Librici is a 20-year-old Belgian professional footballer of Italian
+                    descent currently playing as a midfielder for MVV Maastricht in the Netherlands. Born on December 9,
+                    2004, Librici's youth career included stints at FC Herstal (2010-12), CS Visé (2012-14), and notably
+                    STVV Sint-Truiden (2014-19, 2021-22) and OH Leuven (2019-21). He made his professional debut with
+                    STVV on July 30, 2022, coming on as a substitute for Shinji Kagawa in a match against KAA Gent.
+                    Shortly after, he signed his first professional contract with STVV and made one First Division A
+                    appearance in 2022/23. In January 2024, Librici joined MVV Maastricht on an amateur contract,
+                    debuting three days later in a 3-0 victory against FC Eindhoven. After impressive performances
+                    including two assists in his first six appearances as a starter, he signed a professional contract
+                    with MVV on June 20, 2024, committing until 2026. In the 2024/25 season, he's made 19 Eerste Divisie
+                    appearances with 1 goal and 2 assists. A versatile player who can operate as a midfielder or
+                    right-back, Librici represents the pathway of young Belgian-Italian talent developing through Dutch
+                    football.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Path:</strong> Belgian-Italian Dual
+                    Nationality • Professional Since 2022 • MVV Maastricht (19 apps) • Versatile Midfielder/RB • Youth
+                    Product of STVV & OH Leuven • Contract Until 2026</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">7.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:73%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WOR (Work Rate)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DEC (Decision Making)</span><span
+                                    class="metric-score">7.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:73%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DEF (Defending)</span><span
+                                    class="metric-score">7.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:71%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">COM (Composure)</span><span
+                                    class="metric-score">7.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:70%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POT (Potential)</span><span
+                                class="metric-score">8.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">VER (Versatility)</span><span
+                                class="metric-score">7.8</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:78%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CON (Consistency)</span><span
+                                class="metric-score">7.1</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:71%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">ADL (Adaptability)</span><span
+                                class="metric-score">7.7</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:77%"></div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MEN (Mentality)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRO (Professionalism)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WOR (Work Ethic)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEA (Team Player)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">GRO (Growth)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Drive)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Extended Performance Metrics</h3>
+                <h4>Attacking</h4>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">XPS (Expected Shooting)</span><span
+                                class="metric-score">6.8</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:68%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                class="metric-score">7.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:72%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                class="metric-score">6.5</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:65%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">KEY (Key Offensive Plays)</span><span
+                                class="metric-score">7.3</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:73%"></div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Passing Intelligence</h4>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LGP (Long Pass Precision)</span><span
+                                class="metric-score">7.1</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:71%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">VRP (Vertical Progression)</span><span
+                                class="metric-score">7.4</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:74%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">HZP (Horizontal Distribution)</span><span
+                                class="metric-score">7.6</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:76%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">UNP (Under Pressure)</span><span
+                                class="metric-score">7.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DGP (Dangerous Passes)</span><span
+                                class="metric-score">7.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:72%"></div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Defensive Fundamentals</h4>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                class="metric-score">7.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                class="metric-score">7.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:72%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                class="metric-score">7.1</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:71%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                class="metric-score">6.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:69%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">BLO (Blocking)</span><span
+                                class="metric-score">7.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:70%"></div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Possession & Intelligence</h4>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                class="metric-score">7.5</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:75%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                class="metric-score">7.4</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:74%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Positional Intelligence)</span><span
+                                class="metric-score">7.3</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:73%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                class="metric-score">7.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                class="metric-score">7.6</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width:76%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px">Librici's tactical adaptability as a versatile midfielder.
+                </p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Versatile Midfielder 7.8/10</span>
+                    <span class="pill">Box-to-Box 7.4/10</span>
+                    <span class="pill">High Work Rate 7.8/10</span>
+                    <span class="pill">Technical Football 7.6/10</span>
+                    <span class="pill">Youth Development 8.0/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📋 Legendary Manager Compatibility</h2>
+                <p class="small" style="margin-bottom:12px">How well Librici fits the tactical philosophies of
+                    football's greatest managers.</p>
+                <div>
+                    <span class="pill">Ferguson - 7.6/10</span>
+                    <span class="pill">Guardiola - 7.4/10</span>
+                    <span class="pill">Cruyff - 7.5/10</span>
+                    <span class="pill">Simeone - 7.8/10</span>
+                    <span class="pill">Klopp - 7.9/10</span>
+                    <span class="pill">Mourinho - 7.3/10</span>
+                    <span class="pill">Menotti - 7.2/10</span>
+                    <span class="pill">Michels - 7.4/10</span>
+                    <span class="pill">Sacchi - 7.6/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESFP (Entertainer)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Versatile
+                                Midfielder</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Adaptability</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Work Ethic</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">A young Belgian-Italian prospect developing his game in Dutch football.
+                            Librici's versatility to play both midfielder and right-back showcases tactical intelligence
+                            beyond his years. At 20, he's already secured a professional contract at MVV after
+                            impressing on an amateur deal - demonstrating professionalism and rapid development. His
+                            dual nationality opens future international opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Relationships & Dynamics</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">STVV Sint-Truiden (Youth & Brief Pro Spell 2014-22)</div>
+                    <div class="timeline-event">Developed through STVVs youth academy from 2014-19 and again 2021-22.
+                        Made professional debut on July 30, 2022, replacing Shinji Kagawa versus KAA Gent - a
+                        significant moment. Made 1 First Division A appearance before moving to Netherlands.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">MVV Maastricht (2024-present)</div>
+                    <div class="timeline-event">Joined on amateur contract in January 2024, debuting 3 days later. Quick
+                        impact with 2 assists in first 6 starts earned professional contract (June 20, 2024). Contract
+                        runs until 2026. Made 19 Eerste Divisie apps (1 goal, 2 assists) in 2024/25.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Belgian-Italian Heritage</div>
+                    <div class="timeline-event">Born in Belgium with Italian roots, representing dual-nationality
+                        pathway. Eligibility for both nations provides international career flexibility as he develops
+                        at professional level.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>STVV (Pro)</strong></td>
+                            <td>2022-23</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MVV Maastricht</strong></td>
+                            <td>2024-present</td>
+                            <td>19</td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td><strong>CAREER TOTAL</strong></td>
+                            <td><strong>2022-Present</strong></td>
+                            <td><strong>20</strong></td>
+                            <td><strong>1</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Career Milestones</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">Professional Debut</div>
+                        <div class="trophy-year">STVV 2022</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📝</div>
+                        <div class="trophy-title">Pro Contract MVV</div>
+                        <div class="trophy-year">Jun 20, 2024</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🌍</div>
+                        <div class="trophy-title">Dual Nationality</div>
+                        <div class="trophy-year">Belgium/Italy</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🎯</div>
+                        <div class="trophy-title">MVV Impact</div>
+                        <div class="trophy-year">19 Apps, 1G, 2A</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">💼</div>
+                        <div class="trophy-title">Contract Until</div>
+                        <div class="trophy-year">Jun 30, 2026</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🔄</div>
+                        <div class="trophy-title">Versatile</div>
+                        <div class="trophy-year">MF/RB</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚡ Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 30, 2022 | Professional Debut</div>
+                    <div class="timeline-event">Made professional debut for STVV in Belgian First Division A, coming on
+                        as substitute for Japanese star Shinji Kagawa against KAA Gent. A memorable first appearance in
+                        top-flight football.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2024 | MVV Move</div>
+                    <div class="timeline-event">Joined MVV Maastricht on amateur contract, opting for regular football
+                        in Dutch Eerste Divisie. Debuted just 3 days later in 3-0 win vs FC Eindhoven.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 23, 2024 | First Assist</div>
+                    <div class="timeline-event">Made first start against FC Den Bosch and provided assist for the only
+                        goal - showing immediate impact when given opportunity.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 20, 2024 | Professional Contract</div>
+                    <div class="timeline-event">After impressing with 2 assists in first 6 starts, earned professional
+                        2-year contract with MVV until June 2026. Major career milestone at age 19.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 4, 2024 | First Goal</div>
+                    <div class="timeline-event">Scored first professional goal for MVV in 4-3 loss to Jong Utrecht,
+                        marking another step in development.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width:100%;max-height:100%"></canvas>
+                </div>
+                <p class="small" style="text-align:center;margin-top:12px">Current abilities vs development trajectory
+                </p>
+            </div>
+            <div class="card">
+                <h2>🎥 Career Development</h2>
+                <p class="small">Following Librici's journey through Belgian and Dutch football.</p>
+               <p class="small">Watch Andrea Librici's skills, goals, and key performances.</p>
+<iframe
+  src="https://player.mux.com/nnDqhz01lKnpBYhNSIel9YPHrYxwsNndVyUsXGxUKZns?metadata-video-title=Andrea+Librici&video-title=Andrea+Librici"
+  style="width: 100%; border: none; aspect-ratio: 16/9;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
+                <div class="muted-box" style="text-align:center">
+                    <p style="color:var(--muted);font-size:14px">A young Belgian-Italian midfielder carving his path in
+                        Dutch football with versatility and work ethic.</p>
+                </div>
+            </div>
+ 
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">20 (Dec 9,
+                                2004)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span
+                                class="info-value">Midfielder / Right-Back</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">Belgium / Italy</span></div>
+                        <div class="info-row"><span class="info-label">Current Level</span><span
+                                class="info-value">Eerste Divisie (Tier 2 NED)</span></div>
+                    </div>
+                    <div>
+                        <h3>Status</h3>
+                        <div class="info-row"><span class="info-label">Club</span><span class="info-value">MVV
+                                Maastricht</span></div>
+                        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until Jun
+                                30, 2026</span></div>
+                        <div class="info-row"><span class="info-label">Career Apps</span><span
+                                class="info-value">20</span></div>
+                        <div class="info-row"><span class="info-label">Development</span><span class="info-value">Rising
+                                Talent</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Data validated from MVV Maastricht & Transfermarkt
+            Archives</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Passing', 'Technique', 'Work Rate', 'Versatility', 'Potential', 'Professionalism'],
+                datasets: [{ label: 'Current', data: [74, 76, 78, 78, 80, 78], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.2)', borderWidth: 2 }, { label: 'Potential', data: [78, 80, 82, 82, 85, 82], borderColor: '#0b5bb0', backgroundColor: 'rgba(11,91,176,0.1)', borderWidth: 2 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: { beginAtZero: true, max: 100, ticks: { color: '#8b949e', backdropColor: 'transparent' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#f0f6fc', font: { size: 13, weight: '600' } } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f0f6fc', font: { size: 12 } } }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
