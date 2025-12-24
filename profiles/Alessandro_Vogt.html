@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro Vogt — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2::before {
+            content: "";
+            margin-right: 8px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent2);
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            background: rgba(255, 210, 77, 0.03);
+            border: 1px solid rgba(255, 210, 77, 0.12);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .trophy-box:hover {
+            background: rgba(255, 210, 77, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .trophy-icon {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .trophy-year {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire FGA">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div>
+            <div class="card">
+                <img src="https://chm-images-prd.forward-publishing.io/2025/08/14/6dde4fa2-8aa2-408c-8d70-41f3a44df469.jpg?w=1024&auto=format&s=01c11328a87c2458022ca147aa423da9"
+                    alt="Alessandro Vogt" class="photo">
+                <div class="rating-badge">85.9</div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Player Info
+                </h2>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Alessandro
+                        Vogt</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">February 3, 2005
+                        (Switzerland)</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Striker
+                        (ST)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.88m (6'2")</span>
+                </div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                <div class="info-row"><span class="info-label">Age</span><span class="info-value">20 years old</span>
+                </div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">St. Gallen
+                        (Swiss Super League)</span></div>
+                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Switzerland
+                        U21 (2 caps, 1 goal)</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Physical
+                    Profile</h2>
+                <div class="info-row"><span class="info-label">Physical Rating</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">Technical Rating</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">Tactical Rating</span><span
+                        class="info-value">8.3/10</span></div>
+                <div class="info-row"><span class="info-label">Mental Rating</span><span
+                        class="info-value">8.6/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">FGA Scores
+                </h2>
+                <div class="info-row"><span class="info-label">FIN (Finishing)</span><span
+                        class="info-value">8.7/10</span></div>
+                <div class="info-row"><span class="info-label">AER (Aerial Threat)</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">PHY (Physical Presence)</span><span
+                        class="info-value">8.8/10</span></div>
+                <div class="info-row"><span class="info-label">MOV (Movement)</span><span
+                        class="info-value">8.5/10</span></div>
+                <div class="info-row"><span class="info-label">WRK (Work Rate)</span><span
+                        class="info-value">8.9/10</span></div>
+                <div class="info-row"><span class="info-label">POT (Potential)</span><span
+                        class="info-value">8.8/10</span></div>
+            </div>
+
+            <div class="card">
+                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent2); margin-bottom: 12px;">Philosophy
+                    Alignment</h2>
+                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
+                <span class="pill">🇩🇪 Klopp (8.7/10)</span>
+                <span class="pill">🇦🇷 Simeone (8.6/10)</span>
+                <span class="pill">🇮🇹 Conte (8.5/10)</span>
+                <span class="pill">🇩🇪 Nagelsmann (8.4/10)</span>
+                <span class="pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Howe (8.3/10)</span>
+                <div class="muted-box">
+                    <strong>Philosophy Profile:</strong> Modern physical striker combining height (1.88m), work rate,
+                    and goal-scoring instinct. Perfect for high-intensity pressing systems requiring forwards to
+                    contribute defensively. Ideal for teams emphasizing direct attacking and aerial threat. Excellent
+                    fit for managers valuing aggressive, hardworking strikers. Swiss development pathway demonstrates
+                    solid tactical foundation. At 20 years old with strong scoring record (32 goals in 92 appearances),
+                    showing consistent improvement. Contract until 2029 at St. Gallen suggests club belief in continued
+                    development.
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div>
+            <!-- Career Summary -->
+            <div class="card">
+                <h2>▸ Career Summary</h2>
+                <p class="lead">
+                    <strong>Alessandro Vogt</strong> is an emerging 20-year-old Swiss striker who represents the modern
+                    prototype of a complete forward—combining physical presence (1.88m/6'2"), technical ability, and
+                    exceptional work rate. Born on February 3, 2005 in Switzerland with dual Swiss-Italian citizenship,
+                    Vogt has rapidly progressed through Swiss football's development system. His journey through
+                    multiple youth academies (Wohlen, Baden, Aarau) before returning to FC Wohlen for his professional
+                    breakthrough demonstrates resilience and determination. In July 2025, he earned a significant
+                    promotion to St. Gallen's first team with a contract running until 2029.
+                </p>
+                <p class="lead" style="margin-top: 14px;">
+                    Vogt's career statistics reveal impressive productivity: 32 goals across 92 senior appearances (0.35
+                    goals per game) is exceptional for a developing striker still only 20 years old. His progression
+                    from Wohlen (6 goals in 24 matches) through St. Gallen U21 (21 goals in 59 matches) to the Swiss
+                    Super League first team (5 goals in 9 matches in 2024-25) demonstrates consistent improvement and
+                    adaptability. International recognition followed with 2 Switzerland U21 caps and 1 goal. Vogt's
+                    combination of physical attributes, goal-scoring instinct, and relentless work ethic mark him as a
+                    striker with significant potential to develop into a consistent top-tier performer.
+                </p>
+            </div>
+
+            <!-- Current Season Stats -->
+            <div class="card">
+                <h2>▲ Current Season Statistics (2024-25 St. Gallen)</h2>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Goals/Game</th>
+                        <th>Key Achievement</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Swiss Super League 2024-25</strong></td>
+                        <td>9</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>0.56</td>
+                        <td>First-team breakthrough</td>
+                    </tr>
+                    <tr>
+                        <td><strong>All Competitions</strong></td>
+                        <td>9</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>0.56</td>
+                        <td>Impressive start</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Season Context:</strong> 2024-25 represents Vogt's breakthrough season at Swiss Super League
+                    level. Promoted to St. Gallen first team July 22, 2025. 5 goals in 9 appearances (0.56 goals/game)
+                    demonstrates immediate impact. Far exceeds career average of 0.35 goals/game. Physical presence and
+                    aerial threat proving effective at top Swiss tier. Work rate and movement creating scoring
+                    opportunities. At 20, establishing himself as regular option in competitive league. Contract until
+                    2029 shows club's long-term commitment. Season trajectory suggests potential for double-digit goal
+                    season if maintains form.
+                </div>
+            </div>
+
+            <!-- Evolution Through Career -->
+            <div class="card">
+                <h2>⟲ Development Path</h2>
+                <div class="section">
+                    <h3>Youth Development - Multiple Academies (2013-2021)</h3>
+                    <p class="lead">Began football journey at FC Wohlen (2013-2019). Six years developing fundamental
+                        skills. Moved to Baden (2019-2020) seeking higher-level development. Brief period at Aarau
+                        (2020-2021) experiencing different coaching methodologies. Multiple academy experiences
+                        broadened tactical understanding and built resilience. Physical attributes evident from young
+                        age at 1.88m.</p>
+                </div>
+                <div class="section">
+                    <h3>FC Wohlen - Professional Debut (2021-2023)</h3>
+                    <p class="lead">Returned to FC Wohlen in 2021 where career began. Signed first professional contract
+                        July 2022 at age 17. Professional breakthrough in Swiss lower tiers. 24 appearances, 6 goals
+                        demonstrated goal-scoring instinct. Consistent performances attracted St. Gallen interest.
+                        Physical presence and work rate key attributes. Proved capability at senior professional level.
+                    </p>
+                </div>
+                <div class="section">
+                    <h3>St. Gallen U21 - Rapid Development (2023-2025)</h3>
+                    <p class="lead">Transferred to St. Gallen's U21 team in 2023. Outstanding productivity: 59
+                        appearances, 21 goals (0.36 goals/game). Dominated Swiss second-tier football. Aerial threat and
+                        physical play caused constant problems for defenders. Developed tactical awareness and movement.
+                        Earned promotion to first team based on consistent excellence. Became St. Gallen's most
+                        productive U21 striker.</p>
+                </div>
+                <div class="section">
+                    <h3>St. Gallen First Team - Breakthrough (2024-Present)</h3>
+                    <p class="lead">Formally promoted July 22, 2025 with contract until 2029. Immediate impact: 5 goals
+                        in 9 Swiss Super League matches. 0.56 goals/game ratio exceptional for 20-year-old. Physical
+                        presence effective against top-tier defenders. Work rate and pressing contribution valued by
+                        coaching staff. Switzerland U21 call-up (2 caps, 1 goal) international recognition. Current FGA
+                        rating: 8.6/10 with potential 8.8/10. Trajectory suggests future senior international
+                        consideration.</p>
+                </div>
+            </div>
+
+            <!-- Technical Profile -->
+            <div class="card">
+                <h2>✦ Technical Profile & Strengths</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Primary Strengths</h3>
+                        <div class="info-row"><span class="info-label">Aerial Threat</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Work Rate</span><span
+                                class="info-value">8.9/10</span></div>
+                        <div class="info-row"><span class="info-label">Physical Presence</span><span
+                                class="info-value">8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Finishing</span><span
+                                class="info-value">8.7/10</span></div>
+                        <div class="info-row"><span class="info-label">Movement</span><span
+                                class="info-value">8.5/10</span></div>
+                        <div class="info-row"><span class="info-label">Positioning</span><span
+                                class="info-value">8.6/10</span></div>
+                    </div>
+                    <div>
+                        <h3>Playing Style</h3>
+                        <div class="muted-box">
+                            <strong>Role:</strong> Physical Target Man / Pressing Forward<br><br>
+                            <strong>Key Attributes:</strong> Strong aerial ability at 1.88m height, exceptional work
+                            rate pressing defenders, physical strength holding up play, clinical finishing in box,
+                            intelligent movement creating space, right-footed precision, team-first mentality
+                            contributing defensively.<br><br>
+                            <strong>Tactical Fit:</strong> Perfect for high-pressing systems requiring forwards to
+                            defend from front. Ideal for teams utilizing direct attacking and crosses. Excellent for
+                            physical leagues valuing aerial threat. Developing versatility allows various striker roles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Club History -->
+            <div class="card">
+                <h2>● Club History</h2>
+                <table>
+                    <tr>
+                        <th>Years</th>
+                        <th>Club</th>
+                        <th>Apps</th>
+                        <th>Goals</th>
+                        <th>Goals/Game</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>2013-2019</td>
+                        <td><strong>Wohlen (Youth)</strong></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Youth development foundation</td>
+                    </tr>
+                    <tr>
+                        <td>2019-2020</td>
+                        <td><strong>Baden (Youth)</strong></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Continued development</td>
+                    </tr>
+                    <tr>
+                        <td>2020-2021</td>
+                        <td><strong>Aarau (Youth)</strong></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Broadened experience</td>
+                    </tr>
+                    <tr>
+                        <td>2021-2023</td>
+                        <td><strong>FC Wohlen</strong></td>
+                        <td>24</td>
+                        <td>6</td>
+                        <td>0.25</td>
+                        <td>Professional debut, first contract</td>
+                    </tr>
+                    <tr>
+                        <td>2023-2025</td>
+                        <td><strong>St. Gallen U21</strong></td>
+                        <td>59</td>
+                        <td>21</td>
+                        <td>0.36</td>
+                        <td>Prolific scorer, promotion earned</td>
+                    </tr>
+                    <tr>
+                        <td>2024-Present</td>
+                        <td><strong>St. Gallen</strong></td>
+                        <td>9</td>
+                        <td>5</td>
+                        <td>0.56</td>
+                        <td>First-team breakthrough, contract 2029</td>
+                    </tr>
+                </table>
+                <div class="muted-box">
+                    <strong>Career Totals:</strong> 92 senior appearances, 32 goals (0.35 goals/game). Consistent
+                    improvement trajectory: Wohlen (0.25), St. Gallen U21 (0.36), St. Gallen first team (0.56).
+                    Switzerland U21: 2 caps, 1 goal. Dual Swiss-Italian citizenship. Contract until 2029 demonstrates
+                    St. Gallen investment. Age 20 with significant upside potential. Physical development not yet
+                    complete—could add more strength/speed. Goal-scoring instinct proven across multiple levels.
+                </div>
+            </div>
+
+            <!-- Recognition & Achievements -->
+            <div class="card">
+                <h2>★ Recognition & Development</h2>
+                <h3>Club Level</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">St. Gallen</div>
+                        <div class="trophy-year">2024-Present</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">Contract until 2029</div>
+                        <div class="trophy-year">Long-term deal</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">●</div>
+                        <div class="trophy-title">32 Career Goals</div>
+                        <div class="trophy-year">92 matches</div>
+                    </div>
+                </div>
+                <h3>International & Individual</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">☆</div>
+                        <div class="trophy-title">Switzerland U21</div>
+                        <div class="trophy-year">2 caps, 1 goal</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">✦</div>
+                        <div class="trophy-title">U21 Top Scorer</div>
+                        <div class="trophy-year">21 goals (59 apps)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">◉</div>
+                        <div class="trophy-title">First-team Promotion</div>
+                        <div class="trophy-year">July 2025</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">★</div>
+                        <div class="trophy-title">Dual Nationality</div>
+                        <div class="trophy-year">🇨🇭 🇮🇹</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Milestones -->
+            <div class="card">
+                <h2>▶ Career Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2013-2021 | Youth Development Journey</div>
+                    <div class="timeline-event">Developed through multiple Swiss academies (Wohlen, Baden, Aarau).
+                        Diverse coaching experiences built tactical foundation and resilience. Physical attributes
+                        evident from early age. Set foundation for professional career.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2022 | First Professional Contract</div>
+                    <div class="timeline-event"><strong>Signed professional contract with FC Wohlen at age 17</strong>.
+                        Recognition of potential and goal-scoring ability. Beginning of senior career. Hometown club
+                        showing faith in young talent.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023 | FC Wohlen Professional Experience</div>
+                    <div class="timeline-event">24 appearances, 6 goals at senior level. Proved capability against
+                        professional opposition. Physical presence and work rate evident. Attracted interest from
+                        higher-level clubs. Important stepping stone in development.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | St. Gallen U21 Transfer</div>
+                    <div class="timeline-event">Joined St. Gallen's U21/reserve team. Opportunity at Swiss Super League
+                        club. Higher level of competition and coaching. Platform for continued development toward first
+                        team.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-2025 | U21 Dominance</div>
+                    <div class="timeline-event">Outstanding productivity: 59 appearances, 21 goals (0.36 goals/game).
+                        Became team's primary goal threat. Aerial dominance and physical play key weapons. Consistent
+                        performances earned first-team consideration. Proved readiness for step up to Super League.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2025 | Switzerland U21 Call-Up</div>
+                    <div class="timeline-event">Selected for Switzerland U21 national team. International recognition of
+                        development. 2 caps, 1 goal for U21s. Demonstrated capability at international youth level.
+                        Potential pathway to senior national team.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 22, 2025 | First-Team Promotion</div>
+                    <div class="timeline-event"><strong>Formally promoted to St. Gallen first team</strong>. Contract
+                        signed until 2029. Club commitment demonstrates belief in future. Opportunity to establish as
+                        Super League regular. Career milestone achieved at age 20.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024-25 Season | Breakthrough Performances</div>
+                    <div class="timeline-event">Immediate impact: 5 goals in 9 Swiss Super League appearances. 0.56
+                        goals/game exceptional for young striker. Physical attributes proving effective at highest Swiss
+                        level. Work rate and pressing valued by coaching staff. Establishing reputation as reliable
+                        goal-scorer. Bright future ahead.</div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>▭ Player Comparison (Young Swiss Strikers)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Vogt vs young strikers across key metrics
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>≡ Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Career Statistics</h3>
+                        <div class="info-row"><span class="info-label">Senior Appearances</span><span
+                                class="info-value">92 matches</span></div>
+                        <div class="info-row"><span class="info-label">Career Goals</span><span class="info-value">32
+                                goals</span></div>
+                        <div class="info-row"><span class="info-label">Goals per Game</span><span
+                                class="info-value">0.35 average</span></div>
+                        <div class="info-row"><span class="info-label">Switzerland U21</span><span class="info-value">2
+                                caps, 1 goal</span></div>
+                        <div class="info-row"><span class="info-label">Current Season</span><span class="info-value">5
+                                goals (9 apps)</span></div>
+                        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until
+                                2029</span></div>
+                    </div>
+                    <div>
+                        <h3>Profile & Future</h3>
+                        <div class="info-row"><span class="info-label">Playing Style</span><span
+                                class="info-value">Physical Striker</span></div>
+                        <div class="info-row"><span class="info-label">Best Position</span><span class="info-value">ST /
+                                CF</span></div>
+                        <div class="info-row"><span class="info-label">Key Strength</span><span
+                                class="info-value">Aerial + Work Rate</span></div>
+                        <div class="info-row"><span class="info-label">Age</span><span class="info-value">20
+                                years</span></div>
+                        <div class="info-row"><span class="info-label">Potential Rating</span><span
+                                class="info-value">8.8/10</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇨🇭 /
+                                🇮🇹</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,210,77,0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from Swiss Super League, St. Gallen FC Records & Expert Scout Assessment
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Finishing', 'Aerial', 'Physical', 'Movement', 'Work Rate', 'Positioning', 'Speed', 'Technique'],
+                datasets: [{
+                    label: 'Alessandro Vogt (2025)',
+                    data: [8.7, 8.9, 8.8, 8.5, 8.9, 8.6, 8.3, 8.5],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Breel Embolo (at 20)',
+                    data: [8.5, 8.6, 9.0, 8.8, 8.7, 8.6, 9.2, 8.7],
+                    borderColor: '#0066CC',
+                    backgroundColor: 'rgba(0,102,204,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Haris Seferovic (at 20)',
+                    data: [8.3, 8.4, 8.5, 8.4, 8.2, 8.3, 8.4, 8.2],
+                    borderColor: '#DA291C',
+                    backgroundColor: 'rgba(218,41,28,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Noah Okafor (at 20)',
+                    data: [8.6, 7.9, 8.2, 9.0, 8.5, 8.7, 9.3, 8.8],
+                    borderColor: '#0b5bb0',
+                    backgroundColor: 'rgba(11,91,176,0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#ffd24d',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#ffd24d',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

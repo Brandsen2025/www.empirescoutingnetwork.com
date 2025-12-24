@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Américo Gallego — Empire FGA Profile (Futuristic)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #020408; --card: #0b1221; --card-border: #1e293b; --white: #e2e8f0; --muted: #64748b; --accent1: #3b82f6; --accent2: #fbbf24; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; background: var(--bg); background-image: linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px); background-size: 30px 30px; color: var(--white); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        header { max-width: 1400px; margin: 0 auto; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(59, 130, 246, 0.2); background: rgba(2, 4, 8, 0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        .header-title { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fff; text-transform: uppercase; }
+        .header-title span { color: var(--accent2); }
+        .container { max-width: 1400px; margin: 40px auto; padding: 0 30px; display: grid; grid-template-columns: 380px 1fr; gap: 40px; }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin-bottom: 24px; position: relative; overflow: hidden; }
+        .photo-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid var(--accent2); box-shadow: 0 0 30px rgba(251, 191, 36, 0.1); }
+        .photo { width: 100%; height: 480px; object-fit: cover; object-position: top center; display: block; filter: contrast(1.1); }
+        .rating-badge { position: absolute; top: 15px; right: 15px; background: rgba(11, 18, 33, 0.95); border: 1px solid var(--accent2); color: var(--accent2); font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 24px; padding: 8px 16px; border-radius: 6px; }
+        h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; }
+        h2 svg { width: 18px; height: 18px; color: var(--accent1); }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .info-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+        .info-value { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--white); font-weight: 700; }
+        .pill { display: inline-block; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: var(--accent1); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; margin: 0 6px 6px 0; }
+        .muted-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent1); padding: 15px; margin-top: 15px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { text-align: left; font-size: 11px; text-transform: uppercase; color: var(--muted); padding: 12px; border-bottom: 1px solid var(--card-border); }
+        td { padding: 12px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.03); font-family: 'JetBrains Mono', monospace; }
+        td:first-child { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--white); }
+        .trophy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 15px; }
+        .trophy-item { background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; padding: 15px; text-align: center; transition: transform 0.2s; }
+        .trophy-item:hover { transform: translateY(-3px); border-color: var(--accent2); }
+        .trophy-name { font-size: 12px; font-weight: 700; color: var(--white); margin-top: 8px; }
+        .trophy-year { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono'; }
+        .timeline-item { padding-left: 20px; border-left: 2px solid var(--card-border); position: relative; padding-bottom: 25px; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent1); }
+        .timeline-date { font-family: 'JetBrains Mono'; font-size: 12px; color: var(--accent1); display: block; margin-bottom: 4px; }
+        .chart-container { position: relative; height: 400px; width: 100%; }
+        @media (max-width: 1024px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">EMPIRE <span>FGA</span> NETWORK</div>
+        <div style="font-family: 'JetBrains Mono'; font-size: 12px; color: var(--muted);">SYS.V.2025.12</div>
+    </header>
+
+    <div class="container">
+        <div>
+            <div class="card" style="padding: 0; border: none; background: none;">
+                <div class="photo-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMWC5AHd8F3OH7RonACe1_bErjvtPda3oY5VFnpfL-h5pAuKamTAoYd4HC3M1uF47ZTAQ&usqp=CAU" alt="Américo Gallego" class="photo">
+                    <div class="rating-badge">93.8</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>BIO DATA</h2>
+                <div class="info-row"><span class="info-label">Name</span><span class="info-value">Américo Rubén Gallego</span></div>
+                <div class="info-row"><span class="info-label">Born</span><span class="info-value">1955-04-25 (Morteros)</span></div>
+                <div class="info-row"><span class="info-label">Role</span><span class="info-value" style="color: var(--accent1);">Defensive Anchor (5)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.74m / 5'9"</span></div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>FGA SCORES</h2>
+                <div class="info-row"><span class="info-label">TAC (Tactical IQ)</span><span class="info-value" style="color: var(--accent2);">9.9</span></div>
+                <div class="info-row"><span class="info-label">AGG (Aggression)</span><span class="info-value">9.7</span></div>
+                <div class="info-row"><span class="info-label">LEA (Leadership)</span><span class="info-value">9.8</span></div>
+                <div class="info-row"><span class="info-label">DEF (Defending)</span><span class="info-value">9.6</span></div>
+                <div class="info-row"><span class="info-label">POS (Positioning)</span><span class="info-value">9.7</span></div>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>TACTICAL DNA</h2>
+                <div style="margin-bottom: 15px;">
+                    <span class="pill">Menotti (9.8)</span>
+                    <span class="pill">Bilardo (9.5)</span>
+                    <span class="pill">Rocco (9.2)</span>
+                    <span class="pill">Trapattoni (9.0)</span>
+                </div>
+                <div class="muted-box">
+                    <strong>Analysis:</strong> The ultimate tactical chameleon. Anchored Menotti's fluid 1978 attack and executed Bilardo's rigid structure in 1986. A pure destroyer who protected creative assets.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>CAREER DOSSIER</h2>
+                <p class="lead"><strong>Américo "El Tolo" Gallego</strong> defines the Argentine 'Number 5'. A relentless ball-winner whose career bridges the two greatest eras of Argentine football. He was the on-field general for the 1978 World Cup winning side, providing the steel behind the flair. At club level, he achieved mythical status, captaining River Plate to the "Triple Crown" in 1986 (League, Libertadores, Intercontinental).</p>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>PEAK METRICS (1978)</h2>
+                <table>
+                    <tr><th>Metric</th><th>Value</th><th>Context</th></tr>
+                    <tr><td>Tackles / 90</td><td class="accent-text">5.9</td><td>Elite Ball Winner</td></tr>
+                    <tr><td>Interceptions / 90</td><td>4.2</td><td>Reading of Game</td></tr>
+                    <tr><td>Duels Won</td><td>72%</td><td>Physical Dominance</td></tr>
+                    <tr><td>WC Minutes</td><td>660'</td><td>Every Minute Played</td></tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>HONORS CABINET</h2>
+                <div class="trophy-grid">
+                    <div class="trophy-item">
+                        <div class="trophy-name">World Cup</div>
+                        <div class="trophy-year">1978 (Winner)</div>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-name">Libertadores</div>
+                        <div class="trophy-year">1986</div>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-name">Intercontinental</div>
+                        <div class="trophy-year">1986</div>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-name">Manager Titles</div>
+                        <div class="trophy-year">4x Argentina, 1x Mexico</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>CRITICAL PATH</h2>
+                <div class="timeline-item">
+                    <span class="timeline-date">1978 | World Cup Final</span>
+                    <div class="timeline-event">Starter vs Netherlands (3-1). Anchored midfield for 120 mins.</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">1986 | The Triple Crown</span>
+                    <div class="timeline-event">Captain of the greatest River side ever. Won League, Libertadores, and Intercontinental Cup.</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">2004 | Historic Manager</span>
+                    <div class="timeline-event">Won Apertura with Newell's Old Boys, becoming the 2nd manager to win titles with 3 different Argentine clubs.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path></svg>COMPARATIVE ANALYSIS</h2>
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: #020408; padding: 40px; text-align: center; border-top: 1px solid var(--card-border); margin-top: 40px;">
+        <p style="color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">EMPIRE FGA SCOUTING NETWORK // ID: AG-1978-ARG</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Tackling', 'Positioning', 'Work Rate', 'Aggression', 'Passing', 'Technique', 'Leadership', 'Aerial'],
+                datasets: [{
+                    label: 'A. Gallego (1978)',
+                    data: [9.8, 9.7, 9.9, 9.7, 8.5, 8.8, 9.8, 9.2],
+                    borderColor: '#fbbf24',
+                    backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                    borderWidth: 2
+                }, {
+                    label: 'G. Gattuso (2006)',
+                    data: [9.9, 9.4, 10.0, 10.0, 8.0, 8.2, 9.5, 8.0],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { color: '#94a3b8', font: { family: "'JetBrains Mono', monospace", size: 11 } },
+                        ticks: { display: false, max: 10 }
+                    }
+                },
+                plugins: { legend: { labels: { color: '#e2e8f0' } } }
+            }
+        });
+    </script>
+</body>
+</html>

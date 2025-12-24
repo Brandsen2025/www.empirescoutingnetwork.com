@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Alexis Vossah — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EziOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.ytimg.com/vi/EKHFAQ18uz4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBIbdabVd7ZtWbCdCqk1YIF9AfxsQ" alt="Alexis Vossah">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Alexis Vossah</div>
+        <div class="sub">Midfielder · France · Born: 11 Mar 2008 (17)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Toulouse (Academy)</span>
+          <span class="pill"><strong>Position</strong> Central Midfielder, Defensive Midfielder</span>
+          <span class="pill"><strong>Nickname</strong> (Emerging Talent)</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">A highly versatile and physically strong midfielder from the Toulouse academy. Born in France and of Togolese descent, Vossah is an ambidextrous and press-resistant player capable of playing as a central midfielder, defensive midfielder, or centre-back. He made his senior professional debut for Toulouse in August 2025 and has already been a fixture in the France U16 and U18 national teams.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>VER - Versatility</td><td>9.5</td></tr>
+              <tr><td>PHY - Physicality</td><td>9.0</td></tr>
+              <tr><td>CMP - Composure</td><td>8.8</td></tr>
+              <tr><td>TEC - Technique</td><td>8.7</td></tr>
+              <tr><td>POT - Potential</td><td>9.2</td></tr>
+              <tr><td>PAS - Passing</td><td>8.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is for an active player (Prospect); data is current as of Nov 2025.</li>
+            <li>Analyze 2025-26 senior debut season for metrics.</li>
+            <li>Player is exceptionally versatile (CM, DM, CB).</li>
+            <li>Player is ambidextrous.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, Transfermarkt, and FotMob.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">86.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Alexis Vossah is a promising and versatile French midfielder who has rapidly risen through the ranks at Toulouse. After developing at Cergy Pontoise, he joined the Toulouse academy in 2022. His talent was fast-tracked, leading to his senior and professional debut in August 2025 at age 17. Vossah's primary strength is his adaptability; he is a physically strong, ambidextrous player who can retain the ball under pressure. This allows him to be deployed effectively as a central midfielder, a defensive midfielder, or even a centre-back. He is a regular for the French youth national teams.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describeby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2015–2022</td><td>Cergy Pontoise (Youth)</td><td>Early development.</td></tr>
+            <tr><td>2022–2025</td><td>Toulouse (Academy)</td><td>Joined the academy; played for U17, U19, and B teams.</td></tr>
+            <tr><td>Aug 16, 2025</td><td>Toulouse (Senior)</td><td>Made professional debut in a 1-0 win vs. OGC Nice.</td></tr>
+            <tr><td>Aug 30, 2025</td><td>Toulouse</td><td>Scored his first senior goal vs. Paris Saint-Germain.</td></tr>
+            <tr><td>2023–Present</td><td>France Youth National Teams</td><td>Called up to U16 in 2023; now with U18s.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describeby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 16, 2025</td><td>Toulouse vs. OGC Nice</td><td>Made his senior and professional debut.</td></tr>
+            <tr><td>Aug 30, 2025</td><td>Toulouse vs. PSG</td><td>Scored his first senior goal; 7.4 rating.</td></tr>
+            <tr><td>Oct 05, 2025</td><td>Lyon vs. Toulouse</td><td>Came on as a sub in a 2-1 victory.</td></tr>
+            <tr><td>Sep 2023</td><td>France U16</td><td>First call-up to the national youth setup.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Versatility (VER):</strong> "Elite." Can play DM, CM, or CB at a high level.</li>
+              <li><strong>Physicality (PHY):</strong> "Very Strong." Physically robust and can retain the ball under pressure.</li>
+              <li><strong>Ambidexterity:</strong> "Elite." He is ambidextrous, a rare and valuable trait.</li>
+              <li><strong>Passing (PAS):</strong> A "strong passer" who is heavily involved in build-up play.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Senior Experience:</strong> "Very Low." Only has a handful of senior appearances.</li>
+              <li><strong>Discipline:</strong> Has already received a red card in his brief senior career.</li>
+              <li><strong>Aerial Duels:</strong> "Average." Despite his strength, this is not a listed strength.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> High (Potential). A versatile, ambidextrous midfielder for a top Ligue 1 club is a high-value profile.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A key academy graduate. Toulouse fast-tracked him to the first team, indicating he is a core future asset.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His combination of physicality, versatility, and ambidexterity makes him a fit for any top-5 league.</td>
+            <p class="small"><strong>International Impact:</strong> A regular in the French youth setup (U16, U18). Also eligible for Togo.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (Toulouse 2025-26)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>G - Goals (p90)</td><td>0.57 (from 8 apps)</td></tr>
+                <tr><td>A - Assists (p90)</td><td>0.57 (from 8 apps)</td></tr>
+                <tr><td>VER - Positions Played</td><td>DM, CM, CB</td></tr>
+                <tr><td>PHY - Physicality</td><td>9.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Ligue 1 Midfielders)</h3>
+            <ul class="small">
+              <li>Versatility: 99th percentile.</li>
+              <li>Ambidexterity: 99th percentile.</li>
+              <li>Press Resistance: 90th percentile (Est.).</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival Ligue 1 data. ERA Factor: ~1.00 (2020s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Vossah's DNA is the **Tactical Swiss Army Knife**. He is a "Modern Hybrid" player whose "Elite" **Versatility (VER)** allows him to play DM, CM, or CB. His game is built on **Physicality (PHY)**, press resistance, and rare **Ambidexterity (TEC)**, making him a perfect fit for the "Guardiola Positional" or "Ancelotti Adaptation" philosophies.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Guardiola Positional</td><td>9.5</td><td>A versatile, ambidextrous, press-resistant midfielder.</td></tr>
+                <tr><td>Ancelotti Adaptation</td><td>9.4</td><td>His tactical flexibility (DM, CM, CB) is a manager's dream.</td></tr>
+                <tr><td>Wenger Development</td><td>9.0</td><td>A young, highly intelligent academy prospect fast-tracked to the seniors.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.5</td><td>His physical strength and work rate fit a pressing system.</td></tr>
+                <tr><td>Simeone Cholismo</td><td>8.2</td><td>Has the physical grit and defensive versatility.</td></tr>
+                <tr><td>Mourinho Tactical</td><td>8.0</td><td>A strong, disciplined, and versatile soldier.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on versatility and debut goal vs. PSG.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Ligue 1 Debut:</strong> Aug 2025 (at 17).</li>
+              <li><strong>First Senior Goal:</strong> vs. PSG.</li>
+              <li><strong>Versatility:</strong> DM, CM, CB.</li>
+              <li><strong>Ambidextrous:</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (positions played), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a #6 or #8 in a modern possession system.</li>
+          <li>Utilize his versatility to provide defensive cover or midfield control.</li>
+          <li>Leverage his ambidexterity to open up new passing lanes.</li>
+          <li>A high-potential prospect to be developed as a future "pivot."</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Confident:</strong> Made his debut at 17 and scored against PSG.</li>
+          <li><strong>Intelligent:</strong> His ability to play three complex positions (DM, CM, CB) points to a high football IQ.</li>
+          <li><strong>Adaptable:</strong> Ambidextrous and positionally flexible.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Handles pressure well (press-resistant).</li>
+          <li>Does not seem fazed by the senior level, scoring against top opposition.</li>
+          <li>A quick learner, absorbing complex tactical roles.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Early discipline issues (1 red card in 8 games).</li>
+          <li>Managing the "wonderkid" hype.</li>
+          <li>Finding his "true" primary position.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Alexis Vossah is a "Guardiola Positional" player in the making. He is a modern, tactical "chameleon" whose intelligence and physical gifts allow him to solve multiple problems on the pitch. He fits the "Wenger Development" model of a young, ambidextrous, and intelligent prospect who is trusted with senior football early. His ability to be press-resistant and score against PSG shows a high mental ceiling.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.00 (2020s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2025-26</td><td>Toulouse (All Comps)</td><td>8</td><td>1</td><td>1</td><td>2</td><td>86.5 (Current)</td></tr>
+            <tr><td>2025-26</td><td>Toulouse II (All Comps)</td><td>3</td><td>0</td><td>0</td><td>0</td><td>84.0</td></tr>
+            <tr><td>2024-25</td><td>Toulouse U19</td><td>13</td><td>1</td><td>0</td><td>1</td><td>85.0 (Youth Peak)</td></tr>
+            <tr><td>2023-24</td><td>Toulouse U17</td><td>21</td><td>0</td><td>0</td><td>0</td><td>84.0</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his peak.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Quietly confident; leads by being reliable and technically secure.</td><td>N/A (Active)</td></tr>
+            <tr><td>Pressure Handling</td><td>Excellent. Scored against PSG, press-resistant.</td><td>N/A (Active)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Focused on tactical versatility and physical development.</td><td>N/A (Active)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club</td><td>Toulouse FC</td><td>Developed him since 2022 and gave him his pro debut.</td></tr>
+            <tr><td>National Team</td><td>France (U16/U18)</td><td>A regular in the youth setup.</td></tr>
+            <tr><td>Heritage</td><td>Togo</td><td>Is of Togolese descent, holding future eligibility.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Nov 09, 2025</td><td>Lorient (Ligue 1)</td><td>D 1-1</td><td>24 mins (sub).</td><td>Rep. 2025-26 season</td></tr>
+            <tr><td>Nov 02, 2025</td><td>Le Havre (Ligue 1)</td><td>D 0-0</td><td>30 mins (sub).</td><td>Rep. 2025-26 season</td></tr>
+            <tr><td>Oct 29, 2025</td><td>Rennes (Ligue 1)</td><td>D 2-2</td><td>10 mins (sub).</td><td>Rep. 2025-26 season</td></tr>
+            <tr><td>Oct 05, 2025</td><td>Lyon (Ligue 1)</td><td>W 2-1</td><td>12 mins (sub), 1 assist.</td><td>First senior assist</td></tr>
+            <tr><td>Aug 30, 2025</td><td>PSG (Ligue 1)</td><td>L 3-6</td><td>27 mins (sub), 1 goal.</td><td>First senior goal</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2025-26 senior debut.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-AV-01</td><td>Toulouse vs PSG</td><td>2025</td><td>First senior goal</td><td>ARCH-AV-2025-PSG (attach)</td></tr>
+            <tr><td>VH-AV-02</td><td>Toulouse vs Lyon</td><td>2025</td><td>First senior assist</td><td>ARCH-AV-2025-LYO (attach)</td></tr>
+            <tr><td>VH-AV-03</td><td>Toulouse Academy</td><td>2024-25</td><td>Youth highlights (versatility, passing)</td><td>ARCH-AV-2025-YTH (attach)</td></tr>
+            <tr><td>VH-AV-04</td><td>France U18</td><td>2025</td><td>National team highlights</td><td>ARCH-AV-2025-FRA (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Versatile Midfielders)</h2>
+        <p class="small">Comparators: Declan Rice (Prospect Profile), Eduardo Camavinga (Prospect Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="alexisVossahRadar" aria-label="Radar comparing Alexis Vossah and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player is a high-IQ, low-panic prospect.</li>
+          <li>Motivated by tactical instruction and trust from the manager.</li>
+          <li>Must manage early-career discipline as he adapts to senior football.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, WhoScored, and FotMob. All metrics are based on his current prospect status (circa 2025). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. This is a high-potential prospect profile.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Alexis Vossah expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx_vossah = document.getElementById('alexisVossahRadar')?.getContext('2d');
+    if (ctx_vossah) {
+      new Chart(ctx_vossah, {
+        type: 'radar',
+        data: {
+          labels: ['Versatility (VER)','Physicality (PHY)','Composure (CMP)','Potential (POT)','Passing (PAS)','Technique (TEC)'],
+          datasets: [
+            { label: 'A. Vossah (Prospect)', data: [9.5, 9.0, 8.8, 9.2, 8.5, 8.7],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'D. Rice (Prospect)', data: [8.5, 9.2, 8.8, 9.0, 8.4, 8.5],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'E. Camavinga (Prospect)', data: [9.4, 8.8, 9.0, 9.8, 8.9, 9.2],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphonso Davies — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://tmssl.akamaized.net//images/foto/galerie/alphonso-davies-fc-bayern-munchen-1574780829-27721.jpg"
+                    alt="Alphonso Davies" class="photo">
+                <div class="title">Alphonso Davies</div>
+                <div class="sub">Bayern Munich • Canada Captain • World Class Speedster</div>
+                <div class="rating-badge">88.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇨🇦 Canada</span><span class="stat-label">58 Caps •
+                            15 Goals • National Team Captain</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">DOB</span><span class="info-value">November 2, 2000
+                            (Age 24)</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Left-Back /
+                            Winger</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Canada
+                            🇨🇦</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Bayern Munich</span><span
+                            class="info-value">2019-Present (226 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Vancouver Whitecaps</span><span
+                            class="info-value">2016-2018 (81 apps)</span></div>
+                    <div class="info-row"><span class="info-label">Canada NT</span><span class="info-value">2017-Present
+                            (Captain)</span></div>
+                    <div class="info-row"><span class="info-label">Trophies</span><span class="info-value">13 Major
+                            Titles</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Alphonso Davies is a **generational talent** and arguably the **fastest player in world
+                    football**. Born **November 2, 2000** (age 24). **Bayern Munich (2019-Present)**: Joined from MLS as
+                    teenager and became immediate sensation. **6x Bundesliga Champion** (2019-2024). **UEFA Champions
+                    League Winner (2020)** - key part of treble-winning side. **226 appearances, 14 goals, 32 assists**
+                    for Bayern. **FIFA FIFPro World11 (2020)**. Redefined the modern full-back role with recovery pace
+                    and dribbling. **Canada National Team**: **Captain and talisman**. **58 caps, 15 goals**. Led Canada
+                    to **2022 World Cup** (first in 36 years). Scored **Canada's first-ever World Cup goal** vs Croatia.
+                    **4x Canadian Player of the Year**. **Playing Style**: Electric pace (9.9/10), elite dribbling
+                    ability from deep, and recovery speed that allows high defensive lines. Can play as attacking
+                    left-back or winger.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> Champions League
+                    Winner (2020) • 6x Bundesliga Champion • FIFA FIFPro World11 • Canada World Cup Goalscorer • 4x
+                    Canadian Player of the Year</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:81.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:83.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">7.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:79.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">7.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:77.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">9.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:99.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Davies' tactical DNA mapped across legendary coaching
+                    philosophies.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 8.6/10</span>
+                    <span class="pill">Guardiola Positional 8.8/10</span>
+                    <span class="pill">Cruyff Intelligence 8.5/10</span>
+                    <span class="pill">Menotti Artistry 8.4/10</span>
+                    <span class="pill">Michels Total 8.9/10</span>
+                    <span class="pill">Simeone Cholismo 8.3/10</span>
+                    <span class="pill">Mourinho Tactical 8.2/10</span>
+                    <span class="pill">Sacchi Pressing 8.7/10</span>
+                    <span class="pill">Klopp Intensity 9.2/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ENFP (Campaigner)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Speed
+                                Demon</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Pace</span><span
+                                    class="metric-score">9.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:99%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Dribbling</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**World-class speed (9.9)**. "Roadrunner" nickname. Incredible recovery pace
+                            allows team to play high line. Elite dribbler (9.3) who can carry ball (9.5) entire length
+                            of pitch. Infectious personality and leader for Canada. Won everything at club level by age
+                            20. Rare combination of physical dominance and technical skill.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 23, 2020 | Champions League Glory</div>
+                    <div class="timeline-event">🏆 **WON CHAMPIONS LEAGUE** with Bayern Munich. Part of historic
+                        treble-winning season. First Canadian male to win UCL.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 27, 2022 | History for Canada</div>
+                    <div class="timeline-event">🇨🇦 **SCORED FIRST WORLD CUP GOAL** for Canada vs Croatia. Historic
+                        header after 68 seconds. Defining moment for Canadian soccer.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019-2020 | Breakout Season</div>
+                    <div class="timeline-event">🌟 **Bundesliga Rookie of the Season**. Exploded onto scene as world's
+                        best young left-back. Famous performance vs Chelsea/Barcelona.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2022 | CONCACAF Dominance</div>
+                    <div class="timeline-event">🏅 **CONCACAF Player of the Year** (2x). Led Canada to top of World Cup
+                        qualifying. Established as region's best player.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019-2024 | Bundesliga Dynasty</div>
+                    <div class="timeline-event">🛡️ **6x BUNDESLIGA CHAMPION**. Key starter in Bayern's era of
+                        dominance. Consistent excellence in German top flight.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Country</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bayern Munich</strong></td>
+                            <td>2019-Present</td>
+                            <td>226</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vancouver Whitecaps</strong></td>
+                            <td>2016-2018</td>
+                            <td>81</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Canada NT</strong></td>
+                            <td>2017-Present</td>
+                            <td>58</td>
+                            <td>15</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="4"><strong>Career Total:</strong> 365+ Apps • 41 Goals • 13 Major Trophies</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Key Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">Champions League</div>
+                        <div class="trophy-year">2020</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🛡️</div>
+                        <div class="trophy-title">6x Bundesliga</div>
+                        <div class="trophy-year">2019-2024</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🌍</div>
+                        <div class="trophy-title">FIFA Club World Cup</div>
+                        <div class="trophy-year">2020</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇨🇦</div>
+                        <div class="trophy-title">Canada Captain</div>
+                        <div class="trophy-year">Leader</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⭐</div>
+                        <div class="trophy-title">FIFA World11</div>
+                        <div class="trophy-year">2020</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏅</div>
+                        <div class="trophy-title">CONCACAF POTY</div>
+                        <div class="trophy-year">2021, 2022</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <p class="small" style="margin-bottom:12px;">Alphonso Davies' meteoric rise from MLS to European
+                    royalty.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Achievement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bayern Munich</strong></td>
+                            <td>2019-</td>
+                            <td>226</td>
+                            <td>UCL Winner, 6x League</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vancouver</strong></td>
+                            <td>2016-18</td>
+                            <td>81</td>
+                            <td>Youngest MLS Scorer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Canada</strong></td>
+                            <td>2017-</td>
+                            <td>58</td>
+                            <td>World Cup Qualification</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Career highlights and memorable performances for Alphonso
+                    Davies.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 14, 2020 | Bayern 8-2 Barcelona</div>
+                    <div class="timeline-event">🔥 **THE DRIBBLE** - Famous assist for Kimmich after destroying Semedo.
+                        Iconic moment in Champions League history. Announced arrival as world class.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 27, 2022 | Canada 1-4 Croatia</div>
+                    <div class="timeline-event">🇨🇦 **FIRST WORLD CUP GOAL** - Scored Canada's first ever men's World
+                        Cup goal with a towering header. Historic moment for his nation.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 25, 2020 | Chelsea 0-3 Bayern</div>
+                    <div class="timeline-event">🚀 **STAMFORD BRIDGE MASTERCLASS** - Dominated Chelsea away in UCL.
+                        Assist for Lewandowski. Showed incredible recovery pace.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 13, 2021 | Canada 4-1 Panama</div>
+                    <div class="timeline-event">⚡ **THE SOLO GOAL** - Incredible solo goal in World Cup qualifying.
+                        Sprinting from own half to score. "Phonzie" magic.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Elite Full-Backs)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Davies vs World Class Full-Backs</p>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">DOB</span><span class="info-value">Nov 2, 2000
+                                (24)</span></div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Left-Back
+                                / Winger</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Canada
+                                🇨🇦</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Club</span><span class="info-value">Bayern
+                                Munich</span></div>
+                        <div class="info-row"><span class="info-label">League</span><span class="info-value">Bundesliga
+                                (GER)</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">Key
+                                Starter</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">88.5 -
+                                World Class</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,210,77,0.12);margin-top:30px">
+        <p style="color:var(--muted);font-size:13px"><strong style="color:var(--accent2)">Empire FGA Scouting
+                Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework</p>
+        <p style="color:var(--muted);font-size:11px;margin-top:6px">Alphonso Davies - Bayern Munich • Champions League
+            Winner • Canada Captain</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Pace', 'Dribbling', 'Recovery', 'Crossing', 'Stamina', 'Tackling', 'Creativity', 'Work Rate'], datasets: [{ label: 'Davies', data: [9.9, 9.3, 9.8, 8.2, 9.5, 8.5, 8.7, 9.5], borderColor: '#ffd24d', backgroundColor: 'rgba(255,210,77,0.15)', borderWidth: 3, pointBackgroundColor: '#ffd24d', pointBorderColor: '#fff', pointRadius: 5 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#ffd24d', bodyColor: '#f0f6fc', borderColor: '#ffd24d', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>

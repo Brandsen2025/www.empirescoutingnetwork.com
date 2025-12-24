@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Alfredo Di Stéfano — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://assets.dev-filo.dift.io/img/2021/07/07/di_stefano_portadaaaaa_sq.jpg" alt="Alfredo Di Stéfano photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Alfredo Di Stéfano</div>
+        <div class="sub">Forward / Att. Midfielder (Retired) · Arg/Col/Spa · Born: 4 Jul 1926 (Died: 7 Jul 2014) · Height: 1.76 m</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Real Madrid, River Plate, Millonarios</span>
+          <span class="pill"><strong>Nickname</strong> Saeta Rubia (Blond Arrow)</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Legendary footballer, arguably the most complete player in history. Dominated games with unparalleled stamina, tactical intelligence, technical skill, versatility, and prolific goalscoring. Led Real Madrid's golden era, winning five consecutive European Cups.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>Total Football Index (TFI - Custom)</td><td>9.9 (Archetype)</td></tr>
+              <tr><td>GOL - Goals/90</td><td>0.80+ (Elite)</td></tr>
+              <tr><td>POI - Position Intelligence</td><td>9.8</td></tr>
+              <tr><td>DYN - Dynamism / Work Rate</td><td>9.7</td></tr>
+              <tr><td>CHR - Character / Leadership</td><td>9.6</td></tr>
+              <tr><td>STK - Technique</td><td>9.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Attach historical match logs (La Liga, European Cup, Arg/Col leagues) and detailed video/qualitative analysis to verify metrics, especially all-around contribution (TFI).</li>
+            <li>Confirm exact goal tallies, trophy counts, Pichichi awards, Ballon d'Or wins via official FIFA/UEFA/League records. Note representation of three national teams.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from historical football databases, FIFA records, and club archives (Real Madrid). Very significant ERA adjustments applied.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">99.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Alfredo Di Stéfano Laulhé, 'The Blond Arrow', was arguably the first 'total footballer', influencing every area of the pitch. He combined the goalscoring prowess of an elite striker (GOL, RDS, STK) with the playmaking ability of a No. 10 (KEY, SCA), the work rate of a box-to-box midfielder (DYN, TPI), and the tactical intelligence of a defensive organizer (POI, CHR). His unparalleled stamina, versatility, technical skill, and winning mentality made him the driving force behind Real Madrid's dynasty and cemented his place among the absolute legends of the sport.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1945–1949</td><td>River Plate / Huracán (loan)</td><td>Early success in Argentina; part of 'La Máquina'. Won league titles.</td></tr>
+            <tr><td>1949–1953</td><td>Millonarios (Colombia)</td><td>Led legendary 'Ballet Azul'; won multiple league titles during Eldorado period.</td></tr>
+            <tr><td>1953–1964</td><td>Real Madrid</td><td>Iconic era; 5 consecutive European Cups (scored in all finals), 8 La Liga titles, 1 Copa del Rey, 1 Intercontinental Cup. 5 Pichichi Trophies. 2 Ballon d'Ors.</td></tr>
+            <tr><td>1964–1966</td><td>Espanyol</td><td>Final playing years in La Liga.</td></tr>
+            <tr><td>1947–1961</td><td>National Teams (Argentina, Colombia*, Spain)</td><td>Represented three nations; Won Copa América ('47) with Argentina. (*Unofficial caps for Colombia).</td></tr>
+            <tr><td>Post-Career</td><td>Manager / Honorary President (Real Madrid)</td><td>Managed several clubs including Real Madrid, Boca Juniors, Valencia; became RM Honorary President.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>1956–1960</td><td>Five Consecutive European Cup Final Wins</td><td>Scored in every final for Real Madrid, including a hat-trick in 1960.</td></tr>
+            <tr><td>1957, 1959</td><td>Ballon d'Or Winner</td><td>Recognized as Europe's best player twice.</td></tr>
+            <tr><td>5 Times</td><td>Pichichi Trophy Winner (La Liga Top Scorer)</td><td>Remarkable goalscoring consistency in Spain.</td></tr>
+            <tr><td>1989</td><td>Super Ballon d'Or</td><td>Awarded by France Football, recognizing him above Cruyff & Platini.</td></tr>
+            <tr><td>Career</td><td>Scored over 300 goals for Real Madrid</td><td>Club's leading scorer for decades.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Completeness / Versatility:</strong> Excelled in attacking, playmaking, and defensive phases. The ultimate all-rounder.</li>
+              <li><strong>Stamina & Work Rate (DYN):</strong> Covered the entire pitch for 90 minutes; unprecedented engine.</li>
+              <li><strong>Tactical Intelligence (POI/DMA):</strong> Superb understanding of space, timing, and organization.</li>
+              <li><strong>Goalscoring (GOL/RDS/STK):</strong> Prolific and clinical finisher.</li>
+              <li><strong>Leadership (CHR):</strong> Natural leader, drove his teams to success.</li>
+              <li><strong>Technical Skill (DXT):</strong> Excellent control, passing, and dribbling ability.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li>(Virtually none identifiable relative to his era; set the standard).</li>
+              <li>Could be demanding of teammates due to his high standards.</li>
+              <li>Never played in a FIFA World Cup Finals tournament.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Global icon; face of Real Madrid's first dominant era; synonymous with European Cup success. Immense historical significance.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> The most sought-after player globally in the early 1950s; his controversial transfer to Real Madrid changed football history.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Dominated leagues in Argentina, Colombia, and Spain. His 'total football' style would adapt to any era or league.</td>
+            <p class="small"><strong>International Impact:</strong> Complicated legacy due to playing for three nations and missing World Cups, but undeniably one of the greatest talents ever produced. Won Copa América with Argentina.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Total Football Index (TFI)</td><td>9.9</td></tr>
+                <tr><td>GOL - Goals/90</td><td>0.80+</td></tr>
+                <tr><td>POI - Position Intelligence</td><td>9.8</td></tr>
+                <tr><td>DYN - Dynamism</td><td>9.7</td></tr>
+                <tr><td>Combined Att/Def Actions (Est.)</td><td>Extremely High</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Global Legends)</h3>
+            <ul class="small">
+              <li>All-Around Contribution (TFI): 99.9th percentile, potentially highest ever.</li>
+              <li>Goalscoring Rate (GOL): Elite 99th percentile for a player with his versatility.</li>
+              <li>Stamina/Work Rate (DYN): Set the benchmark; 99.9th percentile.</li>
+              <li>Intelligence/Leadership (POI/CHR): 99th percentile+.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Confirm detailed stats (goals, assists, defensive actions if available) from historical archives. ERA Factor: ~1.40 (Very significant adjustment for 50s/60s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Di Stéfano embodies the **Total Footballer** archetype before the term was popularized. His DNA is **Complete Influence**, combining **Attacking Prowess**, **Midfield Control**, and **Defensive Contribution**. Within the 60-Philosophy framework, he aligns with the most demanding, versatile, and intelligent philosophies.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Cruyff Intelligence</td><td>10.0</td><td>Embodied total football principles; technical, tactical genius.</td></tr>
+                <tr><td>Michels Total</td><td>9.8</td><td>Versatility, stamina, tactical understanding across pitch.</td></tr>
+                <tr><td>Beckenbauer Libero</td><td>9.5</td><td>Ability to influence game from deep, intelligence, leadership.</td></tr>
+                <tr><td>Guardiola Positional</td><td>9.2</td><td>Control, intelligence, technical security, positional fluidity.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.4</td><td>Winning mentality, leadership, stamina, goal threat.</td></tr>
+                <tr><td>Platini Elegance</td><td>9.0</td><td>Technical skill, vision, goalscoring ability.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy. Use iconic European Cup final moments, examples of tracking back, playmaking, goalscoring.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Pitch Coverage (DYN):</strong> Constant movement between both penalty boxes.</li>
+              <li><strong>Goal Scoring Volume (GOL):</strong> Consistently high goal tallies from various positions.</li>
+              <li><strong>Playmaking from Deep (KEY/LGP):</strong> Initiating attacks after winning the ball back.</li>
+              <li><strong>Tactical Organization (POI/CHR):</strong> Directing teammates, covering defensive gaps.</li>
+              <li><strong>Technical Versatility (STK/DXT):</strong> Ability to score, pass, dribble effectively.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents require qualitative assessment based on extensive historical accounts, available footage, goal/award records, and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy in a free role, nominally as a forward but with license to influence all phases of play.</li>
+          <li>Build the entire team structure around his unique all-encompassing abilities.</li>
+          <li>Surround with technically proficient players capable of understanding his movement.</li>
+          <li>His stamina and intelligence make complex tactical systems viable.</li>
+          <li>The ultimate on-field general.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Hyper-Competitive & Demanding:</strong> Insatiable desire to win; pushed teammates to limits.</li>
+          <li><strong>Supreme Confidence & Authority:</strong> Believed he was the best and played like it. Natural leader.</li>
+          <li><strong>Intelligent & Analytical:</strong> Deep tactical understanding; saw the game differently.</li>
+          <li><strong>Resilient & Determined:</strong> Overcame transfer saga; dominated for over a decade.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Unmatched winning mentality (high CHR)</li>
+          <li>Incredible stamina and mental endurance (high DYN)</li>
+          <li>Leadership by performance and demand</li>
+          <li>Ability to perform under immense pressure (European Cup finals) (high CRS)</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Could be extremely demanding and critical of teammates.</li>
+          <li>Strong personality sometimes led to conflict (e.g., leaving Real Madrid).</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Shaped by the legendary 'La Máquina' of River Plate, the Colombian 'Eldorado' era, and the birth of European continental dominance with Real Madrid. His experiences defined an era of football and set standards for player influence and versatility that remain benchmarks.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives; apply ERA adjustments. ERA Factor: ~1.40</p>
+        <table>
+          <thead><tr><th>Season (Approx)</th><th>Club</th><th>Apps</th><th>Goals</th><th>Pichichi Awards</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>1953-54</td><td>Real Madrid</td><td>28</td><td>27 (Pichichi)</td><td>1</td><td>97.0</td></tr>
+            <tr><td>1956-57</td><td>Real Madrid</td><td>30</td><td>31 (Pichichi)</td><td>1</td><td>99.5 (Peak - EC/Ballon d'Or)</td></tr>
+            <tr><td>1957-58</td><td>Real Madrid</td><td>30</td><td>19 (Pichichi)</td><td>1</td><td>98.5 (EC Win)</td></tr>
+            <tr><td>1959-60</td><td>Real Madrid</td><td>28</td><td>12</td><td>-</td><td>97.0 (EC Win - Final Hattrick)</td></tr>
+            <tr><td>Career</td><td>Real Madrid</td><td>396</td><td>308</td><td>5</td><td>99.0 (Peak Overall)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data where available. Goal totals need careful verification across sources. Include source and ERA factor used.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>The ultimate on-field general; demanded excellence.</td><td>Build the entire team around his leadership and tactical direction.</td></tr>
+            <tr><td>Pressure Handling</td><td>Defined by unparalleled success in the highest pressure finals.</td><td>Absolutely reliable in decisive moments.</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Already the complete player; focus was on team integration.</td><td>Provide platform for him to maximize his total influence.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club President</td><td>Santiago Bernabéu (Real Madrid)</td><td>Bernabéu's determination brought him to Madrid, changing history.</td></tr>
+            <tr><td>Teammate Partnership</td><td>Puskás, Gento, Kopa (Real Madrid)</td><td>Part of arguably the greatest club forward line ever assembled.</td></tr>
+            <tr><td>Rivalry</td><td>Helenio Herrera (Coach - Inter/Barca)</td><td>Represented opposing tactical philosophies; intense rivalry.</td></tr>
+            <tr><td>Club Legend</td><td>Real Madrid Fans/Org</td><td>Voted greatest player in club history; Honorary President.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>G</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1960-05-18</td><td>Eintracht Frankfurt (EC Final)</td><td>W 7-3</td><td>3</td><td>Hat-trick, dominated midfield & attack</td><td>Iconic final performance</td></tr>
+            <tr><td>1957-05-30</td><td>Fiorentina (EC Final)</td><td>W 2-0</td><td>1 (Pen)</td><td>Scored opener, controlled game</td><td>Second European Cup win</td></tr>
+            <tr><td>1958-05-28</td><td>AC Milan (EC Final)</td><td>W 3-2 AET</td><td>1</td><td>Scored equalizer, tireless performance</td><td>Third European Cup win</td></tr>
+            <tr><td>1955-06-13</td><td>Stade de Reims (EC Final)</td><td>W 4-3</td><td>1</td><td>Scored crucial goal in comeback</td><td>First European Cup win</td></tr>
+            <tr><td>1947 (Copa América)</td><td>Colombia (Argentina)</td><td>W 6-0</td><td>3</td><td>Hat-trick</td><td>Early international success</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries and video footage where available. ERA adjustments applied. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on goals in European Cup finals, examples of covering the whole pitch, key passes, and defensive actions.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-ADS-01</td><td>Real Madrid vs E. Frankfurt (EC Final)</td><td>1960</td><td>Hat-trick goal sequence</td><td>ARCH-ADS-1960ECF-FRA (attach)</td></tr>
+            <tr><td>VH-ADS-02</td><td>Various Real Madrid</td><td>~1950s</td><td>Compilation showing defensive work rate/tackles</td><td>ARCH-ADS-RM-DEF (attach)</td></tr>
+            <tr><td>VH-ADS-03</td><td>Various Real Madrid</td><td>~1950s</td><td>Compilation showing playmaking/assists</td><td>ARCH-ADS-RM-PASS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (All-Time Greats)</h2>
+        <p class="small">Comparators: Johan Cruyff, Pelé. Generate radar visuals from ERA‑adjusted per‑90 values prior to final export.</p>
+        <div class="visual-canvas">
+          <canvas id="distefanoRadar" aria-label="Radar comparing Di Stéfano and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical Context)</h2>
+        <ul class="small">
+          <li>His relentless winning mentality and demanding nature set the standard for the entire club.</li>
+          <li>Build the team's psychological resilience around his on-field leadership and determination.</li>
+          <li>Requires teammates who can match his intensity and tactical understanding.</li>
+          <li>Thrived on responsibility and being the central figure.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: FIFA/UEFA/CONMEBOL records, historical league archives (Spain, Argentina, Colombia), Real Madrid archives, IFFHS, contemporary news archives. ERA factors based on FGA historical league modeling for Europe/South America in the 50s/60s. Each PHILOSOPHY_SUBCOMP row requires extensive qualitative assessment based on historical accounts and available footage.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate all major awards, trophy wins, and goal/cap records across his three NTs.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Alfredo Di Stéfano expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('distefanoRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Total Influence (TFI)','Goalscoring (GOL)','Work Rate (DYN)','Intelligence (POI)','Leadership (CHR)','Technique (STK)'],
+          datasets: [
+            { label: 'Alfredo Di Stéfano', data: [9.9, 9.6, 9.7, 9.8, 9.6, 9.5],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Johan Cruyff', data: [9.8, 9.0, 9.0, 10.0, 9.5, 9.9],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Pelé', data: [9.7, 10.0, 8.5, 9.5, 9.4, 9.8],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:false, min: 8.0, max:10, ticks:{ color:'#cfe6ff', stepSize:0.5, backdropColor: 'rgba(7, 22, 34, 0.6)' }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
