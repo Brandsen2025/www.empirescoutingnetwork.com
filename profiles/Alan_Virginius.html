@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Virginius — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.18)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 800;
+            color: #071122
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, 0.18)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.18)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.12);
+            border: 1px solid rgba(255, 210, 77, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 210, 77, 0.12)
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 16px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://sportal.s3.amazonaws.com/media/2025/07/Alan-Virginius-YB-Vertrag.jpg"
+                    alt="Alan Virginius" class="photo">
+                <div class="title">Alan Virginius</div>
+                <div class="sub">BSC Young Boys • France • U20 World Cup Captain</div>
+                <div class="rating-badge">82.6</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇫🇷 France</span><span class="stat-label">France U20
+                            Captain • Swiss Super League • Lille Talent</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Born</span><span class="info-value">January 3, 2003
+                            (22)</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Left
+                            Winger</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">France
+                            🇫🇷</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Young Boys (loan)</span><span
+                            class="info-value">2024-Present</span></div>
+                    <div class="info-row"><span class="info-label">Lille OSC</span><span
+                            class="info-value">2022-Present</span></div>
+                    <div class="info-row"><span class="info-label">Clermont (loan)</span><span
+                            class="info-value">2023-2024</span></div>
+                    <div class="info-row"><span class="info-label">Sochaux</span><span
+                            class="info-value">2020-2022</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Alan Virginius is an **exciting 22-year-old French winger** currently on loan at **BSC
+                    Young
+                    Boys** from **Lille OSC** in Ligue 1. Born on January 3, 2003, Virginius is a **left winger** who
+                    stands
+                    **1.80m (5'11")** and is **right-footed**. He has established himself in the **Swiss Super League**
+                    with
+                    impressive attacking contributions. **2024-25 Season:** Outstanding loan spell at Young Boys - **32
+                    Swiss
+                    Super League appearances, 2 goals, 3 assists**. Played **1,518 minutes** in the league. **2025-26
+                    Season:**
+                    Continued form with **11 matches, 2 goals** already this season. **Career Stats:** **162 total
+                    career
+                    matches, 23 goals, 14 assists** - impressive output for a young winger. **International:** **Captain
+                    of
+                    France U20** at the **2023 FIFA U-20 World Cup**, showcasing his leadership qualities at youth
+                    level.
+                    **Development:** Started at Sochaux (2020), moved to Lille (2022), loan at Clermont (14 apps,
+                    2023-24). Loan at Young Boys includes **option to buy**. **Playing Style:** Pacey, direct winger
+                    with good
+                    technical ability. Capable scorer and creator from wide positions.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Career Highlights:</strong> France U20
+                    Captain •
+                    2023 FIFA U-20 World Cup • Swiss Super League</div>
+            </div>
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Enhanced XPS Rating)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Steekpass)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Poacher)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Pass Metric)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Passing Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">7.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:72.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Vision Pass)</span><span
+                                    class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HZP (Horizontal Pass)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Unpredictable Pass)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DGP (Danger Generation)</span><span
+                                    class="metric-score">8.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:80.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 1: Defensive Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MRK (Marking)</span><span
+                                    class="metric-score">6.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:68.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">6.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:66.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">6.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:64.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLE (Clearances)</span><span
+                                    class="metric-score">6.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:62.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BLO (Blocks)</span><span
+                                    class="metric-score">6.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:64.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Tier 2: Possession & Intelligence Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Carries)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional
+                                    Intelligence)</span><span class="metric-score">7.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:76.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">7.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:74.0%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Mobility)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86.0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Virginius' tactical profile across coaching styles.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Ferguson Mental 7.8/10</span>
+                    <span class="pill">Guardiola Positional 7.6/10</span>
+                    <span class="pill">Cruyff Intelligence 7.4/10</span>
+                    <span class="pill">Menotti Artistry 8.0/10</span>
+                    <span class="pill">Michels Total 7.6/10</span>
+                    <span class="pill">Simeone Cholismo 7.0/10</span>
+                    <span class="pill">Mourinho Tactical 7.2/10</span>
+                    <span class="pill">Sacchi Pressing 7.4/10</span>
+                    <span class="pill">Klopp Intensity 8.2/10</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ENFP (Campaigner)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Dynamic
+                                Playmaker</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Leadership</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**Natural leader** - captained France U20 at World Cup. Impressive
+                            leadership score (8.2) for 22-year-old. Excellent attacking output (23 goals, 14 assists in
+                            162 matches). Strong consistency (7.8) across multiple loan spells. Thriving in Switzerland
+                            with 32 Super League appearances. Confident, direct winger who takes on defenders.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 | Young Boys Success</div>
+                    <div class="timeline-event">🇨🇭 **SWISS SUPER LEAGUE** - Outstanding loan spell: 32 apps, 2 goals,
+                        3
+                        assists (option to buy included).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | U20 World Cup Captain</div>
+                    <div class="timeline-event">🏆 **FRANCE U20 CAPTAIN** - Led France at FIFA U-20 World Cup,
+                        demonstrating leadership qualities.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 | Lille Transfer</div>
+                    <div class="timeline-event">⚡ **JOINED LILLE** - Moved to Ligue 1 side Lille OSC from Sochaux
+                        (August 2022).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 | Professional Debut</div>
+                    <div class="timeline-event">🌟 **FIRST PRO CONTRACT** - Signed first professional contract with
+                        Sochaux, made debut at 17.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Team</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2025-26</strong></td>
+                            <td>Young Boys</td>
+                            <td>11</td>
+                            <td>2</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2024-25</strong></td>
+                            <td>Young Boys</td>
+                            <td>32</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023-24</strong></td>
+                            <td>Clermont (loan)</td>
+                            <td>14</td>
+                            <td>0</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2022-</strong></td>
+                            <td>Lille OSC</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2020-22</strong></td>
+                            <td>Sochaux</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="5"><strong>Career Total:</strong> 162 Matches • 23 Goals • 14 Assists</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Achievements</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🎖️</div>
+                        <div class="trophy-title">U20 Captain</div>
+                        <div class="trophy-year">2023</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">U20 World Cup</div>
+                        <div class="trophy-year">2023</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚡</div>
+                        <div class="trophy-title">162 Career Apps</div>
+                        <div class="trophy-year">23 Goals</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚽ Career by Club</h2>
+                <p class="small" style="margin-bottom:12px;">Development through French & Swiss football.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Young Boys</strong></td>
+                            <td>2024- (loan)</td>
+                            <td>43+</td>
+                            <td>Left Winger</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lille OSC</strong></td>
+                            <td>2022-</td>
+                            <td>-</td>
+                            <td>Parent Club</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clermont Foot</strong></td>
+                            <td>2023-24 (loan)</td>
+                            <td>14</td>
+                            <td>Development</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sochaux</strong></td>
+                            <td>2020-22</td>
+                            <td>-</td>
+                            <td>Breakthrough</td>
+                        </tr>
+                        <tr>
+                            <td><strong>France U20</strong></td>
+                            <td>2023</td>
+                            <td>-</td>
+                            <td>Captain</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>🌟 Iconic Matches</h2>
+                <p class="small" style="margin-bottom:12px;">Standout performances.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024-25 | Swiss League Impact</div>
+                    <div class="timeline-event">🇨🇭 **32 SUPER LEAGUE APPEARANCES** - Established himself as key player
+                        for
+                        Young Boys with 2 goals, 3 assists.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 | World Cup Leadership</div>
+                    <div class="timeline-event">🏆 **FIFA U-20 WORLD CUP** - Captained France at the tournament as
+                        21-year-old.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 | Professional Debut</div>
+                    <div class="timeline-event">⚽ **SOCHAUX DEBUT** - Made professional debut for Sochaux at age 17
+                        (Sept 19, 2020).</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Player Comparison (vs Wingers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Alan Virginius vs Young Wingers</p>
+            </div>
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://player.mux.com/5vf4CtgLtxuanqH01iasUlaSVoirCeZNVAHQVUkkwBpI?metadata-video-title=Alan-Virginius&video-title=Alan-Virginius"
+                        style="width: 100%; height: 100%; border: none;"
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Born</span><span class="info-value">Jan 3,
+                                2003</span></div>
+                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.80m
+                                (5'11")</span></div>
+                        <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                        </div>
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Left
+                                Winger</span></div>
+                    </div>
+                    <div>
+                        <h3>Current Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Young Boys
+                                (loan)</span></div>
+                        <div class="info-row"><span class="info-label">Parent Club</span><span class="info-value">Lille
+                                OSC</span></div>
+                        <div class="info-row"><span class="info-label">Loan</span><span class="info-value">Option to
+                                Buy</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Pace', 'Dribbling', 'Shooting', 'Passing', 'Crossing', 'Positioning'],
+                datasets: [{
+                    label: 'Alan Virginius',
+                    data: [86, 84, 74, 76, 78, 76],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 210, 77, 0.2)',
+                    borderColor: '#ffd24d',
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#ffd24d'
+                }, {
+                    label: 'Average Young Winger',
+                    data: [76, 74, 68, 70, 72, 70],
+                    fill: true,
+                    backgroundColor: 'rgba(11, 91, 176, 0.2)',
+                    borderColor: '#0b5bb0',
+                    pointBackgroundColor: '#0b5bb0',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0b5bb0'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: {
+                                size: 13,
+                                weight: '600'
+                            }
+                        },
+                        ticks: {
+                            color: '#8b949e',
+                            backdropColor: 'transparent'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

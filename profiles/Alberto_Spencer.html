@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Alberto Spencer — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://i.pinimg.com/736x/54/6d/b5/546db50f3d00c6897193c5295464b89a.jpg" alt="Alberto Spencer with Peñarol">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Alberto Spencer</div>
+        <div class="sub">Forward (Retired) · Ecuador · Born: 6 Dec 1937 (Died: 2006)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Peñarol, Barcelona S.C.</span>
+          <span class="pill"><strong>Position</strong> Centre-Forward</span>
+          <span class="pill"><strong>Nickname</strong> "Cabeza Mágica" (Magic Head)</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">The greatest player in Ecuadorian history and a legend for Peñarol. "Cabeza Mágica" is the **all-time top goalscorer in the history of the Copa Libertadores** with 54 goals, a record that still stands. He was a complete forward—fast, two-footed, and arguably the greatest header of the ball of his era. He led Peñarol to three Copa Libertadores and two Intercontinental Cup titles.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.8</td></tr>
+              <tr><td>AER - Aerial Ability (Head)</td><td>10.0</td></tr>
+              <tr><td>ATH - Athleticism (Jump)</td><td>9.6</td></tr>
+              <tr><td>POS - Positioning (Box)</td><td>9.7</td></tr>
+              <tr><td>PAC - Pace</td><td>9.2</td></tr>
+              <tr><td>IMP - Continental Impact</td><td>10.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical (1960s-70s) and based on archival reports/video.</li>
+            <li><strong>Critical:</strong> All analysis must center his Copa Libertadores all-time record (54 goals).</li>
+            <li>Analyze 3x Copa Libertadores wins (1960, 61, 66) and 2x Intercontinental Cup wins for peak metrics.</li>
+            <li>Metrics must reflect his "Magic Head" aerial dominance.</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, CONMEBOL, and historical football archives.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.5</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Alberto Spencer Herrera, "Cabeza Mágica," was South America's most fearsome goalscorer. An Ecuadorian legend, he became the ultimate icon at Peñarol, leading them to a dynasty in the 1960s. His record of 54 goals in the Copa Libertadores has never been broken. Spencer was a complete forward: he was exceptionally fast, skillful, and a deadly finisher with both feet. However, his legend was built in the air. His nickname "Magic Head" was a testament to his phenomenal leaping ability and timing, which even Pelé cited as unparalleled. He scored crucial goals against giants like Real Madrid (in the Intercontinental Cup) and Eusébio's Benfica, cementing his status as a "big-game" player and a continental titan.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1959–1970</td><td>Peñarol</td><td>Club icon. 3x Copa Libertadores, 2x Intercontinental Cup, 8x League titles.</td></tr>
+            <tr><td>1971–1972</td><td>Barcelona S.C.</td><td>Returned to Ecuador, won a league title.</td></tr>
+            <tr><td>1959–1972</td><td>Ecuador National Team</td><td>11 caps, 4 goals. (Also played in friendlies for Uruguay).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>(Career)</td><td>Copa Libertadores All-Time Top Scorer</td><td>54 Goals (48 for Peñarol, 6 for Barcelona SC).</td></tr>
+            <tr><td>1960, 1961, 1966</td><td>Copa Libertadores Winner</td><td>Led Peñarol to three continental titles.</td></tr>
+            <tr><td>1961, 1966</td><td>Intercontinental Cup Winner</td><td>Scored vs. Benfica (1961) and Real Madrid (1966).</td></tr>
+            <tr><td>1960, 1962</td><td>Copa Libertadores Top Scorer</td><td>Top scorer in two editions of the tournament.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Aerial Ability (AER):</strong> 10/10. "Cabeza Mágica." Arguably the best header of the ball in history.</li>
+              <li><strong>Finishing (FIN):</strong> An instinctive, prolific, and complete goalscorer with both feet.</li>
+              <li><strong>Positioning (POS):</strong> A "fox in the box" with a natural instinct for where the ball would be.</li>
+              <li><strong>Athleticism (ATH):</strong> Possessed a massive vertical leap and great pace.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Link-up Play:</strong> Was a pure goalscorer; not known for dropping deep or creating.</li>
+              <li><strong>Global Profile:</strong> Never played in a World Cup (as Ecuador did not qualify), which hurt his global fame.</li>
+              <li><strong>European Career:</strong> Never played in Europe, rejecting offers from Inter Milan.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> A god in Ecuador and Uruguay (Peñarol). His "Copa Libertadores King" status is a unique, powerful brand.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):** Peñarol refused to sell him, including turning down a world-record bid from Inter Milan. He was invaluable.</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> His skillset (pace, finishing, aerial dominance) is timeless and would have made him a superstar in any league in any era.</td>
+            <p class="small"><strong>International Impact:</strong> The greatest Ecuadorian player ever. The symbol of the Copa Libertadores.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>FIN - Finishing</td><td>9.8</td></tr>
+                <tr><td>AER - Headed Goals (Ratio)</td><td>~0.30 p90 (Peak)</td></tr>
+                <tr><td>G+A (p90)</td><td>~1.05 (Peñarol peak)</td></tr>
+                <tr><td>POS - Box Positioning</td><td>9.7</td></tr>
+                <tr><td>ATH - Athleticism</td><td>9.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Strikers)</h3>
+            <ul class="small">
+              <li>Aerial Dominance: 100th percentile.</li>
+              <li>Copa Libertadores Scoring: 100th percentile.</li>
+              <li>Finishing Instinct: 98th percentile.</li>
+              <li>Creative Passing: 15th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with 54-goal Copa Libertadores record. ERA Factor: ~1.30 (1960s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Spencer's DNA was the **"Apex Predator"** or **"El Goleador."** He was the ultimate poacher, but with elite athletic tools. His game was built on **Aerial Dominance (AER)**, **Instinct (FIN)**, and **Athleticism (ATH)**. He was not a playmaker; he was the "9" that the system was built to feed. His "Cabeza Mágica" was a primary tactical weapon, not just a skill.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Ferguson Mental</td><td>9.5</td><td>A "big-game" striker who scored in finals.</td></tr>
+                <tr><td>Mourinho Tactical</td><td>9.2</td><td>The perfect, athletic target for a counter-attack or cross.</td></tr>
+                <tr><td>Simeone Cholismo</td><td>9.0</td><td>Would thrive on set pieces and crosses in a pragmatic system.</td></tr>
+                <tr><td>Herrera Catenaccio</td><td>8.8</td><td>The ideal "outlet" and finisher.</td></tr>
+                <tr><td>Menotti Artistry</td><td>7.0</td><td>Would score the goals, but not part of the build-up.</td></tr>
+                <tr><td>Guardiola Positional</td><td>6.0</td><td>Lacks the "link-up" play, but his finishing is undeniable.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on Copa Libertadores goals and Intercontinental Cup final goals.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Copa Libertadores All-Time Top Scorer (54):</strong></li>
+              <li><strong>3x Copa Libertadores Winner:</strong></li>
+              <li><strong>"Cabeza Mágica" Nickname:</strong></li>
+              <li><strong>2x Intercontinental Cup Winner:</strong></li>
+              <li><strong>Goal vs Real Madrid (IC Cup 1966):</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (records, titles), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as the primary Centre-Forward.</li>
+          <li>He is the team's main goal threat. Do not ask him to defend.</li>
+          <li>Service is critical: utilize wingers to deliver high crosses.</li>
+          <li>He is the primary target on all set pieces.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>"Big Game" Player:</strong> Scored in multiple Copa Libertadores and Intercontinental Cup finals.</li>
+          <li><strong>Relentless:</strong> A pure goal-hunter.</li>
+          <li><strong>Confident:</strong> Knew he was the focal point of the attack.</li>
+          <li><strong>Loyal:</strong> Remained at Peñarol for over a decade despite European offers.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Clutch performance in finals.</li>
+          <li>Ability to handle the pressure of being the team's only "goleador."</li>
+          <li>Fearless in the box and in the air.</li>
+        </ul>
+
+        <h3 class_heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>(None noted; was a consummate professional and goalscorer.)</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Spencer was a pure goalscorer, psychologically. His mindset was simple: find the ball, put it in the net. He was the spearhead of a dynasty. His decision to stay at Peñarol shows a loyalty and a comfort with being the "king" of his continent, and his record as the "King of the Libertadores" is a direct result of that focus. He was a specialist who mastered his environment.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.30 (1960s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>(Career)</td><td>Peñarol</td><td>519</td><td>326</td><td>(N/A)</td><td>(N/A)</td><td>N/A</td></tr>
+            <tr><td>(Career)</td><td>Copa Libertadores</td><td>88</td><td>54</td><td>(N/A)</td><td>(N/A)</td><td>N/A</td></tr>
+            <tr><td>(Career)</td><td>Intercontinental Cup</td><td>6</td><td>3</td><td>(N/A)</td><td>(N/A)</td><td>N/A</td></tr>
+            <tr><td>1960-66</td><td>Peñarol (Peak)</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>(N/A)</td><td>94.5 (Peak)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Led by example and by scoring decisive goals. A "hero" leader.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>10/10. Scored in the biggest finals on the continent.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Game was based on elite athleticism and "God-given" goalscoring instinct.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>National Hero</td><td>Ecuadorian People</td><td>Revered as the greatest, most important player in the nation's history.</td></tr>
+            <tr><td>Club Legend</td><td>Peñarol Fans</td><td>"El Goleador." The symbol of their golden era and continental dominance.</td></tr>
+            <tr><td>Peer</td><td>Pelé</td><td>Pelé was a known admirer of Spencer's heading ability.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Oct 26, 1966</td><td>Real Madrid (IC Cup)</td><td>W 2-0</td><td>1 goal.</td><td>Intercontinental Cup Final (Won)</td></tr>
+            <tr><td>May 20, 1966</td><td>River Plate (Lib. Final)</td><td>W 4-2</td><td>1 goal.</td><td>Copa Libertadores Final (Won)</td></tr>
+            <tr><td>Sep 19, 1961</td><td>Benfica (IC Cup)</td><td>W 2-1</td><td>1 goal.</td><td>Intercontinental Cup Final (Won)</td></tr>
+            <tr><td>(Various)</td><td>(Copa Libertadores)</td><td>W</td><td>(Rep. clip: 2 goals, 1 headed)</td><td>Rep. of his 54-goal record</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on Copa Libertadores goals (especially headed goals) and Intercontinental Cup highlights.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-SPEN-01</td><td>Copa Libertadores</td><td>1960s</td><td>Copa Libertadores Goal Compilation (54)</td><td>ARCH-SPEN-LIB-COMP (attach)</td></tr>
+            <tr><td>VH-SPEN-02</td><td>Peñarol vs Real Madrid</td><td>1966</td><td>Intercontinental Cup Final Goal</td><td>ARCH-SPEN-1966-IC (attach)</td></tr>
+            <tr><td>VH-SPEN-03</td><td>Peñarol vs Benfica</td><td>1961</td><td>Intercontinental Cup Final Goal</td><td>ARCH-SPEN-1961-IC (attach)</td></tr>
+            <tr><td>VH-SPEN-04</td><td>Peñarol</td><td>1960s</td><td>"Cabeza Mágica" (Headed Goals) Comp.</td><td>ARCH-SPEN-HEADS (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Apex Forwards)</h2>
+        <p class="small">Comparators: Gerd Müller (Profile), Cristiano Ronaldo (Aerial Style). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="spencerRadar" aria-label="Radar comparing Spencer and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player was a pure finisher who thrived on service.</li>
+          <li>Motivated by the "hunt" for goals and by big-game pressure.</li>
+          <li>His confidence in the air was absolute.</li>
+          <li>Loyal to his club, Peñarol, which was his "home."</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, CONMEBOL archives, and Peñarol historical records. All metrics are based on his historical peak (circa 1960-1966). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate the 54-goal Copa Libertadores record and 3x Copa/2x IC Cup wins.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Alberto Spencer expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('spencerRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)','Aerial (AER)','Positioning (POS)','Athleticism (ATH)','Pace (PAC)','Big Games'],
+          datasets: [
+            { label: 'A. Spencer (Peak)', data: [9.8, 10.0, 9.7, 9.6, 9.2, 9.8],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Gerd Müller (Profile)', data: [10.0, 9.0, 10.0, 8.8, 8.5, 9.9],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'C. Ronaldo (Aerial Style)', data: [9.9, 9.9, 9.8, 10.0, 9.4, 10.0],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrián Guillermo — Empire FGA Cult Hero Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card: #1a1a20;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --accent1: #00338D; /* Boca Blue */
+            --accent2: #FECB00; /* Boca Gold */
+            --accent3: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(0, 51, 141, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(254, 203, 0, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(0, 51, 141, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 255, 255, 0.18)
+        }
+        
+        .pill.gold {
+            background: rgba(254, 203, 0, 0.15);
+            border-color: rgba(254, 203, 0, 0.4);
+            color: var(--accent2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(0, 51, 141, 0.85), rgba(254, 203, 0, 0.85));
+            font-weight: 800;
+            color: #0f0f13;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, #00338D, #FECB00);
+            color: #ffffff;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(0, 51, 141, 0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin: 16px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(254, 203, 0, 0.3)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00338D 0%, #0055ff 100%);
+            border-radius: 3px
+        }
+        
+        /* Tier 3 Scout Metrics styling */
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #FECB00 0%, #ffd700 100%);
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .stat-box {
+            background: rgba(0, 51, 141, 0.12);
+            border: 1px solid rgba(0, 51, 141, 0.2);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--white);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div style="font-size:12px; color:var(--accent2); font-weight:700; border:1px solid var(--accent2); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.0
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://media.tycsports.com/files/2022/05/24/432483/adrian-guillermo_416x234.jpg"
+                    alt="Adrián Guillermo" class="photo">
+                <div class="title">Sergio Adrián Guillermo</div>
+                <div class="sub">Boca Juniors Cult Hero • "El Escobillón" • The Lost Talent</div>
+                <div class="rating-badge">83.5</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇦🇷 Argentina</span><span class="stat-label">Category 1980 • Boca Legend (Short Peak) • Elite Dribbler</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Adrián Guillermo</span></div>
+                    <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"El Escobillón" (The Broom)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Argentina 🇦🇷</span></div>
+                    <div class="info-row"><span class="info-label">Era</span><span class="info-value">Late 90s (Bianchi Era)</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Right Winger / Forward</span></div>
+                </div>
+                <div class="section">
+                    <h3>Career Path</h3>
+                    <div class="info-row"><span class="info-label">Boca Juniors</span><span
+                            class="info-value">1998-1999 (Peak)</span></div>
+                    <div class="info-row"><span class="info-label">Badajoz (ESP)</span><span
+                            class="info-value">2000-2001</span></div>
+                    <div class="info-row"><span class="info-label">Estudiantes</span><span
+                            class="info-value">2002</span></div>
+                    <div class="info-row"><span class="info-label">Journeyman</span><span
+                            class="info-value">2003-2015</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Adrián Guillermo, known as **"El Escobillón"**, is one of the greatest "What If?" stories in Argentine football. Exploding onto the scene in 1998 under **Carlos Bianchi**, he was a key part of the legendary Boca Juniors team that won the Apertura unbeaten. A winger with devastating speed and dribbling ability, he was famously compared to Claudio Caniggia. However, knee injuries and personal struggles derailed what looked like a world-class career. For a brief 12-month period, he was untouchable—a player who could sweep past defenders with ease, earning him his nickname.</p>
+                <div class="muted-box"><strong style="color:var(--accent2)">Legacy Note:</strong> 1998 Apertura Champion. A fan favorite at La Bombonera for his fearlessness and electric pace.</div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics (Peak 1998/99)</h2>
+                
+                <h3>Tier 1: Technical & Offensive (Peak Era)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SPD (Speed)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 1: Physical & Mental (Peak Era)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FLA (Flair)</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">6.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:65%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STR (Strength)</span><span
+                                    class="metric-score">5.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (Expert Input)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IMP (Impact)</span><span
+                                    class="metric-score" style="color:var(--accent2)">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CON (Consistency)</span><span
+                                    class="metric-score" style="color:var(--accent2)">5.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">1v1 (Offensive)</span><span
+                                    class="metric-score" style="color:var(--accent2)">9.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRO (Crossing)</span><span
+                                    class="metric-score" style="color:var(--accent2)">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom:12px;">Mapping Guillermo's chaotic brilliance.</p>
+                <h3>Top Philosophy Fits</h3>
+                <div>
+                    <span class="pill gold">SI1: Bianchi Passion 9.8/10</span>
+                    <span class="pill">SB1: Santana Joga Bonito 9.0/10</span>
+                    <span class="pill">Argentine Potrero 9.5/10</span>
+                    <span class="pill">Classic Winger 9.2/10</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ESFP (The Entertainer)</span></div>
+                        <div class="info-row"><span class="info-label">Style</span><span class="info-value">Maverick Winger</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Audacity</span><span
+                                    class="metric-score">10.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:100%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Focus</span><span
+                                    class="metric-score">4.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">**The Fallen Star.** Adrián Guillermo played with zero fear. He would take on any defender, regardless of reputation. However, his psychological profile was fragile. Success came too fast, and he struggled with the discipline required for longevity. On the pitch, he was pure joy; off it, he struggled to maintain professional standards.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤝 Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">1998 | The Debut</div>
+                    <div class="timeline-event">🇦🇷 **Boca Juniors vs Estudiantes**. Debut under Carlos Bianchi. Immediately electrified the crowd with his dribbling.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1998 Apertura | The Peak</div>
+                    <div class="timeline-event">🏆 Became a starter in the famous **unbeaten champion** team. Formed a devastating partnership with Palermo and Guillermo Barros Schelotto.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1999 | The Injury</div>
+                    <div class="timeline-event">🚑 Suffered a serious knee injury. He was never the same player physically or mentally after the recovery. The start of the decline.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Era</th>
+                            <th>Role</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Boca Juniors</strong></td>
+                            <td>1998-1999</td>
+                            <td>Starter / Impact</td>
+                            <td>Elite (Short Term)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Badajoz</strong></td>
+                            <td>2000-2001</td>
+                            <td>Squad</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td><strong>El Porvenir</strong></td>
+                            <td>2004-2005</td>
+                            <td>Veteran</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr style="background:rgba(254, 203, 0, 0.15)">
+                            <td colspan="4"><strong>Summary:</strong> A career defined by one glorious year. 1998 Apertura Champion.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Tactical Profile & Playing Style</h2>
+                <p class="small" style="margin-bottom:12px;">El Escobillón was a classic "Chalk-on-Boots" Winger.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Role</strong></td>
+                            <td>Right Winger (RW)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Strengths</strong></td>
+                            <td>1v1 Dribbling (9.8), Acceleration (9.4), Unpredictability.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>In Possession</strong></td>
+                            <td>Received the ball wide. Isolated the full-back. Beat him on the outside to cross or cut inside to shoot.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Out of Possession</strong></td>
+                            <td>Minimal defensive contribution. Relied on the team's structure (Serna/Cagna) to cover him.</td>
+                        </tr>
+                        <tr style="background:rgba(254, 203, 0, 0.15)">
+                            <td colspan="2"><strong>Summary:</strong> A pure offensive weapon. He "swept" defenses aside, hence the nickname.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>🎬 Video Highlights</h2>
+                <p class="small">The footage is grainy, but the talent is undeniable.</p>
+                <div class="muted-box" style="margin-top:12px;text-align:center;padding:24px">
+                    <p style="font-size:18px;color:var(--accent2);margin-bottom:12px;font-weight:700">El Escobillón - 1998</p>
+                    <p style="font-size:13px;color:var(--muted);line-height:1.8">"Dribbling (9.5), Speed (9.2).<br>The spark of Bianchi's first Boca.<br>Unstoppable 1v1.<br>A comet that burned too bright.<br>Adrián Guillermo - The Lost Gem."</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>⚽ Historic Form Tracker (1998)</h2>
+                <p class="small" style="margin-bottom:12px;">Performance during the Unbeaten Run.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Match</th>
+                            <th>Opponent</th>
+                            <th>Result</th>
+                            <th>Perf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Superclásico</strong></td>
+                            <td>River Plate</td>
+                            <td>✅ 0-0 D</td>
+                            <td>Terrorized the LB</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vs Talleres</strong></td>
+                            <td>Talleres Cba</td>
+                            <td>✅ 2-1 W</td>
+                            <td>Assist, Man of Match</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vs Racing</strong></td>
+                            <td>Racing Club</td>
+                            <td>✅ 3-2 W</td>
+                            <td>Key Dribbles</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>📊 Legend Comparison (vs Modern Winger)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:12px">Guillermo (1998) vs Vinicius Jr (Style)</p>
+            </div>
+
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Profile</h3>
+                        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Adrián Guillermo</span></div>
+                        <div class="info-row"><span class="info-label">Born</span><span class="info-value">1980 (Moreno, BA)</span></div>
+                        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.71m</span></div>
+                        <div class="info-row"><span class="info-label">Status</span><span class="info-value">Retired / Cult Hero</span></div>
+                    </div>
+                    <div>
+                        <h3>Legacy Status</h3>
+                        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Boca Juniors</span></div>
+                        <div class="info-row"><span class="info-label">Era</span><span class="info-value">The Bianchi Golden Age</span></div>
+                        <div class="info-row"><span class="info-label">Role</span><span class="info-value">Explosive Winger</span></div>
+                        <div class="info-row"><span class="info-label">Rating</span><span class="info-value">83.5 (Peak 1998)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict (Historical)</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes (Peak)</h3>
+                        <div class="pill gold">Dribbling 9.5/10</div>
+                        <div class="pill gold">Acceleration 9.4/10</div>
+                        <div class="pill">Flair 9.5/10</div>
+                        <div class="pill">Speed 9.2/10</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: CULT HERO</strong><br><br>Adrián Guillermo represents the ephemeral nature of football talent. For one season, he was arguably the most exciting prospect in Argentina, a player who made the Bombonera roar with anticipation every time he touched the ball. His career was cut short, but his contribution to the historic 1998 title ensures his name remains in the folklore of Boca Juniors. A cautionary tale with a golden highlight reel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Dribbling', 'Speed', 'Finishing', 'Passing', 'Flair', 'Stamina', 'Strength', 'Defense'], datasets: [{ label: 'Guillermo (1998)', data: [9.5, 9.2, 7.5, 7.0, 9.5, 6.5, 5.5, 3.0], borderColor: '#FECB00', backgroundColor: 'rgba(0, 51, 141, 0.4)', borderWidth: 3, pointBackgroundColor: '#FECB00', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Modern Elite Winger', data: [9.2, 9.0, 8.5, 8.0, 9.0, 8.5, 7.0, 5.0], borderColor: '#ffffff', backgroundColor: 'transparent', borderWidth: 1, borderDash: [5, 5], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, color: '#9e9ea5', backdropColor: 'transparent', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } }, tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#FECB00', bodyColor: '#f0f6fc', borderColor: '#FECB00', borderWidth: 2, padding: 12, callbacks: { label: function (context) { return context.dataset.label + ': ' + context.parsed.r + '/10' } } } } } });
+    </script>
+</body>
+
+</html>
